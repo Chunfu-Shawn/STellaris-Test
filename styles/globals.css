@@ -1,0 +1,63 @@
+#topheader {
+  text-align: center
+}
+
+#footer {
+  font-family: Arial
+}
+
+.expansion {
+  height: 100%px;
+}
+
+html body .mainbody{
+  height: auto;
+  background-color: #252525;
+}
+
+body .mainbody{
+  color: #fff;
+  text-align: center;
+
+}
+body{
+  text-align: center;
+}
+.contact-context{
+  width: 60%;
+  text-align: center;
+  display: inline-block;
+  font-size: 17px;
+}
+
+.people{
+  list-style: none;
+  padding: 0px
+}
+.picture{
+  width: 80%;
+}
+.box{
+  text-align:justify;
+  margin: 20px 20px;
+}
+.box_address{
+  text-align:center;
+  margin: 20px 20px;
+}
+
+.btn-upload{
+  background-color: #3c12b6;
+  color: white;
+}
+
+.btn-upload:hover{
+  background-color: #220b65;
+  color: white;
+  transition: background-color 0.5s;
+}
+
+.panel-annotation{
+  text-align: center;
+}
+
