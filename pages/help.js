@@ -10,6 +10,7 @@ export default function Contact() {
             </Head>
             <div className="modal-body">
             </div>
+
         </Layout>
     )
 }

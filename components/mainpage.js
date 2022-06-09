@@ -24,7 +24,7 @@ export default function MainPage() {
                         </a></Link>
                     </div>
                     <div className="col-xs-6 col-md-4">
-                        <Link href="/v_test"><a className="thumbnail">
+                        <Link href="/dataset-page"><a className="thumbnail">
                             <img src="/images/placeholder.png" alt="..."/>
                                 <div className="caption">
                                     <h3>Test Vitessce</h3>
@@ -33,10 +33,10 @@ export default function MainPage() {
                         </a></Link>
                     </div>
                     <div className="col-xs-6 col-md-4">
-                        <Link href="/slideseq"><a className="thumbnail">
+                        <Link href="/contact"><a className="thumbnail">
                             <img src="/images/placeholder.png" alt="missing pic"/>
                                 <div className="caption">
-                                    <h3>Test slideseq</h3>
+                                    <h3>Test Contact</h3>
                                     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                                 </div>
                         </a></Link>

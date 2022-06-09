@@ -1,0 +1,16 @@
+.summary {
+    height: auto;
+    margin-left:30vh
+}
+.view {
+    height: 900px;
+    margin-left:30vh
+}
+.date {
+    height: auto;
+    margin-left:30vh
+}
+.text {
+    font-size: 16px;
+    font-family: "Arial Hebrew";
+}

@@ -11,7 +11,7 @@ export default function Layout({ children, home }) {
     return (
         <>
             <Head>
-                <link rel="short icon" href="/images/favicon_io/android-chrome-192x192.png" />
+                <link rel="short icon" href="/public/images/favicon_io/android-chrome-192x192.png" />
                 <meta charSet="UTF-8"/>
                 <meta
                     name="description"
@@ -19,7 +19,6 @@ export default function Layout({ children, home }) {
                 />
                 <meta name="og:title" content={siteTitle} />
             </Head>
-
             <Navigator></Navigator>
             {children}
             <Footer></Footer>

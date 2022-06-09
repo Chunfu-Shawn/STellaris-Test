@@ -4064,12 +4064,26 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   display: block;
   padding: 10px 15px;
-
+  background-color: #282828;
+  color: #9f9f9f;
+  border-bottom-style: solid;
+  border-bottom-width: medium;
+  border-bottom-color: black;
+  -webkit-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
+  -moz-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
+  -ms-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  color: white;
+  background-color: #02000c;
+  border-bottom-style: solid;
+  border-bottom-width: medium;
+  border-bottom-color: #4c17ea;
+  -webkit-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
+  -moz-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
+  -ms-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
 }
 .nav > li.disabled > a {
   color: #777777;
@@ -4167,6 +4181,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-pills > li {
   float: left;
+  width: 20vh;
 }
 .nav-pills > li > a {
   border-radius: 4px;
@@ -4178,7 +4193,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #03001a;
 }
 .nav-stacked > li {
   float: none;
@@ -4699,9 +4714,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   font-size: 14px;
   background-color: #111111;
   color: #9b9b9b;
-  -webkit-transition: color ease .5s, background-color ease 1s , border-bottom-color 1s;
-  -moz-transition: color ease .5s, background-color ease 1s;
-  -ms-transition: color ease .5s, background-color ease 1s;
+  -webkit-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
+  -moz-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
+  -ms-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
   border-bottom-style: solid;
   border-bottom-width: medium;
   border-bottom-color: #111111;
@@ -4710,9 +4725,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #fff;
   /*background-color: #1e1d1d;*/
-  -webkit-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 0.5s;
-  -moz-transition: color ease .5s, background-color ease 1s;
-  -ms-transition: color ease .5s, background-color ease 1s;
+  -webkit-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
+  -moz-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
+  -ms-transition: color ease .5s, background-color ease 1s, border-bottom-color ease 1s;
   border-bottom-style: solid;
   border-bottom-width: medium;
   border-bottom-color: #4c17ea;
@@ -5571,7 +5586,7 @@ button.list-group-item-danger.active:focus {
 .panel {
   text-align: left;
   width: 70%;
-  margin: 70px auto;
+  margin: 30px auto;
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 4px;
