@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/stw-front-end.iml" filepath="$PROJECT_DIR$/.idea/stw-front-end.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Spatial-Trans-Web.iml" filepath="$PROJECT_DIR$/.idea/Spatial-Trans-Web.iml" />
     </modules>
   </component>
 </project>

@@ -50,7 +50,7 @@ function addController(router, dir){
     };
 };
 
-module.exports = function(dir,handler) {
+module.exports = function() {
     let 
         controller_dir = dir || 'routes', // 如果不传参数，扫描目录默认为'routes'
         router = require('koa-router')(); // the return of require('koa-router') is a function

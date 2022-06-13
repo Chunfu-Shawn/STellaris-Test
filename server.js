@@ -1,6 +1,6 @@
 const Koa = require('koa')
 const nextjs = require('next')
- const bodyParser = require('koa-bodyparser');
+const bodyParser = require('koa-bodyparser');
 // 导入controller middleware:
 const controller = require('./libs/controller');
 // 导入router路由middleware
@@ -13,6 +13,7 @@ const {uploadRecord} = require("./libs/uploadRecord");
 const {execTangram} = require("./libs/execTangram");
 const {sendMail} = require("./libs/sendEmail");
 const fs = require("fs");
+const {getReqStatus} = require("./libs/api/getReqStatus");
 
 // Determine whether it is a production environment
 const dev = process.env.NODE_ENV !== 'production'
@@ -33,12 +34,7 @@ app.prepare().then(() => {
         // 调用nextjs单独渲染一个页面，使用handler携带参数跳转
         await handler(ctx.req, ctx.res, {
             pathname: "/annotations/upload-success",
-            query:{
-                title: ctx.request.body.title,
-                rid: ctx.request.file.filename.split('.')[0],
-                email: ctx.request.body.email,
-                time: uploadtime.toISOString(),
-            }
+            query: getReqStatus(ctx.request.file.filename.split('.')[0])
         })
         //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
         await sendMail(ctx.request.body.email,ctx.request.file.filename.split('.')[0],console.log)
@@ -48,26 +44,25 @@ app.prepare().then(() => {
 
     // 设置路由，与next.js的路由进行映射
     Router.get('/annotations/results/:rid', async (ctx) => {
-        let rid = ctx.params.rid;
-        // 读取json文件，转为JSON对象
-        let filesInfo = JSON.parse(fs.readFileSync('public/uploads/filesInfo.json', 'utf8'))
-        for(let key in filesInfo){
-            if(key === rid){
-                // handle传入的第三个参数跟我们next.js中用Router.push({})传入的数组一样
-                await handler(ctx.req, ctx.res, {
-                    pathname: '/annotations/results',
-                    query: {
-                        rid: rid,
-                        time: filesInfo[key].uploadtime,
-                        title: filesInfo[key].jobtitle,
-                        email: filesInfo[key].email,
-                    },
-                })
+        let rid = ctx.params.rid
+        // handle传入的第三个参数跟我们next.js中用Router.push({})传入的数组一样
+        await handler(ctx.req, ctx.res, {
+            pathname: '/annotations/results',
+            query: {
+                rid
             }
-        }
+        })
         ctx.response = false
     })
+
+    // 设置路由和api进行数据访问
+    Router.get('/api/getFilesInfo/:rid', async (ctx) => {
+        // 传出rid为查询值的json数据
+        ctx.body = getReqStatus(ctx.params.rid)
+    })
+
     server.use(Router.routes()).use(Router.allowedMethods())
+
     // for NextJs router 在koa路由中未定义的，将交给nextjs路由继续处理
     server.use(async (ctx) => {
         // 传入Node原生的req对象，和res对象，因为Nextjs框架需要兼容许多基于Node封装的web框架

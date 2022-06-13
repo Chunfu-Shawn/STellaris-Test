@@ -4,8 +4,6 @@ import Navigator from "./navigator";
 import Footer from "./footer";
 import Script from "next/script";
 
-const name = 'Chunfu Shawn'
-export const siteTitle = 'Welcome to Spatial Trans Web'
 
 export default function Layout({ children, home }) {
     return (
@@ -17,7 +15,7 @@ export default function Layout({ children, home }) {
                     name="description"
                     content="Learn how to build a personal website using Next.js"
                 />
-                <meta name="og:title" content={siteTitle} />
+                <meta name="og:title" content='Welcome to Spatial Trans Web' />
             </Head>
             <Navigator></Navigator>
             {children}

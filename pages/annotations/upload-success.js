@@ -17,7 +17,7 @@ export default function Success(props) {
             </Head>
             <UploadSuccess rid={props.rid}
                            email={props.email}
-                           time={props.time}
+                           time={props.uploadtime}
             ></UploadSuccess>
         </Layout>
     )

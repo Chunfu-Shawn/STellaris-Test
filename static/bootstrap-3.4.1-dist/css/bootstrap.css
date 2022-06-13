@@ -6087,6 +6087,7 @@ button.close {
   position: relative;
   padding: 120px 40px 40px;
   margin-bottom: 90px;
+  align-content: center;
 }
 .modal-footer {
   font-size: 16px;
