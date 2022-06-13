@@ -25,13 +25,13 @@ export default function Annotation() {
                     <form action="/annotations/upload" method="post" encType="multipart/form-data">
                         <div className="form-group">
                             <div className="form-group"> Job title：
-                                <input placeholder='your task name' type="text" name="title" id="title" required={true} {...register("title",{required:true,maxLength:20})}/>{errors.title && <p style={{color:"red"}}>Please input your task name that no more than 10 words </p>}
+                                <input placeholder='Enter task name' type="text" name="title" id="title" required={true} {...register("title",{required:true,maxLength:20})}/>{errors.title && <p style={{color:"red"}}>Please input your task name that no more than 10 words </p>}
                             </div>
                             <div className="form-group"> matrix file：
                                 <input type="file" id="matrix" name="matrix" required={true}/>
                             </div>
                             <div className="form-group"> Email address:
-                                <input placeholder='your email' type="email" name="email" required={true} {...register("email",{required:true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/})}/>
+                                <input placeholder='Enter email' type="email" name="email" required={true} {...register("email",{required:true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/})}/>
                                 {errors.email && <p style={{color:"red"}}>Please input your correct email</p>}
                             </div>
                             <button type="submit" className="btn btn-upload">Upload</button>

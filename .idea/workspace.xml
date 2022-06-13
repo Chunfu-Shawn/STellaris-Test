@@ -5,25 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/wait.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/resultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/resultModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/resultStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/resultStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/annotation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/annotations/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/annotations/results.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/annotations/upload-success.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/annotations/upload-success.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/hello.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/results/6f6011e0-e736-11ec-a4a7-dd6c1ecc93da.gz/fileInfo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/results/6f6011e0-e736-11ec-a4a7-dd6c1ecc93da.gz/resquest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/202268/6f6011e0-e736-11ec-a4a7-dd6c1ecc93da.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/filesInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/filesInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/bootstrap-3.4.1-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655090267154</updated>
-      <workItem from="1655090269239" duration="4640000" />
+      <workItem from="1655090269239" duration="10228000" />
     </task>
     <servers />
   </component>

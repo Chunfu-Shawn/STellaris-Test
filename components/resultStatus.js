@@ -1,7 +1,7 @@
 export default function ResultStatus(props){
     return(
-            <div className="panel panel-default" style={{width: "60vh"}}>
-                <div className="panel-heading">Job Title: {props.data.title}</div>
+            <div className="panel panel-default" style={{width: "60vh",margin: "0px 120px auto"}}>
+                <div className="panel-heading"><b>Job Title: {props.data.title}</b></div>
                 <table className="table">
                     <tbody>
                     <tr>
@@ -15,6 +15,10 @@ export default function ResultStatus(props){
                     <tr>
                         <td>Submission Time</td>
                         <td>{props.data.uploadtime}</td>
+                    </tr>
+                    <tr>
+                        <td>Finish Time</td>
+                        <td>{props.data.finishtime}</td>
                     </tr>
                     <tr>
                         <td>Time Consumption</td>

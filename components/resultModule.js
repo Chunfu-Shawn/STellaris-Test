@@ -1,5 +1,7 @@
 import ResultStatus from "./resultStatus";
 import {calTime} from "./waitModule";
+import VitessceVisual from "./VitessceModule";
+import {Button, Col, Row, Statistic} from "antd";
 
 
 export default function ResultModule(props){
@@ -7,11 +9,33 @@ export default function ResultModule(props){
     return(
         <div className="modal-body" >
             <div className="page-header">
-                <h1>Request Result</h1>
+                <h1>Annotation Result: </h1>
             </div>
-            <ResultStatus data={props.data}
-                       usedTime={calTime(props.data.finishtime,props.data.uploadtime)}
-            />
+            <div style={{width:"85%"}}>
+                <Row justify="space-around" align="middle">
+                    <Col flex={2}>
+                        <ResultStatus data={props.data}
+                           usedTime={calTime(props.data.finishtime,props.data.uploadtime)}
+                        />
+                    </Col>
+                    <Col flex={3}>
+                        <Statistic title="Cell Counts" value={12893} />
+                    </Col>
+                    <Col flex={3}>
+                        <Statistic title="Genes Counts" value={22893} precision={2} />
+                        <Button style={{ marginTop: 16 }} type="primary">
+                            View More
+                        </Button>
+                    </Col>
+                    <Row>
+                        <Statistic title="Prediction Accuracy" value={98} loading />
+                    </Row>
+                </Row>
+            </div>
+            <div style={{width:"85%",margin: "70px auto"}}>
+                <h2>View</h2><br/>
+                <VitessceVisual></VitessceVisual>
+            </div>
         </div>
     )
 }

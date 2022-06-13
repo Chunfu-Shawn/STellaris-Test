@@ -33,7 +33,7 @@ export default function ResultPage(props) {
         return (
             <Layout>
                 <Head>
-                    <title>STW-Analysing: {props.rid}</title>
+                    <title>STW-Annotation: {props.rid}</title>
                 </Head>
                 <div>Loading...</div>
             </Layout>
@@ -43,7 +43,7 @@ export default function ResultPage(props) {
         return (
             <Layout>
                 <Head>
-                    <title>STW-Analysing: {props.rid}</title>
+                    <title>STW-Annotation: {props.rid}</title>
                 </Head>
                 <div>Loading...</div>
             </Layout>
@@ -56,7 +56,7 @@ export default function ResultPage(props) {
     return (
         <Layout>
             <Head>
-                <title>STW-Analysing: {props.rid}</title>
+                <title>STW-Annotation: {props.rid}</title>
             </Head>
             {/* 如果该rid的状态是false，返回wait页面，是true则返回结果页面 */}
             {data.status ?
