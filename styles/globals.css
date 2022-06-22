@@ -22,6 +22,14 @@ body .mainbody{
 body{
   text-align: center;
 }
+
+body a{
+  color: #2f0e91;
+}
+body a:hover{
+  color: #755aee;
+}
+
 .contact-context{
   width: 100%;
   text-align: center;

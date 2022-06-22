@@ -1,7 +1,7 @@
-const shell = require('shelljs');
-const fs = require("fs");
+import shell from 'shelljs'
+import fs from "fs"
 
-function execTangram(destination,filename) {
+export function execTangram(destination,filename) {
     const mapping_py = './scripts/run_tangram_mapping.py'
     const ad_sp = '../datasets/adata_a2p2.telen.m500.log1p.leiden.deg.h5ad';
     const out_path = destination + '/out/' + filename.split('.')[0] + '.telen.m500.log1p.leiden.deg.h5ad';
@@ -42,5 +42,3 @@ function execTangram(destination,filename) {
         }
     }
 }
-
-module.exports = {execTangram}

@@ -1,6 +1,6 @@
-const fs = require("fs");
+import fs from "fs"
 
-function uploadRecord(ctx, uploadtime) {
+export function uploadRecord(ctx, uploadtime) {
     try {
         // 将上传的文件基本信息写入相应文件夹中的filesInfo.json
         let fileInfo = {};
@@ -38,5 +38,3 @@ function uploadRecord(ctx, uploadtime) {
         console.log(`Error reading or writing file info from disk: ${err}`);
     }
 }
-
-module.exports = { uploadRecord };

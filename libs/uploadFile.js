@@ -1,7 +1,7 @@
-const { v1: uuidv1 } = require('uuid');
-const multer = require('@koa/multer');
+import { v1 as uuidv1 } from 'uuid'
+import multer from '@koa/multer'
 
-function uploadFile() {
+export function uploadFile() {
     const limits = {
         fields: 10,//非文件字段的数量
         fileSize: 500* 1024 * 1024,//文件大小 单位 Byte
@@ -17,6 +17,3 @@ function uploadFile() {
     })
     return uploadFile = multer({storage,limits})
 }
-
-
-module.exports = { uploadFile };

@@ -1,19 +1,19 @@
-const Koa = require('koa')
+import Koa from 'koa'
 import nextjs from 'next'
-const bodyParser = require('koa-bodyparser');
+import bodyParser from 'koa-bodyparser'
 // 导入controller middleware:
-const controller = require('./libs/controller');
+// import controller from './libs/controller'
 // 导入router路由middleware
-const Router = require('koa-router')();
+import router from 'koa-router'
+const Router = router()
 // session 有关模块
-const session = require('koa-session')
-const {accesslogger, uploadlogger} = require("./libs/logSave");
-const {uploadFile} = require("./libs/uploadFile");
-const {uploadRecord} = require("./libs/uploadRecord");
-const {execTangram} = require("./libs/execTangram");
-const {sendMail} = require("./libs/sendEmail");
-const fs = require("fs");
-const {getReqStatus} = require("./libs/api/getReqStatus");
+import session from 'koa-session'
+import {accesslogger, uploadlogger} from "./libs/logSave.js"
+import {uploadFile} from "./libs/uploadFile.js"
+import {uploadRecord} from "./libs/uploadRecord.js"
+import {execTangram} from "./libs/execTangram.js"
+import {sendMail} from "./libs/sendEmail.js"
+import {getReqStatus} from "./libs/api/getReqStatus.js"
 
 // Determine whether it is a production environment
 const dev = process.env.NODE_ENV !== 'production'

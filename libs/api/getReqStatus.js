@@ -1,6 +1,6 @@
-const fs = require("fs");
+import fs from "fs"
 
-function getReqStatus(rid) {
+export function getReqStatus(rid) {
     let filesInfo = JSON.parse(fs.readFileSync('public/uploads/filesInfo.json', 'utf8'))
     let ReqStatus = {};
     for(let key in filesInfo){
@@ -16,5 +16,3 @@ function getReqStatus(rid) {
     }
     return {}
 }
-
-module.exports = { getReqStatus };

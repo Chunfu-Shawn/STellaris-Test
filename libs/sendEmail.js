@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer'); //引入模块
+import nodemailer from 'nodemailer' //引入模块
 let transporter = nodemailer.createTransport({
     //node_modules/nodemailer/lib/well-known/services.json 查看相关的配置，如果使用qq邮箱，就查看qq邮箱的相关配置
     service: '163', //类型qq邮箱
@@ -10,7 +10,7 @@ let transporter = nodemailer.createTransport({
     }});
 //pass 不是邮箱账户的密码而是stmp的授权码（必须是相应邮箱的stmp授权码）
 //邮箱---设置--账户--POP3/SMTP服务---开启---获取stmp授权码
-function sendMail(mail, url, call) {
+export function sendMail(mail, url, call) {
 
     // 发送的配置项
     let mailOptions = {
@@ -48,7 +48,4 @@ function sendMail(mail, url, call) {
             console.log("Message sent successfully.",mail,url)
         }
     });
-}
-module.exports = {
-    sendMail
 }
