@@ -98,6 +98,8 @@
   font-weight: 700;
 }
 .cover-heading{
+  color: #fff;
+  font-family: sans-serif,bold;
   font-size: 60px;
   margin: 40px 0px;
 }

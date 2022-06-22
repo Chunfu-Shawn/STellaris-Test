@@ -4,8 +4,9 @@ import Navigator from "./navigator";
 import Footer from "./footer";
 import Script from "next/script";
 
+export const siteTitle = "Spatial Trans Web"
 
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
     return (
         <>
             <Head>

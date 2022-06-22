@@ -1,5 +1,5 @@
 const Koa = require('koa')
-const nextjs = require('next')
+import nextjs from 'next'
 const bodyParser = require('koa-bodyparser');
 // 导入controller middleware:
 const controller = require('./libs/controller');

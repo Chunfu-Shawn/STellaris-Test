@@ -7,10 +7,6 @@ import { Button, message, Upload } from 'antd';
 
 
 export default function Annotation() {
-    function checkAndUpload(){
-        const router = useRouter()
-        router.push('/annotations/upload')
-    }
     const { register, handleSubmit, formState: { errors } } = useForm();
     return (
         <Layout>

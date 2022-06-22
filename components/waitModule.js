@@ -16,7 +16,6 @@ export function calTime(nowtime,etime){
 
 export default function WaitModule(props){
     const [usedTime, setUsedTime] = useState(" ");
-    let nowtime = ""
     useEffect(() => {
         const timer = setInterval(() => {
             let nowtime = new Date()
