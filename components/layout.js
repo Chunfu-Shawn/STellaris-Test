@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Navigator from "./navigator";
 import Footer from "./footer";
 import Script from "next/script";
+// eslint-disable-next-line @next/next/no-document-import-in-page
 
 export const siteTitle = "Spatial Trans Web"
 

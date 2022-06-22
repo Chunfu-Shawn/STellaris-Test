@@ -14,6 +14,7 @@ import {uploadRecord} from "./libs/uploadRecord.js"
 import {execTangram} from "./libs/execTangram.js"
 import {sendMail} from "./libs/sendEmail.js"
 import {getReqStatus} from "./libs/api/getReqStatus.js"
+import {getHumanMap} from "./libs/api/getHumanMap.js";
 
 // Determine whether it is a production environment
 const dev = process.env.NODE_ENV !== 'production'
@@ -59,6 +60,11 @@ app.prepare().then(() => {
     Router.get('/api/getFilesInfo/:rid', async (ctx) => {
         // 传出rid为查询值的json数据
         ctx.body = getReqStatus(ctx.params.rid)
+    })
+    // 设置路由和api进行图片访问
+    Router.get('/api/getHumanMap', async (ctx) => {
+        // 传出rid为查询值的json数据
+        ctx.body = getHumanMap()
     })
 
     server.use(Router.routes()).use(Router.allowedMethods())

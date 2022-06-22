@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
 import Link from "next/link";
+import BodyMap from '../components/BodyMap.js'
 const title = "STW - Datasets"
 
-export default function Contact() {
+export default function Datasets() {
+
     return (
         <Layout>
             <Head>
@@ -13,48 +15,47 @@ export default function Contact() {
                 <div className="page-header">
                     <h1>Spatial Transcritome Datasets </h1>
                 </div>
-                <div className="panel panel-default">
-                    <div className="panel-body">
-                        <p>Display the Spatial Transcritome Datasets. Click the ST ID and view the details of the
-                            data.</p>
-                    </div>
-                    <table className="table">
-                        <thead>
-                        <tr>
-                            <th>ST ID</th>
-                            <th>Data Types</th>
-                            <th>Species</th>
-                            <th>Organs</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><Link href="/dataset-page"><a>WT A2-2 Mouse E14.5 Brain Coronal Section</a></Link></td>
-                            <td>Stereo-seq</td>
-                            <td>Mouse</td>
-                            <td>Brain</td>
-                        </tr>
-                        <tr>
-                            <td><Link href="/dataset-page"><a>WT A2-2 Mouse E14.5 Brain Coronal Section</a></Link></td>
-                            <td>Stereo-seq</td>
-                            <td>Mouse</td>
-                            <td>Brain</td>
-                        </tr>
-                        <tr>
-                            <td><Link href="/slideseq"><a>SCP815-Puck_190921_19</a></Link></td>
-                            <td>Slide-seq</td>
-                            <td>Mouse</td>
-                            <td>Brain</td>
-                        </tr>
-                        <tr>
-                            <td><Link href="/slideseq"><a>SCP815-Puck_190921_19</a></Link></td>
-                            <td>Slide-seq</td>
-                            <td>Mouse</td>
-                            <td>Brain</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div className={"panel row"}>
+                    <p className={"col-md-4 col-lg-4 text-justify"}>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                    <br/> </p>
+                    <BodyMap class={"col-md-8 col-lg-8"}></BodyMap>
                 </div>
+                <table className="panel table table-hover">
+                    <thead>
+                    <tr>
+                        <th>ST ID</th>
+                        <th>Data Types</th>
+                        <th>Species</th>
+                        <th>Organs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><Link href="/dataset-page"><a>WT A2-2 Mouse E14.5 Brain Coronal Section</a></Link></td>
+                        <td>Stereo-seq</td>
+                        <td>Mouse</td>
+                        <td>Brain</td>
+                    </tr>
+                    <tr>
+                        <td><Link href="/dataset-page"><a>WT A2-2 Mouse E14.5 Brain Coronal Section</a></Link></td>
+                        <td>Stereo-seq</td>
+                        <td>Mouse</td>
+                        <td>Brain</td>
+                    </tr>
+                    <tr>
+                        <td><Link href="/slideseq"><a>SCP815-Puck_190921_19</a></Link></td>
+                        <td>Slide-seq</td>
+                        <td>Mouse</td>
+                        <td>Brain</td>
+                    </tr>
+                    <tr>
+                        <td><Link href="/slideseq"><a>SCP815-Puck_190921_19</a></Link></td>
+                        <td>Slide-seq</td>
+                        <td>Mouse</td>
+                        <td>Brain</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </Layout>
     )

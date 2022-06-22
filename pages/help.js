@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
+import BodyMap from "../components/BodyMap.js";
 const title = "STW - Help"
 
 export default function Contact() {
@@ -10,7 +11,6 @@ export default function Contact() {
             </Head>
             <div className="modal-body">
             </div>
-
         </Layout>
     )
 }
