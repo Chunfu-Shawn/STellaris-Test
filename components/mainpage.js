@@ -58,7 +58,7 @@ export default function MainPage() {
                 <div className="jumbotron" >
                     <div className="media-left">
                         <a href="#">
-                            <img className="media-object"  src="/images/placeholder.png" alt="missing pic"/>
+                            <img className="media-object" src="/images/placeholder.png" alt="missing pic"/>
                         </a>
                     </div>
                     <div className="media-body">

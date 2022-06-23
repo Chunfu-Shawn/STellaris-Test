@@ -11,7 +11,7 @@ export default function Layout({ children }) {
     return (
         <>
             <Head>
-                <link rel="short icon" href="/public/images/favicon_io/android-chrome-192x192.png" />
+                <link rel="short icon" href="/static/images/favicon_io/android-chrome-192x192.png" />
                 <meta charSet="UTF-8"/>
                 <meta
                     name="description"
