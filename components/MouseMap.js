@@ -3,11 +3,11 @@ import {useEffect, useRef} from "react";
 //引入jquery
 import $ from 'jquery';
 
-export default function MouseMap(props){
+export default function BodyMap(props){
     const chartRef = useRef(null);
     useEffect(() => {
         let ROOT_PATH =
-            '/api/getHumanMap';
+            '/api/getMouseMap';
         let myChart = echarts.init(chartRef.current);
         let option;
         $.get(
@@ -55,7 +55,7 @@ export default function MouseMap(props){
                         bottom: '20%'
                     },
                     xAxis: {
-                        },
+                    },
                     yAxis: {
                         data: [
                             'heart',
@@ -73,7 +73,7 @@ export default function MouseMap(props){
                             emphasis: {
                                 focus: 'self'
                             },
-                            data: [13, 31, 41, 52, 18, 9, 13]
+                            data: [24, 35, 41, 50, 1, 9, 23]
                         }
                     ]
                 };
@@ -97,7 +97,7 @@ export default function MouseMap(props){
     }, []);
     return (
         <div className={props.class+" text-center"}>
-            <h4 style={{color:"white"}}>Human Spatial Transcriptome Datasets</h4>
+            <h4 style={{color:"white"}}>Mouse Spatial Transcriptome Datasets</h4>
             <div ref={chartRef} style={{height:"50vh"}}></div>
         </div>
     )

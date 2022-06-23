@@ -12,13 +12,10 @@
 
 html body .mainbody{
   height: auto;
+  color: #fff;
   background-color: #252525;
 }
 
-body .mainbody{
-  color: #fff;
-  text-align: center;
-}
 body{
   text-align: center;
 }
@@ -65,6 +62,41 @@ body a:hover{
   transition: background-color 0.5s;
 }
 
+.btn-alldata {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #3c12b6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.btn-alldata:hover {
+  color: #ffffff;
+  background-color: #1a1a1a;
+  border-color: #ffffff;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  margin: 0px 20px;
+}
+.btn-data {
+  color: #ffffff;
+  background-color: #1a1a1a;
+  border-color: #ffffff;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.btn-data:hover {
+  color: #220b65;
+  background-color: #ffffff;
+  border-color: #220b65;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  margin: 0px 20px;
+}
+
 .panel-annotation{
   text-align: center;
 }
@@ -84,7 +116,6 @@ body a:hover{
 ol, ul {
   padding-left: 30px;
 }
-
 
 .board-row:after {
   clear: both;

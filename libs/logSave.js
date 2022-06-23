@@ -1,9 +1,17 @@
 import morgan from 'koa-morgan'
 import fs from "fs"
 
-const accessLogStream = fs.createWriteStream('logs/access.log',
+/*fs.mkdirSync('public/results/' + ctx.request.file.filename, {
+    //是否使用递归创建目录
+    recursive: true
+})
+ */
+
+const accessLogStream = fs.createWriteStream('logs/'+ new Date().getFullYear() + (new Date().getMonth() + 1) + new Date().getDate()
+    +'_access.log',
     { flags: 'a' })
-const uploadLogStream = fs.createWriteStream('logs/post.log',
+const uploadLogStream = fs.createWriteStream('logs/'+ new Date().getFullYear() + (new Date().getMonth() + 1) + new Date().getDate()
+    +'_post.log',
     { flags: 'a' })
 
 export const accesslogger = morgan('combined',{
