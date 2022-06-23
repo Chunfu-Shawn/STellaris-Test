@@ -21,7 +21,7 @@ export default function Contact() {
                     <li><b>CoPI/Post-Doc Researcher: </b>Dr. Ni N. An, Dr. Wanqiu Ding, Dr. Qing Yu</li>
                     <li><b>PI:</b> Chuan-Yun Li</li>
                 </ul>
-                <Image src="/images/CY_Lab_2022.jpg" alt="CY's Lab"  width={900} height={500} />
+                <Image src="/static/images/CY_Lab_2022.jpg" alt="CY's Lab"  width={900} height={500} />
 
                 <div className="box">
                     <p>We focus on i) systems biology analyses to study the molecular mechanisms underlying MS and CVD in the framework of development, regulation and evolution;

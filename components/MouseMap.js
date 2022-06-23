@@ -40,7 +40,7 @@ export default function BodyMap(props){
                         blur: {},
                         select: {
                             itemStyle: {
-                                color: '#384098'
+                                color: '#8c94f3'
                             },
                             label: {
                                 show: false,
