@@ -1,6 +1,9 @@
 import Link from "next/link";
+import PlaceHolder from "./MainPage/PlaceHolder.js";
+import IntroductionModule from "./MainPage/IntroductionModule.js";
 
 export default function MainPage() {
+    let contextHolder = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit."
     return(
         <>
             <div className="modal-body mainbody">
@@ -14,89 +17,17 @@ export default function MainPage() {
                     </div>
                 </div>
                 <div className="row" >
-                    <div className="col-xs-6 col-md-4">
-                        <Link href="/annotation">
-                            <a className="thumbnail">
-                                <img src="/images/placeholder.png" alt="..."/>
-                                <div className="caption">
-                                    <h3>Spatial Annotation</h3>
-                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                </div>
-                            </a>
-                        </Link>
-                    </div>
-                    <div className="col-xs-6 col-md-4">
-                        <Link href="/dataset-page">
-                            <a className="thumbnail">
-                                <img src="/images/placeholder.png" alt="..."/>
-                                <div className="caption">
-                                    <h3>Test Vitessce</h3>
-                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                </div>
-                            </a>
-                        </Link>
-                    </div>
-                    <div className="col-xs-6 col-md-4">
-                        <Link href="/contact">
-                            <a className="thumbnail">
-                                <img src="/images/placeholder.png" alt="missing pic"/>
-                                <div className="caption">
-                                    <h3>Test Contact</h3>
-                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                </div>
-                            </a>
-                        </Link>
-                    </div>
+                    <PlaceHolder title={"Spatial Trans Data"} context={contextHolder} link={"/datasets"}/>
+                    <PlaceHolder title={"Spatial Annotation"} context={contextHolder} link={"/annotation"}/>
+                    <PlaceHolder title={"Test Vitessce"} context={contextHolder} link={"/dataset-page"}/>
 
                 </div>
                 <div id="more"></div>
-                <br/>
-                <br/>
-                    <h1 style={{color:"white"}}>KNOW MORE</h1>
-                <br/>
-                <br/>
+                <h1 className={"inner"} style={{color:"white"}}>KNOW MORE</h1>
                 <div className="jumbotron" >
-                    <div className="media-left">
-                        <a href="#">
-                            <img className="media-object" src="/images/placeholder.png" alt="missing pic"/>
-                        </a>
-                    </div>
-                    <div className="media-body">
-                        <h3 className="media-heading  media-left">Spatial Transcriptome of Brain</h3>
-                        <br/>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                <br/>
-                <br/>
-                <div className="media-left" >
-                    <Link href={"/annotation"}>
-                        <a>
-                            <img className="media-object" src="/images/placeholder.png" alt="missing pic"/>
-                        </a>
-                    </Link>
-                </div>
-                <div className="media-body">
-                    <h3 className="media-heading media-left">  Spatial Annotation Tool</h3>
-                    <br/>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </div>
-                <br/>
-                <br/>
-                <div className="media-left">
-                    <Link href={"/vitessce"}>
-                        <a href="/vitessce">
-                            <img className="media-object" src="/images/placeholder.png" alt="missing pic"/>
-                        </a>
-                    </Link>
-                </div>
-                <div className="media-body">
-                    <h3 className="media-heading media-left">  Data and Browser</h3>
-                    <br/>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </div>
+                    <IntroductionModule title={"Spatial Trans Web"} context={contextHolder} />
+                    <IntroductionModule title={"Spatial Annotation Tool"} context={contextHolder} />
+                    <IntroductionModule title={"Data and Browser"} context={contextHolder} />
                 </div>
             </div>
         </>
