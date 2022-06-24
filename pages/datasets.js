@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
 import Link from "next/link";
-import BodyMap from '../components/BodyMap.js'
-import MouseMap from "../components/MouseMap.js";
+import BodyMap from '../components/Datasets/BodyMap.js'
+import MouseMap from "../components/Datasets/MouseMap.js";
 const title = "STW - Datasets"
 
 export default function Datasets() {

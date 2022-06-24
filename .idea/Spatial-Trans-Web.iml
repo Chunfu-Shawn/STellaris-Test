@@ -5,6 +5,12 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/public/uploads/2022611" />
+      <excludeFolder url="file://$MODULE_DIR$/public/uploads/2022613" />
+      <excludeFolder url="file://$MODULE_DIR$/public/uploads/2022616" />
+      <excludeFolder url="file://$MODULE_DIR$/public/uploads/2022622" />
+      <excludeFolder url="file://$MODULE_DIR$/public/uploads/2022623" />
+      <excludeFolder url="file://$MODULE_DIR$/public/results" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

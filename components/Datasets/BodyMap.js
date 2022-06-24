@@ -16,7 +16,7 @@ export default function MouseMap(props){
                 echarts.registerMap('organ_diagram', { svg: svg });
                 option = {
                     tooltip: {},
-                    color:'#5b4fcc',
+                    color:'#cc594f',
                     textStyle: {
                         color: '#ffffff',
                     },
