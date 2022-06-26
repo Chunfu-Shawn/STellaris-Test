@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout from '../components/layout'
+import Layout from '../components/layout.js'
 import { useForm } from 'react-hook-form';
 import { useRouter } from "next/router";
 import { UploadOutlined } from '@ant-design/icons';
@@ -13,7 +13,7 @@ export default function Annotation() {
             <Head>
                 <title>STW - Annotation</title>
             </Head>
-            <div className="modal-body">
+            <div className="modal-body-stw">
                 <div className="page-header">
                     <h1>Spatial Annotation</h1>
                 </div>

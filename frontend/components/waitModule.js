@@ -1,4 +1,4 @@
-import ReqStatus from "./reqStatus";
+import ReqStatus from "./reqStatus.js";
 import {useEffect, useState} from "react";
 
 export function calTime(nowtime,etime){
@@ -27,7 +27,7 @@ export default function WaitModule(props){
     });
 
     return(
-        <div className="modal-body" >
+        <div className="modal-body-stw" >
             <div className="page-header">
                 <h1>Request Status</h1>
             </div>

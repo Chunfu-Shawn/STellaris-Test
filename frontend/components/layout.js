@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Navigator from "./navigator";
-import Footer from "./footer";
+import Navigator from "./navigator.js";
+import Footer from "./footer.js";
 import Script from "next/script";
 // eslint-disable-next-line @next/next/no-document-import-in-page
 
@@ -11,7 +11,7 @@ export default function Layout({ children }) {
     return (
         <>
             <Head>
-                <link rel="short icon" href="/static/images/favicon_io/android-chrome-192x192.png" />
+                <link rel="short icon" href="/frontend/static/images/favicon_io/android-chrome-192x192.png" />
                 <meta charSet="UTF-8"/>
                 <meta
                     name="description"

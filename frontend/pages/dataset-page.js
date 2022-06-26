@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Layout from '../components/layout'
+import Layout from '../components/layout.js'
 import datePageCss from "../styles/datasetpage.module.css";
-import VitessceVisual from "../components/VitessceModule";
+import VitessceVisual from "../components/VitessceModule.js";
 const title = "STW - Datasets"
 
 export default function DatasetPage(prop) {
@@ -10,7 +10,7 @@ export default function DatasetPage(prop) {
             <Head>
                 <title>{title}</title>
             </Head>
-            <div className="modal-body">
+            <div className="modal-body-stw">
                 <ul id="navpill" className="nav nav-pills nav-stacked "
                     style={{ float: 'left', margin: '80px 20px', position: 'fixed' }}>
                     <li><a href="#summary">Summary</a></li>

@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./server.js --exec",
+    "dev": "export NODE_ENV='development' && nodemon ./server.js --exec",
+    "prod": "export NODE_ENV='production' && npm run build && node ./server.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

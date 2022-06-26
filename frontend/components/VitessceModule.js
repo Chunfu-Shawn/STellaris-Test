@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-const Vitessce = React.lazy(() => import('./VitessceWrapper'));
+const Vitessce = React.lazy(() => import('./VitessceWrapper.js'));
 import myViewConfig from './vi-config.json';
 import 'vitessce/dist/es/production/static/css/index.css';
 
@@ -8,7 +8,7 @@ export default function VitessceVisualization(props) {
     const height = 800
     const LoadingModule = function (){
         return(
-            <div style={{paddingTop:"50px"}} ><h5>Loading...</h5></div>
+            <div style={{paddingTop:"50px",color:"white"}} ><h5>Loading...</h5></div>
         )
     }
     return (

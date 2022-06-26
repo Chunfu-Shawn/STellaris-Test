@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import Layout from '../../components/layout'
-import WaitModule from "../../components/waitModule";
-import DefaultErrorPage from 'next/error'
-import {getReqStatus} from "../../libs/api/getReqStatus";
-import {useEffect, useState} from "react";
+import Layout from '../../components/layout.js'
+import WaitModule from "../../components/waitModule.js";
+import Error from 'next/error'
+import {getReqStatus} from "../../../libs/api/getReqStatus.js";
 import useSWR from "swr";
-import ResultModule from "../../components/resultModule";
+import ResultModule from "../../components/resultModule.js";
+import Image from "next/image";
 
 export async function getServerSideProps(context) {
     return {
@@ -20,7 +20,8 @@ export async function getServerSideProps(context) {
 function useRequestInfo(rid,status){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     const { data, error } = useSWR(`/api/getFilesInfo/${rid}`, fetcher, { revalidateIfStale: true , isPaused(){ return status } })
-    return {
+    // 如果数据为空，为undefined，返回error为true
+    return{
         data: data,
         error: error,
         isLoading: !error && !data,
@@ -28,7 +29,17 @@ function useRequestInfo(rid,status){
 }
 
 export default function ResultPage(props) {
-    const {data, error, isLoading} = useRequestInfo(props.rid,false)
+    // 如果找不到该rid，返回error 404页面
+    const {data, error, isLoading} = useRequestInfo(props.rid||'',false)
+    if (error){
+        return (
+            <Layout>
+                <div className={"modal-body-stw"}>
+                    <Image src={'/static/images/404.png'} width={1000} height={500}/>
+                </div>
+            </Layout>
+                )
+    }
     if (isLoading) {
         return (
             <Layout>
@@ -39,19 +50,6 @@ export default function ResultPage(props) {
             </Layout>
         )
     }
-    if (error){
-        return (
-            <Layout>
-                <Head>
-                    <title>STW-Annotation: {props.rid}</title>
-                </Head>
-                <div>Loading...</div>
-            </Layout>
-        )
-    }
-    // 如果找不到该rid，返回error 404页面
-    if (props.rid === undefined) return <DefaultErrorPage statusCode={404} />
-    console.log(data)
     //否则返回等待页面
     return (
         <Layout>
@@ -62,9 +60,7 @@ export default function ResultPage(props) {
             {data.status ?
                 <ResultModule data={data}></ResultModule>
                 :
-                <WaitModule data={data}
-                      error={error}
-                      isLoading={isLoading}></WaitModule>
+                <WaitModule data={data}></WaitModule>
             }
         </Layout>
     )

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
+import Layout, { siteTitle } from '../components/layout.js'
 import Image from "next/image";
 
 export default function Contact() {
@@ -9,7 +9,7 @@ export default function Contact() {
                 <title>{siteTitle}</title>
             </Head>
 
-            <div className="modal-body contact-context">
+            <div className="modal-body-stw contact-context">
                 <header className="page-header">
                     <h1>About Us</h1>
                     <p>Laboratory of Bioinformatics & Genomic Medicine</p>

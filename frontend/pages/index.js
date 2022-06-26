@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import MainPage from "../components/mainpage";
+import Layout, { siteTitle } from '../components/layout.js'
+import MainPage from "../components/mainpage.js";
 
 export default function Home() {
     return (

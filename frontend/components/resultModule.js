@@ -1,13 +1,13 @@
-import ResultStatus from "./resultStatus";
-import {calTime} from "./waitModule";
-import VitessceVisual from "./VitessceModule";
+import ResultStatus from "./resultStatus.js";
+import {calTime} from "./waitModule.js";
+import VitessceVisual from "./VitessceModule.js";
 import {Button, Col, Row, Statistic} from "antd";
 
 
 export default function ResultModule(props){
 
     return(
-        <div className="modal-body" >
+        <div className="modal-body-stw" >
             <div className="page-header">
                 <h1>Annotation Result: </h1>
             </div>

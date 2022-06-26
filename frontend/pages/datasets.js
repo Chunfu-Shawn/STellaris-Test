@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout from '../components/layout'
+import Layout from '../components/layout.js'
 import Link from "next/link";
 import BodyMap from '../components/Datasets/BodyMap.js'
 import MouseMap from "../components/Datasets/MouseMap.js";
@@ -12,7 +12,7 @@ export default function Datasets() {
             <Head>
                 <title>{title}</title>
             </Head>
-            <div className="modal-body mainbody">
+            <div className="modal-body-stw mainbody">
                 <div className={"row cover-container inner"} >
                     <div className="cover-heading">
                         <h1 className="cover-heading" style={{color:"white",fontSize:"50px"}}>Spatial Transcritome Datasets </h1>

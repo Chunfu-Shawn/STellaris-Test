@@ -6,7 +6,7 @@ export default function IntroductionModule(props){
             <div className="media-left">
                 <Link href="#">
                     <a>
-                    <img className="media-object" src="static/images/placeholder.png" alt="missing pic"/>
+                    <img className="media-object" src="/static/images/placeholder.png" alt="missing pic"/>
                     </a>
                 </Link>
             </div>

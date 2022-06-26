@@ -4421,7 +4421,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
-@media (min-width: 768px) {
+@media (min-width: 0px) {
   .navbar-toggle {
     display: none;
   }
@@ -4433,7 +4433,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 30px;
   line-height: 20px;
 }
-@media (max-width: 767px) {
+@media (max-width: 0px) {
   .navbar-nav .open .dropdown-menu {
     position: static;
     float: none;
@@ -4456,7 +4456,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     background-image: none;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 0px) {
   .navbar-nav {
     float: left;
   }
@@ -6084,7 +6084,7 @@ button.close {
   margin: 0;
   line-height: 1.42857143;
 }
-.modal-body {
+.modal-body-stw {
   position: relative;
   padding: 120px 40px 40px;
   margin-bottom: 90px;

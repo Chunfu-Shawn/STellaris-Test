@@ -7,11 +7,15 @@ import {Router} from './libs/koaRouters.js'
 import session from 'koa-session'
 import {accesslogger, uploadlogger} from "./libs/logSave.js"
 
-
 // Determine whether it is a production environment
 const dev = process.env.NODE_ENV !== 'production'
 // initialize nextjs instance and expose request handler
-const app = nextjs({dev})
+const app = nextjs(
+    {
+        dev,
+        dir: "./frontend",
+    }
+)
 export const handler = app.getRequestHandler()
 
 app.prepare().then(() => {
@@ -49,7 +53,7 @@ app.prepare().then(() => {
     // add post body parser
     server.use(bodyParser());
 
-    server.listen(3001, () => {
+    server.listen(3000, () => {
         console.log('server is running at http://localhost:3001')
     })
 })

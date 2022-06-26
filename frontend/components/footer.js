@@ -5,7 +5,7 @@ function Footer(){
         <div id="footer" className="modal-footer">
             <footer className="h5 small">
                 <p>Copyright &copy; 2021-{String(new Date().getFullYear())} |
-                    <a href="https://future.pku.edu.cn/" target="_blank" rel="noreferrer"> College of Future Technology (CFT), </a>
+                    <a href="frontend/components/footer.js" target="_blank" rel="noreferrer"> College of Future Technology (CFT), </a>
                     <a href="http://english.pku.edu.cn" target="_blank" rel="noreferrer"> Peking University</a>
                 </p>
                 <p>

@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Layout from '../../components/layout'
+import Layout from '../../components/layout.js'
 import { useRouter } from "next/router";
-import UploadSuccess from "../../components/upload-success";
+import UploadSuccess from "../../components/upload-success.js";
 
 export async function getServerSideProps(context) {
     return {
