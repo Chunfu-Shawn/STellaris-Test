@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "export NODE_ENV='development' && nodemon ./server.js --exec",
     "prod": "export NODE_ENV='production' && npm run build && node ./server.js",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build frontend",
+    "start": "next start frontend",
+    "lint": "next lint frontend"
   },
   "type": "module",
   "dependencies": {

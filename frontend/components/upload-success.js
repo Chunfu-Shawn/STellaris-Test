@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function UploadSuccess(props){
     return(
-        <div className="modal-body" style={{height: "85vh",textAlign:"center"}}>
+        <div className="modal-body-stw" style={{height: "85vh",textAlign:"center"}}>
             <div className="page-header">
                 <h2>Spatial Annotation</h2>
             </div>
