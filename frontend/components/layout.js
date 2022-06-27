@@ -37,7 +37,7 @@ export default function Layout({ children }) {
                 <meta name="og:title" content='Welcome to Spatial Trans Web' />
             </Head>
             <Navigator></Navigator>
-            <BackTop>
+            <BackTop duration={100} visibilityHeight={300}>
                 <button style={style}>UP</button>
             </BackTop>
             {children}

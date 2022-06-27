@@ -17,7 +17,6 @@ export default function Navigator(){
                     delete navUlChildren[i].className;
             }
         }
-
         $(function(){
             $(document).ready(function(){
                 navAction();

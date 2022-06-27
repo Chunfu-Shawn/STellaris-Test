@@ -9,7 +9,9 @@
 .expansion {
   height: 100%;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 html body .mainbody{
   height: auto;
   color: #fff;

@@ -1,16 +1,16 @@
 import Head from 'next/head'
-import Layout from '../components/layout.js'
+import Layout, {siteTitle} from '../components/layout.js'
 import Link from "next/link";
 import BodyMap from '../components/Datasets/BodyMap.js'
 import MouseMap from "../components/Datasets/MouseMap.js";
-const title = "STW - Datasets"
+
 
 export default function Datasets() {
 
     return (
         <Layout>
             <Head>
-                <title>{title}</title>
+                <title>{siteTitle +'- Datasets'}</title>
             </Head>
             <div className="modal-body-stw mainbody">
                 <div className={"row cover-container inner"} >

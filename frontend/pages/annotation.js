@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout from '../components/layout.js'
+import Layout, { siteTitle } from '../components/layout.js'
 import { useForm } from 'react-hook-form';
 import { useRouter } from "next/router";
 import { UploadOutlined } from '@ant-design/icons';
@@ -11,7 +11,7 @@ export default function Annotation() {
     return (
         <Layout>
             <Head>
-                <title>STW - Annotation</title>
+                <title>{siteTitle +'- Annotation'}</title>
             </Head>
             <div className="modal-body-stw">
                 <div className="page-header">
