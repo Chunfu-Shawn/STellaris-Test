@@ -1,12 +1,26 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout.js'
 import Image from "next/image";
+import {BackTop} from "antd";
+
 
 export default function Contact() {
+    const style = {
+        height: 40,
+        width: 40,
+        lineHeight: '40px',
+        borderRadius: 4,
+        backgroundColor: '#22075e',
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 14,
+        position: 'fixed',
+
+    };
     return (
         <Layout>
             <Head>
-                <title>{siteTitle}</title>
+                <title>{siteTitle+"- Contact"}</title>
             </Head>
 
             <div className="modal-body-stw contact-context">

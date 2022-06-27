@@ -25,7 +25,7 @@ export default function Datasets() {
                     <MouseMap class={"col-md-6 col-lg-6"}></MouseMap>
                 </div>
                 <div className={"lead"} id={"bottoms"}>
-                    <Link href={"/datasetsarchive"}>
+                    <Link href={"/datasets/allarchive"}>
                         <button type="button" className="btn btn-alldata btn-lg">All</button>
                     </Link>
                     <button type="button" className="btn btn-data btn-lg">Human Archive</button>

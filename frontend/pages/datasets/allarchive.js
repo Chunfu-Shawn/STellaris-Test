@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Layout from '../components/layout.js'
+import Layout from '../../components/layout.js'
 import Link from "next/link";
 const title = "STW - Datasets Archive"
 
-export default function DatasetsArchive() {
+export default function Allarchive() {
 
     return (
         <Layout>
@@ -26,13 +26,13 @@ export default function DatasetsArchive() {
                     </thead>
                     <tbody>
                     <tr>
-                        <td><Link href="/dataset-page"><a>WT A2-2 Mouse E14.5 Brain Coronal Section</a></Link></td>
+                        <td><Link href="/datasets/dataset-page"><a>WT A2-2 Mouse E14.5 Brain Coronal Section</a></Link></td>
                         <td>Stereo-seq</td>
                         <td>Mouse</td>
                         <td>Brain</td>
                     </tr>
                     <tr>
-                        <td><Link href="/dataset-page"><a>WT A2-2 Mouse E14.5 Brain Coronal Section</a></Link></td>
+                        <td><Link href="/datasets/dataset-page"><a>WT A2-2 Mouse E14.5 Brain Coronal Section</a></Link></td>
                         <td>Stereo-seq</td>
                         <td>Mouse</td>
                         <td>Brain</td>

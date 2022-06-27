@@ -3,7 +3,7 @@ import {useEffect, useRef} from "react";
 //引入jquery
 import $ from 'jquery';
 
-export default function MouseMap(props){
+export default function BodyMap(props){
     const chartRef = useRef(null);
     useEffect(() => {
         let ROOT_PATH =
@@ -16,7 +16,7 @@ export default function MouseMap(props){
                 echarts.registerMap('organ_diagram', { svg: svg });
                 option = {
                     tooltip: {},
-                    color:'#cc594f',
+                    color:'#871400',
                     textStyle: {
                         color: '#ffffff',
                     },

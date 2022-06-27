@@ -1,15 +1,15 @@
 import Head from 'next/head'
-import Layout from '../components/layout.js'
-import BodyMap from "../components/Datasets/BodyMap.js";
-const title = "STW - Help"
+import Layout, { siteTitle } from '../components/layout.js'
+import MouseMap from "../components/Datasets/MouseMap.js";
 
 export default function Contact() {
     return (
         <Layout>
             <Head>
-                <title>{title}</title>
+                <title>{siteTitle+"- Help"}</title>
             </Head>
-            <div className="modal-body-stw">
+            <div className="modal-body-stw" style={{height:"100vh"}}>
+                <MouseMap/>
             </div>
         </Layout>
     )

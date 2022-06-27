@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Layout from '../components/layout.js'
-import datePageCss from "../styles/datasetpage.module.css";
-import VitessceVisual from "../components/VitessceModule.js";
+import Layout from '../../components/layout.js'
+import datePageCss from "../../styles/datasetpage.module.css";
+import VitessceVisual from "../../components/VitessceModule.js";
 const title = "STW - Datasets"
 
 export default function DatasetPage(prop) {
@@ -13,9 +13,9 @@ export default function DatasetPage(prop) {
             <div className="modal-body-stw">
                 <ul id="navpill" className="nav nav-pills nav-stacked "
                     style={{ float: 'left', margin: '80px 20px', position: 'fixed' }}>
-                    <li><a href="#summary">Summary</a></li>
-                    <li><a href="#view">View</a></li>
-                    <li><a href="#data">Data Download</a></li>
+                    <li><a href="frontend/pages/datasets/dataset-page.js#summary">Summary</a></li>
+                    <li><a href="frontend/pages/datasets/dataset-page.js#view">View</a></li>
+                    <li><a href="frontend/pages/datasets/dataset-page.js#data">Data Download</a></li>
                 </ul>
                 <div className="page-header" style={{width: "70%",marginLeft:"30vh"}}>
                     <h1> Stereo-seq <small> WT A2-2 Mouse E14.5 Brain Coronal Section </small></h1>
