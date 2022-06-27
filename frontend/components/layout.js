@@ -14,7 +14,7 @@ export default function Layout({ children }) {
         zIndex:100,
         height: 40,
         width: 40,
-        margin: "90vh 0vh 0px 81vh",
+        margin: "90vh 0vh 0px 46%",
         lineHeight: '40px',
         borderRadius: 4,
         borderColor: "white",
