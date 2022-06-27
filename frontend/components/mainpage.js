@@ -12,7 +12,7 @@ export default function MainPage() {
                         <h1 className="cover-heading">Spatial Transcriptome Web Tools and Database</h1>
                         <p className="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
                         <p className="lead">
-                            <a href="frontend/components/mainpage.js#more" className="btn btn-lg btn-default">Know more</a>
+                            <a href="#more" className="btn btn-lg btn-default">Know more</a>
                         </p>
                     </div>
                 </div>

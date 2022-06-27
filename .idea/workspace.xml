@@ -6,7 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/IntroductionModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/IntroductionModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/PlaceHolder.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/PlaceHolder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/mainpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/contact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/404.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/404.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/CY_Lab_2022.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/CY_Lab_2022.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/Veins_Medical_Diagram_clip_art.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/Veins_Medical_Diagram_clip_art.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/favicon_io/about.txt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/about.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/favicon_io/android-chrome-192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/android-chrome-192x192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/favicon_io/android-chrome-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/android-chrome-512x512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/favicon_io/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/favicon_io/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/favicon-16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/favicon_io/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/favicon_io/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/favicon_io/site.webmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/site.webmanifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/human.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/human.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/mouse-color.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/mouse.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/mouse.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/placeholder.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/placeholder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/images/profile.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/profile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getHumanMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getHumanMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getMouseMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getMouseMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +76,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/pages",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,6 +88,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/public" />
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/frontend/pages" />
       <recent name="$PROJECT_DIR$/libs/api" />
       <recent name="$PROJECT_DIR$/public/images" />
@@ -111,7 +136,7 @@
       <workItem from="1655990176299" duration="1387000" />
       <workItem from="1656131021062" duration="1004000" />
       <workItem from="1656144471610" duration="18922000" />
-      <workItem from="1656300747670" duration="10152000" />
+      <workItem from="1656300747670" duration="11874000" />
     </task>
     <servers />
   </component>

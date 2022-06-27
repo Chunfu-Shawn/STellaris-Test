@@ -29,16 +29,17 @@ export default function Layout({ children }) {
     return (
         <>
             <Head>
-                <link rel="short icon" href="/frontend/static/images/favicon_io/android-chrome-192x192.png" />
+                <link rel="shortcut icon" href="/images/favicon_io/favicon.ico" />
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png" />
+                <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png"/>
+                <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png"/>
                 <meta charSet="UTF-8"/>
                 <meta name="og:title" content='Welcome to Spatial Trans Web' />
             </Head>
             <Navigator></Navigator>
-            <a>
-                <BackTop>
+            <BackTop>
                 <button style={style}>UP</button>
-                </BackTop>
-            </a>
+            </BackTop>
             {children}
             <Footer></Footer>
 
