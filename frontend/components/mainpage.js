@@ -1,4 +1,3 @@
-import Link from "next/link";
 import PlaceHolder from "./MainPage/PlaceHolder.js";
 import IntroductionModule from "./MainPage/IntroductionModule.js";
 
@@ -19,7 +18,7 @@ export default function MainPage() {
                 <div className="row" >
                     <PlaceHolder title={"Spatial Trans Data"} context={contextHolder} link={"/datasets"}/>
                     <PlaceHolder title={"Spatial Annotation"} context={contextHolder} link={"/annotation"}/>
-                    <PlaceHolder title={"Test Vitessce"} context={contextHolder} link={"/dataset-page"}/>
+                    <PlaceHolder title={"Test Vitessce"} context={contextHolder} link={"/datasets/dataset-page"}/>
 
                 </div>
                 <div id="more"></div>

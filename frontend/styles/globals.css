@@ -17,7 +17,6 @@ html body .mainbody{
 }
 
 body{
-  text-align: center;
 }
 
 body a{
@@ -25,6 +24,7 @@ body a{
 }
 body a:hover{
   color: #755aee;
+  text-decoration: none;
 }
 
 .contact-context{

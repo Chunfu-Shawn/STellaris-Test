@@ -10,7 +10,7 @@ export default function DatasetPage(prop) {
             <Head>
                 <title>{title}</title>
             </Head>
-            <div className="modal-body-stw">
+            <div className="modal-body-stw" style={{textAlign: "left"}}>
                 <ul id="navpill" className="nav nav-pills nav-stacked "
                     style={{ float: 'left', margin: '80px 20px', position: 'fixed' }}>
                     <li><a href="frontend/pages/datasets/dataset-page.js#summary">Summary</a></li>
