@@ -1,5 +1,5 @@
 import fs from "fs"
-const child_process = require('child_process');
+import child_process from 'child_process';
 
 export function execTangram(destination,filename) {
     const mapping_py = './scripts/run_tangram_mapping.py'

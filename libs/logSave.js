@@ -5,7 +5,7 @@ import fs from "fs"
     //是否使用递归创建目录
     recursive: true
 })
- */
+*/
 
 const accessLogStream = fs.createWriteStream('logs/'+ new Date().getFullYear() + (new Date().getMonth() + 1) + new Date().getDate()
     +'_access.log',
