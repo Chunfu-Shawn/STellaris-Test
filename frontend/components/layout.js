@@ -14,7 +14,7 @@ export default function Layout({ children }) {
         zIndex:100,
         height: 40,
         width: 40,
-        margin: "90vh 0vh 0px 2%",
+        margin: "90vh 0vh 0px 81vh",
         lineHeight: '40px',
         borderRadius: 4,
         borderColor: "white",
@@ -36,7 +36,7 @@ export default function Layout({ children }) {
             <Navigator></Navigator>
             <a>
                 <BackTop>
-                <div style={style}>UP</div>
+                <button style={style}>UP</button>
                 </BackTop>
             </a>
             {children}
