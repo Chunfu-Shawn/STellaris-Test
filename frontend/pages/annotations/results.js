@@ -6,6 +6,7 @@ import {getReqStatus} from "../../../libs/api/getReqStatus.js";
 import useSWR from "swr";
 import ResultModule from "../../components/resultModule.js";
 import Image from "next/image";
+import ErrorModule from "../../components/errorModule.js";
 
 export async function getServerSideProps(context) {
     return {
@@ -51,17 +52,22 @@ export default function ResultPage(props) {
         )
     }
     //否则返回等待页面
+    let returnModule
+    // 如果该rid的状态是running，返回wait页面，是finished则返回结果页面,是error则返回错误界面；
+    if(data.status === 'running') {
+        returnModule = <WaitModule data={data}></WaitModule>
+    }else if(data.status === 'finished'){
+        returnModule = <ResultModule data={data}></ResultModule>
+    }else if(data.status === 'error'){
+        returnModule = <ErrorModule data={data}></ErrorModule>
+    }
+
     return (
         <Layout>
             <Head>
                 <title>STW-Annotation: {props.rid}</title>
             </Head>
-            {/* 如果该rid的状态是false，返回wait页面，是true则返回结果页面 */}
-            {data.status ?
-                <ResultModule data={data}></ResultModule>
-                :
-                <WaitModule data={data}></WaitModule>
-            }
+            {returnModule}
         </Layout>
     )
 }

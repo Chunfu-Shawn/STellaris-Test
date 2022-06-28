@@ -10,7 +10,7 @@ export default function ResultStatus(props){
                     </tr>
                     <tr>
                         <th>Status</th>
-                        <th>Finished!</th>
+                        <th>{props.data.status}</th>
                     </tr>
                     <tr>
                         <td>Submission Time</td>

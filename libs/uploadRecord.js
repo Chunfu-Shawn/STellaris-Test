@@ -10,7 +10,7 @@ export function uploadRecord(ctx, uploadtime) {
         fileInfo.finishtime = ""
         fileInfo.jobtitle = ctx.request.body.title
         fileInfo.email = ctx.request.body.email
-        fileInfo.status = false
+        fileInfo.status = 'running'
         // 读取json文件，转为JSON对象
         let filesInfo = JSON.parse(fs.readFileSync('public/uploads/filesInfo.json', 'utf8'))
         // 将这次上传文件的信息存储到JSON对象中

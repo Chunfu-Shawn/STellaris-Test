@@ -49,7 +49,8 @@ export function execTangram(destination,filename) {
             // 监听annoProcess任务的exit事件，如果发生则调用listener
             annoProcess.on('exit', function (code) {
                 logger.log("child process 'annotation' has exited，exit code: " + code);
-                if (code === 0) setReqStatus(rid, true)
+                if (code === 0) setReqStatus(rid, 'finished')
+                else setReqStatus(rid, "error")
             });
         } catch (err) {
             logger.log(`Error of reading/writing file from disk or python running: ${err}`)

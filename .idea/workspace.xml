@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="" />
+    <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/components/errorModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/resultStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/resultStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/annotations/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotations/results.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/execTangram.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execTangram.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/filesInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/filesInfo.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +118,7 @@
       <workItem from="1655990176299" duration="1387000" />
       <workItem from="1656131021062" duration="1004000" />
       <workItem from="1656144471610" duration="18922000" />
-      <workItem from="1656300747670" duration="28481000" />
+      <workItem from="1656300747670" duration="30192000" />
     </task>
     <servers />
   </component>
