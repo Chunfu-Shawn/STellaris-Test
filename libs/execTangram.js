@@ -43,8 +43,8 @@ export function execTangram(destination,filename) {
                     logger.log('Error code: ' + error.code);
                     logger.log('Signal received: ' + error.signal);
                 }
-                logger.log('stdout: ' + stdout);
-                logger.log('stderr: ' + stderr);
+                logger.log('\n' + 'Stdout: ' + stdout);
+                logger.log('\n' + 'Stderr: ' + stderr);
             })
             // 监听annoProcess任务的exit事件，如果发生则调用listener
             annoProcess.on('exit', function (code) {
