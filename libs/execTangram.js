@@ -13,15 +13,15 @@ export function execTangram(destination,filename) {
     const command =
         'python3 ' + mapping_py
         + ' --ad_sc ' + ad_sc
-        + '--ad_sp ' + ad_sp
-        + '--use_raw_sc '
-        + '--use_raw_sp '
-        + '--key_deg rank_genes_groups_ct '
-        + '--top_n_marker 100 '
-        + '--device cuda '
-        + '--mode ' + mode
-        + '--cluster_label "cell type"'
-        + '--out ' + out_path
+        + ' --ad_sp ' + ad_sp
+        + ' --use_raw_sc '
+        + ' --use_raw_sp '
+        + ' --key_deg rank_genes_groups_ct '
+        + ' --top_n_marker 100 '
+        + ' --device cuda '
+        + ' --mode ' + mode
+        + ' --cluster_label "cell type" '
+        + ' --out ' + out_path
     // 创建日志数据输入流
     const logfile = fs.createWriteStream('public/results/' + rid + '/log/exec.log',{
         flags:'a', //文件的打开模式
@@ -32,7 +32,7 @@ export function execTangram(destination,filename) {
     // 执行脚本
     if (!fs.existsSync(`./scripts/run_tangram_mapping.py`)) {
         console.log('Sorry, annotation script not found !');
-    } else if(fs.existsSync(ad_sp)) {
+    } else if(!fs.existsSync(ad_sp)) {
         console.log('Sorry, spatial trans data not found !');
     }else {
         try {
