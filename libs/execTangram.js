@@ -1,62 +1,58 @@
 import fs from "fs"
 import child_process from 'child_process';
+import {setReqStatus} from "./api/setReqStatus.js";
 
 export function execTangram(destination,filename) {
+    const rid = filename.split('.')[0]
     const mapping_py = './scripts/run_tangram_mapping.py'
-    const ad_sp = '../datasets/adata_a2p2.telen.m500.log1p.leiden.deg.h5ad';
-    const out_path = destination + '/out/' + filename.split('.')[0] + '.telen.m500.log1p.leiden.deg.h5ad';
-    const command_mode_cells =
-        `python3 ` + mapping_py + `\
-      --ad_sc ` + destination+'/'+filename + `\
-      --ad_sp ` + ad_sp + `\
-      --use_raw_sc \
-      --use_raw_sp \
-      --key_deg rank_genes_groups_ct \
-      --top_n_marker 100 \
-      --device gpu \
-      --mode cells \
-      --cluster_label 'cell type' \
-      --out ` + out_path + `1>log/tangram.a2p2_telen.log 2>&1`;
-    const command_mode_clusters =
-        `python3 ` + mapping_py + `\
-      --ad_sc ` + destination+'/'+filename + `\
-      --ad_sp ` + ad_sp + `\
-      --use_raw_sc \
-      --use_raw_sp \
-      --key_deg rank_genes_groups_ct \
-      --top_n_marker 100 \
-      --device gpu \
-      --mode clusters \
-      --cluster_label 'cell type' \
-      --out ` + out_path + `1>log/tangram.a2p2_telen.clsCt.log 2>&1`;
-
-    if (!fs.existsSync(`./scripts/run_tangram_mapping.py`)||
-        !fs.existsSync(ad_sp)) {
+    const ad_sc = '../test_tangram/adata.addDEG.h5ad';
+    const ad_sp = '../test_tangram/adata_a2p2.telen.m500.log1p.leiden.deg.h5ad';
+    let mode = 'clusters'
+    const out_path = '../test_tangram'
+    //const out_path = destination + '/out/' + filename.split('.')[0] + '.h5ad';
+    const command =
+        'python3 ' + mapping_py
+        + ' --ad_sc ' + ad_sc
+        + '--ad_sp ' + ad_sp
+        + '--use_raw_sc '
+        + '--use_raw_sp '
+        + '--key_deg rank_genes_groups_ct '
+        + '--top_n_marker 100 '
+        + '--device cuda '
+        + '--mode ' + mode
+        + '--cluster_label "cell type"'
+        + '--out ' + out_path
+    // 创建日志数据输入流
+    const logfile = fs.createWriteStream('public/results/' + rid + '/log/exec.log',{
+        flags:'a', //文件的打开模式
+        encoding: 'utf8',
+    });
+    // 创建logger
+    let logger = new console.Console(logfile);
+    // 执行脚本
+    if (!fs.existsSync(`./scripts/run_tangram_mapping.py`)) {
         console.log('Sorry, annotation script not found !');
-    } else {
+    } else if(fs.existsSync(ad_sp)) {
+        console.log('Sorry, spatial trans data not found !');
+    }else {
         try {
-            fs.mkdirSync('public/results/' + filename + '/log', {
-                //是否使用递归创建目录
-                recursive: true
-            })
-            fs.mkdirSync('public/results/' + filename + '/out', {
-                //是否使用递归创建目录
-                recursive: true
-            })
-            let workerProcess = child_process.exec(command_mode_clusters, function (error, stdout, stderr) {
+            let annoProcess = child_process.exec(command, function (error, stdout, stderr) {
                 if (error) {
-                    console.log(error.stack);
-                    console.log('Error code: '+error.code);
-                    console.log('Signal received: '+error.signal);
+                    //将error写入日志
+                    logger.log(error.stack);
+                    logger.log('Error code: ' + error.code);
+                    logger.log('Signal received: ' + error.signal);
                 }
-                console.log('stdout: ' + stdout);
-                console.log('stderr: ' + stderr);
+                logger.log('stdout: ' + stdout);
+                logger.log('stderr: ' + stderr);
             })
-            workerProcess.on('exit', function (code) {
-                console.log("子进程'注释进程'已退出，退出码 "+code);
+            // 监听annoProcess任务的exit事件，如果发生则调用listener
+            annoProcess.on('exit', function (code) {
+                logger.log("child process 'annotation' has exited，exit code: " + code);
+                if (code === 0) setReqStatus(rid, true)
             });
-        }catch (err) {
-            console.log(`Error of reading/writing file from disk or python running: ${err}`)
+        } catch (err) {
+            logger.log(`Error of reading/writing file from disk or python running: ${err}`)
         }
     }
 }
