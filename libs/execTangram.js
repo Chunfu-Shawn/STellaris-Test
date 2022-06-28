@@ -21,7 +21,7 @@ export function execTangram(destination,filename) {
         + ' --device cuda '
         + ' --mode ' + mode
         + ' --cluster_label "cell type" '
-        + ' --out ' + out_path
+        + ' --out ' + out_path + '/admap_clsCt_a2p2.telen.m500.log1p.leiden.deg.h5ad'
     // 创建日志数据输入流
     const logfile = fs.createWriteStream('public/results/' + rid + '/log/exec.log',{
         flags:'a', //文件的打开模式
