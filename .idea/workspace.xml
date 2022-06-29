@@ -5,12 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/errorModule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/api/getDefaultMatrixFile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/resultStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/resultStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VitessceModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VitessceModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/errorModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/errorModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/reqStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/reqStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/resultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/resultModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/resultStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/resultStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/upload-success.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/upload-success.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/waitModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/waitModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/annotations/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotations/results.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/annotations/upload-success.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotations/upload-success.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/execTangram.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execTangram.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/sendEmail.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/sendEmail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/uploadFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadFile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/uploads/filesInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/filesInfo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,9 +42,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/frontend/components/Annotation/waitModule.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/components/VitessceModule.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/components/waitModule.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/annotations/results.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/annotations/upload-success.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/datasets.js" root0="FORCE_HIGHLIGHTING" />
@@ -58,7 +71,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/public",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/public/files",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,18 +83,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/files" />
+      <recent name="$PROJECT_DIR$/libs/api" />
       <recent name="$PROJECT_DIR$/frontend/public" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/frontend/pages" />
-      <recent name="$PROJECT_DIR$/libs/api" />
-      <recent name="$PROJECT_DIR$/public/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/components/Annotation" />
       <recent name="$PROJECT_DIR$/frontend/pages" />
       <recent name="$PROJECT_DIR$/frontend/pages/datasets" />
       <recent name="$PROJECT_DIR$/frontend" />
       <recent name="$PROJECT_DIR$/components/Datasets" />
-      <recent name="$PROJECT_DIR$/components/MainPage" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.server.js">
@@ -118,7 +131,7 @@
       <workItem from="1655990176299" duration="1387000" />
       <workItem from="1656131021062" duration="1004000" />
       <workItem from="1656144471610" duration="18922000" />
-      <workItem from="1656300747670" duration="30192000" />
+      <workItem from="1656300747670" duration="45808000" />
     </task>
     <servers />
   </component>

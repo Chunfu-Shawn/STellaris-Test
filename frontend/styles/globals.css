@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 #topheader {
   text-align: center
 }
@@ -56,9 +58,11 @@ body a:hover{
 .btn-upload{
   background-color: #3c12b6;
   color: white;
+  margin: 0px 5px;
 }
 
-.btn-upload:hover{
+.btn-upload:hover,
+.btn-upload:focus{
   background-color: #220b65;
   color: white;
   transition: background-color 0.5s;
@@ -101,6 +105,7 @@ body a:hover{
 
 .panel-annotation{
   text-align: center;
+  padding: 0px 15vh;
 }
 
 .panel-visual{

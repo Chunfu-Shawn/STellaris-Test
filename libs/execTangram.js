@@ -29,11 +29,15 @@ export function execTangram(destination,filename) {
     });
     // 创建logger
     let logger = new console.Console(logfile);
-    // 执行脚本
-    if (!fs.existsSync(`./scripts/run_tangram_mapping.py`)) {
-        console.log('Sorry, annotation script not found !');
+    // 执行注释脚本
+    if (!fs.existsSync(mapping_py)) {
+        //如果python脚本不存在
+        logger.log('Sorry, annotation script not found !');
+        setReqStatus(rid, "error")
     } else if(!fs.existsSync(ad_sp)) {
-        console.log('Sorry, spatial trans data not found !');
+        //如果空间数据不存在
+        logger.log('Sorry, spatial trans data not found !');
+        setReqStatus(rid, "error")
     }else {
         try {
             let annoProcess = child_process.exec(command, function (error, stdout, stderr) {

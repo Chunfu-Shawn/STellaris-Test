@@ -8,6 +8,7 @@ import {getReqStatus} from "./api/getReqStatus.js"
 import {getHumanMap} from "./api/getHumanMap.js";
 import {handler} from '../server.js'
 import {getMouseMap} from "./api/getMouseMap.js";
+import {getDefaultMatrixFile} from "./api/getDefaultMatrixFile.js";
 
 
 export const Router = router()
@@ -57,6 +58,11 @@ Router.get('/api/getHumanMap', async (ctx) => {
 Router.get('/api/getMouseMap', async (ctx) => {
     // 传出rid为查询值的json数据
     ctx.body = getMouseMap()
+})
+// 设置路由和api进行默认matrix文件访问
+Router.get('/api/getDefaultMatrixFile', async (ctx) => {
+    // 传出默认matrix文件
+    ctx.body = getDefaultMatrixFile()
 })
 
 

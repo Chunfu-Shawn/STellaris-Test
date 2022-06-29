@@ -11,13 +11,14 @@ export default function SearchPage() {
                 <title>{siteTitle + "- Search"}</title>
             </Head>
 
-            <div className="modal-body-stw">
+            <div className="modal-body-stw" style={{height:"90vh"}}>
                 <header className="page-header">
                     <h1>Search</h1>
                 </header>
                 <Search placeholder="input search text" enterButton="Search" onSearch={onSearch}
                         style={{
-                            width: "30%"
+                            width: "50%",
+                            color: '#22075e'
                         }}
                 />
             </div>

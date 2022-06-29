@@ -1,6 +1,6 @@
 import ResultStatus from "./resultStatus.js";
 import {calTime} from "./waitModule.js";
-import VitessceVisual from "./VitessceModule.js";
+import VitessceVisual from "../VitessceModule.js";
 import {Button, Col, Row, Statistic} from "antd";
 
 
@@ -14,7 +14,7 @@ export default function ResultModule(props){
             <div style={{width:"85%"}}>
                 <Row justify="space-around" align="middle">
                     <Col flex={2}>
-                        <ResultStatus data={props.data}
+                        <ResultStatus data={props.data} style={{width: "60vh",margin: "0px 120px auto"}}
                            usedTime={calTime(props.data.finishtime,props.data.uploadtime)}
                         />
                     </Col>

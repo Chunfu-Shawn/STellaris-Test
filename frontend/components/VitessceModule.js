@@ -8,7 +8,7 @@ export default function VitessceVisualization(props) {
     const height = 800
     const LoadingModule = function (){
         return(
-            <div style={{paddingTop:"50px",color:"white"}} ><h5>Loading...</h5></div>
+            <div style={{paddingTop:"50px"}} ><h5 style={{color:"white",fontSize:"20px"}}>Loading...</h5></div>
         )
     }
     return (

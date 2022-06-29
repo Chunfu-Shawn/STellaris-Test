@@ -1,6 +1,6 @@
 export default function ResultStatus(props){
     return(
-            <div className="panel panel-default" style={{width: "60vh",margin: "0px 120px auto"}}>
+            <div className="panel panel-default" style={props.style}>
                 <div className="panel-heading"><b>Job Title: {props.data.title}</b></div>
                 <table className="table">
                     <tbody>

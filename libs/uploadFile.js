@@ -4,7 +4,7 @@ import multer from '@koa/multer'
 export function uploadFile() {
     const limits = {
         fields: 10,//非文件字段的数量
-        fileSize: 500* 1024 * 1024,//文件大小 单位 Byte
+        fileSize: 100* 1024 * 1024,//文件大小 单位 Byte
         files: 1//文件数量
     }
     const file_destination = 'public/uploads/' + new Date().getFullYear() + (new Date().getMonth() + 1) + new Date().getDate()

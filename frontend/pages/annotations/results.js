@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Layout from '../../components/layout.js'
-import WaitModule from "../../components/waitModule.js";
+import WaitModule from "../../components/Annotation/waitModule.js";
 import Error from 'next/error'
 import {getReqStatus} from "../../../libs/api/getReqStatus.js";
 import useSWR from "swr";
-import ResultModule from "../../components/resultModule.js";
+import ResultModule from "../../components/Annotation/resultModule.js";
 import Image from "next/image";
-import ErrorModule from "../../components/errorModule.js";
+import ErrorModule from "../../components/Annotation/errorModule.js";
 
 export async function getServerSideProps(context) {
     return {

@@ -11,7 +11,7 @@ export default function ErrorModule(props){
                 <h1>Annotation Result: </h1>
             </div>
             <h1>ERROR!</h1>
-            <ResultStatus data={props.data}
+            <ResultStatus data={props.data} style={{width: "60vh"}}
                           usedTime={calTime(props.data.finishtime,props.data.uploadtime)}>
             </ResultStatus>
         </div>
