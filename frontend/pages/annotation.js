@@ -6,6 +6,8 @@ import { UploadOutlined } from '@ant-design/icons';
 import {Button, Form, Input, message, Upload} from 'antd';
 
 /* eslint-disable no-template-curly-in-string */
+const SERVER_URL = ''
+const UPLOAD_URL = `${SERVER_URL}/annotations/upload`
 
 const validateMessages = {
     required: '${label} is required!',
@@ -133,7 +135,7 @@ export default function Annotation() {
                                        },
                                    ]}
                         >
-                            <Upload {...props} maxCount={1}>
+                            <Upload {...props} maxCount={1} action={UPLOAD_URL}>
                                 <Button icon={<UploadOutlined />}>Upload a matrix file</Button>
                                 <small style={{color:"gray"}}> (only a .gz format matrix file)</small>
                             </Upload>

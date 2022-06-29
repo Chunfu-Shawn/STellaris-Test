@@ -15,7 +15,7 @@ export const Router = router()
 // 设置路由，与next.js的路由进行映射
 
 // 上传文件的路由
-Router.post('/annotations/upload', uploadFile().single('matrix'), async (ctx) => {
+Router.post('/annotations/upload', uploadFile().single('MatrixFile'), async (ctx) => {
     //上传时间
     let uploadtime = new Date()
     uploadRecord(ctx, uploadtime.toISOString())
