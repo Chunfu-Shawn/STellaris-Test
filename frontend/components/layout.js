@@ -42,7 +42,6 @@ export default function Layout({ children }) {
             </BackTop>
             {children}
             <Footer></Footer>
-
         </>
     )
 }

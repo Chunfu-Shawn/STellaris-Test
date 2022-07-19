@@ -8,7 +8,7 @@ export function getReqStatus(rid) {
             ReqStatus.rid =  key
             ReqStatus.uploadtime = filesInfo[key].uploadtime
             ReqStatus.finishtime = filesInfo[key].finishtime
-            ReqStatus.title = filesInfo[key].jobtitle
+            ReqStatus.title = filesInfo[key].title
             ReqStatus.email = filesInfo[key].email
             ReqStatus.status = filesInfo[key].status
             return ReqStatus

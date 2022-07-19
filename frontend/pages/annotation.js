@@ -4,10 +4,11 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from "next/router";
 import { UploadOutlined } from '@ant-design/icons';
 import {Button, Form, Input, message, Upload} from 'antd';
+import {useState} from "react";
 
 /* eslint-disable no-template-curly-in-string */
-const SERVER_URL = ''
-const UPLOAD_URL = `${SERVER_URL}/annotations/upload`
+const SERVER_URL = 'http://localhost:3000'
+const UPLOAD_URL = `${SERVER_URL}/annotations/upload/`
 
 const validateMessages = {
     required: '${label} is required!',
@@ -24,42 +25,88 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-const props = {
-    name: 'matrix',
-    required: true,
-    beforeUpload: (file) => {
-        const limitM = 100 //MB
-        const isMatrix = file.type === 'application/x-gzip';
-        const isLimit = file.size / 1024 / 1024 <= limitM;
-        if (!isMatrix) {
-            alert(`File: ${file.name} is not a compressed matrix file`);
-        }
-        if (!isLimit) {
-            alert(`File: ${file.name} exceeds the limit`);
-        }
-        return (isMatrix && isLimit) || Upload.LIST_IGNORE;
-    },
-    onChange: (info) => {
-        if (info.file.status !== 'uploading') {
-            console.log(info.file, info.fileList);
-        }
-        if (info.file.status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully`);
-        } else if (info.file.status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-        }
-    },
-    progress: {
-        strokeColor: {
-            '0%': '#a08cd0',
-            '100%': '#22075e',
-        },
-        strokeWidth: 3,
-        format: percent => percent && `${parseFloat(percent.toFixed(2))}%`,
-    },
-};
-
 export default function Annotation() {
+    const [fileList, setFileList] = useState([]);
+    const [uploading, setUploading] = useState(false);
+    const props = {
+        name: 'matrixFile',
+        required: true,
+        beforeUpload: (file) => {
+            setFileList([...fileList, file]);
+            const limitM = 100 //MB
+            const isMatrix = file.type === 'application/x-gzip';
+            const isLimit = file.size / 1024 / 1024 <= limitM;
+            if (!isMatrix) {
+                setFileList([])
+                message.error({
+                    content:`File: ${file.name} is not a compressed matrix file`,
+                    style:{
+                        marginTop: '12vh',
+                    },
+                    duration:3,
+                });
+            }
+            if (!isLimit) {
+                setFileList([])
+                message.error({
+                    content:`File: ${file.name} exceeds the limit`,
+                    style:{
+                        marginTop: '12vh',
+                    },
+                    duration:3,
+                });
+            }
+            return false
+        },
+        onRemove: (file) => {
+            const index = fileList.indexOf(file);
+            const newFileList = fileList.slice();
+            newFileList.splice(index, 1);
+            setFileList(newFileList);
+        },
+        progress: {
+            strokeColor: {
+                '0%': '#a08cd0',
+                '100%': '#22075e',
+            },
+            strokeWidth: 3,
+            format: percent => percent && `${parseFloat(percent.toFixed(2))}%`,
+        },
+        fileList:fileList.slice(-1),//保留最后一个文件
+    };
+
+    const handleUpload = () => {
+        const formData = new FormData();
+        fileList.forEach((file) => {
+            formData.append('matrixFile', file);
+        });
+        formData.append('title',form.getFieldValue('title'))
+        formData.append('emailAddress',form.getFieldValue('emailAddress'))
+        setUploading(true); // You can use any AJAX library you like
+
+        fetch(UPLOAD_URL, {
+            method: 'POST',
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then(() => {
+                setFileList([]);
+                message.success('upload successfully.');
+            })
+            .catch(() => {
+                message.error({
+                    content:'upload failed.',
+                    style:{
+                        marginTop: '12vh',
+                    },
+                    duration:3,
+                }
+                );
+            })
+            .finally(() => {
+                setUploading(false);
+            });
+    };
     const [form] = Form.useForm();
     const layout = {
         labelCol: {
@@ -77,9 +124,9 @@ export default function Annotation() {
     };
     const onReset = () => {
         form.resetFields();
+        setFileList([]);
     };
     const onFinish = (values) => {
-
         console.log(values);
     };
     const onFill = () => {
@@ -89,12 +136,23 @@ export default function Annotation() {
         console.log(matrixFile)
          */
         form.setFieldsValue({
-            JobTitle: 'Hello world!',
+            title: 'An important job!',
             /*
             MatrixFile: matrixFile,
              */
-            EmailAddress: 'xiaochunfu@126.com',
+            emailAddress: 'someone@mail.com',
         });
+        if(fileList!==[])
+            setFileList([
+            {
+                uid: '1',
+                name: 'default_scRNA-seq_matrix.txt.gz',
+                status: 'done',
+                response: 'Server Error 500',
+                // custom error message to show
+                url: 'http://localhost:3000/api/default_scRNA-seq_matrix.txt.gz',
+            },
+        ]);
     };
 
     return (
@@ -107,8 +165,8 @@ export default function Annotation() {
                     <h1>Spatial Annotation</h1>
                 </div>
                 <div className="panel panel-primary panel-annotation">
-                    <Form {...layout} form={form} name="control-hooks" onFinish={onFinish} validateMessages={validateMessages}>
-                        <Form.Item name="JobTitle" label="Job Title"
+                    <Form {...layout} form={form} name="control-hooks" validateMessages={validateMessages}>
+                        <Form.Item name="title" label="Job Title"
                             rules={[
                                 {
                                     required: true,
@@ -116,9 +174,9 @@ export default function Annotation() {
                                 },
                             ]}
                         >
-                            <Input placeholder='Enter job name' />
+                            <Input placeholder='Enter job name'/>
                         </Form.Item>
-                        <Form.Item name="EmailAddress" label="Email Address"
+                        <Form.Item name="emailAddress" label="Email Address"
                             rules={[
                                 {
                                     required: true,
@@ -128,20 +186,23 @@ export default function Annotation() {
                         >
                             <Input placeholder='Enter your email address' />
                         </Form.Item>
-                        <Form.Item name="MatrixFile" label="Matrix File"
+                        <Form.Item name="matrixFile" label="Matrix File"
                                    rules={[
                                        {
                                            required: true,
                                        },
                                    ]}
                         >
-                            <Upload {...props} maxCount={1} action={UPLOAD_URL}>
-                                <Button icon={<UploadOutlined />}>Upload a matrix file</Button>
+                            <Upload {...props} maxCount={1}>
+                                <Button icon={<UploadOutlined />}>Select a matrix file</Button>
                                 <small style={{color:"gray"}}> (only a .gz format matrix file)</small>
                             </Upload>
                         </Form.Item>
                         <Form.Item {...tailLayout}>
-                            <Button type="primary" htmlType="submit" className={"btn-upload"}>Upload</Button>
+                            <Button type="primary" onClick={handleUpload} disabled={fileList.length === 0}
+                                    loading={uploading} className={"btn-upload"}>
+                                {uploading ? 'Uploading' : 'Start Upload'}
+                            </Button>
                             <Button type="ghost" htmlType="button" onClick={onReset}>
                                 Reset
                             </Button>

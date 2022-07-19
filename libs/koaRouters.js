@@ -15,7 +15,7 @@ export const Router = router()
 // 设置路由，与next.js的路由进行映射
 
 // 上传文件的路由
-Router.post('/annotations/upload', uploadFile().single('MatrixFile'), async (ctx) => {
+Router.post('/annotations/upload', uploadFile().single('matrixFile'), async (ctx) => {
     //上传时间
     let uploadtime = new Date()
     uploadRecord(ctx, uploadtime.toISOString())
@@ -25,10 +25,11 @@ Router.post('/annotations/upload', uploadFile().single('MatrixFile'), async (ctx
         query: getReqStatus(ctx.request.file.filename.split('.')[0])
     })
     //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
-    await sendMail(ctx.request.body.email, ctx.request.file.filename.split('.')[0], console.log)
+    await sendMail(ctx.request.body.emailAddress, ctx.request.file.filename.split('.')[0], console.log)
     // 运行Tangram, 传入Koa的context包装的request对象，和response对象
     await execTangram(ctx.request.file.destination, ctx.request.file.filename);
 })
+Router.post('/annotations/start')
 // 查询结果的路由
 Router.get('/annotations/results/:rid', async (ctx) => {
     let rid = ctx.params.rid

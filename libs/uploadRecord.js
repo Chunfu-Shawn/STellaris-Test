@@ -8,8 +8,8 @@ export function uploadRecord(ctx, uploadtime) {
         fileInfo.resultpath = 'public/results/' + ctx.request.file.filename
         fileInfo.uploadtime = uploadtime
         fileInfo.finishtime = ""
-        fileInfo.jobtitle = ctx.request.body.title
-        fileInfo.email = ctx.request.body.email
+        fileInfo.title = ctx.request.body.title
+        fileInfo.email = ctx.request.body.emailAddress
         fileInfo.status = 'running'
         // 读取json文件，转为JSON对象
         let filesInfo = JSON.parse(fs.readFileSync('public/uploads/filesInfo.json', 'utf8'))
