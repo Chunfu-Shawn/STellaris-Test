@@ -31,6 +31,7 @@ export default function WaitModule(props){
             <div className="page-header">
                 <h1>Request Status</h1>
             </div>
+            <h3>File submitted successfully!</h3>
             <ReqStatus data={props.data}
                        usedTime={usedTime}
             />

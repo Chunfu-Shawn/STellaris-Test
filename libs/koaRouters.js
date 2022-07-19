@@ -18,18 +18,19 @@ export const Router = router()
 Router.post('/annotations/upload', uploadFile().single('matrixFile'), async (ctx) => {
     //上传时间
     let uploadtime = new Date()
-    uploadRecord(ctx, uploadtime.toISOString())
+    let rid = uploadRecord(ctx, uploadtime.toISOString())
     // 调用nextjs单独渲染一个页面，使用nextjs 的handler函数 携带参数跳转
-    await handler(ctx.req, ctx.res, {
+    /*await handler(ctx.req, ctx.res, {
         pathname: "/annotations/upload-success",
-        query: getReqStatus(ctx.request.file.filename.split('.')[0])
+        query: getReqStatus(rid)
     })
+    ctx.response = false*/
+    ctx.body = {rid: rid}
     //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
-    await sendMail(ctx.request.body.emailAddress, ctx.request.file.filename.split('.')[0], console.log)
+    await sendMail(ctx.request.body.emailAddress, rid, console.log)
     // 运行Tangram, 传入Koa的context包装的request对象，和response对象
     await execTangram(ctx.request.file.destination, ctx.request.file.filename);
 })
-Router.post('/annotations/start')
 // 查询结果的路由
 Router.get('/annotations/results/:rid', async (ctx) => {
     let rid = ctx.params.rid

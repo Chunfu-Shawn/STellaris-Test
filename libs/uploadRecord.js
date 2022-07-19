@@ -43,6 +43,7 @@ export function uploadRecord(ctx, uploadtime) {
             JSON.stringify(ctx.request) + '\n',
             {flag: "a+"}
         );
+        return rid
     }catch (err) {
         console.log(`Error reading or writing file info from disk: ${err}`);
     }

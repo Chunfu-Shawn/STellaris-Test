@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout.js'
-import { useForm } from 'react-hook-form';
 import { useRouter } from "next/router";
 import { UploadOutlined } from '@ant-design/icons';
 import {Button, Form, Input, message, Upload} from 'antd';
@@ -28,6 +27,7 @@ const validateMessages = {
 export default function Annotation() {
     const [fileList, setFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
+    const router = useRouter()
     const props = {
         name: 'matrixFile',
         required: true,
@@ -74,8 +74,9 @@ export default function Annotation() {
         },
         fileList:fileList.slice(-1),//保留最后一个文件
     };
-
+    // 手动上传表单
     const handleUpload = () => {
+        let rid = ""
         const formData = new FormData();
         fileList.forEach((file) => {
             formData.append('matrixFile', file);
@@ -83,15 +84,19 @@ export default function Annotation() {
         formData.append('title',form.getFieldValue('title'))
         formData.append('emailAddress',form.getFieldValue('emailAddress'))
         setUploading(true); // You can use any AJAX library you like
-
         fetch(UPLOAD_URL, {
             method: 'POST',
             body: formData,
-        })
-            .then((res) => res.json())
+        }).then(response => response.json())
+            .then(json => rid = json.rid)
             .then(() => {
                 setFileList([]);
-                message.success('upload successfully.');
+                message.success({
+                    content:'upload successfully!',
+                    style:{
+                        marginTop: '12vh',
+                    },
+                });
             })
             .catch(() => {
                 message.error({
@@ -105,6 +110,8 @@ export default function Annotation() {
             })
             .finally(() => {
                 setUploading(false);
+                //nextjs路由跳转到结果页面
+                router.push('http://localhost:3000/annotations/results/'+rid)
             });
     };
     const [form] = Form.useForm();
@@ -130,11 +137,6 @@ export default function Annotation() {
         console.log(values);
     };
     const onFill = () => {
-        /*
-        const response =  fetch('/api/getDefaultMatrixFile');
-        let matrixFile = response.arrayBuffer();
-        console.log(matrixFile)
-         */
         form.setFieldsValue({
             title: 'An important job!',
             /*
