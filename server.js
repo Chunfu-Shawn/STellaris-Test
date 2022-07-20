@@ -5,7 +5,9 @@ import bodyParser from 'koa-bodyparser'
 import {Router} from './libs/koaRouters.js'
 // session 有关模块
 import session from 'koa-session'
-import {accesslogger, uploadlogger} from "./libs/logSave.js"
+import {accessLogger,uploadLogger} from "./libs/logSave.js"
+import fs from "fs";
+import morgan from "koa-morgan";
 
 // Determine whether it is a production environment
 const dev = process.env.NODE_ENV !== 'production'
@@ -21,18 +23,8 @@ export const handler = app.getRequestHandler()
 app.prepare().then(() => {
     // create an object to present web server
     const server = new Koa()
-    // use Koa router
 
-    server.use(Router.routes()).use(Router.allowedMethods())
-    // for NextJs router 在koa路由中未定义的，将交给nextjs路由继续处理
-    server.use(async (ctx) => {
-        // 传入Node原生的req对象，和res对象，因为Nextjs框架需要兼容许多基于Node封装的web框架
-        // 让nextjs全局处理其他页面的http访问
-        await handler(ctx.req, ctx.res)
-        // 屏蔽koa中对response的内置处理，让nextjs来接手
-        ctx.response = false
-    })
-
+    // set session
     server.keys = ['spatial-trans-web'];
     const CONFIG = {
         key: 'spatial-trans-web:sess',   //cookie key (default is koa:sess)
@@ -46,9 +38,20 @@ app.prepare().then(() => {
     };
     server.use(session(CONFIG, server));
 
-    // log request URL and execution time:
-    server.use(accesslogger);
-    server.use(uploadlogger);
+    //设置koa日志访问记录
+    //注意，需要放在nextjs路由前面，避免http请求被nextjs接受导致不能在后端进行记录
+    server.use(accessLogger).use(uploadLogger);
+
+    // use Koa router
+    server.use(Router.routes()).use(Router.allowedMethods())
+    // for NextJs router 在koa路由中未定义的，将交给nextjs路由继续处理
+    server.use(async (ctx) => {
+        // 传入Node原生的req对象，和res对象，因为Nextjs框架需要兼容许多基于Node封装的web框架
+        // 让nextjs全局处理其他页面的http访问
+        await handler(ctx.req, ctx.res)
+        // 屏蔽koa中对response的内置处理，让nextjs来接手
+        ctx.response = false
+    })
 
     // add post body parser
     server.use(bodyParser());

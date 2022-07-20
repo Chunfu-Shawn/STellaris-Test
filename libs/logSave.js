@@ -1,23 +1,31 @@
 import morgan from 'koa-morgan'
-import fs from "fs"
+import rfs from "rotating-file-stream" // version 2.x
 
-/*fs.mkdirSync('public/results/' + ctx.request.file.filename, {
-    //是否使用递归创建目录
-    recursive: true
+//add 0 before month
+const pad = num => (num > 9 ? "" : "0") + num;
+//generate the file path depended on date
+const generator = () => {
+    let time = new Date();
+    let month = time.getFullYear() + "" + pad(time.getMonth() + 1);
+    let day = pad(time.getDate());
+
+    return `${month}/${month}${day}-`;
+};
+
+const accessLogStream = rfs.createStream(generator()+'access.log', {
+    interval: '1d', // rotate daily
+    path: 'logs/'
 })
-*/
+const uploadLogStream = rfs.createStream(generator()+'post.log', {
+    interval: '1d', // rotate daily
+    path: 'logs/'
+})
 
-const accessLogStream = fs.createWriteStream('logs/'+ new Date().getFullYear() + (new Date().getMonth() + 1) + new Date().getDate()
-    +'_access.log',
-    { flags: 'a' })
-const uploadLogStream = fs.createWriteStream('logs/'+ new Date().getFullYear() + (new Date().getMonth() + 1) + new Date().getDate()
-    +'_post.log',
-    { flags: 'a' })
 
-export const accesslogger = morgan('combined',{
+export const accessLogger = morgan('combined',{
     stream: accessLogStream,
-    skip: function (ctx) { return ctx.url.startsWith("/static/") }})
+    skip: function (ctx) { return ctx.url.search("/_next/static/")!==-1 }})
 
-export const uploadlogger = morgan('combined', {
+export const uploadLogger = morgan('combined', {
     stream: uploadLogStream,
     skip: function (ctx) { return ctx.method !== "POST"}})

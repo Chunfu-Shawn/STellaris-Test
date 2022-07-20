@@ -40,8 +40,7 @@ export function sendMail(mail, url, call) {
     }
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            call(false)
-            console.log(error.message);
+            call("Message sent successfully.",error.message);
             return
         } else {
             call("Message sent successfully.",mail,url) //因为是异步 所以需要回调函数通知成功结果

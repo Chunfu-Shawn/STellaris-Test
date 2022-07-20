@@ -167,7 +167,7 @@ export default function Annotation() {
                     <h1>Spatial Annotation</h1>
                 </div>
                 <div className="panel panel-primary panel-annotation">
-                    <Form {...layout} form={form} name="control-hooks" validateMessages={validateMessages}>
+                    <Form {...layout} form={form} onFinish={handleUpload} name="control-hooks" validateMessages={validateMessages}>
                         <Form.Item name="title" label="Job Title"
                             rules={[
                                 {
@@ -201,7 +201,7 @@ export default function Annotation() {
                             </Upload>
                         </Form.Item>
                         <Form.Item {...tailLayout}>
-                            <Button type="primary" onClick={handleUpload} disabled={fileList.length === 0}
+                            <Button type="primary" htmlType="submit" disabled={fileList.length === 0}
                                     loading={uploading} className={"btn-upload"}>
                                 {uploading ? 'Uploading' : 'Start Upload'}
                             </Button>
