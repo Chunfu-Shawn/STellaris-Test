@@ -5,7 +5,7 @@ import DataTable from "../../components/Datasets/DataTable";
 const title = "STW - Datasets Archive"
 
 export default function AllArchive() {
-
+    const checkboxStyle={fontWeight:'normal'}
     return (
         <Layout>
             <Head>
@@ -15,7 +15,7 @@ export default function AllArchive() {
                 <div className="page-header">
                     <h1>Spatial Transcritome Datasets </h1>
                 </div>
-                <DataTable></DataTable>
+                <DataTable checkboxStyle={checkboxStyle}></DataTable>
             </div>
         </Layout>
     )
