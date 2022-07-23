@@ -49,7 +49,7 @@ export default function Annotation() {
             if (!isLimit) {
                 setFileList([])
                 message.error({
-                    content:`File: ${file.name} exceeds the limit`,
+                    content:`File: ${file.name} exceeds the limit: 100 MB`,
                     style:{
                         marginTop: '12vh',
                     },
@@ -133,9 +133,6 @@ export default function Annotation() {
         form.resetFields();
         setFileList([]);
     };
-    const onFinish = (values) => {
-        console.log(values);
-    };
     const onFill = () => {
         form.setFieldsValue({
             title: 'An important job!',
@@ -148,11 +145,11 @@ export default function Annotation() {
             setFileList([
             {
                 uid: '1',
-                name: 'default_scRNA-seq_matrix.txt.gz',
+                name: 'default_scRNA-seq_matrix.mtx.gz',
                 status: 'done',
                 response: 'Server Error 500',
                 // custom error message to show
-                url: 'http://localhost:3000/api/default_scRNA-seq_matrix.txt.gz',
+                url: 'http://localhost:3000/api/getDefaultMatrixFile',
             },
         ]);
     };

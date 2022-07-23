@@ -1,24 +1,27 @@
 import {Button, Layout, Space, Table, Collapse, Checkbox, Col, Row, Input} from 'antd';
 const { Search } = Input;
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState,useEffect} from 'react';
 import Link from "next/link";
-import {data} from './GetData.js';
-import {SearchOutlined} from "@ant-design/icons";
-import Highlighter from 'react-highlight-words';
+import {getDatasetsJSON} from './GetData.js';
 
 const { Panel } = Collapse;
 const {Content,Sider} = Layout;
-const dataTypesOptions = ['Stereo-seq', 'Slide-seq', 'Visium', 'ST', 'MERFISH'];
-const speciesOptions = ['Mouse', 'Human'];
-const organsOptions = ['Brain', 'Kidney','Liver','Stomach','Colon'];
+const methodsOptions = ['stereo-seq', 'slide-seq', 'Visium', 'ST', 'MERFISH','DBiT-seq','Seq-Scope','RNAscope','sci-Space',
+    'Space-TREX','STRS','seqFISH','seqFISH+','HCR-seqFISH','osmFISH','EASI-FISH','HybISS'];
+const speciesOptions = ['Mus musculus', 'Homo sapiens'];
+const organsOptions = ['brain','testis', 'Kidney','Liver','Stomach','Colon','spinal_cord'];
+const pathologicalOptions = ['TRUE','FALSE'];
 
 export default function DataTable(props) {
-    const [filteredInfo, setFilteredInfo] = useState({});
+    const [data, setData] = useState([]);
+    const [filteredInfo, setFilteredInfo] = useState({method:[],species:[],organ:[],pathological:[]});
     const [sortedInfo, setSortedInfo] = useState({});
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-    const [checkedList, setCheckedList] = useState({data_types:[],species:[],organs:[]});
     const [loading, setLoading] = useState(false);
     const [dataSearched, setDataSearched] = useState(null);
+    useEffect(()=> {
+            getDatasetsJSON(setData).catch(e => console.log(e))
+        },[data])
     // column sort
     const handleChange = (pagination,filter,sorter) => {
         console.log('Various parameters', pagination, filter, sorter);
@@ -26,7 +29,6 @@ export default function DataTable(props) {
     };
     // bottom
     const clearFilters = () => {
-        setCheckedList([]);
         setFilteredInfo({});
     };
 
@@ -54,20 +56,18 @@ export default function DataTable(props) {
             //...getColumnSearchProps('st_id')
         },
         {
-            title: 'Data Types',
-            dataIndex: 'data_types',
-            key: 'data_types',
-            width: '15%',
-            filteredValue: filteredInfo.data_types || null,
-            onFilter: (value, record) => record.data_types.includes(value),
-            sorter: (a, b) => a.data_types < b.data_types,
-            sortOrder: sortedInfo.columnKey === 'data_types' ? sortedInfo.order : null,
+            title: 'Method',
+            dataIndex: 'method',
+            key: 'method',
+            filteredValue: filteredInfo.method || null,
+            onFilter: (value, record) => record.method.includes(value),
+            sorter: (a, b) => a.method < b.method,
+            sortOrder: sortedInfo.columnKey === 'method' ? sortedInfo.order : null,
         },
         {
             title: 'Species',
             dataIndex: 'species',
             key: 'species',
-            width: '15%',
             filteredValue: filteredInfo.species || null,
             onFilter: (value, record) => record.species.includes(value),
             sorter: (a, b) => a.species < b.species,
@@ -75,39 +75,74 @@ export default function DataTable(props) {
             ellipsis: true,
         },
         {
-            title: 'Organs',
-            dataIndex: 'organs',
-            key: 'organs',
-            width: '15%',
-            filteredValue: filteredInfo.organs || null,
-            onFilter: (value, record) => record.organs.includes(value),
-            sorter: (a, b) => a.organs < b.organs,
-            sortOrder: sortedInfo.columnKey === 'organs' ? sortedInfo.order : null,
+            title: 'Strain',
+            dataIndex: 'strain',
+            key: 'strain',
+            filteredValue: filteredInfo.strain || null,
+            onFilter: (value, record) => record.strain.includes(value),
+            sorter: (a, b) => a.strain < b.strain,
+            sortOrder: sortedInfo.columnKey === 'strain' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: 'Organ',
+            dataIndex: 'organ',
+            key: 'organ',
+            filteredValue: filteredInfo.organ || null,
+            onFilter: (value, record) => record.organ.includes(value),
+            sorter: (a, b) => a.organ < b.organ,
+            sortOrder: sortedInfo.columnKey === 'organ' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: 'Tissue',
+            dataIndex: 'tissue',
+            key: 'tissue',
+            filteredValue: filteredInfo.tissue || null,
+            onFilter: (value, record) => record.tissue.includes(value),
+            sorter: (a, b) => a.tissue < b.tissue,
+            sortOrder: sortedInfo.columnKey === 'tissue' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: 'Pathological',
+            dataIndex: 'pathological',
+            key: 'pathological',
+            filteredValue: filteredInfo.pathological || null,
+            onFilter: (value, record) => record.pathological.includes(value),
+            ellipsis: true,
+        },
+        {
+            title: 'Date Published',
+            dataIndex: 'date_published',
+            key: 'date_published',
+            filteredValue: filteredInfo.date_published || null,
+            onFilter: (value, record) => record.date_published.includes(value),
+            sorter: (a, b) => a.date_published < b.date_published,
+            sortOrder: sortedInfo.columnKey === 'date_published' ? sortedInfo.order : null,
             ellipsis: true,
         },
     ];
 
     // checkbox filter
     const filterChangeDataType = (checkedValues) => {
-        //将checkedList中的属性data_type替换成checkedValues
-        let list = {data_types:checkedValues,species:checkedList.species,organs:checkedList.organs}
-        setCheckedList(list);
-        //将filteredInfo中的属性data_type替换成checkedValues
-        let filters = {data_types:checkedValues,species:filteredInfo.species,organs:filteredInfo.organs}
+        //将filteredInfo中的属性method替换成checkedValues
+        let filters = {method:checkedValues,species:filteredInfo.species,organ:filteredInfo.organ,pathological:filteredInfo.pathological}
         console.log('Various parameters', filters);
         setFilteredInfo(filters);
     };
     const filterChangeSpecies = (checkedValues) => {
-        let list = {data_types:checkedList.data_types,species:checkedValues,organs:checkedList.organs}
-        setCheckedList(list);
-        let filters = {data_types:filteredInfo.data_types,species:checkedValues,organs:filteredInfo.organs}
+        let filters = {method:filteredInfo.method,species:checkedValues,organ:filteredInfo.organ,pathological:filteredInfo.pathological}
         console.log('Various parameters', filters);
         setFilteredInfo(filters);
     };
-    const filterChangeOrgans = (checkedValues) => {
-        let list = {data_types:checkedList.data_types,species:checkedList.species,organs:checkedValues}
-        setCheckedList(list);
-        let filters = {data_types:filteredInfo.data_types,species:filteredInfo.species,organs:checkedValues}
+    const filterChangeOrgan = (checkedValues) => {
+        let filters = {method:filteredInfo.method,species:filteredInfo.species,organ:checkedValues,pathological:filteredInfo.pathological}
+        console.log('Various parameters', filters);
+        setFilteredInfo(filters);
+    };
+    const filterChangePathological = (checkedValues) => {
+        let filters = {method:filteredInfo.method,species:filteredInfo.species,organ:filteredInfo.organ,pathological:checkedValues}
         console.log('Various parameters', filters);
         setFilteredInfo(filters);
     };
@@ -139,9 +174,9 @@ export default function DataTable(props) {
         for (let i in data){
             if(
                 data[i].st_id.toString().toLowerCase().includes(value.toLowerCase())||
-                data[i].data_types.toString().toLowerCase().includes(value.toLowerCase())||
+                data[i].method.toString().toLowerCase().includes(value.toLowerCase())||
                 data[i].species.toString().toLowerCase().includes(value.toLowerCase())||
-                data[i].organs.toString().toLowerCase().includes(value.toLowerCase())
+                data[i].organ.toString().toLowerCase().includes(value.toLowerCase())
             )
             {
                 dataSearched.push(data[i])
@@ -157,21 +192,21 @@ export default function DataTable(props) {
 
     return (
         <Layout style={{backgroundColor:'white'}}>
-            <Space>
+            <Space align="start">
                 <Sider style={{backgroundColor:'white'}}>
                     <Collapse bordered={false} defaultActiveKey={['1']}>
-                        <Panel header="Data Types" key="1" style={{fontSize: '18px'}}>
+                        <Panel header="Methods" key="1" style={{fontSize: '18px'}}>
                             <Checkbox.Group
                                 style={{
                                     width: '100%',
                                 }}
                                 onChange={filterChangeDataType}
-                                //读取checkedList中选择的值
-                                value={checkedList.data_types}
+                                //读取filteredInfo中选择的值
+                                value={filteredInfo.method}
                             >
-                                {dataTypesOptions.map( (data_type)=>
-                                    <Row key={data_type} justify="start">
-                                        <Checkbox value={data_type} style={props.checkboxStyle}>{data_type}</Checkbox>
+                                {methodsOptions.map( (method)=>
+                                    <Row key={method} justify="start">
+                                        <Checkbox value={method} style={props.checkboxStyle}>{method}</Checkbox>
                                     </Row>
                                 )}
                             </Checkbox.Group>
@@ -182,7 +217,7 @@ export default function DataTable(props) {
                                     width: '100%',
                                 }}
                                 onChange={filterChangeSpecies}
-                                value={checkedList.species}
+                                value={filteredInfo.species}
                             >
                                 {speciesOptions.map( (species)=>
                                     <Row key={species} justify="start">
@@ -196,12 +231,27 @@ export default function DataTable(props) {
                                 style={{
                                     width: '100%',
                                 }}
-                                onChange={filterChangeOrgans}
-                                value={checkedList.organs}
+                                onChange={filterChangeOrgan}
+                                value={filteredInfo.organ}
                             >
                                 {organsOptions.map( (organ)=>
                                     <Row key={organ} justify="start">
                                         <Checkbox value={organ} style={props.checkboxStyle}>{organ}</Checkbox>
+                                    </Row>
+                                )}
+                            </Checkbox.Group>
+                        </Panel>
+                        <Panel header="Pathological" key="4" style={{fontSize: '18px'}}>
+                            <Checkbox.Group
+                                style={{
+                                    width: '100%',
+                                }}
+                                onChange={filterChangePathological}
+                                value={filteredInfo.pathological}
+                            >
+                                {pathologicalOptions.map( (pathological)=>
+                                    <Row key={pathological} justify="start">
+                                        <Checkbox value={pathological} style={props.checkboxStyle}>{pathological}</Checkbox>
                                     </Row>
                                 )}
                             </Checkbox.Group>
@@ -217,7 +267,7 @@ export default function DataTable(props) {
                             onBlur={onSearchClick}
                             size={'large'}
                             style={{
-                                width: '68vh',
+                                width: '65vh',
                             }}
                         />
                         <Button onClick={setIDSort}>Sort ST ID</Button>

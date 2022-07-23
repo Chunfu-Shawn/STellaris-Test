@@ -3,12 +3,13 @@ set_fs(fs);
 import * as fs from "fs";
 /* load 'fs' for readFile and writeFile support */
 
-let XLSX = readFile('../../public/files/data_downloaded.xlsx',{
+let XLSX = readFile('public/files/data_downloaded.xlsx',
+    {
         type: 'binary',
         cellDates: true,       //new Date()格式-->Tue May 18 2021 14:16:52 GMT+0800 (中国标准时间)
         cellText: false       //不生成w
-}
-);
+    }
+    );
 
 // workbook是这个包读取xlsx文件后的数据，i是sheet页数
 const parseSheetData = (workbook,i) => {
@@ -22,7 +23,14 @@ const parseSheetData = (workbook,i) => {
     }
     return []
 }
-const humanNGS = parseSheetData(XLSX,0)
-const mouseNGS = parseSheetData(XLSX,1)
-const mouseSmFISH = parseSheetData(XLSX,2)
-console.log([humanNGS,mouseNGS,mouseSmFISH])
+
+export default function getDatesetsJSON(i){
+    if(i!==undefined){
+        return parseSheetData(XLSX,i)
+    }else {
+        const all = parseSheetData(XLSX, 0)
+        all.push.apply(all,parseSheetData(XLSX, 1))
+        all.push.apply(all,parseSheetData(XLSX, 2))
+        return all
+    }
+}
