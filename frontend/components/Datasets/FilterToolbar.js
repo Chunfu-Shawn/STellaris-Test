@@ -1,11 +1,7 @@
 import {Checkbox, Col, Collapse, Row, Slider, Space} from "antd";
 import React, {useEffect, useRef} from "react";
 const { Panel } = Collapse;
-const methodsOptions = ['stereo-seq', 'slide-seq2', 'Visium', 'ST', 'MERFISH','STRS','DBiT-seq'];
-const methodsOptions2 = ['Seq-Scope','RNAscope','sci-Space', 'Space-TREX','seqFISH','seqFISH+','HCR-seqFISH','osmFISH','EASI-FISH','HybISS']
-const speciesOptions = ['Mus musculus', 'Homo sapiens'];
-const organsOptions = ['brain','testis', 'Kidney','Liver','Stomach','Colon','spinal_cord'];
-const pathologicalOptions = ['TRUE','FALSE'];
+import {getSummaryOptions} from "./GetData.js";
 import * as echarts from 'echarts';
 
 let option = {
@@ -37,31 +33,50 @@ let option = {
         }
     ]
 };
-
-
-const marks = {
-    0: {
-        style: {
-            color: '#9d9d9d',
-        },
-        label: '2016',
-    },
-    100: {
-        style: {
-            color: '#9d9d9d',
-        },
-        label: '2023',
-    },
+Date.prototype.toLocaleString = function() {
+    // 补0 例如 2018/7/10 14:7:2 补完后为 2018/07/10 14:07:02
+    function addZero(num) {
+        return num < 10 ? "0" + num : num;
+    }
+    // 按自定义拼接格式返回
+    return this.getFullYear() + "-" + addZero(this.getMonth() + 1);
 };
-const formatter = (value) => {
-    const pad = num => (num > 9 ? "" : "0") + num;
-    let monthAll = Math.floor(value*84/100)
-    let month = monthAll %12 + 1
-    let year = Math.floor(monthAll/12) + 1
-    return 2015 + year + '-' + pad(month)
-};
+
 
 export default function FilterToolbar(props){
+    const methodsOptions = getSummaryOptions(props.data)['methodsOptions'].slice(0,6);
+    const methodsOptions2 = getSummaryOptions(props.data)['methodsOptions'].slice(6);
+    const speciesOptions = getSummaryOptions(props.data)['speciesOptions'];
+    const organsOptions = getSummaryOptions(props.data)['organOptions'].slice(0,6);
+    const organsOptions2 = getSummaryOptions(props.data)['organOptions'].slice(6);
+    const pathologicalOptions = getSummaryOptions(props.data)['pathologicalOptions'];
+    const datePublishedOptions = [
+        new Date(getSummaryOptions(props.data)['date_published'][0]).toLocaleString(),
+        new Date(getSummaryOptions(props.data)['date_published'][1]).toLocaleString()
+    ];
+    const marks = {
+        0: {
+            style: {
+                width: 100,
+                fontSize:12,
+                color: '#9d9d9d',
+            },
+            label: datePublishedOptions[0]
+        },
+        100: {
+            style: {
+                width: 100,
+                fontSize:12,
+                color: '#9d9d9d',
+            },
+            label: datePublishedOptions[1]
+        },
+    };
+    const formatter = (value) => {
+        let time = getSummaryOptions(props.data)['date_published'][1] - getSummaryOptions(props.data)['date_published'][0]
+        // 返回时间，格式为2022-04
+        return new Date(Date.parse(datePublishedOptions[0])+time/100*value).toLocaleString()
+    };
     // checkbox filter
     const filterChangeMethod = (checkedValues) => {
         //将filteredInfo中的属性method替换成checkedValues
@@ -72,9 +87,8 @@ export default function FilterToolbar(props){
             pathological:props.filteredInfo.pathological,
             date_published:props.filteredInfo.date_published
         }
-        console.log('Various parameters', filters);
         props.setFilteredInfo(filters);
-        //onFilter(filters)
+        onFilter(filters)
     };
     const filterChangeSpecies = (checkedValues) => {
         let filters = {
@@ -84,8 +98,8 @@ export default function FilterToolbar(props){
             pathological:props.filteredInfo.pathological,
             date_published:props.filteredInfo.date_published
         }
-        console.log('Various parameters', filters);
         props.setFilteredInfo(filters);
+        onFilter(filters)
     };
     const filterChangeOrgan = (checkedValues) => {
         let filters = {
@@ -95,8 +109,8 @@ export default function FilterToolbar(props){
             pathological:props.filteredInfo.pathological,
             date_published:props.filteredInfo.date_published
         }
-        console.log('Various parameters', filters);
         props.setFilteredInfo(filters);
+        onFilter(filters)
     };
     const filterChangePathological = (checkedValues) => {
         let filters = {
@@ -106,8 +120,8 @@ export default function FilterToolbar(props){
             pathological:checkedValues,
             date_published:props.filteredInfo.date_published
         }
-        console.log('Various parameters', filters);
         props.setFilteredInfo(filters);
+        onFilter(filters)
     };
     const filterChangeDate = (value) => {
         let filters = {
@@ -115,31 +129,36 @@ export default function FilterToolbar(props){
             species:props.filteredInfo.species,
             organ:props.filteredInfo.organ,
             pathological:props.filteredInfo.pathological,
-            date_published: [Date.parse(formatter(value[0]))+'-'+ Date.parse(formatter(value[1]))],
+            date_published: [Date.parse(formatter(value[0])),Date.parse(formatter(value[1]))],
             }
-        console.log('Various parameters', filters)
         props.setFilteredInfo(filters);
+        onFilter(filters)
     };
-    /*const onFilter = (filters) => {
+    const onFilter = (filters) => {
+        // 如果有筛选值，设置filtering为true
+        props.setFiltering(false)
+        for (let i in filters)
+            if(filters[i].length!==0) props.setFiltering(true)
+        // filter
         let dataFiltered = []
-        let dataTemp = props.dataShow.length===0 ? props.data : props.dataShow
-        for (let i in dataTemp){
+        for (let i in props.data){
             if(
-                filters.method.includes(dataTemp[i].method)||
-                filters.organ.includes(dataTemp[i].organ)||
-                filters.species.includes(dataTemp[i].species)||
-                filters.pathological.includes(dataTemp[i].pathological)||
-                (filters.date_published[0] <= Date.parse(dataTemp[i].date_published) &&
-                    filters.date_published[1] >= Date.parse(dataTemp[i].date_published))
+                (filters.method.length===0?true:filters.method.includes(props.data[i].method))&&
+                (filters.organ.length===0?true:filters.organ.includes(props.data[i].organ))&&
+                (filters.species.length===0?true:filters.species.includes(props.data[i].species))&&
+                (filters.pathological.length===0?true:filters.pathological.includes(props.data[i].pathological))&&
+                (filters.date_published.length===0?true:(filters.date_published[0] <= Date.parse(props.data[i].date_published) &&
+                    filters.date_published[1] >= Date.parse(props.data[i].date_published)))
             )
             {
-                dataFiltered.push(dataTemp[i])
+                dataFiltered.push(props.data[i])
             }
         }
-        props.setDataShow(dataFiltered)
-        console.log('dataFiltered',dataFiltered)
-    }*/
+        props.setDataFilter(dataFiltered)
+        console.log('filters',filters,'dataFiltered',dataFiltered)
+    }
 
+    // use echarts
     const chartRef = useRef(null);
     useEffect(()=>{
         let myChart = echarts.init(chartRef.current);
@@ -159,15 +178,35 @@ export default function FilterToolbar(props){
                         value={props.filteredInfo.method}
                     >
                         {methodsOptions.map( (method)=>
-                            <Row key={method} justify="start">
-                                <Checkbox value={method} style={props.checkboxStyle}>{method}</Checkbox>
+                            <Row key={method}>
+                                <Col span={18} style={{
+                                    display: "inline-block",
+                                    /* 设置盒子内元素水平居中 */
+                                    textAlign: 'left'}}>
+                                    <Checkbox value={method} style={props.checkboxStyle}>
+                                        <span>{method}</span>
+                                    </Checkbox>
+                                </Col>
+                                <Col span={6}>
+                                    <span style={{color:'gray'}}>{props.num['method'][method]||0}</span>
+                                </Col>
                             </Row>
                         )}
-                        <Collapse bordered={false} >
-                            <Panel showArrow={false} header="view more" collapsible="header" key="1">
+                        <Collapse bordered={false}>
+                            <Panel showArrow={false} header="view more" collapsible="header" key="1" >
                                 {methodsOptions2.map( (method)=>
-                                    <Row key={method} justify="start">
-                                        <Checkbox value={method} style={props.checkboxStyle}>{method}</Checkbox>
+                                    <Row key={method}>
+                                        <Col span={18} style={{
+                                            display: "inline-block",
+                                            /* 设置盒子内元素水平居中 */
+                                            textAlign: 'left'}}>
+                                            <Checkbox value={method} style={props.checkboxStyle}>
+                                                <span>{method}</span>
+                                            </Checkbox>
+                                        </Col>
+                                        <Col span={6}>
+                                            <span style={{color:'gray'}}>{props.num['method'][method]||0}</span>
+                                            </Col>
                                     </Row>
                                 )}
                             </Panel>
@@ -183,8 +222,18 @@ export default function FilterToolbar(props){
                         value={props.filteredInfo.species}
                     >
                         {speciesOptions.map( (species)=>
-                            <Row key={species} justify="start">
-                                <Checkbox value={species} style={props.checkboxStyle}>{species}</Checkbox>
+                            <Row key={species}>
+                                <Col span={18} style={{
+                                    display: "inline-block",
+                                    /* 设置盒子内元素水平居中 */
+                                    textAlign: 'left'}}>
+                                    <Checkbox value={species} style={props.checkboxStyle}>
+                                        <span>{species}</span>
+                                    </Checkbox>
+                                </Col>
+                                <Col span={6}>
+                                    <span style={{color:'gray'}}>{props.num['species'][species]||0}</span>
+                                </Col>
                             </Row>
                         )}
                     </Checkbox.Group>
@@ -198,10 +247,39 @@ export default function FilterToolbar(props){
                         value={props.filteredInfo.organ}
                     >
                         {organsOptions.map( (organ)=>
-                            <Row key={organ} justify="start">
-                                <Checkbox value={organ} style={props.checkboxStyle}>{organ}</Checkbox>
+                            <Row key={organ}>
+                                <Col span={18} style={{
+                                    display: "inline-block",
+                                    /* 设置盒子内元素水平居中 */
+                                    textAlign: 'left'}}>
+                                    <Checkbox value={organ} style={props.checkboxStyle}>
+                                        <span>{organ}</span>
+                                    </Checkbox>
+                                </Col>
+                                <Col span={6}>
+                                    <span style={{color:'gray'}}>{props.num['organ'][organ]||0}</span>
+                                </Col>
                             </Row>
                         )}
+                        <Collapse bordered={false}>
+                            <Panel showArrow={false} header="view more" collapsible="header" key="1" >
+                                {organsOptions2.map( (organ)=>
+                                    <Row key={organ}>
+                                        <Col span={18} style={{
+                                            display: "inline-block",
+                                            /* 设置盒子内元素水平居中 */
+                                            textAlign: 'left'}}>
+                                            <Checkbox value={organ} style={props.checkboxStyle}>
+                                                <span>{organ}</span>
+                                            </Checkbox>
+                                        </Col>
+                                        <Col span={6}>
+                                            <span style={{color:'gray'}}>{props.num['organ'][organ]||0}</span>
+                                        </Col>
+                                    </Row>
+                                )}
+                            </Panel>
+                        </Collapse>
                     </Checkbox.Group>
                 </Panel>
                 <Panel header="Pathological" key="4" style={{fontSize: '18px'}}>
@@ -213,8 +291,18 @@ export default function FilterToolbar(props){
                         value={props.filteredInfo.pathological}
                     >
                         {pathologicalOptions.map( (pathological)=>
-                            <Row key={pathological} justify="start">
-                                <Checkbox value={pathological} style={props.checkboxStyle}>{pathological}</Checkbox>
+                            <Row key={pathological}>
+                                <Col span={18} style={{
+                                    display: "inline-block",
+                                    /* 设置盒子内元素水平居中 */
+                                    textAlign: 'left'}}>
+                                    <Checkbox value={pathological} style={props.checkboxStyle}>
+                                        <span>{pathological}</span>
+                                    </Checkbox>
+                                </Col>
+                                <Col span={6}>
+                                    <span style={{color:'gray'}}>{props.num['pathological'][pathological]||0}</span>
+                                </Col>
                             </Row>
                         )}
                     </Checkbox.Group>

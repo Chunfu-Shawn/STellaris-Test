@@ -5,8 +5,49 @@
   width: 13.714286px;
   height: 23.142857px;
 }
-//更改collapse下次collapse的header样式
+//更改collapse下 次collapse的header样式
 .ant-collapse > .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header {
   color: #6744a2;
   padding: 0px;
+}
+//更改collapse下 次collapse 的context-box样式
+.ant-collapse > .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-content > .ant-collapse-content-box {
+  padding: 1px;
+}
+
+.filter-checkbox {
+  width: auto;
+  /* 因为 content 会另起一行，影响样式的话，height 设置为具体的值可以避免高度变高的情况 */
+  height: auto;
+  /* 设置元素两端对齐 */
+  text-align: justify;
+}
+
+/* 这里的伪元素一定要加上，不然span元素不能两端对齐 */
+.filter-checkbox:after {
+  content: "";
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+}
+
+.filter-checkbox #span1 {
+  width: auto;
+  height: auto;
+  /* 设置盒子为行内块 */
+  display: inline-block;
+  /* 设置盒子内元素水平居中 */
+  text-align: left;
+  /* 设置盒子内容垂直居中 */
+  line-height: 50px;
+}
+.filter-checkbox #span2 {
+  width: 10%;
+  height: auto;
+  /* 设置盒子为行内块 */
+  display: inline-block;
+  /* 设置盒子内元素水平居中 */
+  text-align: right;
+  /* 设置盒子内容垂直居中 */
+  line-height: 50px;
 }

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/GetData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/GetData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/styles/antd.less" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/antd.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,10 +30,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/frontend/components/Annotation/waitModule.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/components/VitessceModule.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/annotations/results.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/annotations/upload-success.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/datasets.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/datasets/dataset-page.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/styles/mainpage.css" root0="FORCE_HIGHLIGHTING" />
@@ -79,15 +83,18 @@
       <recent name="$PROJECT_DIR$/frontend/pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/files" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/frontend/components/Annotation" />
       <recent name="$PROJECT_DIR$/frontend/pages" />
       <recent name="$PROJECT_DIR$/frontend/pages/datasets" />
-      <recent name="$PROJECT_DIR$/frontend" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.GetData.js">
+  <component name="RunManager" selected="Node.js.DataTable.js">
     <configuration name="未命名" type="NodeJSConfigurationType" nameIsGenerated="true" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="DataTable.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" working-dir="$PROJECT_DIR$/frontend/components/Datasets">
       <method v="2" />
     </configuration>
     <configuration name="GetData.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontend/components/Datasets/GetData.js" working-dir="$PROJECT_DIR$/frontend/components/Datasets">
@@ -101,12 +108,14 @@
     </configuration>
     <list>
       <item itemvalue="Node.js.未命名" />
+      <item itemvalue="Node.js.DataTable.js" />
       <item itemvalue="Node.js.GetData.js" />
       <item itemvalue="Node.js.getDatasetsJSON.js" />
       <item itemvalue="Node.js.server.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.DataTable.js" />
         <item itemvalue="Node.js.GetData.js" />
         <item itemvalue="Node.js.getDatasetsJSON.js" />
         <item itemvalue="Node.js.server.js" />
@@ -133,7 +142,7 @@
       <workItem from="1656300747670" duration="47980000" />
       <workItem from="1656772432138" duration="110000" />
       <workItem from="1658135504878" duration="43758000" />
-      <workItem from="1658322345291" duration="83899000" />
+      <workItem from="1658322345291" duration="105799000" />
     </task>
     <servers />
   </component>

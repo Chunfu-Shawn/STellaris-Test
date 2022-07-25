@@ -1,9 +1,15 @@
-import {Button, Layout, Space, Table, Collapse, Checkbox, Col, Row, Input} from 'antd';
+import {Button, Layout, Space, Table, Collapse, Checkbox, Col, Row, Input, Tooltip} from 'antd';
 const { Search } = Input;
 import React, {useRef, useState,useEffect} from 'react';
 import Link from "next/link";
 import {getDatasetsJSON} from './GetData.js';
-import FilterToolbar from "./FilterToolbar";
+import FilterToolbar, {
+    methodsOptions,
+    methodsOptions2,
+    organsOptions,
+    pathologicalOptions,
+    speciesOptions
+} from "./FilterToolbar";
 
 const { Panel } = Collapse;
 const {Content,Sider} = Layout;
@@ -15,10 +21,16 @@ export default function DataTable(props) {
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [loading, setLoading] = useState(false);
     const [filtering, setFiltering] = useState(false);
+    const [dataFilter, setDataFilter] = useState([]);
+    const [searching, setSearching] = useState(false);
+    const [dataSearch, setDataSearch] = useState([]);
     const [dataShow, setDataShow] = useState([]);
+    const [num, setNum] = useState({method:{},species:{},organ:{},pathological:{}});
     useEffect(()=> {
         // 获取后端JSON数据表
             getDatasetsJSON(setData).catch(e => console.log(e))
+            toSetDataShow()
+            summaryDatasets(dataShow)
         },[data])
     // column sort
     const handleChange = (pagination,filter,sorter) => {
@@ -47,6 +59,7 @@ export default function DataTable(props) {
             title: 'ST ID',
             dataIndex: 'st_id',
             key: 'st_id',
+            width:'22%',
             render: text => <Link href={text}><a>{text}</a></Link>,
             sorter: (a, b) => a.st_id < b.st_id,
             sortOrder: sortedInfo.columnKey === 'st_id' ? sortedInfo.order : null,
@@ -57,9 +70,7 @@ export default function DataTable(props) {
             title: 'Method',
             dataIndex: 'method',
             key: 'method',
-            width:'11%',
-            filteredValue: filteredInfo.method || null,
-            onFilter: (value, record) => record.method.includes(value),
+            width:'10%',
             sorter: (a, b) => a.method < b.method,
             sortOrder: sortedInfo.columnKey === 'method' ? sortedInfo.order : null,
         },
@@ -67,8 +78,6 @@ export default function DataTable(props) {
             title: 'Species',
             dataIndex: 'species',
             key: 'species',
-            filteredValue: filteredInfo.species || null,
-            onFilter: (value, record) => record.species.includes(value),
             sorter: (a, b) => a.species < b.species,
             sortOrder: sortedInfo.columnKey === 'species' ? sortedInfo.order : null,
             ellipsis: true,
@@ -77,9 +86,12 @@ export default function DataTable(props) {
             title: 'Strain',
             dataIndex: 'strain',
             key: 'strain',
-            width:'10%',
-            filteredValue: filteredInfo.strain || null,
-            onFilter: (value, record) => record.strain.includes(value),
+            width:'8%',
+            render: (strain) => (
+                <Tooltip placement="topLeft" title={strain}>
+                    {strain}
+                </Tooltip>
+            ),
             sorter: (a, b) => a.strain < b.strain,
             sortOrder: sortedInfo.columnKey === 'strain' ? sortedInfo.order : null,
             ellipsis: true,
@@ -88,8 +100,12 @@ export default function DataTable(props) {
             title: 'Organ',
             dataIndex: 'organ',
             key: 'organ',
-            filteredValue: filteredInfo.organ || null,
-            onFilter: (value, record) => record.organ.includes(value),
+            width:'8%',
+            render: (organ) => (
+                <Tooltip placement="topLeft" title={organ}>
+                    {organ}
+                </Tooltip>
+            ),
             sorter: (a, b) => a.organ < b.organ,
             sortOrder: sortedInfo.columnKey === 'organ' ? sortedInfo.order : null,
             ellipsis: true,
@@ -98,8 +114,12 @@ export default function DataTable(props) {
             title: 'Tissue',
             dataIndex: 'tissue',
             key: 'tissue',
-            filteredValue: filteredInfo.tissue || null,
-            onFilter: (value, record) => record.tissue.includes(value),
+            width:'10%',
+            render: (tissue) => (
+                <Tooltip placement="topLeft" title={tissue}>
+                    {tissue}
+                </Tooltip>
+            ),
             sorter: (a, b) => a.tissue < b.tissue,
             sortOrder: sortedInfo.columnKey === 'tissue' ? sortedInfo.order : null,
             ellipsis: true,
@@ -109,20 +129,12 @@ export default function DataTable(props) {
             dataIndex: 'pathological',
             key: 'pathological',
             width:'10%',
-            filteredValue: filteredInfo.pathological || null,
-            onFilter: (value, record) => record.pathological.includes(value),
             ellipsis: true,
         },
         {
             title: 'Date Published',
             dataIndex: 'date_published',
             key: 'date_published',
-            filteredValue: filteredInfo.date_published || null,
-            // value
-            onFilter: (value, record) => {
-                let arr = value.split('-');
-                return arr[0] <= Date.parse(record.date_published) && arr[1] >= Date.parse(record.date_published);
-            },
             sorter: (a, b) => a.date_published < b.date_published,
             sortOrder: sortedInfo.columnKey === 'date_published' ? sortedInfo.order : null,
             ellipsis: true,
@@ -152,25 +164,72 @@ export default function DataTable(props) {
 
     // To search in table
     const onSearch = (value) => {
+        // 如果有搜索值，设置filtering为true
+        if(value.length!==0) setSearching(true)
+        else setSearching(false)
+        //search
         let dataSearched = []
-        //let dataTemp = filtering ? dataShow : data
-        for (let i in dataTemp){
+        for (let i in data){
             if(
-                dataTemp[i].st_id.toString().toLowerCase().includes(value.toLowerCase())||
-                dataTemp[i].method.toString().toLowerCase().includes(value.toLowerCase())||
-                dataTemp[i].species.toString().toLowerCase().includes(value.toLowerCase())||
-                dataTemp[i].organ.toString().toLowerCase().includes(value.toLowerCase())
+                data[i].st_id.toString().toLowerCase().includes(value.toLowerCase())||
+                data[i].method.toString().toLowerCase().includes(value.toLowerCase())||
+                data[i].species.toString().toLowerCase().includes(value.toLowerCase())||
+                data[i].strain.toString().toLowerCase().includes(value.toLowerCase())||
+                data[i].organ.toString().toLowerCase().includes(value.toLowerCase())||
+                data[i].tissue.toString().toLowerCase().includes(value.toLowerCase())||
+                data[i].pathological.toString().toLowerCase().includes(value.toLowerCase())||
+                data[i].date_published.toString().toLowerCase().includes(value.toLowerCase())
             )
             {
-                dataSearched.push(dataTemp[i])
+                dataSearched.push(data[i])
             }
         }
-        setDataShow(dataSearched)
-        console.log(dataSearched)
+        setDataSearch(dataSearched)
+        console.log('dataSearched',dataSearched)
     }
     // To search in table when input search bar lost the focus
     const onSearchClick = (e)=>{
         onSearch(e.target.value)
+    }
+
+    // show data intersected from dataFilter and dataSearch
+    const toSetDataShow = () =>{
+        let dataShow = []
+        if (filtering){
+            if (searching){
+                for (let i = 0, len = dataFilter.length; i < len; i++) {
+                    for (let j = 0, length = dataSearch.length; j < length; j++) {
+                        if (dataFilter[i].key === dataSearch[j].key) {
+                            dataShow.push(dataFilter[i])
+                        }
+                    }
+                }
+            }else dataShow = dataFilter
+        }else if (searching){
+            dataShow = dataSearch
+        }else dataShow = data
+        setDataShow(dataShow)
+    }
+    // to summary the number of different categories records
+    const summaryDatasets = (dataTemp) => {
+        let num ={}
+        num['method'] = {}
+        num['species'] = {}
+        num['organ'] = {}
+        num['pathological'] = {}
+        num['date_published'] = {}
+        // numDatePublished.map(item=>num['date_published'][item]=0)
+        for(let i in dataTemp){
+            num['method'][dataTemp[i].method]===undefined?
+                num['method'][dataTemp[i].method] = 1 : num['method'][dataTemp[i].method] += 1
+            num['species'][dataTemp[i].species]===undefined?
+                num['species'][dataTemp[i].species] = 1 : num['species'][dataTemp[i].species] +=1
+            num['organ'][dataTemp[i].organ] === undefined?
+                num['organ'][dataTemp[i].organ] = 1 : num['organ'][dataTemp[i].organ] += 1
+            num['pathological'][dataTemp[i].pathological] === undefined?
+                num['pathological'][dataTemp[i].pathological] = 1 : num['pathological'][dataTemp[i].pathological] += 1
+        }
+        setNum(num)
     }
 
     return (
@@ -179,11 +238,13 @@ export default function DataTable(props) {
                 <Sider style={{backgroundColor:'white'}}>
                     <FilterToolbar filteredInfo={filteredInfo}
                                    setFilteredInfo={setFilteredInfo}
-                                   setDataShow={setDataShow}
                                    checkboxStyle={props.checkboxStyle}
                                    data={data}
-                                   dataShow={dataShow}
+                                   setDataFilter={setDataFilter}
                                    setFiltering={setFiltering}
+                                   filtering={filtering}
+                                   searching={searching}
+                                   num={num}
                     ></FilterToolbar>
                 </Sider>
                 <Content>
@@ -208,26 +269,11 @@ export default function DataTable(props) {
                     </Space>
                     <Table columns={columns}
                            rowSelection={rowSelection}
-                           dataSource={filtering ? dataShow : data}
-                           pagination={{position: ['bottomCenter'],}}
+                           dataSource={searching||filtering?dataShow:data}
                            onChange={handleChange}
-                           summary={(mergeData) => {
-                               let num = {};
-                               mergeData.forEach(({ method }) => {
-                                   if (num[method]===undefined)
-                                   num[method] = 1;
-                                   else num[method] += 1;
-                               });
-                               return (
-                                   <>
-                                       <Table.Summary.Row>
-                                           <Table.Summary.Cell index={0}>Total</Table.Summary.Cell>
-                                           <Table.Summary.Cell index={0}>{num['ST']}</Table.Summary.Cell>
-                                       </Table.Summary.Row>
-                                   </>
-                               );
-                           }}
+                           //footer={()=>dataShow.length+' Results Found'}
                     />
+                    <span style={{float:"right",fontSize:"16px",color:"gray"}}>{dataShow.length} Results Found</span>
                 </Content>
             </Space>
         </Layout>
