@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/components/Datasets/BarChart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/GetData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/GetData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/antd.less" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/antd.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/GetData.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getDatasetsJSON.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getDatasetsJSON.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +35,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/frontend/components/Annotation/waitModule.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/components/VitessceModule.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/annotations/results.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/annotations/upload-success.js" root0="FORCE_HIGHLIGHTING" />
@@ -90,14 +95,14 @@
       <recent name="$PROJECT_DIR$/frontend/pages/datasets" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.DataTable.js">
+  <component name="RunManager" selected="Node.js.TableLayout.js">
     <configuration name="未命名" type="NodeJSConfigurationType" nameIsGenerated="true" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="DataTable.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" working-dir="$PROJECT_DIR$/frontend/components/Datasets">
+    <configuration name="TableLayout.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" working-dir="$PROJECT_DIR$/frontend/components/Datasets">
       <method v="2" />
     </configuration>
-    <configuration name="GetData.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontend/components/Datasets/GetData.js" working-dir="$PROJECT_DIR$/frontend/components/Datasets">
+    <configuration name="getData&amp;Options.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" working-dir="$PROJECT_DIR$/frontend/components/Datasets">
       <method v="2" />
     </configuration>
     <configuration name="getDatasetsJSON.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/libs/api/getDatasetsJSON.js" working-dir="$PROJECT_DIR$/libs/api">
@@ -108,15 +113,15 @@
     </configuration>
     <list>
       <item itemvalue="Node.js.未命名" />
-      <item itemvalue="Node.js.DataTable.js" />
-      <item itemvalue="Node.js.GetData.js" />
+      <item itemvalue="Node.js.TableLayout.js" />
+      <item itemvalue="Node.js.getData&amp;Options.js" />
       <item itemvalue="Node.js.getDatasetsJSON.js" />
       <item itemvalue="Node.js.server.js" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.DataTable.js" />
-        <item itemvalue="Node.js.GetData.js" />
+        <item itemvalue="Node.js.TableLayout.js" />
+        <item itemvalue="Node.js.getData&amp;Options.js" />
         <item itemvalue="Node.js.getDatasetsJSON.js" />
         <item itemvalue="Node.js.server.js" />
       </list>
@@ -142,7 +147,7 @@
       <workItem from="1656300747670" duration="47980000" />
       <workItem from="1656772432138" duration="110000" />
       <workItem from="1658135504878" duration="43758000" />
-      <workItem from="1658322345291" duration="105799000" />
+      <workItem from="1658322345291" duration="125090000" />
     </task>
     <servers />
   </component>

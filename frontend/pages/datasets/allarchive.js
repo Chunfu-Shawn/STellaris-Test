@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from '../../components/layout.js'
 import Link from "next/link";
-import DataTable from "../../components/Datasets/DataTable";
+import TableLayout from "../../components/Datasets/TableLayout.js";
 const title = "STW - Datasets Archive"
 
 export default function AllArchive() {
@@ -15,7 +15,7 @@ export default function AllArchive() {
                 <div className="page-header">
                     <h1>Spatial Transcritome Datasets </h1>
                 </div>
-                <DataTable checkboxStyle={checkboxStyle}></DataTable>
+                <TableLayout checkboxStyle={checkboxStyle}></TableLayout>
             </div>
         </Layout>
     )

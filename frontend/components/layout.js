@@ -11,20 +11,14 @@ export const siteTitle = "Spatial Trans Web"
 export default function Layout({ children }) {
     const style = {
         // z-index让元件浮到最顶层
-        zIndex:100,
         height: 40,
         width: 40,
-        margin: "90vh 0vh 0px 95%",
-        lineHeight: '40px',
         borderRadius: 4,
-        borderColor: "white",
-        border:"1px solid",
-        backgroundColor: '#22075e',
+        borderColor: '#391085',
+        backgroundColor: '#2a0b62',
         color: '#fff',
         textAlign: 'center',
         fontSize: 14,
-        position: 'fixed',
-
     };
     return (
         <>
@@ -37,7 +31,7 @@ export default function Layout({ children }) {
                 <meta name="og:title" content='Welcome to Spatial Trans Web' />
             </Head>
             <Navigator></Navigator>
-            <BackTop duration={100} visibilityHeight={300}>
+            <BackTop duration={100} visibilityHeight={1000}>
                 <button style={style}>UP</button>
             </BackTop>
             {children}

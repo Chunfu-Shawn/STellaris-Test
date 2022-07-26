@@ -1,38 +1,10 @@
 import {Checkbox, Col, Collapse, Row, Slider, Space} from "antd";
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 const { Panel } = Collapse;
-import {getSummaryOptions} from "./GetData.js";
+import {getSummaryOptions} from "./getData&Options.js";
 import * as echarts from 'echarts';
+import BarChart from "./BarChart.js";
 
-let option = {
-    color:'rgba(54,0,135,0.15)',
-    xAxis: {
-        axisLine:{
-            show:false,
-        },
-        axisTick:{
-            show:false,
-        },
-        type: 'category',
-    },
-    yAxis: {
-        show:false,
-        type: 'value'
-    },
-    grid:{
-        left:0,
-        top:0,
-        right: 0,
-        bottom:0,
-    },
-    series: [
-        {
-            data: [1, 2, 5, 8, 7,12,11,7,8,14,21,24,25,25, 11, 13],
-            type: 'bar',
-            barCategoryGap:0
-        }
-    ]
-};
 Date.prototype.toLocaleString = function() {
     // 补0 例如 2018/7/10 14:7:2 补完后为 2018/07/10 14:07:02
     function addZero(num) {
@@ -44,6 +16,7 @@ Date.prototype.toLocaleString = function() {
 
 
 export default function FilterToolbar(props){
+    const [num, setNum] = useState({method:{},species:{},organ:{},pathological:{}});
     const methodsOptions = getSummaryOptions(props.data)['methodsOptions'].slice(0,6);
     const methodsOptions2 = getSummaryOptions(props.data)['methodsOptions'].slice(6);
     const speciesOptions = getSummaryOptions(props.data)['speciesOptions'];
@@ -72,8 +45,17 @@ export default function FilterToolbar(props){
             label: datePublishedOptions[1]
         },
     };
+    //render echart, count number
+    useEffect(()=>{
+        summaryDatasets(props.dataShow)
+    },[props.dataShow])
+
+    const timeSubstract = ( time1,time2 ) => {
+        if(time1&&time2) return Date.parse(time1) - Date.parse(time2)
+        else return "arguments missing"
+    }
     const formatter = (value) => {
-        let time = getSummaryOptions(props.data)['date_published'][1] - getSummaryOptions(props.data)['date_published'][0]
+        let time = timeSubstract(datePublishedOptions[1], datePublishedOptions[0])
         // 返回时间，格式为2022-04
         return new Date(Date.parse(datePublishedOptions[0])+time/100*value).toLocaleString()
     };
@@ -157,13 +139,31 @@ export default function FilterToolbar(props){
         props.setDataFilter(dataFiltered)
         console.log('filters',filters,'dataFiltered',dataFiltered)
     }
-
-    // use echarts
-    const chartRef = useRef(null);
-    useEffect(()=>{
-        let myChart = echarts.init(chartRef.current);
-        option && myChart.setOption(option);
-    },[])
+    // to summary the number of different categories records
+    const summaryDatasets = (dataTemp) => {
+        let num_tmp ={}
+        num_tmp['method'] = {}
+        num_tmp['species'] = {}
+        num_tmp['organ'] = {}
+        num_tmp['pathological'] = {}
+        num_tmp['date_published'] = Array(20).fill(0)
+        let time = timeSubstract(datePublishedOptions[1], datePublishedOptions[0])
+        // numDatePublished.map(item=>num['date_published'][item]=0)
+        for(let i in dataTemp){
+            num_tmp['method'][dataTemp[i].method]===undefined?
+                num_tmp['method'][dataTemp[i].method] = 1 : num_tmp['method'][dataTemp[i].method] += 1
+            num_tmp['species'][dataTemp[i].species]===undefined?
+                num_tmp['species'][dataTemp[i].species] = 1 : num_tmp['species'][dataTemp[i].species] +=1
+            num_tmp['organ'][dataTemp[i].organ] === undefined?
+                num_tmp['organ'][dataTemp[i].organ] = 1 : num_tmp['organ'][dataTemp[i].organ] += 1
+            num_tmp['pathological'][dataTemp[i].pathological] === undefined?
+                num_tmp['pathological'][dataTemp[i].pathological] = 1 : num_tmp['pathological'][dataTemp[i].pathological] += 1
+            let index = Math.ceil(timeSubstract(dataTemp[i].date_published,"2016-06-30") * 20 / time)-1
+            num_tmp['date_published'][index] += 1
+        }
+        setNum(num_tmp)
+        console.log("statistic number:",num_tmp)
+    }
 
     return (
         <>
@@ -178,7 +178,7 @@ export default function FilterToolbar(props){
                         value={props.filteredInfo.method}
                     >
                         {methodsOptions.map( (method)=>
-                            <Row key={method}>
+                            <Row key={method+num['method'][method]}>
                                 <Col span={18} style={{
                                     display: "inline-block",
                                     /* 设置盒子内元素水平居中 */
@@ -188,7 +188,7 @@ export default function FilterToolbar(props){
                                     </Checkbox>
                                 </Col>
                                 <Col span={6}>
-                                    <span style={{color:'gray'}}>{props.num['method'][method]||0}</span>
+                                    <span style={{color:'gray'}}>{num['method'][method]||0}</span>
                                 </Col>
                             </Row>
                         )}
@@ -205,7 +205,7 @@ export default function FilterToolbar(props){
                                             </Checkbox>
                                         </Col>
                                         <Col span={6}>
-                                            <span style={{color:'gray'}}>{props.num['method'][method]||0}</span>
+                                            <span style={{color:'gray'}}>{num['method'][method]||0}</span>
                                             </Col>
                                     </Row>
                                 )}
@@ -232,7 +232,7 @@ export default function FilterToolbar(props){
                                     </Checkbox>
                                 </Col>
                                 <Col span={6}>
-                                    <span style={{color:'gray'}}>{props.num['species'][species]||0}</span>
+                                    <span style={{color:'gray'}}>{num['species'][species]||0}</span>
                                 </Col>
                             </Row>
                         )}
@@ -257,7 +257,7 @@ export default function FilterToolbar(props){
                                     </Checkbox>
                                 </Col>
                                 <Col span={6}>
-                                    <span style={{color:'gray'}}>{props.num['organ'][organ]||0}</span>
+                                    <span style={{color:'gray'}}>{num['organ'][organ]||0}</span>
                                 </Col>
                             </Row>
                         )}
@@ -274,7 +274,7 @@ export default function FilterToolbar(props){
                                             </Checkbox>
                                         </Col>
                                         <Col span={6}>
-                                            <span style={{color:'gray'}}>{props.num['organ'][organ]||0}</span>
+                                            <span style={{color:'gray'}}>{num['organ'][organ]||0}</span>
                                         </Col>
                                     </Row>
                                 )}
@@ -301,7 +301,7 @@ export default function FilterToolbar(props){
                                     </Checkbox>
                                 </Col>
                                 <Col span={6}>
-                                    <span style={{color:'gray'}}>{props.num['pathological'][pathological]||0}</span>
+                                    <span style={{color:'gray'}}>{num['pathological'][pathological]||0}</span>
                                 </Col>
                             </Row>
                         )}
@@ -309,7 +309,7 @@ export default function FilterToolbar(props){
                 </Panel>
                 <Panel header="Date Published" key="5" style={{fontSize: '18px'}}>
                     <Col>
-                        <div ref={chartRef} style={{height:50}}></div>
+                        <BarChart num={num}></BarChart>
                     </Col>
                     <Col>
                         <Slider range marks={marks} defaultValue={[0, 100]} tipFormatter={formatter}

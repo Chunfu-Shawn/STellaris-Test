@@ -28,9 +28,26 @@ export default function getDatesetsJSON(i){
     if(i!==undefined){
         return parseSheetData(XLSX,i)
     }else {
+        let key = 1
         const all = parseSheetData(XLSX, 0)
         all.push.apply(all,parseSheetData(XLSX, 1))
         all.push.apply(all,parseSheetData(XLSX, 2))
+        fs.writeFileSync("public/files/data_downloaded.txt",
+            JSON.stringify(all.map(item => {
+                return {
+                    key: key++,
+                    st_id: item.id,
+                    date_published: item.date_published,
+                    method: item.method,
+                    species: item.species,
+                    strain: item.strain,
+                    developmental_stage: item.developmental_stage,
+                    organ: item.organ,
+                    tissue: item.tissue,
+                    pathological: item.pathological,
+                }
+            })),
+            {flag: "w"})
         return all
     }
 }
