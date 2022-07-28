@@ -70,6 +70,12 @@ Router.get('/api/getDefaultMatrixFile', async (ctx) => {
 
 // 设置路由和api进行数据集表文件访问
 Router.get('/api/getDatasetsJSON/:type', async (ctx) => {
+    const datasets = getDatasetsJSON()
+    let resData = null
+    datasets.forEach((item)=> {
+        if (item.id === ctx.params.type)
+            resData = item
+    })
     // 传出默认JSON格式datesets的表
     if(ctx.params.type==='human_ngs'){
         ctx.body = getDatasetsJSON(0)
@@ -78,8 +84,10 @@ Router.get('/api/getDatasetsJSON/:type', async (ctx) => {
     } else if(ctx.params.type==='mouse_smfish'){
         ctx.body = getDatasetsJSON(2)
     } else if(ctx.params.type==='all'){
-        ctx.body = getDatasetsJSON()
-    }else ctx.body = null
+        ctx.body = datasets
+    } else {
+        ctx.body = resData
+    }
 })
 
 

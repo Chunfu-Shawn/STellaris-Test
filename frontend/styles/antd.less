@@ -22,32 +22,28 @@
   /* 设置元素两端对齐 */
   text-align: justify;
 }
-
-/* 这里的伪元素一定要加上，不然span元素不能两端对齐 */
-.filter-checkbox:after {
-  content: "";
-  display: inline-block;
-  overflow: hidden;
-  width: 100%;
+.ant-anchor-ink::before {
+  background-color: rgba(47, 14, 145, 0.58);
 }
-
-.filter-checkbox #span1 {
-  width: auto;
-  height: auto;
-  /* 设置盒子为行内块 */
-  display: inline-block;
-  /* 设置盒子内元素水平居中 */
-  text-align: left;
-  /* 设置盒子内容垂直居中 */
-  line-height: 50px;
+.ant-anchor-link > .ant-anchor-link-title {
+  font-size: 17px;
+  color: rgba(114, 113, 113, 0.57);
 }
-.filter-checkbox #span2 {
-  width: 10%;
-  height: auto;
-  /* 设置盒子为行内块 */
-  display: inline-block;
-  /* 设置盒子内元素水平居中 */
-  text-align: right;
-  /* 设置盒子内容垂直居中 */
-  line-height: 50px;
+.ant-anchor-link-active > .ant-anchor-link-title {
+  color: #391085;
+  font-size: 18px;
+  font-weight: 600;
+}
+.site-card-wrapper{
+  padding: 1%;
+  border-radius: 4px;
+  border-bottom-style: inset;
+  border-bottom-width: 2px;
+  border-bottom-color: rgba(104, 93, 136, 0.15);
+  width: 80%;
+  background-color: #fafafa;
+}
+.description{
+  font-size: 16px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, {siteTitle} from '../components/layout.js'
+import LayoutCustom, {siteTitle} from '../components/LayoutCustom.js'
 import Link from "next/link";
 import BodyMap from '../components/Datasets/BodyMap.js'
 import MouseMap from "../components/Datasets/MouseMap.js";
@@ -8,7 +8,7 @@ import MouseMap from "../components/Datasets/MouseMap.js";
 export default function Datasets() {
 
     return (
-        <Layout>
+        <LayoutCustom>
             <Head>
                 <title>{siteTitle +'- Datasets'}</title>
             </Head>
@@ -32,6 +32,6 @@ export default function Datasets() {
                     <button type="button" className="btn btn-data btn-lg">Mouse Archive</button>
                 </div>
             </div>
-        </Layout>
+        </LayoutCustom>
     )
 }

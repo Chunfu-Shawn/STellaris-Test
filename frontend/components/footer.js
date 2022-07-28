@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-function Footer(){
+function FooterCustom(){
     return(
         <div id="footer" className="modal-footer">
             <footer className="h5 small">
@@ -21,4 +21,4 @@ function Footer(){
     )
 }
 
-export default Footer
+export default FooterCustom

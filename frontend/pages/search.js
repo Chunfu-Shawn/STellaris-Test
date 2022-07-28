@@ -1,12 +1,12 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout.js'
+import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import {Input} from 'antd';
 const { Search } = Input;
 
 export default function SearchPage() {
     const onSearch = (value) => alert(value);
     return (
-        <Layout>
+        <LayoutCustom>
             <Head>
                 <title>{siteTitle + "- Search"}</title>
             </Head>
@@ -22,6 +22,6 @@ export default function SearchPage() {
                         }}
                 />
             </div>
-        </Layout>
+        </LayoutCustom>
     )
 }

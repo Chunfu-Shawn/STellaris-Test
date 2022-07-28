@@ -55,8 +55,7 @@ export default function TableLayout(props) {
         );
         csv.unshift(header.join(","));
         csv = csv.join("\r\n");
-        csv = "data:text/csv;charset=utf-8,\uFEFF" + csv;
-        console.log(csv);
+        csv = "data:text/csv;charset=utf-8,\uFEFF" + csv;;
         const link = document.createElement("a");
         link.href = encodeURI(csv);
         link.download = `st_datasets_table.csv`;

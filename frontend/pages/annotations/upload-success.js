@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Layout from '../../components/layout.js'
 import { useRouter } from "next/router";
 import UploadSuccess from "../../components/Annotation/upload-success.js";
+import LayoutCustom from "../../components/LayoutCustom.js";
 
 export async function getServerSideProps(context) {
     return {
@@ -11,7 +11,7 @@ export async function getServerSideProps(context) {
 
 export default function Success(props) {
     return (
-        <Layout>
+        <LayoutCustom>
             <Head>
                 <title>STW-Analysing: {props.title}</title>
             </Head>
@@ -19,6 +19,6 @@ export default function Success(props) {
                            email={props.email}
                            time={props.uploadtime}
             ></UploadSuccess>
-        </Layout>
+        </LayoutCustom>
     )
 }

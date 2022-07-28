@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout from '../../components/layout.js'
+import LayoutCustom from '../../components/LayoutCustom.js'
 import WaitModule from "../../components/Annotation/waitModule.js";
 import Error from 'next/error'
 import {getReqStatus} from "../../../libs/api/getReqStatus.js";
@@ -34,21 +34,21 @@ export default function ResultPage(props) {
     const {data, error, isLoading} = useRequestInfo(props.rid||'',false)
     if (error){
         return (
-            <Layout>
+            <LayoutCustom>
                 <div className={"modal-body-stw"}>
                     <Image src={'/static/images/404.png'} width={1000} height={500}/>
                 </div>
-            </Layout>
+            </LayoutCustom>
                 )
     }
     if (isLoading) {
         return (
-            <Layout>
+            <LayoutCustom>
                 <Head>
                     <title>STW-Annotation: {props.rid}</title>
                 </Head>
                 <div>Loading...</div>
-            </Layout>
+            </LayoutCustom>
         )
     }
     //否则返回等待页面
@@ -63,11 +63,11 @@ export default function ResultPage(props) {
     }
 
     return (
-        <Layout>
+        <LayoutCustom>
             <Head>
                 <title>STW-Annotation: {props.rid}</title>
             </Head>
             {returnModule}
-        </Layout>
+        </LayoutCustom>
     )
 }

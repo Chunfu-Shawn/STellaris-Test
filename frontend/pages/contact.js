@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout.js'
+import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import Image from "next/image";
 import {BackTop} from "antd";
 
@@ -18,7 +18,7 @@ export default function Contact() {
 
     };
     return (
-        <Layout>
+        <LayoutCustom>
             <Head>
                 <title>{siteTitle+"- Contact"}</title>
             </Head>
@@ -53,6 +53,6 @@ export default function Contact() {
                 Beijing, China
                 </div>
             </div>
-        </Layout>
+        </LayoutCustom>
     )
 }

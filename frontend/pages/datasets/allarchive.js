@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout from '../../components/layout.js'
+import LayoutCustom from '../../components/LayoutCustom.js'
 import Link from "next/link";
 import TableLayout from "../../components/Datasets/TableLayout.js";
 const title = "STW - Datasets Archive"
@@ -7,7 +7,7 @@ const title = "STW - Datasets Archive"
 export default function AllArchive() {
     const checkboxStyle={fontWeight:'normal'}
     return (
-        <Layout>
+        <LayoutCustom>
             <Head>
                 <title>{title}</title>
             </Head>
@@ -17,6 +17,6 @@ export default function AllArchive() {
                 </div>
                 <TableLayout checkboxStyle={checkboxStyle}></TableLayout>
             </div>
-        </Layout>
+        </LayoutCustom>
     )
 }

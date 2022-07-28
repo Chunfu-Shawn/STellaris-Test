@@ -1,14 +1,16 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Navigator from "./navigator.js";
-import Footer from "./footer.js";
+import FooterCustom from "./footer.js";
+import { Layout, Menu } from 'antd';
+const { Header, Content, Sider, Footer } = Layout;
 import Script from "next/script";
 import {BackTop} from "antd";
 // eslint-disable-next-line @next/next/no-document-import-in-page
 
 export const siteTitle = "Spatial Trans Web"
 
-export default function Layout({ children }) {
+export default function LayoutCustom({ children }) {
     const style = {
         // z-index让元件浮到最顶层
         height: 40,
@@ -35,7 +37,7 @@ export default function Layout({ children }) {
                 <button style={style}>UP</button>
             </BackTop>
             {children}
-            <Footer></Footer>
+            <FooterCustom></FooterCustom>
         </>
     )
 }

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout.js'
+import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import { useRouter } from "next/router";
 import { UploadOutlined } from '@ant-design/icons';
 import {Button, Form, Input, message, Upload} from 'antd';
@@ -155,7 +155,7 @@ export default function Annotation() {
     };
 
     return (
-        <Layout>
+        <LayoutCustom>
             <Head>
                 <title>{siteTitle +'- Annotation'}</title>
             </Head>
@@ -212,6 +212,6 @@ export default function Annotation() {
                     </Form>
                 </div>
             </div>
-        </Layout>
+        </LayoutCustom>
     )
 }
