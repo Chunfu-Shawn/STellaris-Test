@@ -32,7 +32,7 @@ export default function DataPage(props) {
             </Head>
             <Layout>
                 <Sider style={{backgroundColor:"transparent"}}>
-                    <Anchor targetOffset={targetOffset} style={{padding:"20vh 4vh",fontSize:18}}>
+                    <Anchor targetOffset={targetOffset} style={{paddingTop:"20vh",paddingLeft:"8vh",fontSize:18}}>
                         <Link href="#info" title="Information">
                             <Link href={"#sample"} title={'Sample'}/>
                         </Link>
@@ -41,10 +41,9 @@ export default function DataPage(props) {
                         <Link href="#data" title="Data Download"/>
                     </Anchor>
                 </Sider>
-                <div className="modal-body-stw" style={{textAlign: "left"}}>
-                    <Typography>
+                <div className="modal-body-stw" style={{textAlign: "left",paddingLeft:'3%',paddingRight:'15%'}}>
                     <h3>Data</h3>
-                    <h1> {props.id} </h1>
+                    <h1> {props.id} </h1><br/><br/>
                     <h2 id="info" > Information </h2>
                         <div className="site-card-wrapper" style={{padding:"2%"}}>
                             <Row gutter={30}>
@@ -61,37 +60,37 @@ export default function DataPage(props) {
                                     <div className={"description"}>{props.method}</div>
                                 </Col>
                             </Row>
-                        </div>
-                        <h4 id={'sample'}>Sample</h4>
+                        </div><br/>
+                        <h3 id={'sample'}>Sample</h3>
                         <div className="site-card-wrapper">
                                 <Row gutter={[10,16]}>
                                     <Col span={6}>
                                         <Card>
-                                            <h5>Species</h5>
+                                            <h4>Species</h4>
                                             <div className={"description"}>{props.species}</div>
                                         </Card>
                                     </Col>
                                     <Col span={8}>
                                         <Card>
-                                            <h5>Strain</h5>
+                                            <h4>Strain</h4>
                                             <div className={"description"}>{props.strain}</div>
                                         </Card>
                                     </Col>
                                     <Col span={8}>
                                         <Card>
-                                            <h5>Developmental Stage</h5>
+                                            <h4>Developmental Stage</h4>
                                             <div className={"description"}>{props.developmental_stage}</div>
                                         </Card>
                                     </Col>
                                     <Col span={6}>
                                         <Card>
-                                            <h5>Organ</h5>
+                                            <h4>Organ</h4>
                                             <div className={"description"}>{props.organ}</div>
                                         </Card>
                                     </Col>
                                     <Col span={8}>
                                         <Card>
-                                            <h5>Tissue</h5>
+                                            <h4>Tissue</h4>
                                             <div className={"description"}>{props.tissue}</div>
                                         </Card>
                                     </Col>
@@ -109,7 +108,7 @@ export default function DataPage(props) {
                                         }
                                     </Col>
                                 </Row>
-                        </div>
+                        </div><br/><br/>
                     <h2 id={'source'}>Source</h2>
                     <div className="site-card-wrapper" style={{padding:"2%"}}>
                         <Row gutter={10}>
@@ -130,10 +129,11 @@ export default function DataPage(props) {
                                 <a href={props.URL}>{props.URL}</a>
                             </Col>
                         </Row>
-                    </div>
-                        <h2 id={'view'}>View</h2><br/>
+                    </div><br/><br/>
+                        <h2 id={'view'}>View</h2>
                         <VitessceVisual></VitessceVisual>
-                        <h2 id={'data'}>Data and Download</h2><br/>
+                    <br/><br/>
+                        <h2 id={'data'}>Data and Download</h2>
                         <div className={datePageCss.text}>
                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
                         eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
@@ -142,9 +142,8 @@ export default function DataPage(props) {
                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
                         eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </div>
-                    </Typography>
                 </div>
-            </Layout>
+        </Layout>
         </LayoutCustom>
     )
 }

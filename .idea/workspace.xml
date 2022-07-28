@@ -7,6 +7,8 @@
     <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/antd.less" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/antd.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +142,7 @@
       <workItem from="1656772432138" duration="110000" />
       <workItem from="1658135504878" duration="43758000" />
       <workItem from="1658322345291" duration="125985000" />
-      <workItem from="1658906535934" duration="25721000" />
+      <workItem from="1658906535934" duration="27905000" />
     </task>
     <servers />
   </component>
