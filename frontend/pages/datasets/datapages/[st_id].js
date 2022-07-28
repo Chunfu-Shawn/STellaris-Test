@@ -12,7 +12,8 @@ export async function getServerSideProps({ params }) {
     // params contains the post `id`.
     // If the route is like /posts/1, then params.id is 1
     const res = await fetch(process.env.NODE_ENV==="production"?
-        "http://10.10.30.30:3000/":"http://localhost:3000/api/getDatasetsJSON/"+params.st_id)
+        "http://10.10.30.30:3000/":"http://localhost:3000/"
+        +"api/getDatasetsJSON/"+params.st_id)
     const data = await res.json()
 
     // Pass post data to the page via props
