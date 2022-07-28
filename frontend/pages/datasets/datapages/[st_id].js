@@ -11,8 +11,8 @@ const { Link } = Anchor;
 export async function getServerSideProps(context) {
     // params contains the post `id`.
     // If the route is like /posts/1, then params.id is 1
-    const res = await fetch(process.env.NODE_ENV==="production"?
-        "http://10.10.30.30:3000/":"http://localhost:3000/"
+    const res = await fetch((process.env.NODE_ENV==="production"?
+        "http://10.10.30.30:3000/":"http://localhost:3000/")
         +"api/getDatasetsJSON/"+context.params.st_id)
     const data = await res.json()
 
@@ -48,7 +48,7 @@ export default function DataPage(props) {
                     <h2 id="info" > Information </h2>
                         <div className="site-card-wrapper" style={{padding:"2%"}}>
                             <Row gutter={30}>
-                                <Col span={8}>
+                                <Col span={10}>
                                     <h4>ST ID</h4>
                                     <div className={"description"}>{props.id}</div>
                                 </Col>
@@ -56,7 +56,7 @@ export default function DataPage(props) {
                                     <h4>Date Published</h4>
                                     <div className={"description"}>{props.date_published}</div>
                                 </Col>
-                                <Col span={8}>
+                                <Col span={6}>
                                     <h4>Method</h4>
                                     <div className={"description"}>{props.method}</div>
                                 </Col>
