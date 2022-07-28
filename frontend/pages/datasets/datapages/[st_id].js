@@ -8,16 +8,16 @@ import {data} from '../../../components/Datasets/getData&Options.js';
 import {useEffect, useState} from "react";
 const { Link } = Anchor;
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps(context) {
     // params contains the post `id`.
     // If the route is like /posts/1, then params.id is 1
     const res = await fetch(process.env.NODE_ENV==="production"?
         "http://10.10.30.30:3000/":"http://localhost:3000/"
-        +"api/getDatasetsJSON/"+params.st_id)
+        +"api/getDatasetsJSON/"+context.params.st_id)
     const data = await res.json()
 
     // Pass post data to the page via props
-    return { props: { data } }
+    return { props: data }
 }
 
 export default function DataPage(props) {
@@ -28,7 +28,7 @@ export default function DataPage(props) {
     return (
         <LayoutCustom>
             <Head>
-                <title>SWT | Datasets | {props.data.id}</title>
+                <title>SWT | Datasets | {props.id}</title>
             </Head>
             <Layout>
                 <Sider style={{backgroundColor:"transparent"}}>
@@ -44,21 +44,21 @@ export default function DataPage(props) {
                 <div className="modal-body-stw" style={{textAlign: "left"}}>
                     <Typography>
                     <h3>Data</h3>
-                    <h1> {props.data.id} </h1>
+                    <h1> {props.id} </h1>
                     <h2 id="info" > Information </h2>
                         <div className="site-card-wrapper" style={{padding:"2%"}}>
                             <Row gutter={30}>
                                 <Col span={8}>
                                     <h4>ST ID</h4>
-                                    <div className={"description"}>{props.data.id}</div>
+                                    <div className={"description"}>{props.id}</div>
                                 </Col>
                                 <Col span={8}>
                                     <h4>Date Published</h4>
-                                    <div className={"description"}>{props.data.date_published}</div>
+                                    <div className={"description"}>{props.date_published}</div>
                                 </Col>
                                 <Col span={8}>
                                     <h4>Method</h4>
-                                    <div className={"description"}>{props.data.method}</div>
+                                    <div className={"description"}>{props.method}</div>
                                 </Col>
                             </Row>
                         </div>
@@ -68,42 +68,42 @@ export default function DataPage(props) {
                                     <Col span={6}>
                                         <Card>
                                             <h5>Species</h5>
-                                            <div className={"description"}>{props.data.species}</div>
+                                            <div className={"description"}>{props.species}</div>
                                         </Card>
                                     </Col>
                                     <Col span={8}>
                                         <Card>
                                             <h5>Strain</h5>
-                                            <div className={"description"}>{props.data.strain}</div>
+                                            <div className={"description"}>{props.strain}</div>
                                         </Card>
                                     </Col>
                                     <Col span={8}>
                                         <Card>
                                             <h5>Developmental Stage</h5>
-                                            <div className={"description"}>{props.data.developmental_stage}</div>
+                                            <div className={"description"}>{props.developmental_stage}</div>
                                         </Card>
                                     </Col>
-                                    <Col span={8}>
+                                    <Col span={6}>
                                         <Card>
                                             <h5>Organ</h5>
-                                            <div className={"description"}>{props.data.organ}</div>
+                                            <div className={"description"}>{props.organ}</div>
                                         </Card>
                                     </Col>
                                     <Col span={8}>
                                         <Card>
                                             <h5>Tissue</h5>
-                                            <div className={"description"}>{props.data.tissue}</div>
+                                            <div className={"description"}>{props.tissue}</div>
                                         </Card>
                                     </Col>
                                     <Col span={4}>
                                         {
-                                            props.data.pathological==="TRUE"?
+                                            props.pathological==="TRUE"?
                                             <Alert
-                                                message={"Pathological: "+ props.data.pathological}
+                                                message={"Pathological: "+ props.pathological}
                                                 type="error"
                                             />:
                                             <Alert
-                                                message={"Pathological: "+ props.data.pathological}
+                                                message={"Pathological: "+ props.pathological}
                                                 type="success"
                                             />
                                         }
@@ -115,19 +115,19 @@ export default function DataPage(props) {
                         <Row gutter={10}>
                             <Col span={9}>
                                 <h4>Title</h4>
-                                <p>{props.data.title}</p>
+                                <p>{props.title}</p>
                             </Col>
                             <Col span={4}>
                                 <h4>Journal</h4>
-                                <p>{props.data.journal}</p>
+                                <p>{props.journal}</p>
                             </Col>
                             <Col span={3}>
                                 <h4>PMID</h4>
-                                <p>{props.data.pmid}</p>
+                                <p>{props.pmid}</p>
                             </Col>
                             <Col span={8}>
                                 <h4>URL</h4>
-                                <a href={props.data.URL}>{props.data.URL}</a>
+                                <a href={props.URL}>{props.URL}</a>
                             </Col>
                         </Row>
                     </div>
