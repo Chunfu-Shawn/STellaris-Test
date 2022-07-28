@@ -6,24 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/LayoutCustom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/annotations/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotations/results.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/annotations/upload-success.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotations/upload-success.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/contact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/dataset-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/antd.less" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/antd.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/datasetpage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/datasetpage.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +140,7 @@
       <workItem from="1656772432138" duration="110000" />
       <workItem from="1658135504878" duration="43758000" />
       <workItem from="1658322345291" duration="125985000" />
-      <workItem from="1658906535934" duration="18866000" />
+      <workItem from="1658906535934" duration="19981000" />
     </task>
     <servers />
   </component>
