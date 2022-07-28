@@ -6,7 +6,10 @@ export const data = [{"key":1,"st_id":"Homo_sapiens-Spinal_Cord-ST-1","date_publ
 export const getDatasetsJSON = async (cb) => {
     try {
         let key = 1
-        let allData = await fetch('http://localhost:3000/api/getDatasetsJSON/all')
+        let allData = await fetch(process.env.NODE_ENV==="production"?
+            "http://10.10.30.30:3000":'http://localhost:3000'
+            +'/api/getDatasetsJSON/all'
+        )
         let allJSON = await allData.json()
         cb(allJSON.map(item => {
             return {

@@ -1,12 +1,9 @@
-import {Button, Layout, Space, Table, Collapse, Checkbox, Col, Row, Input, Tooltip} from 'antd';
+import {Button, Layout, Space, Input} from 'antd';
 const { Search } = Input;
-import React, {useRef, useState, useEffect, useLayoutEffect} from 'react';
-import Link from "next/link";
+import React, {useState, useEffect} from 'react';
 import {data} from './getData&Options.js';
 import FilterToolbar from "./FilterToolbar";
 import DataTable from "./DataTable";
-
-const { Panel } = Collapse;
 const {Content,Sider} = Layout;
 
 export default function TableLayout(props) {
