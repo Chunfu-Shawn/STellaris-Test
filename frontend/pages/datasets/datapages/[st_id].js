@@ -1,35 +1,19 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
-import {Anchor, Layout, Descriptions, Typography, Card, Col, Row, Alert} from 'antd';
-const {Content, Sider } = Layout;
+import {Anchor, Layout, Typography, Card, Col, Row, Alert} from 'antd';
+const { Sider } = Layout;
 import datePageCss from "../../../styles/datasetpage.module.css";
 import VitessceVisual from "../../../components/VitessceModule.js";
 import {data} from '../../../components/Datasets/getData&Options.js';
 import {useEffect, useState} from "react";
-import getDatesetsJSON from "../../../../libs/api/getDatasetsJSON.js";
 const { Link } = Anchor;
-const title = "STW - Datasets"
 
-// This function gets called at build time
-export async function getStaticPaths() {
-
-    // Get the paths we want to pre-render based on posts
-    const paths = data.map((item) => ({
-        params: { st_id: item.st_id },
-    }))
-
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
-    return { paths, fallback: false }
-}
-// This also gets called at build time
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
     // params contains the post `id`.
     // If the route is like /posts/1, then params.id is 1
-    /*const res = await fetch(process.env.NODE_ENV==="production"?
-        "http://10.10.30.30:3000":"http://localhost:3000"
-        + "/api/getDatasetsJSON/"+params.st_id)*/
-    const data = getDatesetsJSON()
+    const res = await fetch(process.env.NODE_ENV==="production"?
+        "http://10.10.30.30:3000/":"http://localhost:3000/api/getDatasetsJSON/"+params.st_id)
+    const data = await res.json()
 
     // Pass post data to the page via props
     return { props: { data } }
