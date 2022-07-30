@@ -2,10 +2,15 @@ import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import { useRouter } from "next/router";
 import { UploadOutlined } from '@ant-design/icons';
-import {Button, Form, Input, message, Upload} from 'antd';
+import {Button, Form, Input, Select, message, Upload, Row, Col} from 'antd';
 import {useState} from "react";
+import {data, getAnnotationOptions} from "../components/Datasets/getData&Options.js";
+import SelectOrganTissue from "../components/Annotation/index/SelectOrganTissue";
+import FileUpload from "../components/Annotation/index/FileUpload";
 
-/* eslint-disable no-template-curly-in-string */
+
+const organOptions = getAnnotationOptions(data)['organOptions'];
+const tissueOptions = getAnnotationOptions(data)['tissueOptions'];
 const SERVER_URL = 'http://localhost:3000'
 const UPLOAD_URL = `${SERVER_URL}/annotations/upload/`
 
@@ -22,58 +27,16 @@ const validateMessages = {
         max: "'${name}' cannot be longer than ${max} characters",
     }
 };
-/* eslint-enable no-template-curly-in-string */
 
 export default function Annotation() {
     const [fileList, setFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
+    const [organ, setOrgan] = useState(organOptions[0]);
+    const [tissues, setTissues] = useState(tissueOptions[organOptions[0]]);
+    const [secondTissue, setSecondTissue] = useState(tissueOptions[organOptions[0]][0]);
+
     const router = useRouter()
-    const props = {
-        name: 'matrixFile',
-        required: true,
-        beforeUpload: (file) => {
-            setFileList([...fileList, file]);
-            const limitM = 100 //MB
-            const isMatrix = file.type === 'application/x-gzip';
-            const isLimit = file.size / 1024 / 1024 <= limitM;
-            if (!isMatrix) {
-                setFileList([])
-                message.error({
-                    content:`File: ${file.name} is not a compressed matrix file`,
-                    style:{
-                        marginTop: '12vh',
-                    },
-                    duration:3,
-                });
-            }
-            if (!isLimit) {
-                setFileList([])
-                message.error({
-                    content:`File: ${file.name} exceeds the limit: 100 MB`,
-                    style:{
-                        marginTop: '12vh',
-                    },
-                    duration:3,
-                });
-            }
-            return false
-        },
-        onRemove: (file) => {
-            const index = fileList.indexOf(file);
-            const newFileList = fileList.slice();
-            newFileList.splice(index, 1);
-            setFileList(newFileList);
-        },
-        progress: {
-            strokeColor: {
-                '0%': '#a08cd0',
-                '100%': '#22075e',
-            },
-            strokeWidth: 3,
-            format: percent => percent && `${parseFloat(percent.toFixed(2))}%`,
-        },
-        fileList:fileList.slice(-1),//保留最后一个文件
-    };
+    const [form] = Form.useForm();
     // 手动上传表单
     const handleUpload = () => {
         let rid = ""
@@ -83,6 +46,8 @@ export default function Annotation() {
         });
         formData.append('title',form.getFieldValue('title'))
         formData.append('emailAddress',form.getFieldValue('emailAddress'))
+        formData.append('organ',organ)
+        formData.append('tissue',secondTissue)
         setUploading(true); // You can use any AJAX library you like
         fetch(UPLOAD_URL, {
             method: 'POST',
@@ -97,6 +62,8 @@ export default function Annotation() {
                         marginTop: '12vh',
                     },
                 });
+                //nextjs路由跳转到结果页面
+                router.push('http://localhost:3000/annotations/results/'+rid)
             })
             .catch(() => {
                 message.error({
@@ -107,17 +74,17 @@ export default function Annotation() {
                     duration:3,
                 }
                 );
+                router.reload()
             })
             .finally(() => {
                 setUploading(false);
-                //nextjs路由跳转到结果页面
-                router.push('http://localhost:3000/annotations/results/'+rid)
             });
     };
-    const [form] = Form.useForm();
+
     const layout = {
+        labelAlign: "left",
         labelCol: {
-            span: 5,
+            span: 6,
         },
         wrapperCol: {
             span: 16,
@@ -157,14 +124,17 @@ export default function Annotation() {
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle +'- Annotation'}</title>
+                <title>{siteTitle +'| Annotation'}</title>
             </Head>
             <div className="modal-body-stw">
                 <div className="page-header">
                     <h1>Spatial Annotation</h1>
                 </div>
                 <div className="panel panel-primary panel-annotation">
-                    <Form {...layout} form={form} onFinish={handleUpload} name="control-hooks" validateMessages={validateMessages}>
+                    <Form {...layout} layout={'horizontal'} form={form}
+                          onFinish={handleUpload}
+                          name="control-hooks"
+                          validateMessages={validateMessages}>
                         <Form.Item name="title" label="Job Title"
                             rules={[
                                 {
@@ -192,11 +162,18 @@ export default function Annotation() {
                                        },
                                    ]}
                         >
-                            <Upload {...props} maxCount={1}>
-                                <Button icon={<UploadOutlined />}>Select a matrix file</Button>
-                                <small style={{color:"gray"}}> (only a .gz format matrix file)</small>
-                            </Upload>
+                            <FileUpload setFileList={setFileList}
+                                        fileList={fileList}
+                            />
                         </Form.Item>
+                        <SelectOrganTissue setOrgan={setOrgan}
+                                           organOptions={organOptions}
+                                           tissueOptions={tissueOptions}
+                                           tissues={tissues}
+                                           setTissues={setTissues}
+                                           secondTissue={secondTissue}
+                                           setSecondTissue={setSecondTissue}
+                                           />
                         <Form.Item {...tailLayout}>
                             <Button type="primary" htmlType="submit" disabled={fileList.length === 0}
                                     loading={uploading} className={"btn-upload"}>

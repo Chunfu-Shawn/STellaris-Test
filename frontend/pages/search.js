@@ -8,7 +8,7 @@ export default function SearchPage() {
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle + "- Search"}</title>
+                <title>{siteTitle + "| Search"}</title>
             </Head>
 
             <div className="modal-body-stw" style={{height:"90vh"}}>

@@ -8,7 +8,7 @@ import Script from "next/script";
 import {BackTop} from "antd";
 // eslint-disable-next-line @next/next/no-document-import-in-page
 
-export const siteTitle = "Spatial Trans Web"
+export const siteTitle = "Spatial Trans Web "
 
 export default function LayoutCustom({ children }) {
     const style = {

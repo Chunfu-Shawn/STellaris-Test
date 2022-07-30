@@ -20,12 +20,6 @@ Router.post('/annotations/upload', uploadFile().single('matrixFile'), async (ctx
     //上传时间
     let uploadtime = new Date()
     let rid = uploadRecord(ctx, uploadtime.toISOString())
-    // 调用nextjs单独渲染一个页面，使用nextjs 的handler函数 携带参数跳转
-    /*await handler(ctx.req, ctx.res, {
-        pathname: "/annotations/upload-success",
-        query: getReqStatus(rid)
-    })
-    ctx.response = false*/
     ctx.body = {rid: rid}
     //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
     await sendMail(ctx.request.body.emailAddress, rid, console.log)
@@ -71,7 +65,7 @@ Router.get('/api/getDefaultMatrixFile', async (ctx) => {
 // 设置路由和api进行数据集表文件访问
 Router.get('/api/getDatasetsJSON/:type', async (ctx) => {
     const datasets = getDatasetsJSON()
-    let resData = null
+    let resData = {}
     datasets.forEach((item)=> {
         if (item.id === ctx.params.type)
             resData = item

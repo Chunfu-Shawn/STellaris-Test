@@ -10,7 +10,7 @@ export default function Datasets() {
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle +'- Datasets'}</title>
+                <title>{siteTitle +'| Datasets'}</title>
             </Head>
             <div className="modal-body-stw mainbody">
                 <div className={"row cover-container inner"} >

@@ -1,15 +1,14 @@
 import Head from 'next/head'
-import LayoutCustom from '../../components/LayoutCustom.js'
+import LayoutCustom, {siteTitle} from '../../components/LayoutCustom.js'
 import Link from "next/link";
 import TableLayout from "../../components/Datasets/TableLayout.js";
-const title = "STW - Datasets Archive"
 
 export default function AllArchive() {
     const checkboxStyle={fontWeight:'normal'}
     return (
         <LayoutCustom>
             <Head>
-                <title>{title}</title>
+                <title>{siteTitle}| Datasets Archive</title>
             </Head>
             <div className="modal-body-stw">
                 <div className="page-header">

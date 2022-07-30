@@ -20,7 +20,7 @@ export default function Contact() {
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle+"- Contact"}</title>
+                <title>{siteTitle+"| Contact"}</title>
             </Head>
 
             <div className="modal-body-stw contact-context">

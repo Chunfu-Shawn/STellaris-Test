@@ -1,7 +1,7 @@
 {
   "name": "vitessce",
   "version": "1.0.4",
-  "description": "Slideseq of whole brain",
+  "description": "View of ST Data",
   "public": true,
 
   "datasets": [

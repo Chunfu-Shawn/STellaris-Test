@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import LayoutCustom from '../../components/LayoutCustom.js'
+import LayoutCustom, { siteTitle }from '../../components/LayoutCustom.js'
 import WaitModule from "../../components/Annotation/waitModule.js";
 import Error from 'next/error'
 import {getReqStatus} from "../../../libs/api/getReqStatus.js";
@@ -18,9 +18,9 @@ export async function getServerSideProps(context) {
 
 
 // 设计一个自定义hook，每次渲染后返回数据结果；
-function useRequestInfo(rid,status){
+function useRequestInfo(rid){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
-    const { data, error } = useSWR(`/api/getFilesInfo/${rid}`, fetcher, { revalidateIfStale: true , isPaused(){ return status } })
+    const { data, error } = useSWR(`/api/getFilesInfo/${rid}`, fetcher, { revalidateIfStale: true })
     // 如果数据为空，为undefined，返回error为true
     return{
         data: data,
@@ -35,6 +35,9 @@ export default function ResultPage(props) {
     if (error){
         return (
             <LayoutCustom>
+                <Head>
+                    <title>{siteTitle}| Annotation</title>
+                </Head>
                 <div className={"modal-body-stw"}>
                     <Image src={'/static/images/404.png'} width={1000} height={500}/>
                 </div>
@@ -45,7 +48,7 @@ export default function ResultPage(props) {
         return (
             <LayoutCustom>
                 <Head>
-                    <title>STW-Annotation: {props.rid}</title>
+                    <title>{siteTitle}| Annotation: {props.rid}</title>
                 </Head>
                 <div>Loading...</div>
             </LayoutCustom>
@@ -65,7 +68,7 @@ export default function ResultPage(props) {
     return (
         <LayoutCustom>
             <Head>
-                <title>STW-Annotation: {props.rid}</title>
+                <title>{siteTitle}| Annotation: {props.rid}</title>
             </Head>
             {returnModule}
         </LayoutCustom>

@@ -1,6 +1,6 @@
 import ResultStatus from "./resultStatus.js";
 import {calTime} from "./waitModule.js";
-import VitessceVisual from "../VitessceModule.js";
+import VitessceVisual from "../Datasets/DataPage/VitessceModule.js";
 import {Button, Col, Row, Statistic} from "antd";
 
 

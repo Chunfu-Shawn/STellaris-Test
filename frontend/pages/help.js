@@ -5,7 +5,7 @@ export default function Help() {
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle+"- Help"}</title>
+                <title>{siteTitle+"| Help"}</title>
             </Head>
             <div className="modal-body-stw" style={{height:"100vh"}}>
             </div>

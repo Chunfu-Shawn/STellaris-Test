@@ -13,7 +13,7 @@ export default function Success(props) {
     return (
         <LayoutCustom>
             <Head>
-                <title>STW-Analysing: {props.title}</title>
+                <title>{siteTitle}| Analysing: {props.title}</title>
             </Head>
             <UploadSuccess rid={props.rid}
                            email={props.email}
