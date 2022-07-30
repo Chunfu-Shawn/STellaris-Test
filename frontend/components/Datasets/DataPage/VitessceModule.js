@@ -16,7 +16,11 @@ export default function VitessceVisualization(props) {
     }
     const onClickChange =()=>{
         setLoadings(true)
-        setViewDuplicateID(duplicateID)
+        myViewConfig.datasets[0].files.forEach( file => {
+            file.url = "https://rhesusbase.com:9999/adata_a2p2.telen.m500.log1p.leiden.deg.tangram.zarr/"
+            //file.url = "https://rhesusbase.com:9999/mouse-ngs/35050211/"+ duplicateID + "zarr"
+        })
+        console.log(duplicateID)
         setTimeout(()=>{
             setLoadings(false)
         },1000)

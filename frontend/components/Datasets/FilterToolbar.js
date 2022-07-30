@@ -16,13 +16,20 @@ Date.prototype.toLocaleString = function() {
 
 
 export default function FilterToolbar(props){
-    const [num, setNum] = useState({method:{},species:{},organ:{},pathological:{}});
+    const [num, setNum] = useState({
+        method:{},
+        species:{},
+        organ:{},
+        pathological:{},
+        date_published:new Array(20).fill(0)}
+    );
     const methodsOptions = getSummaryOptions(props.data)['methodsOptions'].slice(0,6);
     const methodsOptions2 = getSummaryOptions(props.data)['methodsOptions'].slice(6);
     const speciesOptions = getSummaryOptions(props.data)['speciesOptions'];
     const organsOptions = getSummaryOptions(props.data)['organOptions'].slice(0,6);
     const organsOptions2 = getSummaryOptions(props.data)['organOptions'].slice(6);
     const pathologicalOptions = getSummaryOptions(props.data)['pathologicalOptions'];
+    const [filterClick,setFilterClick] = useState('');
     const datePublishedOptions = [
         new Date(getSummaryOptions(props.data)['date_published'][0]).toLocaleString(),
         new Date(getSummaryOptions(props.data)['date_published'][1]).toLocaleString()
@@ -69,6 +76,7 @@ export default function FilterToolbar(props){
             pathological:props.filteredInfo.pathological,
             date_published:props.filteredInfo.date_published
         }
+        setFilterClick('method')
         props.setFilteredInfo(filters);
         onFilter(filters)
     };
@@ -80,6 +88,7 @@ export default function FilterToolbar(props){
             pathological:props.filteredInfo.pathological,
             date_published:props.filteredInfo.date_published
         }
+        setFilterClick('species')
         props.setFilteredInfo(filters);
         onFilter(filters)
     };
@@ -91,6 +100,7 @@ export default function FilterToolbar(props){
             pathological:props.filteredInfo.pathological,
             date_published:props.filteredInfo.date_published
         }
+        setFilterClick('organ')
         props.setFilteredInfo(filters);
         onFilter(filters)
     };
@@ -102,6 +112,7 @@ export default function FilterToolbar(props){
             pathological:checkedValues,
             date_published:props.filteredInfo.date_published
         }
+        setFilterClick('pathological')
         props.setFilteredInfo(filters);
         onFilter(filters)
     };
@@ -113,6 +124,7 @@ export default function FilterToolbar(props){
             pathological:props.filteredInfo.pathological,
             date_published: [Date.parse(formatter(value[0])),Date.parse(formatter(value[1]))],
             }
+        setFilterClick('date_published')
         props.setFilteredInfo(filters);
         onFilter(filters)
     };
@@ -141,25 +153,36 @@ export default function FilterToolbar(props){
     }
     // to summary the number of different categories records
     const summaryDatasets = (dataTemp) => {
-        let num_tmp ={}
-        num_tmp['method'] = {}
-        num_tmp['species'] = {}
-        num_tmp['organ'] = {}
-        num_tmp['pathological'] = {}
-        num_tmp['date_published'] = Array(20).fill(0)
+        const options = ['method','species','organ','pathological','date_published']
         let time = timeSubstract(datePublishedOptions[1], datePublishedOptions[0])
+        options.map((value,index)=>{
+            if (value === filterClick){
+                options.splice(index,1)
+            }
+        })
+        // initiate num_tmp
+        let num_tmp ={}
+        options.map((value)=>{
+            if (value === "date_published") {
+                num_tmp['date_published'] = new Array(20).fill(0)
+            }else {
+                num_tmp[value] = {}
+            }
+        })
+        if (filterClick === "date_published"){
+            num_tmp['date_published'] = num['date_published']
+        }else num_tmp[filterClick] = num[filterClick]
         // numDatePublished.map(item=>num['date_published'][item]=0)
         for(let i in dataTemp){
-            num_tmp['method'][dataTemp[i].method]===undefined?
-                num_tmp['method'][dataTemp[i].method] = 1 : num_tmp['method'][dataTemp[i].method] += 1
-            num_tmp['species'][dataTemp[i].species]===undefined?
-                num_tmp['species'][dataTemp[i].species] = 1 : num_tmp['species'][dataTemp[i].species] +=1
-            num_tmp['organ'][dataTemp[i].organ] === undefined?
-                num_tmp['organ'][dataTemp[i].organ] = 1 : num_tmp['organ'][dataTemp[i].organ] += 1
-            num_tmp['pathological'][dataTemp[i].pathological] === undefined?
-                num_tmp['pathological'][dataTemp[i].pathological] = 1 : num_tmp['pathological'][dataTemp[i].pathological] += 1
-            let index = Math.ceil(timeSubstract(dataTemp[i].date_published,"2016-06-30") * 20 / time)-1
-            num_tmp['date_published'][index] += 1
+            options.map((value)=> {
+                if (value === "date_published") {
+                    let index = Math.ceil(timeSubstract(dataTemp[i][value], "2016-06-30") * 20 / time) - 1
+                    num_tmp["date_published"][index] += 1
+                }else {
+                    num_tmp[value][dataTemp[i][value]] === undefined ?
+                        num_tmp[value][dataTemp[i][value]] = 1 : num_tmp[value][dataTemp[i][value]] += 1
+                }
+            })
         }
         setNum(num_tmp)
         console.log("statistic number:",num_tmp)
@@ -309,7 +332,7 @@ export default function FilterToolbar(props){
                 </Panel>
                 <Panel header="Date Published" key="5" style={{fontSize: '18px'}}>
                     <Col>
-                        <BarChart num={num}></BarChart>
+                        <BarChart num_date_published={num["date_published"]}></BarChart>
                     </Col>
                     <Col>
                         <Slider range marks={marks} defaultValue={[0, 100]} tipFormatter={formatter}

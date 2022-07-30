@@ -1,4 +1,4 @@
-import {Button, message, Upload} from "antd";
+import {Form, Button, message, Upload} from "antd";
 import {UploadOutlined} from "@ant-design/icons";
 
 export default function FileUpload(props){
@@ -6,11 +6,14 @@ export default function FileUpload(props){
         name: 'matrixFile',
         required: true,
         beforeUpload: (file) => {
-            props.setFileList([...props.fileList, file]);
-            const limitM = 100 //MB
-            const isMatrix = file.name.split('.').slice(-2) === 'mtx'||'txt';
-            const isGzip = file.type === 'application/x-gzip';
-            const isLimit = file.size / 1024 / 1024 <= limitM;
+            props.setFileList([file]);
+            const limitM = 100; //MB
+            let isMatrix = String.parse(file.name.split('.').slice(-2,-1)) === 'mtx' ||
+                String.parse(file.name.split('.').slice(-2,-1)) === 'txt' ||
+                String.parse(file.name.split('.').slice(-2)) === 'csv' ||
+                String.parse(file.name.split('.').slice(-2)) === 'tsv';
+            let isGzip = file.type === 'application/x-gzip';
+            let isLimit = file.size / 1024 / 1024 <= limitM;
             if (!isMatrix||!isGzip) {
                 props.setFileList([])
                 message.error({
@@ -51,9 +54,17 @@ export default function FileUpload(props){
     };
 
     return(
-        <Upload {...setting} maxCount={1}>
-            <Button icon={<UploadOutlined />}>Select a matrix file</Button>
-            <small style={{color:"gray"}}> (only a .gz format matrix file)</small>
-        </Upload>
+        <Form.Item name="matrixFile" label="Matrix File"
+                   rules={[
+                       {
+                           required: true,
+                       },
+                   ]}
+        >
+            <Upload {...setting} maxCount={1}>
+                <Button icon={<UploadOutlined />}>Select a matrix file</Button>
+                <small style={{color:"gray"}}> (only a .gz format matrix file)</small>
+            </Upload>
+        </Form.Item>
     )
 }

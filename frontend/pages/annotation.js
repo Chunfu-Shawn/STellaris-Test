@@ -103,9 +103,6 @@ export default function Annotation() {
     const onFill = () => {
         form.setFieldsValue({
             title: 'An important job!',
-            /*
-            MatrixFile: matrixFile,
-             */
             emailAddress: 'someone@mail.com',
         });
         if(fileList!==[])
@@ -155,17 +152,9 @@ export default function Annotation() {
                         >
                             <Input placeholder='Enter your email address' />
                         </Form.Item>
-                        <Form.Item name="matrixFile" label="Matrix File"
-                                   rules={[
-                                       {
-                                           required: true,
-                                       },
-                                   ]}
-                        >
-                            <FileUpload setFileList={setFileList}
+                        <FileUpload setFileList={setFileList}
                                         fileList={fileList}
-                            />
-                        </Form.Item>
+                        />
                         <SelectOrganTissue setOrgan={setOrgan}
                                            organOptions={organOptions}
                                            tissueOptions={tissueOptions}

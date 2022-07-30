@@ -112,7 +112,6 @@ export default function TableLayout(props) {
             dataShow = dataSearch
         }else dataShow = data
         setDataShow(dataShow)
-        return dataShow
     }
     // to select some rows
     const onSelectChange = (newSelectedRowKeys) => {

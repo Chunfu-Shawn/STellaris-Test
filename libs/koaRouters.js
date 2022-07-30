@@ -20,11 +20,13 @@ Router.post('/annotations/upload', uploadFile().single('matrixFile'), async (ctx
     //上传时间
     let uploadtime = new Date()
     let rid = uploadRecord(ctx, uploadtime.toISOString())
-    ctx.body = {rid: rid}
-    //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
-    await sendMail(ctx.request.body.emailAddress, rid, console.log)
-    // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-    await execTangram(ctx.request.file.destination, ctx.request.file.filename);
+    if(rid !== undefined){
+        ctx.body = {rid: rid}
+        //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
+        await sendMail(ctx.request.body.emailAddress, rid, console.log)
+        // 运行Tangram, 传入Koa的context包装的request对象，和response对象
+        await execTangram(ctx.request.file.destination, ctx.request.file.filename);
+    }else console.log("A bad upload happened!!")
 })
 // 查询结果的路由
 Router.get('/annotations/results/:rid', async (ctx) => {
