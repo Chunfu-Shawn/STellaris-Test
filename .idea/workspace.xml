@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/FileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/FileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/BarChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/BarChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/filesInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/filesInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +143,8 @@
       <workItem from="1658906535934" duration="38957000" />
       <workItem from="1659086839138" duration="285000" />
       <workItem from="1659087334514" duration="201000" />
-      <workItem from="1659087553233" duration="22154000" />
+      <workItem from="1659087553233" duration="22352000" />
+      <workItem from="1659245482013" duration="1168000" />
     </task>
     <servers />
   </component>
