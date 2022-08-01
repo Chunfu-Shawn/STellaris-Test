@@ -5,7 +5,7 @@ export default function MainPage() {
     let contextHolder = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit."
     return(
         <>
-            <div className="modal-body-stw mainbody">
+            <div className="modal-body-stw">
                 <div className="cover-container" >
                     <div className="inner cover" >
                         <h1 className="cover-heading">Spatial Transcriptome Web Tools and Database</h1>

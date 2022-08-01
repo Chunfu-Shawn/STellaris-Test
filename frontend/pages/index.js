@@ -8,7 +8,9 @@ export default function Home() {
             <Head>
                 <title>{siteTitle}</title>
             </Head>
+            <div className={"mainbody"}>
             <MainPage></MainPage>
+            </div>
         </LayoutCustom>
     )
 }

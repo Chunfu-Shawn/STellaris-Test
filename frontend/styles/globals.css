@@ -13,6 +13,7 @@ html{
   scroll-behavior: smooth;
 }
 html body .mainbody{
+  align-content: center;
   height: auto;
   color: #fff;
   background-color: #252525;
