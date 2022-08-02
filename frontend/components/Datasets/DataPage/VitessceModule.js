@@ -7,20 +7,22 @@ import {Button, Col, Row, Select} from "antd";
 const { Option } = Select;
 
 export default function VitessceVisualization(props) {
-    const height = 800
+    const height = 600
     const [loadings, setLoadings] = useState(false);
-    const [duplicateID, setDuplicateID] = useState('');
-    const [viewDuplicateID, setViewDuplicateID] = useState('');
+    const [duplicateID, setDuplicateID] = useState(props.duplicateOption[0]);
+    const [viewConfig, setViewConfig] = useState(myViewConfig);
     const onChangeDuplicate =(value)=>{
         setDuplicateID(value)
     }
     const onClickChange =()=>{
         setLoadings(true)
-        myViewConfig.datasets[0].files.forEach( file => {
-            file.url = "https://rhesusbase.com:9999/adata_a2p2.telen.m500.log1p.leiden.deg.tangram.zarr/"
+        let viewConfigTemp = {...viewConfig}
+        viewConfigTemp.datasets[0].files.forEach( file => {
+            file.url = "https://rhesusbase.com:9999/zarr_files/STW-Homo_sapiens-Bone-ST-1/" + duplicateID + ".stagate_leiden.zarr"
+            console.log(file)
             //file.url = "https://rhesusbase.com:9999/mouse-ngs/35050211/"+ duplicateID + "zarr"
         })
-        console.log(duplicateID)
+        setViewConfig(viewConfigTemp)
         setTimeout(()=>{
             setLoadings(false)
         },1000)
@@ -61,7 +63,7 @@ export default function VitessceVisualization(props) {
                 spin/>
             }>
                 <Vitessce
-                    config={myViewConfig}
+                    config={viewConfig}
                     height={height}
                     theme="dark"
                 />

@@ -190,8 +190,8 @@ export default function FilterToolbar(props){
 
     return (
         <>
-            <Collapse bordered={false} defaultActiveKey={['1','5']}>
-                <Panel header="Methods" key="1" style={{fontSize: '18px'}}>
+            <Collapse bordered={false} defaultActiveKey={['1','5']} style={{fontSize: '18px',textAlign:"left"}}>
+                <Panel header="Methods" key="1">
                     <Checkbox.Group
                         style={{
                             width: '100%',

@@ -1,10 +1,6 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import Navigator from "./navigator.js";
 import FooterCustom from "./footer.js";
-import { Layout, Menu } from 'antd';
-const { Header, Content, Sider, Footer } = Layout;
-import Script from "next/script";
 import {BackTop} from "antd";
 // eslint-disable-next-line @next/next/no-document-import-in-page
 

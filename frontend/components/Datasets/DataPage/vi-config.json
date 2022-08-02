@@ -1,6 +1,6 @@
 {
   "name": "vitessce",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "View of ST Data",
   "public": true,
 
@@ -10,7 +10,7 @@
       "name": "chunfu2021",
       "files": [
         {
-          "url": "https://rhesusbase.com:9999/adata_a2p2.telen.m500.log1p.leiden.deg.tangram.zarr",
+          "url": "https://rhesusbase.com:9999/zarr_files/STW-Homo_sapiens-Bone-ST-1/RA_A_1.stagate_leiden.zarr",
           "type": "cells",
           "fileType": "anndata-cells.zarr",
           "options": {
@@ -19,35 +19,31 @@
               "UMAP": {
                 "key": "obsm/X_umap",
                 "dims": [ 0, 1 ]
-              },
-              "PCA": {
-                "key": "obsm/X_pca_hvg2k",
-                "dims": [ 4, 5 ]
               }
             },
             "factors": [
-              "obs/anno1_cell_leiden2ct"
+              "obs/leiden"
             ]
           }
         },
         {
-          "url": "https://rhesusbase.com:9999/adata_a2p2.telen.m500.log1p.leiden.deg.tangram.zarr",
+          "url": "https://rhesusbase.com:9999/zarr_files/STW-Homo_sapiens-Bone-ST-1/RA_A_1.stagate_leiden.zarr",
           "type": "cell-sets",
           "fileType": "anndata-cell-sets.zarr",
           "options": [
             {
-              "groupName": "cell_leiden",
-              "setName": "obs/anno1_cell_leiden2ct"
+              "groupName": "leiden",
+              "setName": "obs/leiden"
             }
           ]
         },
         {
-          "url": "https://rhesusbase.com:9999/adata_a2p2.telen.m500.log1p.leiden.deg.tangram.zarr",
+          "url": "https://rhesusbase.com:9999/zarr_files/STW-Homo_sapiens-Bone-ST-1/RA_A_1.stagate_leiden.zarr",
           "type": "expression-matrix",
           "fileType": "anndata-expression-matrix.zarr",
           "options": {
             "matrix": "X",
-            "matrixGeneFilter": "var/highly_variable_2k"
+            "matrixGeneFilter": "var/highly_variable"
           }
         }
       ]
@@ -79,13 +75,13 @@
       "UMAP": 3
     },
     "spatialZoom": {
-      "A": 1.5
+      "A": 3.5
     },
     "spatialTargetX": {
-      "A": 650
+      "A": 15
     },
     "spatialTargetY": {
-      "A": -250
+      "A": 20
     },
     "spatialCellsLayer": {
       "1": {
