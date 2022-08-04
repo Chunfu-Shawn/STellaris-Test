@@ -1,10 +1,10 @@
 import React, {Suspense, useState} from 'react';
-import { LoadingOutlined } from '@ant-design/icons';
-const Vitessce = React.lazy(() => import('./VitessceWrapper.js'));
 import myViewConfig from './vi-config.json';
-import 'vitessce/dist/es/production/static/css/index.css';
 import {Button, Col, Row, Select} from "antd";
 const { Option } = Select;
+
+const Vitessce = React.lazy(() => import('./VitessceWrapper.js'));
+
 
 export default function VitessceVisualization(props) {
     const height = 600
@@ -20,7 +20,6 @@ export default function VitessceVisualization(props) {
         viewConfigTemp.datasets[0].files.forEach( file => {
             file.url = "https://rhesusbase.com:9999/zarr_files/STW-Homo_sapiens-Bone-ST-1/" + duplicateID + ".stagate_leiden.zarr"
             console.log(file)
-            //file.url = "https://rhesusbase.com:9999/mouse-ngs/35050211/"+ duplicateID + "zarr"
         })
         setViewConfig(viewConfigTemp)
         setTimeout(()=>{
@@ -55,12 +54,7 @@ export default function VitessceVisualization(props) {
         </Row><br/>
         <div className="panel-visual" style={{height:height+10+"px"}}>
             <Suspense fallback={
-                <LoadingOutlined
-                style={{
-                    fontSize: 30,
-                    margin:'10%'
-                }}
-                spin/>
+                <div>Loading</div>
             }>
                 <Vitessce
                     config={viewConfig}

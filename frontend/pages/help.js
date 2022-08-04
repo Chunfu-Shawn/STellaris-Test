@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
-import 'vitessce/dist/es/production/static/css/index.css';
 import VitessceVisual from "../components/Datasets/DataPage/VitessceModule.js";
 import React from "react";
 

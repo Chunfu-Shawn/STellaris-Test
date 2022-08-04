@@ -4,61 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/SelectOrganTissue.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/SelectOrganTissue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/vi-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/vi-config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/LayoutCustom.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/LayoutCustom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/files/data_downloaded.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/filesInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/filesInfo.json" afterDir="false" />
-    </list>
+    <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Less File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/frontend/components/Annotation/waitModule.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceModule.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/pages/annotations/results.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/pages/annotations/upload-success.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/pages/datasets.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/frontend/styles/mainpage.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/libs/api/getHumanMap.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/libs/api/getReqStatus.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/server.js" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2AVMOWI9qBSxZHVGksgMbGdss4c" />
+  <component name="ProjectId" id="2Cq4kmQG37UFxocO1j9uZ5hyWN6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -67,122 +22,37 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/chunfu/WebstormProjects/Spatial-Trans-Web&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/chunfu/WebstormProjects/Spatial_Trans_Web&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/files" />
-      <recent name="$PROJECT_DIR$/libs/api" />
-      <recent name="$PROJECT_DIR$/frontend/public" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/frontend/pages" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/components/Datasets/DataPage" />
-      <recent name="$PROJECT_DIR$/frontend/pages/datasets/datapages" />
-      <recent name="$PROJECT_DIR$/public/files" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/frontend/components/Annotation" />
     </key>
-  </component>
-  <component name="RunManager" selected="Node.js.TableLayout.js">
-    <configuration name="未命名" type="NodeJSConfigurationType" nameIsGenerated="true" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
-    <configuration name="TableLayout.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" working-dir="$PROJECT_DIR$/frontend/components/Datasets">
-      <method v="2" />
-    </configuration>
-    <configuration name="getData&amp;Options.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" working-dir="$PROJECT_DIR$/frontend/components/Datasets">
-      <method v="2" />
-    </configuration>
-    <configuration name="getDatasetsJSON.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/libs/api/getDatasetsJSON.js" working-dir="$PROJECT_DIR$/libs/api">
-      <method v="2" />
-    </configuration>
-    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/server.js" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Node.js.未命名" />
-      <item itemvalue="Node.js.TableLayout.js" />
-      <item itemvalue="Node.js.getData&amp;Options.js" />
-      <item itemvalue="Node.js.getDatasetsJSON.js" />
-      <item itemvalue="Node.js.server.js" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Node.js.TableLayout.js" />
-        <item itemvalue="Node.js.getData&amp;Options.js" />
-        <item itemvalue="Node.js.getDatasetsJSON.js" />
-        <item itemvalue="Node.js.server.js" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="ab13bbf4-70db-48fc-af92-6d4be3235c0b" name="变更" comment="" />
-      <created>1655090267154</created>
+      <changelist id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="" />
+      <created>1659516926930</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1655090267154</updated>
-      <workItem from="1655090269239" duration="10397000" />
-      <workItem from="1655310881875" duration="2255000" />
-      <workItem from="1655542653866" duration="1891000" />
-      <workItem from="1655820094352" duration="417000" />
-      <workItem from="1655864172098" duration="33825000" />
-      <workItem from="1655973157820" duration="497000" />
-      <workItem from="1655990176299" duration="1387000" />
-      <workItem from="1656131021062" duration="1004000" />
-      <workItem from="1656144471610" duration="18922000" />
-      <workItem from="1656300747670" duration="47980000" />
-      <workItem from="1656772432138" duration="110000" />
-      <workItem from="1658135504878" duration="43758000" />
-      <workItem from="1658322345291" duration="125985000" />
-      <workItem from="1658906535934" duration="38957000" />
-      <workItem from="1659086839138" duration="285000" />
-      <workItem from="1659087334514" duration="201000" />
-      <workItem from="1659087553233" duration="22352000" />
-      <workItem from="1659245482013" duration="25262000" />
-      <workItem from="1659368549591" duration="977000" />
-      <workItem from="1659407504635" duration="547000" />
-      <workItem from="1659423984773" duration="11000" />
-      <workItem from="1659435281179" duration="8608000" />
-      <workItem from="1659450995320" duration="125000" />
+      <updated>1659516926930</updated>
+      <workItem from="1659516928157" duration="10737000" />
+      <workItem from="1659541653578" duration="2307000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

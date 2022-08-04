@@ -6,8 +6,6 @@ import {Router} from './libs/koaRouters.js'
 // session 有关模块
 import session from 'koa-session'
 import {accessLogger,uploadLogger} from "./libs/logSave.js"
-import fs from "fs";
-import morgan from "koa-morgan";
 
 // Determine whether it is a production environment
 const dev = process.env.NODE_ENV !== 'production'
@@ -18,6 +16,7 @@ const app = nextjs(
         dir: "./frontend",
     }
 )
+
 export const handler = app.getRequestHandler()
 
 app.prepare().then(() => {

@@ -1,6 +1,6 @@
 {
   "name": "vitessce",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "description": "View of ST Data",
   "public": true,
 
@@ -14,8 +14,8 @@
           "type": "cells",
           "fileType": "anndata-cells.zarr",
           "options": {
-             "xy": "obsm/spatial",
-             "mappings": {
+            "xy": "obsm/spatial",
+            "mappings": {
               "UMAP": {
                 "key": "obsm/X_umap",
                 "dims": [ 0, 1 ]

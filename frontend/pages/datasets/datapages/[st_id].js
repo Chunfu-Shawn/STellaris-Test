@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
-import {Anchor, Layout, Typography, Card, Col, Row, Alert, Table, Select, Button} from 'antd';
-import datePageCss from "../../../styles/datasetpage.module.css";
+import {Anchor, Layout, Col, Row, Alert, Table} from 'antd';
 import React from "react";
 import VitessceVisual from "../../../components/Datasets/DataPage/VitessceModule.js";
 import {data} from '../../../components/Datasets/getData&Options.js';
@@ -169,7 +168,7 @@ export default function DataPage(props) {
                         <VitessceVisual duplicateOption={duplicateOption}></VitessceVisual>
                     <br/><br/>
                         <h2 id={'data'}>Data and Download</h2>
-                        <div className={datePageCss.text}>
+                        <div>
                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
                         eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
