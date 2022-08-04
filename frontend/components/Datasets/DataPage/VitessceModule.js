@@ -1,35 +1,30 @@
 import React, {Suspense, useState} from 'react';
 import myViewConfig from './vi-config.json';
 import {Button, Col, Row, Select} from "antd";
+import { LoadingOutlined,SelectOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 const Vitessce = React.lazy(() => import('./VitessceWrapper.js'));
 
 
 export default function VitessceVisualization(props) {
+    myViewConfig.datasets[0].files.forEach( file => {
+        file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.stagate_leiden.zarr`
+    })
     const height = 600
-    const [loadings, setLoadings] = useState(false);
-    const [duplicateID, setDuplicateID] = useState(props.duplicateOption[0]);
     const [viewConfig, setViewConfig] = useState(myViewConfig);
     const onChangeDuplicate =(value)=>{
-        setDuplicateID(value)
-    }
-    const onClickChange =()=>{
-        setLoadings(true)
         let viewConfigTemp = {...viewConfig}
         viewConfigTemp.datasets[0].files.forEach( file => {
-            file.url = "https://rhesusbase.com:9999/zarr_files/STW-Homo_sapiens-Bone-ST-1/" + duplicateID + ".stagate_leiden.zarr"
+            file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.stagate_leiden.zarr`
             console.log(file)
         })
         setViewConfig(viewConfigTemp)
-        setTimeout(()=>{
-            setLoadings(false)
-        },1000)
     }
     return (
         <>
-        <Row justify="start" align="bottom">
-            <Col span={3}><h5>Duplicates ID: </h5></Col>
+        <Row justify="start" align="stretch">
+            <Col span={6}><span style={{fontSize:"16px"}}>Anndata-Zarr ID (Duplicates): </span></Col>
             <Col span={6}>
                 <Select
                     defaultValue={props.duplicateOption[0]}
@@ -44,18 +39,12 @@ export default function VitessceVisualization(props) {
                     }
                 </Select>
             </Col>
-            <Col span={2}>
-                <Button type="primary" ghost
-                        onClick={onClickChange}
-                        loading={loadings}>
-                    View this Duplicate
-                </Button>
-            </Col>
         </Row><br/>
-        <div className="panel-visual" style={{height:height+10+"px"}}>
+        <div className="panel-visual" style={{height:height+2+"px"}}>
             <Suspense fallback={
-                <div>Loading</div>
-            }>
+                <LoadingOutlined spin={true} style={{marginTop:"20%",fontSize:"30px"}}/>
+            }
+            >
                 <Vitessce
                     config={viewConfig}
                     height={height}
@@ -63,6 +52,7 @@ export default function VitessceVisualization(props) {
                 />
             </Suspense>
         </div>
+            <p style={{float:'right',color:"gray"}}>Powered by <a href={"https://vitessce.io/"}>Vitessce <SelectOutlined /></a></p>
         </>
     )
 }

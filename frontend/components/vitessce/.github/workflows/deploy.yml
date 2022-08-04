@@ -1,0 +1,28 @@
+# Adapted from https://github.com/actions/starter-workflows/blob/e9e00b017736d3b3811cedf1ee2e8ceb3c48e3dd/ci/npm-publish.yml
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - id: get-options
+        run: . ./set-node-options.sh --action
+      - run: npm ci --legacy-peer-deps
+      - run: ./test.sh
+        env:
+          NODE_OPTIONS: ${{ steps.get-options.outputs.node-options }}
+      - name: Deploy to NPM
+        continue-on-error: true
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

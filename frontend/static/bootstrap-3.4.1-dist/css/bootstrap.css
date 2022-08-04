@@ -5110,10 +5110,7 @@ a.badge:focus {
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
-    padding-left: 48px;
-    padding-right: 48px;
+    padding: 2%;
     color: #0d0d0d;
     border-radius: 25px
   }

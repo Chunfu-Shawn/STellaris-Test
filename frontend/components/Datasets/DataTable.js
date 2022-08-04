@@ -62,7 +62,7 @@ export default function DataTable(props) {
             title: 'Organ',
             dataIndex: 'organ',
             key: 'organ',
-            width:'8%',
+            width:'9%',
             render: (organ) => (
                 <Tooltip placement="topLeft" title={organ}>
                     {organ}
@@ -96,7 +96,7 @@ export default function DataTable(props) {
             title: 'Pathological',
             dataIndex: 'pathological',
             key: 'pathological',
-            width:'10%',
+            width:'11%',
             ellipsis: true,
         },
         {

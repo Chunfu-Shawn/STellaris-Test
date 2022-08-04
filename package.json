@@ -15,6 +15,7 @@
     "eslint-config-next": "12.1.6"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@koa/multer": "^3.0.0",
     "antd": "^4.21.0",
     "echarts": "^5.3.3",

@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
-import {Anchor, Layout, Col, Row, Alert, Table} from 'antd';
+import {Anchor, Layout, Col, Row, Alert, Table,Tooltip} from 'antd';
+import { FileTextFilled, DownloadOutlined } from '@ant-design/icons';
 import React from "react";
 import VitessceVisual from "../../../components/Datasets/DataPage/VitessceModule.js";
 import {data} from '../../../components/Datasets/getData&Options.js';
 import {useEffect, useState} from "react";
 import Error from "next/error";
+import FliesTree from "../../../components/Datasets/DataPage/FliesTree";
 
 const { Sider } = Layout;
 const { Link } = Anchor;
@@ -27,8 +29,7 @@ export async function getServerSideProps(context) {
 
 export default function DataPage(props) {
     const [targetOffset, setTargetOffset] = useState(undefined);
-    const duplicateOption  = ['RA_A_1', 'RA_A_2', 'RA_A_3', 'RA_B_1', 'RA_B_2', 'RA_B_3', 'RA_C_1', 'RA_C_2', 'RA_C_3',
-        'SPA_A_1', 'SPA_A_2', 'SPA_A_3', 'SPA_B_1', 'SPA_B_2', 'SPA_B_3', 'SPA_C_1', 'SPA_C_2', 'SPA_C_3']
+    const duplicateOption  = props.duplicate_zarr_id ? props.duplicate_zarr_id.split(',') : ['default']
     const columns = [
         {
             title: 'Key',
@@ -38,6 +39,8 @@ export default function DataPage(props) {
         {
             title: 'Value',
             dataIndex: 'value',
+            width:'60vh',
+            wrap:true
         },
     ];
     const dataSample =[
@@ -79,7 +82,6 @@ export default function DataPage(props) {
 
     useEffect(() => {
         setTargetOffset(window.innerHeight / 2);
-        console.log(props)
     }, []);
 
     if(!props) return <Error statusCode={404}></Error>
@@ -97,13 +99,27 @@ export default function DataPage(props) {
                         </Link>
                         <Link href="#source" title="Source" />
                         <Link href="#view" title="View" />
-                        <Link href="#data" title="Data Download"/>
+                        <Link href="#files" title="Files"/>
                     </Anchor>
                 </Sider>
                 <div className={"modal-body-stw"} style={{textAlign: "left",paddingLeft:'3%',paddingRight:'15%'}}>
-                    <h3>Data</h3>
-                    <h1> {props.id} </h1><br/><br/>
-                    <h2 id="info" > Information </h2>
+                    <h3>Datasets</h3>
+                    <h1 style={{fontFamily:"Tahoma, sans-serif;"}}> {props.id} </h1><br/>
+                    <Row>
+                        <Col span={8}><h2 id="info" > Information </h2></Col>
+                        <Col span={8} offset={8}>
+                            <a target={'_blank'} href={`/api/getDatasetsJSON/${props.id}`} download>
+                                <Tooltip title="Download JSON">
+                                    <DownloadOutlined  style={{float:"right",fontSize:"30px",margin:'0 5%'}}/>
+                                </Tooltip>
+                            </a>
+                            <a target={'_blank'} href={`/api/getDatasetsJSON/${props.id}`}>
+                                <Tooltip title="View JSON">
+                                    <FileTextFilled style={{float:"right",fontSize:"30px"}}/>
+                                </Tooltip>
+                            </a>
+                        </Col>
+                    </Row>
                     <div className="site-card-wrapper" style={{padding:"2%"}}>
                         <Row gutter={30}>
                             <Col span={10}>
@@ -122,19 +138,22 @@ export default function DataPage(props) {
                     </div><br/>
                     <div style={{marginLeft:"5%"}}>
                         <Row>
-                            <Col span={3}><h3 id={'sample'}>Sample</h3></Col>
-                            <Col span={5}>
-                            {props.pathological==="TRUE"?
-                            <Alert
-                                message={"Pathological Tissue"}
-                                type="warning"
-                                showIcon
-                            />:
-                            <Alert
-                                message={"Normal Tissue"}
-                                type="success"
-                                showIcon
-                            />}</Col>
+                            <Col span={3} style={{minWidth:100}}>
+                                <h3 id={'sample'}>Sample</h3>
+                            </Col>
+                            <Col span={5} style={{minWidth:200}}>
+                                {props.pathological==="TRUE"?
+                                <Alert
+                                    message={"Pathological Tissue"}
+                                    type="warning"
+                                    showIcon
+                                />:
+                                <Alert
+                                    message={"Normal Tissue"}
+                                    type="success"
+                                    showIcon
+                                />}
+                            </Col>
                         </Row><br/>
                         <div className="site-card-wrapper">
                             <Table columns={columns} pagination={false} dataSource={dataSample} size="middle" />
@@ -164,18 +183,13 @@ export default function DataPage(props) {
                             </Col>
                         </Row>
                     </div><br/><br/>
-                        <h2 id={'view'}>View</h2>
-                        <VitessceVisual duplicateOption={duplicateOption}></VitessceVisual>
+                    <h2 id={'view'}>View</h2>
+                    <VitessceVisual st_id={props.id} duplicateOption={duplicateOption}></VitessceVisual>
                     <br/><br/>
-                        <h2 id={'data'}>Data and Download</h2>
-                        <div>
-                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
-                        eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
-                        eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
-                        eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </div>
+                    <h2 id={'files'}>Files</h2>
+                    <div className="site-card-wrapper" style={{padding:"2%"}}>
+                        <FliesTree />
+                    </div>
                 </div>
         </Layout>
         </LayoutCustom>

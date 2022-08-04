@@ -19,7 +19,6 @@ export default function MainPage() {
                     <PlaceHolder title={"Spatial Trans Data"} context={contextHolder} link={"/datasets"}/>
                     <PlaceHolder title={"Spatial Annotation"} context={contextHolder} link={"/annotation"}/>
                     <PlaceHolder title={"Test Vitessce"} context={contextHolder} link={"/datasets/dataset-page"}/>
-
                 </div>
                 <div id="more"></div>
                 <h1 className={"inner"} style={{color:"white"}}>KNOW MORE</h1>
