@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
 import {Anchor, Layout, Col, Row, Alert, Table,Tooltip} from 'antd';
-import { FileTextFilled, DownloadOutlined } from '@ant-design/icons';
+import {FileTextFilled, DownloadOutlined, InfoCircleFilled} from '@ant-design/icons';
 import React from "react";
 import VitessceVisual from "../../../components/Datasets/DataPage/VitessceModule.js";
 import {data} from '../../../components/Datasets/getData&Options.js';
@@ -110,12 +110,17 @@ export default function DataPage(props) {
                         <Col span={8} offset={8}>
                             <a target={'_blank'} href={`/api/getDatasetsJSON/${props.id}`} download>
                                 <Tooltip title="Download JSON">
-                                    <DownloadOutlined  style={{float:"right",fontSize:"30px",margin:'0 5%'}}/>
+                                    <DownloadOutlined  style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
                                 </Tooltip>
                             </a>
                             <a target={'_blank'} href={`/api/getDatasetsJSON/${props.id}`}>
                                 <Tooltip title="View JSON">
-                                    <FileTextFilled style={{float:"right",fontSize:"30px"}}/>
+                                    <FileTextFilled style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
+                                </Tooltip>
+                            </a>
+                            <a target={'_blank'} href={`/help`}>
+                                <Tooltip title="View Help">
+                                    <InfoCircleFilled style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
                                 </Tooltip>
                             </a>
                         </Col>
