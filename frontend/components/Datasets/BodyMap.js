@@ -2,6 +2,21 @@ import * as echarts from 'echarts';
 import {useEffect, useRef} from "react";
 //引入jquery
 import $ from 'jquery';
+const showData = {
+    "Spinal Cord": 2,
+    "Bone": 3,
+    "Heart": 1,
+    "Testis": 1,
+    "Uterus": 1,
+    "Colon": 3,
+    "Prostate": 5,
+    "Kidney": 1,
+    "Liver": 5,
+    "Adipose Tissue": 1,
+    "Brain": 1,
+    "Lung": 2,
+    "Embryo": 1
+}
 
 export default function BodyMap(props){
     const chartRef = useRef(null);
@@ -16,7 +31,7 @@ export default function BodyMap(props){
                 echarts.registerMap('organ_diagram', { svg: svg });
                 option = {
                     tooltip: {},
-                    color:'#871400',
+                    color:'#bd4901',
                     textStyle: {
                         color: '#ffffff',
                     },
@@ -57,15 +72,7 @@ export default function BodyMap(props){
                     xAxis: {
                         },
                     yAxis: {
-                        data: [
-                            'heart',
-                            'large-intestine',
-                            'small-intestine',
-                            'spleen',
-                            'kidney',
-                            'lung',
-                            'liver'
-                        ]
+                        data: Object.keys(showData)
                     },
                     series: [
                         {
@@ -73,7 +80,7 @@ export default function BodyMap(props){
                             emphasis: {
                                 focus: 'self'
                             },
-                            data: [13, 31, 41, 52, 18, 9, 13]
+                            data: Object.values(showData)
                         }
                     ]
                 };
@@ -97,8 +104,8 @@ export default function BodyMap(props){
     }, []);
     return (
         <div className={props.class+" text-center"}>
-            <h4 style={{color:"white"}}>Human Spatial Transcriptome Datasets</h4>
-            <div ref={chartRef} style={{height:"50vh"}}></div>
+            <h4 style={{color:"white"}}>Human Archive</h4>
+            <div ref={chartRef} style={{height:"60vh"}}></div>
         </div>
     )
 }

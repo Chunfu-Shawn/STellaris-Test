@@ -69,7 +69,7 @@ Router.get('/api/getDatasetsJSON/:type', async (ctx) => {
     const datasets = getDatasetsJSON()
     let resData = {}
     datasets.forEach((item)=> {
-        if (item.id === ctx.params.type)
+        if (item.ID === ctx.params.type)
             resData = item
     })
     // 传出默认JSON格式datesets的表

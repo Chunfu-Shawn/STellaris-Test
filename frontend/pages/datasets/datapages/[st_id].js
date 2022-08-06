@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
 import {Anchor, Layout, Col, Row, Alert, Table,Tooltip} from 'antd';
-import {FileTextFilled, DownloadOutlined, InfoCircleFilled} from '@ant-design/icons';
+import {FileTextFilled, DownloadOutlined, InfoOutlined} from '@ant-design/icons';
 import React from "react";
 import VitessceVisual from "../../../components/Datasets/DataPage/VitessceModule.js";
 import {data} from '../../../components/Datasets/getData&Options.js';
@@ -13,8 +13,8 @@ const { Sider } = Layout;
 const { Link } = Anchor;
 
 export async function getServerSideProps(context) {
-    // params contains the post `id`.
-    // If the route is like /posts/1, then params.id is 1
+    // params contains the post `st_id`.
+    // If the route is like /datapages/1, then params.st_id is 1
     const res = await fetch((process.env.NODE_ENV==="production"?
         "http://10.10.30.30:3000/":"http://localhost:3000/")
         +"api/getDatasetsJSON/"+context.params.st_id)
@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
 
 export default function DataPage(props) {
     const [targetOffset, setTargetOffset] = useState(undefined);
-    const duplicateOption  = props.duplicate_zarr_id ? props.duplicate_zarr_id.split(',') : ['default']
+    const duplicateOption = props.Duplicate_ID.split(',')
     const columns = [
         {
             title: 'Key',
@@ -46,54 +46,70 @@ export default function DataPage(props) {
     const dataSample =[
         {
             key:"Species",
-            value:props.species
+            value:props.Species
         },
-        {
+        props.Strain==='null'?{
             key:"Strain",
-            value:props.strain
+            value:"--"
+        }:{
+            key:"Strain",
+            value:props.Strain
         },
-        {
+        props.Developmental_stage==='null'?{
             key:"Developmental Stage",
-            value:props.developmental_stage
+            value:"--"
+        }:{
+            key:"Developmental Stage",
+            value:props.Developmental_stage
         },
         {
             key:"Organ",
-            value:props.organ
+            value:props.Organ
         },
         {
             key:"Tissue",
-            value:props.tissue
+            value:props.Tissue
         },
     ]
     const dataDuplicates =[
         {
             key:"Duplicate",
-            value:props.duplicate
+            value:props.Duplicate
         },
-        {
+        props.Duplicate_ID==='null'?{
+            key:"Duplicate_ID",
+            value:"--"
+        }:{
             key:"Duplicate ID",
-            value:props.duplicate_id
+            value:props.Duplicate_ID
         },
         {
             key:"Data format",
-            value:props.data_format
+            value:props.Data_format
+        },
+        props.Detail==='null'?{
+            key:"Detail",
+            value:"--"
+        }:{
+            key:"Detail",
+            value:props.Detail
         }
     ]
 
     useEffect(() => {
-        setTargetOffset(window.innerHeight / 2);
+        setTargetOffset(window.innerHeight / 3);
     }, []);
 
     if(!props) return <Error statusCode={404}></Error>
     else return (
         <LayoutCustom>
             <Head>
-                <title>{'STW | Datasets | '+ props.id}</title>
+                <title>{'STW | Datasets | '+ props.ID}</title>
             </Head>
             <Layout>
                 <Sider style={{backgroundColor:"transparent"}}>
-                    <Anchor targetOffset={targetOffset} style={{paddingTop:"20vh",paddingLeft:"8vh",fontSize:18}}>
-                        <Link href="#info" title="Information">
+                    <Anchor targetOffset={targetOffset} style={{paddingTop:"15vh",paddingLeft:"8vh",fontSize:18}}>
+                        <Link href="#sum" title="Summary">
                             <Link href={"#sample"} title='Sample'/>
                             <Link href={"#duplicates"} title='Duplicates'/>
                         </Link>
@@ -104,40 +120,40 @@ export default function DataPage(props) {
                 </Sider>
                 <div className={"modal-body-stw"} style={{textAlign: "left",paddingLeft:'3%',paddingRight:'15%'}}>
                     <h3>Datasets</h3>
-                    <h1 style={{fontFamily:"Tahoma, sans-serif;"}}> {props.id} </h1><br/>
+                    <h1 style={{fontFamily:"Tahoma, sans-serif;"}}> {props.ID} </h1><br/>
                     <Row>
-                        <Col span={8}><h2 id="info" > Information </h2></Col>
+                        <Col span={8}><h2> Summary </h2></Col>
                         <Col span={8} offset={8}>
-                            <a target={'_blank'} href={`/api/getDatasetsJSON/${props.id}`} download>
-                                <Tooltip title="Download JSON">
-                                    <DownloadOutlined  style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
-                                </Tooltip>
-                            </a>
-                            <a target={'_blank'} href={`/api/getDatasetsJSON/${props.id}`}>
+                            <a key={1} target={'_blank'} href={`/api/getDatasetsJSON/${props.ID}`}>
                                 <Tooltip title="View JSON">
                                     <FileTextFilled style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
                                 </Tooltip>
                             </a>
-                            <a target={'_blank'} href={`/help`}>
+                            <a key={2} target={'_blank'} href={`/api/getDatasetsJSON/${props.ID}`} download>
+                                <Tooltip title="Download JSON">
+                                    <DownloadOutlined  style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
+                                </Tooltip>
+                            </a>
+                            <a key={3} target={'_blank'} href={`/help`}>
                                 <Tooltip title="View Help">
-                                    <InfoCircleFilled style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
+                                    <InfoOutlined style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
                                 </Tooltip>
                             </a>
                         </Col>
                     </Row>
-                    <div className="site-card-wrapper" style={{padding:"2%"}}>
+                    <div id="sum" className="site-card-wrapper" style={{padding:"2%"}}>
                         <Row gutter={30}>
                             <Col span={10}>
                                 <h4>ST ID</h4>
-                                <div className={"description"}>{props.id}</div>
+                                <div className={"description"}>{props.ID}</div>
                             </Col>
                             <Col span={8}>
                                 <h4>Date Published</h4>
-                                <div className={"description"}>{props.date_published}</div>
+                                <div className={"description"}>{props.Date_published}</div>
                             </Col>
                             <Col span={6}>
                                 <h4>Method</h4>
-                                <div className={"description"}>{props.method}</div>
+                                <div className={"description"}>{props.Method}</div>
                             </Col>
                         </Row>
                     </div><br/>
@@ -147,7 +163,7 @@ export default function DataPage(props) {
                                 <h3 id={'sample'}>Sample</h3>
                             </Col>
                             <Col span={5} style={{minWidth:200}}>
-                                {props.pathological==="TRUE"?
+                                {props.Pathological==="TRUE"?
                                 <Alert
                                     message={"Pathological Tissue"}
                                     type="warning"
@@ -164,7 +180,9 @@ export default function DataPage(props) {
                             <Table columns={columns} pagination={false} dataSource={dataSample} size="middle" />
                         </div><br/>
                         <h3 id={'duplicates'}>Duplicates</h3>
-                        <Table columns={columns} pagination={false} dataSource={dataDuplicates} size="middle" />
+                        <div className="site-card-wrapper">
+                            <Table columns={columns} pagination={false} dataSource={dataDuplicates} size="middle" />
+                        </div>
                     </div>
                     <br/><br/>
                     <h2 id={'source'}>Source</h2>
@@ -172,15 +190,15 @@ export default function DataPage(props) {
                         <Row gutter={10}>
                             <Col span={9}>
                                 <h4>Title</h4>
-                                <p>{props.title}</p>
+                                <p>{props.Title}</p>
                             </Col>
                             <Col span={4}>
                                 <h4>Journal</h4>
-                                <p>{props.journal}</p>
+                                <p>{props.Journal}</p>
                             </Col>
                             <Col span={3}>
                                 <h4>PMID</h4>
-                                <p>{props.pmid}</p>
+                                <p>{props.PMID}</p>
                             </Col>
                             <Col span={8}>
                                 <h4>URL</h4>
@@ -189,7 +207,7 @@ export default function DataPage(props) {
                         </Row>
                     </div><br/><br/>
                     <h2 id={'view'}>View</h2>
-                    <VitessceVisual st_id={props.id} duplicateOption={duplicateOption}></VitessceVisual>
+                    <VitessceVisual st_id={props.ID} duplicateOption={duplicateOption}></VitessceVisual>
                     <br/><br/>
                     <h2 id={'files'}>Files</h2>
                     <div className="site-card-wrapper" style={{padding:"2%"}}>

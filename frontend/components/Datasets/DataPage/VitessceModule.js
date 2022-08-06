@@ -8,15 +8,20 @@ const Vitessce = React.lazy(() => import('./VitessceWrapper.js'));
 
 
 export default function VitessceVisualization(props) {
-    myViewConfig.datasets[0].files.forEach( file => {
-        file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.stagate_leiden.zarr`
-    })
-    const height = 600
+    props.duplicateOption[0] === "default"?
+        myViewConfig.datasets[0].files.forEach( file => {
+            file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}.zarr`
+        }):
+        myViewConfig.datasets[0].files.forEach( file => {
+            file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr`
+        })
+
+    const height = 900
     const [viewConfig, setViewConfig] = useState(myViewConfig);
     const onChangeDuplicate =(value)=>{
         let viewConfigTemp = {...viewConfig}
         viewConfigTemp.datasets[0].files.forEach( file => {
-            file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.stagate_leiden.zarr`
+            file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr`
             console.log(file)
         })
         setViewConfig(viewConfigTemp)
@@ -52,7 +57,7 @@ export default function VitessceVisualization(props) {
                 />
             </Suspense>
         </div>
-            <p style={{float:'right',color:"gray"}}>Powered by <a href={"https://vitessce.io/"}>Vitessce <SelectOutlined /></a></p>
+            <p style={{float:'right',color:"gray"}}>Powered by <a target={"__blank"} href={"https://vitessce.io/"}>Vitessce <SelectOutlined /></a></p>
         </>
     )
 }

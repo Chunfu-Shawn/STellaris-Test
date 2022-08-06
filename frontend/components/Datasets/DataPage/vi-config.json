@@ -1,7 +1,8 @@
 {
   "name": "vitessce",
   "version": "1.0.9",
-  "description": "View of ST Data",
+  "initStrategy": "auto",
+  "description": "View ST Data",
   "public": true,
 
   "datasets": [
@@ -10,7 +11,7 @@
       "name": "chunfu2022",
       "files": [
         {
-          "url": "https://rhesusbase.com:9999/zarr_files/STW-Homo_sapiens-Bone-ST-1/RA_A_1.stagate_leiden.zarr",
+          "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
           "type": "cells",
           "fileType": "anndata-cells.zarr",
           "options": {
@@ -27,30 +28,132 @@
           }
         },
         {
-          "url": "https://rhesusbase.com:9999/zarr_files/STW-Homo_sapiens-Bone-ST-1/RA_A_1.stagate_leiden.zarr",
+          "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
           "type": "cell-sets",
           "fileType": "anndata-cell-sets.zarr",
           "options": [
             {
-              "groupName": "leiden",
+              "groupName": "Leiden",
               "setName": "obs/leiden"
             }
           ]
         },
         {
-          "url": "https://rhesusbase.com:9999/zarr_files/STW-Homo_sapiens-Bone-ST-1/RA_A_1.stagate_leiden.zarr",
+          "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
           "type": "expression-matrix",
           "fileType": "anndata-expression-matrix.zarr",
           "options": {
-            "matrix": "X",
-            "matrixGeneFilter": "var/highly_variable"
+            "matrix": "X"
+          }
+        },
+        {
+          "type": "raster",
+          "fileType": "raster.json",
+          "options": {
+            "schemaVersion": "0.0.2",
+            "images": [
+              {
+                "name": "H and E Image",
+                "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/uns/spatial/V1_Human_Lymph_Node/images/hires",
+                "type": "zarr",
+                "metadata": {
+                  "isPyramid": false,
+                  "transform": {
+                    "scale": 5.87,
+                    "translate": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "dimensions": [
+                    {
+                      "field": "channel",
+                      "type": "nominal",
+                      "values": [
+                        "R",
+                        "G",
+                        "B"
+                      ]
+                    },
+                    {
+                      "field": "y",
+                      "type": "quantitative",
+                      "values": null
+                    },
+                    {
+                      "field": "x",
+                      "type": "quantitative",
+                      "values": null
+                    }
+                  ]
+                }
+              }
+            ]
           }
         }
       ]
     }
   ],
-  "initStrategy": "auto",
   "coordinationSpace": {
+    "spatialRasterLayers": {
+      "A":[
+        {
+          "type": "raster",
+          "index": 0,
+          "colormap": null,
+          "transparentColor": null,
+          "opacity": 1,
+          "domainType": "Min/Max",
+          "channels": [
+            {
+              "selection": {
+                "channel": 0
+              },
+              "color": [
+                255,
+                0,
+                0
+              ],
+              "visible": true,
+              "slider": [
+                0,
+                1
+              ]
+            },
+            {
+              "selection": {
+                "channel": 1
+              },
+              "color": [
+                0,
+                255,
+                0
+              ],
+              "visible": true,
+              "slider": [
+                0,
+                1
+              ]
+            },
+            {
+              "selection": {
+                "channel": 2
+              },
+              "color": [
+                0,
+                0,
+                255
+              ],
+              "visible": true,
+              "slider": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "embeddingType": {
       "TSNE": "t-SNE",
       "UMAP": "UMAP"
@@ -75,13 +178,13 @@
       "UMAP": 3
     },
     "spatialZoom": {
-      "A": 3.5
+      "A": 3
     },
     "spatialTargetX": {
-      "A": 15
+      "A": 10
     },
     "spatialTargetY": {
-      "A": 20
+      "A": 5
     },
     "spatialCellsLayer": {
       "1": {
@@ -122,10 +225,21 @@
         "spatialZoom": "A",
         "spatialTargetX": "A",
         "spatialTargetY": "A",
-        "spatialCellsLayer": "1"
+        "spatialCellsLayer": "1",
+        "spatialRasterLayers": "A"
       },
       "x": 3,
       "y": 0,
+      "w": 6,
+      "h": 5
+    },
+    {
+      "component": "spatial",
+      "coordinationScopes": {
+        "spatialRasterLayers": "A"
+      },
+      "x": 3,
+      "y": 6,
       "w": 6,
       "h": 5
     },

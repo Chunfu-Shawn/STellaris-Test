@@ -36,15 +36,15 @@ export default function getDatesetsJSON(i){
             JSON.stringify(all.map(item => {
                 return {
                     key: key++,
-                    st_id: item.id,
-                    date_published: item.date_published,
-                    method: item.method,
-                    species: item.species,
-                    strain: item.strain,
-                    developmental_stage: item.developmental_stage,
-                    organ: item.organ,
-                    tissue: item.tissue,
-                    pathological: item.pathological,
+                    st_id: item.ID,
+                    date_published: item.Date_published,
+                    method: item.Method,
+                    species: item.Species,
+                    strain: item.Strain,
+                    developmental_stage: item.Develomental_stage,
+                    organ: item.Organ,
+                    tissue: item.Tissue,
+                    pathological: item.Pathological,
                 }
             })),
             {flag: "w"})

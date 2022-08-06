@@ -2,6 +2,24 @@ import * as echarts from 'echarts';
 import {useEffect, useRef} from "react";
 //引入jquery
 import $ from 'jquery';
+const showData = {
+    "Brain": 41,
+    "Embryo": 6,
+    "brain, prostate": 1,
+    "Testis": 2,
+    "Hindlimb": 3,
+    "Aorta": 1,
+    "Heart": 11,
+    "Kidney": 6,
+    "Liver": 9,
+    "Colon": 3,
+    "Uterus": 2,
+    "Urinary Bladder": 1,
+    "Bone": 2,
+    "Lung": 4,
+    "Ileum": 2,
+    "Skeletal Muscle": 4
+}
 
 export default function MouseMap(props){
     const chartRef = useRef(null);
@@ -57,15 +75,7 @@ export default function MouseMap(props){
                     xAxis: {
                     },
                     yAxis: {
-                        data: [
-                            'heart',
-                            'large-intestine',
-                            'small-intestine',
-                            'spleen',
-                            'kidney',
-                            'lung',
-                            'liver'
-                        ]
+                        data: Object.keys(showData)
                     },
                     series: [
                         {
@@ -73,7 +83,7 @@ export default function MouseMap(props){
                             emphasis: {
                                 focus: 'self'
                             },
-                            data: [24, 35, 41, 50, 1, 9, 23]
+                            data: Object.values(showData)
                         }
                     ]
                 };
@@ -97,8 +107,8 @@ export default function MouseMap(props){
     }, []);
     return (
         <div className={props.class+" text-center"}>
-            <h4 style={{color:"white"}}>Mouse Spatial Transcriptome Datasets</h4>
-            <div ref={chartRef} style={{height:"50vh"}}></div>
+            <h4 style={{color:"white"}}>Mouse Archive</h4>
+            <div ref={chartRef} style={{height:"60vh"}}></div>
         </div>
     )
 }
