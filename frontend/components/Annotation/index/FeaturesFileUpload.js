@@ -1,23 +1,23 @@
 import {Form, Button, message, Upload} from "antd";
 import {UploadOutlined} from "@ant-design/icons";
 
-export default function FileUpload(props){
-    const setting = {
-        name: 'matrixFile',
+export default function FeaturesFileUpload(props){
+
+    const settingFeatures = {
+        name: 'featuresFile',
         required: true,
         beforeUpload: (file) => {
             props.setFileList([file]);
-            const limitM = 100; //MB
-            let isMatrix = String.parse(file.name.split('.').slice(-2,-1)) === 'mtx' ||
+            let limitM = 5; //MB
+            let isMatrix = String.parse(file.name.split('.').slice(-2,-1)) === 'tsv' ||
                 String.parse(file.name.split('.').slice(-2,-1)) === 'txt' ||
-                String.parse(file.name.split('.').slice(-2)) === 'csv' ||
-                String.parse(file.name.split('.').slice(-2)) === 'tsv';
+                String.parse(file.name.split('.').slice(-2)) === 'csv';
             let isGzip = file.type === 'application/x-gzip';
             let isLimit = file.size / 1024 / 1024 <= limitM;
             if (!isMatrix||!isGzip) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} is not a compressed matrix file`,
+                    content:`File: ${file.name} is not a compressed features file`,
                     style:{
                         marginTop: '12vh',
                     },
@@ -27,7 +27,7 @@ export default function FileUpload(props){
             if (!isLimit) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} exceeds the limit: 100 MB`,
+                    content:`File: ${file.name} exceeds the limit: 5 MB`,
                     style:{
                         marginTop: '12vh',
                     },
@@ -42,28 +42,20 @@ export default function FileUpload(props){
             newFileList.splice(index, 1);
             props.setFileList(newFileList);
         },
-        progress: {
-            strokeColor: {
-                '0%': '#a08cd0',
-                '100%': '#22075e',
-            },
-            strokeWidth: 3,
-            format: percent => percent && `${parseFloat(percent.toFixed(2))}%`,
-        },
         fileList:props.fileList.slice(-1),//保留最后一个文件
     };
 
     return(
-        <Form.Item name="matrixFile" label="Matrix File"
+        <Form.Item name="featureFile" label="Features File"
                    rules={[
                        {
                            required: true,
                        },
                    ]}
         >
-            <Upload {...setting} maxCount={1}>
-                <Button icon={<UploadOutlined />}>Select a matrix file</Button>
-                <small style={{color:"gray"}}> (only a .gz format matrix file)</small>
+            <Upload {...settingFeatures} maxCount={1}>
+                <Button icon={<UploadOutlined />}>Select a features file</Button>
+                <small style={{color:"gray"}}> (only a .gz format features file)</small>
             </Upload>
         </Form.Item>
     )

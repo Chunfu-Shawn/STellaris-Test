@@ -1,0 +1,126 @@
+{
+  "STorVisium": {
+    "layout": [
+      {
+        "component": "scatterplot",
+        "coordinationScopes": {
+          "embeddingType": "UMAP",
+          "embeddingZoom": "UMAP",
+          "embeddingCellSetLabelsVisible": "A",
+          "embeddingCellSetLabelSize": "A",
+          "embeddingCellSetPolygonsVisible": "A",
+          "embeddingCellRadius": "A",
+          "embeddingCellRadiusMode": "A"
+        },
+        "x": 0,
+        "y": 0,
+        "w": 3,
+        "h": 3
+      },
+      {
+        "component": "cellSetExpression",
+        "x": 0,
+        "y": 3,
+        "w": 3,
+        "h": 2
+      },
+      {
+        "component": "spatial",
+        "coordinationScopes": {
+          "spatialZoom": "A",
+          "spatialTargetX": "A",
+          "spatialTargetY": "A",
+          "spatialCellsLayer": "1",
+          "spatialRasterLayers": "A"
+        },
+        "x": 3,
+        "y": 0,
+        "w": 6,
+        "h": 5
+      },
+      {
+        "component": "genes",
+        "x": 9,
+        "y": 0,
+        "w": 3,
+        "h": 2
+      },
+      {
+        "component": "cellSets",
+        "x": 9,
+        "y": 2,
+        "w": 3,
+        "h": 2
+      },
+      {
+        "component": "status",
+        "x": 9,
+        "y": 4,
+        "w": 3,
+        "h": 1
+      }
+    ]
+  },
+  "MERFISH": {
+    "layout": [
+      {
+        "component": "scatterplot",
+        "coordinationScopes": {
+          "embeddingType": "UMAP",
+          "embeddingZoom": "UMAP",
+          "embeddingCellSetLabelsVisible": "A",
+          "embeddingCellSetLabelSize": "A",
+          "embeddingCellSetPolygonsVisible": "A",
+          "embeddingCellRadius": "A",
+          "embeddingCellRadiusMode": "A"
+        },
+        "x": 0,
+        "y": 0,
+        "w": 3,
+        "h": 3
+      },
+      {
+        "component": "cellSetExpression",
+        "x": 0,
+        "y": 3,
+        "w": 3,
+        "h": 2
+      },
+      {
+        "component": "spatial",
+        "coordinationScopes": {
+          "spatialZoom": "A",
+          "spatialTargetX": "A",
+          "spatialTargetY": "A",
+          "spatialCellsLayer": "1",
+          "spatialRasterLayers": "A"
+        },
+        "x": 3,
+        "y": 0,
+        "w": 6,
+        "h": 5
+      },
+      {
+        "component": "genes",
+        "x": 9,
+        "y": 0,
+        "w": 3,
+        "h": 2
+      },
+      {
+        "component": "cellSets",
+        "x": 9,
+        "y": 2,
+        "w": 3,
+        "h": 2
+      },
+      {
+        "component": "status",
+        "x": 9,
+        "y": 4,
+        "w": 3,
+        "h": 1
+      }
+    ]
+  }
+}

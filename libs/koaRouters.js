@@ -5,11 +5,12 @@ import {uploadRecord} from "./uploadRecord.js"
 import {execTangram} from "./execTangram.js"
 import {sendMail} from "./sendEmail.js"
 import {getReqStatus} from "./api/getReqStatus.js"
-import {getHumanMap} from "./api/getHumanMap.js";
+import {getHumanMap} from "./api/getHumanMap.js"
 import {handler} from '../server.js'
-import {getMouseMap} from "./api/getMouseMap.js";
-import {getDefaultMatrixFile} from "./api/getDefaultMatrixFile.js";
-import getDatasetsJSON from "./api/getDatasetsJSON.js";
+import {getMouseMap} from "./api/getMouseMap.js"
+import {getDefaultMatrixFile} from "./api/getDefaultMatrixFile.js"
+import getDatesetsJSON from "./api/getDatasetsJSON.js"
+import getViCustomConfig from "./api/getViCustomConfig.js"
 
 
 export const Router = router()
@@ -63,29 +64,11 @@ Router.get('/api/getDefaultMatrixFile', async (ctx) => {
     // 传出默认matrix文件
     ctx.body = getDefaultMatrixFile()
 })
-
 // 设置路由和api进行数据集表文件访问
 Router.get('/api/getDatasetsJSON/:type', async (ctx) => {
-    const datasets = getDatasetsJSON()
-    let resData = {}
-    datasets.forEach((item)=> {
-        if (item.ID === ctx.params.type)
-            resData = item
-    })
-    // 传出默认JSON格式datesets的表
-    if(ctx.params.type==='human_ngs'){
-        ctx.body = getDatasetsJSON(0)
-    }else if (ctx.params.type==='mouse_ngs'){
-        ctx.body = getDatasetsJSON(1)
-    } else if(ctx.params.type==='mouse_smfish'){
-        ctx.body = getDatasetsJSON(2)
-    } else if(ctx.params.type==='all'){
-        ctx.body = datasets
-    } else {
-        ctx.body = resData
-    }
+    ctx.body = getDatesetsJSON(ctx.params.type)
 })
-
-
-
-
+// 设置路由和api进行vitessce配置文件访问
+Router.get('/api/getViCustomConfig/:id', async (ctx) => {
+    ctx.body = getViCustomConfig(ctx.params.id)
+})

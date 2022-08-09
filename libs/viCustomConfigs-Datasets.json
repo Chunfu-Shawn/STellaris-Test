@@ -1,0 +1,139 @@
+{
+  "STorVisium": {
+    "datasets": [
+      {
+        "uid": "chunfu-2022",
+        "name": "chunfu2022",
+        "files": [
+          {
+            "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
+            "type": "cells",
+            "fileType": "anndata-cells.zarr",
+            "options": {
+              "xy": "obsm/spatial",
+              "mappings": {
+                "UMAP": {
+                  "key": "obsm/X_umap",
+                  "dims": [ 0, 1 ]
+                }
+              },
+              "factors": [
+                "obs/clusters/categories"
+              ]
+            }
+          },
+          {
+            "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
+            "type": "cell-sets",
+            "fileType": "anndata-cell-sets.zarr",
+            "options": [
+              {
+                "groupName": "Clusters",
+                "setName": "obs/clusters/categories"
+              }
+            ]
+          },
+          {
+            "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
+            "type": "expression-matrix",
+            "fileType": "anndata-expression-matrix.zarr",
+            "options": {
+              "matrix": "X"
+            }
+          },
+          {
+            "type": "raster",
+            "fileType": "raster.json",
+            "options": {
+              "schemaVersion": "0.0.2",
+              "images": [
+                {
+                  "name": "H and E Image",
+                  "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/uns/spatial/RA_A_1/images/hires",
+                  "type": "zarr",
+                  "metadata": {
+                    "isPyramid": false,
+                    "transform": {
+                      "scale": 5.87,
+                      "translate": {
+                        "x": 0,
+                        "y": 0
+                      }
+                    },
+                    "dimensions": [
+                      {
+                        "field": "channel",
+                        "type": "nominal",
+                        "values": [
+                          "R",
+                          "G",
+                          "B"
+                        ]
+                      },
+                      {
+                        "field": "y",
+                        "type": "quantitative",
+                        "values": null
+                      },
+                      {
+                        "field": "x",
+                        "type": "quantitative",
+                        "values": null
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "MERFISH": {
+    "datasets": [
+      {
+        "uid": "chunfu-2022",
+        "name": "chunfu2022",
+        "files": [
+          {
+            "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
+            "type": "cells",
+            "fileType": "anndata-cells.zarr",
+            "options": {
+              "xy": "obsm/spatial",
+              "mappings": {
+                "UMAP": {
+                  "key": "obsm/X_umap",
+                  "dims": [ 0, 1 ]
+                }
+              },
+              "factors": [
+                "obs/clusters/categories"
+              ]
+            }
+          },
+          {
+            "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
+            "type": "cell-sets",
+            "fileType": "anndata-cell-sets.zarr",
+            "options": [
+              {
+                "groupName": "Clusters",
+                "setName": "obs/clusters/categories"
+              }
+            ]
+          },
+          {
+            "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
+            "type": "expression-matrix",
+            "fileType": "anndata-expression-matrix.zarr",
+            "options": {
+              "matrix": "X"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

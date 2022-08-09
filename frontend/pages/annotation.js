@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import { useRouter } from "next/router";
-import { UploadOutlined } from '@ant-design/icons';
-import {Button, Form, Input, Select, message, Upload, Row, Col} from 'antd';
+import {Button, Form, Input, message} from 'antd';
 import {useState} from "react";
 import {data, getAnnotationOptions} from "../components/Datasets/getData&Options.js";
 import SelectOrganTissue from "../components/Annotation/index/SelectOrganTissue";
-import FileUpload from "../components/Annotation/index/FileUpload";
+import MatrixFileUpload from "../components/Annotation/index/MatrixFileUpload.js";
+import BarcodesFileUpload from  "../components/Annotation/index/BarcodesFileUpload.js";
+import FeaturesFileUpload from "../components/Annotation/index/FeaturesFileUpload.js";
 
 
 const organOptions = getAnnotationOptions(data)['organOptions'];
@@ -29,7 +30,9 @@ const validateMessages = {
 };
 
 export default function Annotation() {
-    const [fileList, setFileList] = useState([]);
+    const [matrixFileList, setMatrixFileList] = useState([]);
+    const [barcodesFileList, setBarcodesFileList] = useState([]);
+    const [featuresFileList, setFeaturesFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
     const [organ, setOrgan] = useState(organOptions[0]);
     const [tissues, setTissues] = useState(tissueOptions[organOptions[0]]);
@@ -41,8 +44,14 @@ export default function Annotation() {
     const handleUpload = () => {
         let rid = ""
         const formData = new FormData();
-        fileList.forEach((file) => {
+        matrixFileList.forEach((file) => {
             formData.append('matrixFile', file);
+        });
+        barcodesFileList.forEach((file) => {
+            formData.append('barcodesFile', file);
+        });
+        featuresFileList.forEach((file) => {
+            formData.append('featuresFile', file);
         });
         formData.append('title',form.getFieldValue('title'))
         formData.append('emailAddress',form.getFieldValue('emailAddress'))
@@ -55,7 +64,9 @@ export default function Annotation() {
         }).then(response => response.json())
             .then(json => rid = json.rid)
             .then(() => {
-                setFileList([]);
+                setMatrixFileList([]);
+                setBarcodesFileList([]);
+                setFeaturesFileList([]);
                 message.success({
                     content:'upload successfully!',
                     style:{
@@ -87,7 +98,7 @@ export default function Annotation() {
             span: 6,
         },
         wrapperCol: {
-            span: 16,
+            span: 18,
         },
     };
     const tailLayout = {
@@ -98,15 +109,17 @@ export default function Annotation() {
     };
     const onReset = () => {
         form.resetFields();
-        setFileList([]);
+        setMatrixFileList([]);
+        setBarcodesFileList([]);
+        setFeaturesFileList([]);
     };
     const onFill = () => {
         form.setFieldsValue({
             title: 'An important job!',
             emailAddress: 'someone@mail.com',
         });
-        if(fileList!==[])
-            setFileList([
+        if(matrixFileList!==[])
+            setMatrixFileList([
             {
                 uid: '1',
                 name: 'default_scRNA-seq_matrix.mtx.gz',
@@ -116,6 +129,28 @@ export default function Annotation() {
                 url: 'http://localhost:3000/api/getDefaultMatrixFile',
             },
         ]);
+        if(barcodesFileList!==[])
+            setBarcodesFileList([
+                {
+                    uid: '1',
+                    name: 'default_scRNA-seq_barcodes.tsv.gz',
+                    status: 'done',
+                    response: 'Server Error 500',
+                    // custom error message to show
+                    url: 'http://localhost:3000/api/getDefaultMatrixFile',
+                },
+            ]);
+        if(featuresFileList!==[])
+            setFeaturesFileList([
+                {
+                    uid: '1',
+                    name: 'default_scRNA-seq_features.tsv.gz',
+                    status: 'done',
+                    response: 'Server Error 500',
+                    // custom error message to show
+                    url: 'http://localhost:3000/api/getDefaultMatrixFile',
+                },
+            ]);
     };
 
     return (
@@ -133,28 +168,25 @@ export default function Annotation() {
                           name="control-hooks"
                           validateMessages={validateMessages}>
                         <Form.Item name="title" label="Job Title"
-                            rules={[
-                                {
-                                    required: true,
-                                    max: 50,
-                                },
-                            ]}
+                                   rules={[
+                                       {
+                                           required: true,
+                                           max: 50,
+                                       },
+                                   ]}
                         >
                             <Input placeholder='Enter job name'/>
                         </Form.Item>
                         <Form.Item name="emailAddress" label="Email Address"
-                            rules={[
-                                {
-                                    required: true,
-                                    type:'email'
-                                },
-                            ]}
+                                   rules={[
+                                       {
+                                           required: true,
+                                           type:'email'
+                                       },
+                                   ]}
                         >
                             <Input placeholder='Enter your email address' />
                         </Form.Item>
-                        <FileUpload setFileList={setFileList}
-                                        fileList={fileList}
-                        />
                         <SelectOrganTissue setOrgan={setOrgan}
                                            organOptions={organOptions}
                                            tissueOptions={tissueOptions}
@@ -162,9 +194,21 @@ export default function Annotation() {
                                            setTissues={setTissues}
                                            secondTissue={secondTissue}
                                            setSecondTissue={setSecondTissue}
-                                           />
+                        />
+                        <div className="border-card-wrapper">
+                            <p><b>Single Cell RNA-seq file</b></p>
+                            <MatrixFileUpload setFileList={setMatrixFileList}
+                                              fileList={matrixFileList}
+                            />
+                            <BarcodesFileUpload setFileList={setBarcodesFileList}
+                                                fileList={barcodesFileList}
+                            />
+                            <FeaturesFileUpload setFileList={setFeaturesFileList}
+                                                fileList={featuresFileList}
+                            />
+                        </div><br/>
                         <Form.Item {...tailLayout}>
-                            <Button type="primary" htmlType="submit" disabled={fileList.length === 0}
+                            <Button type="primary" htmlType="submit" disabled={matrixFileList.length === 0}
                                     loading={uploading} className={"btn-upload"}>
                                 {uploading ? 'Uploading' : 'Start Upload'}
                             </Button>

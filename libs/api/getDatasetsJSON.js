@@ -25,13 +25,29 @@ const parseSheetData = (workbook,i) => {
 }
 
 export default function getDatesetsJSON(i){
-    if(i!==undefined){
-        return parseSheetData(XLSX,i)
+    let all = parseSheetData(XLSX, 0)
+    const human_ngs = parseSheetData(XLSX, 0)
+    const mouse_ngs = parseSheetData(XLSX, 1)
+    const mouse_smfish = parseSheetData(XLSX, 2)
+    all.push.apply(all,mouse_ngs)
+    all.push.apply(all,mouse_smfish)
+    if (i === undefined){
+        return {}
+    }else if (i === "all") {
+        return all
+    }else if (i === "human_ngs") {
+        return human_ngs
+    }else if (i === "mouse_ngs") {
+        return mouse_ngs
+    }else if (i === "mouse_smfish") {
+        return mouse_smfish
     }else {
+        let resData = {}
+        all.forEach((item)=> {
+            if (item.ID === i)
+                resData = item
+        })
         let key = 1
-        const all = parseSheetData(XLSX, 0)
-        all.push.apply(all,parseSheetData(XLSX, 1))
-        all.push.apply(all,parseSheetData(XLSX, 2))
         fs.writeFileSync("public/files/data_downloaded.txt",
             JSON.stringify(all.map(item => {
                 return {
@@ -48,6 +64,6 @@ export default function getDatesetsJSON(i){
                 }
             })),
             {flag: "w"})
-        return all
+        return resData
     }
 }

@@ -24,12 +24,23 @@ export async function getServerSideProps(context) {
             notFound: true,
         }
     }
+    const resConfig = await fetch((process.env.NODE_ENV==="production"?
+            "http://10.10.30.30:3000/":"http://localhost:3000/")
+        +"api/getViCustomConfig/"+context.params.st_id)
+    const config = await resConfig.json()
+
     // Pass post data to the page via props
-    return { props: data }}
+    return {
+        props: {
+            data:data,
+            config:config
+        }
+    }
+}
 
 export default function DataPage(props) {
     const [targetOffset, setTargetOffset] = useState(undefined);
-    const duplicateOption = props.Duplicate_ID.split(',')
+    const duplicateOption = props.data.Duplicate_ID.split(',')
     const columns = [
         {
             title: 'Key',
@@ -39,60 +50,60 @@ export default function DataPage(props) {
         {
             title: 'Value',
             dataIndex: 'value',
-            width:'60vh',
+            width:'60%',
             wrap:true
         },
     ];
     const dataSample =[
         {
             key:"Species",
-            value:props.Species
+            value:props.data.Species
         },
-        props.Strain==='null'?{
+        props.data.Strain==='null'?{
             key:"Strain",
             value:"--"
         }:{
             key:"Strain",
-            value:props.Strain
+            value:props.data.Strain
         },
-        props.Developmental_stage==='null'?{
+        props.data.Developmental_stage==='null'?{
             key:"Developmental Stage",
             value:"--"
         }:{
             key:"Developmental Stage",
-            value:props.Developmental_stage
+            value:props.data.Developmental_stage
         },
         {
             key:"Organ",
-            value:props.Organ
+            value:props.data.Organ
         },
         {
             key:"Tissue",
-            value:props.Tissue
+            value:props.data.Tissue
         },
     ]
     const dataDuplicates =[
         {
             key:"Duplicate",
-            value:props.Duplicate
+            value:props.data.Duplicate
         },
-        props.Duplicate_ID==='null'?{
+        props.data.Duplicate_ID==='null'?{
             key:"Duplicate_ID",
             value:"--"
         }:{
             key:"Duplicate ID",
-            value:props.Duplicate_ID
+            value:props.data.Duplicate_ID.split(',').join(", ")
         },
         {
             key:"Data format",
-            value:props.Data_format
+            value:props.data.Data_format
         },
-        props.Detail==='null'?{
+        props.data.Detail==='null'?{
             key:"Detail",
             value:"--"
         }:{
             key:"Detail",
-            value:props.Detail
+            value:props.data.Detail
         }
     ]
 
@@ -104,7 +115,7 @@ export default function DataPage(props) {
     else return (
         <LayoutCustom>
             <Head>
-                <title>{'STW | Datasets | '+ props.ID}</title>
+                <title>{'STW | Datasets | '+ props.data.ID}</title>
             </Head>
             <Layout>
                 <Sider style={{backgroundColor:"transparent"}}>
@@ -120,16 +131,16 @@ export default function DataPage(props) {
                 </Sider>
                 <div className={"modal-body-stw"} style={{textAlign: "left",paddingLeft:'3%',paddingRight:'15%'}}>
                     <h3>Datasets</h3>
-                    <h1 style={{fontFamily:"Tahoma, sans-serif;"}}> {props.ID} </h1><br/>
+                    <h1 style={{fontFamily:"Tahoma, sans-serif;"}}> {props.data.ID} </h1><br/>
                     <Row>
                         <Col span={8}><h2> Summary </h2></Col>
                         <Col span={8} offset={8}>
-                            <a key={1} target={'_blank'} href={`/api/getDatasetsJSON/${props.ID}`}>
+                            <a key={1} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`}>
                                 <Tooltip title="View JSON">
                                     <FileTextFilled style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
                                 </Tooltip>
                             </a>
-                            <a key={2} target={'_blank'} href={`/api/getDatasetsJSON/${props.ID}`} download>
+                            <a key={2} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`} download>
                                 <Tooltip title="Download JSON">
                                     <DownloadOutlined  style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
                                 </Tooltip>
@@ -145,15 +156,15 @@ export default function DataPage(props) {
                         <Row gutter={30}>
                             <Col span={10}>
                                 <h4>ST ID</h4>
-                                <div className={"description"}>{props.ID}</div>
+                                <div className={"description"}>{props.data.ID}</div>
                             </Col>
                             <Col span={8}>
                                 <h4>Date Published</h4>
-                                <div className={"description"}>{props.Date_published}</div>
+                                <div className={"description"}>{props.data.Date_published}</div>
                             </Col>
                             <Col span={6}>
                                 <h4>Method</h4>
-                                <div className={"description"}>{props.Method}</div>
+                                <div className={"description"}>{props.data.Method}</div>
                             </Col>
                         </Row>
                     </div><br/>
@@ -163,7 +174,7 @@ export default function DataPage(props) {
                                 <h3 id={'sample'}>Sample</h3>
                             </Col>
                             <Col span={5} style={{minWidth:200}}>
-                                {props.Pathological==="TRUE"?
+                                {props.data.Pathological==="TRUE"?
                                 <Alert
                                     message={"Pathological Tissue"}
                                     type="warning"
@@ -190,24 +201,25 @@ export default function DataPage(props) {
                         <Row gutter={10}>
                             <Col span={9}>
                                 <h4>Title</h4>
-                                <p>{props.Title}</p>
+                                <p>{props.data.Title}</p>
                             </Col>
                             <Col span={4}>
                                 <h4>Journal</h4>
-                                <p>{props.Journal}</p>
+                                <p>{props.data.Journal}</p>
                             </Col>
                             <Col span={3}>
                                 <h4>PMID</h4>
-                                <p>{props.PMID}</p>
+                                <p>{props.data.PMID}</p>
                             </Col>
                             <Col span={8}>
                                 <h4>URL</h4>
-                                <a href={props.URL}>{props.URL}</a>
+                                <a href={props.data.URL}>{props.data.URL}</a>
                             </Col>
                         </Row>
                     </div><br/><br/>
                     <h2 id={'view'}>View</h2>
-                    <VitessceVisual st_id={props.ID} duplicateOption={duplicateOption}></VitessceVisual>
+                    <VitessceVisual st_id={props.data.ID} config={props.config} duplicateOption={duplicateOption}>
+                    </VitessceVisual>
                     <br/><br/>
                     <h2 id={'files'}>Files</h2>
                     <div className="site-card-wrapper" style={{padding:"2%"}}>

@@ -1,6 +1,5 @@
 import React, {Suspense, useState} from 'react';
-import myViewConfig from './vi-config.json';
-import {Button, Col, Row, Select} from "antd";
+import {Col, Row, Select} from "antd";
 import { LoadingOutlined,SelectOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
@@ -8,20 +7,23 @@ const Vitessce = React.lazy(() => import('./VitessceWrapper.js'));
 
 
 export default function VitessceVisualization(props) {
-    props.duplicateOption[0] === "default"?
-        myViewConfig.datasets[0].files.forEach( file => {
-            file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}.zarr`
+    let viewConfigTemp = {...props.config}
+    props.duplicateOption[0] === "null"?
+        viewConfigTemp.datasets[0].files.forEach( file => {
+            if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}.zarr`
+            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}.zarr/uns/spatial/V1_Human_Lymph_Node/images/hires`
         }):
-        myViewConfig.datasets[0].files.forEach( file => {
-            file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr`
+        viewConfigTemp.datasets[0].files.forEach( file => {
+            if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr`
+            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr/uns/spatial/V1_Human_Lymph_Node/images/hires`
         })
-
-    const height = 900
-    const [viewConfig, setViewConfig] = useState(myViewConfig);
+    const height = 600
+    const [viewConfig, setViewConfig] = useState(viewConfigTemp);
     const onChangeDuplicate =(value)=>{
         let viewConfigTemp = {...viewConfig}
         viewConfigTemp.datasets[0].files.forEach( file => {
-            file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr`
+            if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr`
+            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr/uns/spatial/V1_Human_Lymph_Node/images/hires`
             console.log(file)
         })
         setViewConfig(viewConfigTemp)

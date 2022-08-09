@@ -5,21 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/human_temp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/BarcodesFileUpload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/FeaturesFileUpload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/MatrixFileUpload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/SiderMenuItems.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/example/annotation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/example/datasets.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/example/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/faq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/faq/citation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/projectoverview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/HashMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/api/getViCustomConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/viCustomConfigs-Datasets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/viCustomConfigs-Layout.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/viCustomConfigs-Space.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/FileUpload.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/vi-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/vi-config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/Veins_Medical_Diagram_clip_art.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/Veins_Medical_Diagram_clip_art.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/human.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/human.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/antd.less" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/antd.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/api/getDatasetsJSON.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getDatasetsJSON.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/files/data_downloaded.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/data_downloaded.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +43,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="tsconfig.json" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -42,6 +57,8 @@
     <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/DataPage/vi-config.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/styles/globals.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/libs/HashMap.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/libs/koaRouters.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -63,7 +80,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial_Trans_Web/frontend/public/images",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial_Trans_Web/frontend/components/Annotation/index",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,12 +92,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/public/images" />
+      <recent name="$PROJECT_DIR$/frontend/components/Annotation/index" />
+      <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$/public/files" />
+      <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/pages/help/example" />
       <recent name="$PROJECT_DIR$/public/files" />
+      <recent name="$PROJECT_DIR$/frontend/components/Datasets/DataPage/viConfigs" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
@@ -94,7 +115,9 @@
       <workItem from="1659516928157" duration="10737000" />
       <workItem from="1659541653578" duration="38214000" />
       <workItem from="1659776161705" duration="1876000" />
-      <workItem from="1659778138014" duration="4125000" />
+      <workItem from="1659778138014" duration="4335000" />
+      <workItem from="1659939008872" duration="6145000" />
+      <workItem from="1659946899064" duration="23488000" />
     </task>
     <servers />
   </component>
