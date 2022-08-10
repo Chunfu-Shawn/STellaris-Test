@@ -176,6 +176,9 @@
       "embeddingCellSetLabelSize": {
         "A": 16
       },
+      "embeddingTargetY": {
+        "A": -1000
+      },
       "embeddingCellRadius": {
         "A": 2
       },
@@ -187,18 +190,18 @@
         "UMAP": 3
       },
       "spatialZoom": {
-        "A": 3
+        "A": -3
       },
       "spatialTargetX": {
-        "A": 10
+        "A": 5500
       },
       "spatialTargetY": {
-        "A": 5
+        "A": 4200
       },
       "spatialCellsLayer": {
         "1": {
           "opacity": 1,
-          "radius": 0.5,
+          "radius": 50,
           "visible": true,
           "stroked": false
         }

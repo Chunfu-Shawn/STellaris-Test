@@ -3,30 +3,34 @@ import {Col, Row, Select} from "antd";
 import { LoadingOutlined,SelectOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
-const Vitessce = React.lazy(() => import('./VitessceWrapper.js'));
+const VitessceWrapper = React.lazy(() => import('./VitessceWrapper.js'));
 
 
 export default function VitessceVisualization(props) {
-    let viewConfigTemp = {...props.config}
+    let viewConfigInit = {...props.config}
     props.duplicateOption[0] === "null"?
-        viewConfigTemp.datasets[0].files.forEach( file => {
+        // no duplicate
+        viewConfigInit.datasets[0].files.forEach( file => {
             if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}.zarr`
-            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}.zarr/uns/spatial/V1_Human_Lymph_Node/images/hires`
+            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}.zarr/uns/spatial/Sample1/images/hires`
         }):
-        viewConfigTemp.datasets[0].files.forEach( file => {
+        viewConfigInit.datasets[0].files.forEach( file => {
             if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr`
-            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr/uns/spatial/V1_Human_Lymph_Node/images/hires`
+            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr/uns/spatial/Sample1/images/hires`
         })
     const height = 600
-    const [viewConfig, setViewConfig] = useState(viewConfigTemp);
-    const onChangeDuplicate =(value)=>{
-        let viewConfigTemp = {...viewConfig}
-        viewConfigTemp.datasets[0].files.forEach( file => {
+    //const [viewConfig, setViewConfig] = useState(viewConfigInit);
+    const [viewConfigDataURL, setviewConfigDataURL] = useState(viewConfigInit.datasets[0].files[0].url);
+    const onChangeDuplicate = (value) => {
+        //let viewConfigTemp = {...viewConfig}
+        console.log('config url:',viewConfigDataURL);
+        setviewConfigDataURL(`https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr`)
+        /*viewConfigTemp.datasets[0].files.forEach( (file,index) => {
             if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr`
-            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr/uns/spatial/V1_Human_Lymph_Node/images/hires`
-            console.log(file)
-        })
-        setViewConfig(viewConfigTemp)
+            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr/uns/spatial/Sample1/images/hires`
+            viewConfigTemp.datasets[0].files[index] = file
+            console.log(viewConfigTemp.datasets[0].files[index])
+        })*/
     }
     return (
         <>
@@ -52,8 +56,9 @@ export default function VitessceVisualization(props) {
                 <LoadingOutlined spin={true} style={{marginTop:"20%",fontSize:"30px"}}/>
             }
             >
-                <Vitessce
-                    config={viewConfig}
+                <VitessceWrapper
+                    config={viewConfigInit}
+                    url={viewConfigDataURL}
                     height={height}
                     theme="dark"
                 />

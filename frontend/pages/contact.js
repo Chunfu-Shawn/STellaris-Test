@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import Image from "next/image";
-import {BackTop} from "antd";
 
 
 export default function Contact() {

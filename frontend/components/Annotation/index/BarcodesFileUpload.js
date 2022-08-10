@@ -7,14 +7,15 @@ export default function BarcodesFileUpload(props){
         name: 'barcodesFile',
         required: true,
         beforeUpload: (file) => {
+            let filenameArr = file.name.split('.');
             props.setFileList([file]);
             let limitM = 5; //MB
-            let isMatrix = String.parse(file.name.split('.').slice(-2,-1)) === 'tsv' ||
-                String.parse(file.name.split('.').slice(-2,-1)) === 'txt' ||
-                String.parse(file.name.split('.').slice(-2)) === 'csv';
+            let isBarcodes = filenameArr[filenameArr.length - 2] === 'txt' ||
+                filenameArr[filenameArr.length - 2] === 'csv' ||
+                filenameArr[filenameArr.length - 2] === 'tsv';
             let isGzip = file.type === 'application/x-gzip';
             let isLimit = file.size / 1024 / 1024 <= limitM;
-            if (!isMatrix||!isGzip) {
+            if (!isBarcodes||!isGzip) {
                 props.setFileList([])
                 message.error({
                     content:`File: ${file.name} is not a compressed barcodes file`,

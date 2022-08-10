@@ -160,7 +160,7 @@ export default function FilterToolbar(props){
                 options.splice(index,1)
             }
         })
-        // initiate num_tmp
+        // initialize num_tmp
         let num_tmp ={}
         options.map((value)=>{
             if (value === "date_published") {

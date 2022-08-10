@@ -4,8 +4,12 @@ export function uploadRecord(ctx, uploadtime) {
     try {
         // 将上传的文件基本信息写入相应文件夹中的filesInfo.json
         let fileInfo = {};
-        fileInfo.filepath = ctx.request.file.destination + '/' + ctx.request.file.filename
-        fileInfo.resultpath = 'public/results/' + ctx.request.file.filename
+        const rid = ctx.request.files['matrixFile'][0].destination.split('/')[3]
+        fileInfo.rid = rid
+        fileInfo.matrixfilepath = ctx.request.files['matrixFile'][0].destination + '/' + ctx.request.files['matrixFile'][0].filename
+        fileInfo.barcodesfilepath = ctx.request.files['barcodesFile'][0].destination + '/' + ctx.request.files['barcodesFile'][0].filename
+        fileInfo.featuresfilepath = ctx.request.files['featuresFile'][0].destination + '/' + ctx.request.files['featuresFile'][0].filename
+        fileInfo.resultpath = 'public/results/' + rid
         fileInfo.uploadtime = uploadtime
         fileInfo.finishtime = ""
         fileInfo.title = ctx.request.body.title
@@ -16,7 +20,6 @@ export function uploadRecord(ctx, uploadtime) {
         // 读取json文件，转为JSON对象
         let filesInfo = JSON.parse(fs.readFileSync('public/uploads/filesInfo.json', 'utf8'))
         // 将这次上传文件的信息存储到JSON对象中
-        const rid = ctx.request.file.filename.split('.')[0]
         filesInfo[rid] = fileInfo
         // 写入文件
         fs.writeFileSync("public/uploads/filesInfo.json",
@@ -38,7 +41,9 @@ export function uploadRecord(ctx, uploadtime) {
         })
         // 将上传的文件信息写入相应文件夹中的fileInfo.json
         fs.writeFileSync('public/results/' + rid + "/fileInfo.json",
-            JSON.stringify(ctx.request.file) + '\n',
+            JSON.stringify(ctx.request.files['matrixFile'][0]) + '\n' +
+            JSON.stringify(ctx.request.files['barcodesFile'][0]) + '\n' +
+            JSON.stringify(ctx.request.files['featuresFile'][0]),
             {flag: "a+"}
         )
         fs.writeFileSync('public/results/' + rid + "/resquest.json",

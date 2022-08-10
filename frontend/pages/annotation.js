@@ -195,8 +195,7 @@ export default function Annotation() {
                                            secondTissue={secondTissue}
                                            setSecondTissue={setSecondTissue}
                         />
-                        <div className="border-card-wrapper">
-                            <p><b>Single Cell RNA-seq file</b></p>
+
                             <MatrixFileUpload setFileList={setMatrixFileList}
                                               fileList={matrixFileList}
                             />
@@ -206,7 +205,7 @@ export default function Annotation() {
                             <FeaturesFileUpload setFileList={setFeaturesFileList}
                                                 fileList={featuresFileList}
                             />
-                        </div><br/>
+
                         <Form.Item {...tailLayout}>
                             <Button type="primary" htmlType="submit" disabled={matrixFileList.length === 0}
                                     loading={uploading} className={"btn-upload"}>

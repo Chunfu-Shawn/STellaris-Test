@@ -131,7 +131,7 @@ export default function DataPage(props) {
                 </Sider>
                 <div className={"modal-body-stw"} style={{textAlign: "left",paddingLeft:'3%',paddingRight:'15%'}}>
                     <h3>Datasets</h3>
-                    <h1 style={{fontFamily:"Tahoma, sans-serif;"}}> {props.data.ID} </h1><br/>
+                    <h1 style={{fontFamily:"Tahoma, sans-serif"}}> {props.data.ID} </h1><br/>
                     <Row>
                         <Col span={8}><h2> Summary </h2></Col>
                         <Col span={8} offset={8}>

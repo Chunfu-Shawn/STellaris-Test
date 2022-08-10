@@ -18,7 +18,7 @@
                 }
               },
               "factors": [
-                "obs/clusters/categories"
+                "obs/clusters"
               ]
             }
           },
@@ -29,7 +29,7 @@
             "options": [
               {
                 "groupName": "Clusters",
-                "setName": "obs/clusters/categories"
+                "setName": "obs/clusters"
               }
             ]
           },
@@ -39,51 +39,6 @@
             "fileType": "anndata-expression-matrix.zarr",
             "options": {
               "matrix": "X"
-            }
-          },
-          {
-            "type": "raster",
-            "fileType": "raster.json",
-            "options": {
-              "schemaVersion": "0.0.2",
-              "images": [
-                {
-                  "name": "H and E Image",
-                  "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/uns/spatial/RA_A_1/images/hires",
-                  "type": "zarr",
-                  "metadata": {
-                    "isPyramid": false,
-                    "transform": {
-                      "scale": 5.87,
-                      "translate": {
-                        "x": 0,
-                        "y": 0
-                      }
-                    },
-                    "dimensions": [
-                      {
-                        "field": "channel",
-                        "type": "nominal",
-                        "values": [
-                          "R",
-                          "G",
-                          "B"
-                        ]
-                      },
-                      {
-                        "field": "y",
-                        "type": "quantitative",
-                        "values": null
-                      },
-                      {
-                        "field": "x",
-                        "type": "quantitative",
-                        "values": null
-                      }
-                    ]
-                  }
-                }
-              ]
             }
           }
         ]
@@ -109,7 +64,7 @@
                 }
               },
               "factors": [
-                "obs/clusters/categories"
+                "obs/clusters"
               ]
             }
           },
@@ -120,7 +75,7 @@
             "options": [
               {
                 "groupName": "Clusters",
-                "setName": "obs/clusters/categories"
+                "setName": "obs/clusters"
               }
             ]
           },

@@ -2,8 +2,7 @@ import fs from "fs"
 import child_process from 'child_process';
 import {setReqStatus} from "./api/setReqStatus.js";
 
-export function execTangram(destination,filename) {
-    const rid = filename.split('.')[0]
+export function execTangram(rid,destination,filename) {
     const mapping_py = './scripts/run_tangram_mapping.py'
     const ad_sc = '../test_tangram/adata.addDEG.h5ad';
     const ad_sp = '../test_tangram/adata_a2p2.telen.m500.log1p.leiden.deg.h5ad';
