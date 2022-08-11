@@ -19,18 +19,16 @@ export default function VitessceVisualization(props) {
             else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr/uns/spatial/Sample1/images/hires`
         })
     const height = 600
-    //const [viewConfig, setViewConfig] = useState(viewConfigInit);
-    const [viewConfigDataURL, setviewConfigDataURL] = useState(viewConfigInit.datasets[0].files[0].url);
+    const [viewConfig, setViewConfig] = useState(viewConfigInit);
     const onChangeDuplicate = (value) => {
-        //let viewConfigTemp = {...viewConfig}
-        console.log('config url:',viewConfigDataURL);
-        setviewConfigDataURL(`https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr`)
-        /*viewConfigTemp.datasets[0].files.forEach( (file,index) => {
+        let viewConfigTemp = JSON.parse(JSON.stringify(viewConfig)) //deep copy
+        viewConfigTemp.datasets[0].files.forEach( (file,index) => {
             if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr`
             else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr/uns/spatial/Sample1/images/hires`
             viewConfigTemp.datasets[0].files[index] = file
-            console.log(viewConfigTemp.datasets[0].files[index])
-        })*/
+        })
+        console.log(viewConfigTemp)
+        setViewConfig(viewConfigTemp)
     }
     return (
         <>
@@ -57,8 +55,7 @@ export default function VitessceVisualization(props) {
             }
             >
                 <VitessceWrapper
-                    config={viewConfigInit}
-                    url={viewConfigDataURL}
+                    config={viewConfig}
                     height={height}
                     theme="dark"
                 />

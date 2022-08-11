@@ -190,7 +190,7 @@
         "UMAP": 3
       },
       "spatialZoom": {
-        "A": -3
+        "A": -4
       },
       "spatialTargetX": {
         "A": 5500
@@ -293,10 +293,10 @@
         "UMAP": 3
       },
       "spatialZoom": {
-        "A": 3
+        "A": 1
       },
       "spatialTargetX": {
-        "A": 10
+        "A": -40
       },
       "spatialTargetY": {
         "A": 5
@@ -304,7 +304,7 @@
       "spatialCellsLayer": {
         "1": {
           "opacity": 1,
-          "radius": 0.5,
+          "radius": 0.2,
           "visible": true,
           "stroked": false
         }

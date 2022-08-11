@@ -159,6 +159,9 @@ export default function Annotation() {
                 <title>{siteTitle +'| Annotation'}</title>
             </Head>
             <div className="modal-body-stw">
+
+            </div>
+            <div className="modal-body-stw">
                 <div className="page-header">
                     <h1>Spatial Annotation</h1>
                 </div>

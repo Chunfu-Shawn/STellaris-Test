@@ -33,7 +33,7 @@ export default function Navigator(){
                     <ul className="nav navbar-nav" >
                         <li id="datasets" className="nav-item"><Link href="/datasets" className="nav-link" ><a>Datasets</a></Link></li>
                         <li id="annotation" className="nav-item"><Link href="/annotation" className="nav-link" ><a>Annotation</a></Link></li>
-                        <li id="search" className="nav-item"><Link href="/search" className="nav-link" ><a>Search</a></Link></li>
+                        <li id="browser" className="nav-item"><Link href="/browser" className="nav-link" ><a>Browser</a></Link></li>
                         <li id="help" className="nav-item"><Link href="/help/projectoverview" className="nav-link" ><a>Help</a></Link></li>
                         <li id="contact" className="nav-item"><Link href="/contact" className="nav-link" ><a>Contact</a></Link></li>
                     </ul>

@@ -16,9 +16,9 @@ export default function MainPage() {
                     </div>
                 </div>
                 <div className="row" >
-                    <PlaceHolder title={"Spatial Trans Data"} context={contextHolder} link={"/datasets"}/>
-                    <PlaceHolder title={"Spatial Annotation"} context={contextHolder} link={"/annotation"}/>
-                    <PlaceHolder title={"Test Vitessce"} context={contextHolder} link={"/datasets/dataset-page"}/>
+                    <PlaceHolder title={"Spatial Trans Data"} context={contextHolder} link={"/datasets"} pic={"picture3.png"}/>
+                    <PlaceHolder title={"Spatial Annotation"} context={contextHolder} link={"/annotation"} pic={"picture1.png"}/>
+                    <PlaceHolder title={"Browser"} context={contextHolder} link={"/browser"} pic={"picture2.png"}/>
                 </div>
                 <div id="more"></div>
                 <h1 className={"inner"} style={{color:"white"}}>KNOW MORE</h1>

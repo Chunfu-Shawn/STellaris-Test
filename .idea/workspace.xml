@@ -5,28 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/index/picture1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/index/picture2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/index/picture3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/BarcodesFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/BarcodesFileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/FeaturesFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/FeaturesFileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/MatrixFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/MatrixFileUpload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceModule.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceWrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/IntroductionModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/IntroductionModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/PlaceHolder.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/PlaceHolder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/mainpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/annotations/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotations/results.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/contact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/antd.less" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/antd.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getViCustomConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getViCustomConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/execTangram.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execTangram.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/uploadFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadFile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/viCustomConfigs-Datasets.json" beforeDir="false" afterPath="$PROJECT_DIR$/libs/viCustomConfigs-Datasets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/placeholder.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/index/placeholder.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/viCustomConfigs-Space.json" beforeDir="false" afterPath="$PROJECT_DIR$/libs/viCustomConfigs-Space.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/files/~$data_downloaded.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/filesInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/filesInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +66,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial_Trans_Web/frontend/components/Annotation/index",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial_Trans_Web/frontend/public/images/index",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,13 +78,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/public/images/index" />
+      <recent name="$PROJECT_DIR$/frontend/public/images" />
+      <recent name="$PROJECT_DIR$/public/files" />
       <recent name="$PROJECT_DIR$/frontend/components/Annotation/index" />
       <recent name="$PROJECT_DIR$/libs" />
-      <recent name="$PROJECT_DIR$/public/files" />
-      <recent name="$PROJECT_DIR$/frontend/public/images" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/public/images/index" />
       <recent name="$PROJECT_DIR$/frontend/pages/help/example" />
       <recent name="$PROJECT_DIR$/public/files" />
       <recent name="$PROJECT_DIR$/frontend/components/Datasets/DataPage/viConfigs" />
@@ -110,7 +104,7 @@
       <workItem from="1659776161705" duration="1876000" />
       <workItem from="1659778138014" duration="4335000" />
       <workItem from="1659939008872" duration="6145000" />
-      <workItem from="1659946899064" duration="46638000" />
+      <workItem from="1659946899064" duration="53968000" />
     </task>
     <servers />
   </component>
