@@ -1,13 +1,15 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import { useRouter } from "next/router";
-import {Button, Form, Input, message} from 'antd';
+import {Button, Form, Input, message,Layout} from 'antd';
+const { Header, Sider, Content } = Layout;
 import {useState} from "react";
 import {data, getAnnotationOptions} from "../components/Datasets/getData&Options.js";
 import SelectOrganTissue from "../components/Annotation/index/SelectOrganTissue";
 import MatrixFileUpload from "../components/Annotation/index/MatrixFileUpload.js";
 import BarcodesFileUpload from  "../components/Annotation/index/BarcodesFileUpload.js";
 import FeaturesFileUpload from "../components/Annotation/index/FeaturesFileUpload.js";
+import Guidance from "../components/Annotation/index/Guidance";
 
 
 const organOptions = getAnnotationOptions(data)['organOptions'];
@@ -158,46 +160,54 @@ export default function Annotation() {
             <Head>
                 <title>{siteTitle +'| Annotation'}</title>
             </Head>
-            <div className="modal-body-stw">
-
-            </div>
-            <div className="modal-body-stw">
-                <div className="page-header">
-                    <h1>Spatial Annotation</h1>
-                </div>
-                <div className="panel panel-primary panel-annotation">
-                    <Form {...layout} layout={'horizontal'} form={form}
-                          onFinish={handleUpload}
-                          name="control-hooks"
-                          validateMessages={validateMessages}>
-                        <Form.Item name="title" label="Job Title"
-                                   rules={[
-                                       {
-                                           required: true,
-                                           max: 50,
-                                       },
-                                   ]}
-                        >
-                            <Input placeholder='Enter job name'/>
-                        </Form.Item>
-                        <Form.Item name="emailAddress" label="Email Address"
-                                   rules={[
-                                       {
-                                           required: true,
-                                           type:'email'
-                                       },
-                                   ]}
-                        >
-                            <Input placeholder='Enter your email address' />
-                        </Form.Item>
-                        <SelectOrganTissue setOrgan={setOrgan}
-                                           organOptions={organOptions}
-                                           tissueOptions={tissueOptions}
-                                           tissues={tissues}
-                                           setTissues={setTissues}
-                                           secondTissue={secondTissue}
-                                           setSecondTissue={setSecondTissue}
-                        />
+            <Layout style={{backgroundColor:"transparent"}}>
+                <Sider width={'40%'} style={
+                    {
+                        backgroundColor:"rgba(55,52,112,0.04)",
+                        borderStyle:"inset",
+                        borderColor:"lightgray",
+                        borderBottom:"none",
+                    }}>
+                    <div className="modal-body-stw" style={{padding: "20vh 20%"}}>
+                        <Guidance></Guidance>
+                    </div>
+                </Sider>
+                <div className="modal-body-stw" style={{width:"60%",textAlign:"left"}}>
+                    <div className="page-header" style={{margin:"10% 0"}}>
+                        <h1>Spatial Annotation</h1>
+                    </div>
+                        <Form {...layout} layout={'horizontal'} form={form}
+                              onFinish={handleUpload}
+                              name="control-hooks"
+                              validateMessages={validateMessages}>
+                            <Form.Item name="title" label="Job Title"
+                                       rules={[
+                                           {
+                                               required: true,
+                                               max: 50,
+                                           },
+                                       ]}
+                            >
+                                <Input placeholder='Enter job name'/>
+                            </Form.Item>
+                            <Form.Item name="emailAddress" label="Email Address"
+                                       rules={[
+                                           {
+                                               required: true,
+                                               type:'email'
+                                           },
+                                       ]}
+                            >
+                                <Input placeholder='Enter your email address' />
+                            </Form.Item>
+                            <SelectOrganTissue setOrgan={setOrgan}
+                                               organOptions={organOptions}
+                                               tissueOptions={tissueOptions}
+                                               tissues={tissues}
+                                               setTissues={setTissues}
+                                               secondTissue={secondTissue}
+                                               setSecondTissue={setSecondTissue}
+                            />
 
                             <MatrixFileUpload setFileList={setMatrixFileList}
                                               fileList={matrixFileList}
@@ -209,21 +219,21 @@ export default function Annotation() {
                                                 fileList={featuresFileList}
                             />
 
-                        <Form.Item {...tailLayout}>
-                            <Button type="primary" htmlType="submit" disabled={matrixFileList.length === 0}
-                                    loading={uploading} className={"btn-upload"}>
-                                {uploading ? 'Uploading' : 'Start Upload'}
-                            </Button>
-                            <Button type="ghost" htmlType="button" onClick={onReset}>
-                                Reset
-                            </Button>
-                            <Button type="link" htmlType="button" onClick={onFill}>
-                                Fill form
-                            </Button>
-                        </Form.Item>
-                    </Form>
-                </div>
-            </div>
+                            <Form.Item {...tailLayout}>
+                                <Button type="primary" htmlType="submit" disabled={matrixFileList.length === 0}
+                                        loading={uploading} className={"btn-upload"}>
+                                    {uploading ? 'Uploading' : 'Start Upload'}
+                                </Button>
+                                <Button type="ghost" htmlType="button" onClick={onReset}>
+                                    Reset
+                                </Button>
+                                <Button type="link" htmlType="button" onClick={onFill}>
+                                    Fill form
+                                </Button>
+                            </Form.Item>
+                        </Form>
+                    </div>
+            </Layout>
         </LayoutCustom>
     )
 }

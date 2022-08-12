@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function FooterCustom(){
     return(
-        <div id="footer" className="modal-footer">
+        <div id="footer" className="modal-footer" style={{zIndex:10000}}>
             <footer className="h5 small">
                 <p>Copyright &copy; 2021-{String(new Date().getFullYear())} |
                     <a href="https://future.pku.edu.cn/" target="_blank" rel="noreferrer"> College of Future Technology (CFT), </a>

@@ -4697,7 +4697,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse {
   background-color: #111111;
   border-color: #4f4f4f;
-  opacity:0.9;
+  opacity:0.95;
 }
 .navbar-inverse .navbar-brand {
   color: #eeeded;
@@ -6083,8 +6083,7 @@ button.close {
 }
 .modal-body-stw {
   position: relative;
-  padding: 8% 10%;
-  margin-bottom: 90px;
+  padding: 15vh 10vw;
   text-align: center;
 }
 .modal-footer {
@@ -6094,7 +6093,6 @@ button.close {
   padding: 15px;
   text-align: center;
   border-top: 1px solid #e5e5e5;
-  margin-top: -90px;
   height: 130px;
 }
 .modal-footer a{
