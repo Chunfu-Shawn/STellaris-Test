@@ -16,8 +16,8 @@ export default function SelectOrganTissue(props){
 
     return(
         <Row style={{marginBottom:"5%"}}>
-            <Col span={4}>
-                <span><b>organ:</b></span>
+            <Col span={3}>
+                <span><b>Organ:</b></span>
             </Col>
             <Col span={8}>
                 <Select
@@ -32,8 +32,8 @@ export default function SelectOrganTissue(props){
                     ))}
                 </Select>
             </Col>
-            <Col span={4}>
-                <span><b>tissue: </b></span>
+            <Col span={3}>
+                <span><b>Tissue: </b></span>
             </Col>
             <Col span={8}>
                 <Select

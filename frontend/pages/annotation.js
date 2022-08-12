@@ -168,13 +168,13 @@ export default function Annotation() {
                         borderColor:"lightgray",
                         borderBottom:"none",
                     }}>
-                    <div className="modal-body-stw" style={{padding: "20vh 20%"}}>
+                    <div className="modal-body-stw" style={{padding: "10vh 5vw",paddingTop: "20vh"}}>
                         <Guidance></Guidance>
                     </div>
                 </Sider>
                 <div className="modal-body-stw" style={{width:"60%",textAlign:"left"}}>
                     <div className="page-header" style={{margin:"10% 0"}}>
-                        <h1>Spatial Annotation</h1>
+                        <h1 style={{fontWeight:"bold"}}>Spatial Annotation</h1>
                     </div>
                         <Form {...layout} layout={'horizontal'} form={form}
                               onFinish={handleUpload}

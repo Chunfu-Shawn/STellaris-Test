@@ -5,12 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/Guidance.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/example/annotation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/example/browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/example/datasets.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/faq/citation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/projectoverview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/Guidance.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/Guidance.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/SelectOrganTissue.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/SelectOrganTissue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/SiderMenuItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/SiderMenuItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/example/annotation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/example/datasets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/example/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/faq.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/faq/citation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/projectoverview.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/js/npm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/antd.less" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/antd.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,10 +99,11 @@
       <recent name="$PROJECT_DIR$/libs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/components/Help" />
+      <recent name="$PROJECT_DIR$/frontend/pages" />
       <recent name="$PROJECT_DIR$/frontend/public/images/index" />
       <recent name="$PROJECT_DIR$/frontend/pages/help/example" />
       <recent name="$PROJECT_DIR$/public/files" />
-      <recent name="$PROJECT_DIR$/frontend/components/Datasets/DataPage/viConfigs" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
@@ -95,7 +119,7 @@
       <workItem from="1659776161705" duration="1876000" />
       <workItem from="1659778138014" duration="4335000" />
       <workItem from="1659939008872" duration="6145000" />
-      <workItem from="1659946899064" duration="58757000" />
+      <workItem from="1659946899064" duration="74870000" />
     </task>
     <servers />
   </component>
