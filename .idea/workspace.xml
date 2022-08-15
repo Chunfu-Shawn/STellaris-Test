@@ -5,35 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/example/annotation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/example/browser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/example/datasets.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/faq/citation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/projectoverview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/pages/help.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/human-color.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/Guidance.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/Guidance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/SelectOrganTissue.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/SelectOrganTissue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/IntroductionModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/IntroductionModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/PlaceHolder.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/PlaceHolder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/mainpage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/SiderMenuItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/SiderMenuItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/example/annotation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/example/datasets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/example/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/faq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/faq/citation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/projectoverview.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/js/npm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/antd.less" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/antd.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/Veins_Medical_Diagram_clip_art.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/human.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/human_temp.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/index/picture1.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/index/picture1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/index/picture2.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/index/picture2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/index/picture3.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/index/picture3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/mouse.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/mainpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/mainpage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getDatasetsJSON.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getDatasetsJSON.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getHumanMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getHumanMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +64,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/frontend/components/vitessce/package.json" />
-  </component>
   <component name="ProjectId" id="2Cq4kmQG37UFxocO1j9uZ5hyWN6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -80,30 +77,31 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial_Trans_Web/frontend/public/images/index",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial_Trans_Web/frontend/pages/datasets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.typescriptcompiler",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/pages/datasets" />
       <recent name="$PROJECT_DIR$/frontend/public/images/index" />
       <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/public/files" />
       <recent name="$PROJECT_DIR$/frontend/components/Annotation/index" />
-      <recent name="$PROJECT_DIR$/libs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/frontend/components/Help" />
       <recent name="$PROJECT_DIR$/frontend/pages" />
       <recent name="$PROJECT_DIR$/frontend/public/images/index" />
       <recent name="$PROJECT_DIR$/frontend/pages/help/example" />
-      <recent name="$PROJECT_DIR$/public/files" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
@@ -119,7 +117,9 @@
       <workItem from="1659776161705" duration="1876000" />
       <workItem from="1659778138014" duration="4335000" />
       <workItem from="1659939008872" duration="6145000" />
-      <workItem from="1659946899064" duration="74870000" />
+      <workItem from="1659946899064" duration="76968000" />
+      <workItem from="1660532876980" duration="289000" />
+      <workItem from="1660533431156" duration="17720000" />
     </task>
     <servers />
   </component>
@@ -136,5 +136,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

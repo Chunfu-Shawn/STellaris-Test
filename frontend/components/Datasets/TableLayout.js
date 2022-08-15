@@ -1,7 +1,6 @@
 import {Button, Layout, Space, Input} from 'antd';
 const { Search } = Input;
 import React, {useState, useEffect} from 'react';
-import {data} from './getData&Options.js';
 import FilterToolbar from "./FilterToolbar";
 import DataTable from "./DataTable";
 const {Content,Sider} = Layout;
@@ -42,7 +41,7 @@ export default function TableLayout(props) {
         const replacer = (key, value) => (value === null ? "" : value);
         let dataDownload = []
         selectedRowKeys.forEach(value => {
-            dataDownload.push(data[value-1])
+            dataDownload.push(props.data[value-1])
         })
         const header = Object.keys(dataDownload[0]);
         let csv = dataDownload.map(row =>
@@ -72,19 +71,19 @@ export default function TableLayout(props) {
         else setSearching(false)
         //search
         let dataSearched = []
-        for (let i in data){
+        for (let i in props.data){
             if(
-                data[i].st_id.toString().toLowerCase().includes(value.toLowerCase())||
-                data[i].method.toString().toLowerCase().includes(value.toLowerCase())||
-                data[i].species.toString().toLowerCase().includes(value.toLowerCase())||
-                data[i].strain.toString().toLowerCase().includes(value.toLowerCase())||
-                data[i].organ.toString().toLowerCase().includes(value.toLowerCase())||
-                data[i].tissue.toString().toLowerCase().includes(value.toLowerCase())||
-                data[i].pathological.toString().toLowerCase().includes(value.toLowerCase())||
-                data[i].date_published.toString().toLowerCase().includes(value.toLowerCase())
+                props.data[i].st_id.toString().toLowerCase().includes(value.toLowerCase())||
+                props.data[i].method.toString().toLowerCase().includes(value.toLowerCase())||
+                props.data[i].species.toString().toLowerCase().includes(value.toLowerCase())||
+                props.data[i].strain.toString().toLowerCase().includes(value.toLowerCase())||
+                props.data[i].organ.toString().toLowerCase().includes(value.toLowerCase())||
+                props.data[i].tissue.toString().toLowerCase().includes(value.toLowerCase())||
+                props.data[i].pathological.toString().toLowerCase().includes(value.toLowerCase())||
+                props.data[i].date_published.toString().toLowerCase().includes(value.toLowerCase())
             )
             {
-                dataSearched.push(data[i])
+                dataSearched.push(props.data[i])
             }
         }
         setDataSearch(dataSearched)
@@ -110,7 +109,7 @@ export default function TableLayout(props) {
             }else dataShow = dataFilter
         }else if (searching){
             dataShow = dataSearch
-        }else dataShow = data
+        }else dataShow = props.data
         setDataShow(dataShow)
     }
     // to select some rows
@@ -137,12 +136,13 @@ export default function TableLayout(props) {
                     <FilterToolbar filteredInfo={filteredInfo}
                                    setFilteredInfo={setFilteredInfo}
                                    checkboxStyle={props.checkboxStyle}
-                                   data={data}
+                                   data={props.data}
                                    dataShow={dataShow}
                                    setDataFilter={setDataFilter}
                                    setFiltering={setFiltering}
                                    filtering={filtering}
                                    searching={searching}
+                                   archive={props.archive}
                     ></FilterToolbar>
                 </Sider>
                 <Content>
@@ -172,7 +172,7 @@ export default function TableLayout(props) {
                         rowSelection={rowSelection}
                         handleChange={handleChange}
                         dataShow={dataShow}
-                        data={data}
+                        data={props.data}
                     ></DataTable>
                 </Content>
             </Space>

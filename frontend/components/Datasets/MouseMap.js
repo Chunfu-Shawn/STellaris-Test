@@ -5,7 +5,7 @@ import $ from 'jquery';
 const showData = {
     "Brain": 41,
     "Embryo": 6,
-    "brain, prostate": 1,
+    "Prostate": 1,
     "Testis": 2,
     "Hindlimb": 3,
     "Aorta": 1,
@@ -106,7 +106,7 @@ export default function MouseMap(props){
         );
     }, []);
     return (
-        <div className={props.class+" text-center"}>
+        <div style={{textAlign:"center"}}>
             <h4 style={{color:"white"}}>Mouse Archive</h4>
             <div ref={chartRef} style={{height:"60vh"}}></div>
         </div>

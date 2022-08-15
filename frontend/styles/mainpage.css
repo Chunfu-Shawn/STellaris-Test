@@ -36,113 +36,54 @@
 
 /* Padding for spacing */
 .inner {
-  padding: 30px;
-}
-
-
-/*
- * Header
- */
-.masthead-brand {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.masthead-nav > li {
-  display: inline-block;
-}
-.masthead-nav > li + li {
-  margin-left: 20px;
-}
-.masthead-nav > li > a {
-  padding-right: 0;
-  padding-left: 0;
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff; /* IE8 proofing */
-  color: rgba(255, 255, 255, .75);
-  border-bottom: 2px solid transparent;
-}
-.masthead-nav > li > a:hover,
-.masthead-nav > li > a:focus {
-  background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255, 255, 255, .25);
-}
-.masthead-nav > .active > a,
-.masthead-nav > .active > a:hover,
-.masthead-nav > .active > a:focus {
-  color: #fff;
-  border-bottom-color: #fff;
-}
-
-@media (min-width: 768px) {
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-    float: right;
-  }
+  padding: 30px 10%;
 }
 
 
 /*
  * Cover
  */
-
-.cover {
-  padding: 50px 0px 80px 0px;
-}
-.cover .btn-lg {
-  padding: 10px 20px;
-  font-weight: 700;
-}
-.cover-heading{
-  color: #fff;
-  font-family: sans-serif,bold;
-  font-size: 60px;
-  margin: 40px 0px;
-}
-
-
-/*
- * Footer
- */
-
-.mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255, 255, 255, .5);
-}
-
-
-/*
- * Affix and center
- */
-
-@media (min-width: 768px) {
-  /* Pull out the header and footer */
-  .masthead {
-    position: fixed;
-    top: 0;
+@media screen and (max-width: 768px) {
+  .cover {
+    padding: 50px 0px 80px 0px;
   }
-  .mastfoot {
-    position: fixed;
-    bottom: 0;
+  .cover .btn-lg {
+    padding: 10px 20px;
+    font-weight: 700;
   }
-  .site-wrapper-inner {
-    vertical-align: middle; /* Start the vertical centering */
+  .cover-heading{
+    color: #fff;
+    font-family: sans-serif,bold;
+    font-size: 35px;
+    margin: 40px 3%;
   }
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+}
+@media screen and (min-width: 768px) {
+  .cover {
+    padding: 50px 0px 80px 0px;
+  }
+
+  .cover .btn-lg {
+    padding: 10px 20px;
+    font-weight: 700;
+  }
+
+  .cover-heading {
+    color: #fff;
+    font-family: sans-serif, bold;
+    font-size: 60px;
+    margin: 40px 10%;
   }
 }
 
-@media (min-width: 992px) {
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 800px;
-  }
+.intro-card-wrapper{
+  text-align: left;
+  color: #0f0f0f;
+  padding: 1%;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(43, 32, 73, 0.27);
+  border-bottom-color: rgba(104, 93, 136, 0.15);
+  background-color: #fafafa;
 }

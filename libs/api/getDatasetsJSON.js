@@ -64,6 +64,41 @@ export default function getDatesetsJSON(i){
                 }
             })),
             {flag: "w"})
+        key = 1
+        mouse_ngs.push.apply(mouse_ngs,mouse_smfish)
+        fs.writeFileSync("public/files/data_downloaded_mouse.txt",
+            JSON.stringify(mouse_ngs.map(item => {
+                return {
+                    key: key++,
+                    st_id: item.ID,
+                    date_published: item.Date_published,
+                    method: item.Method,
+                    species: item.Species,
+                    strain: item.Strain,
+                    developmental_stage: item.Develomental_stage,
+                    organ: item.Organ,
+                    tissue: item.Tissue,
+                    pathological: item.Pathological,
+                }
+            })),
+            {flag: "w"})
+        key = 1
+        fs.writeFileSync("public/files/data_downloaded_human.txt",
+            JSON.stringify(human_ngs.map(item => {
+                return {
+                    key: key++,
+                    st_id: item.ID,
+                    date_published: item.Date_published,
+                    method: item.Method,
+                    species: item.Species,
+                    strain: item.Strain,
+                    developmental_stage: item.Develomental_stage,
+                    organ: item.Organ,
+                    tissue: item.Tissue,
+                    pathological: item.Pathological,
+                }
+            })),
+            {flag: "w"})
         return resData
     }
 }

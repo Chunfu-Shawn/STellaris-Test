@@ -1,4 +1,4 @@
-import Link from "next/link";
+import {MailOutlined} from "@ant-design/icons";
 
 function FooterCustom(){
     return(
@@ -11,7 +11,7 @@ function FooterCustom(){
                 <p>
                     All Rights Reserved | E-mail:<span> </span>
                     <a target="_blank"  href="mailto:xiaochunfu@126.com" rel="noreferrer">
-                        <i className="glyphicon glyphicon-envelope"></i>
+                        <MailOutlined />
                     </a>
                 </p>
                 <p><a href="https://beian.miit.gov.cn/integrated/recordquery#/Integrated/recordQuery" target="_blank" id="beian" rel="noreferrer">

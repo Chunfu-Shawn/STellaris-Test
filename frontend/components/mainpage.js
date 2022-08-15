@@ -1,5 +1,6 @@
 import PlaceHolder from "./MainPage/PlaceHolder.js";
 import IntroductionModule from "./MainPage/IntroductionModule.js";
+import {Row} from "antd";
 
 export default function MainPage() {
     let contextHolder = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit."
@@ -15,17 +16,17 @@ export default function MainPage() {
                         </p>
                     </div>
                 </div>
-                <div className="row" >
+                <Row gutter={{md: 100, lg: 60}} justify="space-evenly">
                     <PlaceHolder title={"Spatial Trans Data"} context={contextHolder} link={"/datasets"} pic={"picture3.png"}/>
                     <PlaceHolder title={"Spatial Annotation"} context={contextHolder} link={"/annotation"} pic={"picture1.png"}/>
                     <PlaceHolder title={"Browser"} context={contextHolder} link={"/browser"} pic={"picture2.png"}/>
-                </div>
+                </Row>
                 <div id="more"></div>
                 <h1 className={"inner"} style={{color:"white"}}>KNOW MORE</h1>
-                <div className="jumbotron" >
-                    <IntroductionModule title={"Spatial Trans Web"} context={contextHolder} />
-                    <IntroductionModule title={"Spatial Annotation Tool"} context={contextHolder} />
-                    <IntroductionModule title={"Data and Browser"} context={contextHolder} />
+                <div className="intro-card-wrapper" >
+                    <IntroductionModule title={"Spatial Trans Datasets"} link={"/datasets"} context={contextHolder} /><br/>
+                    <IntroductionModule title={"Spatial Annotation Tool"} link={"/annotation"} context={contextHolder} /><br/>
+                    <IntroductionModule title={"Browser"}  link={"/browser"}context={contextHolder} />
                 </div>
             </div>
         </>

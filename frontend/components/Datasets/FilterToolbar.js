@@ -169,14 +169,12 @@ export default function FilterToolbar(props){
                 num_tmp[value] = {}
             }
         })
-        if (filterClick === "date_published"){
-            num_tmp['date_published'] = num['date_published']
-        }else num_tmp[filterClick] = num[filterClick]
+        num_tmp[filterClick] = num[filterClick]
         // numDatePublished.map(item=>num['date_published'][item]=0)
         for(let i in dataTemp){
             options.map((value)=> {
                 if (value === "date_published") {
-                    let index = Math.ceil(timeSubstract(dataTemp[i][value], "2016-06-30") * 20 / time) - 1
+                    let index = Math.ceil(timeSubstract(dataTemp[i][value], datePublishedOptions[0]) * 20 / time) - 1
                     num_tmp["date_published"][index] += 1
                 }else {
                     num_tmp[value][dataTemp[i][value]] === undefined ?
@@ -236,7 +234,7 @@ export default function FilterToolbar(props){
                         </Collapse>
                     </Checkbox.Group>
                 </Panel>
-                <Panel header="Species" key="2" style={{fontSize: '18px'}}>
+                {props.archive==="all" ? <Panel header="Species" key="2" style={{fontSize: '18px'}}>
                     <Checkbox.Group
                         style={{
                             width: '100%',
@@ -260,7 +258,8 @@ export default function FilterToolbar(props){
                             </Row>
                         )}
                     </Checkbox.Group>
-                </Panel>
+                </Panel>:<></>
+                }
                 <Panel header="Organ" key="3" style={{fontSize: '18px'}}>
                     <Checkbox.Group
                         style={{

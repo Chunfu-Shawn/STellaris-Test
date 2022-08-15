@@ -31,7 +31,7 @@ export default function BodyMap(props){
                 echarts.registerMap('organ_diagram', { svg: svg });
                 option = {
                     tooltip: {},
-                    color:'#bd4901',
+                    color:'#1d39c4',
                     textStyle: {
                         color: '#ffffff',
                     },
@@ -103,7 +103,7 @@ export default function BodyMap(props){
         );
     }, []);
     return (
-        <div className={props.class+" text-center"}>
+        <div>
             <h4 style={{color:"white"}}>Human Archive</h4>
             <div ref={chartRef} style={{height:"60vh"}}></div>
         </div>

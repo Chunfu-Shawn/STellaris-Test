@@ -1,20 +1,28 @@
 import Link from "next/link.js";
+import {Col, Row} from "antd";
 
 export default function IntroductionModule(props){
     return(
-        <div className={"row"} style={{margin:"20px 0px"}}>
-            <div className="media-left">
-                <Link href="#">
+        <Row gutter={[20,0]}>
+            <Col xs={0} md={6} xl={6}>
+                <Link href={props.link}>
                     <a>
-                    <img className="media-object" src="/images/index/placeholder.png" alt="missing pic"/>
+                        <img className="media-object"
+                             src="/images/index/placeholder.png"
+                             alt="missing pic"
+                             style={{width:"100%",height:"auto"}}
+                        />
                     </a>
                 </Link>
-            </div>
-            <div className="media-body">
-                <h3 className="media-heading  media-left">{props.title}</h3>
-                <br/>
-                <p>{props.context}</p>
-            </div>
-        </div>
+            </Col>
+            <Col xs={24} md={18} xl={18}>
+                <h3>
+                    <Link href={props.link}>
+                        <a style={{color:"#1b103f"}}>{props.title}</a>
+                    </Link>
+                </h3>
+                <p style={{color:"gray"}}>{props.context}</p>
+            </Col>
+        </Row>
     )
 }

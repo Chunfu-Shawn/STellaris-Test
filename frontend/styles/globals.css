@@ -14,12 +14,10 @@ html{
 }
 html body .mainbody{
   align-content: center;
+  width: 100vw;
   height: auto;
   color: #fff;
   background-color: #252525;
-}
-
-body{
 }
 
 body a{

@@ -9,7 +9,7 @@ export default function Home() {
                 <title>{siteTitle}</title>
             </Head>
             <div className={"mainbody"}>
-            <MainPage></MainPage>
+                <MainPage></MainPage>
             </div>
         </LayoutCustom>
     )
