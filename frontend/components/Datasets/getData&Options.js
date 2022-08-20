@@ -10,7 +10,7 @@ export const getDatasetsJSON = async (cb) => {
         let key = 1
         let allData = await fetch(process.env.NODE_ENV==="production"?
             "http://10.10.30.30:3000":'http://localhost:3000'
-            +'/api/getDatasetsJSON/all'
+            +'/api/datasetsJSON/all'
         )
         let allJSON = await allData.json()
         cb(allJSON.map(item => {

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import { useRouter } from "next/router";
 import {Button, Form, Input, message,Layout} from 'antd';
-const { Header, Sider, Content } = Layout;
+const { Sider } = Layout;
 import {useState} from "react";
 import {data, getAnnotationOptions} from "../components/Datasets/getData&Options.js";
 import SelectOrganTissue from "../components/Annotation/index/SelectOrganTissue";
@@ -128,7 +128,7 @@ export default function Annotation() {
                 status: 'done',
                 response: 'Server Error 500',
                 // custom error message to show
-                url: 'http://localhost:3000/api/getDefaultMatrixFile',
+                url: 'http://localhost:3000/api/default-matrix-file',
             },
         ]);
         if(barcodesFileList!==[])
@@ -139,7 +139,7 @@ export default function Annotation() {
                     status: 'done',
                     response: 'Server Error 500',
                     // custom error message to show
-                    url: 'http://localhost:3000/api/getDefaultMatrixFile',
+                    url: 'http://localhost:3000/api/default-matrix-file',
                 },
             ]);
         if(featuresFileList!==[])
@@ -150,7 +150,7 @@ export default function Annotation() {
                     status: 'done',
                     response: 'Server Error 500',
                     // custom error message to show
-                    url: 'http://localhost:3000/api/getDefaultMatrixFile',
+                    url: 'http://localhost:3000/api/default-matrix-file',
                 },
             ]);
     };
@@ -174,7 +174,7 @@ export default function Annotation() {
                 </Sider>
                 <div className="modal-body-stw" style={{width:"60%",textAlign:"left"}}>
                     <div className="page-header" style={{margin:"10% 0"}}>
-                        <h1 style={{fontWeight:"bold"}}>Spatial Annotation</h1>
+                        <h1 style={{fontSize:"36px"}}>Spatial Annotation</h1>
                     </div>
                         <Form {...layout} layout={'horizontal'} form={form}
                               onFinish={handleUpload}

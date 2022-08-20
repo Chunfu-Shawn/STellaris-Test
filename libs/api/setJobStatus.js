@@ -1,7 +1,7 @@
 import fs from "fs"
 
-export function setReqStatus(rid,status) {
-    let filesInfo = JSON.parse(fs.readFileSync('public/uploads/filesInfo.json', 'utf8'))
+export function setJobStatus(rid,status) {
+    let filesInfo = JSON.parse(fs.readFileSync('public/files/filesInfo.json', 'utf8'))
     for(let key in filesInfo){
         if(key === rid){
             filesInfo[key].status = status;

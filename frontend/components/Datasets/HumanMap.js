@@ -18,11 +18,11 @@ const showData = {
     "Embryo": 1
 }
 
-export default function BodyMap(props){
+export default function HumanMap(props){
     const chartRef = useRef(null);
     useEffect(() => {
         let ROOT_PATH =
-            '/api/getHumanMap';
+            '/api/human-map';
         let myChart = echarts.init(chartRef.current);
         let option;
         $.get(

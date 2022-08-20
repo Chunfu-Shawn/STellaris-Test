@@ -3,9 +3,14 @@ import nextjs from 'next'
 import bodyParser from 'koa-bodyparser'
 // 导入koa router对象
 import {Router} from './libs/koaRouters.js'
+import {RouterAPI} from './libs/API-v1.0.0.js'
 // session 有关模块
 import session from 'koa-session'
 import {accessLogger,uploadLogger} from "./libs/logSave.js"
+//set a crontab
+import schedule from 'node-schedule'
+// remove files
+import rmFiles from './libs/one-week-files-delete.js'
 
 // Determine whether it is a production environment
 const dev = process.env.NODE_ENV !== 'production'
@@ -43,6 +48,8 @@ app.prepare().then(() => {
 
     // use Koa router
     server.use(Router.routes()).use(Router.allowedMethods())
+    server.use(RouterAPI.routes()).use(RouterAPI.allowedMethods())
+
     // for NextJs router 在koa路由中未定义的，将交给nextjs路由继续处理
     server.use(async (ctx) => {
         // 传入Node原生的req对象，和res对象，因为Nextjs框架需要兼容许多基于Node封装的web框架
@@ -54,6 +61,21 @@ app.prepare().then(() => {
 
     // add post body parser
     server.use(bodyParser());
+
+    // crontab for remove decrepit files
+    // define regular schedule
+    let rule = new schedule.RecurrenceRule();
+    // 0 clock per day
+    rule.hour =0;
+    rule.minute =0;
+    rule.second =0;
+    let job = schedule.scheduleJob(rule, () => {
+        // define the directory paths
+        const DIR_PATH_RESULTS = './public/results/';
+        const DIR_PATH_UPLOADS = './public/uploads/';
+        // run
+        rmFiles(DIR_PATH_RESULTS,DIR_PATH_UPLOADS)
+    });
 
     server.listen(3000, () => {
         console.log('server is running at http://localhost:3000')

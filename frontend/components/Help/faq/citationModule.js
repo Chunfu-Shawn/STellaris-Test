@@ -1,16 +1,17 @@
 import {Breadcrumb} from 'antd';
 import React from 'react';
-import {contentStyle} from "../SiderMenuItems.js";
+import {contentStyle} from "../SiderMenu.js";
 
-export default function HelpAnnotation() {
+export default function HelpCitation() {
 
     return (
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
                 <Breadcrumb.Item>Help</Breadcrumb.Item>
-                <Breadcrumb.Item>Example Usage</Breadcrumb.Item>
-                <Breadcrumb.Item>Annotation</Breadcrumb.Item>
+                <Breadcrumb.Item>FAQ</Breadcrumb.Item>
+                <Breadcrumb.Item>Citation</Breadcrumb.Item>
             </Breadcrumb>
+
         </div>
     )
 }

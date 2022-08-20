@@ -4375,17 +4375,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 25px 15px;
   font-size: 22px;
   line-height: 35px;
-  -webkit-transition: font-size ease 0.5s;
-  -moz-transition: font-size ease 0.5s;
-  -ms-transition: font-size ease 0.5s;
-}
-.navbar-brand:hover,
-.navbar-brand:focus {
-  font-size: 24px;
-  text-decoration: none;
-  -webkit-transition: font-size ease 0.5s;
-  -moz-transition: font-size ease 0.5s;
-  -ms-transition: font-size ease 0.5s;
 }
 .navbar-brand > img {
   display: block;

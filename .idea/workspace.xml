@@ -5,35 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/human-color.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Browser/searchResultTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/HelpLayout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/globalLoadingbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/browser/results.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/genePage/[gene_name].js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/example/annotation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/example/browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/example/datasets.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/faq/citation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/features/annotation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/features/browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/features/datasets.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/static/js/syntaxHighlight.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/API-v1.0.0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/api/getGeneData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/api/getGeneList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/api/getJobStatus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/one-week-files-delete.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/BodyMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/HumanMap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/TableLayout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/IntroductionModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/IntroductionModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/PlaceHolder.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/PlaceHolder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/mainpage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/SiderMenuItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/SiderMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/example/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Example/AnnotationModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/example/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Example/BrowserModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/example/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Example/DatasetsModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/faq/citation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/faq/citationModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/projectoverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/ProjectOverview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/annotations/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotations/results.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/Veins_Medical_Diagram_clip_art.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/human.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/human_temp.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/index/picture1.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/index/picture1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/index/picture2.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/index/picture2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/index/picture3.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/index/picture3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/mouse.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/mainpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/mainpage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/api/getDatasetsJSON.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getDatasetsJSON.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getHumanMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getHumanMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getReqStatus.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/setReqStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/setJobStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/execTangram.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execTangram.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/filesInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/filesInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +72,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/DataPage/FliesTree.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceModule.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/DataPage/vi-config.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/styles/globals.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/libs/HashMap.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/libs/koaRouters.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -77,7 +95,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial_Trans_Web/frontend/pages/datasets",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/pages/help/features",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,19 +108,29 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/pages/help/features" />
       <recent name="$PROJECT_DIR$/frontend/pages/datasets" />
       <recent name="$PROJECT_DIR$/frontend/public/images/index" />
       <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/public/files" />
-      <recent name="$PROJECT_DIR$/frontend/components/Annotation/index" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/files" />
       <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/frontend/components/Help" />
       <recent name="$PROJECT_DIR$/frontend/pages" />
       <recent name="$PROJECT_DIR$/frontend/public/images/index" />
-      <recent name="$PROJECT_DIR$/frontend/pages/help/example" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="one-week-files-delete.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/libs/one-week-files-delete.js" working-dir="$PROJECT_DIR$/libs">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.one-week-files-delete.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -119,7 +147,8 @@
       <workItem from="1659939008872" duration="6145000" />
       <workItem from="1659946899064" duration="76968000" />
       <workItem from="1660532876980" duration="289000" />
-      <workItem from="1660533431156" duration="17720000" />
+      <workItem from="1660533431156" duration="19087000" />
+      <workItem from="1660634297172" duration="56674000" />
     </task>
     <servers />
   </component>

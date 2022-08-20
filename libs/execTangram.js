@@ -1,6 +1,6 @@
 import fs from "fs"
 import child_process from 'child_process';
-import {setReqStatus} from "./api/setReqStatus.js";
+import {setJobStatus} from "./api/setJobStatus.js";
 
 export function execTangram(rid,destination,filename) {
     const mapping_py = './scripts/run_tangram_mapping.py'
@@ -32,11 +32,11 @@ export function execTangram(rid,destination,filename) {
     if (!fs.existsSync(mapping_py)) {
         //如果python脚本不存在
         logger.log('Sorry, annotation script not found !');
-        setReqStatus(rid, "error")
+        setJobStatus(rid, "error")
     } else if(!fs.existsSync(ad_sp)) {
         //如果空间数据不存在
         logger.log('Sorry, spatial trans data not found !');
-        setReqStatus(rid, "error")
+        setJobStatus(rid, "error")
     }else {
         try {
             let annoProcess = child_process.exec(command, function (error, stdout, stderr) {
@@ -52,8 +52,8 @@ export function execTangram(rid,destination,filename) {
             // 监听annoProcess任务的exit事件，如果发生则调用listener
             annoProcess.on('exit', function (code) {
                 logger.log("child process 'annotation' has exited，exit code: " + code);
-                if (code === 0) setReqStatus(rid, 'finished')
-                else setReqStatus(rid, "error")
+                if (code === 0) setJobStatus(rid, 'finished')
+                else setJobStatus(rid, "error")
             });
         } catch (err) {
             logger.log(`Error of reading/writing file from disk or python running: ${err}`)

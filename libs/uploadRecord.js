@@ -18,11 +18,11 @@ export function uploadRecord(ctx, uploadtime) {
         fileInfo.tissue = ctx.request.body.tissue
         fileInfo.status = 'running'
         // 读取json文件，转为JSON对象
-        let filesInfo = JSON.parse(fs.readFileSync('public/uploads/filesInfo.json', 'utf8'))
+        let filesInfo = JSON.parse(fs.readFileSync('public/files/filesInfo.json', 'utf8'))
         // 将这次上传文件的信息存储到JSON对象中
         filesInfo[rid] = fileInfo
         // 写入文件
-        fs.writeFileSync("public/uploads/filesInfo.json",
+        fs.writeFileSync("public/files/filesInfo.json",
             JSON.stringify(filesInfo),
             {flag: "w"}
         );

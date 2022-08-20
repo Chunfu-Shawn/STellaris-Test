@@ -25,7 +25,7 @@ export default function MouseMap(props){
     const chartRef = useRef(null);
     useEffect(() => {
         let ROOT_PATH =
-            '/api/getMouseMap';
+            '/api/mouse-map';
         let myChart = echarts.init(chartRef.current);
         let option;
         $.get(

@@ -4,13 +4,7 @@ import {uploadFile} from "./uploadFile.js"
 import {uploadRecord} from "./uploadRecord.js"
 import {execTangram} from "./execTangram.js"
 import {sendMail} from "./sendEmail.js"
-import {getReqStatus} from "./api/getReqStatus.js"
-import {getHumanMap} from "./api/getHumanMap.js"
 import {handler} from '../server.js'
-import {getMouseMap} from "./api/getMouseMap.js"
-import {getDefaultMatrixFile} from "./api/getDefaultMatrixFile.js"
-import getDatesetsJSON from "./api/getDatasetsJSON.js"
-import getViCustomConfig from "./api/getViCustomConfig.js"
 import { v1 as uuidv1 } from 'uuid'
 
 
@@ -35,6 +29,7 @@ Router.post('/annotations/upload',
         await execTangram(rid,ctx.request.files['matrixFile'][0].destination, ctx.request.files['matrixFile'][0].filename);
     }else console.log("A bad upload happened!!")
 })
+
 // 查询结果的路由
 Router.get('/annotations/results/:rid', async (ctx) => {
     let rid = ctx.params.rid
@@ -46,35 +41,4 @@ Router.get('/annotations/results/:rid', async (ctx) => {
         }
     })
     ctx.response = false
-})
-
-// 设置路由和api进行数据访问
-Router.get('/api/getReqStatus/:rid', async (ctx) => {
-    // 传出rid为查询值的json数据
-    ctx.body = getReqStatus(ctx.params.rid)
-})
-
-// 设置路由和api进行Human map图片访问
-Router.get('/api/getHumanMap', async (ctx) => {
-    // 传出rid为查询值的json数据
-    ctx.body = getHumanMap()
-})
-
-// 设置路由和api进行Mouse map图片访问
-Router.get('/api/getMouseMap', async (ctx) => {
-    // 传出rid为查询值的json数据
-    ctx.body = getMouseMap()
-})
-// 设置路由和api进行默认matrix文件访问
-Router.get('/api/getDefaultMatrixFile', async (ctx) => {
-    // 传出默认matrix文件
-    ctx.body = getDefaultMatrixFile()
-})
-// 设置路由和api进行数据集表文件访问
-Router.get('/api/getDatasetsJSON/:type', async (ctx) => {
-    ctx.body = getDatesetsJSON(ctx.params.type)
-})
-// 设置路由和api进行vitessce配置文件访问
-Router.get('/api/getViCustomConfig/:id', async (ctx) => {
-    ctx.body = getViCustomConfig(ctx.params.id)
 })

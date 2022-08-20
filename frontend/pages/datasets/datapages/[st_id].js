@@ -17,7 +17,7 @@ export async function getServerSideProps(context) {
     // If the route is like /datapages/1, then params.st_id is 1
     const res = await fetch((process.env.NODE_ENV==="production"?
         "http://10.10.30.30:3000/":"http://localhost:3000/")
-        +"api/getDatasetsJSON/"+context.params.st_id)
+        +"api/datasets-JSON/"+context.params.st_id)
     const data = await res.json()
     if (Object.keys(data).length === 0) {
         return {
@@ -26,7 +26,7 @@ export async function getServerSideProps(context) {
     }
     const resConfig = await fetch((process.env.NODE_ENV==="production"?
             "http://10.10.30.30:3000/":"http://localhost:3000/")
-        +"api/getViCustomConfig/"+context.params.st_id)
+        +"api/vi-custom-config/"+context.params.st_id)
     const config = await resConfig.json()
 
     // Pass post data to the page via props
@@ -124,7 +124,7 @@ export default function DataPage(props) {
                             <Link href={"#sample"} title='Sample'/>
                             <Link href={"#duplicates"} title='Duplicates'/>
                         </Link>
-                        <Link href="#source" title="Source" />
+                        <Link href="#provenance" title="Provenance" />
                         <Link href="#view" title="View" />
                         <Link href="#files" title="Files"/>
                     </Anchor>
@@ -196,7 +196,7 @@ export default function DataPage(props) {
                         </div>
                     </div>
                     <br/><br/>
-                    <h2 id={'source'}>Source</h2>
+                    <h2 id={'provenance'}>Provenance</h2>
                     <div className="site-card-wrapper" style={{padding:"2%"}}>
                         <Row gutter={10}>
                             <Col span={9}>

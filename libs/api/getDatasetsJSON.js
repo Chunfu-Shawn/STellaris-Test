@@ -35,11 +35,11 @@ export default function getDatesetsJSON(i){
         return {}
     }else if (i === "all") {
         return all
-    }else if (i === "human_ngs") {
+    }else if (i === "human-ngs") {
         return human_ngs
-    }else if (i === "mouse_ngs") {
+    }else if (i === "mouse-ngs") {
         return mouse_ngs
-    }else if (i === "mouse_smfish") {
+    }else if (i === "mouse-smfish") {
         return mouse_smfish
     }else {
         let resData = {}

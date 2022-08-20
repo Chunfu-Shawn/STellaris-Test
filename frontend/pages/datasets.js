@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import LayoutCustom, {siteTitle} from '../components/LayoutCustom.js'
 import Link from "next/link";
-import BodyMap from '../components/Datasets/BodyMap.js'
+import HumanMap from '../components/Datasets/HumanMap.js'
 import MouseMap from "../components/Datasets/MouseMap.js";
 import {Col, Row} from "antd";
 
@@ -24,7 +24,7 @@ export default function Datasets() {
                     </div>
                     <Row gutter={50}>
                         <Col xs={16} xl={12}>
-                            <BodyMap></BodyMap>
+                            <HumanMap></HumanMap>
                         </Col>
                         <Col xs={16} xl={12}>
                             <MouseMap></MouseMap>

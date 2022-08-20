@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
 // 设计一个自定义hook，每次渲染后返回数据结果；
 function useRequestInfo(rid){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
-    const { data, error } = useSWR(`/api/getReqStatus/${rid}`, fetcher, { revalidateIfStale: true })
+    const { data, error } = useSWR(`/api/job-status/${rid}`, fetcher, { revalidateIfStale: true })
     // 如果数据为空，为undefined，返回error为true
     return{
         data: data,
