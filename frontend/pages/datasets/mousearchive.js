@@ -12,7 +12,7 @@ export default function MouseArchive() {
             </Head>
             <div className="modal-body-stw" style={{padding:'8% 5%'}}>
                 <div className="page-header">
-                    <h1>Spatial Transcritome Data - Mouse Archive</h1>
+                    <h1>Spatial Transcriptome Data - Mouse Archive</h1>
                 </div>
                 <TableLayout checkboxStyle={checkboxStyle} data={mouseData} archive={"mouse"}></TableLayout>
             </div>

@@ -36,7 +36,7 @@ export default function Browser() {
             setSearching(false)
         }
     }
-    let title = `${siteTitle}| Browse Data`
+    let title = `${siteTitle}| Data Browser`
     return (
         <LayoutCustom>
             <Head>
@@ -51,7 +51,7 @@ export default function Browser() {
                         fontWeight:"bold"
                     }
                 }>
-                    Browse Gene
+                    Gene Browser
                 </div>
                 <Input.Group compact>
                     <Select defaultValue="All" style={{width:'10%'}} size={"large"} onChange={onSpeciesChange}>

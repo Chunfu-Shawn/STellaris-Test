@@ -12,7 +12,7 @@ export default function AllArchive() {
             </Head>
             <div className="modal-body-stw" style={{padding:'8% 5%'}}>
                 <div className="page-header">
-                    <h1>Spatial Transcritome Datasets </h1>
+                    <h1>Spatial Transcriptome Datasets </h1>
                 </div>
                 <TableLayout checkboxStyle={checkboxStyle} data={data} archive={"all"}></TableLayout>
             </div>

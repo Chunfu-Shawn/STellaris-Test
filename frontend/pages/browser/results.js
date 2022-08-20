@@ -46,7 +46,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Results(props) {
-    let title = `${siteTitle}| Browse Data`
+    let title = `${siteTitle}| Gene Browser`
     const [searching, setSearching] = useState(false);
     const [idType, setIdType] = useState('HGNC');
     const [species, setSpecies] = useState('All');
@@ -89,7 +89,7 @@ export default function Results(props) {
                                 fontSize:"26px",
                             }
                         }>
-                            Browse Gene
+                            Gene List
                         </div>
                     </Col>
                     <Col xs={24} md={24} lg={20}>

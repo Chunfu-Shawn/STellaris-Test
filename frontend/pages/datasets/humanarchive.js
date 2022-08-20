@@ -12,7 +12,7 @@ export default function HumanArchive() {
             </Head>
             <div className="modal-body-stw" style={{padding:'8% 5%'}}>
                 <div className="page-header">
-                    <h1>Spatial Transcritome Data - Human Archive</h1>
+                    <h1>Spatial Transcriptome Data - Human Archive</h1>
                 </div>
                 <TableLayout checkboxStyle={checkboxStyle} data={humanData} archive={"human"}></TableLayout>
             </div>

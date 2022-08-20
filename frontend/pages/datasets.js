@@ -17,7 +17,7 @@ export default function Datasets() {
                 <div className="modal-body-stw">
                     <div className={"cover-container inner"} >
                         <div className="text-left">
-                            <h1 style={{color:"white",fontSize:"40px"}}>Spatial Transcritome Datasets </h1><br/>
+                            <h1 style={{color:"white",fontSize:"40px"}}>Spatial Transcriptome Datasets </h1><br/>
                         </div>
                         <p className={"lead text-justify"}>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
