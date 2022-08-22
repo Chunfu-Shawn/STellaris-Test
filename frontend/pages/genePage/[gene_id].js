@@ -6,13 +6,8 @@ import Error from "next/error";
 
 
 export async function getServerSideProps(context) {
-    // params contains the post `st_id`.
-    // If the route is like /datapages/1, then params.st_id is 1
-    const res = await fetch((process.env.NODE_ENV==="production"?
-            "http://10.10.30.30:3000/":"http://localhost:3000/")
-        +"api/datasets-JSON/"+context.params.st_id)
-    const data = await res.json()
-    if (Object.keys(data).length === 0) {
+
+    if (Object.keys(context.params).length === 0) {
         return {
             notFound: true,
         }
@@ -21,8 +16,7 @@ export async function getServerSideProps(context) {
     // Pass post data to the page via props
     return {
         props: {
-            data:data,
-            config:config
+            gene_id:context.params.gene_id
         }
     }
 }
@@ -33,10 +27,11 @@ export default function genePage(props) {
     else return (
         <LayoutCustom>
             <Head>
-                <title>{'STW | Browser'}</title>
+                <title>{'STW | Gene Browser | '+ props.gene_id}</title>
             </Head>
-            <Layout>
-            </Layout>
+            <div className="modal-body-stw" style={{padding:"15vh 2%",textAlign:"left"}}>
+                <h1>{props.gene_id}</h1>
+            </div>
         </LayoutCustom>
     )
 }

@@ -8,7 +8,7 @@ const { Option } = Select;
 
 export default function Browser() {
     const [searching, setSearching] = useState(false);
-    const [idType, setIdType] = useState('HGNC');
+    const [idType, setIdType] = useState('Symbol');
     const [species, setSpecies] = useState('All');
     const UPLOAD_URL = 'http://localhost:3000/browser/results'
     const router = useRouter()
@@ -59,8 +59,8 @@ export default function Browser() {
                         <Option value="Human">Human</Option>
                         <Option value="Mouse">Mouse</Option>
                     </Select>
-                    <Select defaultValue="HGNC" style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
-                        <Option value="HGNC">HGNC Symbol</Option>
+                    <Select defaultValue="Symbol" style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
+                        <Option value="Symbol">Symbol</Option>
                         <Option value="Ensembl">Ensembl ID</Option>
                         <Option value="Entrez">Entrez ID</Option>
                     </Select>

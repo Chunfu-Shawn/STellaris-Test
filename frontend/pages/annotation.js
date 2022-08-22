@@ -161,7 +161,7 @@ export default function Annotation() {
                 <title>{siteTitle +'| Annotation'}</title>
             </Head>
             <Layout style={{backgroundColor:"transparent"}}>
-                <Sider width={'40%'} style={
+                <Sider width={'35%'} style={
                     {
                         backgroundColor:"rgba(55,52,112,0.04)",
                         borderStyle:"inset",

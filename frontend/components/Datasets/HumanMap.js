@@ -31,7 +31,7 @@ export default function HumanMap(props){
                 echarts.registerMap('organ_diagram', { svg: svg });
                 option = {
                     tooltip: {},
-                    color:'#1d39c4',
+                    color:'#ffa940',
                     textStyle: {
                         color: '#ffffff',
                     },
@@ -48,14 +48,14 @@ export default function HumanMap(props){
                             label: {
                                 position: 'bottom',
                                 distance: 0,
-                                textBorderColor: '#fff',
+                                color:'#fff',
                                 textBorderWidth: 2
                             }
                         },
                         blur: {},
                         select: {
                             itemStyle: {
-                                color: '#384098'
+                                color: '#873800'
                             },
                             label: {
                                 show: false,

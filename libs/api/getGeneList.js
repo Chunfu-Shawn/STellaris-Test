@@ -30,7 +30,7 @@ export async function getGeneList(species,idType,geneName){
     let selectSql = ''
     let geneIdType = ''
     // 判断基因名类型
-    if (idType === "HGNC") geneIdType = 'gene_name'
+    if (idType === "Symbol") geneIdType = 'gene_name'
     else if (idType === "Ensembl") geneIdType = 'gene_id'
     else geneIdType = 'gene_entrez_id'
     // 判断物种

@@ -34,7 +34,7 @@ export default function MouseMap(props){
                 echarts.registerMap('organ_diagram', { svg: svg });
                 option = {
                     tooltip: {},
-                    color:'#531dab',
+                    color:'#40a9ff',
                     textStyle: {
                         color: '#ffffff',
                     },
@@ -51,14 +51,14 @@ export default function MouseMap(props){
                             label: {
                                 position: 'bottom',
                                 distance: 0,
-                                textBorderColor: '#fff',
-                                textBorderWidth: 2
+                                color:'#fff',
+                                textBorderWidth: 5
                             }
                         },
                         blur: {},
                         select: {
                             itemStyle: {
-                                color: '#8c94f3'
+                                color: '#003a8c'
                             },
                             label: {
                                 show: false,

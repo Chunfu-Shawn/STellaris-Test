@@ -6,12 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Browser/searchResultTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Browser/searchResultTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/HumanMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/HumanMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/browser/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser/results.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/genePage/[gene_name].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/genePage/[gene_id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/human-color.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/human-color.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getGeneList.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getGeneList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,22 +52,22 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/pages/help/features",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/pages/help/features&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/pages/help/features" />
@@ -106,7 +110,9 @@
       <workItem from="1659946899064" duration="76968000" />
       <workItem from="1660532876980" duration="289000" />
       <workItem from="1660533431156" duration="19087000" />
-      <workItem from="1660634297172" duration="56842000" />
+      <workItem from="1660634297172" duration="56870000" />
+      <workItem from="1661079977360" duration="2004000" />
+      <workItem from="1661101522639" duration="7366000" />
     </task>
     <servers />
   </component>

@@ -4,32 +4,43 @@ import {QuestionCircleOutlined,QuestionCircleFilled} from "@ant-design/icons";
 import Link from "next/link.js";
 import {useRouter} from "next/router.js";
 
+export function setFilter(data){
+    let filter = new Set()
+    let filterJSON = []
+    data.forEach( (item) => {
+        filter.add(item.gene_biotype)
+    })
+    for (let item of filter.values())
+        filterJSON.push({text:item,value:item})
+    return filterJSON
+}
+
 export default function SearchResultTable(props){
     const router = useRouter()
     const [sortedInfo, setSortedInfo] = useState({});
     const columns =[
         {
-            title: 'HGNC Symbol',
+            title: 'Ensembl ID',
+            dataIndex: 'gene_id',
+            key: 'gene_id',
+            width:'20%',
+            render: (text) => text!=="-" ? <Link href={'/genePage/'+text}><a target={"_blank"}>{text}</a></Link>:"-",
+            sorter: (a, b) => {
+                if(a.gene_id > b.gene_id) return 1
+                else return -1
+            },
+            sortOrder: sortedInfo.columnKey === 'gene_id' ? sortedInfo.order : null,
+        },
+        {
+            title: 'Symbol',
             dataIndex: 'gene_name',
             key: 'gene_name',
-            render: (text) => text!=="-" ? <Link href={'/genePage/'+text}><a target={"_blank"}>{text}</a></Link>:"-",
             width:'15%',
             sorter: (a, b) => {
                 if(a.gene_name > b.gene_name) return 1
                 else return -1
             },
             sortOrder: sortedInfo.columnKey === 'gene_name' ? sortedInfo.order : null,
-        },
-        {
-            title: 'Ensembl ID',
-            dataIndex: 'gene_id',
-            key: 'gene_id',
-            width:'20%',
-            sorter: (a, b) => {
-                if(a.gene_id > b.gene_id) return 1
-                else return -1
-            },
-            sortOrder: sortedInfo.columnKey === 'gene_id' ? sortedInfo.order : null,
         },
         {
             title: 'Entrez ID',
@@ -46,13 +57,15 @@ export default function SearchResultTable(props){
             title: () => {
                 return <Space>
                     <span>Gene type</span>
-                    <Link href={'/help/features/browser'} target={'_blank'}><QuestionCircleOutlined style={{fontSize:"15px",color:"purple"}}/></Link>
+                    <Link href={'/help/features/browser'} target={'_blank'}><QuestionCircleFilled  style={{fontSize:"15px",color:"#2b1970"}}/></Link>
                 </Space>
             },
             dataIndex: 'gene_biotype',
             key: 'gene_biotype',
             width:'20%',
             sortOrder: sortedInfo.columnKey === 'gene_biotype' ? sortedInfo.order : null,
+            filters: setFilter(props.data),
+            onFilter: (value, record) => record.gene_biotype.indexOf(value) === 0,
             render: (_,{gene_biotype}) => {
                 let color = ''
                 switch(gene_biotype)
@@ -110,13 +123,6 @@ export default function SearchResultTable(props){
                 },],
             onFilter: (value, record) => record.species.indexOf(value) === 0,
         },
-        /*{
-            title: '',
-            dataIndex: 'gene_id',
-            key: 'more',
-            width:'10%',
-            render: (text) => text!=="-" ? <Link href={'/genePage/'+text}><a target={"_blank"}>more</a></Link>:"-",
-        },*/
     ]
     // column sort
     const handleChange = (pagination,filter,sorter) => {
@@ -199,7 +205,7 @@ export default function SearchResultTable(props){
                            rowExpandable: (record) => record.name !== 'Not Expandable',
 
                        }}
-                       onRow={ record => {
+                       /*onRow={ record => {
                            return {
                                onClick: event => {
                                    router.push({
@@ -209,7 +215,7 @@ export default function SearchResultTable(props){
                                    },
                                })}, // 点击行
                            };
-                       }}
+                       }}*/
                 />
             </>
             :
