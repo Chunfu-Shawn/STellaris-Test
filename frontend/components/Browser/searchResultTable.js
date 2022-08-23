@@ -8,7 +8,7 @@ export function setFilter(data){
     let filter = new Set()
     let filterJSON = []
     data.forEach( (item) => {
-        filter.add(item.gene_biotype)
+        filter.add(item.biotype)
     })
     for (let item of filter.values())
         filterJSON.push({text:item,value:item})
@@ -16,42 +16,48 @@ export function setFilter(data){
 }
 
 export default function SearchResultTable(props){
-    const router = useRouter()
     const [sortedInfo, setSortedInfo] = useState({});
     const columns =[
         {
-            title: 'Ensembl ID',
-            dataIndex: 'gene_id',
-            key: 'gene_id',
-            width:'20%',
-            render: (text) => text!=="-" ? <Link href={'/genePage/'+text}><a target={"_blank"}>{text}</a></Link>:"-",
+            title: 'Symbol',
+            dataIndex: 'symbol',
+            key: 'symbol',
+            width:'10%',
             sorter: (a, b) => {
-                if(a.gene_id > b.gene_id) return 1
+                if(a.symbol > b.symbol) return 1
                 else return -1
             },
-            sortOrder: sortedInfo.columnKey === 'gene_id' ? sortedInfo.order : null,
+            sortOrder: sortedInfo.columnKey === 'symbol' ? sortedInfo.order : null,
+            render: (text,record) => text!=="-" ? <Link href={`/genePage/${record.ensembl_id}`}><a target={"_blank"} id={record.ensembl_id} >{text}</a></Link>:"-",
         },
         {
-            title: 'Symbol',
-            dataIndex: 'gene_name',
-            key: 'gene_name',
+            title: 'Ensembl ID',
+            dataIndex: 'ensembl_id',
+            key: 'ensembl_id',
             width:'15%',
+            render: (text) => <Link href={'/genePage/'+text}><a target={"_blank"}>{text}</a></Link>,
             sorter: (a, b) => {
-                if(a.gene_name > b.gene_name) return 1
+                if(a.ensembl_id > b.ensembl_id) return 1
                 else return -1
             },
-            sortOrder: sortedInfo.columnKey === 'gene_name' ? sortedInfo.order : null,
+            sortOrder: sortedInfo.columnKey === 'ensembl_id' ? sortedInfo.order : null,
         },
         {
             title: 'Entrez ID',
-            dataIndex: 'gene_entrez_id',
-            key: 'gene_entrez_id',
-            width:'15%',
+            dataIndex: 'entrez_id',
+            key: 'entrez_id',
+            width:'12%',
             sorter: (a, b) => {
-                if(a.gene_entrez_id > b.gene_entrez_id) return 1
+                if(a.entrez_id > b.entrez_id) return 1
                 else return -1
             },
-            sortOrder: sortedInfo.columnKey === 'gene_entrez_id' ? sortedInfo.order : null,
+            sortOrder: sortedInfo.columnKey === 'entrez_id' ? sortedInfo.order : null,
+        },
+        {
+            title: 'Description',
+            dataIndex: 'descriptive_name',
+            key: 'descriptive_name',
+            width:'30%',
         },
         {
             title: () => {
@@ -60,15 +66,15 @@ export default function SearchResultTable(props){
                     <Link href={'/help/features/browser'} target={'_blank'}><QuestionCircleFilled  style={{fontSize:"15px",color:"#2b1970"}}/></Link>
                 </Space>
             },
-            dataIndex: 'gene_biotype',
-            key: 'gene_biotype',
-            width:'20%',
-            sortOrder: sortedInfo.columnKey === 'gene_biotype' ? sortedInfo.order : null,
+            dataIndex: 'biotype',
+            key: 'biotype',
+            width:'18%',
+            sortOrder: sortedInfo.columnKey === 'biotype' ? sortedInfo.order : null,
             filters: setFilter(props.data),
-            onFilter: (value, record) => record.gene_biotype.indexOf(value) === 0,
-            render: (_,{gene_biotype}) => {
+            onFilter: (value, record) => record.biotype.indexOf(value) === 0,
+            render: (_,{biotype}) => {
                 let color = ''
-                switch(gene_biotype)
+                switch(biotype)
                 {
                     case 'protein_coding':
                         color = 'volcano'
@@ -101,16 +107,16 @@ export default function SearchResultTable(props){
                         color = 'default'
                 }
                 return (
-                    <Tag color={color} key={gene_biotype}>
-                        {gene_biotype.toUpperCase()}
+                    <Tag color={color} key={biotype}>
+                        {biotype.toUpperCase()}
                     </Tag>
                 );
             },
         },
         {
-            title: 'Species',
-            dataIndex: 'species',
-            key: 'species',
+            title: 'Organism',
+            dataIndex: 'organism',
+            key: 'organism',
             width: '20%',
             filters: [
                 {
@@ -121,7 +127,7 @@ export default function SearchResultTable(props){
                     text: 'Mus_musculus',
                     value: 'Mus_musculus',
                 },],
-            onFilter: (value, record) => record.species.indexOf(value) === 0,
+            onFilter: (value, record) => record.organism.indexOf(value) === 0,
         },
     ]
     // column sort
@@ -142,14 +148,23 @@ export default function SearchResultTable(props){
                        expandable={{
                            expandedRowRender: (record) => (
                                <Space size={"large"}>
-                                   {record.chromosome ?
+                                   {
+                                       record.name_synonyms ?
+                                           <span
+                                               style={{
+                                                   margin: 20,
+                                               }}
+                                           >
+                                                   <b>Aliases: </b> {record.name_synonyms.split('|').join(', ')}
+                                           </span> : <></>}
+                                   {record.chrom_scaf ?
                                        <span
                                            style={{
                                                margin: 20,
                                            }}
                                        >
-                               <b>Chromosome:</b> {record.chromosome}
-                           </span> : <></>}
+                                           <b>Chromosome </b>  {`${record.chrom_scaf}: ${record.start}-${record.end}`}
+                                       </span> : <></>}
                                    {
                                        record.strand ?
                                            <span
@@ -157,47 +172,17 @@ export default function SearchResultTable(props){
                                                    margin: 20,
                                                }}
                                            >
-                                   <b>Strand:</b> {record.strand}
-                           </span> : <></>
+                                   <b>Strand:</b> {record.strand ==='1'? '+':'-'}
+                                           </span> : <></>
                                    }
                                    {
-                                       record.start ?
+                                       record.version ?
                                            <span
                                                style={{
                                                    margin: 20,
                                                }}
                                            >
-                                   <b>Start:</b> {record.start}
-                           </span> : <></>
-                                   }
-                                   {
-                                       record.end ?
-                                           <span
-                                               style={{
-                                                   margin: 20,
-                                               }}
-                                           >
-                                   <b>End:</b> {record.end}
-                           </span> : <></>
-                                   }
-                                   {
-                                       record.gene_version ?
-                                           <span
-                                               style={{
-                                                   margin: 20,
-                                               }}
-                                           >
-                                   <b>Gene Version:</b> {record.gene_version}
-                           </span> : <></>
-                                   }
-                                   {
-                                       record.gene_source ?
-                                           <span
-                                               style={{
-                                                   margin: 20,
-                                               }}
-                                           >
-                               <b>Gene Source:</b> {record.gene_source}
+                                   <b>Gene Version:</b> {record.version}
                            </span> : <></>
                                    }
                                </Space>
@@ -205,17 +190,6 @@ export default function SearchResultTable(props){
                            rowExpandable: (record) => record.name !== 'Not Expandable',
 
                        }}
-                       /*onRow={ record => {
-                           return {
-                               onClick: event => {
-                                   router.push({
-                                   pathname: `http://localhost:3000/genePage`,
-                                   query: {
-                                       geneName: record.gene_name
-                                   },
-                               })}, // 点击行
-                           };
-                       }}*/
                 />
             </>
             :

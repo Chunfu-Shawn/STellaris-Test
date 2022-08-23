@@ -39,7 +39,7 @@ export async function getServerSideProps(context) {
             idType: context.query.idType,
             species: context.query.species,
             data:data.map(data => {
-                return {key:data.gene_id,...data}
+                return {key:data.ensembl_id,...data}
             }),
         }
     }

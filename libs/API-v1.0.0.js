@@ -7,6 +7,8 @@ import {getDefaultMatrixFile} from "./api/getDefaultMatrixFile.js"
 import getDatesetsJSON from "./api/getDatasetsJSON.js"
 import getViCustomConfig from "./api/getViCustomConfig.js"
 import {getGeneList} from "./api/getGeneList.js"
+import {getGeneData} from "./api/getGeneData.js";
+import {getGeneTranscript} from "./api/getGeneTranscript.js";
 
 
 export const RouterAPI = router()
@@ -48,4 +50,14 @@ RouterAPI.get('/api/vi-custom-config/:id', async (ctx) => {
 // 设置路由和api进行基因的搜索
 RouterAPI.get('/api/genelist/:species/:idType/:geneName', async (ctx) => {
     ctx.body = await getGeneList(ctx.params.species,ctx.params.idType,ctx.params.geneName)
+})
+
+// 设置路由和api进行基因信息的搜索
+RouterAPI.get('/api/gene/:geneId', async (ctx) => {
+    ctx.body = await getGeneData(ctx.params.geneId)
+})
+
+// 设置路由和api进行基因转录本的搜索
+RouterAPI.get('/api/gene/transcript/:geneId', async (ctx) => {
+    ctx.body = await getGeneTranscript(ctx.params.geneId)
 })

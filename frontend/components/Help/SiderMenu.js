@@ -44,7 +44,6 @@ export const contentStyle = {
 }
 
 export function SiderMenu(props){
-    console.log(props.selected)
     return(
         <Sider  style={{backgroundColor:"transparent"}}
                 breakpoint="lg"

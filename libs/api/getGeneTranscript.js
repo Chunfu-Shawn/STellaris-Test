@@ -8,14 +8,14 @@ const options = {
     database: 'spatial_trans_web'//要操作的数据库
 }
 
-export async function getGeneData(geneId){
+export async function getGeneTranscript(geneId){
     let connection = mysql.createConnection(options)
     // 连接数据库
     connection.connect(() => {
         console.log('Connect database successfully')
     })
     // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
-    let selectSql = `SELECT * FROM genes_info WHERE ensembl_id=?`;
+    let selectSql = `SELECT * FROM transcripts_info WHERE ensembl_id=?`;
     //查询 相似LIKE
     return new Promise((resolve, reject) => {
         connection.query(selectSql,[geneId],(err, result) => {
