@@ -1,8 +1,7 @@
 import {Divider, Space, Table, Tag} from "antd";
 import {useState} from "react";
-import {QuestionCircleOutlined,QuestionCircleFilled} from "@ant-design/icons";
+import {QuestionCircleFilled} from "@ant-design/icons";
 import Link from "next/link.js";
-import {useRouter} from "next/router.js";
 
 export function setFilter(data){
     let filter = new Set()
@@ -28,14 +27,14 @@ export default function SearchResultTable(props){
                 else return -1
             },
             sortOrder: sortedInfo.columnKey === 'symbol' ? sortedInfo.order : null,
-            render: (text,record) => text!=="-" ? <Link href={`/genePage/${record.ensembl_id}`}><a target={"_blank"} id={record.ensembl_id} >{text}</a></Link>:"-",
+            render: (text,record) => text!=="-" ? <Link href={`/browser/genePage/${record.ensembl_id}`}><a target={"_blank"} id={record.ensembl_id} >{text}</a></Link>:"-",
         },
         {
             title: 'Ensembl ID',
             dataIndex: 'ensembl_id',
             key: 'ensembl_id',
             width:'15%',
-            render: (text) => <Link href={'/genePage/'+text}><a target={"_blank"}>{text}</a></Link>,
+            render: (text) => <Link href={'/browser/genePage/'+text}><a target={"_blank"}>{text}</a></Link>,
             sorter: (a, b) => {
                 if(a.ensembl_id > b.ensembl_id) return 1
                 else return -1
@@ -183,7 +182,7 @@ export default function SearchResultTable(props){
                                                }}
                                            >
                                    <b>Gene Version:</b> {record.version}
-                           </span> : <></>
+                                           </span> : <></>
                                    }
                                </Space>
                            ),

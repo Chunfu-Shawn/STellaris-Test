@@ -60,24 +60,21 @@ export default function Navigator(){
                 style={{margin:"24px 10px",float:"right"}}
             ></Button>
         </Dropdown>
-    useEffect(()=>{
-        function navAction(){
-            let url = document.location;
-            let navUl = document.querySelector("nav ul");
-            let navUlChildren = navUl.children;
-            for (let i = 0; i < navUlChildren.length; i++)
-            {
-                if(String(url).split('/')[3] === navUlChildren[i].id){
-                    navUlChildren[i].className = "active";
-                }else
-                    delete navUlChildren[i].className;
-            }
+
+    const navAction = ()=>{
+        let url = document.location;
+        let navUl = document.querySelector("nav ul");
+        let navUlChildren = navUl.children;
+        for (let i = 0; i < navUlChildren.length; i++)
+        {
+            if(String(url).split('/')[3] === navUlChildren[i].id){
+                navUlChildren[i].className = "active";
+            }else
+                delete navUlChildren[i].className;
         }
-        $(function(){
-            $(document).ready(function(){
-                if (width >= breakpoint) navAction();
-            });
-        })
+    }
+    useEffect(()=>{
+        if (width >= breakpoint) navAction();
     })
 
     const { width } = useViewport();

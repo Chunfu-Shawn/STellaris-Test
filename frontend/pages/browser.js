@@ -3,6 +3,7 @@ import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import {Input, message, Select} from 'antd';
 import {useRouter} from "next/router";
 import {useState} from "react";
+import Link from "next/link.js";
 const { Search } = Input;
 const { Option } = Select;
 
@@ -78,6 +79,11 @@ export default function Browser() {
                         loading={searching}
                     />
                 </Input.Group>
+                <div style={{marginTop:50,fontSize:16}}>
+                    e.g. <b><Link href={"browser/genePage/ENSG00000154856"}>APCDD1</Link></b> or
+                    <b><Link href={"browser/genePage/ENSG00000012048"}> BRCA2</Link></b> or
+                    <b><Link href={"browser/genePage/ENSG00000250337"}> ENSG00000250337</Link></b>
+                </div>
             </div>
         </LayoutCustom>
     )

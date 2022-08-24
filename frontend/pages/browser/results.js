@@ -23,6 +23,10 @@ export async function getServerSideProps(context) {
                 }
             }
         }
+    let idType = ""
+    if (context.query.idType === "Symbol") idType = "symbol"
+    else if(context.query.idType === "Ensembl") idType = "ensembl_id"
+    else if(context.query.idType === "Entrez") idType = "entrez_id"
     const res = await fetch((process.env.NODE_ENV==="production"?
             "http://10.10.30.30:3000/":"http://localhost:3000/")
         +"api/genelist/"+
@@ -31,6 +35,13 @@ export async function getServerSideProps(context) {
         context.query.geneName
     )
     const data = await res.json()
+    // The exact results always present firstly
+    const data_processed = []
+    data.forEach((item)=>{
+        if(item[idType].toUpperCase() === context.query.geneName.toUpperCase()){
+            data_processed.unshift(item)
+        }else data_processed.push(item)
+    })
 
     // Pass post data to the page via props
     return {
@@ -38,8 +49,8 @@ export async function getServerSideProps(context) {
             searchName:context.query.geneName,
             idType: context.query.idType,
             species: context.query.species,
-            data:data.map(data => {
-                return {key:data.ensembl_id,...data}
+            data:data_processed.map(data => {
+                return { key:data.ensembl_id, ...data }
             }),
         }
     }
