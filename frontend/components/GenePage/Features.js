@@ -23,7 +23,7 @@ export default function Features(props){
         csv = "data:text/csv;charset=utf-8,\uFEFF" + csv;;
         const link = document.createElement("a");
         link.href = encodeURI(csv);
-        link.download = `st_datasets_table.csv`;
+        link.download = `${props.trans[0].ensembl_id}_transcripts.csv`;
         document.body.appendChild(link); // Required for FF
         link.click(); // This will download the data file named 'my_data.csv'.
         document.body.removeChild(link); // Required for FF

@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/GenePage/AttributeLayout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/GenePage/SpatialExpression.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/GenePage/TranscriptTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/pages/404.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/pages/browser/genePage/[gene_id].js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Browser/searchResultTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Browser/searchResultTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/SiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/SiderMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/browser/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser/results.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/genePage/[gene_id].js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +103,7 @@
       <workItem from="1660533431156" duration="19087000" />
       <workItem from="1660634297172" duration="56870000" />
       <workItem from="1661079977360" duration="2004000" />
-      <workItem from="1661101522639" duration="54127000" />
+      <workItem from="1661101522639" duration="54961000" />
     </task>
     <servers />
   </component>
