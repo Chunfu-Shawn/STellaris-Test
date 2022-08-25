@@ -36,7 +36,7 @@ export default function ResultPage(props) {
     if (error || data === undefined || Object.keys(data).length === 0){
         returnModule =
             <div className={"modal-body-stw"}>
-                <Image src={'/images/404.png'} width={1000} height={500}/>
+                <Image src={'/images/404.png'} width={1000} height={500} alt={"404"}/>
             </div>
     }
     if (isLoading) {

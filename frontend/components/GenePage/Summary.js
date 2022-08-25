@@ -21,14 +21,17 @@ export default function Summary(props){
             {
                 props.data.symbol!=="-"?
                 <AttributeLayout attribute={"Symbol"}>
-                    <a target={"_blank"} href={`https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:${HGNC}`}>
+                    <a target={"_blank"} href={`https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:${HGNC}`}
+                       rel="noreferrer">
                         {props.data.symbol}<LinkOutlined />{` (${props.data.name_source})`}
                     </a>
                 </AttributeLayout>
                     :<></>
             }
             <AttributeLayout attribute={"Entrez ID"}>
-                <a href={`https://www.ncbi.nlm.nih.gov/gene/${props.data.entrez_id}`} target={"_blank"}>{` ${props.data.entrez_id}`}<LinkOutlined /></a>
+                <a href={`https://www.ncbi.nlm.nih.gov/gene/${props.data.entrez_id}`} target={"_blank"} rel="noreferrer">
+                    {` ${props.data.entrez_id}`}<LinkOutlined />
+                </a>
             </AttributeLayout>
             <AttributeLayout attribute={"Description"}>{props.data.descriptive_name}</AttributeLayout>
             <AttributeLayout attribute={"Gene Type"}>{props.data.biotype}</AttributeLayout>
@@ -49,23 +52,28 @@ export default function Summary(props){
                     {props.data.dbXrefs.split('|').map((item)=>{
                         if(item.split(":")[0]==="HGNC")
                             return <span key={item.split(":")[0]}><a target={"_blank"}
-                                                                     href={`https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:${item.split(":")[2]}`}>
+                                                                     href={`https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:${item.split(":")[2]}`}
+                                                                     rel="noreferrer">
                                         {item.split(":")[0]}:{item.split(":")[1]}:{item.split(":")[2]}<LinkOutlined /></a>, </span>
                         if(item.split(":")[0]==="MGI")
                             return <span key={item.split(":")[0]}><a target={"_blank"}
-                                                                     href={`http://www.informatics.jax.org/marker/${item.split(":")[1]}:${item.split(":")[2]}`}>
+                                                                     href={`http://www.informatics.jax.org/marker/${item.split(":")[1]}:${item.split(":")[2]}`}
+                                                                     rel="noreferrer">
                                         {item.split(":")[0]}:{item.split(":")[1]}:{item.split(":")[2]}<LinkOutlined /></a>, </span>
                         if(item.split(":")[0]==="Ensembl")
                             return <span key={item.split(":")[0]}><a target={"_blank"}
-                                                                     href={`http://www.ensembl.org/id/${item.split(":")[1]}`}>
+                                                                     href={`http://www.ensembl.org/id/${item.split(":")[1]}`}
+                                                                     rel="noreferrer">
                                         {item.split(":")[0]}:{item.split(":")[1]}<LinkOutlined /></a>, </span>
                         if(item.split(":")[0]==="MIM")
                             return <span key={item.split(":")[0]}><a target={"_blank"}
-                                                                     href={`https://omim.org/entry/${item.split(":")[1]}`}>
+                                                                     href={`https://omim.org/entry/${item.split(":")[1]}`}
+                                                                     rel="noreferrer">
                                         {item.split(":")[0]}:{item.split(":")[1]}<LinkOutlined /></a>, </span>
                         if(item.split(":")[0]==="AllianceGenome")
                             return <span key={item.split(":")[0]}><a target={"_blank"}
-                                                                     href={`https://www.alliancegenome.org/gene/${item.split(":")[1]}:${item.split(":")[2]}`}>
+                                                                     href={`https://www.alliancegenome.org/gene/${item.split(":")[1]}:${item.split(":")[2]}`}
+                                                                     rel="noreferrer">
                                         {item.split(":")[0]}:{item.split(":")[1]}:{item.split(":")[2]}<LinkOutlined /></a>, </span>
                     })}
                 </AttributeLayout>

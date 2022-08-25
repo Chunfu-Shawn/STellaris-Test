@@ -38,9 +38,9 @@ export function SiderMenu(props){
     const [activeNav,setActiveNav] = useState(["Summary"]);//与标识导航栏高亮
     const scrollEventListener = () => {
         //获取导航栏显示内容区域信息
-        let nav_contentReact = props.div_content.current.getBoundingClientRect();
+        let nav_contentReact = props.divContent.current.getBoundingClientRect();
         //获取导航栏显示内容区域直接子元素
-        let groupList = Array.from(props.div_content.current.children);
+        let groupList = Array.from(props.divContent.current.children);
         if (nav_contentReact) {
             groupList.map(item => {
                 let itemReact = item.getBoundingClientRect();

@@ -40,7 +40,8 @@ export default function Features(props){
                 <Divider orientation="left" orientationMargin="0" dashed><b>Genomic Context</b></Divider>
                 <AttributeLayout attribute={"Location"}>
                     <>
-                        <a target={"_blank"} href={`http://www.ensembl.org/Homo_sapiens/Location/View?g=${props.data.ensembl_id}`}>
+                        <a target={"_blank"} href={`http://www.ensembl.org/Homo_sapiens/Location/View?g=${props.data.ensembl_id}`}
+                           rel="noreferrer">
                             Chromosome  {`${props.data.chrom_scaf}: ${props.data.start}-${props.data.end}`}<LinkOutlined />
                         </a>
                         <span>{props.data.strand === "1"?" forward strand.":" reverse strand."}</span>

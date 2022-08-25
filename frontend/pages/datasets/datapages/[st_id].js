@@ -135,17 +135,17 @@ export default function DataPage(props) {
                     <Row>
                         <Col span={8}><h2> Summary </h2></Col>
                         <Col span={8} offset={8}>
-                            <a key={1} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`}>
+                            <a key={1} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`} rel="noreferrer" >
                                 <Tooltip title="View JSON">
                                     <FileTextFilled style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
                                 </Tooltip>
                             </a>
-                            <a key={2} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`} download>
+                            <a key={2} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`} download rel="noreferrer" >
                                 <Tooltip title="Download JSON">
                                     <DownloadOutlined  style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
                                 </Tooltip>
                             </a>
-                            <a key={3} target={'_blank'} href={`/help`}>
+                            <a key={3} target={'_blank'} href={`/help`} rel="noreferrer" >
                                 <Tooltip title="View Help">
                                     <InfoOutlined style={{float:"right",fontSize:"25px",margin:'0 2%'}}/>
                                 </Tooltip>

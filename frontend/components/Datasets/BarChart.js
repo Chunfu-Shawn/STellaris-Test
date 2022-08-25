@@ -55,7 +55,6 @@ export default function BarChart(props){
 
     useEffect(() => {
         renderChart();
-        console.log(props.num_date_published)
         return () => {
             // 销毁图表实例，释放内存
             chartInstance && chartInstance.dispose();

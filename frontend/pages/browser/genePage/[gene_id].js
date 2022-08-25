@@ -3,7 +3,6 @@ import LayoutCustom from '../../../components/LayoutCustom.js'
 import {Layout, Row, Tag} from 'antd';
 import React, {useRef} from "react";
 import {SiderMenu} from "../../../components/GenePage/SiderMenu.js";
-import {LinkOutlined} from "@ant-design/icons";
 import Summary from "../../../components/GenePage/Summary.js";
 import Features from "../../../components/GenePage/Features.js";
 import SpatialExpression from "../../../components/GenePage/SpatialExpression.js";
@@ -42,8 +41,8 @@ export async function getServerSideProps(context) {
     }
 }
 
-export default function genePage(props) {
-    const div_content = useRef(); //标识nav导航栏渲染内容
+export default function GenePage(props) {
+    const divContent = useRef(null); //标识nav导航栏渲染内容
 
     return (
         <LayoutCustom>
@@ -51,9 +50,9 @@ export default function genePage(props) {
                 <title>{'STW | Gene Browser | '+ props.data.ensembl_id}</title>
             </Head>
             <Layout hasSider style={{backgroundColor:"transparent"}}>
-                <SiderMenu div_content={div_content}/>
+                <SiderMenu divContent={divContent}/>
                 <div
-                    ref={div_content}
+                    ref={divContent}
                     style={{minWidth:"1200px",marginLeft:"200px",padding:"15vh 50px",textAlign:"left"}}
                 >
                     <div key={"gene_name"}>

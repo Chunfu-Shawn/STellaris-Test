@@ -45,7 +45,7 @@ export default function HelpAPI() {
                         </pre>
                         </li>
                     </ul>
-                    <b>(2) String:<code>'all' / 'human-ngs' / 'mouse-ngs' / 'mouse-smfish'</code></b>
+                    <b>(2) String:<code>&apos;all&apos; / &apos;human-ngs&apos; / &apos;mouse-ngs&apos; / &apos;mouse-smfish&apos;</code></b>
                         <ul>
                             <li>a endpoint name representing a type of datasets</li>
                         </ul>

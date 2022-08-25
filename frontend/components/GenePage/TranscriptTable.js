@@ -17,7 +17,7 @@ export default function TranscriptTable(props){
             },
             sortOrder: sortedInfo.columnKey === 'ensembl_transcript_id' ? sortedInfo.order : null,
             render: (text) => text !== "-" ?
-                <a target={"_blank"} href={`http://www.ensembl.org/id/${text}`}>{text}</a>
+                <a target={"_blank"} href={`http://www.ensembl.org/id/${text}`} rel="noreferrer">{text}</a>
                 : "-",
         },
         {
@@ -110,14 +110,16 @@ export default function TranscriptTable(props){
             dataIndex: 'refseq_mrna',
             key: 'refseq_mrna',
             width: '10%',
-            render: (text) => <a href={`https://www.ncbi.nlm.nih.gov/nuccore/${text}`} target={"_blank"}>{text}</a>
+            render: (text) => <a href={`https://www.ncbi.nlm.nih.gov/nuccore/${text}`}
+                                 target={"_blank"} rel="noreferrer">{text}</a>
         },
         {
             title: 'Refseq ncRNA',
             dataIndex: 'refseq_ncrna',
             key: 'refseq_ncrna',
             width: '10%',
-            render: (text) => <a href={`https://www.ncbi.nlm.nih.gov/nuccore/${text}`} target={"_blank"}>{text}</a>
+            render: (text) => <a href={`https://www.ncbi.nlm.nih.gov/nuccore/${text}`}
+                                 target={"_blank"} rel="noreferrer">{text}</a>
         },
         {
             title: 'Source',
