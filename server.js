@@ -6,7 +6,7 @@ import {Router} from './libs/koaRouters.js'
 import {RouterAPI} from './libs/API-v1.0.0.js'
 // session 有关模块
 import session from 'koa-session'
-import {accessLogger,uploadLogger} from "./libs/logSave.js"
+import {accessLogger} from "./libs/logSave.js"
 //set a crontab
 import schedule from 'node-schedule'
 // remove files
@@ -44,7 +44,7 @@ app.prepare().then(() => {
 
     //设置koa日志访问记录
     //注意，需要放在nextjs路由前面，避免http请求被nextjs接受导致不能在后端进行记录
-    server.use(accessLogger).use(uploadLogger);
+    server.use(accessLogger);
 
     // use Koa router
     server.use(Router.routes()).use(Router.allowedMethods())

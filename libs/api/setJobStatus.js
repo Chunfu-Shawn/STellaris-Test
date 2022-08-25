@@ -10,7 +10,7 @@ export function setJobStatus(rid,status) {
         }
     }
     // 写入文件
-    fs.writeFileSync("public/uploads/filesInfo.json",
+    fs.writeFileSync("public/files/filesInfo.json",
         JSON.stringify(filesInfo),
         {flag: "w"},
     );
