@@ -1,0 +1,19 @@
+{
+    "apps": [
+        {
+            "name": "spatial-trans-web",
+            "instances":"7",
+            "instance_var": "INSTANCE_ID",
+            "exec_mode": "cluster",
+            "script": "./server.js",
+            "cwd": "./",
+            "error_file":"./logs/run_situation/err.log",
+            "out_file":"./logs/run_situation/out.log",
+            "merge_logs": true,
+            "log_date_format":"YYYY-MM-DD HH:mm Z",
+            "env": {
+              "NODE_ENV": "production"
+          }
+        }
+]
+}

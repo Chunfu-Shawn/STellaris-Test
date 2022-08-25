@@ -8,17 +8,17 @@ const generator = () => {
     let time = new Date();
     let month = time.getFullYear() + "" + pad(time.getMonth() + 1);
     let day = pad(time.getDate());
-
-    return `${month}/${month}${day}-`;
+    return time
+    //return `${month}/${month}${day}-`;
 };
 
 const accessLogStream = rfs.createStream(generator()+'access.log', {
-    interval: '1d', // rotate daily
-    path: 'logs/'
+    interval: '5s', // rotate daily
+    path: 'logs/access_or_post/'
 })
 const uploadLogStream = rfs.createStream(generator()+'post.log', {
-    interval: '1d', // rotate daily
-    path: 'logs/'
+    interval: '5s', // rotate daily
+    path: 'logs/access_or_post/'
 })
 
 
