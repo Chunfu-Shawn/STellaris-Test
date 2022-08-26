@@ -16,7 +16,9 @@ export default function Summary(props){
             <a id={"Summary"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0">
                 <b>Summary </b>
-                <Link href={'/help/features/browser'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
+                <Link href={'/help/manual/browser#gene_page_summary'}>
+                    <a target={"_blank"}><QuestionCircleOutlined/></a>
+                </Link>
             </Divider>
             {
                 props.data.symbol!=="-"?

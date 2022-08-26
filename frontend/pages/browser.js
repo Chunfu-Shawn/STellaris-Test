@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
-import {Input, message, Select} from 'antd';
+import {Input, message, Select, Space} from 'antd';
 import {useRouter} from "next/router";
 import {useState} from "react";
 import Link from "next/link.js";
+import {QuestionCircleOutlined} from "@ant-design/icons";
 const { Search } = Input;
 const { Option } = Select;
 
@@ -48,11 +49,21 @@ export default function Browser() {
                     {
                         marginTop:"8%",
                         marginBottom:"5%",
-                        fontSize:"48px",
-                        fontWeight:"bold"
                     }
                 }>
-                    Gene Browser
+                    <Space align="center">
+                        <span style={
+                            {
+                                fontSize:"48px",
+                                fontWeight:"bold"
+                            }
+                        }>Gene Browser</span>
+                        <Link href={'/help/manual/browser#main_page_help'}>
+                            <a target={'_blank'} rel={"noreferrer"}>
+                                <QuestionCircleOutlined  style={{fontSize:"20px",color:"#2b1970"}}/>
+                            </a>
+                        </Link>
+                    </Space>
                 </div>
                 <Input.Group compact>
                     <Select defaultValue="All" style={{width:'10%'}} size={"large"} onChange={onSpeciesChange}>
@@ -80,9 +91,12 @@ export default function Browser() {
                     />
                 </Input.Group>
                 <div style={{marginTop:50,fontSize:16}}>
-                    e.g. <b><Link href={"browser/genePage/ENSG00000154856"}>APCDD1</Link></b> or
-                    <b><Link href={"browser/genePage/ENSG00000012048"}> BRCA2</Link></b> or
-                    <b><Link href={"browser/genePage/ENSG00000250337"}> ENSG00000250337</Link></b>
+                    <span>
+                        e.g. <b><Link href={"browser/genePage/ENSG00000154856"}>APCDD1</Link></b> or
+                        <b><Link href={"browser/genePage/ENSG00000012048"}> BRCA2</Link></b> or
+                        <b><Link href={"browser/genePage/ENSG00000250337"}> ENSG00000250337</Link></b>
+                        , any problem, click:
+                    </span>
                 </div>
             </div>
         </LayoutCustom>

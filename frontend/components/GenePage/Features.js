@@ -33,7 +33,7 @@ export default function Features(props){
         <>
             <Divider orientation="left" orientationMargin="0">
                 <b>Features </b>
-                <Link href={'/help/features/browser'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
+                <Link href={'/help/manual/browser#gene_page_features'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
             </Divider>
             <div name={"Genomic Context"} style={{marginLeft:"20px"}}>
                 <a id={"Genomic Context"} style={{position: 'relative', top: "-150px"}}></a>

@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="" />
+    <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets/GeneAttributionsTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets/GeneFeaturesAttributionsTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets/GeneInfoAttributionsTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets/SearchResultsAttributionsTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualAnnotation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualBrowser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualDatasets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Browser/searchResultTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Browser/searchResultTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/SiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/SiderMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/features/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help/manual/annotation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/features/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help/manual/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/features/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help/manual/datasets.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/libs/api",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/components/Help/Manual/Datasets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,18 +76,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets" />
+      <recent name="$PROJECT_DIR$/frontend/components/Help/Manual" />
       <recent name="$PROJECT_DIR$/libs/api" />
       <recent name="$PROJECT_DIR$/frontend/components/GenePage" />
       <recent name="$PROJECT_DIR$/frontend/pages/help/features" />
-      <recent name="$PROJECT_DIR$/frontend/pages/datasets" />
-      <recent name="$PROJECT_DIR$/frontend/public/images/index" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets" />
       <recent name="$PROJECT_DIR$/frontend/pages/browser" />
       <recent name="$PROJECT_DIR$/frontend/components" />
       <recent name="$PROJECT_DIR$/public/files" />
       <recent name="$PROJECT_DIR$/frontend/public/images" />
-      <recent name="$PROJECT_DIR$/frontend/components/Help" />
     </key>
   </component>
   <component name="RunManager">
@@ -100,7 +118,8 @@
       <workItem from="1660533431156" duration="19087000" />
       <workItem from="1660634297172" duration="56870000" />
       <workItem from="1661079977360" duration="2004000" />
-      <workItem from="1661101522639" duration="67793000" />
+      <workItem from="1661101522639" duration="71776000" />
+      <workItem from="1661484330353" duration="19753000" />
     </task>
     <servers />
   </component>

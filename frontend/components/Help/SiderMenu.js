@@ -9,11 +9,11 @@ const items = [
         label: <Link href={'/help'}>Project Overview</Link>,
         key: 'project', icon: <ProjectOutlined /> },
     {
-        label: 'Features', key: 'features', icon: <CompassOutlined />,
+        label: 'Manual', key: 'manual', icon: <CompassOutlined />,
         children: [
-            { label: <Link href={'/help/features/datasets'}>Datasets</Link>, key: 'features_datasets' },
-            { label: <Link href={'/help/features/annotation'}>Spatial Annotation</Link>, key: 'features_annotation'},
-            { label: <Link href={'/help/features/browser'}>Browser</Link>, key: 'features_browser'}
+            { label: <Link href={'/help/manual/datasets'}>Datasets</Link>, key: 'manual_datasets' },
+            { label: <Link href={'/help/manual/annotation'}>Spatial Annotation</Link>, key: 'manual_annotation'},
+            { label: <Link href={'/help/manual/browser'}>Browser</Link>, key: 'manual_browser'}
         ],
     },
     {

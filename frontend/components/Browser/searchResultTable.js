@@ -62,7 +62,11 @@ export default function SearchResultTable(props){
             title: () => {
                 return <Space>
                     <span>Gene type</span>
-                    <Link href={'/help/features/browser'} target={'_blank'}><QuestionCircleFilled  style={{fontSize:"15px",color:"#2b1970"}}/></Link>
+                    <Link href={'/help/manual/browser#search_results_help'}>
+                        <a target={'_blank'}>
+                            <QuestionCircleFilled  style={{fontSize:"15px",color:"#2b1970"}}/>
+                        </a>
+                    </Link>
                 </Space>
             },
             dataIndex: 'biotype',
