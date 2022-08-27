@@ -8,7 +8,7 @@ export default function SpatialExpression(props){
         <>
             <Divider orientation="left" orientationMargin="0">
                 <b>Spatial Expression </b>
-                <Link href={'/help/features/browser'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
+                <Link href={'/help/manual/browser'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
             </Divider>
             <div name={"RSE"} style={{marginLeft:"20px"}}>
                 <a id={"RSE"} style={{position: 'relative', top: "-150px"}}></a>

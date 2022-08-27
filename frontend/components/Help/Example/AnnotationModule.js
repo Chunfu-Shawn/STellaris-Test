@@ -9,7 +9,7 @@ export default function HelpAnnotation() {
             <Breadcrumb>
                 <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Example Usage</Breadcrumb.Item>
-                <Breadcrumb.Item>Annotation</Breadcrumb.Item>
+                <Breadcrumb.Item>Spatial Annotation</Breadcrumb.Item>
             </Breadcrumb>
         </div>
     )

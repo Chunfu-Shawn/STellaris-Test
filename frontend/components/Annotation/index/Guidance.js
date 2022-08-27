@@ -25,7 +25,7 @@ export default function Guidance(){
                       icon={<ReloadOutlined />}/>
             </Steps><br/>
             <div style={{color:"#6e6e6e",textAlign:"left",font:"bold 18px"}}>
-                CLICK ON <Link href={'/help'}> &quot; Help / Example Usage &quot; </Link> TO GET MORE INFORMATION FOR HELP.
+                CLICK ON <Link href={'/help/example/annotation'}> &quot; Help / Example Usage &quot; </Link> TO GET MORE INFORMATION FOR HELP.
             </div>
         </>
 

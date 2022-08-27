@@ -5,23 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets/GeneAttributionsTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets/GeneFeaturesAttributionsTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets/GeneInfoAttributionsTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets/SearchResultsAttributionsTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualAnnotation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualBrowser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualDatasets.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Browser/searchResultTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Browser/searchResultTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/Guidance.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/Guidance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/SiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/SiderMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/SpatialExpression.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/SpatialExpression.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Help/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/SiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/SiderMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Example/AnnotationModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Example/AnnotationModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets/GeneInfoAttributionsTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets/GeneInfoAttributionsTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualAnnotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualAnnotation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualDatasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualDatasets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/mainpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/features/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help/manual/annotation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/features/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help/manual/browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/features/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help/manual/datasets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/browser/genePage/[gene_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser/genePage/[gene_id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/datapages/[st_id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getGeneList.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getGeneList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,12 +92,16 @@
       <recent name="$PROJECT_DIR$/frontend/public/images" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.one-week-files-delete.js">
+    <configuration name="loveMie.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/public/files/loveMie.js" working-dir="$PROJECT_DIR$/public/files">
+      <method v="2" />
+    </configuration>
     <configuration name="one-week-files-delete.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/libs/one-week-files-delete.js" working-dir="$PROJECT_DIR$/libs">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.loveMie.js" />
         <item itemvalue="Node.js.one-week-files-delete.js" />
       </list>
     </recent_temporary>
@@ -119,7 +125,7 @@
       <workItem from="1660634297172" duration="56870000" />
       <workItem from="1661079977360" duration="2004000" />
       <workItem from="1661101522639" duration="71776000" />
-      <workItem from="1661484330353" duration="19753000" />
+      <workItem from="1661484330353" duration="28181000" />
     </task>
     <servers />
   </component>

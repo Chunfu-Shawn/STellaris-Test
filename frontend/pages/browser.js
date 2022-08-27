@@ -95,7 +95,6 @@ export default function Browser() {
                         e.g. <b><Link href={"browser/genePage/ENSG00000154856"}>APCDD1</Link></b> or
                         <b><Link href={"browser/genePage/ENSG00000012048"}> BRCA2</Link></b> or
                         <b><Link href={"browser/genePage/ENSG00000250337"}> ENSG00000250337</Link></b>
-                        , any problem, click:
                     </span>
                 </div>
             </div>

@@ -33,9 +33,9 @@ const data = [
     {
         "Attribution": "Identifiers in Other DB",
         "Description": <span>comma-delimited set of identifiers in other databases for this gene.
-            The unit of the set is database:value. Note that HGNC and MGI include 'HGNC' and 'MGI', respectively, in the value part of their identifier.
-            Consequently, this attribution for these databases will appear like: <b>HGNC:HGNC:1100</b>, this would be interpreted as database='HGNC', value='HGNC:1100'.
-            Example for MGI: <b>MGI:MGI:104537</b>. This would be interpreted as database='MGI', value='MGI:104537'.</span>
+            The unit of the set is database:value. Note that HGNC and MGI include &apos;HGNC&apos; and &apos;MGI&apos;, respectively, in the value part of their identifier.
+            Consequently, this attribution for these databases will appear like: <b>HGNC:HGNC:1100</b>, this would be interpreted as database=&apos;HGNC&apos;, value=&apos;HGNC:1100&apos;.
+            Example for MGI: <b>MGI:MGI:104537</b>. This would be interpreted as database=&apos;MGI&apos;, value=&apos;MGI:104537&apos;.</span>
     },
     {
         "Attribution": "Gene Version",

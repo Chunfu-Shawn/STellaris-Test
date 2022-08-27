@@ -20,6 +20,7 @@ Router.post('/annotations/upload',
     ]), async (ctx) => {
     //上传时间
     let uploadtime = new Date()
+        // 获得rid
     let rid = uploadRecord(ctx, uploadtime.toISOString())
     if(rid !== undefined){
         ctx.body = {rid: rid}
@@ -29,6 +30,19 @@ Router.post('/annotations/upload',
         await execTangram(rid,ctx.request.files['matrixFile'][0].destination, ctx.request.files['matrixFile'][0].filename);
     }else console.log("A bad upload happened!!")
 })
+
+// run demo 的路由
+Router.post('/annotations/demo', async (ctx) => {
+        //上传时间
+        let uploadtime = new Date()
+        let rid = uploadRecord(ctx, uploadtime.toISOString())
+        if(rid !== undefined){
+            // 返回rid
+            ctx.body = {rid: rid}
+            // 运行Tangram, 传入Koa的context包装的request对象，和response对象
+            await execTangram(rid,'demo', 'demo');
+        }else console.log("A bad upload happened!!")
+    })
 
 // 查询结果的路由
 Router.get('/annotations/results/:rid', async (ctx) => {

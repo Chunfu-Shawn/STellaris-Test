@@ -13,15 +13,15 @@ export default function ManualBrowser() {
             <Breadcrumb>
                 <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Manual</Breadcrumb.Item>
-                <Breadcrumb.Item>Browser</Breadcrumb.Item>
+                <Breadcrumb.Item>Gene Browser</Breadcrumb.Item>
             </Breadcrumb>
             <Typography style={{marginTop:50}}>
                 <h1>Gene Browser</h1>
                 <h2>1. Introduction</h2>
                 <p style={{fontSize:16}}>The Gene Browser module would help users to search for the basic information and
                     spatial expression pattern of a interested gene. Gene Page contains some annotation
-                    sections, such as Summary, Genomic Context, Transcripts, Regional Specific Expression, Co-expressed Genes,
-                    and Highly-expressed Clusters, which present a whole spatial expression profile about a gene.
+                    sections, such as <b>Summary, Genomic Context, Transcripts, Regional Specific Expression, Co-expressed Genes,
+                    and Highly-expressed Clusters</b>, which present a whole spatial expression profile about a gene.
                 </p>
                 <h2>2. Gene Datasets</h2>
                 <p>We collected and integrated those public gene information data from <a
@@ -38,7 +38,7 @@ export default function ManualBrowser() {
                 <h2>3. Browser</h2>
                 <a id={"main_page_help"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>The Browser module is a ordinary search engine. It would provide some genes which have similar names
-                    after users chose the <b>organism</b> and <b>type of gene name</b> and inputted what they were
+                    after users choose the <b>organism</b> and <b>type of gene id</b> and inputted what they were
                     going to search.
                 </p>
                 <h4>(1) Main Page</h4>
@@ -71,13 +71,13 @@ export default function ManualBrowser() {
                 <a id={"gene_page_summary"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section comprises following attributes:</p>
                 <GeneInfoAttributionsTable/>
+                <h5>- Spatial Expression</h5>
+                <a id={"gene_page_spatial_expression"} style={{position: 'relative', top: "-150px"}}></a>
+                <p>This section comprises following attributes:</p>
                 <h5>- Features</h5>
                 <a id={"gene_page_features"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section comprises two annotations: <b>Genomic Context</b> and <b>Transcript</b>. Here are the attributes of these annotations below:</p>
                 <GeneFeaturesAttributionsTable/>
-                <h5>- Spatial Expression</h5>
-                <a id={"gene_page_spatial_expression"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>This section comprises following attributes:</p>
             </Typography>
         </div>
     )

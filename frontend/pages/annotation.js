@@ -16,6 +16,7 @@ const organOptions = getAnnotationOptions(data)['organOptions'];
 const tissueOptions = getAnnotationOptions(data)['tissueOptions'];
 const SERVER_URL = 'http://localhost:3000'
 const UPLOAD_URL = `${SERVER_URL}/annotations/upload/`
+const DEMO_URL = `${SERVER_URL}/annotations/demo/`
 
 const validateMessages = {
     required: '${label} is required!',
@@ -80,7 +81,7 @@ export default function Annotation() {
             })
             .catch(() => {
                 message.error({
-                    content:'upload failed.',
+                    content:'upload unsuccessfully.',
                     style:{
                         marginTop: '12vh',
                     },
@@ -115,44 +116,40 @@ export default function Annotation() {
         setBarcodesFileList([]);
         setFeaturesFileList([]);
     };
-    const onFill = () => {
-        form.setFieldsValue({
-            title: 'An important job!',
-            emailAddress: 'someone@mail.com',
-        });
-        if(matrixFileList!==[])
-            setMatrixFileList([
-            {
-                uid: '1',
-                name: 'default_scRNA-seq_matrix.mtx.gz',
-                status: 'done',
-                response: 'Server Error 500',
-                // custom error message to show
-                url: 'http://localhost:3000/api/default-matrix-file',
-            },
-        ]);
-        if(barcodesFileList!==[])
-            setBarcodesFileList([
-                {
-                    uid: '1',
-                    name: 'default_scRNA-seq_barcodes.tsv.gz',
-                    status: 'done',
-                    response: 'Server Error 500',
-                    // custom error message to show
-                    url: 'http://localhost:3000/api/default-matrix-file',
-                },
-            ]);
-        if(featuresFileList!==[])
-            setFeaturesFileList([
-                {
-                    uid: '1',
-                    name: 'default_scRNA-seq_features.tsv.gz',
-                    status: 'done',
-                    response: 'Server Error 500',
-                    // custom error message to show
-                    url: 'http://localhost:3000/api/default-matrix-file',
-                },
-            ]);
+    const onRunDemo = () => {
+        let rid = ""
+        const formData = new FormData();
+        setUploading(true);
+        formData.append('isDemo',"true")
+        fetch(DEMO_URL, {
+            method: 'POST',
+            body: formData
+        }).then(response => response.json())
+            .then(json => rid = json.rid)
+            .then(() => {
+                message.success({
+                    content:'run demo successfully!',
+                    style:{
+                        marginTop: '12vh',
+                    },
+                });
+                //nextjs路由跳转到结果页面
+                router.push('http://localhost:3000/annotations/results/'+rid)
+            })
+            .catch(() => {
+                message.error({
+                        content:'run demo unsuccessfully.',
+                        style:{
+                            marginTop: '12vh',
+                        },
+                        duration:3,
+                    }
+                );
+                router.reload()
+            })
+            .finally(() => {
+                setUploading(false);
+            });
     };
 
     return (
@@ -224,11 +221,11 @@ export default function Annotation() {
                                         loading={uploading} className={"btn-upload"}>
                                     {uploading ? 'Uploading' : 'Start Upload'}
                                 </Button>
-                                <Button type="ghost" htmlType="button" onClick={onReset}>
+                                <Button type="dashed" htmlType="button" onClick={onReset} className={"btn-upload"}>
                                     Reset
                                 </Button>
-                                <Button type="link" htmlType="button" onClick={onFill}>
-                                    Fill form
+                                <Button type="ghost" htmlType="button" onClick={onRunDemo}>
+                                    Run Demo
                                 </Button>
                             </Form.Item>
                         </Form>

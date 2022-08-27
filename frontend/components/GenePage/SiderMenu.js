@@ -8,13 +8,6 @@ const items = [
         key: 'Summary'
     },
     {
-        label: 'Features', key: 'Features',
-        children: [
-            { label: <a href={'#Genomic Context'}>Genomic Context</a>, key: 'Genomic Context' },
-            { label: <a href={'#Transcript'}>Transcript</a>, key: 'Transcript'}
-        ],
-    },
-    {
         label: 'Spatial Expression', key: 'Spatial Expression',
         children: [
             { label: <a href={'#RSE'}>RSE</a>, key: 'RSE' },
@@ -23,7 +16,14 @@ const items = [
         ],
     },
     {
-        label: <a href={'#api'}>API</a>, key: 'api'
+        label: 'Features', key: 'Features',
+        children: [
+            { label: <a href={'#Genomic Context'}>Genomic Context</a>, key: 'Genomic Context' },
+            { label: <a href={'#Transcript'}>Transcript</a>, key: 'Transcript'}
+        ],
+    },
+    {
+        label: <a href={'#download'}>Download</a>, key: 'download'
     }
 ]
 

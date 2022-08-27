@@ -117,7 +117,7 @@ export default function HelpAPI() {
                     </ul>
                 </div>
                 <Divider/>
-                <h4>4. transcript(s) from a gene</h4>
+                <h4>4. gene transcript(s)</h4>
                 <div>
                     <p>This resource represents some basic information of transcript from a gene.</p>
                     <p><b>Need one argument:</b></p>

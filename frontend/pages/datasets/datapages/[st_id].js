@@ -124,7 +124,7 @@ export default function DataPage(props) {
                             <Link href={"#sample"} title='Sample'/>
                             <Link href={"#duplicates"} title='Duplicates'/>
                         </Link>
-                        <Link href="#provenance" title="Provenance" />
+                        <Link href="#source" title="Source" />
                         <Link href="#view" title="View" />
                         <Link href="#files" title="Files"/>
                     </Anchor>
@@ -196,7 +196,7 @@ export default function DataPage(props) {
                         </div>
                     </div>
                     <br/><br/>
-                    <h2 id={'provenance'}>Provenance</h2>
+                    <h2 id={'source'}>Source</h2>
                     <div className="site-card-wrapper" style={{padding:"2%"}}>
                         <Row gutter={10}>
                             <Col span={9}>

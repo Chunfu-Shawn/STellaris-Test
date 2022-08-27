@@ -63,8 +63,8 @@ export default function GenePage(props) {
                         <a href={"#RSE"}><Tag color="volcano">REGIONAL SPECIFIC GENE</Tag></a>
                     </div>
                     <Summary data={props.data}/>
-                    <Features data={props.data} trans={props.trans}/>
                     <SpatialExpression />
+                    <Features data={props.data} trans={props.trans}/>
                 </div>
             </Layout>
         </LayoutCustom>
