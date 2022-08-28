@@ -2,6 +2,7 @@ import fs from "fs"
 import { v1 as uuidv1 } from 'uuid'
 
 export function uploadRecord(ctx, uploadtime) {
+    console.log(ctx.request.body)
     // whether the request is to run demo
     if( typeof ctx.request.body.isDemo === undefined ){
         try {
@@ -105,7 +106,6 @@ export function uploadRecord(ctx, uploadtime) {
             console.log(`Error run demo: ${err}`);
         }
     }else {
-        console.log(ctx.request.body.isDemo)
-        console.log("Error happened")
+        console.log("Error happened!")
     }
 }

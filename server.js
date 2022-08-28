@@ -45,6 +45,8 @@ app.prepare().then(() => {
     //设置koa日志访问记录
     //注意，需要放在nextjs路由前面，避免http请求被nextjs接受导致不能在后端进行记录
     server.use(accessLogger);
+    // add post body parser
+    server.use(bodyParser());
 
     // use Koa router
     server.use(Router.routes()).use(Router.allowedMethods())
@@ -58,9 +60,6 @@ app.prepare().then(() => {
         // 屏蔽koa中对response的内置处理，让nextjs来接手
         ctx.response = false
     })
-
-    // add post body parser
-    server.use(bodyParser());
 
     // crontab for remove decrepit files
     // define regular schedule

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import { useRouter } from "next/router";
-import {Button, Form, Input, message,Layout} from 'antd';
+import {Button, Form, Input, message, Layout, Popconfirm} from 'antd';
 const { Sider } = Layout;
 import {useState} from "react";
 import {data, getAnnotationOptions} from "../components/Datasets/getData&Options.js";
@@ -107,7 +107,7 @@ export default function Annotation() {
     const tailLayout = {
         wrapperCol: {
             offset: 5,
-            span: 14,
+            span: 19,
         },
     };
     const onReset = () => {
@@ -116,6 +116,9 @@ export default function Annotation() {
         setBarcodesFileList([]);
         setFeaturesFileList([]);
     };
+    const cancel = (e) => {
+        console.log(e);
+    };
     const onRunDemo = () => {
         let rid = ""
         const formData = new FormData();
@@ -123,7 +126,10 @@ export default function Annotation() {
         formData.append('isDemo',"true")
         fetch(DEMO_URL, {
             method: 'POST',
-            body: formData
+            headers: {
+                'Accept': 'application/json', 'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({isDemo:'true'})
         }).then(response => response.json())
             .then(json => rid = json.rid)
             .then(() => {
@@ -145,7 +151,7 @@ export default function Annotation() {
                         duration:3,
                     }
                 );
-                router.reload()
+                //router.reload()
             })
             .finally(() => {
                 setUploading(false);
@@ -169,14 +175,15 @@ export default function Annotation() {
                         <Guidance></Guidance>
                     </div>
                 </Sider>
-                <div className="modal-body-stw" style={{width:"60%",textAlign:"left"}}>
+                <div className="modal-body-stw" style={{width:1000,textAlign:"left"}}>
                     <div className="page-header" style={{margin:"10% 0"}}>
                         <h1 style={{fontSize:"36px"}}>Spatial Annotation</h1>
                     </div>
                         <Form {...layout} layout={'horizontal'} form={form}
                               onFinish={handleUpload}
                               name="control-hooks"
-                              validateMessages={validateMessages}>
+                              validateMessages={validateMessages}
+                              style={{width:600}}>
                             <Form.Item name="title" label="Job Title"
                                        rules={[
                                            {
@@ -224,9 +231,17 @@ export default function Annotation() {
                                 <Button type="dashed" htmlType="button" onClick={onReset} className={"btn-upload"}>
                                     Reset
                                 </Button>
-                                <Button type="ghost" htmlType="button" onClick={onRunDemo}>
-                                    Run Demo
-                                </Button>
+                                <Popconfirm
+                                    title="Are you sure to run a demo?"
+                                    onConfirm={onRunDemo}
+                                    onCancel={cancel}
+                                    okText="Yes"
+                                    cancelText="No"
+                                >
+                                    <Button type="ghost" htmlType="button">
+                                        Run Demo
+                                    </Button>
+                                </Popconfirm>
                             </Form.Item>
                         </Form>
                     </div>

@@ -15,7 +15,7 @@ export default function SelectOrganTissue(props){
     };
 
     return(
-        <Row style={{marginBottom:"5%"}}>
+        <Row style={{marginBottom:"5%",width:600}}>
             <Col span={3}>
                 <span><b>Organ:</b></span>
             </Col>
@@ -23,7 +23,7 @@ export default function SelectOrganTissue(props){
                 <Select
                     defaultValue={props.organOptions[0]}
                     style={{
-                        width: '12vw',
+                        width: 180,
                     }}
                     onChange={handleOrganChange}
                 >
@@ -38,7 +38,7 @@ export default function SelectOrganTissue(props){
             <Col span={8}>
                 <Select
                     style={{
-                        width: '12vw',
+                        width: 200,
                     }}
                     value={props.secondTissue}
                     onChange={onSecondTissueChange}
