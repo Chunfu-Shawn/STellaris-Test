@@ -1,6 +1,7 @@
 import {Breadcrumb, Typography} from 'antd';
 import React from 'react';
 import { contentStyle } from "./SiderMenu.js";
+import HumanMap from "../Datasets/HumanMap.js";
 const { Title } = Typography;
 
 
@@ -14,6 +15,7 @@ export default function HelpProject() {
             </Breadcrumb><br/>
             <Typography>
                 <Title>Spatial Transcriptome Web</Title>
+                <HumanMap></HumanMap>
             </Typography>
         </div>
     )

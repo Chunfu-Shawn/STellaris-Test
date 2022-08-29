@@ -81,7 +81,7 @@ export default function Navigator(){
     const breakpoint = 992;
 
     return(
-        <nav id="topheader" className="navbar-inverse navbar-fixed-top" >
+        <nav id="topheader" className="navbar-inverse navbar-fixed-top">
             <div className="container">
                 <div>
                     <Link href="/" ><a className="navbar-brand">SPATIAL TRANS WEB</a></Link>
