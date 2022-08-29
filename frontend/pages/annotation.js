@@ -188,7 +188,7 @@ export default function Annotation() {
                                        rules={[
                                            {
                                                required: true,
-                                               max: 50,
+                                               max: 60,
                                            },
                                        ]}
                             >
@@ -198,7 +198,8 @@ export default function Annotation() {
                                        rules={[
                                            {
                                                required: true,
-                                               type:'email'
+                                               type:'email',
+                                               max:50
                                            },
                                        ]}
                             >

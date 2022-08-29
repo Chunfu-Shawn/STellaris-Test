@@ -1,24 +1,32 @@
-import fs from "fs"
+import mysql from "mysql";
 
-export function getJobStatus(rid) {
-    let filesInfo = JSON.parse(fs.readFileSync('public/files/filesInfo.json', 'utf8'))
-    let ReqStatus = {};
-    for(let key in filesInfo){
-        if(key === rid){
-            ReqStatus.rid =  key
-            ReqStatus.title = filesInfo[key].title
-            ReqStatus.email = filesInfo[key].email
-            ReqStatus.organ = filesInfo[key].organ
-            ReqStatus.tissue = filesInfo[key].tissue
-            ReqStatus.matrixfilepath = filesInfo[key].matrixfilepath
-            ReqStatus.barcodesfilepath = filesInfo[key].barcodesfilepath
-            ReqStatus.featuresfilepath = filesInfo[key].featuresfilepath
-            ReqStatus.resultpath = filesInfo[key].resultpath
-            ReqStatus.uploadtime = filesInfo[key].uploadtime
-            ReqStatus.finishtime = filesInfo[key].finishtime
-            ReqStatus.status = filesInfo[key].status
-            return ReqStatus
-        }
-    }
-    return {}
+const options = {
+    host: 'localhost',//主机名
+    user: 'readonly',//用户
+    password: 'access',//密码
+    port: 3306,//端口号
+    database: 'spatial_trans_web'//要操作的数据库
+}
+
+export async function getJobStatus(rid) {
+    let connection = mysql.createConnection(options)
+    // 连接数据库
+    connection.connect(() => {
+        console.log('Connect database successfully')
+    })
+    // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
+    let selectSql = `SELECT * FROM users_annotation_records WHERE rid=?`;
+    // 根据rid查询任务状态
+    return new Promise((resolve, reject) => {
+        connection.query(selectSql,[rid],(err, result) => {
+            if(err){
+                console.log(err.message);
+                reject(err);
+            }
+            resolve(JSON.parse(JSON.stringify(result))[0])
+            connection.end(()=>{
+                console.log('Database connect closed')
+            })
+        })
+    })
 }

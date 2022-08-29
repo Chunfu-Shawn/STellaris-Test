@@ -14,11 +14,11 @@ export default function ResultStatus(props){
                     </tr>
                     <tr>
                         <td>Submission Time</td>
-                        <td>{props.data.uploadtime}</td>
+                        <td>{props.data.upload_time}</td>
                     </tr>
                     <tr>
                         <td>Finish Time</td>
-                        <td>{props.data.finishtime}</td>
+                        <td>{props.data.finish_time}</td>
                     </tr>
                     <tr>
                         <td>Time Consumption</td>

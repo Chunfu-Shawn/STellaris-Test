@@ -14,7 +14,7 @@ export default function ReqStatus(props){
                     </tr>
                     <tr>
                         <td>Submission Time</td>
-                        <td>{props.data.uploadtime}</td>
+                        <td>{props.data.upload_time}</td>
                     </tr>
                     <tr>
                         <td>Time since submission</td>

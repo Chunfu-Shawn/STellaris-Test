@@ -13,7 +13,7 @@ export default function ErrorModule(props){
             <h1>ERROR!</h1>
             <h4>There is something wrong happened in server or in your data file. Please upload again with correct format file.</h4>
             <ResultStatus data={props.data} style={{width: "60vh"}}
-                          usedTime={calTime(props.data.finishtime,props.data.uploadtime)}>
+                          usedTime={calTime(props.data.finish_time,props.data.upload_time)}>
             </ResultStatus>
         </div>
     )

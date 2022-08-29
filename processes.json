@@ -13,7 +13,7 @@
             "log_date_format":"YYYY-MM-DD HH:mm Z",
             "env": {
                 "NODE_ENV": "production",
-                "PRODUCTION_URL": "http://10.10.30.30:3000"
+                "PRODUCTION_URL": "http://10.10.30.30:3000/"
             }
         }
     ]
