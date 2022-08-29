@@ -14,7 +14,7 @@ export async function getServerSideProps(context) {
         }
     }
     const res = await fetch((process.env.NODE_ENV==="production"?
-            "http://10.10.30.30:3000/":"http://localhost:3000/")
+            process.env.PRODUCTION_URL:"http://localhost:3000/")
         +"api/gene/"+ context.params.gene_id
     )
     const data = await res.json()
@@ -24,7 +24,7 @@ export async function getServerSideProps(context) {
         }
     }
     const resTrans = await fetch((process.env.NODE_ENV==="production"?
-            "http://10.10.30.30:3000/":"http://localhost:3000/")
+            process.env.PRODUCTION_URL:"http://localhost:3000/")
         +"api/gene/transcript/"+ context.params.gene_id
     )
     const dataTrans = await resTrans.json()

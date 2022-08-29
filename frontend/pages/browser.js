@@ -12,7 +12,6 @@ export default function Browser() {
     const [searching, setSearching] = useState(false);
     const [idType, setIdType] = useState('Symbol');
     const [species, setSpecies] = useState('All');
-    const UPLOAD_URL = 'http://localhost:3000/browser/results'
     const router = useRouter()
     const onIDTypeChange = (value) => {
         setIdType(value)
@@ -21,14 +20,10 @@ export default function Browser() {
         setSpecies(value)
     }
     const onSearch = (value) => {
-        if (value === ''){
-            router.push({
-                pathname: `/browser`,
-            })
-        }else {
+        if (value !== ''){
             setSearching(true)
             router.push({
-                pathname: `${UPLOAD_URL}`,
+                pathname: `/browser/results`,
                 query: {
                     idType: idType,
                     species: species,

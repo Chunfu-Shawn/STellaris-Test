@@ -16,7 +16,7 @@ export async function getServerSideProps(context) {
     // params contains the post `st_id`.
     // If the route is like /datapages/1, then params.st_id is 1
     const res = await fetch((process.env.NODE_ENV==="production"?
-        "http://10.10.30.30:3000/":"http://localhost:3000/")
+            process.env.PRODUCTION_URL:"http://localhost:3000/")
         +"api/datasets-JSON/"+context.params.st_id)
     const data = await res.json()
     if (Object.keys(data).length === 0) {
@@ -25,7 +25,7 @@ export async function getServerSideProps(context) {
         }
     }
     const resConfig = await fetch((process.env.NODE_ENV==="production"?
-            "http://10.10.30.30:3000/":"http://localhost:3000/")
+            process.env.PRODUCTION_URL:"http://localhost:3000/")
         +"api/vi-custom-config/"+context.params.st_id)
     const config = await resConfig.json()
 

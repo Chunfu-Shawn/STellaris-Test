@@ -14,7 +14,7 @@ import Guidance from "../components/Annotation/index/Guidance";
 
 const organOptions = getAnnotationOptions(data)['organOptions'];
 const tissueOptions = getAnnotationOptions(data)['tissueOptions'];
-const SERVER_URL = 'http://localhost:3000'
+const SERVER_URL = process.env.NODE_ENV==="production"?process.env.PRODUCTION_URL:'http://localhost:3000'
 const UPLOAD_URL = `${SERVER_URL}/annotations/upload/`
 const DEMO_URL = `${SERVER_URL}/annotations/demo/`
 

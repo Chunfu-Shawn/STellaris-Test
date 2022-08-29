@@ -106,9 +106,9 @@ export default function MouseMap(props){
         );
     }, []);
     return (
-        <div style={{textAlign:"center"}}>
+        <div style={{height:600,width:600}}>
             <h4 style={{color:"white"}}>Mouse Archive</h4>
-            <div ref={chartRef} style={{height:"500px"}}></div>
+            <div ref={chartRef}></div>
         </div>
     )
 }

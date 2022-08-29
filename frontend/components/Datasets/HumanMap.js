@@ -103,9 +103,9 @@ export default function HumanMap(props){
         );
     }, []);
     return (
-        <div>
+        <div style={{height:600,width:600}}>
             <h4 style={{color:"white"}}>Human Archive</h4>
-            <div ref={chartRef} style={{height:"500px"}}></div>
+            <div ref={chartRef} ></div>
         </div>
     )
 }
