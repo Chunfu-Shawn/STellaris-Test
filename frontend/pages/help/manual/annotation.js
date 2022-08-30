@@ -4,7 +4,7 @@ import ManualAnnotation from "../../../components/Help/Manual/ManualAnnotation.j
 
 export default function Help() {
     return (
-        <HelpLayout opened={'manual'} selected={'manual_annotation'}>
+        <HelpLayout opened={['manual']} selected={'manual_annotation'}>
             <ManualAnnotation></ManualAnnotation>
         </HelpLayout>
     )

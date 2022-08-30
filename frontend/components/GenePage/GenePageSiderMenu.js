@@ -31,7 +31,7 @@ export default function GenePageSiderMenu(props){
 
     return(
         <SiderMenu items = {items}
-                   openKeys = {["Summary","Features"]}
+                   openKeys = {["Spatial Expression","Features"]}
                    divContent={props.divContent}
         />
     )

@@ -37,22 +37,18 @@ const items = [
 ]
 
 export const contentStyle = {
-    height:"80vh",
-    width:"80vw",
-    padding: '15vh 3vw',
+    width:"1100px",
+    padding: '10% 2%',
     textAlign: 'left'
 }
 
 export function SiderMenu(props){
     return(
-        <Sider  style={{backgroundColor:"transparent"}}
-                breakpoint="lg"
-                collapsedWidth="50"
-        >
+        <Sider  style={{backgroundColor:"transparent"}}>
             <Menu
                 mode="inline"
                 defaultSelectedKeys={[props.selected]}
-                defaultOpenKeys={[props.opened]}
+                defaultOpenKeys={props.opened}
                 style={{ marginTop:84 }}
                 items={ items }
             />

@@ -12,10 +12,12 @@
 html{
   scroll-behavior: smooth;
 }
+html body{
+  margin:0 auto;
+}
 html body .mainbody{
+  min-width: 1440px;
   align-content: center;
-  width: 100vw;
-  height: auto;
   color: #fff;
   background-color: #252525;
 }
@@ -26,6 +28,14 @@ body a{
 body a:hover{
   color: #755aee;
   text-decoration: none;
+}
+
+.modal-body-stw {
+  margin:0 auto;
+  width: 1440px;
+  position: relative;
+  padding: 120px 150px;
+  text-align: center;
 }
 
 .contact-context{

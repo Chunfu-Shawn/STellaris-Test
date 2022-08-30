@@ -42,38 +42,21 @@
 
 /*
  * Cover
- */
-@media screen and (max-width: 768px) {
-  .cover {
-    padding: 50px 0px 80px 0px;
-  }
-  .cover .btn-lg {
-    padding: 10px 20px;
-    font-weight: 700;
-  }
-  .cover-heading{
-    color: #fff;
-    font-family: sans-serif,bold;
-    font-size: 35px;
-    margin: 40px 3%;
-  }
+*/
+.cover {
+  padding: 50px 0px 80px 0px;
 }
-@media screen and (min-width: 768px) {
-  .cover {
-    padding: 50px 0px 80px 0px;
-  }
 
-  .cover .btn-lg {
-    padding: 10px 20px;
-    font-weight: 700;
-  }
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: 700;
+}
 
-  .cover-heading {
-    color: #fff;
-    font-family: sans-serif, bold;
-    font-size: 60px;
-    margin: 40px 10%;
-  }
+.cover-heading {
+  color: #fff;
+  font-family: sans-serif, bold;
+  font-size: 60px;
+  margin: 40px 10%;
 }
 
 .intro-card-wrapper{

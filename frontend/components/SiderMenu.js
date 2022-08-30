@@ -39,7 +39,8 @@ export function SiderMenu(props){
                     position: 'fixed',
                     left: 0,
                     top: 0,
-                    bottom: 0
+                    bottom: 0,
+                    zIndex: 101
                 }
             }
         >

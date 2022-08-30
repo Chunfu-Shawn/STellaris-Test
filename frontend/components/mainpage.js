@@ -16,7 +16,7 @@ export default function MainPage() {
                         </p>
                     </div>
                 </div>
-                <Row gutter={{md: 100, lg: 60}} justify="space-evenly" >
+                <Row style={{width:"100%"}} gutter={50} justify="space-evenly" >
                     <PlaceHolder title={"Spatial Trans Data"} context={contextHolder} link={"/datasets"} pic={"picture3.png"}/>
                     <PlaceHolder title={"Spatial Annotation"} context={contextHolder} link={"/annotation"} pic={"picture1.png"}/>
                     <PlaceHolder title={"Gene Browser"} context={contextHolder} link={"/browser"} pic={"picture2.png"}/>

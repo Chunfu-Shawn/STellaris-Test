@@ -3,7 +3,7 @@ import {Col} from "antd";
 
 export default function PlaceHolder(props){
     return(
-        <Col xxs={13} md={12} xl={8}>
+        <Col span={8}>
             <Link href={props.link}>
                 <a className="thumbnail">
                     <img src={`/images/index/${props.pic}`} alt="..." style={{width:"100%",height:"auto"}}/>

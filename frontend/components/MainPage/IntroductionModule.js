@@ -4,7 +4,7 @@ import {Col, Row} from "antd";
 export default function IntroductionModule(props){
     return(
         <Row gutter={[20,0]}>
-            <Col xs={0} md={6} xl={6}>
+            <Col span={6}>
                 <Link href={props.link}>
                     <a>
                         <img className="media-object"
@@ -15,7 +15,7 @@ export default function IntroductionModule(props){
                     </a>
                 </Link>
             </Col>
-            <Col xs={24} md={18} xl={18}>
+            <Col span={18}>
                 <h3>
                     <Link href={props.link}>
                         <a style={{color:"#1b103f"}}>{props.title}</a>

@@ -4,7 +4,7 @@ import HelpAnnotation from "../../../components/Help/Example/AnnotationModule.js
 
 export default function Help() {
     return (
-        <HelpLayout opened={'example'} selected={'example_annotation'}>
+        <HelpLayout opened={['example']} selected={'example_annotation'}>
             <HelpAnnotation></HelpAnnotation>
         </HelpLayout>
     )

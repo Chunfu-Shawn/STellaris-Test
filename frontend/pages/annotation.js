@@ -80,7 +80,7 @@ export default function Annotation() {
                     },
                 });
                 //nextjs路由跳转到结果页面
-                router.push('http://localhost:3000/annotation/resultPage/'+rid)
+                router.push('/annotation/resultPage/'+rid)
             })
             .catch(() => {
                 message.error({
@@ -141,7 +141,7 @@ export default function Annotation() {
                     },
                 });
                 //nextjs路由跳转到结果页面
-                router.push('http://localhost:3000/annotation/resultPage/'+rid)
+                router.push('/annotation/resultPage/'+rid)
             })
             .catch(() => {
                 message.error({
@@ -165,14 +165,14 @@ export default function Annotation() {
                 <title>{siteTitle +'| Annotation'}</title>
             </Head>
             <Layout style={{backgroundColor:"transparent"}}>
-                <Sider width={'35%'} style={
+                <Sider width={'500px'} style={
                     {
                         backgroundColor:"rgba(55,52,112,0.04)",
                         borderStyle:"inset",
                         borderColor:"lightgray",
                         borderBottom:"none",
                     }}>
-                    <div className="modal-body-stw" style={{padding: "10vh 5vw",paddingTop: "20vh"}}>
+                    <div style={{padding: "150px 50px",paddingTop: "150px"}}>
                         <Guidance></Guidance>
                     </div>
                 </Sider>

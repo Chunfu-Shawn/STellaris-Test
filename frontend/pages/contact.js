@@ -22,7 +22,7 @@ export default function Contact() {
                 <title>{siteTitle+"| Contact"}</title>
             </Head>
 
-            <div className="modal-body-stw contact-context">
+            <div className="modal-body-stw">
                 <header className="page-header">
                     <h1>About Us</h1>
                     <p>Laboratory of Bioinformatics & Genomic Medicine</p>

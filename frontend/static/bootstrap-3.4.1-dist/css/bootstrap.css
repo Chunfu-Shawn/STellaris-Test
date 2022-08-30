@@ -1294,15 +1294,11 @@ p {
 }
 .lead {
   margin-bottom: 20px;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 300;
   line-height: 1.4;
 }
-@media (min-width: 768px) {
-  .lead {
-    font-size: 21px;
-  }
-}
+
 small,
 .small {
   font-size: 85%;
@@ -1585,6 +1581,7 @@ pre code {
   overflow-y: scroll;
 }
 .container {
+  width: 900px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -1592,7 +1589,7 @@ pre code {
 }
 @media (min-width: 768px) {
   .container {
-    width: 750px;
+    width: 900px;
   }
 }
 @media (min-width: 992px) {
@@ -6069,11 +6066,6 @@ button.close {
 .modal-title {
   margin: 0;
   line-height: 1.42857143;
-}
-.modal-body-stw {
-  position: relative;
-  padding: 15vh 10vw;
-  text-align: center;
 }
 .modal-footer {
   font-size: 16px;

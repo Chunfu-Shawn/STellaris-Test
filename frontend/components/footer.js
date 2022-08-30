@@ -2,7 +2,7 @@ import {MailOutlined} from "@ant-design/icons";
 
 function FooterCustom(){
     return(
-        <div id="footer" className="modal-footer" style={{zIndex:10000}}>
+        <div id="footer" className="modal-footer" style={{width:"100%",minWidth:1440,zIndex:1000}}>
             <footer className="h5 small">
                 <p>Copyright &copy; 2021-{String(new Date().getFullYear())} |
                     <a href="https://future.pku.edu.cn/" target="_blank" rel="noreferrer"> College of Future Technology (CFT), </a>

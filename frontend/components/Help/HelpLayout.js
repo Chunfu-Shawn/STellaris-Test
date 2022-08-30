@@ -10,16 +10,18 @@ export default function HelpLayout({children, opened, selected}) {
             <Head>
                 <title>{siteTitle+"| Help"}</title>
             </Head>
-            <Row>
-                <Col>
-                    <SiderMenu selected={selected} opened={opened}/>
-                </Col>
-                <Col>
-                    <div style={{display:'inline-block',paddingBottom:'8%'}}>
-                        {children}
-                    </div>
-                </Col>
-            </Row>
+            <div className="modal-body-stw" style={{padding:"0px 0px"}}>
+                <Row style={{width:"100%"}}>
+                    <Col span={3}>
+                        <SiderMenu selected={selected} opened={opened}/>
+                    </Col>
+                    <Col span={21}>
+                        <div style={{display:'inline-block',paddingBottom:'8%'}}>
+                            {children}
+                        </div>
+                    </Col>
+                </Row>
+            </div>
         </LayoutCustom>
     )
 }

@@ -13,7 +13,7 @@ export default function HumanArchive() {
             <Head>
                 <title>STW | Human Archive</title>
             </Head>
-            <div className="modal-body-stw" style={{padding:'8% 5%'}}>
+            <div className="modal-body-stw" style={{padding:'100px 80px'}}>
                 <div className="page-header">
                     <Space align="start">
                         <h1 style={
