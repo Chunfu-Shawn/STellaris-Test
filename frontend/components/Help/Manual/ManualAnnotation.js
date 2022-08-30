@@ -26,8 +26,8 @@ export default function ManualAnnotation() {
                 <h2>2. Reference Data</h2>
                 <h2>3. Methods</h2>
                 <h4>(1) Tangram </h4>
-                <p>Tangram, an algorithm that uses sc/snRNA-seq data as ‘puzzle pieces’ to align in space to match
-                    ‘the shape’ of the spatial data (Fig. 1a). The input to Tangram is sc/snRNA-seq data along with
+                <p>Tangram, an algorithm that uses sc/snRNA-seq data as &apos;puzzle pieces&apos; to align in space to match
+                    &apos;the shape&apos; of the spatial data (Fig. 1a). The input to Tangram is sc/snRNA-seq data along with
                     spatial profiling data from the same region or tissue type, from any currently available spatial
                     method (for example MERFISH, smFISH, STARmap, ISH, or Visium), requiring only that the two modalities
                     share at least some subset of common genes.</p>

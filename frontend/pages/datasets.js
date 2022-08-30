@@ -21,7 +21,7 @@ export default function Datasets() {
                         <p className={"lead text-justify"}>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                     </div>
-                    <Row gutter={50}>
+                    <Row gutter={50} style={{width:1200}}>
                         <Col xs={16} xl={12}>
                             <HumanMap></HumanMap>
                         </Col>

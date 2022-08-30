@@ -105,7 +105,7 @@ export default function HumanMap(props){
     return (
         <div>
             <h4 style={{color:"white"}}>Human Archive</h4>
-            <div ref={chartRef} style={{height:"500px"}}></div>
+            <div ref={chartRef} style={{height:"600px",marginBottom:100}}></div>
         </div>
     )
 }

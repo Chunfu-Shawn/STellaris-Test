@@ -12,8 +12,8 @@ export async function getServerSideProps(context) {
         }
     }
     const res = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000/")
-        +"api/job-status/"+ context.params.rid
+            process.env.PRODUCTION_URL:"http://localhost:3000")
+        +"/api/job-status/"+ context.params.rid
     )
     const data = await res.json()
     // 如果找不到该rid相应的任务记录，返回error 404页面

@@ -24,8 +24,8 @@ export async function getServerSideProps(context) {
         }
     }
     const resTrans = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000/")
-        +"api/gene/transcript/"+ context.params.gene_id
+            process.env.PRODUCTION_URL:"http://localhost:3000")
+        +"/api/gene/transcript/"+ context.params.gene_id
     )
     const dataTrans = await resTrans.json()
 
