@@ -1,6 +1,7 @@
 import React, {Suspense, useState} from 'react';
 import {Col, Row, Select} from "antd";
 import { LoadingOutlined,SelectOutlined } from '@ant-design/icons';
+import VitessceModule from "../../VitessceModule.js";
 const { Option } = Select;
 
 const VitessceWrapper = React.lazy(() => import('./VitessceWrapper.js'));
@@ -32,36 +33,27 @@ export default function VitessceVisualization(props) {
     }
     return (
         <>
-        <Row justify="start" align="stretch">
-            <Col span={6}><span style={{fontSize:"16px"}}>Anndata-Zarr ID (Duplicates): </span></Col>
-            <Col span={6}>
-                <Select
-                    defaultValue={props.duplicateOption[0]}
-                    style={{
-                        width: '15vw',
-                    }}
-                    onChange={onChangeDuplicate}
-                >
-                    {props.duplicateOption.map(item =>
+            <Row justify="start" align="stretch">
+                <Col span={6}><span style={{fontSize:"16px"}}>Anndata-Zarr ID (Duplicates): </span></Col>
+                <Col span={6}>
+                    <Select
+                        defaultValue={props.duplicateOption[0]}
+                        style={{
+                            width: '15vw',
+                        }}
+                        onChange={onChangeDuplicate}
+                    >
+                        {props.duplicateOption.map(item =>
                             <Option key={item} value={item}>{item}</Option>
                         )
-                    }
-                </Select>
-            </Col>
-        </Row><br/>
-        <div className="panel-visual" style={{height:height+2+"px"}}>
-            <Suspense fallback={
-                <LoadingOutlined spin={true} style={{marginTop:"20%",fontSize:"30px"}}/>
-            }
-            >
-                <VitessceWrapper
-                    config={viewConfig}
-                    height={height}
-                    theme="dark"
+                        }
+                    </Select>
+                </Col>
+            </Row><br/>
+            <VitessceModule
+                viewConfig={viewConfig}
+                height={height}
                 />
-            </Suspense>
-        </div>
-            <p style={{float:'right',color:"gray"}}>Powered by <a target={"__blank"} href={"https://vitessce.io/"}>Vitessce <SelectOutlined /></a></p>
         </>
     )
 }

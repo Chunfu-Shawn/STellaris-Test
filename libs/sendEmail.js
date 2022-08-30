@@ -10,7 +10,7 @@ let transporter = nodemailer.createTransport({
     }});
 //pass 不是邮箱账户的密码而是stmp的授权码（必须是相应邮箱的stmp授权码）
 //邮箱---设置--账户--POP3/SMTP服务---开启---获取stmp授权码
-export function sendMail(mail, url, call) {
+export function sendMail(mail, rid, call) {
 
     // 发送的配置项
     let mailOptions = {
@@ -18,8 +18,8 @@ export function sendMail(mail, url, call) {
         to: mail, //接收者邮箱，多个邮箱用逗号间隔
         subject: 'Spatial Trans Web: the Url of annotations result"', // 标题
         // text: 'Hello world?', // 文本内容
-        html: '<p>The url of spatial annotations result: <a href="https://localhost:3000/annotations/results/'+url+
-            '">https://localhost:3000/annotations/results/'+url+'</a></p>'+
+        html: '<p>The url of spatial annotations result: <a href="https://spatialtransweb.rhesusbase.com/annotation/resultPage/'+rid+
+            '">https://spatialtransweb.rhesusbase.com/annotation/resultPage/'+rid+'</a></p>'+
             '<p>Spatially annotating will take a long time. For your data security, we will keep the raw data and result page for <b>a week</b>.</p>'+
             '<p>This is an automatically sent messages, please do not respond to this email adress, thank you!</p>'+
             '<small>Best wishes</br>'+
@@ -43,7 +43,7 @@ export function sendMail(mail, url, call) {
             call("Message sent successfully.",error.message);
             return
         } else {
-            call("Message sent successfully.",mail,url) //因为是异步 所以需要回调函数通知成功结果
+            call("Message sent successfully.",mail,rid) //因为是异步 所以需要回调函数通知成功结果
         }
     });
 }

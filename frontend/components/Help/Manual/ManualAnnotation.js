@@ -26,6 +26,18 @@ export default function ManualAnnotation() {
                 <h2>2. Reference Data</h2>
                 <h2>3. Methods</h2>
                 <h4>(1) Tangram </h4>
+                <p>Tangram, an algorithm that uses sc/snRNA-seq data as ‘puzzle pieces’ to align in space to match
+                    ‘the shape’ of the spatial data (Fig. 1a). The input to Tangram is sc/snRNA-seq data along with
+                    spatial profiling data from the same region or tissue type, from any currently available spatial
+                    method (for example MERFISH, smFISH, STARmap, ISH, or Visium), requiring only that the two modalities
+                    share at least some subset of common genes.</p>
+                <p>
+                    <i>- Biancalani, T., Scalia, G., Buffoni, L. et al. Deep learning and alignment of spatially resolved
+                    single-cell transcriptomes with Tangram. Nat Methods 18, 1352–1362 (2021). </i>
+                    <a href={"https://doi.org/10.1038/s41592-021-01264-7"} target={"_blank"} rel={"noreferrer"}>
+                    https://doi.org/10.1038/s41592-021-01264-7</a>
+                </p>
+                <h4>(2) Cell2location </h4>
                 <h2>4. Files Format</h2>
                 <h2>5. Annotation Result</h2>
 

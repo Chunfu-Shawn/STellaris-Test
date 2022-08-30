@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import { useRouter } from "next/router";
-import {Button, Form, Input, message, Layout, Popconfirm} from 'antd';
+import {Button, Form, Input, message, Layout, Popconfirm, Space} from 'antd';
 const { Sider } = Layout;
 import {useState} from "react";
 import {data, getAnnotationOptions} from "../components/Datasets/getData&Options.js";
@@ -10,13 +10,15 @@ import MatrixFileUpload from "../components/Annotation/index/MatrixFileUpload.js
 import BarcodesFileUpload from  "../components/Annotation/index/BarcodesFileUpload.js";
 import FeaturesFileUpload from "../components/Annotation/index/FeaturesFileUpload.js";
 import Guidance from "../components/Annotation/index/Guidance";
+import Link from "next/link.js";
+import {QuestionCircleOutlined} from "@ant-design/icons";
 
 
 const organOptions = getAnnotationOptions(data)['organOptions'];
 const tissueOptions = getAnnotationOptions(data)['tissueOptions'];
-const SERVER_URL = process.env.NODE_ENV==="production"?process.env.PRODUCTION_URL:'http://localhost:3000'
-const UPLOAD_URL = `${SERVER_URL}/annotations/upload/`
-const DEMO_URL = `${SERVER_URL}/annotations/demo/`
+const SERVER_URL = process.env.NODE_ENV==="production"? process.env.PRODUCTION_URL : 'http://localhost:3000'
+const UPLOAD_URL = `${SERVER_URL}/annotation/upload/`
+const DEMO_URL = `${SERVER_URL}/annotation/demo/`
 
 const validateMessages = {
     required: '${label} is required!',
@@ -60,6 +62,7 @@ export default function Annotation() {
         formData.append('emailAddress',form.getFieldValue('emailAddress'))
         formData.append('organ',organ)
         formData.append('tissue',secondTissue)
+        formData.append('isDemo',"false")
         setUploading(true); // You can use any AJAX library you like
         fetch(UPLOAD_URL, {
             method: 'POST',
@@ -77,7 +80,7 @@ export default function Annotation() {
                     },
                 });
                 //nextjs路由跳转到结果页面
-                router.push('http://localhost:3000/annotations/results/'+rid)
+                router.push('http://localhost:3000/annotation/resultPage/'+rid)
             })
             .catch(() => {
                 message.error({
@@ -121,9 +124,7 @@ export default function Annotation() {
     };
     const onRunDemo = () => {
         let rid = ""
-        const formData = new FormData();
         setUploading(true);
-        formData.append('isDemo',"true")
         fetch(DEMO_URL, {
             method: 'POST',
             headers: {
@@ -140,7 +141,7 @@ export default function Annotation() {
                     },
                 });
                 //nextjs路由跳转到结果页面
-                router.push('http://localhost:3000/annotations/results/'+rid)
+                router.push('http://localhost:3000/annotation/resultPage/'+rid)
             })
             .catch(() => {
                 message.error({
@@ -177,7 +178,18 @@ export default function Annotation() {
                 </Sider>
                 <div className="modal-body-stw" style={{width:1000,textAlign:"left"}}>
                     <div className="page-header" style={{margin:"10% 0"}}>
-                        <h1 style={{fontSize:"36px"}}>Spatial Annotation</h1>
+                        <Space align="start">
+                            <h1 style={
+                                {
+                                    fontSize:"36px",
+                                }
+                            }>Spatial Annotation</h1>
+                            <Link href={'/help/manual/annotation'}>
+                                <a target={'_blank'} rel={"noreferrer"}>
+                                    <QuestionCircleOutlined  style={{fontSize:"20px",color:"#2b1970"}}/>
+                                </a>
+                            </Link>
+                        </Space>
                     </div>
                         <Form {...layout} layout={'horizontal'} form={form}
                               onFinish={handleUpload}

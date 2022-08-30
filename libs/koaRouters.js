@@ -12,7 +12,7 @@ export const Router = router()
 // 设置路由，与next.js的路由进行映射
 
 // 上传文件的路由
-Router.post('/annotations/upload',
+Router.post('/annotation/upload',
     uploadFile(uuidv1()).fields([
         { name: 'matrixFile', maxCount: 1 },
         { name: 'barcodesFile', maxCount: 1 },
@@ -32,27 +32,14 @@ Router.post('/annotations/upload',
 })
 
 // run demo 的路由
-Router.post('/annotations/demo', async (ctx) => {
-        //上传时间
-        let uploadtime = new Date()
-        let rid = uploadRecord(ctx, uploadtime.toISOString())
-        if(rid !== undefined){
-            // 返回rid
-            ctx.body = {rid: rid}
-            // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-            await execTangram(rid,'demo', 'demo');
-        }else console.log("A bad upload happened!!")
-    })
-
-// 查询结果的路由
-Router.get('/annotations/results/:rid', async (ctx) => {
-    let rid = ctx.params.rid
-    // handle传入的第三个参数跟我们next.js中用Router.push({})传入的数组一样
-    await handler(ctx.req, ctx.res, {
-        pathname: '/annotations/results',
-        query: {
-            rid
-        }
-    })
-    ctx.response = false
+Router.post('/annotation/demo', async (ctx) => {
+    //上传时间
+    let uploadtime = new Date()
+    let rid = uploadRecord(ctx, uploadtime.toISOString())
+    if(rid !== undefined){
+        // 返回rid
+        ctx.body = {rid: rid}
+        // 运行Tangram, 传入Koa的context包装的request对象，和response对象
+        await execTangram(rid,'demo', 'demo');
+    }else console.log("A bad upload happened!!")
 })

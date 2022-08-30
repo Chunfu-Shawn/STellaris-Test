@@ -18,7 +18,7 @@ export function uploadRecord(ctx, uploadTime) {
         console.log('Connect database successfully')
     })
     // whether the request is to run demo
-    if( typeof ctx.request.body.isDemo === undefined ){
+    if( ctx.request.body.isDemo === "false" ){
         try {
             // read the uploaded form
             const rid = ctx.request.files['matrixFile'][0].destination.split('/')[3]
@@ -44,7 +44,6 @@ export function uploadRecord(ctx, uploadTime) {
                     if(err){
                         console.log(err.message);
                     }else {
-                        console.log(result)
                         connection.end(()=>{
                             console.log('Database connect closed')
                         })
@@ -94,7 +93,6 @@ export function uploadRecord(ctx, uploadTime) {
                 if(err){
                     console.log(err.message);
                 }else {
-                    console.log(result)
                     connection.end(()=>{
                         console.log('Database connect closed')
                     })

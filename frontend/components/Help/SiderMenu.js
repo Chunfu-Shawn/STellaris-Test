@@ -13,7 +13,7 @@ const items = [
         children: [
             { label: <Link href={'/help/manual/datasets'}>Datasets</Link>, key: 'manual_datasets' },
             { label: <Link href={'/help/manual/annotation'}>Spatial Annotation</Link>, key: 'manual_annotation'},
-            { label: <Link href={'/help/manual/browser'}>Browser</Link>, key: 'manual_browser'}
+            { label: <Link href={'/help/manual/browser'}>Gene Browser</Link>, key: 'manual_browser'}
         ],
     },
     {
@@ -21,7 +21,7 @@ const items = [
         children: [
             { label: <Link href={'/help/example/datasets'}>Datasets</Link>, key: 'example_datasets' },
             { label: <Link href={'/help/example/annotation'}>Spatial Annotation</Link>, key: 'example_annotation'},
-            { label: <Link href={'/help/example/browser'}>Browser</Link>, key: 'example_browser'}
+            { label: <Link href={'/help/example/browser'}>Gene Browser</Link>, key: 'example_browser'}
         ],
     },
     {

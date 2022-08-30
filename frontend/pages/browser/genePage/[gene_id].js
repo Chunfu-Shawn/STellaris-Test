@@ -2,7 +2,7 @@ import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
 import {Layout, Row, Tag} from 'antd';
 import React, {useRef} from "react";
-import {SiderMenu} from "../../../components/GenePage/SiderMenu.js";
+import GenePageSiderMenu from "../../../components/GenePage/GenePageSiderMenu.js";
 import Summary from "../../../components/GenePage/Summary.js";
 import Features from "../../../components/GenePage/Features.js";
 import SpatialExpression from "../../../components/GenePage/SpatialExpression.js";
@@ -50,11 +50,12 @@ export default function GenePage(props) {
                 <title>{'STW | Gene Browser | '+ props.data.ensembl_id}</title>
             </Head>
             <Layout hasSider style={{backgroundColor:"transparent"}}>
-                <SiderMenu divContent={divContent}/>
+                <GenePageSiderMenu divContent={divContent}/>
                 <div
                     ref={divContent}
                     style={{minWidth:"1200px",marginLeft:"200px",padding:"15vh 50px",textAlign:"left"}}
                 >
+                    <h4>Gene</h4>
                     <div key={"gene_name"}>
                         <Row align="bottom" style={{marginBottom:10}}>
                             <span style={{fontSize:"22px",fontWeight:"bold",marginRight:10}}>{props.data.symbol}</span>

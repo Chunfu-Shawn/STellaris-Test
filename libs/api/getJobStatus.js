@@ -15,7 +15,7 @@ export async function getJobStatus(rid) {
         console.log('Connect database successfully')
     })
     // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
-    let selectSql = `SELECT * FROM users_annotation_records WHERE rid=?`;
+    let selectSql = `SELECT * FROM users_annotation_records WHERE rid=?`
     // 根据rid查询任务状态
     return new Promise((resolve, reject) => {
         connection.query(selectSql,[rid],(err, result) => {
@@ -23,7 +23,7 @@ export async function getJobStatus(rid) {
                 console.log(err.message);
                 reject(err);
             }
-            resolve(JSON.parse(JSON.stringify(result))[0])
+            resolve(JSON.parse(JSON.stringify(result)))
             connection.end(()=>{
                 console.log('Database connect closed')
             })

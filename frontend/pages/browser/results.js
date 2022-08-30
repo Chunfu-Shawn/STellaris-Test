@@ -133,7 +133,6 @@ export default function Results(props) {
                 <div >
                     <SearchResultTable data={props.data} />
                 </div>
-
             </div>
         </LayoutCustom>
     )

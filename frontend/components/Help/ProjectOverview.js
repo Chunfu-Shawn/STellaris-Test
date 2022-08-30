@@ -15,7 +15,6 @@ export default function HelpProject() {
             </Breadcrumb><br/>
             <Typography>
                 <Title>Spatial Transcriptome Web</Title>
-                <HumanMap></HumanMap>
             </Typography>
         </div>
     )

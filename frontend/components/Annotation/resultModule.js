@@ -1,15 +1,16 @@
 import ResultStatus from "./resultStatus.js";
 import {calTime} from "./waitModule.js";
-import VitessceVisual from "../Datasets/DataPage/VitessceModule.js";
+import VitessceVisual from "../VitessceModule.js";
+import viConfig from '../../components/Datasets/DataPage/vi-config.json' assert { type : 'json' }
 import {Button, Col, Row, Statistic} from "antd";
 
 
 export default function ResultModule(props){
-
+    const height = 600
     return(
-        <div className="modal-body-stw" >
+        <div className="modal-body-stw" style={{minWidth:"1200px",padding:"15vh 50px",textAlign:"left"}}>
             <div className="page-header">
-                <h1>Annotation Result: </h1>
+                <h1>Annotation Result </h1>
             </div>
             <div style={{width:"85%"}}>
                 <Row justify="space-around" align="middle">
@@ -33,8 +34,11 @@ export default function ResultModule(props){
                 </Row>
             </div>
             <div style={{width:"85%",margin: "70px auto"}}>
-                <h2>View</h2><br/>
-                <VitessceVisual></VitessceVisual>
+                <h2>View</h2>
+                <VitessceVisual
+                    viewConfig={viConfig}
+                    height={height}
+                />
             </div>
         </div>
     )

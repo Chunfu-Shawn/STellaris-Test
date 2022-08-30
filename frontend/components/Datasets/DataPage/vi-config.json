@@ -234,16 +234,6 @@
       "h": 5
     },
     {
-      "component": "spatial",
-      "coordinationScopes": {
-        "spatialRasterLayers": "A"
-      },
-      "x": 3,
-      "y": 6,
-      "w": 6,
-      "h": 5
-    },
-    {
       "component": "genes",
       "x": 9,
       "y": 0,
