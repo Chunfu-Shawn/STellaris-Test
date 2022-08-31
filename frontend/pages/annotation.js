@@ -16,10 +16,6 @@ import {QuestionCircleOutlined} from "@ant-design/icons";
 
 const organOptions = getAnnotationOptions(data)['organOptions'];
 const tissueOptions = getAnnotationOptions(data)['tissueOptions'];
-const SERVER_URL = process.env.NODE_ENV==="production"? process.env.PRODUCTION_URL : 'http://localhost:3000'
-const UPLOAD_URL = `${SERVER_URL}/annotation/upload/`
-const DEMO_URL = `${SERVER_URL}/annotation/demo/`
-
 const validateMessages = {
     required: '${label} is required!',
     types: {
@@ -34,9 +30,19 @@ const validateMessages = {
     }
 };
 
-export default function Annotation() {
-    console.log(process.env.NODE_ENV)
-    console.log(SERVER_URL)
+export async function getServerSideProps() {
+    const SERVER_URL = process.env.NODE_ENV==="production"? process.env.PRODUCTION_URL : 'http://localhost:3000'
+    return{
+        props:{
+            SERVER_URL: SERVER_URL
+        }
+    }
+}
+
+export default function Annotation(props) {
+    const UPLOAD_URL = `${props.SERVER_URL}/annotation/upload/`
+    const DEMO_URL = `${props.SERVER_URL}/annotation/demo/`
+    console.log("UPLOAD_URL ",UPLOAD_URL)
     const [matrixFileList, setMatrixFileList] = useState([]);
     const [barcodesFileList, setBarcodesFileList] = useState([]);
     const [featuresFileList, setFeaturesFileList] = useState([]);
