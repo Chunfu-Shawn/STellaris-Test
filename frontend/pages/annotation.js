@@ -35,6 +35,7 @@ const validateMessages = {
 };
 
 export default function Annotation() {
+    console.log(process.env.NODE_ENV)
     console.log(SERVER_URL)
     const [matrixFileList, setMatrixFileList] = useState([]);
     const [barcodesFileList, setBarcodesFileList] = useState([]);
