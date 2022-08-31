@@ -12,6 +12,7 @@
 html{
   scroll-behavior: smooth;
 }
+
 html body{
   margin:0 auto;
 }
@@ -36,6 +37,11 @@ body a:hover{
   position: relative;
   padding: 120px 150px;
   text-align: center;
+}
+.with-sider{
+  min-width:1440px;
+  padding: 120px 60px 120px 0;
+  text-align:left
 }
 
 .contact-context{

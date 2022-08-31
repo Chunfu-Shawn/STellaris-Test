@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
-import {Layout, Row, Tag} from 'antd';
+import {Affix, Col, Layout, Row, Tag} from 'antd';
 import React, {useRef} from "react";
 import GenePageSiderMenu from "../../../components/GenePage/GenePageSiderMenu.js";
 import Summary from "../../../components/GenePage/Summary.js";
 import Features from "../../../components/GenePage/Features.js";
 import SpatialExpression from "../../../components/GenePage/SpatialExpression.js";
+import {SiderMenu} from "../../../components/Help/SiderMenu.js";
 
 export async function getServerSideProps(context) {
     if ( typeof context.params.gene_id === undefined ) {
@@ -49,25 +50,32 @@ export default function GenePage(props) {
             <Head>
                 <title>{'STW | Gene Browser | '+ props.data.ensembl_id}</title>
             </Head>
-            <Layout hasSider style={{backgroundColor:"transparent"}}>
-                <GenePageSiderMenu divContent={divContent}/>
-                <div
-                    ref={divContent}
-                    style={{minWidth:"1200px",marginLeft:"200px",padding:"15vh 50px",textAlign:"left"}}
-                >
-                    <h4>Gene</h4>
-                    <div key={"gene_name"}>
-                        <Row align="bottom" style={{marginBottom:10}}>
-                            <span style={{fontSize:"22px",fontWeight:"bold",marginRight:10}}>{props.data.symbol}</span>
-                            <span style={{fontSize:"16px",fontWeight:"bold",color:"gray"}}> {props.data.ensembl_id}</span>
-                        </Row>
-                        <a href={"#RSE"}><Tag color="volcano">REGIONAL SPECIFIC GENE</Tag></a>
-                    </div>
-                    <Summary data={props.data}/>
-                    <SpatialExpression />
-                    <Features data={props.data} trans={props.trans}/>
-                </div>
-            </Layout>
+            <div
+                className={"modal-body-stw with-sider"}
+            >
+                <Row style={{width:"100%"}}>
+                    <Col span={5}>
+                        <Affix offsetTop={120}>
+                            <GenePageSiderMenu divContent={divContent}/>
+                        </Affix>
+                    </Col>
+                    <Col span={19}>
+                        <div ref={divContent}>
+                            <h4>Gene</h4>
+                            <div key={"gene_name"}>
+                                <Row align="bottom" style={{marginBottom:10}}>
+                                    <span style={{fontSize:"22px",fontWeight:"bold",marginRight:10}}>{props.data.symbol}</span>
+                                    <span style={{fontSize:"16px",fontWeight:"bold",color:"gray"}}> {props.data.ensembl_id}</span>
+                                </Row>
+                                <a href={"#RSE"}><Tag color="volcano">REGIONAL SPECIFIC GENE</Tag></a>
+                            </div>
+                            <Summary data={props.data}/>
+                            <SpatialExpression />
+                            <Features data={props.data} trans={props.trans}/>
+                        </div>
+                    </Col>
+                </Row>
+            </div>
         </LayoutCustom>
     )
 }

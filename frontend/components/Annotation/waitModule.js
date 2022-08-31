@@ -33,6 +33,7 @@ export default function WaitModule(props){
             </div>
             <h3>File submitted successfully!</h3>
             <ReqStatus data={props.data}
+                       style={{width: 600}}
                        usedTime={usedTime}
             />
         </div>

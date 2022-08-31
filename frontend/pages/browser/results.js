@@ -122,7 +122,7 @@ export default function Results(props) {
                                 onSearch={onSearch}
                                 size={"large"}
                                 style={{
-                                    width: "60vw",
+                                    width: 850,
                                     color: '#22075e',
                                 }}
                                 loading={searching}

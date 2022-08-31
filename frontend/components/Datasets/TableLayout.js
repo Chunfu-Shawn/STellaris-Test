@@ -131,8 +131,8 @@ export default function TableLayout(props) {
 
     return (
         <Layout style={{backgroundColor:'white'}}>
-            <Space align="start">
-                <Sider style={{backgroundColor:'white'}}>
+            <Space align="start" style={{width: 1340}}>
+                <Sider style={{backgroundColor:'white',width:340}}>
                     <FilterToolbar filteredInfo={filteredInfo}
                                    setFilteredInfo={setFilteredInfo}
                                    checkboxStyle={props.checkboxStyle}
@@ -145,8 +145,8 @@ export default function TableLayout(props) {
                                    archive={props.archive}
                     ></FilterToolbar>
                 </Sider>
-                <Content>
-                    <Space align="center" style={{height:'8vh',float:"left"}}>
+                <Content style={{width:1100}}>
+                    <Space align="center" style={{height:'8vh',float:"left",width:1000}}>
                         <Search
                             placeholder="input search text"
                             allowClear
@@ -154,7 +154,7 @@ export default function TableLayout(props) {
                             onBlur={onSearchClick}
                             size={'large'}
                             style={{
-                                width: '65vh',
+                                width: 600,
                             }}
                         />
                         <Button onClick={setIDSort}>Sort ST ID</Button>

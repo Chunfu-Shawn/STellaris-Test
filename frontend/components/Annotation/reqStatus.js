@@ -1,6 +1,6 @@
 export default function ReqStatus(props){
     return(
-            <div className="panel panel-default" style={{width: "90vh"}}>
+            <div className="panel panel-default" style={props.style}>
                 <div className="panel-heading">Job Title: {props.data.title}</div>
                 <table className="table">
                     <tbody>

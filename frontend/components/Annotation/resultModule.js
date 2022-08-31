@@ -15,7 +15,7 @@ export default function ResultModule(props){
             <div style={{width:"85%"}}>
                 <Row justify="space-around" align="middle">
                     <Col flex={2}>
-                        <ResultStatus data={props.data} style={{width: "60vh",margin: "0px 120px auto"}}
+                        <ResultStatus data={props.data} style={{width: 500,margin: "0px 120px auto"}}
                            usedTime={calTime(props.data.finish_time,props.data.upload_time)}
                         />
                     </Col>

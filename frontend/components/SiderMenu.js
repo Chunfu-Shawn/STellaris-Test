@@ -34,12 +34,7 @@ export function SiderMenu(props){
             style={
                 {
                     backgroundColor:"transparent",
-                    overflow: 'auto',
                     height: '100vh',
-                    position: 'fixed',
-                    left: 0,
-                    top: 0,
-                    bottom: 0,
                     zIndex: 101
                 }
             }
@@ -48,7 +43,6 @@ export function SiderMenu(props){
                 defaultOpenKeys={props.openKeys}
                 selectedKeys={activeNav}
                 mode="inline"
-                style={{marginTop:120}}
                 items={props.items}
             />
         </Sider>

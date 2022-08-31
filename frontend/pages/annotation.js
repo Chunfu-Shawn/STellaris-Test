@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import { useRouter } from "next/router";
-import {Button, Form, Input, message, Layout, Popconfirm, Space} from 'antd';
+import {Button, Form, Input, message, Layout, Popconfirm, Space, Row, Col} from 'antd';
 const { Sider } = Layout;
 import {useState} from "react";
 import {data, getAnnotationOptions} from "../components/Datasets/getData&Options.js";
@@ -164,33 +164,40 @@ export default function Annotation() {
             <Head>
                 <title>{siteTitle +'| Annotation'}</title>
             </Head>
-            <Layout style={{backgroundColor:"transparent"}}>
-                <Sider width={'500px'} style={
-                    {
-                        backgroundColor:"rgba(55,52,112,0.04)",
-                        borderStyle:"inset",
-                        borderColor:"lightgray",
-                        borderBottom:"none",
-                    }}>
-                    <div style={{padding: "150px 50px",paddingTop: "150px"}}>
-                        <Guidance></Guidance>
+            <Row style={{width:"100vw",minWidth:1440}}>
+                <Col style={{width:"35%"}}>
+                    <div className={"modal-body-stw"} style={
+                        {
+                            backgroundColor:"rgba(55,52,112,0.04)",
+                            borderStyle:"inset",
+                            borderColor:"lightgray",
+                            borderBottom:"none",
+                            padding:"150px 80px 150px 100px",
+                            width:"auto",
+                            minWidth:500,
+                            height:"100%",
+                        }}>
+                        <div style={{width:350,float:"right"}}>
+                            <Guidance></Guidance>
+                        </div>
                     </div>
-                </Sider>
-                <div className="modal-body-stw" style={{width:1000,textAlign:"left"}}>
-                    <div className="page-header" style={{margin:"10% 0"}}>
-                        <Space align="start">
-                            <h1 style={
-                                {
-                                    fontSize:"36px",
-                                }
-                            }>Spatial Annotation</h1>
-                            <Link href={'/help/manual/annotation'}>
-                                <a target={'_blank'} rel={"noreferrer"}>
-                                    <QuestionCircleOutlined  style={{fontSize:"20px",color:"#2b1970"}}/>
-                                </a>
-                            </Link>
-                        </Space>
-                    </div>
+                </Col>
+                <Col style={{width:"65%"}}>
+                    <div className="modal-body-stw" style={{width:"auto",textAlign:"left"}}>
+                        <div style={{margin:"80px 0"}}>
+                            <Space align="start">
+                                <h1 style={
+                                    {
+                                        fontSize:"46px",
+                                    }
+                                }>Spatial Annotation</h1>
+                                <Link href={'/help/manual/annotation'}>
+                                    <a target={'_blank'} rel={"noreferrer"}>
+                                        <QuestionCircleOutlined  style={{fontSize:"20px",color:"#2b1970"}}/>
+                                    </a>
+                                </Link>
+                            </Space>
+                        </div>
                         <Form {...layout} layout={'horizontal'} form={form}
                               onFinish={handleUpload}
                               name="control-hooks"
@@ -258,7 +265,8 @@ export default function Annotation() {
                             </Form.Item>
                         </Form>
                     </div>
-            </Layout>
+                </Col>
+            </Row>
         </LayoutCustom>
     )
 }

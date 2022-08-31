@@ -3,7 +3,7 @@ import IntroductionModule from "./MainPage/IntroductionModule.js";
 import {Row} from "antd";
 
 export default function MainPage() {
-    let contextHolder = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit."
+    let contextHolder = "Cras justo odio, dapibus ac facilisis in, egestas eget quam."
     return(
         <>
             <div className="modal-body-stw">

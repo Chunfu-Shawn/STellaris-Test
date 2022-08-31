@@ -57,7 +57,7 @@ export default function Features(props){
                 <Collapse collapsible="header" defaultActiveKey={['1']} bordered={false}>
                     <Panel
                         header={
-                        <div style={{width:"70vw"}}>
+                        <div style={{width:"800px"}}>
                             <span>This gene has <b>{props.trans.length}</b> transcript(s), click to show or hide the table.</span>
                             <Button size={"small"} onClick={exportToCsv} style={{float:"right"}}>
                                 Export to CSV

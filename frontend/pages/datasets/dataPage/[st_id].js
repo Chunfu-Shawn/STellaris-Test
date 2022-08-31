@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
-import {Layout, Col, Row, Alert, Table, Tooltip, Divider, Tag} from 'antd';
+import {Layout, Col, Row, Alert, Table, Tooltip, Divider, Tag, Affix} from 'antd';
 import {FileTextFilled, DownloadOutlined, QuestionCircleOutlined} from '@ant-design/icons';
 import React from "react";
 import VitessceVisualization from "../../../components/Datasets/DataPage/VitessceVisualization.js";
@@ -9,6 +9,10 @@ import FliesTree from "../../../components/Datasets/DataPage/FliesTree";
 import DataPageSiderMenu from "../../../components/Datasets/DataPage/DataPageSiderMenu.js"
 import {useRef} from "react";
 import Link from "next/link.js";
+import GenePageSiderMenu from "../../../components/GenePage/GenePageSiderMenu.js";
+import Summary from "../../../components/GenePage/Summary.js";
+import SpatialExpression from "../../../components/GenePage/SpatialExpression.js";
+import Features from "../../../components/GenePage/Features.js";
 
 export async function getServerSideProps(context) {
     // params contains the post `st_id`.
@@ -116,141 +120,148 @@ export default function DataPage(props) {
             <Head>
                 <title>{'STW | Datasets | '+ props.data.ID}</title>
             </Head>
-            <Layout hasSider style={{backgroundColor:"transparent"}}>
-                <DataPageSiderMenu divContent={divContent}/>
-                <div ref={divContent} className={"modal-body-stw"}
-                     style={{minWidth:"1200px",margin:"0px 200px",padding:"15vh 50px",textAlign:"left"}}>
-                    <h4>Dataset</h4>
-                    <h2 style={{fontFamily:"Tahoma, sans-serif"}}> {props.data.ID} </h2>
-                    <div name={"Summary"}>
-                        <a id={"Summary"} style={{position: 'relative', top: "-200px"}}></a>
-                        <Row style={{height:50}}>
-                            <Col span={8}>
-                                {props.data.Pathological==="TRUE"?
-                                <Tag color="red">Pathological Tissue</Tag>
-                                :
-                                <Tag color="green">Normal Tissue</Tag>}
-                                {props.data.species==="Homo sapiens"?
-                                    <Tag color="gold">Homo sapiens</Tag>
-                                    :
-                                    <Tag color="blue">Mus musculus</Tag>}
-                            </Col>
-                            <Col span={8} offset={8}>
-                                <a key={1} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`} rel="noreferrer" >
-                                    <Tooltip title="View JSON">
-                                        <FileTextFilled style={iconStyle}/>
-                                    </Tooltip>
-                                </a>
-                                <a key={2} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`} download rel="noreferrer" >
-                                    <Tooltip title="Download JSON">
-                                        <DownloadOutlined  style={iconStyle}/>
-                                    </Tooltip>
-                                </a>
-                                <a key={3} target={'_blank'} href={`/help/manual/datasets`} rel="noreferrer" >
-                                    <Tooltip title="View Help">
-                                        <QuestionCircleOutlined style={iconStyle}/>
-                                    </Tooltip>
-                                </a>
-                            </Col>
-                        </Row>
-                        <div className="site-card-wrapper" style={{padding:"2%"}}>
-                            <Row gutter={30}>
-                                <Col span={10}>
-                                    <h4>ST ID</h4>
-                                    <div className={"description"}>{props.data.ID}</div>
-                                </Col>
-                                <Col span={8}>
-                                    <h4>Date Published</h4>
-                                    <div className={"description"}>{props.data.Date_published}</div>
-                                </Col>
-                                <Col span={6}>
-                                    <h4>Method</h4>
-                                    <div className={"description"}>{props.data.Method}</div>
-                                </Col>
-                            </Row>
-                        </div>
-                    </div>
-                    <div name={"Sample"} >
-                        <a id={"Sample"} style={{position: 'relative', top: "-150px"}}></a>
-                        <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
-                            <span style={{fontSize:22}}>Sample </span>
-                            <Link href={'/help/manual/datasets#data_page_sample'}>
-                                <a target={"_blank"}><QuestionCircleOutlined/></a>
-                            </Link>
-                        </Divider>
-                        <div className="site-card-wrapper">
-                            <Table columns={columns} pagination={false} dataSource={dataSample} size={"middle"} />
-                        </div>
-                    </div>
-                    <div name={"Duplicates"}>
-                        <a id={"Duplicates"} style={{position: 'relative', top: "-150px"}}></a>
-                        <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
-                            <span style={{fontSize:22}}>Duplicates </span>
-                            <Link href={'/help/manual/datasets#data_page_duplicates'}>
-                                <a target={"_blank"}><QuestionCircleOutlined/></a>
-                            </Link>
-                        </Divider>
-                        <div className={"site-card-wrapper"}>
-                            <Table columns={columns} pagination={false} dataSource={dataDuplicates} size={"middle"}/>
-                        </div>
-                    </div>
-                    <div name={"Source"}>
-                        <a id={"Source"} style={{position: 'relative', top: "-150px"}}></a>
-                        <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
-                            <span style={{fontSize:22}}>Source </span>
-                            <Link href={'/help/manual/datasets#data_page_source'}>
-                                <a target={"_blank"}><QuestionCircleOutlined/></a>
-                            </Link>
-                        </Divider>
-                        <div className="site-card-wrapper" style={{padding:"2%"}}>
-                            <Row gutter={10}>
-                                <Col span={9}>
-                                    <h4>Title</h4>
-                                    <p>{props.data.Title}</p>
-                                </Col>
-                                <Col span={4}>
-                                    <h4>Journal</h4>
-                                    <p>{props.data.Journal}</p>
-                                </Col>
-                                <Col span={3}>
-                                    <h4>PMID</h4>
-                                    <p>{props.data.PMID}</p>
-                                </Col>
-                                <Col span={8}>
-                                    <h4>URL</h4>
-                                    <a href={props.data.URL}>{props.data.URL}</a>
-                                </Col>
-                            </Row>
-                        </div>
-                    </div>
-                    <div name={"View"}>
-                        <a id={"View"} style={{position: 'relative', top: "-150px"}}></a>
-                        <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
-                            <span style={{fontSize:22}}>View </span>
-                            <Link href={'/help/manual/datasets#data_page_view'}>
-                                <a target={"_blank"}><QuestionCircleOutlined/></a>
-                            </Link>
-                        </Divider>
-                        <VitessceVisualization
-                            st_id={props.data.ID}
-                            config={props.config}
-                            duplicateOption={duplicateOption}
-                        />
-                    </div>
-                    <div name={"Files"}>
-                        <a id={"Files"} style={{position: 'relative', top: "-150px"}}></a>
-                        <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
-                            <span style={{fontSize:22}}>Files </span>
-                            <Link href={'/help/manual/datasets#data_page_files'}>
-                                <a target={"_blank"}><QuestionCircleOutlined/></a>
-                            </Link>
-                        </Divider>
-                        <div className="site-card-wrapper" style={{padding:"2%"}}>
-                            <FliesTree />
-                        </div>
-                    </div>
+                <div className={"modal-body-stw with-sider"}>
+                    <Row style={{width:"100%"}}>
+                        <Col span={5}>
+                            <Affix offsetTop={120}>
+                                <DataPageSiderMenu divContent={divContent}/>
+                            </Affix>
+                        </Col>
+                        <Col span={19}>
+                            <div ref={divContent}>
+                                <h4>Dataset</h4>
+                                <h2 style={{fontFamily:"Tahoma, sans-serif"}}> {props.data.ID} </h2>
+                                <div name={"Summary"}>
+                                    <a id={"Summary"} style={{position: 'relative', top: "-200px"}}></a>
+                                    <Row style={{height:50}}>
+                                        <Col span={8}>
+                                            {props.data.Pathological==="TRUE"?
+                                                <Tag color="red">Pathological Tissue</Tag>
+                                                :
+                                                <Tag color="green">Normal Tissue</Tag>}
+                                            {props.data.species==="Homo sapiens"?
+                                                <Tag color="gold">Homo sapiens</Tag>
+                                                :
+                                                <Tag color="blue">Mus musculus</Tag>}
+                                        </Col>
+                                        <Col span={8} offset={8}>
+                                            <a key={1} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`} rel="noreferrer" >
+                                                <Tooltip title="View JSON">
+                                                    <FileTextFilled style={iconStyle}/>
+                                                </Tooltip>
+                                            </a>
+                                            <a key={2} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`} download rel="noreferrer" >
+                                                <Tooltip title="Download JSON">
+                                                    <DownloadOutlined  style={iconStyle}/>
+                                                </Tooltip>
+                                            </a>
+                                            <a key={3} target={'_blank'} href={`/help/manual/datasets`} rel="noreferrer" >
+                                                <Tooltip title="View Help">
+                                                    <QuestionCircleOutlined style={iconStyle}/>
+                                                </Tooltip>
+                                            </a>
+                                        </Col>
+                                    </Row>
+                                    <div className="site-card-wrapper" style={{padding:"2%"}}>
+                                        <Row gutter={30}>
+                                            <Col span={10}>
+                                                <h4>ST ID</h4>
+                                                <div className={"description"}>{props.data.ID}</div>
+                                            </Col>
+                                            <Col span={8}>
+                                                <h4>Date Published</h4>
+                                                <div className={"description"}>{props.data.Date_published}</div>
+                                            </Col>
+                                            <Col span={6}>
+                                                <h4>Method</h4>
+                                                <div className={"description"}>{props.data.Method}</div>
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                </div>
+                                <div name={"Sample"} >
+                                    <a id={"Sample"} style={{position: 'relative', top: "-150px"}}></a>
+                                    <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
+                                        <span style={{fontSize:22}}>Sample </span>
+                                        <Link href={'/help/manual/datasets#data_page_sample'}>
+                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
+                                        </Link>
+                                    </Divider>
+                                    <div className="site-card-wrapper">
+                                        <Table columns={columns} pagination={false} dataSource={dataSample} size={"middle"} />
+                                    </div>
+                                </div>
+                                <div name={"Duplicates"}>
+                                    <a id={"Duplicates"} style={{position: 'relative', top: "-150px"}}></a>
+                                    <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
+                                        <span style={{fontSize:22}}>Duplicates </span>
+                                        <Link href={'/help/manual/datasets#data_page_duplicates'}>
+                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
+                                        </Link>
+                                    </Divider>
+                                    <div className={"site-card-wrapper"}>
+                                        <Table columns={columns} pagination={false} dataSource={dataDuplicates} size={"middle"}/>
+                                    </div>
+                                </div>
+                                <div name={"Source"}>
+                                    <a id={"Source"} style={{position: 'relative', top: "-150px"}}></a>
+                                    <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
+                                        <span style={{fontSize:22}}>Source </span>
+                                        <Link href={'/help/manual/datasets#data_page_source'}>
+                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
+                                        </Link>
+                                    </Divider>
+                                    <div className="site-card-wrapper" style={{padding:"2%"}}>
+                                        <Row gutter={10}>
+                                            <Col span={9}>
+                                                <h4>Title</h4>
+                                                <p>{props.data.Title}</p>
+                                            </Col>
+                                            <Col span={4}>
+                                                <h4>Journal</h4>
+                                                <p>{props.data.Journal}</p>
+                                            </Col>
+                                            <Col span={3}>
+                                                <h4>PMID</h4>
+                                                <p>{props.data.PMID}</p>
+                                            </Col>
+                                            <Col span={8}>
+                                                <h4>URL</h4>
+                                                <a href={props.data.URL}>{props.data.URL}</a>
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                </div>
+                                <div name={"View"}>
+                                    <a id={"View"} style={{position: 'relative', top: "-150px"}}></a>
+                                    <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
+                                        <span style={{fontSize:22}}>View </span>
+                                        <Link href={'/help/manual/datasets#data_page_view'}>
+                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
+                                        </Link>
+                                    </Divider>
+                                    <VitessceVisualization
+                                        st_id={props.data.ID}
+                                        config={props.config}
+                                        duplicateOption={duplicateOption}
+                                    />
+                                </div>
+                                <div name={"Files"}>
+                                    <a id={"Files"} style={{position: 'relative', top: "-150px"}}></a>
+                                    <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
+                                        <span style={{fontSize:22}}>Files </span>
+                                        <Link href={'/help/manual/datasets#data_page_files'}>
+                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
+                                        </Link>
+                                    </Divider>
+                                    <div className="site-card-wrapper" style={{padding:"2%"}}>
+                                        <FliesTree />
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
                 </div>
-            </Layout>
         </LayoutCustom>
     )
 }

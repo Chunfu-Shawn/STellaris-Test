@@ -13,7 +13,7 @@ export default function AllArchive() {
             <Head>
                 <title>STW | Datasets Archive</title>
             </Head>
-            <div className={"modal-body-stw"} style={{padding:'100px 80px'}}>
+            <div className={"modal-body-stw"} style={{padding:'100px 50px'}}>
                 <div className="page-header">
                     <Space align="start">
                         <h1 style={
