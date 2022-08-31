@@ -14,7 +14,7 @@ const options = {
 export function uploadRecord(ctx) {
     let connection = mysql.createConnection(options)
     // 获取上传时间
-    const uploadTime = ctx.request.body.uploadTime
+    const uploadTime = new Date().toISOString()
     // 连接数据库
     connection.connect(() => {
         console.log('Connect database successfully')
