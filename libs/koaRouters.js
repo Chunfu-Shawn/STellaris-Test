@@ -18,10 +18,8 @@ Router.post('/annotation/upload',
         { name: 'barcodesFile', maxCount: 1 },
         { name: 'featuresFile', maxCount: 1 },
     ]), async (ctx) => {
-    //上传时间
-    let uploadtime = new Date()
-        // 获得rid
-    let rid = uploadRecord(ctx, uploadtime.toISOString())
+    // 获得rid
+    let rid = uploadRecord(ctx)
     if(rid !== undefined){
         ctx.body = {rid: rid}
         //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
@@ -33,9 +31,7 @@ Router.post('/annotation/upload',
 
 // run demo 的路由
 Router.post('/annotation/demo', async (ctx) => {
-    //上传时间
-    let uploadtime = new Date()
-    let rid = uploadRecord(ctx, uploadtime.toISOString())
+    let rid = uploadRecord(ctx)
     if(rid !== undefined){
         // 运行Tangram, 传入Koa的context包装的request对象，和response对象
         await execTangram(rid,'demo', 'demo');

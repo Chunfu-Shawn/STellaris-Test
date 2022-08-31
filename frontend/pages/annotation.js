@@ -56,6 +56,7 @@ export default function Annotation(props) {
     // 手动上传表单
     const handleUpload = () => {
         let rid = ""
+        let uploadTime = new Date()
         const formData = new FormData();
         matrixFileList.forEach((file) => {
             formData.append('matrixFile', file);
@@ -71,6 +72,7 @@ export default function Annotation(props) {
         formData.append('organ',organ)
         formData.append('tissue',secondTissue)
         formData.append('isDemo',"false")
+        formData.append('uploadTime',uploadTime.toISOString())
         setUploading(true); // You can use any AJAX library you like
         fetch(UPLOAD_URL, {
             method: 'POST',
@@ -132,13 +134,17 @@ export default function Annotation(props) {
     };
     const onRunDemo = () => {
         let rid = ""
+        let uploadTime = new Date()
         setUploading(true);
         fetch(DEMO_URL, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json', 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({isDemo:'true'})
+            body: JSON.stringify({
+                isDemo:'true',
+                uploadTime: uploadTime.toISOString()
+            })
         }).then(response => response.json())
             .then(json => rid = json.rid)
             .then(() => {

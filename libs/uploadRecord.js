@@ -11,8 +11,10 @@ const options = {
     database: 'spatial_trans_web'//要操作的数据库
 }
 
-export function uploadRecord(ctx, uploadTime) {
+export function uploadRecord(ctx) {
     let connection = mysql.createConnection(options)
+    // 获取上传时间
+    const uploadTime = ctx.request.body.uploadTime
     // 连接数据库
     connection.connect(() => {
         console.log('Connect database successfully')
