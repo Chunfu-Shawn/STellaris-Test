@@ -3,6 +3,7 @@ import child_process from 'child_process';
 import {setJobStatus} from "./api/setJobStatus.js";
 
 export function execTangram(rid,destination,filename) {
+    console.log("run Tangram!")
     const mapping_py = './scripts/run_tangram_mapping.py'
     const ad_sc = '../test_tangram/adata.addDEG.h5ad';
     const ad_sp = '../test_tangram/adata_a2p2.telen.m500.log1p.leiden.deg.h5ad';

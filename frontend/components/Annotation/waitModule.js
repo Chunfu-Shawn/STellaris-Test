@@ -19,9 +19,7 @@ export default function WaitModule(props){
     useEffect(() => {
         const timer = setInterval(() => {
             let nowtime = new Date()
-            console.log("更新了", nowtime);
             setUsedTime(calTime(nowtime.toISOString(),props.data.upload_time));
-            console.log("更新了", timer);
         }, 1000);
         return () => clearInterval(timer);
     });

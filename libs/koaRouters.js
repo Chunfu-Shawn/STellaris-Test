@@ -37,9 +37,9 @@ Router.post('/annotation/demo', async (ctx) => {
     let uploadtime = new Date()
     let rid = uploadRecord(ctx, uploadtime.toISOString())
     if(rid !== undefined){
-        // 返回rid
-        ctx.body = {rid: rid}
         // 运行Tangram, 传入Koa的context包装的request对象，和response对象
         await execTangram(rid,'demo', 'demo');
+        // 返回rid
+        ctx.body = {rid: rid}
     }else console.log("A bad upload happened!!")
 })
