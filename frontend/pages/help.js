@@ -4,7 +4,7 @@ import HelpProject from "../components/Help/ProjectOverview.js";
 
 export default function Help() {
     return (
-        <HelpLayout selected='project' opened={["manual","example"]}>
+        <HelpLayout selected='project' opened={[]}>
             <HelpProject/>
         </HelpLayout>
     )

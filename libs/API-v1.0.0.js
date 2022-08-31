@@ -31,12 +31,6 @@ RouterAPI.get('/api/mouse-map', async (ctx) => {
     ctx.body = getMouseMap()
 })
 
-// 设置路由和api进行默认matrix文件访问
-RouterAPI.get('/api/default-matrix-file', async (ctx) => {
-    // 传出默认matrix文件
-    ctx.body = getDefaultMatrixFile()
-})
-
 // 设置路由和api进行数据集表文件访问
 RouterAPI.get('/api/datasets-JSON/:type', async (ctx) => {
     ctx.body = getDatesetsJSON(ctx.params.type)
