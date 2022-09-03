@@ -11,7 +11,7 @@
       "name": "chunfu2022",
       "files": [
         {
-          "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
+          "url": "https://rhesusbase.com:9999/zarr_files/STW-M-Brain-MERFISH-1/10_-0.04.zarr/",
           "type": "cells",
           "fileType": "anndata-cells.zarr",
           "options": {
@@ -28,7 +28,7 @@
           }
         },
         {
-          "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
+          "url": "https://rhesusbase.com:9999/zarr_files/STW-M-Brain-MERFISH-1/10_-0.04.zarr/",
           "type": "cell-sets",
           "fileType": "anndata-cell-sets.zarr",
           "options": [
@@ -39,121 +39,17 @@
           ]
         },
         {
-          "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/",
+          "url": "https://rhesusbase.com:9999/zarr_files/STW-M-Brain-MERFISH-1/10_-0.04.zarr/",
           "type": "expression-matrix",
           "fileType": "anndata-expression-matrix.zarr",
           "options": {
             "matrix": "X"
-          }
-        },
-        {
-          "type": "raster",
-          "fileType": "raster.json",
-          "options": {
-            "schemaVersion": "0.0.2",
-            "images": [
-              {
-                "name": "H and E Image",
-                "url": "https://rhesusbase.com:9999/zarr_files/STW-H-Bone-ST-1/RA_A_1.stagate_leiden.zarr/uns/spatial/V1_Human_Lymph_Node/images/hires",
-                "type": "zarr",
-                "metadata": {
-                  "isPyramid": false,
-                  "transform": {
-                    "scale": 5.87,
-                    "translate": {
-                      "x": 0,
-                      "y": 0
-                    }
-                  },
-                  "dimensions": [
-                    {
-                      "field": "channel",
-                      "type": "nominal",
-                      "values": [
-                        "R",
-                        "G",
-                        "B"
-                      ]
-                    },
-                    {
-                      "field": "y",
-                      "type": "quantitative",
-                      "values": null
-                    },
-                    {
-                      "field": "x",
-                      "type": "quantitative",
-                      "values": null
-                    }
-                  ]
-                }
-              }
-            ]
           }
         }
       ]
     }
   ],
   "coordinationSpace": {
-    "spatialRasterLayers": {
-      "A":[
-        {
-          "type": "raster",
-          "index": 0,
-          "colormap": null,
-          "transparentColor": null,
-          "opacity": 1,
-          "domainType": "Min/Max",
-          "channels": [
-            {
-              "selection": {
-                "channel": 0
-              },
-              "color": [
-                255,
-                0,
-                0
-              ],
-              "visible": true,
-              "slider": [
-                0,
-                1
-              ]
-            },
-            {
-              "selection": {
-                "channel": 1
-              },
-              "color": [
-                0,
-                255,
-                0
-              ],
-              "visible": true,
-              "slider": [
-                0,
-                1
-              ]
-            },
-            {
-              "selection": {
-                "channel": 2
-              },
-              "color": [
-                0,
-                0,
-                255
-              ],
-              "visible": true,
-              "slider": [
-                0,
-                1
-              ]
-            }
-          ]
-        }
-      ]
-    },
     "embeddingType": {
       "TSNE": "t-SNE",
       "UMAP": "UMAP"
