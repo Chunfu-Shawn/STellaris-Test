@@ -11,7 +11,7 @@
       "name": "chunfu2022",
       "files": [
         {
-          "url": "https://rhesusbase.com:9999/zarr_files/STW-M-Brain-MERFISH-1/10_-0.04.zarr/",
+          "url": "https://10.10.30.30:9999/zarr_files/STW-M-Brain-MERFISH-1/10_-0.04.zarr/",
           "type": "cells",
           "fileType": "anndata-cells.zarr",
           "options": {
@@ -28,7 +28,7 @@
           }
         },
         {
-          "url": "https://rhesusbase.com:9999/zarr_files/STW-M-Brain-MERFISH-1/10_-0.04.zarr/",
+          "url": "https://10.10.30.30:9999/zarr_files/STW-M-Brain-MERFISH-1/10_-0.04.zarr/",
           "type": "cell-sets",
           "fileType": "anndata-cell-sets.zarr",
           "options": [
@@ -39,7 +39,7 @@
           ]
         },
         {
-          "url": "https://rhesusbase.com:9999/zarr_files/STW-M-Brain-MERFISH-1/10_-0.04.zarr/",
+          "url": "https://10.10.30.30:9999/zarr_files/STW-M-Brain-MERFISH-1/10_-0.04.zarr/",
           "type": "expression-matrix",
           "fileType": "anndata-expression-matrix.zarr",
           "options": {
