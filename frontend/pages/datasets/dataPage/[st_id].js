@@ -3,16 +3,14 @@ import LayoutCustom from '../../../components/LayoutCustom.js'
 import {Layout, Col, Row, Alert, Table, Tooltip, Divider, Tag, Affix} from 'antd';
 import {FileTextFilled, DownloadOutlined, QuestionCircleOutlined} from '@ant-design/icons';
 import React from "react";
-import VitessceVisualization from "../../../components/Datasets/DataPage/VitessceVisualization.js";
+//import VitessceVisualization from "../../../components/Datasets/DataPage/VitessceVisualization.js";
 import Error from "next/error";
 import FliesTree from "../../../components/Datasets/DataPage/FliesTree";
 import DataPageSiderMenu from "../../../components/Datasets/DataPage/DataPageSiderMenu.js"
 import {useRef} from "react";
 import Link from "next/link.js";
-import GenePageSiderMenu from "../../../components/GenePage/GenePageSiderMenu.js";
 import Summary from "../../../components/GenePage/Summary.js";
-import SpatialExpression from "../../../components/GenePage/SpatialExpression.js";
-import Features from "../../../components/GenePage/Features.js";
+import dynamic from "next/dynamic";
 
 export async function getServerSideProps(context) {
     // params contains the post `st_id`.
@@ -41,6 +39,11 @@ export async function getServerSideProps(context) {
 }
 
 export default function DataPage(props) {
+    const DynamicVisualTool = dynamic(() =>
+            import('/frontend/components/VisualTool/VisualTool.js').then((mod) => mod.VisualTool),
+        {
+            ssr: false,
+        })
     const divContent = useRef(null); //标识nav导航栏渲染内容
     const duplicateOption = props.data.Duplicate_ID.split(',')
     const columns = [
@@ -240,11 +243,12 @@ export default function DataPage(props) {
                                             <a target={"_blank"}><QuestionCircleOutlined/></a>
                                         </Link>
                                     </Divider>
-                                    <VitessceVisualization
+                                    <DynamicVisualTool/>
+                                    {/*<VitessceVisualization
                                         st_id={props.data.ID}
                                         config={props.config}
                                         duplicateOption={duplicateOption}
-                                    />
+                                    />*/}
                                 </div>
                                 <div name={"Files"}>
                                     <a id={"Files"} style={{position: 'relative', top: "-150px"}}></a>
