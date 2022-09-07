@@ -1,12 +1,11 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
-import {Affix, Col, Layout, Row, Tag} from 'antd';
+import {Affix, Col, Row, Tag} from 'antd';
 import React, {useRef} from "react";
 import GenePageSiderMenu from "../../../components/GenePage/GenePageSiderMenu.js";
 import Summary from "../../../components/GenePage/Summary.js";
 import Features from "../../../components/GenePage/Features.js";
 import SpatialExpression from "../../../components/GenePage/SpatialExpression.js";
-import {SiderMenu} from "../../../components/Help/SiderMenu.js";
 
 export async function getServerSideProps(context) {
     if ( typeof context.params.gene_id === undefined ) {

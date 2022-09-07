@@ -26,22 +26,15 @@ function LandingPage(props) {
               component="a"
               target="_blank"
               rel="noopener noreferrer"
-              href="/help/manual/datasets"
-          ><ListItemText primary={'Help - Manual'}></ListItemText>
+              href="/help/manual/datasets#data_visual_help"
+          >
+              <ListItemText primary={'Help - Manual'}></ListItemText>
           </ListItemButton>
         <ListItemButton
           component="a"
           target="_blank"
           rel="noopener noreferrer"
-          href="http://cirrocumulus.readthedocs.io/"
-        >
-          <ListItemText primary={'Documentation'}></ListItemText>
-        </ListItemButton>
-        <ListItemButton
-          component="a"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/klarman-cell-observatory/cirrocumulus"
+          href="https://github.com/Chunfu-Shawn/Spatial-Trans-Visual-Tool"
         >
           <ListItemText primary={'Source Code'}></ListItemText>
         </ListItemButton>

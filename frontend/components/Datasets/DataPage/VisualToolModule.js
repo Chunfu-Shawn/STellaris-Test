@@ -1,13 +1,17 @@
-import React, {Suspense, useState} from 'react';
-import {Col, Row, Select} from "antd";
-import { LoadingOutlined,SelectOutlined } from '@ant-design/icons';
-import VitessceModule from "../../VitessceModule.js";
+import React, {useState} from 'react';
+import {Col, Divider, Row, Select} from "antd";
+import Link from "next/link";
+import {QuestionCircleOutlined} from "@ant-design/icons";
+import dynamic from "next/dynamic";
 const { Option } = Select;
 
-const VitessceWrapper = React.lazy(() => import('./VitessceWrapper.js'));
-
-
-export default function VitessceVisualization(props) {
+export default function VisualToolModule(props) {
+    const DynamicVisualTool = dynamic(() =>
+            import('../dataPage/../../../components/VisualTool/VisualTool.js')
+                .then((mod) => mod.VisualTool),
+        {
+            ssr: false,
+        })
     let viewConfigInit = {...props.config}
     props.duplicateOption[0] === "null"?
         // no duplicate
@@ -19,7 +23,6 @@ export default function VitessceVisualization(props) {
             if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr`
             else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr/uns/spatial/Sample1/images/hires`
         })
-    const height = 600
     const [viewConfig, setViewConfig] = useState(viewConfigInit);
     const onChangeDuplicate = (value) => {
         let viewConfigTemp = JSON.parse(JSON.stringify(viewConfig)) //deep copy
@@ -32,9 +35,16 @@ export default function VitessceVisualization(props) {
         setViewConfig(viewConfigTemp)
     }
     return (
-        <>
+        <div name={"View"}>
+            <a id={"View"} style={{position: 'relative', top: "-150px"}}></a>
+            <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
+                <span style={{fontSize:22}}>View </span>
+                <Link href={'/help/manual/datasets#data_page_view'}>
+                    <a target={"_blank"}><QuestionCircleOutlined/></a>
+                </Link>
+            </Divider>
             <Row justify="start" align="stretch">
-                <Col span={6}><span style={{fontSize:"16px"}}>Anndata-Zarr ID (Duplicates): </span></Col>
+                <Col span={3}><span style={{fontSize:"16px"}}>Duplicates ID: </span></Col>
                 <Col span={6}>
                     <Select
                         defaultValue={props.duplicateOption[0]}
@@ -50,10 +60,7 @@ export default function VitessceVisualization(props) {
                     </Select>
                 </Col>
             </Row><br/>
-            <VitessceModule
-                viewConfig={viewConfig}
-                height={height}
-                />
-        </>
+            <DynamicVisualTool setCustom={true} width={1000} height={800}/>
+        </div>
     )
 }

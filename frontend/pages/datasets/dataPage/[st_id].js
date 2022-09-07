@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
-import {Layout, Col, Row, Alert, Table, Tooltip, Divider, Tag, Affix} from 'antd';
+import {Col, Row, Table, Tooltip, Divider, Tag, Affix} from 'antd';
 import {FileTextFilled, DownloadOutlined, QuestionCircleOutlined} from '@ant-design/icons';
 import React from "react";
 //import VitessceVisualization from "../../../components/Datasets/DataPage/VitessceVisualization.js";
@@ -11,6 +11,8 @@ import {useRef} from "react";
 import Link from "next/link.js";
 import Summary from "../../../components/GenePage/Summary.js";
 import dynamic from "next/dynamic";
+import Sample from "../../../components/Datasets/DataPage/Sample";
+import VisualToolModule from "../../../components/Datasets/DataPage/VisualToolModule";
 
 export async function getServerSideProps(context) {
     // params contains the post `st_id`.
@@ -39,11 +41,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function DataPage(props) {
-    const DynamicVisualTool = dynamic(() =>
-            import('/frontend/components/VisualTool/VisualTool.js').then((mod) => mod.VisualTool),
-        {
-            ssr: false,
-        })
     const divContent = useRef(null); //标识nav导航栏渲染内容
     const duplicateOption = props.data.Duplicate_ID.split(',')
     const columns = [
@@ -59,7 +56,7 @@ export default function DataPage(props) {
             wrap:true
         },
     ];
-    const dataSample =[
+    const dataSample = [
         {
             key:"Species",
             value:props.data.Species
@@ -142,7 +139,7 @@ export default function DataPage(props) {
                                                 <Tag color="red">Pathological Tissue</Tag>
                                                 :
                                                 <Tag color="green">Normal Tissue</Tag>}
-                                            {props.data.species==="Homo sapiens"?
+                                            {props.data.Species==="Homo sapiens"?
                                                 <Tag color="gold">Homo sapiens</Tag>
                                                 :
                                                 <Tag color="blue">Mus musculus</Tag>}
@@ -182,18 +179,7 @@ export default function DataPage(props) {
                                         </Row>
                                     </div>
                                 </div>
-                                <div name={"Sample"} >
-                                    <a id={"Sample"} style={{position: 'relative', top: "-150px"}}></a>
-                                    <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
-                                        <span style={{fontSize:22}}>Sample </span>
-                                        <Link href={'/help/manual/datasets#data_page_sample'}>
-                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
-                                        </Link>
-                                    </Divider>
-                                    <div className="site-card-wrapper">
-                                        <Table columns={columns} pagination={false} dataSource={dataSample} size={"middle"} />
-                                    </div>
-                                </div>
+                                <Sample data={props.data}/>
                                 <div name={"Duplicates"}>
                                     <a id={"Duplicates"} style={{position: 'relative', top: "-150px"}}></a>
                                     <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
@@ -235,21 +221,11 @@ export default function DataPage(props) {
                                         </Row>
                                     </div>
                                 </div>
-                                <div name={"View"}>
-                                    <a id={"View"} style={{position: 'relative', top: "-150px"}}></a>
-                                    <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
-                                        <span style={{fontSize:22}}>View </span>
-                                        <Link href={'/help/manual/datasets#data_page_view'}>
-                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
-                                        </Link>
-                                    </Divider>
-                                    <DynamicVisualTool/>
-                                    {/*<VitessceVisualization
-                                        st_id={props.data.ID}
-                                        config={props.config}
-                                        duplicateOption={duplicateOption}
-                                    />*/}
-                                </div>
+                                <VisualToolModule
+                                    st_id={props.data.ID}
+                                    config={props.config}
+                                    duplicateOption={duplicateOption}
+                                    />
                                 <div name={"Files"}>
                                     <a id={"Files"} style={{position: 'relative', top: "-150px"}}></a>
                                     <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>

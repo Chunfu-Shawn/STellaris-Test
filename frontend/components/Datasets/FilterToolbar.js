@@ -16,6 +16,8 @@ Date.prototype.toLocaleString = function() {
 
 
 export default function FilterToolbar(props){
+    const [methodsOptionActiveKey,setMethodsOptionActiveKey] = useState([])
+    const [organsOptionActiveKey,setOrgansOptionActiveKey] = useState([])
     const [num, setNum] = useState({
         method:{},
         species:{},
@@ -56,6 +58,17 @@ export default function FilterToolbar(props){
     useEffect(()=>{
         summaryDatasets(props.dataShow)
     },[props.dataShow])
+
+    const onViewMoreMethodsOptions = () => {
+        if (methodsOptionActiveKey.includes(1))
+            setMethodsOptionActiveKey([])
+        else setMethodsOptionActiveKey([1])
+    }
+    const onViewMoreOrgansOptions = () => {
+        if (organsOptionActiveKey.includes(1))
+            setOrgansOptionActiveKey([])
+        else setOrgansOptionActiveKey([1])
+    }
 
     const timeSubstract = ( time1,time2 ) => {
         if(time1&&time2) return Date.parse(time1) - Date.parse(time2)
@@ -213,8 +226,8 @@ export default function FilterToolbar(props){
                                 </Col>
                             </Row>
                         )}
-                        <Collapse bordered={false}>
-                            <Panel showArrow={false} header="view more" collapsible="header" key="1" >
+                        <Collapse bordered={false} activeKey={methodsOptionActiveKey}>
+                            <Panel showArrow={false} header="" collapsible="header" key="1" >
                                 {methodsOptions2.map( (method)=>
                                     <Row key={method}>
                                         <Col span={18} style={{
@@ -232,6 +245,7 @@ export default function FilterToolbar(props){
                                 )}
                             </Panel>
                         </Collapse>
+                        <a onClick={onViewMoreMethodsOptions} >view more</a>
                     </Checkbox.Group>
                 </Panel>
                 {props.archive==="all" ? <Panel header="Species" key="2" style={{fontSize: '18px'}}>
@@ -283,8 +297,8 @@ export default function FilterToolbar(props){
                                 </Col>
                             </Row>
                         )}
-                        <Collapse bordered={false}>
-                            <Panel showArrow={false} header="view more" collapsible="header" key="1" >
+                        <Collapse bordered={false} activeKey={organsOptionActiveKey}>
+                            <Panel showArrow={false} collapsible="header" key="1" >
                                 {organsOptions2.map( (organ)=>
                                     <Row key={organ}>
                                         <Col span={18} style={{
@@ -302,6 +316,7 @@ export default function FilterToolbar(props){
                                 )}
                             </Panel>
                         </Collapse>
+                        <a onClick={onViewMoreOrgansOptions} >view more</a>
                     </Checkbox.Group>
                 </Panel>
                 <Panel header="Pathological" key="4" style={{fontSize: '18px'}}>

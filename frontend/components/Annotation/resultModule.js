@@ -1,12 +1,16 @@
 import ResultStatus from "./resultStatus.js";
 import {calTime} from "./waitModule.js";
-import VitessceVisual from "../VitessceModule.js";
-import viConfig from '../../components/Datasets/DataPage/vi-config.json' assert { type : 'json' }
 import {Button, Col, Row, Statistic} from "antd";
+import dynamic from "next/dynamic";
 
 
 export default function ResultModule(props){
-    const height = 600
+    const DynamicVisualTool = dynamic(() =>
+            import('../../components/VisualTool/VisualTool.js')
+                .then((mod) => mod.VisualTool),
+        {
+            ssr: false,
+        })
     return(
         <div className="modal-body-stw" style={{minWidth:"1200px",padding:"15vh 50px",textAlign:"left"}}>
             <div className="page-header">
@@ -35,10 +39,7 @@ export default function ResultModule(props){
             </div>
             <div style={{width:"85%",margin: "70px auto"}}>
                 <h2>View</h2>
-                <VitessceVisual
-                    viewConfig={viConfig}
-                    height={height}
-                />
+                <DynamicVisualTool/>
             </div>
         </div>
     )

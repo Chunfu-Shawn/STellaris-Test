@@ -21,6 +21,15 @@ export default function ManualDatasets() {
                 <p style={{fontSize:16}}>
                     We collected and integrated 125 set of spatial transcriptome datasets.
                 </p>
+                <h2>2. Data Pre-processing</h2>
+                <h2>3. Data Visualization</h2>
+                <a id={"data_visual_help"} style={{position: 'relative', top: "-150px"}}></a>
+                <p> STW uses Spatial-Trans-Visual-Tool (<a href={"https://github.com/Chunfu-Shawn/Spatial-Trans-Visual-Tool"} target={"_blank"} rel={"noreferrer"}>
+                    https://github.com/Chunfu-Shawn/Spatial-Trans-Visual-Tool</a>) which was developed from Cirrocumulus
+                    (<a href={"https://cirrocumulus.readthedocs.io/en/latest/"} target={"_blank"} rel={"noreferrer"}>
+                        https://cirrocumulus.readthedocs.io/en/latest/</a>)
+                    for dataset visualization.
+                </p>
             </Typography>
 
         </div>

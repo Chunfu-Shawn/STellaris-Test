@@ -5,113 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/App.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/AppHeader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/AppWrapper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/AutocompleteVirtualized.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/CanvasOverlayHd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/CategoricalLegend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ChartToolbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ChartUtil.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ChiSquare.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ChiSquare.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/CirroTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/CirroTooltip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ColorSchemeLegend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ColorSchemeLegendWrapper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ColorSchemeSelector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/CompositionPlot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/CompositionPlots.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ContinuousLegend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/CustomError.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DatasetSelector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DeleteDatasetDialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DirectAccessDataset.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DistributionGroup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DistributionPlots.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DotPlotCanvas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DotPlotJobResultOptions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DotPlotJobResultsPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DotPlotTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DraggableDivider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/EditableColorScheme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/EditableSizeLegend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/EmbeddingChart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ExplorePanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/FisherExact.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/FisherExact.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/GalleryCharts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/GalleryImage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/HelpDialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ImageChart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/JobPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/JobResultOptions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/JobResultPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/JobResultsSelector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/LandingPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/LegendDrawer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/MannWhitnetyTest.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/MannWhitneyUTest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/MeasureFilter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/MetaEmbedding.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/NoAuth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/NumberIcon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/OpenseadragonSvgOverlay.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/RegularizedGamma.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/SaveDatasetViewDialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/SaveSetDialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ScatterChartThree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/SideBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/SizeLegend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/SlicedVector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/SparseVector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/SparseVector.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/StaticServerApi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ThreeUtil.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/Vector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/VectorUtil.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ViolinPlot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ViolinPlotOneFeature.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/VisualTool.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/actions/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/dataset_filter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/formatters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/job_config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/kde.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/kde.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/react-app-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/reducers/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/reportWebVitals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/constants.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/label.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/render.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/scatter_plot.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/scatter_plot_rectangle_selector.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/scatter_plot_visualizer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/scatter_plot_visualizer_3d_labels.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/scatter_plot_visualizer_canvas_labels.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/scatter_plot_visualizer_sprites.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/scatter_plot_visualizer_svg_labels.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/scatter-gl/util.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/setupTests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/VisualTool/util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/datasets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/next-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/Sample.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/resultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/resultModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceVisualization.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VitessceWrapper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/vi-config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/FilterToolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualDatasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualDatasets.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Help/ProjectOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/ProjectOverview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/EmbeddingChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/EmbeddingChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/LandingPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/MetaEmbedding.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/MetaEmbedding.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/ScatterChartThree.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ScatterChartThree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/VisualTool.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/VisualTool.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/404.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/404_bk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/browser/genePage/[gene_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser/genePage/[gene_id].js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/antd.less" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/antd.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +44,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/frontend/components/Datasets/DataPage/vi-config.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/components/VitessceModule.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/frontend/styles/globals.css" root0="FORCE_HIGHLIGHTING" />
@@ -150,23 +63,23 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/components/VisualTool",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/components/VisualTool&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/chunfu/WebstormProjects/Spatial-Trans-Web/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/components/VisualTool" />
@@ -222,6 +135,8 @@
       <workItem from="1661839429328" duration="35697000" />
       <workItem from="1662188425903" duration="2912000" />
       <workItem from="1662377492978" duration="27356000" />
+      <workItem from="1662472105232" duration="3291000" />
+      <workItem from="1662551203731" duration="3740000" />
     </task>
     <servers />
   </component>

@@ -46,10 +46,11 @@ export default function DataTable(props) {
             dataIndex: 'strain',
             key: 'strain',
             width:'8%',
-            render: (strain) => (
+            render: (strain) => ( strain !== "null" ?
                 <Tooltip placement="topLeft" title={strain}>
                     {strain}
                 </Tooltip>
+                    : '--'
             ),
             sorter: (a, b) => {
                 if(a.strain > b.strain) return 1
@@ -80,10 +81,11 @@ export default function DataTable(props) {
             dataIndex: 'tissue',
             key: 'tissue',
             width:'10%',
-            render: (tissue) => (
+            render: (tissue) => ( tissue !== ''?
                 <Tooltip placement="topLeft" title={tissue}>
                     {tissue}
-                </Tooltip>
+                </Tooltip>:
+                    '--'
             ),
             sorter: (a, b) => {
                 if(a.tissue > b.tissue) return 1
