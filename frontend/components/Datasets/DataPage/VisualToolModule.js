@@ -4,6 +4,7 @@ import Link from "next/link";
 import {QuestionCircleOutlined} from "@ant-design/icons";
 import dynamic from "next/dynamic";
 const { Option } = Select;
+import datasetDefault from '../../VisualTool/dataset.json' assert { type : 'json' }
 
 export default function VisualToolModule(props) {
     const DynamicVisualTool = dynamic(() =>
@@ -12,28 +13,27 @@ export default function VisualToolModule(props) {
         {
             ssr: false,
         })
-    let viewConfigInit = {...props.config}
-    props.duplicateOption[0] === "null"?
-        // no duplicate
-        viewConfigInit.datasets[0].files.forEach( file => {
-            if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}.zarr`
-            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}.zarr/uns/spatial/Sample1/images/hires`
-        }):
-        viewConfigInit.datasets[0].files.forEach( file => {
-            if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr`
-            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${props.duplicateOption[0]}.zarr/uns/spatial/Sample1/images/hires`
+    const [dataset, setDataset] = useState({});
+
+    // no duplicate
+    if(props.duplicateOption[0] === "null")
+        setDataset({
+            "id": props.st_id,
+            "name": props.st_id,
+            "url": "https://rhesusbase.com:9999/datasets/adata_a2p2.telen.m500.log1p.leiden.deg/adata_a2p2.telen.m500.log1p.leiden.deg.jsonl"
         })
-    const [viewConfig, setViewConfig] = useState(viewConfigInit);
     const onChangeDuplicate = (value) => {
-        let viewConfigTemp = JSON.parse(JSON.stringify(viewConfig)) //deep copy
-        viewConfigTemp.datasets[0].files.forEach( (file,index) => {
-            if (file.url !== undefined) file.url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr`
-            else file.options.images[0].url = `https://rhesusbase.com:9999/zarr_files/${props.st_id}/${value}.zarr/uns/spatial/Sample1/images/hires`
-            viewConfigTemp.datasets[0].files[index] = file
-        })
-        console.log(viewConfigTemp)
-        setViewConfig(viewConfigTemp)
+        let datasetTemp
+        datasetTemp = {
+            "id": props.st_id,
+            "name": props.st_id,
+            "url": 'https://rhesusbase.com:9999/datasets/'+props.st_id+'/'+value+'/'+value+'.jsonl'
+        }
+        console.log(datasetTemp)
+        setDataset(datasetTemp)
     }
+
+
     return (
         <div name={"View"}>
             <a id={"View"} style={{position: 'relative', top: "-150px"}}></a>
@@ -60,7 +60,7 @@ export default function VisualToolModule(props) {
                     </Select>
                 </Col>
             </Row><br/>
-            <DynamicVisualTool setCustom={true} width={1000} height={800}/>
+            <DynamicVisualTool setCustom={true} width={1000} height={800} dataset={datasetDefault}/>
         </div>
     )
 }

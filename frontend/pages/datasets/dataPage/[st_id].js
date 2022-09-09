@@ -3,14 +3,12 @@ import LayoutCustom from '../../../components/LayoutCustom.js'
 import {Col, Row, Table, Tooltip, Divider, Tag, Affix} from 'antd';
 import {FileTextFilled, DownloadOutlined, QuestionCircleOutlined} from '@ant-design/icons';
 import React from "react";
-//import VitessceVisualization from "../../../components/Datasets/DataPage/VitessceVisualization.js";
 import Error from "next/error";
 import FliesTree from "../../../components/Datasets/DataPage/FliesTree";
 import DataPageSiderMenu from "../../../components/Datasets/DataPage/DataPageSiderMenu.js"
 import {useRef} from "react";
 import Link from "next/link.js";
 import Summary from "../../../components/GenePage/Summary.js";
-import dynamic from "next/dynamic";
 import Sample from "../../../components/Datasets/DataPage/Sample";
 import VisualToolModule from "../../../components/Datasets/DataPage/VisualToolModule";
 
@@ -223,7 +221,6 @@ export default function DataPage(props) {
                                 </div>
                                 <VisualToolModule
                                     st_id={props.data.ID}
-                                    config={props.config}
                                     duplicateOption={duplicateOption}
                                     />
                                 <div name={"Files"}>

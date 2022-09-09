@@ -12,7 +12,7 @@ export default function SpatialExpression(props){
             </Divider>
             <div name={"RSE"} style={{marginLeft:"20px"}}>
                 <a id={"RSE"} style={{position: 'relative', top: "-150px"}}></a>
-                <Divider orientation="left" orientationMargin="0" dashed><b>Regional Specific Expression</b></Divider>
+                <Divider orientation="left" orientationMargin="0" dashed><b>Region Specific Expression</b></Divider>
                 <div style={{height:'20vh'}}>
                 </div>
             </div>

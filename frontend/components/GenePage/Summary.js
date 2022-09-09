@@ -43,6 +43,7 @@ export default function Summary(props){
                     <AttributeLayout attribute={"Gene Synonyms"}>{props.data.name_synonyms.split('|').join(', ')}</AttributeLayout>
                     :<></>
             }
+            <AttributeLayout attribute={"Variable Expression in Regions"}>{}</AttributeLayout>
             {
                 props.data.other_designations?
                 <AttributeLayout attribute={"Other Designations"}>{props.data.other_designations.split('|').join('; ')}</AttributeLayout>

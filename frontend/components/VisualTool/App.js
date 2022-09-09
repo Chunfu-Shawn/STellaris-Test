@@ -32,9 +32,7 @@ import LandingPage from './LandingPage';
 import SaveDatasetFilterDialog from './SaveDatasetViewDialog';
 import SaveSetDialog from './SaveSetDialog';
 import SideBar from './SideBar';
-import {COMPARE_ACTIONS} from './job_config';
 import {withTheme} from '@emotion/react';
-import JobResultPanel from './JobResultPanel';
 
 export const drawerWidth = 240;
 
@@ -81,13 +79,13 @@ function App(props) {
           '& .MuiDrawer-paper': {
             width: drawerOpen && dataset != null ? drawerWidth : null,
             boxSizing: 'border-box',
-              height:"100%",
+              height:"auto",
           },
         }}
       >
         <Toolbar />
         {dataset != null && (
-          <SideBar key={dataset.id} compareActions={COMPARE_ACTIONS} />
+          <SideBar key={dataset.id} />
         )}
       </Drawer>
       <Box
@@ -139,11 +137,6 @@ function App(props) {
             {dataset != null && (
               <div role="tabpanel" hidden={tab !== 'composition'}>
                 {<CompositionPlots />}
-              </div>
-            )}
-            {dataset != null && (
-              <div role="tabpanel" hidden={tab !== 'results'}>
-                {<JobResultPanel />}
               </div>
             )}
           </>
