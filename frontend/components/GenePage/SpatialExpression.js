@@ -1,9 +1,11 @@
-import {Divider} from "antd";
+import {Button, Collapse, Divider, Table} from "antd";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
 import React from "react";
+import CoExpressedGenes from "./CoExpressedGenes";
 
 export default function SpatialExpression(props){
+
     return(
         <>
             <Divider orientation="left" orientationMargin="0">
@@ -16,12 +18,7 @@ export default function SpatialExpression(props){
                 <div style={{height:'20vh'}}>
                 </div>
             </div>
-            <div name={"CoE-Genes"} style={{marginLeft:"20px"}}>
-                <a id={"CoE-Genes"} style={{position: 'relative', top: "-150px"}}></a>
-                <Divider orientation="left" orientationMargin="0" dashed><b>Co-expressed Genes</b></Divider>
-                <div style={{height:'20vh'}}>
-                </div>
-            </div>
+            <CoExpressedGenes/>
             <div name={"HighlyE-Clusters"} style={{marginLeft:"20px"}}>
                 <a id={"HighlyE-Clusters"} style={{position: 'relative', top: "-150px"}}></a>
                 <Divider orientation="left" orientationMargin="0" dashed><b>Highly-expressed Clusters</b></Divider>

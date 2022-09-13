@@ -1,6 +1,6 @@
-import {Divider, Space, Table, Tag,Collapse} from "antd";
+import {Space, Table, Tag} from "antd";
 import {useState} from "react";
-import {QuestionCircleOutlined, QuestionCircleFilled, LinkOutlined} from "@ant-design/icons";
+import {QuestionCircleFilled} from "@ant-design/icons";
 import React from "react";
 
 export default function TranscriptTable(props){

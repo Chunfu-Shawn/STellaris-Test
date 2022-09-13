@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Col, Divider, Row, Select} from "antd";
 import Link from "next/link";
 import {QuestionCircleOutlined} from "@ant-design/icons";
@@ -15,13 +15,15 @@ export default function VisualToolModule(props) {
         })
     const [dataset, setDataset] = useState({});
 
-    // no duplicate
-    if(props.duplicateOption[0] === "null")
-        setDataset({
-            "id": props.st_id,
-            "name": props.st_id,
-            "url": "https://rhesusbase.com:9999/datasets/adata_a2p2.telen.m500.log1p.leiden.deg/adata_a2p2.telen.m500.log1p.leiden.deg.jsonl"
-        })
+    useEffect(() => {
+        // no duplicate
+        if(props.duplicateOption[0] === "null")
+            setDataset({
+                "id": props.st_id,
+                "name": props.st_id,
+                "url": "https://rhesusbase.com:9999/datasets/adata_a2p2.telen.m500.log1p.leiden.deg/adata_a2p2.telen.m500.log1p.leiden.deg.jsonl"
+            })
+    },[props.duplicateOption]);
     const onChangeDuplicate = (value) => {
         let datasetTemp
         datasetTemp = {
@@ -32,7 +34,6 @@ export default function VisualToolModule(props) {
         console.log(datasetTemp)
         setDataset(datasetTemp)
     }
-
 
     return (
         <div name={"View"}>
