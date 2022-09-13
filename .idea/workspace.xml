@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/GenePage/CoExpressedGenes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/GenePage/coExpressedGenesHeatmap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/GenePage/MarkerGenesList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/GenePage/ProportionClustersBarChart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/CoExpressedGenes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/CoExpressedGenes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/SpatialExpression.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/SpatialExpression.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/TranscriptTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/TranscriptTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/ExplorePanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ExplorePanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/SideBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/StaticServerApi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/VisualTool.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/VisualTool.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/coExpressedGenesHeatmap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/CoExpressedGenesHeatmap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +54,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/components",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/components/GenePage",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,11 +67,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/components/GenePage" />
       <recent name="$PROJECT_DIR$/frontend/components" />
       <recent name="$PROJECT_DIR$/frontend/components/VisualTool" />
       <recent name="$PROJECT_DIR$/frontend" />
       <recent name="$PROJECT_DIR$/frontend/components/Help/Manual/Datasets" />
-      <recent name="$PROJECT_DIR$/frontend/components/Help/Manual" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/components/VisualTool" />
@@ -128,7 +123,7 @@
       <workItem from="1662472105232" duration="3291000" />
       <workItem from="1662551203731" duration="4124000" />
       <workItem from="1662730496512" duration="4759000" />
-      <workItem from="1662975086469" duration="6955000" />
+      <workItem from="1662975086469" duration="20370000" />
     </task>
     <servers />
   </component>

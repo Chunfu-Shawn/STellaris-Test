@@ -1,5 +1,6 @@
 import * as echarts from 'echarts';
 import React, {useEffect, useRef} from "react";
+import * as d3 from "d3-scale-chromatic";
 
 
 export default function CoExpressedGenesHeatmap(props) {
@@ -84,9 +85,11 @@ export default function CoExpressedGenesHeatmap(props) {
                         }
                     ],
                     gradientColor:[
-                        "#ebf1f2",
-                        "#8d95c0",
-                        "#490647"
+                        d3.interpolateBuPu(0),
+                        d3.interpolateBuPu(0.25),
+                        d3.interpolateBuPu(0.5),
+                        d3.interpolateBuPu(0.75),
+                        d3.interpolateBuPu(1),
                     ]
                 };
             // `echarts.getInstanceByDom` 可以从已经渲染成功的图表中获取实例，其目的就是在 option 发生改变的时候，不需要

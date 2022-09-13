@@ -1,5 +1,5 @@
 import {Button, Collapse, Divider, Table} from "antd";
-import CoExpressedGenesHeatmap from "./coExpressedGenesHeatmap";
+import CoExpressedGenesHeatmap from "./CoExpressedGenesHeatmap";
 import React from "react";
 
 const { Panel } = Collapse;
@@ -46,9 +46,9 @@ export default function CoExpressedGenes(){
         document.body.removeChild(link); // Required for FF
     };
     return(
-        <div name={"CoE-Genes"} style={{marginLeft:"20px"}}>
+        <div name={"CoE-Genes"} style={{marginLeft:20}}>
             <a id={"CoE-Genes"} style={{position: 'relative', top: "-150px"}}></a>
-            <Divider orientation="left" orientationMargin="0" dashed><b>Co-expressed Genes</b></Divider>
+            <Divider orientation="left" orientationMargin="0"><b>Co-expressed Genes</b></Divider>
             <CoExpressedGenesHeatmap
                 tissue={["Brain"]}
                 genes={[
@@ -83,8 +83,8 @@ export default function CoExpressedGenes(){
                 <Panel
                     header={
                         <div style={{width:"1000px"}}>
-                                <b>Correlation coefficient between Co-expressed Genes and target gene,
-                                    click to show or hide the table.</b>
+                            <span><b>Correlation coefficient</b> between co-expressed genes and target gene,
+                                    click to show or hide the table.</span>
                             <Button size={"small"} onClick={exportToCsv} style={{float:"right"}}>
                                 Export to CSV
                             </Button>
