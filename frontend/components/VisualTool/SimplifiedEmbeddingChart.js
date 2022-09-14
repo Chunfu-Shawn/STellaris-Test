@@ -11,13 +11,13 @@ import {
     handleDimensionFilterUpdated,
     handleDomainChange,
     handleMeasureFilterUpdated,
-    setChartOptions,
+    setChartOptions, setInterpolator,
     setLegendScrollPosition,
     setWindowSize,
 } from './actions';
 import ImageChart from './ImageChart';
 import SimplifiedScatterChartThree from './SimplifiedScatterChartThree.js';
-import {FEATURE_TYPE} from './util';
+import {FEATURE_TYPE, getInterpolator} from './util';
 import memoize from 'memoize-one';
 
 const getActiveEmbeddingLabels = memoize((searchTokens, embeddingLabels) => {
@@ -48,7 +48,9 @@ function SimplifiedEmbeddingChart(props) {
         selection,
         unselectedMarkerOpacity,
         unselectedPointSize,
-        handleChartOptions
+        handleChartOptions,
+        handleInterpolator,
+        interpolator
     } = props;
 
     if (activeFeature == null) {
@@ -71,13 +73,18 @@ function SimplifiedEmbeddingChart(props) {
         // set darkMode = false
         chartOptionsTemp.darkMode=false
         handleChartOptions(chartOptionsTemp)
+        handleInterpolator(
+            Object.assign({}, interpolator, {
+                name: 'interpolateOrRd',
+                value: getInterpolator('interpolateOrRd'),
+            })
+        );
     },[])
     return (
         <Box bgcolor={'inherit'} color="inherit" style={{position: 'relative'}}>
             {primaryTrace.type === 'scatter' &&
                 primaryTrace.embedding.mode == null && (
                     <SimplifiedScatterChartThree
-                        gene={true}
                         trace={primaryTrace}
                         cachedData={cachedData}
                         obsCat={activeEmbeddingLabels}
@@ -134,6 +141,7 @@ const mapStateToProps = (state) => {
         shape: state.dataset.shape,
         unselectedMarkerOpacity: state.unselectedMarkerOpacity,
         unselectedPointSize: state.unselectedPointSize,
+        interpolator: state.interpolator,
     };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -167,6 +175,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         handleChartOptions: (value) => {
             dispatch(setChartOptions(value));
+        },
+        handleInterpolator: (value) => {
+            dispatch(setInterpolator(value));
         },
     };
 };

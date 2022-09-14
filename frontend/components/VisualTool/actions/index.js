@@ -34,9 +34,9 @@ export const DEFAULT_MARKER_OPACITY = 1;
 export const DEFAULT_UNSELECTED_MARKER_OPACITY = 0.1;
 export const DEFAULT_INTERPOLATORS = {};
 DEFAULT_INTERPOLATORS[FEATURE_TYPE.X] = {
-  name: 'Viridis',
+  name: 'Reds',
   reversed: false,
-  value: getInterpolator('Viridis'),
+  value: getInterpolator('Reds'),
 };
 DEFAULT_INTERPOLATORS[FEATURE_TYPE.COUNT] = {
   name: 'Greys',
@@ -167,6 +167,7 @@ export function init(dataset,geneId) {
     }
 
     window.setTimeout(loadingAppProgress, 500);
+    dispatch(_setLoadingApp({loading: false}));
     const task = {name: 'Load Dataset'};
     dispatch(addTask(task));
     if(dataset !== null){
@@ -180,7 +181,6 @@ export function init(dataset,geneId) {
         );
       }
     }
-    dispatch(_setLoadingApp({loading: false}));
     dispatch(removeTask(task))
     return Promise.resolve();
   };
