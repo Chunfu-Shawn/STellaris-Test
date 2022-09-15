@@ -1,6 +1,6 @@
 import {Button, Collapse, Divider, Modal, Table} from "antd";
 import CoExpressedGenesHeatmap from "./CoExpressedGenesHeatmap";
-import React, {useState} from "react";
+import React from "react";
 
 const { Panel } = Collapse;
 

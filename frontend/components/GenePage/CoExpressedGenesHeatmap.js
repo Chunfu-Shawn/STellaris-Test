@@ -142,7 +142,7 @@ export default function CoExpressedGenesHeatmap(props) {
                 onClose={toggleDrawer(false)}
             >
                 <div style={{width:"680px",overflow:"scroll"}}>
-                    <Divider orientation="left" orientationMargin={10}><h4>Dataset ID: adata_a2p2</h4></Divider>
+                    <Divider orientation="left" orientationMargin={10}><h4>Dataset ID: {dataset.id}</h4></Divider>
                     <Row gutter={[20]} style={{padding:"0px 20px"}}>
                         <Col>
                             <h5>{geneContext.data.symbol}</h5>
@@ -153,8 +153,18 @@ export default function CoExpressedGenesHeatmap(props) {
                             <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset} gene={firstUpperCase("id2")}/>
                         </Col>
                     </Row>
-                    <Divider orientation="left" orientationMargin={10}><h4>Dataset ID: test</h4></Divider>
-                    <div style={{height:"60vh"}}></div>
+                    <Divider orientation="left" orientationMargin={10}><h4>Dataset ID: {dataset2.id}</h4></Divider>
+                    <Row gutter={[20]} style={{padding:"0px 20px"}}>
+                        <Col>
+                            <h5>{geneContext.data.symbol}</h5>
+                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset2} gene={firstUpperCase(geneContext.data.symbol)}/>
+                        </Col>
+                        <Col>
+                            <h5>ID2</h5>
+                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset2} gene={firstUpperCase("id2")}/>
+                        </Col>
+                    </Row>
+                    <div style={{height:"30vh"}}></div>
                 </div>
             </Drawer>
         </>
