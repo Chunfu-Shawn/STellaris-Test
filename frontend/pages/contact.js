@@ -1,21 +1,10 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import Image from "next/image";
+import React from "react";
 
 
 export default function Contact() {
-    const style = {
-        height: 40,
-        width: 40,
-        lineHeight: '40px',
-        borderRadius: 4,
-        backgroundColor: '#22075e',
-        color: '#fff',
-        textAlign: 'center',
-        fontSize: 14,
-        position: 'fixed',
-
-    };
     return (
         <LayoutCustom>
             <Head>
@@ -44,7 +33,7 @@ export default function Contact() {
                     </p>
                 </div>
 
-                <div className="box_address" >
+                <div className="box_address">
                     <span><b>Address:</b></span><br/>
                 Laboratory of Bioinformatics and Genomic Medicine<br/>
                 College of Future Institute<br/>

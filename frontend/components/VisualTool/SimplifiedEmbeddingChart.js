@@ -73,15 +73,16 @@ function SimplifiedEmbeddingChart(props) {
         // set darkMode = false
         chartOptionsTemp.darkMode=false
         handleChartOptions(chartOptionsTemp)
-        handleInterpolator(
-            Object.assign({}, interpolator, {
-                name: 'interpolateOrRd',
-                value: getInterpolator('interpolateOrRd'),
-            })
-        );
     },[])
     return (
-        <Box bgcolor={'inherit'} color="inherit" style={{position: 'relative'}}>
+        <div
+            style={{
+                background:"transparent",
+                color:"inherit",
+                position: 'relative',
+                height: primaryChartSize.height,
+                width: primaryChartSize.width
+        }}>
             {primaryTrace.type === 'scatter' &&
                 primaryTrace.embedding.mode == null && (
                     <SimplifiedScatterChartThree
@@ -117,7 +118,7 @@ function SimplifiedEmbeddingChart(props) {
                     handleClick={onDimensionFilterUpdated}
                 />
             )}
-        </Box>
+        </div>
     );
 }
 

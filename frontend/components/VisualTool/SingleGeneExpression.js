@@ -1,7 +1,4 @@
 import {IconButton, Snackbar} from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
 import LinearProgress from '@mui/material/LinearProgress';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -21,6 +18,7 @@ const antIcon = (
     <LoadingOutlined
         style={{
             fontSize: 24,
+            color:"lightblue"
         }}
         spin
     />
@@ -34,8 +32,7 @@ function SingleGeneExpression(props) {
         loadingApp,
         message,
         setMessage,
-        tab,
-        gene
+        tab
     } = props;
 
     function handleMessageClose() {
@@ -78,7 +75,7 @@ function SingleGeneExpression(props) {
             </Box>
 
             {loading && (
-                <div style={{background:"#797979",width:"100%",height:"100%"}}>
+                <div style={{background:"#c7c7c7",width:"100%",height:"100%"}}>
                     <div style={{
                         padding:5,
                         color:"white",

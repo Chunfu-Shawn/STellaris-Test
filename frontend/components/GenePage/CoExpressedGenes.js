@@ -1,6 +1,6 @@
-import {Button, Collapse, Divider, Table} from "antd";
+import {Button, Collapse, Divider, Modal, Table} from "antd";
 import CoExpressedGenesHeatmap from "./CoExpressedGenesHeatmap";
-import React from "react";
+import React, {useState} from "react";
 
 const { Panel } = Collapse;
 
@@ -25,6 +25,7 @@ export default function CoExpressedGenes(){
         },
     ];
 
+
     // export table to csv or excel
     const exportToCsv = () => {
         const replacer = (key, value) => (value === null ? "" : value);
@@ -45,6 +46,7 @@ export default function CoExpressedGenes(){
         link.click(); // This will download the data file named 'my_data.csv'.
         document.body.removeChild(link); // Required for FF
     };
+
     return(
         <div name={"CoE-Genes"} style={{marginLeft:20}}>
             <a id={"CoE-Genes"} style={{position: 'relative', top: "-150px"}}></a>

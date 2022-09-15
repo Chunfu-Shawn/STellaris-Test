@@ -33,13 +33,14 @@ export function SingleGeneExpressionModule(props) {
             {/*<React.StrictMode>*/}
             <div id={`VisualTool_${gene}`}
                  style={{
-                     borderRadius: 5,
+                     borderRadius: 8,
+                     padding:2,
                      borderStyle: "solid",
-                     borderWidth: 1,
+                     borderWidth: 2,
                      borderColor: "lightgray",
                      // whether custom
-                     width: setCustom ? width: 400,
-                     height: setCustom ? height: 400,
+                     width: setCustom ? width+8: 408,
+                     height: setCustom ? height+8: 408,
                      transform:"translate3d(0, 0, 0)"
                  }}>
                 <SingleGeneExpressionWrapper gene={gene}/>
