@@ -2,7 +2,7 @@
     "apps": [
         {
             "name": "spatial-trans-web",
-            "instances":"7",
+            "instances":"5",
             "instance_var": "INSTANCE_ID",
             "exec_mode": "cluster",
             "script": "./server.js",

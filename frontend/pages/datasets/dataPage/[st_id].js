@@ -24,16 +24,16 @@ export async function getServerSideProps(context) {
             notFound: true,
         }
     }
-    const resConfig = await fetch((process.env.NODE_ENV==="production"?
+    /*const resConfig = await fetch((process.env.NODE_ENV==="production"?
             process.env.PRODUCTION_URL:"http://localhost:3000/")
         +"api/vi-custom-config/"+context.params.st_id)
-    const config = await resConfig.json()
+    const config = await resConfig.json()*/
 
     // Pass post data to the page via props
     return {
         props: {
             data:data,
-            config:config
+            //config:config
         }
     }
 }

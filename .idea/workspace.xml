@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/BarChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/BarChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/HighlyExpressionClusters.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/HighlyExpressionClusters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/DatasetPage/DatasetAttributesTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/DatasetPage/DatasetAttributesTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/AutocompleteVirtualized.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/AutocompleteVirtualized.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/DistributionGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/DistributionGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/ExplorePanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/ExplorePanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/SideBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/SimplifiedEmbeddingChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/SimplifiedEmbeddingChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processes.json" beforeDir="false" afterPath="$PROJECT_DIR$/processes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +125,7 @@
       <workItem from="1663143569887" duration="3486000" />
       <workItem from="1663175087275" duration="266000" />
       <workItem from="1663214355038" duration="11690000" />
-      <workItem from="1663298390342" duration="15587000" />
+      <workItem from="1663298390342" duration="16609000" />
     </task>
     <servers />
   </component>
