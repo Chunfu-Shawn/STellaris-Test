@@ -14,8 +14,8 @@ export async function getServerSideProps(context) {
         }
     }
     const res = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000/")
-        +"api/gene/"+ context.params.gene_id
+            process.env.PRODUCTION_URL:"http://localhost:3000")
+        +"/api/gene/"+ context.params.gene_id
     )
     const data = await res.json()
     if ( data.length === 0 ) {
