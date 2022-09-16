@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/browser/genePage/[gene_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser/genePage/[gene_id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/DeleteDatasetDialog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/SaveDatasetViewDialog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/SaveSetDialog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/reducers/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +127,7 @@
       <workItem from="1663143569887" duration="3486000" />
       <workItem from="1663175087275" duration="266000" />
       <workItem from="1663214355038" duration="11690000" />
-      <workItem from="1663298390342" duration="17095000" />
+      <workItem from="1663298390342" duration="17436000" />
     </task>
     <servers />
   </component>
