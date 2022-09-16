@@ -15,8 +15,7 @@ const DynamicVisualTool = dynamic(() =>
 
 export default function VisualToolModule(props) {
     const [dataset, setDataset] = useState({});
-
-    useEffect(() => {
+    useEffect(()=>{
         // no duplicate
         if(props.duplicateOption[0] === "null")
             setDataset({
@@ -24,7 +23,14 @@ export default function VisualToolModule(props) {
                 "name": props.st_id,
                 "url": "https://rhesusbase.com:9999/datasets/adata_a2p2.telen.m500.log1p.leiden.deg/adata_a2p2.telen.m500.log1p.leiden.deg.jsonl"
             })
-    },[]);
+        else
+            setDataset({
+                "id": props.st_id,
+                "name": props.st_id,
+                "url": "https://rhesusbase.com:9999/datasets/adata_a2p2.telen.m500.log1p.leiden.deg/adata_a2p2.telen.m500.log1p.leiden.deg.jsonl"
+            })
+    },[props.st_id,props.duplicateOption[0]])
+
     const onChangeDuplicate = (value) => {
         let datasetTemp
         datasetTemp = {

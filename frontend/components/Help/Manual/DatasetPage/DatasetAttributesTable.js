@@ -67,10 +67,12 @@ const columns =[
 
 export default function GeneInfoAttributionsTable(){
     return(
-        <Table dataSource={
-            data.map( item => {
-                return { key:item.Attribution,...item}
-            })
-        } columns={columns} size={"small"} bordered={true} pagination={false}/>
+        <div style={{marginLeft:100,width:800}}>
+            <Table dataSource={
+                data.map( item => {
+                    return { key:item.Attribution,...item}
+                })
+            } columns={columns} size={"small"} bordered={true} pagination={false}/>
+        </div>
     )
 }

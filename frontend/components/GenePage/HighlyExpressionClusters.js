@@ -89,7 +89,7 @@ export default function HighlyExpressionClusters(){
                     <Space size={"large"}>
                         {
                             markergenes.map( (item) =>
-                                <Col span={24/markergenes.length} id={item.genes}>
+                                <Col span={24/markergenes.length} key={item.genes}>
                                     <MarkerGenesList genes={item.genes} cluster={item.cluster}/>
                                 </Col>
                             )
