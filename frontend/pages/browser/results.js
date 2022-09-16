@@ -130,7 +130,7 @@ export default function Results(props) {
                         </Input.Group>
                     </Col>
                 </Row>
-                <div >
+                <div>
                     <SearchResultTable data={props.data} />
                 </div>
             </div>

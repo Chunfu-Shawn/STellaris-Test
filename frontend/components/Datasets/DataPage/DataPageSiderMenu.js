@@ -13,10 +13,13 @@ const items = [
         label: <a href={'#Duplicates'}>Duplicates</a>, key: 'Duplicates'
     },
     {
-        label: <a href={'#Source'}>Source</a>, key: 'Source',
+        label: <a href={'#Features'}>Features</a>, key: 'Features',
     },
     {
         label: <a href={'#View'}>View</a>, key: 'View',
+    },
+    {
+        label: <a href={'#Source'}>Source</a>, key: 'Source',
     },
     {
         label: <a href={'#Files'}>Files</a>, key: 'Files'

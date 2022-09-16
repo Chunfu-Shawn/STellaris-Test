@@ -4,122 +4,122 @@ const { Panel } = Collapse;
 const data = [
     {
         "Datasets": "Gene Info",
-        "Attribution": "Symbol",
+        "Attribute": "Symbol",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Ensembl ID",
+        "Attribute": "Ensembl ID",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Description",
+        "Attribute": "Description",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Gene Type",
+        "Attribute": "Gene Type",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Organism",
+        "Attribute": "Organism",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Chromosome, Start, End, Strand",
+        "Attribute": "Chromosome, Start, End, Strand",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Gene Source",
+        "Attribute": "Gene Source",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Gene Version",
+        "Attribute": "Gene Version",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Entrez ID",
+        "Attribute": "Entrez ID",
         "Source": "NCBI Gene Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Aliases / Gene Synonyms",
+        "Attribute": "Aliases / Gene Synonyms",
         "Source": "NCBI Gene Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Chromosomal Location",
+        "Attribute": "Chromosomal Location",
         "Source": "NCBI Gene Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Other Designations",
+        "Attribute": "Other Designations",
         "Source": "NCBI Gene Database"
     },
     {
         "Datasets": "Gene Info",
-        "Attribution": "Identifiers in Other DB",
+        "Attribute": "Identifiers in Other DB",
         "Source": "NCBI Gene Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Transcript ID",
+        "Attribute": "Transcript ID",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Name",
+        "Attribute": "Name",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Length",
+        "Attribute": "Length",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Type",
+        "Attribute": "Type",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Transcription Start Sites (TSS)",
+        "Attribute": "Transcription Start Sites (TSS)",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Refseq mRNA ID",
+        "Attribute": "Refseq mRNA ID",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Refseq ncRNA ID",
+        "Attribute": "Refseq ncRNA ID",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Version",
+        "Attribute": "Version",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Start - End",
+        "Attribute": "Start - End",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Count",
+        "Attribute": "Count",
         "Source": "Ensembl Database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Transcript Support Level (TSL)",
+        "Attribute": "Transcript Support Level (TSL)",
         "Source": "Ensembl Database"
     },
 ]
@@ -138,9 +138,9 @@ const columns =[
         }
     },
     {
-        title: 'Attribution',
-        dataIndex: 'Attribution',
-        key: 'Attribution',
+        title: 'Attribute',
+        dataIndex: 'Attribute',
+        key: 'Attribute',
         width:'10%',
         onCell: ()=>{ return { rowSpan: 1} }
     },

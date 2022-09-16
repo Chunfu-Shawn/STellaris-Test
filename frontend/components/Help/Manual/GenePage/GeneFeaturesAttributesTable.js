@@ -3,68 +3,68 @@ import React from "react";
 const data = [
     {
         "Datasets": "Genomic Context",
-        "Attribution": "Location",
+        "Attribute": "Location",
         "Description": "scaffold or chromosome and coordinate on which this gene is placed. For mitochondrial genomes, the value 'MT' is used."
     },
     {
         "Datasets": "Genomic Context",
-        "Attribution": "Chromosomal Location",
+        "Attribute": "Chromosomal Location",
         "Description": "map location for this gene"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Transcript ID",
+        "Attribute": "Transcript ID",
         "Description": "a stable identifier for this transcript from Ensembl"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Name",
+        "Attribute": "Name",
         "Description": "a name for this transcript from Ensembl"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Length",
+        "Attribute": "Length",
         "Description": "length of this transcript (bp)"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Type",
+        "Attribute": "Type",
         "Description": <span>a transcript classification containing <b>protein coding, lncRNA, processed pseudogene, unprocessed pseudogene,
         miRNA, TEC, snRNA, misc_RNA, snoRNA and so on</b>, which integrated from Ensembl Database</span>
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Transcription Start Sites (TSS)",
+        "Attribute": "Transcription Start Sites (TSS)",
         "Description": "the transcription start sites of this transcript"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Refseq mRNA ID",
+        "Attribute": "Refseq mRNA ID",
         "Description": "a corresponding ID of this mRNA from NCBI's Reference Sequences (RefSeq) database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Refseq ncRNA ID",
+        "Attribute": "Refseq ncRNA ID",
         "Description": "a corresponding ID of this non-coding RNA from NCBI's Reference Sequences (RefSeq) database"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Version",
+        "Attribute": "Version",
         "Description": "the version of this trancript from Ensembl"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Start - End",
+        "Attribute": "Start - End",
         "Description": "the start and end coordinate of this trancript"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Count",
+        "Attribute": "Count",
         "Description": "the expression count"
     },
     {
         "Datasets": "Transcript",
-        "Attribution": "Transcript Support Level (TSL)",
+        "Attribute": "Transcript Support Level (TSL)",
         "Description": <span>The Transcript Support Level (TSL) is a method to highlight the well-supported and poorly-supported
             transcript models for users, based on the type and quality of the alignments used to annotate the transcript.
             <ul>
@@ -93,9 +93,9 @@ const columns =[
         }
     },
     {
-        title: 'Attribution',
-        dataIndex: 'Attribution',
-        key: 'Attribution',
+        title: 'Attribute',
+        dataIndex: 'Attribute',
+        key: 'Attribute',
         width:'5%',
         onCell: ()=>{ return { rowSpan: 1} }
     },
@@ -108,7 +108,7 @@ const columns =[
     }
 ]
 
-export default function GeneFeaturesAttributionsTable(){
+export default function GeneFeaturesAttributesTable(){
     return(
         <Table dataSource={
             data.map( item => {

@@ -1,10 +1,10 @@
-import {Breadcrumb, Table, Typography} from 'antd';
+import {Breadcrumb, Typography} from 'antd';
 import React from 'react';
 import {contentStyle} from "../SiderMenu.js";
-import SearchResultsAttributionsTable from "./Datasets/SearchResultsAttributionsTable.js";
-import GeneAttributionsTable from "./Datasets/GeneAttributionsTable.js";
-import GeneInfoAttributionsTable from "./Datasets/GeneInfoAttributionsTable.js";
-import GeneFeaturesAttributionsTable from "./Datasets/GeneFeaturesAttributionsTable.js";
+import SearchResultsAttributesTable from "./GenePage/SearchResultsAttributesTable.js";
+import GeneAttributionsTable from "./GenePage/GeneAttributionsTable.js";
+import GeneInfoAttributesTable from "./GenePage/GeneInfoAttributesTable.js";
+import GeneFeaturesAttributesTable from "./GenePage/GeneFeaturesAttributesTable.js";
 
 export default function ManualBrowser() {
 
@@ -15,7 +15,7 @@ export default function ManualBrowser() {
                 <Breadcrumb.Item>Manual</Breadcrumb.Item>
                 <Breadcrumb.Item>Gene Browser</Breadcrumb.Item>
             </Breadcrumb>
-            <Typography style={{marginTop:50}}>
+            <Typography style={{marginTop:50,fontSize:16}}>
                 <h1>Gene Browser</h1>
                 <h2>1. Introduction</h2>
                 <p style={{fontSize:16}}>The Gene Browser module would help users to search for the basic information and
@@ -61,7 +61,7 @@ export default function ManualBrowser() {
                     <br/><b>The search rules</b> is Case insensitive and whether containing inputted string.
                 </p>
                 <p>The search records contains following attributes:</p>
-                <SearchResultsAttributionsTable />
+                <SearchResultsAttributesTable />
                 <h4>(3) Gene Page</h4>
                 <p>The Gene Page contains some annotations of a gene, such as Summary, Genomic Context, Transcripts,
                     Regional Specific Expression, Co-expressed Genes, and Highly-expressed Clusters, <b>which emphatically
@@ -70,14 +70,14 @@ export default function ManualBrowser() {
                 <h5>- Summary</h5>
                 <a id={"gene_page_summary"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section comprises following attributes:</p>
-                <GeneInfoAttributionsTable/>
+                <GeneInfoAttributesTable/>
                 <h5>- Spatial Expression</h5>
                 <a id={"gene_page_spatial_expression"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section comprises following attributes:</p>
                 <h5>- Features</h5>
                 <a id={"gene_page_features"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section comprises two annotations: <b>Genomic Context</b> and <b>Transcript</b>. Here are the attributes of these annotations below:</p>
-                <GeneFeaturesAttributionsTable/>
+                <GeneFeaturesAttributesTable/>
             </Typography>
         </div>
     )

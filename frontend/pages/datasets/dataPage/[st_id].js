@@ -54,37 +54,31 @@ export default function DataPage(props) {
             wrap:true
         },
     ];
-    const dataSample = [
+    const geneColumns = [
         {
-            key:"Species",
-            value:props.data.Species
-        },
-        props.data.Strain==='null'?{
-            key:"Strain",
-            value:"--"
-        }:{
-            key:"Strain",
-            value:props.data.Strain
+            title: 'Gene Name',
+            dataIndex: 'gene_name',
+            width:'30%',
         },
         {
-            key: "Pathological",
-            value: props.data.Pathological==='null'?"false":props.data.Pathological
-        },
-        props.data.Developmental_stage==='null'?{
-            key:"Developmental Stage",
-            value:"--"
-        }:{
-            key:"Developmental Stage",
-            value:props.data.Developmental_stage
+            title: 'Ensembl ID',
+            dataIndex: 'ensembl_id',
+            width:'30%',
+            render: (text) => <Link href={`/genePage/${text}`}><a target={'_blank'}>{text}</a></Link>
         },
         {
-            key:"Organ",
-            value:props.data.Organ
+            title: 'Main Distribution',
+            dataIndex: 'main_distribution',
+            width:'40%',
+            wrap:true
         },
+    ];
+    const regionSpecificGenes = [
         {
-            key:"Tissue",
-            value:props.data.Tissue
-        },
+            gene_name: 'ID2',
+            ensembl_id: "ENSG00000115738",
+            main_distribution: 'cluster1, cluster2, cluster3'
+        }
     ]
     const dataDuplicates =[
         {
@@ -92,17 +86,17 @@ export default function DataPage(props) {
             value:props.data.Duplicate
         },
         props.data.Duplicate_ID==='null'?{
-            key:"Duplicate_ID",
+            key:"Duplicate ID",
             value:"--"
         }:{
             key:"Duplicate ID",
-            value:props.data.Duplicate_ID.split(',').join(", ")
+            value: duplicateOption.join(", ")
         },
         {
             key:"Data format",
             value:props.data.Data_format
         },
-        props.data.Detail==='null'?{
+        props.data.Detail==='null'||props.data.Detail===undefined?{
             key:"Detail",
             value:"--"
         }:{
@@ -143,12 +137,12 @@ export default function DataPage(props) {
                                                 <Tag color="blue">Mus musculus</Tag>}
                                         </Col>
                                         <Col span={8} offset={8}>
-                                            <a key={1} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`} rel="noreferrer" >
+                                            <a key={1} target={'_blank'} href={`/api/datasets-JSON/${props.data.ID}`} rel="noreferrer" >
                                                 <Tooltip title="View JSON">
                                                     <FileTextFilled style={iconStyle}/>
                                                 </Tooltip>
                                             </a>
-                                            <a key={2} target={'_blank'} href={`/api/getDatasetsJSON/${props.data.ID}`} download rel="noreferrer" >
+                                            <a key={2} target={'_blank'} href={`/api/datasets-JSON/${props.data.ID}`} download rel="noreferrer" >
                                                 <Tooltip title="Download JSON">
                                                     <DownloadOutlined  style={iconStyle}/>
                                                 </Tooltip>
@@ -182,7 +176,7 @@ export default function DataPage(props) {
                                     <a id={"Duplicates"} style={{position: 'relative', top: "-150px"}}></a>
                                     <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
                                         <span style={{fontSize:22}}>Duplicates </span>
-                                        <Link href={'/help/manual/datasets#data_page_duplicates'}>
+                                        <Link href={'/help/manual/datasets#data_page_attributes'}>
                                             <a target={"_blank"}><QuestionCircleOutlined/></a>
                                         </Link>
                                     </Divider>
@@ -190,11 +184,35 @@ export default function DataPage(props) {
                                         <Table columns={columns} pagination={false} dataSource={dataDuplicates} size={"middle"}/>
                                     </div>
                                 </div>
+                                <div name={"Features"}>
+                                    <a id={"Features"} style={{position: 'relative', top: "-150px"}}></a>
+                                    <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
+                                        <span style={{fontSize:22}}>Features </span>
+                                        <Link href={'/help/manual/datasets#data_page_features'}>
+                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
+                                        </Link>
+                                    </Divider>
+                                    <div style={{marginLeft:20}}>
+                                        <Divider orientation="left" orientationMargin="0" dashed>
+                                            <span style={{fontSize:18}}>Region variable Genes</span>
+                                        </Divider>
+                                        <div style={{overflow:"scroll",height:200}}>
+                                            <Table columns={geneColumns} pagination={false} dataSource={regionSpecificGenes}
+                                                   size={"middle"}
+                                                   bordered={true}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <VisualToolModule
+                                    st_id={props.data.ID}
+                                    duplicateOption={duplicateOption}
+                                    />
                                 <div name={"Source"}>
                                     <a id={"Source"} style={{position: 'relative', top: "-150px"}}></a>
                                     <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
                                         <span style={{fontSize:22}}>Source </span>
-                                        <Link href={'/help/manual/datasets#data_page_source'}>
+                                        <Link href={'/help/manual/datasets#data_page_attributes'}>
                                             <a target={"_blank"}><QuestionCircleOutlined/></a>
                                         </Link>
                                     </Divider>
@@ -219,17 +237,10 @@ export default function DataPage(props) {
                                         </Row>
                                     </div>
                                 </div>
-                                <VisualToolModule
-                                    st_id={props.data.ID}
-                                    duplicateOption={duplicateOption}
-                                    />
                                 <div name={"Files"}>
                                     <a id={"Files"} style={{position: 'relative', top: "-150px"}}></a>
                                     <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
                                         <span style={{fontSize:22}}>Files </span>
-                                        <Link href={'/help/manual/datasets#data_page_files'}>
-                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
-                                        </Link>
                                     </Divider>
                                     <div className="site-card-wrapper" style={{padding:"2%"}}>
                                         <FliesTree />

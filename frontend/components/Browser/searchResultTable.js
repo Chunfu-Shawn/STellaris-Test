@@ -123,13 +123,14 @@ export default function SearchResultTable(props){
             width: '20%',
             filters: [
                 {
-                    text: 'Homo_sapiens',
-                    value: 'Homo_sapiens',
+                    text: 'Homo sapiens',
+                    value: 'Homo sapiens',
                 },
                 {
-                    text: 'Mus_musculus',
-                    value: 'Mus_musculus',
-                },],
+                    text: 'Mus musculus',
+                    value: 'Mus musculus',
+                },
+            ],
             onFilter: (value, record) => record.organism.indexOf(value) === 0,
         },
     ]

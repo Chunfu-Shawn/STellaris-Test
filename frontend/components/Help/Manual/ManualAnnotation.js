@@ -1,10 +1,10 @@
 import {Breadcrumb, Typography} from 'antd';
 import React from 'react';
 import {contentStyle} from "../SiderMenu.js";
-import GeneAttributionsTable from "./Datasets/GeneAttributionsTable.js";
-import SearchResultsAttributionsTable from "./Datasets/SearchResultsAttributionsTable.js";
-import GeneInfoAttributionsTable from "./Datasets/GeneInfoAttributionsTable.js";
-import GeneFeaturesAttributionsTable from "./Datasets/GeneFeaturesAttributionsTable.js";
+import GeneAttributionsTable from "./GenePage/GeneAttributionsTable.js";
+import SearchResultsAttributesTable from "./GenePage/SearchResultsAttributesTable.js";
+import GeneInfoAttributesTable from "./GenePage/GeneInfoAttributesTable.js";
+import GeneFeaturesAttributesTable from "./GenePage/GeneFeaturesAttributesTable.js";
 
 export default function ManualAnnotation() {
 
