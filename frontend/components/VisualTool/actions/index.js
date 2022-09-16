@@ -126,7 +126,8 @@ export const REMOVE_TASK = 'REMOVE_TASK';
 export const SET_TAB = 'SET_TAB';
 
 export const SET_LOADING_APP = 'LOADING_APP';
-export const RESTORE_VIEW = 'RESTORE_VIEW'
+export const RESTORE_VIEW = 'RESTORE_VIEW';
+export const SET_SAVED_DATASET_STATE = 'SET_SAVED_DATASET_STATE';
 
 export function getEmbeddingKey(embedding, includeDensity = true) {
   let key = embedding.name;
