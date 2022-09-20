@@ -1,5 +1,6 @@
 import Link from "next/link.js";
 import {Col, Row} from "antd";
+import Image from "next/image";
 
 export default function IntroductionModule(props){
     return(
@@ -7,10 +8,10 @@ export default function IntroductionModule(props){
             <Col span={6}>
                 <Link href={props.link}>
                     <a>
-                        <img className="media-object"
+                        <Image className="media-object"
                              src="/images/index/placeholder.png"
                              alt="missing pic"
-                             style={{width:"100%",height:"auto"}}
+                             width={242} height={200}
                         />
                     </a>
                 </Link>

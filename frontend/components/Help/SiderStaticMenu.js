@@ -42,7 +42,7 @@ export const contentStyle = {
     textAlign: 'left'
 }
 
-export function SiderMenu(props){
+export function SiderStaticMenu(props){
     return(
         <Sider  style={{backgroundColor:"transparent"}}>
             <Menu

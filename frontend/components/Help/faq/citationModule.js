@@ -1,6 +1,6 @@
 import {Breadcrumb} from 'antd';
 import React from 'react';
-import {contentStyle} from "../SiderMenu.js";
+import {contentStyle} from "../SiderStaticMenu.js";
 
 export default function HelpCitation() {
 

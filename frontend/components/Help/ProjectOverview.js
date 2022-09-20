@@ -1,6 +1,6 @@
 import {Breadcrumb, Typography} from 'antd';
 import React from 'react';
-import { contentStyle } from "./SiderMenu.js";
+import { contentStyle } from "./SiderStaticMenu.js";
 const { Title } = Typography;
 
 export default function HelpProject() {

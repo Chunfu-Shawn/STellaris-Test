@@ -87,8 +87,8 @@ export default function Browser() {
                 </Input.Group>
                 <div style={{marginTop:50,fontSize:16}}>
                     <span>
-                        e.g. <b><Link href={"browser/genePage/ENSG00000154856"}>ID2</Link></b> or
-                        <b><Link href={"browser/genePage/ENSG00000012048"}> BRCA2</Link></b> or
+                        e.g. <b><Link href={"browser/genePage/ENSG00000115738"}>ID2</Link></b> or
+                        <b><Link href={"browser/genePage/ENSMUSG00000041147"}> Brca2</Link></b> or
                         <b><Link href={"browser/genePage/ENSG00000250337"}> ENSG00000250337</Link></b>
                     </span>
                 </div>

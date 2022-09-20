@@ -25,6 +25,7 @@ export default function FilterToolbar(props){
         pathological:{},
         date_published:new Array(20).fill(0)}
     );
+    const [panelState,setPanelState] = useState({method:'all',organ:'all'})
     const methodsOptions = getSummaryOptions(props.data)['methodsOptions'].slice(0,6);
     const methodsOptions2 = getSummaryOptions(props.data)['methodsOptions'].slice(6);
     const speciesOptions = getSummaryOptions(props.data)['speciesOptions'];
@@ -60,14 +61,22 @@ export default function FilterToolbar(props){
     },[props.dataShow])
 
     const onViewMoreMethodsOptions = () => {
-        if (methodsOptionActiveKey.includes(1))
+        if (methodsOptionActiveKey.includes(1)){
             setMethodsOptionActiveKey([])
-        else setMethodsOptionActiveKey([1])
+            setPanelState(Object.assign({}, panelState, {method: "all"}))
+        } else {
+            setMethodsOptionActiveKey([1])
+            setPanelState(Object.assign({}, panelState, {method: "less"}))
+        }
     }
     const onViewMoreOrgansOptions = () => {
-        if (organsOptionActiveKey.includes(1))
+        if (organsOptionActiveKey.includes(1)){
             setOrgansOptionActiveKey([])
-        else setOrgansOptionActiveKey([1])
+            setPanelState(Object.assign({}, panelState, {organ: "all"}))
+        } else {
+            setOrgansOptionActiveKey([1])
+            setPanelState(Object.assign({}, panelState, {organ: "less"}))
+        }
     }
 
     const timeSubstract = ( time1,time2 ) => {
@@ -162,14 +171,13 @@ export default function FilterToolbar(props){
             }
         }
         props.setDataFilter(dataFiltered)
-        console.log('filters',filters,'dataFiltered',dataFiltered)
     }
     // to summary the number of different categories records
     const summaryDatasets = (dataTemp) => {
         const options = ['method','species','organ','pathological','date_published']
         let time = timeSubstract(datePublishedOptions[1], datePublishedOptions[0])
         options.map((value,index)=>{
-            if (value === filterClick){
+            if (value === filterClick && props.filteredInfo[filterClick].length !== 0){
                 options.splice(index,1)
             }
         })
@@ -182,7 +190,9 @@ export default function FilterToolbar(props){
                 num_tmp[value] = {}
             }
         })
-        num_tmp[filterClick] = num[filterClick]
+        if( filterClick !== '' && props.filteredInfo[filterClick].length !== 0)
+            num_tmp[filterClick] = num[filterClick]
+        else num_tmp[filterClick] = {}
         // numDatePublished.map(item=>num['date_published'][item]=0)
         for(let i in dataTemp){
             options.map((value)=> {
@@ -196,7 +206,6 @@ export default function FilterToolbar(props){
             })
         }
         setNum(num_tmp)
-        console.log("statistic number:",num_tmp)
     }
 
     return (
@@ -245,7 +254,7 @@ export default function FilterToolbar(props){
                                 )}
                             </Panel>
                         </Collapse>
-                        <a onClick={onViewMoreMethodsOptions} >view more</a>
+                        <a onClick={onViewMoreMethodsOptions} >view {panelState.method}</a>
                     </Checkbox.Group>
                 </Panel>
                 {props.archive==="all" ? <Panel header="Species" key="2" style={{fontSize: '18px'}}>
@@ -316,7 +325,7 @@ export default function FilterToolbar(props){
                                 )}
                             </Panel>
                         </Collapse>
-                        <a onClick={onViewMoreOrgansOptions} >view more</a>
+                        <a onClick={onViewMoreOrgansOptions} >view {panelState.organ}</a>
                     </Checkbox.Group>
                 </Panel>
                 <Panel header="Pathological" key="4" style={{fontSize: '18px'}}>

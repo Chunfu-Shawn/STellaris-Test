@@ -1,6 +1,6 @@
 import {Breadcrumb, Typography} from 'antd';
 import React from 'react';
-import {contentStyle} from "../SiderMenu.js";
+import {contentStyle} from "../SiderStaticMenu.js";
 import SearchResultsAttributesTable from "./GenePage/SearchResultsAttributesTable.js";
 import GeneAttributionsTable from "./GenePage/GeneAttributionsTable.js";
 import GeneInfoAttributesTable from "./GenePage/GeneInfoAttributesTable.js";
@@ -64,16 +64,33 @@ export default function ManualBrowser() {
                 <SearchResultsAttributesTable />
                 <h4>(3) Gene Page</h4>
                 <p>The Gene Page contains some annotations of a gene, such as Summary, Genomic Context, Transcripts,
-                    Regional Specific Expression, Co-expressed Genes, and Highly-expressed Clusters, <b>which emphatically
-                        present a whole spatial expression profile</b>.
+                    Region Specific Expression, Co-expressed Genes, and Highly-expressed Clusters, <b>which emphatically
+                        represent a whole spatial expression profile</b>.
                 </p>
                 <h5>- Summary</h5>
                 <a id={"gene_page_summary"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section comprises following attributes:</p>
                 <GeneInfoAttributesTable/>
-                <h5>- Spatial Expression</h5>
+                <h4>- <i>Spatial Expression*</i></h4>
                 <a id={"gene_page_spatial_expression"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>This section comprises following attributes:</p>
+                <p>This section represents some information about spatial expression of this gene, including three parts:
+                    <b> Region Specific Expression</b>, <b>Co-expressed Genes</b>, and <b>Highly-expressed Clusters</b>.</p>
+                <h5>(a) Region Specific Expression</h5>
+                <p>Gene expression chart in a typical and annotated spatial data will be shown when the gene expression is
+                    spatially variable in a tissue type. Certainly
+                </p>
+                <h5>(b) Co-expressed Genes</h5>
+                <p>Several heatmap charts show the correlation degree and supportive degree of top 30 related co-expressed
+                    genes by respectively different organ types. Color and number in a box show the number of supportive
+                    datasets about these two related genes, and the co-expressed genes are sorted in descend by correlation
+                    from left to right. A tooltip box show the correlation coefficents when mouse hovering over a heatmap box.
+                </p>
+                <h5>(c) Highly-expressed Clusters</h5>
+                <p>The histogram show the proportion of main cell clusters which express target gene respectively by different organ types.
+                    A tooltip box show the marker genes of this cluster when mouse hovering over one of stacked cluster bars.
+                    Several lists about the marker genes of cell clusters will come out when users click on the columns
+                    representing different organ types.
+                </p>
                 <h5>- Features</h5>
                 <a id={"gene_page_features"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section comprises two annotations: <b>Genomic Context</b> and <b>Transcript</b>. Here are the attributes of these annotations below:</p>

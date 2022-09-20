@@ -10,7 +10,7 @@ export default function ProportionClustersBarChart(props) {
     //柱状图点击事件
     const onClick = (e) => {
         console.log(e)
-        alert(e.data, e.data.customParam2)
+        alert(e.name)
     }
 
     // 定义渲染函数
@@ -20,6 +20,7 @@ export default function ProportionClustersBarChart(props) {
                 tooltip: {
                     trigger: 'item',
                     axisPointer: {
+                        show: true,
                         type: 'shadow'
                     },
                     formatter: (param) => `<b>${param.name}</b>

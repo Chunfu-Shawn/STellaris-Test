@@ -2,7 +2,7 @@ import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../LayoutCustom.js'
 import {Affix, Col, Row} from 'antd';
 import React from 'react';
-import {SiderMenu} from "./SiderMenu";
+import {SiderStaticMenu} from "./SiderStaticMenu";
 
 export default function HelpLayout({children, opened, selected}) {
     return (
@@ -14,7 +14,7 @@ export default function HelpLayout({children, opened, selected}) {
                 <Row style={{width:"100%"}}>
                     <Col span={3}>
                         <Affix offsetTop={0}>
-                            <SiderMenu selected={selected} opened={opened}/>
+                            <SiderStaticMenu selected={selected} opened={opened}/>
                         </Affix>
                     </Col>
                     <Col span={21}>

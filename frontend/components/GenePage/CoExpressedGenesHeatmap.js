@@ -3,7 +3,7 @@ import React, {useContext, useEffect, useRef, useState} from "react";
 import * as d3 from "d3-scale-chromatic";
 import {DynamicGeneExpress} from "./SpatialExpression";
 import Drawer from "@mui/material/Drawer";
-import {firstUpperCase} from '../util'
+//import {firstUpperCase} from '../util'
 import dataset from "../VisualTool/dataset.json";
 import {Col, Divider, Row} from "antd";
 import {GeneContext} from '../../pages/browser/genePage/[gene_id]'
@@ -96,7 +96,10 @@ export default function CoExpressedGenesHeatmap(props) {
                             },
                             tooltip: {
                                 trigger:"item",
-                                formatter: "Correlation coefficients: 1.00"
+                                formatter: (params) => `<b style="color: #2b0f75">${geneContext.data.symbol} ~ ${props.genes[params.value[0]]}</b><br/>
+                                                        Correlation coefficients: <b>1.00</b><br/>
+                                                        Supported by <b>${params.value[2]}</b> datasets</br>
+                                                        <b>Click</b> to show two genes expression in these datasets`
                             }
                         }
                     ],
@@ -146,22 +149,22 @@ export default function CoExpressedGenesHeatmap(props) {
                     <Row gutter={[20]} style={{padding:"0px 20px"}}>
                         <Col>
                             <h5>{geneContext.data.symbol}</h5>
-                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset} gene={firstUpperCase(geneContext.data.symbol)}/>
+                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset} gene={geneContext.data.symbol}/>
                         </Col>
                         <Col>
-                            <h5>ID2</h5>
-                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset} gene={firstUpperCase("id2")}/>
+                            <h5>Id2</h5>
+                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset} gene={"Id2"}/>
                         </Col>
                     </Row>
                     <Divider orientation="left" orientationMargin={10}><h4>Dataset ID: {dataset2.id}</h4></Divider>
                     <Row gutter={[20]} style={{padding:"0px 20px"}}>
                         <Col>
                             <h5>{geneContext.data.symbol}</h5>
-                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset2} gene={firstUpperCase(geneContext.data.symbol)}/>
+                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset2} gene={geneContext.data.symbol}/>
                         </Col>
                         <Col>
-                            <h5>ID2</h5>
-                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset2} gene={firstUpperCase("id2")}/>
+                            <h5>Id2</h5>
+                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset2} gene={"Id2"}/>
                         </Col>
                     </Row>
                     <div style={{height:"30vh"}}></div>

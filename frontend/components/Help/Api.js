@@ -1,6 +1,6 @@
 import {Breadcrumb, Divider, Typography} from 'antd';
 import React from 'react';
-import {contentStyle} from "./SiderMenu.js";
+import {contentStyle} from "./SiderStaticMenu.js";
 const { Title, Paragraph } = Typography;
 
 export default function HelpAPI() {

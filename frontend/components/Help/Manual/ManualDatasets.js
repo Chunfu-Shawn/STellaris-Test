@@ -1,6 +1,6 @@
 import {Breadcrumb, Typography} from 'antd';
 import React  from 'react';
-import {contentStyle} from "../SiderMenu.js";
+import {contentStyle} from "../SiderStaticMenu.js";
 import Image from "next/image";
 import DatasetAttributesTable from './DatasetPage/DatasetAttributesTable'
 
