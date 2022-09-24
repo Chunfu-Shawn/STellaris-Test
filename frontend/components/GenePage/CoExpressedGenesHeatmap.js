@@ -144,7 +144,7 @@ export default function CoExpressedGenesHeatmap(props) {
                 open={drawOpen}
                 onClose={toggleDrawer(false)}
             >
-                <div style={{width:"680px",overflow:"scroll"}}>
+                <div style={{width:"700px",overflow:"scroll"}}>
                     <Divider orientation="left" orientationMargin={10}><h4>Dataset ID: {dataset.id}</h4></Divider>
                     <Row gutter={[20]} style={{padding:"0px 20px"}}>
                         <Col>

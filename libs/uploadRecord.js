@@ -1,6 +1,7 @@
 import fs from "fs"
 import { v1 as uuidv1 } from 'uuid'
 import mysql from 'mysql'
+import {annotationLogger} from "./logSave.js";
 // 数据库的配置选项
 
 const options = {
@@ -71,7 +72,7 @@ export function uploadRecord(ctx) {
             );
             return rid
         }catch (err) {
-            console.log(`Error reading or writing file info from disk: ${err}`);
+            annotationLogger.log(`Error: [${new Date()}]: A annotation task failed when saving record: ${err}`)
         }
     } else if (ctx.request.body.isDemo === "true"){
         try {
@@ -119,10 +120,10 @@ export function uploadRecord(ctx) {
             );
             return rid
         }catch (err) {
-            console.log(`Error run demo: ${err}`);
+            annotationLogger.log(`Error: [${new Date()}]: A demo task failed when saving record: ${err}`)
         }
     }else {
-        console.log("Error happened!")
+        annotationLogger.log(`Error: [${new Date()}]: A annotation task failed when saving record: ${err}`)
         return null
     }
 }

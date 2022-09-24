@@ -3,7 +3,6 @@ import router from 'koa-router'
 import {getJobStatus} from "./api/getJobStatus.js"
 import {getHumanMap} from "./api/getHumanMap.js"
 import {getMouseMap} from "./api/getMouseMap.js"
-import {getDefaultMatrixFile} from "./api/getDefaultMatrixFile.js"
 import getDatesetsJSON from "./api/getDatasetsJSON.js"
 import getViCustomConfig from "./api/getViCustomConfig.js"
 import {getGeneList} from "./api/getGeneList.js"

@@ -1,6 +1,7 @@
 import fs from "fs"
 import child_process from 'child_process';
 import {setJobStatus} from "./api/setJobStatus.js";
+import {annotationLogger} from "./logSave.js";
 
 export function execTangram(rid,destination,filename) {
     const mapping_py = './scripts/run_tangram_mapping.py'
@@ -33,19 +34,23 @@ export function execTangram(rid,destination,filename) {
         //如果python脚本不存在
         logger.log('Sorry, annotation script not found !');
         setJobStatus(rid, "error")
+        annotationLogger.log(`Error:[${new Date()}]: There is a error happened while tangram running`)
     } else if(!fs.existsSync(ad_sp)) {
         //如果空间数据不存在
         logger.log('Sorry, spatial trans data not found !');
         setJobStatus(rid, "error")
-    }else {
+        annotationLogger.log(`Error: [${new Date()}]: There is a error happened while Tangram running`)
+    } else {
         try {
-            logger.log("Tangram running.");
+            logger.log("Tangram running...");
+            annotationLogger.log(`Error: [${new Date()}]: Tangram running...`)
             let annoProcess = child_process.exec(command, function (error, stdout, stderr) {
                 if (error) {
                     //将error写入日志
                     logger.log(error.stack);
                     logger.log('Error code: ' + error.code);
                     logger.log('Signal received: ' + error.signal);
+                    annotationLogger.log(`Error: [${new Date()}]: ${error.code}: ${error.signal}`)
                 }
                 logger.log('\n' + 'Stdout: ' + stdout);
                 logger.log('\n' + 'Stderr: ' + stderr);
@@ -53,11 +58,13 @@ export function execTangram(rid,destination,filename) {
             // 监听annoProcess任务的exit事件，如果发生则调用listener
             annoProcess.on('exit', function (code) {
                 logger.log("child process 'annotation' has exited，exit code: " + code);
+                annotationLogger.log(`[${new Date()}]: "child process 'annotation' has exited，exit code: "${code}`)
                 if (code === 0) setJobStatus(rid, 'finished')
                 else setJobStatus(rid, "error")
             });
         } catch (err) {
             logger.log(`Error of reading/writing file from disk or python running: ${err}`)
+            annotationLogger.log(`Error: [${new Date()}]: Error of reading/writing file from disk or python running: ${err}`)
         }
     }
 }

@@ -75,6 +75,7 @@ export default function DataPage(props) {
     ];
     const regionSpecificGenes = [
         {
+            key:1,
             gene_name: 'ID2',
             ensembl_id: "ENSG00000115738",
             main_distribution: 'cluster1, cluster2, cluster3'

@@ -19,7 +19,7 @@ function LandingPage() {
               component="a"
               target="_blank"
               rel="noopener noreferrer"
-              href="/help/manual/datasets#data_visual_help"
+              href="/help/manual/datasets#data_page_view"
           >
               <ListItemText primary={'Help - Manual'}></ListItemText>
           </ListItemButton>

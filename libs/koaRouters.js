@@ -6,6 +6,8 @@ import {execTangram} from "./execTangram.js"
 import {sendMail} from "./sendEmail.js"
 import {handler} from '../server.js'
 import { v1 as uuidv1 } from 'uuid'
+import fs from "fs";
+import {annotationLogger} from "./logSave.js";
 
 
 export const Router = router()
@@ -17,15 +19,17 @@ Router.post('/annotation/upload',
         { name: 'matrixFile', maxCount: 1 },
         { name: 'barcodesFile', maxCount: 1 },
         { name: 'featuresFile', maxCount: 1 },
-    ]), async (ctx) => {
+    ])
+    , async (ctx) => {
     // 获得rid
     let rid = uploadRecord(ctx)
     if(rid !== undefined){
+        annotationLogger.log(`${rid}:[${new Date()}]:uploaded`)
         ctx.body = {rid: rid}
         //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
-        await sendMail(ctx.request.body.emailAddress, rid, console.log)
+        sendMail(ctx.request.body.emailAddress, rid, console.log)
         // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-        await execTangram(rid,ctx.request.files['matrixFile'][0].destination, ctx.request.files['matrixFile'][0].filename);
+        execTangram(rid,ctx.request.files['matrixFile'][0].destination, ctx.request.files['matrixFile'][0].filename);
     }else console.log("A bad upload happened!!")
 })
 
@@ -33,9 +37,10 @@ Router.post('/annotation/upload',
 Router.post('/annotation/demo', async (ctx) => {
     let rid = uploadRecord(ctx)
     if(rid !== undefined){
+        annotationLogger.log(`${rid}:[${new Date()}]:uploaded`)
         // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-        await execTangram(rid,'demo', 'demo');
+        execTangram(rid,'demo', 'demo');
         // 返回rid
         ctx.body = {rid: rid}
-    }else console.log("A bad upload happened!!")
+    }else annotationLogger.log("A bad upload happened!!")
 })

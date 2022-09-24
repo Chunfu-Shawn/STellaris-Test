@@ -12,6 +12,9 @@
 /frontend/.next/
 /out/
 
+#idea
+/.idea
+
 # production
 /build
 

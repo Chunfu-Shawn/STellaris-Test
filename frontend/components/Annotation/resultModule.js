@@ -2,6 +2,7 @@ import ResultStatus from "./resultStatus.js";
 import {calTime} from "./waitModule.js";
 import {Button, Col, Row, Statistic} from "antd";
 import dynamic from "next/dynamic";
+import dataset from "../VisualTool/dataset.json";
 
 
 export default function ResultModule(props){
@@ -39,7 +40,7 @@ export default function ResultModule(props){
             </div>
             <div style={{width:"85%",margin: "70px auto"}}>
                 <h2>View</h2>
-                <DynamicVisualTool/>
+                <DynamicVisualTool setCustom={true} width={1100} dataset={dataset}/>
             </div>
         </div>
     )

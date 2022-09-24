@@ -4,7 +4,7 @@ import React from "react";
 
 const { Panel } = Collapse;
 
-export default function CoExpressedGenes(){
+export default function CoExpressedGenes(props){
     const columns = [
         {
             title: 'Genes Name',

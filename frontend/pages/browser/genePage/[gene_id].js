@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
-import {Affix, Button, Col, Drawer, Row, Tag} from 'antd';
+import {Affix, Col, Row, Tag} from 'antd';
 import React, {useRef} from "react";
 import GenePageSiderMenu from "../../../components/GenePage/GenePageSiderMenu.js";
 import Summary from "../../../components/GenePage/Summary.js";

@@ -12,6 +12,7 @@ import FeaturesFileUpload from "../components/Annotation/index/FeaturesFileUploa
 import Guidance from "../components/Annotation/index/Guidance";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
+import {throttle} from "../components/util";
 
 
 const organOptions = getAnnotationOptions(data)['organOptions'];
@@ -263,7 +264,7 @@ export default function Annotation(props) {
                                 </Button>
                                 <Popconfirm
                                     title="Are you sure to run a demo?"
-                                    onConfirm={onRunDemo}
+                                    onConfirm={throttle(1000,onRunDemo)}
                                     onCancel={cancel}
                                     okText="Yes"
                                     cancelText="No"
