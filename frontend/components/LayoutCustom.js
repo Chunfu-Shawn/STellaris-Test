@@ -29,7 +29,7 @@ export default function LayoutCustom({ children }) {
                 <meta name="og:title" content='Welcome to Spatial Trans Web' />
             </Head>
             <Navigator></Navigator>
-            <BackTop duration={100} visibilityHeight={1000}>
+            <BackTop duration={100} visibilityHeight={1000} style={{right:60}}>
                 <button style={style}>UP</button>
             </BackTop>
             {children}

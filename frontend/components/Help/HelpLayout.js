@@ -18,7 +18,7 @@ export default function HelpLayout({children, opened, selected}) {
                         </Affix>
                     </Col>
                     <Col span={21}>
-                        <div style={{display:'inline-block',paddingBottom:'8%'}}>
+                        <div style={{display:'inline-block',paddingBottom:'50px'}}>
                             {children}
                         </div>
                     </Col>

@@ -8,7 +8,7 @@
 #!/bin/sh 
 
 #### 2021-12-29 ####
-# See /home/user/data2/uplee/projects/spatialTransWeb/bin/run_tangram_mapping.py for details of bulk mapping.
+# See /home/user/data2/uplee/projects/spatialTransWeb/bin/annotation_tangram.py for details of bulk mapping.
 
 #### 1. Perform tangram mapping
 

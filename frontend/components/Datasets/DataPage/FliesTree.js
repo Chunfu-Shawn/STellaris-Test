@@ -3,7 +3,7 @@ import { Tree } from 'antd';
 const { DirectoryTree } = Tree;
 const treeData = [
     {
-        title: 'anndata-zarr',
+        title: 'h5ad files',
         key: '0-0',
         children: [
             {

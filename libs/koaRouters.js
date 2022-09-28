@@ -22,25 +22,29 @@ Router.post('/annotation/upload',
     ])
     , async (ctx) => {
     // 获得rid
-    let rid = uploadRecord(ctx)
-    if(rid !== undefined){
-        annotationLogger.log(`${rid}:[${new Date()}]:uploaded`)
+    uploadRecord(ctx).then((rid)=>{
         ctx.body = {rid: rid}
+        annotationLogger.log(`>>> ${rid}:[${new Date()}]:uploaded`)
         //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
-        sendMail(ctx.request.body.emailAddress, rid, console.log)
+        sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
         // 运行Tangram, 传入Koa的context包装的request对象，和response对象
         execTangram(rid,ctx.request.files['matrixFile'][0].destination, ctx.request.files['matrixFile'][0].filename);
-    }else console.log("A bad upload happened!!")
+    }).catch((err)=>{
+        annotationLogger.log(`[${new Date()}]: A bad upload happened: ${err}`)
+    })
 })
 
 // run demo 的路由
-Router.post('/annotation/demo', async (ctx) => {
-    let rid = uploadRecord(ctx)
-    if(rid !== undefined){
-        annotationLogger.log(`${rid}:[${new Date()}]:uploaded`)
-        // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-        execTangram(rid,'demo', 'demo');
-        // 返回rid
-        ctx.body = {rid: rid}
-    }else annotationLogger.log("A bad upload happened!!")
-})
+Router.post('/annotation/demo', async (ctx) =>
+    uploadRecord(ctx).then(
+        (rid) => {
+            ctx.body = {rid: rid}
+            annotationLogger.log(`>>> ${rid}:[${new Date()}]:uploaded`)
+            // 运行Tangram, 传入Koa的context包装的request对象，和response对象
+            execTangram(rid,'demo', 'demo');
+            },
+        (err) => annotationLogger.log(`Error: [${new Date()}]: A demo task failed when saving record: ${err}`)
+    ).catch((err)=>{
+        annotationLogger.log(`[${new Date()}]: There is a wrong happened in tangram: ${err}`)
+    })
+)

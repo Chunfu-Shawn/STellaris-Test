@@ -19,7 +19,7 @@ export function uploadFile(uuid) {
     const storage = multer.diskStorage({
         destination: file_destination,
         filename: function (ctx, file, cb) {
-            cb(null, uuidv1() + '.' + file.originalname)
+            cb(null, file.originalname)
         }
     })
     return uploadFile = multer({storage,limits})
