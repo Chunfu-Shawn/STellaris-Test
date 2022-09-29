@@ -11,13 +11,13 @@ const dataset2 = {
     "url": "https://rhesusbase.com:9999/datasets/GSM5833739_10x_Visium_deal/GSM5833739_10x_Visium_deal.jsonl"
 }
 
-export default function RegionSpecificExpression(){
+export default function SpatiallyVariableExpression(){
     const geneContext = useContext(GeneContext);
 
     return(
-        <div name={"RSE"} style={{marginLeft:20}}>
-            <a id={"RSE"} style={{position: 'relative', top: "-150px"}}></a>
-            <Divider orientation="left" orientationMargin="0"><b>Region Specific Expression</b></Divider>
+        <div name={"SV Expression"} style={{marginLeft:20}}>
+            <a id={"SV Expression"} style={{position: 'relative', top: "-150px"}}></a>
+            <Divider orientation="left" orientationMargin="0"><b>Spatially Variable Expression</b></Divider>
             <Row style={{marginLeft:20}}>
                 <Space>
                     <Col>

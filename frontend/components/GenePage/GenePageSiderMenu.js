@@ -10,7 +10,7 @@ const items = [
     {
         label: 'Spatial Expression', key: 'Spatial Expression',
         children: [
-            { label: <a href={'#RSE'}>RSE</a>, key: 'RSE' },
+            { label: <a href={'#SV Expression'}>SV Expression</a>, key: 'SV Expression' },
             { label: <a href={'#CoE-Genes'}>CoE-Genes</a>, key: 'CoE-Genes'},
             { label: <a href={'#HighlyE-Clusters'}>HighlyE-Clusters</a>, key: 'HighlyE-Clusters'}
         ],

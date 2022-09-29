@@ -5,25 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/api/getDatasetsList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/CellTypesAnnotate.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/CellTypesAnnotate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/DeNovoAnnotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/DeNovoAnnotation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/BarChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/BarChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/SiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/SiderMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/API-v1.0.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/API-v1.0.0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getDatesetsInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getDatasetsInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getGeneData.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getGeneData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getGeneList.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getGeneList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getGeneTranscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getGeneTranscript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getViCustomConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getViCustomConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/data_downloaded.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/GenePageSiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/GenePageSiderMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/RegionSpecificExpression.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/SpatiallyVariableExpression.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/SpatialExpression.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/SpatialExpression.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +126,7 @@
       <workItem from="1663214355038" duration="11690000" />
       <workItem from="1663298390342" duration="67800000" />
       <workItem from="1664198314725" duration="29626000" />
-      <workItem from="1664438070682" duration="10827000" />
+      <workItem from="1664438070682" duration="11248000" />
     </task>
     <servers />
   </component>

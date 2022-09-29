@@ -3,7 +3,7 @@ import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
 import React  from "react";
 import CoExpressedGenes from "./CoExpressedGenes";
-import RegionSpecificExpression from "./RegionSpecificExpression";
+import SpatiallyVariableExpression from "./SpatiallyVariableExpression";
 import dynamic from "next/dynamic";
 import HighlyExpressionClusters from "./HighlyExpressionClusters";
 
@@ -22,7 +22,7 @@ export default function SpatialExpression(){
                 <b>Spatial Expression </b>
                 <Link href={'/help/manual/browser#gene_page_spatial_expression'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
             </Divider>
-            <RegionSpecificExpression />
+            <SpatiallyVariableExpression />
             <CoExpressedGenes />
             <HighlyExpressionClusters/>
         </>
