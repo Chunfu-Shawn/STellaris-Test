@@ -1,7 +1,7 @@
 import viCustomConfigsDatasets from '../viCustomConfigs-Datasets.json' assert { type : 'json' }
 import viCustomConfigsSpace from '../viCustomConfigs-Space.json' assert { type : 'json' }
 import viCustomConfigsLayout from '../viCustomConfigs-Layout.json' assert { type : 'json' }
-import getDatesetsJSON from "./getDatasetsJSON.js";
+import getDatesetsJSON from "./getDatesetsInfo.js";
 
 export default function getViCustomConfig(id){
     let config = {

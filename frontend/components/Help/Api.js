@@ -18,49 +18,38 @@ export default function HelpAPI() {
                 <h4>1. URL from</h4>
                 <div className="site-card-wrapper" style={{padding:"2%"}}>
                     <p><code>https://spatialtransweb.rhesusbase.com/api/[resource]/[argument]/([argument]...)</code></p>
-                    <span>[resource] = <b>datasets-JSON</b> | <b>job-status</b> | ...</span>
+                    <span>[resource] = <b>datasets-info</b> | <b>job-status</b> | <b>gene</b> | <b>gene/transcript</b></span>
                 </div>
                 <Divider/>
                 <h3>API Resource</h3>
-                <h4>1. datasets-JSON</h4>
+                <h4>1. datasets-info</h4>
                 <div>
                     <p>This resource represents the basic information about some or a given datasets.</p>
-                    <p><b>Need one argument: (1)&apos;ST ID&apos; or (2)&apos;String&apos;</b></p>
-                    <b>(1)<code>ST ID</code></b>
+                    <p><b>Need one argument:</b></p>
+                    <b><code>(1) ST ID</code></b>
                     <ul>
                             <ul>
                                 <li>A unique id for a spatial transcriptome datasets</li>
                                 <li>Example: <code>STW-H-Bone-ST-1</code></li>
                             </ul>
                     </ul>
+                    <b><code>(2) all</code></b>
+                    <ul>
+                        <ul>
+                            <li>basic information about all datasets</li>
+                            <li>Example: <code>https://spatialtransweb.rhesusbase.com/api/datasets-info/all</code></li>
+                        </ul>
+                    </ul>
                     <p><b>Example:</b></p>
                     <ul>
-                        <li><code>https://spatialtransweb.rhesusbase.com/api/datasets-JSON/STW-H-Bone-ST-1</code></li>
+                        <li><code>https://spatialtransweb.rhesusbase.com/api/datasets-info/STW-H-Bone-ST-1</code></li>
                         <li>Result:
                             <pre id={'example1'}>
                             {
                                 JSON.stringify(
-                                    {"ID":"STW-H-Bone-ST-1","Method":"ST","Species":"Homo sapiens","Strain":"null","Organ":"Bone","Tissue":"RA,SPA","Pathological":"TRUE","Developmental_stage":"Adult","Duplicate":"9","Duplicate_ID":"RA_A_1,RA_A_2,RA_A_3,RA_B_1,RA_B_2,RA_B_3,RA_C_1,RA_C_2,RA_C_3,SPA_A_1,SPA_A_2,SPA_A_3,SPA_B_1,SPA_B_2,SPA_B_3,SPA_C_1,SPA_C_2,SPA_C_3","Date_published":"2019-12-12","Title":"Exploring inflammatory signatures in arthritic joint biopsies with Spatial Transcriptomics","Journal":"Scientific Reports","PMID":"31831833","URL":"https://doi.org/10.1038/s41598-019-55441-y","Data_format":"barcode, count (matrix), image (jpg)","Detial":"all are pathological;\n3 biological replicates, 3 technical replicates per subject","Download_state":"Done","Preprocess_state":"Preprocess, STAGATE clustering (20220805 uplee)","Duplicate_ID(deprecated)":"RA-SpA_A-C_1-3","__EMPTY":"null"}
-                                )
+                                    {"id":"STW-H-Bone-ST-1","method":"ST","species":"Homo sapiens","strain":null,"organ":"Bone","tissue":"\"RA,SPA\"","pathological":"TRUE","developmental_stage":"Adult","duplicate":"9","duplicate_id":"\"RA_A_1,RA_A_2,RA_A_3,RA_B_1,RA_B_2,RA_B_3,RA_C_1,RA_C_2,RA_C_3,SPA_A_1,SPA_A_2,SPA_A_3,SPA_B_1,SPA_B_2,SPA_B_3,SPA_C_1,SPA_C_2,SPA_C_3\"","date_published":"2019-12-11T16:00:00.000Z","title":"Exploring inflammatory signatures in arthritic joint biopsies with Spatial Transcriptomics","journal":"Scientific Reports","pmid":"31831833","url":"https://doi.org/10.1038/s41598-019-55441-y\r"})
                             }
                         </pre>
-                        </li>
-                    </ul>
-                    <b>(2) String:<code>&apos;all&apos; / &apos;human-ngs&apos; / &apos;mouse-ngs&apos; / &apos;mouse-smfish&apos;</code></b>
-                        <ul>
-                            <li>a endpoint name representing a type of datasets</li>
-                        </ul>
-                    <p><b>Example:</b></p>
-                    <ul>
-                        <li><code>https://spatialtransweb.rhesusbase.com/api/datasets-JSON/all</code></li>
-                        <li>Result:
-                            <pre id={'example1'}>
-                                {
-                                    JSON.stringify(
-                                        [{"ID":"STW-H-Spinal_Cord-ST-1","Method":"ST","Species":"Homo sapiens","Strain":"null","Organ":"Spinal Cord","Tissue":"Lumbar Spinal Cord Tissue Sections","Pathological":"TRUE","Developmental_stage":"null","Duplicate":"331","Duplicate_ID":"null","Date_published":"2019-04-05","Title":"Spatiotemporal dynamics of molecular pathology in amyotrophic lateral sclerosis","Journal":"Science","PMID":"30948552","URL":"https://doi.org/10.1126/science.aav9776","Data_format":"barcodes, annotation, counts, image(jpg)","Detial":"all records in GEO are mouse samples","Download_state":"Done","Preprocess_state":"Partially preprocess (Image not processed) (20220805)","Duplicate_ID(deprecated)":"CN51_C2 (and so on)","__EMPTY":"null"}]
-                                    ) + '......'
-                                }
-                            </pre>
                         </li>
                     </ul>
                 </div>

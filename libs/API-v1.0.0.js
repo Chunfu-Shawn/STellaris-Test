@@ -3,8 +3,8 @@ import router from 'koa-router'
 import {getJobStatus} from "./api/getJobStatus.js"
 import {getHumanMap} from "./api/getHumanMap.js"
 import {getMouseMap} from "./api/getMouseMap.js"
-import getDatesetsJSON from "./api/getDatasetsJSON.js"
-import getViCustomConfig from "./api/getViCustomConfig.js"
+import {getDatesetsInfo} from "./api/getDatesetsInfo.js"
+//import getViCustomConfig from "./api/getViCustomConfig.js"
 import {getGeneList} from "./api/getGeneList.js"
 import {getGeneData} from "./api/getGeneData.js";
 import {getGeneTranscript} from "./api/getGeneTranscript.js";
@@ -31,13 +31,13 @@ RouterAPI.get('/api/mouse-map', async (ctx) => {
 })
 
 // 设置路由和api进行数据集表文件访问
-RouterAPI.get('/api/datasets-JSON/:type', async (ctx) => {
-    ctx.body = getDatesetsJSON(ctx.params.type)
+RouterAPI.get('/api/datasets-info/:st_id', async (ctx) => {
+    ctx.body = await getDatesetsInfo(ctx.params.st_id)
 })
 
 // 设置路由和api进行vitessce配置文件访问
 RouterAPI.get('/api/vi-custom-config/:id', async (ctx) => {
-    ctx.body = getViCustomConfig(ctx.params.id)
+    //ctx.body = getViCustomConfig(ctx.params.id)
 })
 
 // 设置路由和api进行基因的搜索

@@ -19,6 +19,7 @@ const items = [
         label: 'Features', key: 'Features',
         children: [
             { label: <a href={'#Genomic Context'}>Genomic Context</a>, key: 'Genomic Context' },
+            { label: <a href={'#Expression'}>Expression</a>, key: 'Expression' },
             { label: <a href={'#Transcript'}>Transcript</a>, key: 'Transcript'}
         ],
     },

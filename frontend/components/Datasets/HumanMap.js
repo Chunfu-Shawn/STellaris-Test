@@ -5,6 +5,7 @@ import $ from 'jquery';
 const showData = {
     "Spinal Cord": 2,
     "Bone": 3,
+    "Breast": 1,
     "Heart": 1,
     "Testis": 1,
     "Uterus": 1,

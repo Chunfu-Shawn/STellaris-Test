@@ -4,6 +4,7 @@ import React from "react";
 import AttributeLayout from "./AttributeLayout";
 import Link from "next/link.js";
 import TranscriptTable from "./TranscriptTable.js";
+import GeneExpressionBarChart from "./GeneExpressionBarChart";
 
 const { Panel } = Collapse;
 
@@ -36,7 +37,7 @@ export default function Features(props){
                 <Link href={'/help/manual/browser#gene_page_features'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
             </Divider>
             <div name={"Genomic Context"} style={{marginLeft:"20px"}}>
-                <a id={"Genomic Context"} style={{position: 'relative', top: "-150px"}}></a>
+                <a id={"Genomic Context"} style={{position: 'relative', top: "-300px"}}></a>
                 <Divider orientation="left" orientationMargin="0" dashed><b>Genomic Context</b></Divider>
                 <AttributeLayout attribute={"Location"}>
                     <>
@@ -50,6 +51,11 @@ export default function Features(props){
                 <AttributeLayout attribute={"Chromosomal Location"}>
                     {props.data.map_location}
                 </AttributeLayout>
+            </div>
+            <div name={"Expression"} style={{marginLeft:"20px"}}>
+                <a id={"Expression"} style={{position: 'relative', top: "-150px"}}></a>
+                <Divider orientation="left" orientationMargin="0" dashed><b>Pseudobulk RNA-seq Expression</b></Divider>
+                <GeneExpressionBarChart/>
             </div>
             <div name={"Transcript"} style={{marginLeft:"20px"}}>
                 <a id={"Transcript"} style={{position: 'relative', top: "-150px"}}></a>

@@ -29,7 +29,7 @@ export function SiderMenu(props){
             //组件注销时去除监听事件
             document.removeEventListener('scroll', ()=>scrollEventListener(nav_contentReact))
         }
-    },[])
+    },[props.divContent])
     return(
         <Sider
             style={

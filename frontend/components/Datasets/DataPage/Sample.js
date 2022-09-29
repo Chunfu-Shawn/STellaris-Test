@@ -15,14 +15,14 @@ export default function Sample(props){
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>
-            <AttributeLayout attribute={"Species"}>{props.data.Species}</AttributeLayout>
-            <AttributeLayout attribute={"Strain"}>{props.data.Strain!=="null"?props.data.Strain:"--"}</AttributeLayout>
-            <AttributeLayout attribute={"Pathological"}>{props.data.Pathological}</AttributeLayout>
+            <AttributeLayout attribute={"Species"}>{props.data.species}</AttributeLayout>
+            <AttributeLayout attribute={"Strain"}>{props.data.strain!==null?props.data.strain:"--"}</AttributeLayout>
+            <AttributeLayout attribute={"Pathological"}>{props.data.pathological}</AttributeLayout>
             <AttributeLayout attribute={"Developmental Stage"}>
-                {props.data.Developmental_stage!=="null"?props.data.Developmental_stage:"--"}
+                {props.data.developmental_stage!==null?props.data.developmental_stage:"--"}
             </AttributeLayout>
-            <AttributeLayout attribute={"Organ"}>{props.data.Organ}</AttributeLayout>
-            <AttributeLayout attribute={"Tissue"}>{props.data.Tissue}</AttributeLayout>
+            <AttributeLayout attribute={"Organ"}>{props.data.organ}</AttributeLayout>
+            <AttributeLayout attribute={"Tissue"}>{props.data.tissue}</AttributeLayout>
         </div>
     )
 }
