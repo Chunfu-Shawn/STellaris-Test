@@ -12,6 +12,7 @@ import Summary from "../../../components/GenePage/Summary.js";
 import Sample from "../../../components/Datasets/DataPage/Sample";
 import VisualToolModule from "../../../components/Datasets/DataPage/VisualToolModule";
 import AttributeLayout from "../../../components/GenePage/AttributeLayout";
+import {DateFomatter} from "../../../components/util";
 
 export async function getServerSideProps(context) {
     // params contains the post `st_id`.
@@ -154,7 +155,7 @@ export default function DataPage(props) {
                                             </Col>
                                             <Col span={8}>
                                                 <h4>Date Published</h4>
-                                                <div className={"description"}>{new Date(props.data.date_published).toLocaleDateString()}</div>
+                                                <div className={"description"}>{DateFomatter(new Date(props.data.date_published))}</div>
                                             </Col>
                                             <Col span={6}>
                                                 <h4>Method</h4>

@@ -24,9 +24,7 @@ const getCircularReplacer = () => {
 export async function getGeneList(species,idType,geneName){
     let connection = mysql.createConnection(options)
     // 连接数据库
-    connection.connect(() => {
-        console.log('Connect database successfully')
-    })
+    connection.connect()
     let selectSql = ''
     let geneIdType = ''
     // 判断基因名类型
@@ -46,9 +44,8 @@ export async function getGeneList(species,idType,geneName){
                 reject(err);
             }
             resolve(JSON.parse(JSON.stringify(result)))
-            connection.end(()=>{
-                console.log('Database connect closed')
-            })
+            connection.end(()=>
+                console.log("search for target gene"))
         })
     })
 }

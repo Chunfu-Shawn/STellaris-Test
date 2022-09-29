@@ -59,7 +59,7 @@ export default function BarChart(props){
             // 销毁图表实例，释放内存
             chartInstance && chartInstance.dispose();
         };
-    }, [props.num_date_published,renderChart]);
+    }, [props.num_date_published]);
 
     return(
         <div ref={chartRef} style={{height:50}}></div>

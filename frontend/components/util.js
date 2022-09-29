@@ -44,3 +44,13 @@ export function debounce (idle, action){
             }, idle);
     };
 }
+
+/**
+ * 返回year-month-day格式的时间
+ * @param date  {Date}  Date对象
+ * @return {String}    返回格式化时间
+ */
+
+export function DateFomatter (date){
+    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+}

@@ -11,9 +11,7 @@ const options = {
 export async function getGeneTranscript(geneId){
     let connection = mysql.createConnection(options)
     // 连接数据库
-    connection.connect(() => {
-        console.log('Connect database successfully')
-    })
+    connection.connect()
     // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
     let selectSql = `SELECT * FROM transcripts_info WHERE ensembl_id=?`;
     //查询 相似LIKE
@@ -25,7 +23,7 @@ export async function getGeneTranscript(geneId){
             }
             resolve(JSON.parse(JSON.stringify(result)))
             connection.end(()=>{
-                console.log('Database connect closed')
+                console.log('get gene transcripts')
             })
         })
     })

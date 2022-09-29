@@ -6,7 +6,6 @@ import FeaturesFileUpload from "./index/FeaturesFileUpload";
 import {throttle} from "../util";
 import {useState} from "react";
 import {useRouter} from "next/router";
-import {data, getAnnotationOptions} from "../Datasets/getData&Options";
 
 export default function CellTypesAnnotate(props){
     const {
