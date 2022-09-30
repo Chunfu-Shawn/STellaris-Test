@@ -74,8 +74,8 @@ export default function ManualBrowser() {
                 <h4>- <i>Spatial Expression*</i></h4>
                 <a id={"gene_page_spatial_expression"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section represents some information about spatial expression of this gene, including three parts:
-                    <b> Region Specific Expression</b>, <b>Co-expressed Genes</b>, and <b>Highly-expressed Clusters</b>.</p>
-                <h5>(a) Region Specific Expression</h5>
+                    <b> Spatially Variable Expression</b>, <b>Co-expressed Genes</b>, and <b>Highly-expressed Clusters</b>.</p>
+                <h5>(a) Spatially Variable Expression</h5>
                 <p>Gene expression chart in a typical and annotated spatial data will be shown when the gene expression is
                     spatially variable in a tissue type. Certainly
                 </p>

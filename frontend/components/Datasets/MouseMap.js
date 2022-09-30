@@ -56,16 +56,6 @@ export default function MouseMap(props){
                             }
                         },
                         blur: {},
-                        select: {
-                            itemStyle: {
-                                color: '#003a8c'
-                            },
-                            label: {
-                                show: false,
-                                textBorderColor: '#fff',
-                                textBorderWidth: 2
-                            }
-                        }
                     },
                     grid: {
                         left: '60%',

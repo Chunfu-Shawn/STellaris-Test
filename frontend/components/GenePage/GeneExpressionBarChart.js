@@ -1,5 +1,4 @@
 import React, {useEffect, useRef} from "react";
-import * as d3 from "d3-scale-chromatic";
 import * as echarts from "echarts";
 
 export default function GeneExpressionBarChart(){
@@ -24,7 +23,6 @@ export default function GeneExpressionBarChart(){
         ]);
         barData.push(echarts.number.round(val, 2));
     }
-
 
     /*
         params：包含了当前数据信息和坐标系的信息。
@@ -92,8 +90,8 @@ export default function GeneExpressionBarChart(){
                         type: 'shadow'
                     },
                     formatter: (param) => `<b>${param[0].name}</b>
-                        <br/><b>${param[0].seriesName}</b>: ${param[0].value}
-                        <br/><b>${param[1].seriesName}</b>: ${param[1].value[2]-param[0].value}`
+                        <br/><b>${param[0].seriesName}</b>: ${param[0].value.toFixed(3)} ± ${(param[1].value[2]-param[0].value).toFixed(3)}
+                        <br/><b>Number of samples</b>: `
                 },
                 grid: {
                     top: 10,
@@ -129,7 +127,7 @@ export default function GeneExpressionBarChart(){
                 series: [
                     {
                         type: 'bar',
-                        name: 'Log Value',
+                        name: 'Mean RPKM',
                         data: barData,
                         itemStyle: {
                             normal: {

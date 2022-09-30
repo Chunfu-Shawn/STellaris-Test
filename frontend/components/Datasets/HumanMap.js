@@ -53,17 +53,7 @@ export default function HumanMap(props){
                                 textBorderWidth: 2
                             }
                         },
-                        blur: {},
-                        select: {
-                            itemStyle: {
-                                color: '#873800'
-                            },
-                            label: {
-                                show: false,
-                                textBorderColor: '#fff',
-                                textBorderWidth: 2
-                            }
-                        }
+                        blur: {}
                     },
                     grid: {
                         left: '60%',

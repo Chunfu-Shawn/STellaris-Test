@@ -44,35 +44,28 @@ export async function getServerSideProps(context) {
 export default function DataPage(props) {
     const divContent = useRef(null); //标识nav导航栏渲染内容
     const duplicateOption = props.data.duplicate_id.split(',')
-    const columns = [
-        {
-            title: 'Key',
-            dataIndex: 'key',
-            width:'40%'
-        },
-        {
-            title: 'Value',
-            dataIndex: 'value',
-            width:'60%',
-            wrap:true
-        },
-    ];
     const geneColumns = [
         {
             title: 'Gene Name',
             dataIndex: 'gene_name',
-            width:'30%',
+            width:'20%',
         },
         {
             title: 'Ensembl ID',
             dataIndex: 'ensembl_id',
-            width:'30%',
+            width:'20%',
             render: (text) => <Link href={`/genePage/${text}`}><a target={'_blank'}>{text}</a></Link>
+        },
+        {
+            title: 'Duplicate ID',
+            dataIndex: 'duplicate_id',
+            width:'30%',
+            wrap:true
         },
         {
             title: 'Main Distribution',
             dataIndex: 'main_distribution',
-            width:'40%',
+            width:'30%',
             wrap:true
         },
     ];
@@ -82,19 +75,6 @@ export default function DataPage(props) {
             gene_name: 'ID2',
             ensembl_id: "ENSG00000115738",
             main_distribution: 'cluster1, cluster2, cluster3'
-        }
-    ]
-    const dataDuplicates =[
-        {
-            key:"Duplicate",
-            value:props.data.duplicate
-        },
-        props.data.duplicate_id===null?{
-            key:"Duplicate ID",
-            value:"--"
-        }:{
-            key:"Duplicate ID",
-            value: duplicateOption.join(", ")
         }
     ]
     const iconStyle = {color:"dimgray",float:"right",fontSize:"22px",margin:'0 2%'}
@@ -236,8 +216,8 @@ export default function DataPage(props) {
                                     <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
                                         <span style={{fontSize:22}}>Files </span>
                                     </Divider>
-                                    <div className="site-card-wrapper" style={{padding:"2%"}}>
-                                        <FliesTree />
+                                    <div className="site-card-wrapper" style={{padding:"10px"}}>
+                                        <FliesTree st_id={props.data.id} duplicates_id={duplicateOption}/>
                                     </div>
                                 </div>
                             </div>

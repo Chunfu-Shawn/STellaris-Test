@@ -4,6 +4,10 @@ const { Sider } = Layout;
 
 export function SiderMenu(props){
     const [activeNav,setActiveNav] = useState(["Summary"]);//与标识导航栏高亮
+    const onClick = (e)=>{
+        console.log(e.key)
+        setTimeout(()=>setActiveNav(e.key),900)
+    }
     const scrollEventListener = () => {
         //判断页面是否有divContent.current
         if(props.divContent.current !== null) {
@@ -48,6 +52,7 @@ export function SiderMenu(props){
             <Menu
                 defaultOpenKeys={props.openKeys}
                 selectedKeys={activeNav}
+                onClick={onClick}
                 mode="inline"
                 items={props.items}
             />

@@ -65,12 +65,12 @@ const columns =[
     }
 ]
 
-export default function GeneInfoAttributionsTable(){
+export default function DatasetAttributesTable(){
     return(
         <div style={{marginLeft:100,width:800}}>
             <Table dataSource={
                 data.map( item => {
-                    return { key:item.Attribution,...item}
+                    return { key:item.Attribute,...item}
                 })
             } columns={columns} size={"small"} bordered={true} pagination={false}/>
         </div>
