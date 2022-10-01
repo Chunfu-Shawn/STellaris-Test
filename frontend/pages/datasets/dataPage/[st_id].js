@@ -13,6 +13,7 @@ import Sample from "../../../components/Datasets/DataPage/Sample";
 import VisualToolModule from "../../../components/Datasets/DataPage/VisualToolModule";
 import AttributeLayout from "../../../components/GenePage/AttributeLayout";
 import {DateFomatter} from "../../../components/util";
+import Features from "../../../components/Datasets/DataPage/Features";
 
 export async function getServerSideProps(context) {
     // params contains the post `st_id`.
@@ -44,39 +45,6 @@ export async function getServerSideProps(context) {
 export default function DataPage(props) {
     const divContent = useRef(null); //标识nav导航栏渲染内容
     const duplicateOption = props.data.duplicate_id.split(',')
-    const geneColumns = [
-        {
-            title: 'Gene Name',
-            dataIndex: 'gene_name',
-            width:'20%',
-        },
-        {
-            title: 'Ensembl ID',
-            dataIndex: 'ensembl_id',
-            width:'20%',
-            render: (text) => <Link href={`/genePage/${text}`}><a target={'_blank'}>{text}</a></Link>
-        },
-        {
-            title: 'Duplicate ID',
-            dataIndex: 'duplicate_id',
-            width:'30%',
-            wrap:true
-        },
-        {
-            title: 'Main Distribution',
-            dataIndex: 'main_distribution',
-            width:'30%',
-            wrap:true
-        },
-    ];
-    const regionSpecificGenes = [
-        {
-            key:1,
-            gene_name: 'ID2',
-            ensembl_id: "ENSG00000115738",
-            main_distribution: 'cluster1, cluster2, cluster3'
-        }
-    ]
     const iconStyle = {color:"dimgray",float:"right",fontSize:"22px",margin:'0 2%'}
 
     if(!props) return <Error statusCode={404}></Error>
@@ -158,26 +126,7 @@ export default function DataPage(props) {
                                         <AttributeLayout attribute={"Duplicate ID"}>{props.data.duplicate_id!==null?props.data.duplicate_id:"--"}</AttributeLayout>
                                     </div>
                                 </div>
-                                <div name={"Features"}>
-                                    <a id={"Features"} style={{position: 'relative', top: "-150px"}}></a>
-                                    <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
-                                        <span style={{fontSize:22}}>Features </span>
-                                        <Link href={'/help/manual/datasets#data_page_features'}>
-                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
-                                        </Link>
-                                    </Divider>
-                                    <div style={{marginLeft:20}}>
-                                        <Divider orientation="left" orientationMargin="0" dashed>
-                                            <span style={{fontSize:18}}>Region variable Genes</span>
-                                        </Divider>
-                                        <div style={{overflow:"scroll",height:200}}>
-                                            <Table columns={geneColumns} pagination={false} dataSource={regionSpecificGenes}
-                                                   size={"middle"}
-                                                   bordered={true}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
+                                <Features/>
                                 <VisualToolModule
                                     st_id={props.data.id}
                                     duplicateOption={duplicateOption}
