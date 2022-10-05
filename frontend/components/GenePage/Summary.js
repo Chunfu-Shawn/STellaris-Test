@@ -20,6 +20,11 @@ export default function Summary(props){
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>
+            {props.dataSV.length !== 0 ?
+                <AttributeLayout attribute={<b>Spatially Variable Expression</b>}>{<b>The gene is a spatially variable
+                    gene in {props.dataSV.map(item => item.duplicate_id)}</b>}</AttributeLayout>
+                :<></>
+            }
             {
                 props.data.symbol!=="-"?
                 <AttributeLayout attribute={"Symbol"}>
@@ -43,7 +48,6 @@ export default function Summary(props){
                     <AttributeLayout attribute={"Gene Synonyms"}>{props.data.name_synonyms.split('|').join(', ')}</AttributeLayout>
                     :<></>
             }
-            <AttributeLayout attribute={"Variable Expression in Regions"}>{}</AttributeLayout>
             {
                 props.data.other_designations?
                 <AttributeLayout attribute={"Other Designations"}>{props.data.other_designations.split('|').join('; ')}</AttributeLayout>

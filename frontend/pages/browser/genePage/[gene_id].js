@@ -29,6 +29,11 @@ export async function getServerSideProps(context) {
     )
     const dataTrans = await resTrans.json()
 
+    const resSV = await fetch((process.env.NODE_ENV==="production"?
+            process.env.PRODUCTION_URL:"http://localhost:3000")
+        +"/api/spatially-variable-gene/gene/"+ data[0].symbol)
+    const dataSV = await resSV.json()
+
     // Pass post data to the page via props
     return {
         props: {
@@ -36,7 +41,8 @@ export async function getServerSideProps(context) {
             data:data[0],
             trans:dataTrans.map(data => {
                 return {key: data.ensembl_transcript_id, ...data}
-            })
+            }),
+            dataSV:dataSV
         }
     }
 }
@@ -69,10 +75,17 @@ export default function GenePage(props) {
                                         <span style={{fontSize:"22px",fontWeight:"bold",marginRight:10}}>{props.data.symbol}</span>
                                         <span style={{fontSize:"16px",fontWeight:"bold",color:"gray"}}> {props.data.ensembl_id}</span>
                                     </Row>
-                                    <a href={"#RSE"}><Tag color="volcano">REGIONAL SPECIFIC GENE</Tag></a>
+                                    {
+                                        props.dataSV.length !== 0 ?
+                                        <a href={"#SV Expression"}><Tag color="volcano">SPATIALLY VARIABLE GENE</Tag></a>:
+                                        <a href={"#Expression"}><Tag color="geekblue">NON-SPATIALLY VARIABLE GENE</Tag></a>
+                                    }
                                 </div>
-                                <Summary data={props.data}/>
-                                <SpatialExpression />
+                                <Summary data={props.data} dataSV={props.dataSV}/>
+                                {
+                                    props.dataSV.length !== 0 ? <SpatialExpression/> :
+                                    <></>
+                                }
                                 <Features data={props.data} trans={props.trans}/>
                             </div>
                         </Col>

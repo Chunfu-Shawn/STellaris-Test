@@ -54,3 +54,14 @@ export function debounce (idle, action){
 export function DateFomatter (date){
     return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 }
+
+/**
+ * 将科学计数法记录的数字转变成非冗余正常数字
+ * 参考：https://cloud.tencent.com/developer/article/1489054
+ * @param num  {Number}  科学计数法记录的数值对象
+ * @return {String}    数值对象
+ */
+export function toNonExponential(num) {
+    let m = num.toExponential().match(/\d(?:\.(\d*))?e([+-]\d+)/);
+    return num.toFixed(Math.max(0, (m[1] || '').length - m[2]));
+}

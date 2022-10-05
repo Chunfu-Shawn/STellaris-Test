@@ -28,6 +28,25 @@ export async function getServerSideProps(context) {
             notFound: true,
         }
     }
+    const duplicateOption = data[0].duplicate_id.split(',')
+    // get spatially variable gene
+    let spatiallyVariableGenes = []
+    for (const item of duplicateOption) {
+        const res = await fetch((process.env.NODE_ENV==="production"?
+                process.env.PRODUCTION_URL:"http://localhost:3000")
+            +"/api/spatially-variable-gene/duplicate/"+item)
+        const data = await res.json()
+        spatiallyVariableGenes.push.apply(spatiallyVariableGenes, data)
+    }
+    // get correlation of genes expression
+    let genesExpressionCorrelation = []
+    for (const item of duplicateOption) {
+        const res = await fetch((process.env.NODE_ENV==="production"?
+                process.env.PRODUCTION_URL:"http://localhost:3000")
+            +"/api/genes-expression-correlation/duplicate/"+item)
+        const data = await res.json()
+        genesExpressionCorrelation.push.apply(genesExpressionCorrelation, data)
+    }
     /*const resConfig = await fetch((process.env.NODE_ENV==="production"?
             process.env.PRODUCTION_URL:"http://localhost:3000/")
         +"api/vi-custom-config/"+context.params.st_id)
@@ -37,6 +56,8 @@ export async function getServerSideProps(context) {
     return {
         props: {
             data:data[0],
+            spatiallyVariableGenes:spatiallyVariableGenes,
+            genesExpressionCorrelation:genesExpressionCorrelation
             //config:config
         }
     }
@@ -126,7 +147,11 @@ export default function DataPage(props) {
                                         <AttributeLayout attribute={"Duplicate ID"}>{props.data.duplicate_id!==null?props.data.duplicate_id:"--"}</AttributeLayout>
                                     </div>
                                 </div>
-                                <Features/>
+                                <Features
+                                    spatiallyVariableGenes={props.spatiallyVariableGenes}
+                                    genesExpressionCorrelation={props.genesExpressionCorrelation}
+                                    duplicateOption={duplicateOption}
+                                />
                                 <VisualToolModule
                                     st_id={props.data.id}
                                     duplicateOption={duplicateOption}

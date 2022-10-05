@@ -1,8 +1,8 @@
-import {Layout} from 'antd';
-import React from "react";
+import React,{useContext} from "react";
 import {SiderMenu} from "../SiderMenu.js";
+import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
 
-const items = [
+const itemsSV = [
     {
         label: <a href={'#Summary'}>Summary</a>,
         key: 'Summary'
@@ -27,11 +27,28 @@ const items = [
         label: <a href={'#download'}>Download</a>, key: 'download'
     }
 ]
+const itemsNonSV = [
+    {
+        label: <a href={'#Summary'}>Summary</a>,
+        key: 'Summary'
+    },
+    {
+        label: 'Features', key: 'Features',
+        children: [
+            { label: <a href={'#Genomic Context'}>Genomic Context</a>, key: 'Genomic Context' },
+            { label: <a href={'#Expression'}>Expression</a>, key: 'Expression' },
+            { label: <a href={'#Transcript'}>Transcript</a>, key: 'Transcript'}
+        ],
+    },
+    {
+        label: <a href={'#download'}>Download</a>, key: 'download'
+    }
+]
 
 export default function GenePageSiderMenu(props){
-
+    const geneContext = useContext(GeneContext);
     return(
-        <SiderMenu items = {items}
+        <SiderMenu items = {geneContext.dataSV.length !== 0 ? itemsSV : itemsNonSV}
                    openKeys = {["Spatial Expression","Features"]}
                    divContent={props.divContent}
         />

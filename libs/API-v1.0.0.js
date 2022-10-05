@@ -9,6 +9,8 @@ import {getGeneList} from "./api/getGeneList.js"
 import {getGeneData} from "./api/getGeneData.js";
 import {getGeneTranscript} from "./api/getGeneTranscript.js";
 import {getDatasetsList} from "./api/getDatasetsList.js";
+import {getSpatiallyVariableGenes} from "./api/getSpatiallyVariableGenes.js";
+import {getGenesExpressionCorrelation} from "./api/getGenesExpressionCorrelation.js";
 
 
 export const RouterAPI = router()
@@ -59,4 +61,14 @@ RouterAPI.get('/api/gene/:geneId', async (ctx) => {
 // 设置路由和api进行基因转录本的搜索
 RouterAPI.get('/api/gene/transcript/:geneId', async (ctx) => {
     ctx.body = await getGeneTranscript(ctx.params.geneId)
+})
+
+// 设置路由和api通过基因id或者duplicate_id进行差异基因的搜索
+RouterAPI.get('/api/spatially-variable-gene/:geneOrDuplicate/:param', async (ctx) => {
+    ctx.body = await getSpatiallyVariableGenes(ctx.params.geneOrDuplicate,ctx.params.param)
+})
+
+// 设置路由和api通过基因id或者duplicate_id进行基因共表达的搜索
+RouterAPI.get('/api/genes-expression-correlation/:geneOrDuplicate/:param', async (ctx) => {
+    ctx.body = await getGenesExpressionCorrelation(ctx.params.geneOrDuplicate,ctx.params.param)
 })
