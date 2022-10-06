@@ -14,7 +14,8 @@ export async function getSpatiallyVariableGenes(geneOrDuplicate,param) {
     connection.connect()
     // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
     let selectSql
-    if(geneOrDuplicate === "gene") selectSql = `SELECT * FROM spatially_variable_genes WHERE gene_symbol=?`
+    // 加上BINARY区分大小写
+    if(geneOrDuplicate === "gene") selectSql = `SELECT * FROM spatially_variable_genes WHERE BINARY gene_symbol=?`
     else if( geneOrDuplicate === "duplicate" ) selectSql = `SELECT * FROM spatially_variable_genes WHERE duplicate_id=?`
 
     //查询

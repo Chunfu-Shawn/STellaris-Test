@@ -7,17 +7,9 @@
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/Features.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/Features.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/CoExpressedGenes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/CoExpressedGenes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Features.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/TranscriptTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/TranscriptTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/browser/genePage/[gene_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/browser/genePage/[gene_id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getGeneData.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getGeneData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getGeneTranscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getGeneTranscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/Sample.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/Sample.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getGenesExpressionCorrelation.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getGenesExpressionCorrelation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getSpatiallyVariableGenes.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getSpatiallyVariableGenes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +127,7 @@
       <workItem from="1663214355038" duration="11690000" />
       <workItem from="1663298390342" duration="67800000" />
       <workItem from="1664198314725" duration="29626000" />
-      <workItem from="1664438070682" duration="39460000" />
+      <workItem from="1664438070682" duration="40918000" />
     </task>
     <servers />
   </component>

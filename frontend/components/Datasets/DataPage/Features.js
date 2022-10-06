@@ -207,7 +207,7 @@ export default function Features(props){
                     <Table columns={CEGeneColumns}
                            dataSource={props.genesExpressionCorrelation.map(item=> {
                                return {
-                                   key:item.x_gene_symbol_y_gene_symbol,
+                                   key:item.x_gene_symbol+item.y_gene_symbol,
                                    ...item
                                }
                            })}
