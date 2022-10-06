@@ -21,8 +21,8 @@ export default function Summary(props){
                 </Link>
             </Divider>
             {props.dataSV.length !== 0 ?
-                <AttributeLayout attribute={<b>Spatially Variable Expression</b>}>{<b>The gene is a spatially variable
-                    gene in {props.dataSV.map(item => item.duplicate_id)}</b>}</AttributeLayout>
+                <AttributeLayout attribute={<b>Spatially Variable Expression</b>}>{<b>The gene identitied a spatially variable gene
+                    was found in {props.dataSV.map(item => item.duplicate_id)}</b>}</AttributeLayout>
                 :<></>
             }
             {

@@ -28,21 +28,26 @@ export async function getServerSideProps(context) {
         +"/api/gene/transcript/"+ context.params.gene_id
     )
     const dataTrans = await resTrans.json()
-
+    // get spatially variable information
     const resSV = await fetch((process.env.NODE_ENV==="production"?
             process.env.PRODUCTION_URL:"http://localhost:3000")
-        +"/api/spatially-variable-gene/gene/"+ data[0].symbol)
+        +"/api/spatially-variable-gene/gene/" + data[0].symbol)
     const dataSV = await resSV.json()
+    // get correlation of genes expression
+    const resCor = await fetch((process.env.NODE_ENV==="production"?
+                process.env.PRODUCTION_URL:"http://localhost:3000")
+            +"/api/genes-expression-correlation/gene/" + data[0].symbol)
+    const dataCor = await resCor.json()
+
 
     // Pass post data to the page via props
     return {
         props: {
             // return first record
             data:data[0],
-            trans:dataTrans.map(data => {
-                return {key: data.ensembl_transcript_id, ...data}
-            }),
-            dataSV:dataSV
+            trans:dataTrans,
+            dataSV:dataSV,
+            dataCor:dataCor,
         }
     }
 }

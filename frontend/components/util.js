@@ -65,3 +65,28 @@ export function toNonExponential(num) {
     let m = num.toExponential().match(/\d(?:\.(\d*))?e([+-]\d+)/);
     return num.toFixed(Math.max(0, (m[1] || '').length - m[2]));
 }
+/**
+ * export table to csv or excel
+ * @param data  {JSON}  js对象数据
+ * @param fileName  {String}  文件名称
+ * @return {null} 下载文件
+ */
+export function exportToCsv(data,fileName) {
+    const replacer = (key, value) => (value === null ? "" : value);
+    let dataDownload = data;
+    const header = Object.keys(dataDownload[0]);
+    let csv = dataDownload.map(row =>
+        header
+            .map(fieldName => JSON.stringify(row[fieldName], replacer))
+            .join(",")
+    );
+    csv.unshift(header.join(","));
+    csv = csv.join("\r\n");
+    csv = "data:text/csv;charset=utf-8,\uFEFF" + csv;;
+    const link = document.createElement("a");
+    link.href = encodeURI(csv);
+    link.download = `${fileName}.csv`;
+    document.body.appendChild(link); // Required for FF
+    link.click(); // This will download the data file named 'my_data.csv'.
+    document.body.removeChild(link); // Required for FF
+};

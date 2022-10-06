@@ -57,7 +57,7 @@ export async function getServerSideProps(context) {
         props: {
             data:data[0],
             spatiallyVariableGenes:spatiallyVariableGenes,
-            genesExpressionCorrelation:genesExpressionCorrelation
+            genesExpressionCorrelation:genesExpressionCorrelation,
             //config:config
         }
     }
@@ -148,6 +148,7 @@ export default function DataPage(props) {
                                     </div>
                                 </div>
                                 <Features
+                                    data={props.data}
                                     spatiallyVariableGenes={props.spatiallyVariableGenes}
                                     genesExpressionCorrelation={props.genesExpressionCorrelation}
                                     duplicateOption={duplicateOption}

@@ -1,8 +1,8 @@
-import {Divider, Table} from "antd";
+import {Button, Col, Divider, Row, Table} from "antd";
 import Link from "next/link";
 import {QuestionCircleOutlined} from "@ant-design/icons";
 import React from "react";
-import {toNonExponential} from "../../util";
+import {exportToCsv, toNonExponential} from "../../util";
 
 export default function Features(props){
     const SVGeneColumns = [
@@ -17,7 +17,7 @@ export default function Features(props){
                         value: value.gene_symbol
                     }
                 }),
-            onFilter: (value, record) => record.name.indexOf(value) === 0,
+            onFilter: (value, record) => record.gene_symbol.indexOf(value) === 0,
             filterSearch: true,
         },
         {
@@ -39,7 +39,7 @@ export default function Features(props){
                     value: 'Category 2',
                 },
             ],
-            onFilter: (value, record) => record.name.indexOf(value) === 0,
+            onFilter: (value, record) => record.ensembl_id.indexOf(value) === 0,
             filterSearch: true,
         },
         {
@@ -86,28 +86,32 @@ export default function Features(props){
             title: 'Gene Name',
             dataIndex: 'x_gene_symbol',
             width:'12%',
-            filters: props.genesExpressionCorrelation.map(value =>
-            {
-                return{
-                    text: value.x_gene_symbol,
-                    value: value.x_gene_symbol
+            filters: Array.from(new Set(props.genesExpressionCorrelation.map(
+                value => value.x_gene_symbol ))).map(
+                item => {
+                    return{
+                        text: item,
+                        value: item
+                    }
                 }
-            }),
-            onFilter: (value, record) => record.name.indexOf(value) === 0,
+            ),
+            onFilter: (value, record) => record.x_gene_symbol.indexOf(value) === 0,
             filterSearch: true,
         },
         {
             title: 'Gene Name',
             dataIndex: 'y_gene_symbol',
             width:'12%',
-            filters: props.genesExpressionCorrelation.map(value =>
-            {
-                return{
-                    text: value.y_gene_symbol,
-                    value: value.y_gene_symbol
+            filters: Array.from(new Set(props.genesExpressionCorrelation.map(
+                value => value.y_gene_symbol ))).map(
+                item => {
+                    return{
+                        text: item,
+                        value: item
+                    }
                 }
-            }),
-            onFilter: (value, record) => record.name.indexOf(value) === 0,
+            ),
+            onFilter: (value, record) => record.y_gene_symbol.indexOf(value) === 0,
             filterSearch: true,
         },
         {
@@ -146,7 +150,7 @@ export default function Features(props){
                     value: value
                 }
             }),
-            onFilter: (value, record) => record.name.indexOf(value) === 0,
+            onFilter: (value, record) => record.duplicate_id.indexOf(value) === 0,
         },
     ];
     return(
@@ -160,21 +164,53 @@ export default function Features(props){
             </Divider>
             <div style={{marginLeft:20}}>
                 <Divider orientation="left" orientationMargin="0" dashed>
-                    <span style={{fontSize:18}}>Spatially Variable Genes</span>
+                    <Row gutter={[80]} style={{width:"auto"}}>
+                        <Col span={14}>
+                            <span style={{fontSize:18}}>Spatially Variable Genes</span>
+                        </Col>
+                        <Col span={10}>
+                            <Button size={"small"}
+                                    onClick={() => exportToCsv(props.spatiallyVariableGenes,`${props.data.id}_SV_genes`)}
+                            >
+                                Export to CSV
+                            </Button>
+                        </Col>
+                    </Row>
                 </Divider>
                 <div style={{overflow:"scroll"}}>
                     <Table columns={SVGeneColumns}
-                           dataSource={props.spatiallyVariableGenes}
+                           dataSource={props.spatiallyVariableGenes.map(item=> {
+                               return {
+                                   key:item.gene_symbol,
+                                   ...item
+                               }
+                           })}
                            size={"small"}
                            bordered={true}
                     />
                 </div>
                 <Divider orientation="left" orientationMargin="0" dashed>
-                    <span style={{fontSize:18}}>Co-Expressed Genes</span>
+                    <Row gutter={[80]} style={{width:"auto"}}>
+                        <Col span={14}>
+                            <span style={{fontSize:18}}>Co-Expressed Genes</span>
+                        </Col>
+                        <Col span={10}>
+                            <Button size={"small"}
+                                    onClick={() => exportToCsv(props.genesExpressionCorrelation,`${props.data.id}_coexpressed_genes`)}
+                            >
+                                Export to CSV
+                            </Button>
+                        </Col>
+                    </Row>
                 </Divider>
                 <div style={{overflow:"scroll"}}>
                     <Table columns={CEGeneColumns}
-                           dataSource={props.genesExpressionCorrelation}
+                           dataSource={props.genesExpressionCorrelation.map(item=> {
+                               return {
+                                   key:item.x_gene_symbol_y_gene_symbol,
+                                   ...item
+                               }
+                           })}
                            size={"small"}
                            bordered={true}
                     />

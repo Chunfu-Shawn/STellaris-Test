@@ -1,34 +1,15 @@
-import {Button, Collapse, Divider} from "antd";
+import {Button, Col, Collapse, Divider, Row} from "antd";
 import {LinkOutlined, QuestionCircleOutlined} from "@ant-design/icons";
 import React from "react";
 import AttributeLayout from "./AttributeLayout";
 import Link from "next/link.js";
 import TranscriptTable from "./TranscriptTable.js";
 import GeneExpressionBarChart from "./GeneExpressionBarChart";
+import {exportToCsv} from "../util";
 
 const { Panel } = Collapse;
 
 export default function Features(props){
-    // export table to csv or excel
-    const exportToCsv = () => {
-        const replacer = (key, value) => (value === null ? "" : value);
-        let dataDownload = props.trans;
-        const header = Object.keys(dataDownload[0]);
-        let csv = dataDownload.map(row =>
-            header
-                .map(fieldName => JSON.stringify(row[fieldName], replacer))
-                .join(",")
-        );
-        csv.unshift(header.join(","));
-        csv = csv.join("\r\n");
-        csv = "data:text/csv;charset=utf-8,\uFEFF" + csv;;
-        const link = document.createElement("a");
-        link.href = encodeURI(csv);
-        link.download = `${props.trans[0].ensembl_id}_transcripts.csv`;
-        document.body.appendChild(link); // Required for FF
-        link.click(); // This will download the data file named 'my_data.csv'.
-        document.body.removeChild(link); // Required for FF
-    };
 
     return(
         <>
@@ -41,7 +22,8 @@ export default function Features(props){
                 <Divider orientation="left" orientationMargin="0" dashed><b>Genomic Context</b></Divider>
                 <AttributeLayout attribute={"Location"}>
                     <>
-                        <a target={"_blank"} href={`http://www.ensembl.org/Homo_sapiens/Location/View?g=${props.data.ensembl_id}`}
+                        <a target={"_blank"}
+                           href={`https://www.ensembl.org/${props.data.organism === "Homo sapiens"?"Homo_sapiens":"Mus_musculus"}/Location/View?g=${props.data.ensembl_id}`}
                            rel="noreferrer">
                             Chromosome  {`${props.data.chrom_scaf}: ${props.data.start}-${props.data.end}`}<LinkOutlined />
                         </a>
@@ -59,19 +41,29 @@ export default function Features(props){
             </div>
             <div name={"Transcript"} style={{marginLeft:"20px"}}>
                 <a id={"Transcript"} style={{position: 'relative', top: "-150px"}}></a>
-                <Divider orientation="left" orientationMargin="0" dashed><b>Transcript</b></Divider>
+                <Divider orientation="left" orientationMargin="0" dashed>
+                    <Row gutter={[20,0]} style={{width:"auto"}}>
+                        <Col span={14}>
+                            <b>Transcript</b>
+                        </Col>
+                        <Col span={10}>
+                            <Button size={"small"}
+                                    onClick={() => exportToCsv(props.trans,`${props.data.symbol}_transcripts`)}
+                            >
+                                Export to CSV
+                            </Button>
+                        </Col>
+                    </Row>
+                </Divider>
                 <Collapse collapsible="header" defaultActiveKey={['1']} bordered={false}>
                     <Panel
                         header={
                         <div style={{width:"1000px"}}>
                             <span>This gene has <b>{props.trans.length}</b> transcript(s), click to show or hide the table.</span>
-                            <Button size={"small"} onClick={exportToCsv} style={{float:"right"}}>
-                                Export to CSV
-                            </Button>
                         </div>
                     }
                         key="1">
-                        <TranscriptTable trans={props.trans}/>
+                        <TranscriptTable/>
                     </Panel>
                 </Collapse>
             </div>

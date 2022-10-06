@@ -89,7 +89,7 @@ export default function Browser() {
                     <span>
                         e.g. <b><Link href={"browser/genePage/ENSG00000115738"}>ID2</Link></b> or
                         <b><Link href={"browser/genePage/ENSMUSG00000041147"}> Brca2</Link></b> or
-                        <b><Link href={"browser/genePage/ENSG00000250337"}> ENSG00000250337</Link></b>
+                        <b><Link href={"browser/genePage/ENSG00000017427"}> ENSG00000017427</Link></b>
                     </span>
                 </div>
             </div>

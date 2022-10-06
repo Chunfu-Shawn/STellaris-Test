@@ -22,9 +22,7 @@ export async function getGeneTranscript(geneId){
                 reject(err);
             }
             resolve(JSON.parse(JSON.stringify(result)))
-            connection.end(()=>{
-                console.log('get gene transcripts')
-            })
+            connection.end()
         })
     })
 }

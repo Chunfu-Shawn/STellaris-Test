@@ -1,10 +1,12 @@
 import {Space, Table, Tag} from "antd";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {QuestionCircleFilled} from "@ant-design/icons";
 import React from "react";
+import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
 
-export default function TranscriptTable(props){
+export default function TranscriptTable(){
     const [sortedInfo, setSortedInfo] = useState({});
+    const transContext = useContext(GeneContext)
     const columns =[
         {
             title: 'Transcript ID',
@@ -135,9 +137,12 @@ export default function TranscriptTable(props){
     };
 
     return(
-        props.trans.length !== 0 ?
+        transContext.trans.length !== 0 ?
             <Table
-                dataSource={props.trans} columns={columns}
+                dataSource={transContext.trans.map(data => {
+                    return {key: data.ensembl_transcript_id, ...data}
+                })}
+                columns={columns}
                 onChange={handleChange}
                 size={"small"}
                 expandable={{

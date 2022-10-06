@@ -1,51 +1,75 @@
-import {Button, Collapse, Divider, Modal, Table} from "antd";
+import {Button, Col, Collapse, Divider, Modal, Row, Table} from "antd";
 import CoExpressedGenesHeatmap from "./CoExpressedGenesHeatmap";
 import React from "react";
+import {exportToCsv} from "../util";
+import {useContext} from "react";
+import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
 
 const { Panel } = Collapse;
 
-export default function CoExpressedGenes(props){
+export default function CoExpressedGenes(){
+    const geneContext = useContext(GeneContext);
     const columns = [
         {
-            title: 'Genes Name',
-            dataIndex: 'Genes Name',
-            render: (text) => <a>{text}</a>,
+            title: 'Gene Name',
+            dataIndex: 'x_gene_symbol',
+            width:'12%',
+            filters: geneContext.dataCor.map(value =>
+            {
+                return{
+                    text: value.x_gene_symbol,
+                    value: value.x_gene_symbol
+                }
+            }),
+            onFilter: (value, record) => record.name.indexOf(value) === 0,
+            filterSearch: true,
         },
         {
-            title: 'STW-H-Spinal_Cord-ST-1',
-            dataIndex: 'STW-H-Spinal_Cord-ST-1',
+            title: 'Gene Name',
+            dataIndex: 'y_gene_symbol',
+            width:'12%',
+            filters: geneContext.dataCor.map(value =>
+            {
+                return{
+                    text: value.y_gene_symbol,
+                    value: value.y_gene_symbol
+                }
+            }),
+            onFilter: (value, record) => record.name.indexOf(value) === 0,
+            filterSearch: true,
         },
         {
-            title: 'STW-H-Spinal_Cord-ST-2',
-            dataIndex: 'STW-H-Spinal_Cord-ST-2',
+            title: 'ρ (pearson)',
+            dataIndex: 'pearson_rho',
+            width:'15%',
+            sorter: (a, b) => a.pearson_rho - b.pearson_rho,
+            defaultSortOrder: 'descend',
         },
         {
-            title: 'STW-H-Bone-ST-1',
-            dataIndex: 'STW-H-Bone-ST-1',
+            title: 'P-value (Pearson)',
+            dataIndex: 'pearson_p_value',
+            width:'15%',
+            sorter: (a, b) => a.pearson_rho - b.pearson_rho,
+        },
+        {
+            title: 'ρ (Spearman)',
+            dataIndex: 'spearman_rho',
+            width:'15%',
+            sorter: (a, b) => a.spearman_rho - b.spearman_rho,
+        },
+        {
+            title: 'P-value (Spearman)',
+            dataIndex: 'spearman_p_value',
+            width:'15%',
+            sorter: (a, b) => a.spearman_p_value - b.spearman_p_value,
+        },
+        {
+            title: 'Duplicate ID',
+            dataIndex: 'duplicate_id',
+            width:'15%',
+            onFilter: (value, record) => record.name.indexOf(value) === 0,
         },
     ];
-
-
-    // export table to csv or excel
-    const exportToCsv = () => {
-        const replacer = (key, value) => (value === null ? "" : value);
-        let dataDownload = props.trans;
-        const header = Object.keys(dataDownload[0]);
-        let csv = dataDownload.map(row =>
-            header
-                .map(fieldName => JSON.stringify(row[fieldName], replacer))
-                .join(",")
-        );
-        csv.unshift(header.join(","));
-        csv = csv.join("\r\n");
-        csv = "data:text/csv;charset=utf-8,\uFEFF" + csv;;
-        const link = document.createElement("a");
-        link.href = encodeURI(csv);
-        link.download = `${props.trans[0].ensembl_id}_transcripts.csv`;
-        document.body.appendChild(link); // Required for FF
-        link.click(); // This will download the data file named 'my_data.csv'.
-        document.body.removeChild(link); // Required for FF
-    };
 
     return(
         <div name={"CoE-Genes"} style={{marginLeft:20}}>
@@ -81,21 +105,29 @@ export default function CoExpressedGenes(props){
                 ]}
                 supportiveDatasets={[15,1,2,2,2,6,6,3,9,1,2,10,12,14,11,19,1,9,12,2,13,11,2,13]}
             />
-            <Collapse collapsible="header" defaultActiveKey={['1']} bordered={false} ghost>
-                <Panel
-                    header={
-                        <div style={{width:"1000px"}}>
-                            <span><b>Correlation coefficient</b> between co-expressed genes and target gene,
-                                    click to show or hide the table.</span>
-                            <Button size={"small"} onClick={exportToCsv} style={{float:"right"}}>
+            <div style={{marginLeft:20}}>
+                <Divider orientation="left" orientationMargin="10" dashed>
+                    <Row gutter={[100,0]} style={{width:"auto"}}>
+                        <Col span={16}>
+                            <small><b>Correlation coefficient</b></small>
+                        </Col>
+                        <Col span={8}>
+                            <Button size={"small"}
+                                    onClick={() => exportToCsv(geneContext.dataCor,`${geneContext.data.symbol}_coexpressed_genes`)}
+                                    style={{float:"right"}}>
                                 Export to CSV
                             </Button>
-                        </div>
-                    }
-                    key="1">
-                    <Table bordered columns={columns}/>
-                </Panel>
-            </Collapse>
+                        </Col>
+                    </Row>
+                </Divider>
+                <Table bordered
+                       columns={columns}
+                       size={"small"}
+                       dataSource={geneContext.dataCor.map(data => {
+                           return {key: data.x_gene_symbol+data.y_gene_symbol+data.duplicate_id, ...data}
+                       })}
+                />
+            </div>
         </div>
     )
 }
