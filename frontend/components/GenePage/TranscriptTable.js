@@ -165,7 +165,7 @@ export default function TranscriptTable(){
                                             margin: 20,
                                         }}
                                     >
-                                        <b>Start-End: </b>{record.start}-{record.end}
+                                        <b>Chr</b> {transContext.data.chrom_scaf}: {record.start}-{record.end}
                                     </span> : <></>
                             }
                             {
