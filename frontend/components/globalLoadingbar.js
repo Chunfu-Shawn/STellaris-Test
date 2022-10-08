@@ -15,7 +15,7 @@ const GlobalLoading = ({ isRouteChanging, }) => {
               }
 
               .bar {
-                background: #4d1ef6;
+                background: #39acff;
                 height: 2px;
                 left: 0;
                 margin-left: ${(-1 + progress) * 100}%;
@@ -27,7 +27,7 @@ const GlobalLoading = ({ isRouteChanging, }) => {
               }
 
               .spinner {
-                box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+                box-shadow: 0 0 10px #ffda00, 0 0 5px #fd9306;
                 display: block;
                 height: 100%;
                 opacity: 1;

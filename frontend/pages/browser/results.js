@@ -116,6 +116,7 @@ export default function Results(props) {
                             </Select>
                             <Search
                                 placeholder={props.searchName}
+                                defaultValue={props.searchName}
                                 id={"browser"}
                                 allowClear
                                 onSearch={onSearch}
