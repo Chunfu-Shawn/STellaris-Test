@@ -10,13 +10,15 @@ export default function Features(props){
             title: 'Gene Name',
             dataIndex: 'gene_symbol',
             width:'12%',
-            filters: props.spatiallyVariableGenes.map(value =>
-                {
+            filters: Array.from(new Set(props.spatiallyVariableGenes.map(
+                value => value.gene_symbol ))).map(
+                item => {
                     return{
-                        text: value.gene_symbol,
-                        value: value.gene_symbol
+                        text: item,
+                        value: item
                     }
-                }),
+                }
+            ),
             onFilter: (value, record) => record.gene_symbol.indexOf(value) === 0,
             filterSearch: true,
         },
@@ -24,7 +26,7 @@ export default function Features(props){
             title: 'Ensembl ID',
             dataIndex: 'ensembl_id',
             width:'20%',
-            render: (text) => <Link href={`/genePage/${text}`}><a target={'_blank'}>{text}</a></Link>,
+            render: (text) => <Link href={`/browser/genePage/${text}`}><a target={'_blank'}>{text}</a></Link>,
             filters: [
                 {
                     text: 'Joe',
@@ -181,7 +183,7 @@ export default function Features(props){
                     <Table columns={SVGeneColumns}
                            dataSource={props.spatiallyVariableGenes.map(item=> {
                                return {
-                                   key:item.gene_symbol,
+                                   key:item.gene_symbol+item.ensembl_id,
                                    ...item
                                }
                            })}

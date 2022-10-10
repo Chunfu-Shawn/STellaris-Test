@@ -41,21 +41,14 @@ export default function MouseArchive(props) {
             <Head>
                 <title>STW | Mouse Archive</title>
             </Head>
-            <div className="modal-body-stw" style={{padding:'100px 80px'}}>
-                <div className="page-header">
-                    <Space align="start">
-                        <h1 style={
-                            {
-                                fontSize:"40px",
-                            }
-                        }>Spatial Transcriptome Data - Mouse Archive</h1>
-                        <Link href={'/help/manual/datasets#main_page_help'}>
-                            <a target={'_blank'} rel={"noreferrer"}>
-                                <QuestionCircleOutlined  style={{fontSize:"20px",color:"#2b1970"}}/>
-                            </a>
-                        </Link>
-                    </Space>
-                </div>
+            <div className={"modal-body-stw"} style={{padding:'120px 80px'}}>
+                <Space align="start" style={{height:120}}>
+                    <span style={
+                        {
+                            fontSize:"45px",
+                        }
+                    }>Spatial Transcriptome Data - Mouse Archive</span>
+                </Space>
                 <TableLayout checkboxStyle={checkboxStyle} data={props.data} archive={"mouse"}></TableLayout>
             </div>
         </LayoutCustom>

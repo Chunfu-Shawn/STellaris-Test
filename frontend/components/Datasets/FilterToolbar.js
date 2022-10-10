@@ -16,6 +16,10 @@ Date.prototype.toLocaleString = function() {
 
 
 export default function FilterToolbar(props){
+    const {
+        filterClick,
+        setFilterClick
+    } = props
     const [methodsOptionActiveKey,setMethodsOptionActiveKey] = useState([])
     const [organsOptionActiveKey,setOrgansOptionActiveKey] = useState([])
     const [num, setNum] = useState({
@@ -32,7 +36,6 @@ export default function FilterToolbar(props){
     const organsOptions = getSummaryOptions(props.data)['organOptions'].slice(0,6);
     const organsOptions2 = getSummaryOptions(props.data)['organOptions'].slice(6);
     const pathologicalOptions = getSummaryOptions(props.data)['pathologicalOptions'];
-    const [filterClick,setFilterClick] = useState('');
     const datePublishedOptions = [
         new Date(getSummaryOptions(props.data)['date_published'][0]).toLocaleString(),
         new Date(getSummaryOptions(props.data)['date_published'][1]).toLocaleString()

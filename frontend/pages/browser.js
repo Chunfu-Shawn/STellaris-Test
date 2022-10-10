@@ -49,8 +49,8 @@ export default function Browser() {
                     <Space align="center">
                         <span style={
                             {
-                                fontSize:"48px",
-                                fontWeight:"bold"
+                                fontSize:"55px",
+                                fontFamily:"Mono",
                             }
                         }>Gene Browser</span>
                         <Link href={'/help/manual/browser#main_page_help'}>

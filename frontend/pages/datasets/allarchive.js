@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import LayoutCustom from '../../components/LayoutCustom.js'
 import TableLayout from "../../components/Datasets/TableLayout.js";
-import Link from "next/link.js";
-import {QuestionCircleOutlined} from "@ant-design/icons";
 import {Space} from "antd";
 import {DateFomatter} from "../../components/util";
 
@@ -41,21 +39,14 @@ export default function AllArchive(props) {
             <Head>
                 <title>STW | Datasets Archive</title>
             </Head>
-            <div className={"modal-body-stw"} style={{padding:'100px 50px'}}>
-                <div className="page-header">
-                    <Space align="start">
-                        <h1 style={
-                            {
-                                fontSize:"40px",
-                            }
-                        }>Spatial Transcriptome Datasets</h1>
-                        <Link href={'/help/manual/datasets#main_page_help'}>
-                            <a target={'_blank'} rel={"noreferrer"}>
-                                <QuestionCircleOutlined  style={{fontSize:"20px",color:"#2b1970"}}/>
-                            </a>
-                        </Link>
-                    </Space>
-                </div>
+            <div className={"modal-body-stw"} style={{padding:'120px 50px'}}>
+                <Space align="start" style={{height:120}}>
+                    <span style={
+                        {
+                            fontSize:"45px",
+                        }
+                    }>Spatial Transcriptome Datasets</span>
+                </Space>
                 <TableLayout checkboxStyle={checkboxStyle} data={props.data} archive={"all"}></TableLayout>
             </div>
         </LayoutCustom>

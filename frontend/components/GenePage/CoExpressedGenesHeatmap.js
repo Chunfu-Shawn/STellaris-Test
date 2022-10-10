@@ -18,6 +18,7 @@ export default function CoExpressedGenesHeatmap(props) {
     const geneContext = useContext(GeneContext);
     const chartRef = useRef(null);
     let chartInstance = null;
+    const [corGene,setCorGene] = useState('')
     const [drawOpen, setDrawOpen] = useState(false);
 
     //热力图点击事件
@@ -26,7 +27,8 @@ export default function CoExpressedGenesHeatmap(props) {
             return;
         }
         setDrawOpen(open);
-        console.log(drawOpen)
+        setCorGene(event.name)
+        console.log(open)
     };
 
     // 定义渲染函数
@@ -38,10 +40,10 @@ export default function CoExpressedGenesHeatmap(props) {
                         position: 'top'
                     },
                     grid: {
-                        left:60,
+                        left:150,
                         top:10,
-                        right: 0,
-                        bottom:20,
+                        right: 50,
+                        bottom:50,
                     },
                     xAxis: {
                         type: 'category',
@@ -97,7 +99,7 @@ export default function CoExpressedGenesHeatmap(props) {
                             tooltip: {
                                 trigger:"item",
                                 formatter: (params) => `<b style="color: #2b0f75">${geneContext.data.symbol} ~ ${props.genes[params.value[0]]}</b><br/>
-                                                        Correlation coefficients: <b>1.00</b><br/>
+                                                        Mean Pearson Correlation (ρ): <b>${props.meanRho[props.genes[params.value[0]]]}</b><br/>
                                                         Supported by <b>${params.value[2]}</b> datasets</br>
                                                         <b>Click</b> to show two genes expression in these datasets`
                             }
@@ -138,7 +140,7 @@ export default function CoExpressedGenesHeatmap(props) {
 
     return(
         <>
-            <div ref={chartRef} style={{height:60,marginBottom:10}}></div>
+            <div ref={chartRef} style={{height:100,marginBottom:10}}></div>
             <Drawer
                 anchor={"right"}
                 open={drawOpen}
@@ -152,8 +154,8 @@ export default function CoExpressedGenesHeatmap(props) {
                             <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset} gene={geneContext.data.symbol}/>
                         </Col>
                         <Col>
-                            <h5>Id2</h5>
-                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset} gene={"Id2"}/>
+                            <h5>{corGene}</h5>
+                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset} gene={corGene}/>
                         </Col>
                     </Row>
                     <Divider orientation="left" orientationMargin={10}><h4>Dataset ID: {dataset2.id}</h4></Divider>
@@ -163,8 +165,8 @@ export default function CoExpressedGenesHeatmap(props) {
                             <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset2} gene={geneContext.data.symbol}/>
                         </Col>
                         <Col>
-                            <h5>Id2</h5>
-                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset2} gene={"Id2"}/>
+                            <h5>{corGene}</h5>
+                            <DynamicGeneExpress setCustom={true} width={300} height={300} dataset={dataset2} gene={corGene}/>
                         </Col>
                     </Row>
                     <div style={{height:"30vh"}}></div>

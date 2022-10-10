@@ -1,14 +1,66 @@
-import {Button, Col, Collapse, Divider, Modal, Row, Table} from "antd";
+import {Button, Col, Divider, Row, Table} from "antd";
 import CoExpressedGenesHeatmap from "./CoExpressedGenesHeatmap";
 import React from "react";
 import {exportToCsv} from "../util";
 import {useContext} from "react";
 import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
 
-const { Panel } = Collapse;
-
 export default function CoExpressedGenes(){
     const geneContext = useContext(GeneContext);
+    const organTissue = Array.from(new Set(geneContext.dataCor.map(
+        value => value.organ_tissue )))
+    const genes = {}
+    let rho = {}
+    let supportiveDatasets = {}
+    let meanRho = {}
+    organTissue.forEach( item =>
+        genes[item] = Array.from(new Set(geneContext.dataCor.map(item =>
+        item.x_gene_symbol === geneContext.data.symbol?
+            item.y_gene_symbol:item.x_gene_symbol)))
+    )
+    organTissue.forEach( item =>
+        supportiveDatasets[item] = new Array(genes[item].length).fill(0)
+    )
+    // cal the number of supportive datasets and record the rho
+    geneContext.dataCor.forEach(item=>{
+        if(item.x_gene_symbol===geneContext.data.symbol) {
+            supportiveDatasets[item.organ_tissue][genes[item.organ_tissue].indexOf(item.y_gene_symbol)] += 1
+            rho[item.y_gene_symbol] === undefined ?
+                rho[item.y_gene_symbol] = [item.pearson_rho] : rho[item.y_gene_symbol].push(item.pearson_rho)
+        }
+        else if(item.y_gene_symbol===geneContext.data.symbol) {
+            supportiveDatasets[item.organ_tissue][genes[item.organ_tissue].indexOf(item.x_gene_symbol)] += 1
+            rho[item.x_gene_symbol] === undefined ?
+                rho[item.x_gene_symbol] = [item.pearson_rho] : rho[item.x_gene_symbol].push(item.pearson_rho)
+        }
+    })
+    // calculate the mean rho of Pearson
+    Object.keys(rho).forEach( key => {
+        let sum = rho[key].reduce((previous, current) => current += previous);
+        let avg = sum / rho[key].length;
+        meanRho[key] = avg
+    })
+    // sort gene names and number of supportive datasets in descend
+    organTissue.forEach( item => {
+        const max = genes[item].length - 1;
+        for (let j = 0; j < max; j++) {
+        // 声明一个变量，作为标志位
+        let done = true;
+        for (let i = 0; i < max - j; i++) {
+            if (meanRho[genes[item][i]] < meanRho[genes[item][i + 1]]) {
+                let tempGene = genes[item][i];
+                let tempNum = supportiveDatasets[item][i];
+                genes[item][i] = genes[item][i + 1];
+                supportiveDatasets[item][i] = supportiveDatasets[item][i + 1];
+                genes[item][i + 1] = tempGene;
+                supportiveDatasets[item][i + 1] = tempNum;
+                done = false;
+            }
+        }
+        if (done) {
+            break;
+        }
+    }})
     const columns = [
         {
             title: 'Gene Name',
@@ -21,7 +73,7 @@ export default function CoExpressedGenes(){
                     value: value.x_gene_symbol
                 }
             }),
-            onFilter: (value, record) => record.name.indexOf(value) === 0,
+            onFilter: (value, record) => record.x_gene_symbol.indexOf(value) === 0,
             filterSearch: true,
         },
         {
@@ -35,39 +87,52 @@ export default function CoExpressedGenes(){
                     value: value.y_gene_symbol
                 }
             }),
-            onFilter: (value, record) => record.name.indexOf(value) === 0,
+            onFilter: (value, record) => record.y_gene_symbol.indexOf(value) === 0,
             filterSearch: true,
         },
         {
             title: 'ρ (pearson)',
             dataIndex: 'pearson_rho',
-            width:'15%',
+            width:'12%',
             sorter: (a, b) => a.pearson_rho - b.pearson_rho,
             defaultSortOrder: 'descend',
         },
         {
             title: 'P-value (Pearson)',
             dataIndex: 'pearson_p_value',
-            width:'15%',
+            width:'12%',
             sorter: (a, b) => a.pearson_rho - b.pearson_rho,
         },
         {
             title: 'ρ (Spearman)',
             dataIndex: 'spearman_rho',
-            width:'15%',
+            width:'12%',
             sorter: (a, b) => a.spearman_rho - b.spearman_rho,
         },
         {
             title: 'P-value (Spearman)',
             dataIndex: 'spearman_p_value',
-            width:'15%',
+            width:'12%',
             sorter: (a, b) => a.spearman_p_value - b.spearman_p_value,
         },
         {
-            title: 'Duplicate ID',
-            dataIndex: 'duplicate_id',
+            title: 'Organ/tissue',
+            dataIndex: 'organ_tissue',
+            width:'10%',
+            filters: organTissue.map(value =>
+                {
+                    return{
+                        text: value,
+                        value: value
+                    }
+                }
+            ),
+            onFilter: (value, record) => record.organ_tissue.indexOf(value) === 0,
+        },
+        {
+            title: 'Datasets ID',
+            dataIndex: 'id',
             width:'15%',
-            onFilter: (value, record) => record.name.indexOf(value) === 0,
         },
     ];
 
@@ -75,36 +140,13 @@ export default function CoExpressedGenes(){
         <div name={"CoE-Genes"} style={{marginLeft:20}}>
             <a id={"CoE-Genes"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0"><b>Co-expressed Genes</b></Divider>
-            <CoExpressedGenesHeatmap
-                tissue={["Brain"]}
-                genes={[
-                    '12a', '1a', '2a', '3a', '4a', '5a', '6a',
-                    '7a', '8a', '9a', '10a', '11a',
-                    '12p', '1p', '2p', '3p', '4p', '5p',
-                    '6p', '7p', '8p', '9p', '10p', '11p'
-                ]}
-                supportiveDatasets={[5,10,20,12,12,1,4,6,8,3,1,9,2,14,21,16,18,19,2,12,5,5,12,3]}
-            />
-            <CoExpressedGenesHeatmap
-                tissue={["Heart"]}
-                genes={[
-                    '12a', '1a', '2a', '3a', '4a', '5a', '6a',
-                    '7a', '8a', '9a', '10a', '11a',
-                    '12p', '1p', '2p', '3p', '4p', '5p',
-                    '6p', '7p', '8p', '9p', '10p', '11p'
-                ]}
-                supportiveDatasets={[2,10,2,13,12,1,9,6,3,3,1,9,2,14,14,16,1,1,2,2,5,5,2,3]}
-            />
-            <CoExpressedGenesHeatmap
-                tissue={["Liver"]}
-                genes={[
-                    '12a', '1a', '2a', '3a', '4a', '5a', '6a',
-                    '7a', '8a', '9a', '10a', '11a',
-                    '12p', '1p', '2p', '3p', '4p', '5p',
-                    '6p', '7p', '8p', '9p', '10p', '11p'
-                ]}
-                supportiveDatasets={[15,1,2,2,2,6,6,3,9,1,2,10,12,14,11,19,1,9,12,2,13,11,2,13]}
-            />
+            {organTissue.map(
+                item => <CoExpressedGenesHeatmap
+                tissue={[item]}
+                genes={genes[item].slice(0,20)}
+                supportiveDatasets={supportiveDatasets[item].slice(0,20)}
+                meanRho={meanRho}
+            />)}
             <div style={{marginLeft:20}}>
                 <Divider orientation="left" orientationMargin="10" dashed>
                     <Row gutter={[100,0]} style={{width:"auto"}}>

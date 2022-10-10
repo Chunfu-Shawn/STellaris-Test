@@ -16,7 +16,8 @@ export async function getSpatiallyVariableGenes(geneOrDuplicate,param) {
     let selectSql
     // 加上BINARY区分大小写
     if(geneOrDuplicate === "gene") selectSql = `SELECT * FROM spatially_variable_genes WHERE BINARY gene_symbol=?`
-    else if( geneOrDuplicate === "duplicate" ) selectSql = `SELECT * FROM spatially_variable_genes WHERE duplicate_id=?`
+    else if( geneOrDuplicate === "duplicate" )
+        selectSql = `SELECT sv.*,g.ensembl_id FROM genes_info as g RIGHT JOIN (SELECT * from spatially_variable_genes WHERE duplicate_id=?) as sv ON BINARY sv.gene_symbol = g.symbol`
 
     //查询
     return new Promise((resolve, reject) => {

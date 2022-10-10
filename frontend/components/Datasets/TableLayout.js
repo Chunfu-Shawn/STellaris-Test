@@ -11,28 +11,24 @@ export default function TableLayout(props) {
     const [filteredInfo, setFilteredInfo] = useState({method:[],species:[],organ:[],pathological:[],date_published:[]});
     const [loading, setLoading] = useState(false);
     const [filtering, setFiltering] = useState(false);
-    const [dataFilter, setDataFilter] = useState([]);
+    const [dataFilter, setDataFilter] = useState(props.data);
     const [searching, setSearching] = useState(false);
     const [dataSearch, setDataSearch] = useState([]);
     const [dataShow, setDataShow] = useState([]);
+    const [filterClick,setFilterClick] = useState('');
     useEffect(()=> {
             toSetDataShow()
         },[dataSearch,dataFilter])
     // bottom
     const clearFilters = () => {
-        setFilteredInfo({});
+        setFilteredInfo({method:[],species:[],organ:[],pathological:[],date_published:[]});
+        setDataFilter(props.data)
     };
 
     const clearAll = () => {
-        setFilteredInfo({});
         setSortedInfo({});
-    };
-
-    const setIDSort = () => {
-        setSortedInfo({
-            order: 'descend',
-            columnKey: 'st_id',
-        });
+        setFilteredInfo({method:[],species:[],organ:[],pathological:[],date_published:[]});
+        setDataFilter(props.data)
     };
 
     // export table to csv or excel
@@ -87,7 +83,7 @@ export default function TableLayout(props) {
             }
         }
         setDataSearch(dataSearched)
-        console.log('dataSearched',dataSearched)
+        setFilterClick('')
     }
     // To search in table when input search bar lost the focus
     const onSearchClick = (e)=>{
@@ -143,10 +139,12 @@ export default function TableLayout(props) {
                                    filtering={filtering}
                                    searching={searching}
                                    archive={props.archive}
+                                   filterClick={filterClick}
+                                   setFilterClick={setFilterClick}
                     ></FilterToolbar>
                 </Sider>
                 <Content style={{width:1100}}>
-                    <Space align="center" style={{height:'8vh',float:"left",width:1000}}>
+                    <Space align="center" style={{height:60,float:"left",width:1000}}>
                         <Search
                             placeholder="input search text"
                             allowClear
@@ -154,10 +152,9 @@ export default function TableLayout(props) {
                             onBlur={onSearchClick}
                             size={'large'}
                             style={{
-                                width: 600,
+                                width: 650,
                             }}
                         />
-                        <Button onClick={setIDSort}>Sort ST ID</Button>
                         <Button onClick={clearFilters}>Clear filters</Button>
                         <Button onClick={clearAll}>Clear filters and sorters</Button>
                         <Button type="primary" onClick={exportToCsv} disabled={!hasSelected} loading={loading}>

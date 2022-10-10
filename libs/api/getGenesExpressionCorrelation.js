@@ -15,7 +15,9 @@ export async function getGenesExpressionCorrelation(geneOrDuplicate,param) {
     // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
     let selectSql
     if(geneOrDuplicate === "gene") {
-        selectSql = `SELECT * FROM genes_expression_correlation WHERE BINARY x_gene_symbol=? OR BINARY y_gene_symbol=?`
+        selectSql = `SELECT cor.*,d.id,d.organ_tissue,d.developmental_stage FROM duplicates_info as d RIGHT JOIN 
+                    (SELECT * FROM genes_expression_correlation WHERE BINARY x_gene_symbol=? OR BINARY y_gene_symbol=? ) 
+                    as cor ON BINARY d.duplicate_id = cor.duplicate_id`
         //查询
         return new Promise((resolve, reject) => {
             connection.query(selectSql, [param,param], (err, result) => {
