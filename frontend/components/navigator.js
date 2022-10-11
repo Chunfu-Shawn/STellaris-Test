@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {useEffect, useState} from "react";
-import $ from 'jquery';
 import {Button, Dropdown, Menu} from "antd";
 import {MenuOutlined} from "@ant-design/icons";
 const menu = (
@@ -73,11 +72,13 @@ export default function Navigator(){
                 delete navUlChildren[i].className;
         }
     }
+    /*
     useEffect(()=>{
         if (width >= breakpoint) navAction();
     })
+     */
 
-    const { width } = useViewport();
+    //const { width } = useViewport();
     const breakpoint = 992;
 
     return(
@@ -87,7 +88,7 @@ export default function Navigator(){
                     <Link href="/" ><a className="navbar-brand">SPATIAL TRANS WEB</a></Link>
                 </div>
                 {
-                    width < breakpoint ? collapseButtom:
+                    //width < breakpoint ? collapseButtom:
                     <ul className={"nav navbar-nav"} >
                         <li id="datasets" className="nav-item"><Link href="/datasets" className="nav-link" ><a>Datasets</a></Link></li>
                         <li id="annotation" className="nav-item"><Link href="/annotation" className="nav-link" ><a>Annotation</a></Link></li>

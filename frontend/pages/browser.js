@@ -50,7 +50,8 @@ export default function Browser() {
                         <span style={
                             {
                                 fontSize:"55px",
-                                fontFamily:"Mono",
+                                fontFamily: 'Open Sans, sans-serif',
+                                fontWeight:"bold"
                             }
                         }>Gene Browser</span>
                         <Link href={'/help/manual/browser#main_page_help'}>
