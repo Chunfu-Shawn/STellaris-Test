@@ -159,7 +159,7 @@ export default function GeneAttributionsTable(){
             <Panel key={1} header={<b>Datasets Attribution and Source (click to hide or show this panel)</b>}>
                 <Table dataSource={
                     data.map( item => {
-                        return { key:item.Attribution,...item}
+                        return { key:item.Attribute,...item}
                     })
                 } columns={columns} size={"small"} bordered={true} pagination={false}/>
             </Panel>

@@ -47,7 +47,7 @@ export default function SearchResultTable(props){
             key: 'entrez_id',
             width:'12%',
             sorter: (a, b) => {
-                if(a.entrez_id > b.entrez_id) return 1
+                if(Number(a.entrez_id) > Number(b.entrez_id)) return 1
                 else return -1
             },
             sortOrder: sortedInfo.columnKey === 'entrez_id' ? sortedInfo.order : null,

@@ -5,6 +5,8 @@ import SearchResultsAttributesTable from "./GenePage/SearchResultsAttributesTabl
 import GeneAttributionsTable from "./GenePage/GeneAttributionsTable.js";
 import GeneInfoAttributesTable from "./GenePage/GeneInfoAttributesTable.js";
 import GeneFeaturesAttributesTable from "./GenePage/GeneFeaturesAttributesTable.js";
+import Link from "next/link.js";
+import {QuestionCircleOutlined} from "@ant-design/icons";
 
 export default function ManualBrowser() {
 
@@ -37,8 +39,8 @@ export default function ManualBrowser() {
                 <GeneAttributionsTable/>
                 <h2>3. Browser</h2>
                 <a id={"main_page_help"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>The Browser module is a ordinary search engine. It would provide some genes which have similar names
-                    after users choose the <b>organism</b> and <b>type of gene id</b> and inputted what they were
+                <p>The Browser module is a ordinary search engine. It would provide some genes which have <b>matched names
+                    or aliases </b>after users choose the <b>organism</b> and <b>type of gene id</b> and inputted what they were
                     going to search.
                 </p>
                 <h4>(1) Main Page</h4>
@@ -62,28 +64,46 @@ export default function ManualBrowser() {
                 </p>
                 <p>The search records contains following attributes:</p>
                 <SearchResultsAttributesTable />
-                <h4>(3) Gene Page</h4>
+                <h2>4. Gene Page</h2>
                 <p>The Gene Page contains some annotations of a gene, such as Summary, Genomic Context, Transcripts,
                     Region Specific Expression, Co-expressed Genes, and Highly-expressed Clusters, <b>which emphatically
                         represent a whole spatial expression profile</b>.
                 </p>
-                <h5>- Summary</h5>
+                <h4>(1) Summary</h4>
                 <a id={"gene_page_summary"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section comprises following attributes:</p>
                 <GeneInfoAttributesTable/>
-                <h4>- <i>Spatial Expression*</i></h4>
+                <h4>(2) <i>Spatial Expression*</i></h4>
                 <a id={"gene_page_spatial_expression"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>This section represents some information about spatial expression of this gene, including three parts:
+                <p>This section represents some information about spatial expression of this gene when it is
+                    a spatially variable gene in any organ/tissue, including three parts:
                     <b> Spatially Variable Expression</b>, <b>Co-expressed Genes</b>, and <b>Highly-expressed Clusters</b>.</p>
                 <h5>(a) Spatially Variable Expression</h5>
-                <p>Gene expression chart in a typical and annotated spatial data will be shown when the gene expression is
-                    spatially variable in a tissue type. Certainly
+                <p>This portion shows a typical gene expression data in spatial embedding <b>when the gene is a spatially variable
+                    gene in a organ/tissue</b>. A tip box show a RPKM value when mouse hovering over a spot, which is in deeper colored
+                    with higher expression.
                 </p>
                 <h5>(b) Co-expressed Genes</h5>
-                <p>Several heatmap charts show the correlation degree and supportive degree of top 30 related co-expressed
-                    genes by respectively different organ types. Color and number in a box show the number of supportive
-                    datasets about these two related genes, and the co-expressed genes are sorted in descend by correlation
-                    from left to right. A tooltip box show the correlation coefficents when mouse hovering over a heatmap box.
+                <p>Several heatmap charts show <b> correlation degree and supportive degree of top 20 related co-expressed
+                    genes </b>by respectively different organ/tissue types. Color and number in a box represent the number of
+                    datasets supportive to these two related genes, and the co-expressed genes are sorted in descend by
+                    <b> Mean Pearson Correlation</b> from left to right. A tip box show the Pearson correlation coefficents
+                    when mouse hovering over a heatmap box.
+                </p>
+                <p>
+                    <b>Click on </b>any single heatmap box to view spatial expression of these two related genes among all supportive
+                    datasets. It is convenient for users to compare the spatial expression of paired genes between charts.
+                </p>
+                <p>
+                    There is a correlation coefficient table including raw correlation data about paired genes, which
+                    comprise <b>another gene name, efficient and P-Value of Pearson and Spearman correlation, organ/tissue
+                    that data derived and dataset ID</b>.
+                </p>
+                <p>
+                    The detailed methods to calculate Pearson and Spearman correlation are in
+                    <Link href={"/help/manual/datasets"}>
+                        <a target={'_blank'} rel={"noreferrer"}><b> Help/Manual/Datasets </b></a>
+                    </Link>
                 </p>
                 <h5>(c) Highly-expressed Clusters</h5>
                 <p>The histogram show the proportion of main cell clusters which express target gene respectively by different organ types.
@@ -91,9 +111,14 @@ export default function ManualBrowser() {
                     Several lists about the marker genes of cell clusters will come out when users click on the columns
                     representing different organ types.
                 </p>
-                <h5>- Features</h5>
+                <h4>(3) Features</h4>
                 <a id={"gene_page_features"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>This section comprises two annotations: <b>Genomic Context</b> and <b>Transcript</b>. Here are the attributes of these annotations below:</p>
+                <p>This section comprises three annotations: <b>Genomic Context, Pseudobulk RNA-seq Expression and Transcript</b>.</p>
+                <p>Pseudobulk RNA-seq Expression data for interested gene is displayed graphically. The data are computed
+                    from spatial transcriptome data stored in our database, which been normalized by RPKM (Reads Per Kilobase
+                    of transcript per Million mapped reads).
+                </p>
+                <p>Here are the attributes of Genomic Context and Transcript section below:</p>
                 <GeneFeaturesAttributesTable/>
             </Typography>
         </div>

@@ -62,7 +62,7 @@ export default function SearchResultsAttributesTable(){
     return(
         <Table dataSource={
             data.map( item => {
-                return { key:item.Attribution,...item}
+                return { key:item.Attribute,...item}
             })
         } columns={columns} size={"small"} bordered={true} pagination={false}/>
     )
