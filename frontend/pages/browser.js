@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import {Input, message, Select, Space} from 'antd';
+import Image from "next/image";
 import {useRouter} from "next/router";
 import {useState} from "react";
 import Link from "next/link.js";
@@ -46,20 +47,7 @@ export default function Browser() {
                         marginBottom:"5%",
                     }
                 }>
-                    <Space align="center">
-                        <span style={
-                            {
-                                fontSize:"55px",
-                                fontFamily: 'Open Sans, sans-serif',
-                                fontWeight:"bold"
-                            }
-                        }>Gene Browser</span>
-                        <Link href={'/help/manual/browser#main_page_help'}>
-                            <a target={'_blank'} rel={"noreferrer"}>
-                                <QuestionCircleOutlined  style={{fontSize:"20px",color:"#2b1970"}}/>
-                            </a>
-                        </Link>
-                    </Space>
+                    <Image src={'/images/browser_title.svg'} width={400} height={70}/>
                 </div>
                 <Input.Group compact>
                     <Select defaultValue="All" style={{width:'10%'}} size={"large"} onChange={onSpeciesChange}>
@@ -90,7 +78,13 @@ export default function Browser() {
                     <span>
                         e.g. <b><Link href={"browser/genePage/ENSG00000115738"}>ID2</Link></b> or
                         <b><Link href={"browser/genePage/ENSMUSG00000041147"}> Brca2</Link></b> or
-                        <b><Link href={"browser/genePage/ENSG00000017427"}> ENSG00000017427</Link></b>
+                        <b><Link href={"browser/genePage/ENSG00000017427"}> ENSG00000017427 </Link></b>
+                        |<Link href={'/help/manual/browser#main_page_help'}>
+                            <a target={'_blank'} rel={"noreferrer"}>
+                                <b> HELP </b>
+                                <QuestionCircleOutlined  style={{fontSize:"16px",color:"#2b1970"}}/>
+                            </a>
+                        </Link>
                     </span>
                 </div>
             </div>
