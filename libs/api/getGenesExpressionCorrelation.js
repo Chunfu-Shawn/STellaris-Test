@@ -26,8 +26,8 @@ export async function getGenesExpressionCorrelation(geneOrDuplicate,param) {
                     reject(err);
                 }
                 resolve(JSON.parse(JSON.stringify(result)))
-                connection.end()
             })
+            connection.end()
         })
     }
     else if( geneOrDuplicate === "duplicate" ) {
@@ -39,9 +39,12 @@ export async function getGenesExpressionCorrelation(geneOrDuplicate,param) {
                     reject(err);
                 }
                 resolve(JSON.parse(JSON.stringify(result)))
-                connection.end()
             })
+            connection.end()
         })
-    }else return({})
+    }else {
+        connection.end()
+        return({})
+    }
 
 }

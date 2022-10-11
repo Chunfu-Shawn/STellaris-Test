@@ -19,15 +19,12 @@ export function setJobStatus(rid,status) {
     let selectSql = `SELECT * FROM users_annotation_records WHERE rid=?;`;
     // 根据rid更新任务状态
     // wait for 0.5s 避免update命令还没有执行
-    setTimeout(() =>
+    setTimeout(() => {
             connection.query(updateSql,[status,finishTime.toISOString(),rid],(err, result) => {
                 if(err){
                     annotationLogger.log(`Error: [${new Date()}]: there is error happened in MySQL: ${err.message}`)
-                }else {
-                    connection.end(()=>{
-                        annotationLogger.log(`[${new Date()}]: set the status of ${rid} to "error" in MySQL.`)
-                    })
-                }
-            }),
-        500)
+                }else annotationLogger.log(`[${new Date()}]: set the status of ${rid} to "${status}" in MySQL.`)
+            });
+            connection.end()
+    },500)
 }

@@ -44,7 +44,7 @@ export async function getGeneList(species,idType,geneName){
                 reject(err);
             }
             resolve(JSON.parse(JSON.stringify(result)))
-            connection.end()
         })
+        connection.end()
     })
 }

@@ -22,7 +22,7 @@ export async function getGeneData(geneId){
                 reject(err);
             }
             resolve(JSON.parse(JSON.stringify(result)))
-            connection.end()
         })
+        connection.end()
     })
 }

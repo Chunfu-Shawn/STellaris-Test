@@ -27,7 +27,7 @@ export async function getSpatiallyVariableGenes(geneOrDuplicate,param) {
                 reject(err);
             }
             resolve(JSON.parse(JSON.stringify(result)))
-            connection.end()
         })
+        connection.end()
     })
 }
