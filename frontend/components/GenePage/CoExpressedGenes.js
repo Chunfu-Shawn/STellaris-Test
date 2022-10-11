@@ -40,7 +40,7 @@ export default function CoExpressedGenes(){
         let avg = sum / rho[key].length;
         meanRho[key] = avg
     })
-    // sort gene names and number of supportive datasets in descend
+    // sort gene names and number of supportive datasets by Pearson rho in descend
     organTissue.forEach( item => {
         const max = genes[item].length - 1;
         for (let j = 0; j < max; j++) {
@@ -141,12 +141,15 @@ export default function CoExpressedGenes(){
             <a id={"CoE-Genes"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0"><b>Co-expressed Genes</b></Divider>
             {organTissue.map(
-                item => <CoExpressedGenesHeatmap
-                tissue={[item]}
-                genes={genes[item].slice(0,20)}
-                supportiveDatasets={supportiveDatasets[item].slice(0,20)}
-                meanRho={meanRho}
-            />)}
+                item =>
+                    <CoExpressedGenesHeatmap
+                        key = {item}
+                        tissue={[item]}
+                        genes={genes[item].slice(0,20)}
+                        supportiveDatasets={supportiveDatasets[item].slice(0,20)}
+                        meanRho={meanRho}
+                    />
+            )}
             <div style={{marginLeft:20}}>
                 <Divider orientation="left" orientationMargin="10" dashed>
                     <Row gutter={[100,0]} style={{width:"auto"}}>

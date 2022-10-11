@@ -98,10 +98,11 @@ export default function CoExpressedGenesHeatmap(props) {
                             },
                             tooltip: {
                                 trigger:"item",
-                                formatter: (params) => `<b style="color: #2b0f75">${geneContext.data.symbol} ~ ${props.genes[params.value[0]]}</b><br/>
-                                                        Mean Pearson Correlation (ρ): <b>${props.meanRho[props.genes[params.value[0]]]}</b><br/>
-                                                        Supported by <b>${params.value[2]}</b> datasets</br>
-                                                        <b>Click</b> to show two genes expression in these datasets`
+                                formatter: (params) =>
+                                    `<b style="color: #2b0f75">${geneContext.data.symbol} ~ ${props.genes[params.value[0]]}</b><br/>
+                                    Mean Pearson Correlation (ρ): <b>${props.meanRho[props.genes[params.value[0]]]}</b><br/>
+                                    Supported by <b>${params.value[2]}</b> datasets</br>
+                                    <b>Click</b> to show two genes expression in these datasets`
                             }
                         }
                     ],

@@ -26,6 +26,7 @@ export default function LayoutCustom({ children }) {
                 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png"/>
                 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png"/>
                 <meta charSet="UTF-8"/>
+                <meta name="viewport" content="width=1440px,height=1000px,user-scalable=yes"/>
                 <meta name="og:title" content='Welcome to Spatial Trans Web' />
             </Head>
             <Navigator></Navigator>
