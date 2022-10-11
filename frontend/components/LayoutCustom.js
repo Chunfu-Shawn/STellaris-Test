@@ -25,7 +25,6 @@ export default function LayoutCustom({ children }) {
                 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png"/>
                 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png"/>
-                <link href="https://fonts.googlefonts.cn/css?family=Open+Sans" rel="stylesheet"/>
                 <meta charSet="UTF-8"/>
                 <meta name="viewport" content="width=1440,height=1000,user-scalable=yes"/>
                 <meta name="og:title" content='Welcome to Spatial Trans Web' />
