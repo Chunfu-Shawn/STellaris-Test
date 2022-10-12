@@ -64,17 +64,17 @@ export default function Features(props){
             sorter: (a, b) => a.span - b.span,
         },
         {
-            title: 'Duplicate ID',
-            dataIndex: 'duplicate_id',
+            title: 'Section ID',
+            dataIndex: 'section_id',
             width:'15%',
-            filters: props.duplicateOption.map(value =>
+            filters: props.sectionOption.map(value =>
             {
                 return{
                     text: value,
                     value: value
                 }
             }),
-            onFilter: (value, record) => record.duplicate_id.indexOf(value) === 0,
+            onFilter: (value, record) => record.section_id.indexOf(value) === 0,
         },
         {
             title: 'Main Distribution',
@@ -142,17 +142,17 @@ export default function Features(props){
             sorter: (a, b) => a.spearman_p_value - b.spearman_p_value,
         },
         {
-            title: 'Duplicate ID',
-            dataIndex: 'duplicate_id',
+            title: 'Section ID',
+            dataIndex: 'section_id',
             width:'15%',
-            filters: props.duplicateOption.map(value =>
+            filters: props.sectionOption.map(value =>
             {
                 return{
                     text: value,
                     value: value
                 }
             }),
-            onFilter: (value, record) => record.duplicate_id.indexOf(value) === 0,
+            onFilter: (value, record) => record.section_id.indexOf(value) === 0,
         },
     ];
     return(

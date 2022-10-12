@@ -22,8 +22,8 @@ export default function ManualBrowser() {
                 <h2>1. Introduction</h2>
                 <p style={{fontSize:16}}>The Gene Browser module would help users to search for the basic information and
                     spatial expression pattern of a interested gene. Gene Page contains some annotation
-                    sections, such as <b>Summary, Genomic Context, Transcripts, Regional Specific Expression, Co-expressed Genes,
-                    and Highly-expressed Clusters</b>, which present a whole spatial expression profile about a gene.
+                    sections, such as <b>Summary, Spatially variable Expression, Co-expressed Genes, Highly-expressed Clusters,
+                        Genomic Context, Pseudobulk RNA-seq Expression and Transcripts</b>, which present a whole spatial expression profile about a gene.
                 </p>
                 <h2>2. Gene Datasets</h2>
                 <p>We collected and integrated those public gene information data from <a
@@ -114,7 +114,7 @@ export default function ManualBrowser() {
                 <h4>(3) Features</h4>
                 <a id={"gene_page_features"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section comprises three annotations: <b>Genomic Context, Pseudobulk RNA-seq Expression and Transcript</b>.</p>
-                <p>Pseudobulk RNA-seq Expression data for interested gene is displayed graphically. The data are computed
+                <p>Pseudobulk RNA-seq Expression data for interested gene is displayed graphically. The data was computed
                     from spatial transcriptome data stored in our database, which been normalized by RPKM (Reads Per Kilobase
                     of transcript per Million mapped reads).
                 </p>

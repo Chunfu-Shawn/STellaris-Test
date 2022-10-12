@@ -6,6 +6,7 @@ import GenePageSiderMenu from "../../../components/GenePage/GenePageSiderMenu.js
 import Summary from "../../../components/GenePage/Summary.js";
 import Features from "../../../components/GenePage/Features.js";
 import SpatialExpression from "../../../components/GenePage/SpatialExpression.js";
+import Download from "../../../components/GenePage/Download.js";
 
 export async function getServerSideProps(context) {
     if ( typeof context.params.gene_id === undefined ) {
@@ -92,6 +93,7 @@ export default function GenePage(props) {
                                     <></>
                                 }
                                 <Features data={props.data} trans={props.trans}/>
+                                <Download data={props.data}/>
                             </div>
                         </Col>
                     </Row>

@@ -542,7 +542,7 @@ var i,
 	select,
 	outermostContext,
 	sortInput,
-	hasDuplicate,
+	hasSection,
 
 	// Local document vars
 	setDocument,
@@ -565,7 +565,7 @@ var i,
 	nonnativeSelectorCache = createCache(),
 	sortOrder = function( a, b ) {
 		if ( a === b ) {
-			hasDuplicate = true;
+			hasSection = true;
 		}
 		return 0;
 	},
@@ -1478,9 +1478,9 @@ setDocument = Sizzle.setDocument = function( node ) {
 	sortOrder = hasCompare ?
 	function( a, b ) {
 
-		// Flag for duplicate removal
+		// Flag for section removal
 		if ( a === b ) {
-			hasDuplicate = true;
+			hasSection = true;
 			return 0;
 		}
 
@@ -1536,7 +1536,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// Exit early if the nodes are identical
 		if ( a === b ) {
-			hasDuplicate = true;
+			hasSection = true;
 			return 0;
 		}
 
@@ -1682,28 +1682,28 @@ Sizzle.error = function( msg ) {
 };
 
 /**
- * Document sorting and removing duplicates
+ * Document sorting and removing sections
  * @param {ArrayLike} results
  */
 Sizzle.uniqueSort = function( results ) {
 	var elem,
-		duplicates = [],
+		sections = [],
 		j = 0,
 		i = 0;
 
-	// Unless we *know* we can detect duplicates, assume their presence
-	hasDuplicate = !support.detectDuplicates;
+	// Unless we *know* we can detect sections, assume their presence
+	hasSection = !support.detectSections;
 	sortInput = !support.sortStable && results.slice( 0 );
 	results.sort( sortOrder );
 
-	if ( hasDuplicate ) {
+	if ( hasSection ) {
 		while ( ( elem = results[ i++ ] ) ) {
 			if ( elem === results[ i ] ) {
-				j = duplicates.push( i );
+				j = sections.push( i );
 			}
 		}
 		while ( j-- ) {
-			results.splice( duplicates[ j ], 1 );
+			results.splice( sections[ j ], 1 );
 		}
 	}
 
@@ -2915,8 +2915,8 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 support.sortStable = expando.split( "" ).sort( sortOrder ).join( "" ) === expando;
 
 // Support: Chrome 14-35+
-// Always assume duplicates if they aren't passed to the comparison function
-support.detectDuplicates = !!hasDuplicate;
+// Always assume sections if they aren't passed to the comparison function
+support.detectSections = !!hasSection;
 
 // Initialize against the default document
 setDocument();
@@ -3405,7 +3405,7 @@ jQuery.each( {
 
 		if ( this.length > 1 ) {
 
-			// Remove duplicates
+			// Remove sections
 			if ( !guaranteedUnique[ name ] ) {
 				jQuery.uniqueSort( matched );
 			}
@@ -3449,7 +3449,7 @@ function createOptions( options ) {
  *					after the list has been fired right away with the latest "memorized"
  *					values (like a Deferred)
  *
- *	unique:			will ensure a callback can only be added once (no duplicate in the list)
+ *	unique:			will ensure a callback can only be added once (no section in the list)
  *
  *	stopOnFalse:	interrupt callings when a callback returns false
  *

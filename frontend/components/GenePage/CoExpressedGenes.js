@@ -169,7 +169,7 @@ export default function CoExpressedGenes(){
                        columns={columns}
                        size={"small"}
                        dataSource={geneContext.dataCor.map(data => {
-                           return {key: data.x_gene_symbol+data.y_gene_symbol+data.duplicate_id, ...data}
+                           return {key: data.x_gene_symbol+data.y_gene_symbol+data.section_id, ...data}
                        })}
                 />
             </div>

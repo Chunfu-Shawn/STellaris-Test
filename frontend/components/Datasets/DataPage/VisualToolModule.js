@@ -16,8 +16,8 @@ const DynamicVisualTool = dynamic(() =>
 export default function VisualToolModule(props) {
     const [dataset, setDataset] = useState({});
     useEffect(()=>{
-        // no duplicate
-        if(props.duplicateOption[0] === "null")
+        // no section
+        if(props.sectionOption[0] === "null")
             setDataset({
                 "id": props.st_id,
                 "name": props.st_id,
@@ -29,9 +29,9 @@ export default function VisualToolModule(props) {
                 "name": props.st_id,
                 "url": "https://rhesusbase.com:9999/datasets/adata_a2p2.telen.m500.log1p.leiden.deg/adata_a2p2.telen.m500.log1p.leiden.deg.jsonl"
             })
-    },[props.st_id,props.duplicateOption[0]])
+    },[props.st_id,props.sectionOption[0]])
 
-    const onChangeDuplicate = (value) => {
+    const onChangeSection = (value) => {
         let datasetTemp
         datasetTemp = {
             ...dataset,
@@ -52,21 +52,21 @@ export default function VisualToolModule(props) {
                 </Link>
             </Divider>
             <Row justify="start" align="stretch">
-                <Col span={3}><span style={{fontSize:"16px"}}>Duplicates ID: </span></Col>
+                <Col span={3}><span style={{fontSize:"16px"}}>Sections ID: </span></Col>
                 <Col span={6}>
                     <Select
-                        defaultValue={props.duplicateOption[0]==="null"?'default':props.duplicateOption[0]}
+                        defaultValue={props.sectionOption[0]==="null"?'default':props.sectionOption[0]}
                         style={{
                             width: '15vw',
                         }}
-                        onChange={onChangeDuplicate}
+                        onChange={onChangeSection}
                     >
                         {
-                            props.duplicateOption[0]==="null" ?
+                            props.sectionOption[0]==="null" ?
                                 <Option key={"default"} value={"default"}>{"default"}</Option>
                             :
                                 (
-                                    props.duplicateOption.map((item) =>
+                                    props.sectionOption.map((item) =>
                                     <Option key={item} value={item}>{item}</Option>)
                                 )
                         }

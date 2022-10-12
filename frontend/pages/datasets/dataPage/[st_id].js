@@ -28,22 +28,22 @@ export async function getServerSideProps(context) {
             notFound: true,
         }
     }
-    const duplicateOption = data[0].duplicate_id.split(',')
+    const sectionOption = data[0].section_id.split(',')
     // get spatially variable gene
     let spatiallyVariableGenes = []
-    for (const item of duplicateOption) {
+    for (const item of sectionOption) {
         const res = await fetch((process.env.NODE_ENV==="production"?
                 process.env.PRODUCTION_URL:"http://localhost:3000")
-            +"/api/spatially-variable-gene/duplicate/"+item)
+            +"/api/spatially-variable-gene/section/"+item)
         const data = await res.json()
         spatiallyVariableGenes.push.apply(spatiallyVariableGenes, data)
     }
     // get correlation of genes expression
     let genesExpressionCorrelation = []
-    for (const item of duplicateOption) {
+    for (const item of sectionOption) {
         const res = await fetch((process.env.NODE_ENV==="production"?
                 process.env.PRODUCTION_URL:"http://localhost:3000")
-            +"/api/genes-expression-correlation/duplicate/"+item)
+            +"/api/genes-expression-correlation/section/"+item)
         const data = await res.json()
         genesExpressionCorrelation.push.apply(genesExpressionCorrelation, data)
     }
@@ -65,7 +65,7 @@ export async function getServerSideProps(context) {
 
 export default function DataPage(props) {
     const divContent = useRef(null); //标识nav导航栏渲染内容
-    const duplicateOption = props.data.duplicate_id.split(',')
+    const sectionOption = props.data.section_id.split(',')
     const iconStyle = {color:"dimgray",float:"right",fontSize:"22px",margin:'0 2%'}
 
     if(!props) return <Error statusCode={404}></Error>
@@ -134,28 +134,28 @@ export default function DataPage(props) {
                                     </div>
                                 </div>
                                 <Sample data={props.data}/>
-                                <div name={"Duplicates"}>
-                                    <a id={"Duplicates"} style={{position: 'relative', top: "-150px"}}></a>
+                                <div name={"Sections"}>
+                                    <a id={"Sections"} style={{position: 'relative', top: "-150px"}}></a>
                                     <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
-                                        <span style={{fontSize:22}}>Duplicates </span>
+                                        <span style={{fontSize:22}}>Sections </span>
                                         <Link href={'/help/manual/datasets#data_page_attributes'}>
                                             <a target={"_blank"}><QuestionCircleOutlined/></a>
                                         </Link>
                                     </Divider>
-                                    <AttributeLayout attribute={"Number of Duplicates"}>{props.data.duplicate}</AttributeLayout>
+                                    <AttributeLayout attribute={"Number of Sections"}>{props.data.sections}</AttributeLayout>
                                     <div style={{wordBreak:"break-all", wordWrap:"break-word"}}>
-                                        <AttributeLayout attribute={"Duplicate ID"}>{props.data.duplicate_id!==null?props.data.duplicate_id:"--"}</AttributeLayout>
+                                        <AttributeLayout attribute={"Section ID"}>{props.data.section_id!==null?props.data.section_id:"--"}</AttributeLayout>
                                     </div>
                                 </div>
                                 <Features
                                     data={props.data}
                                     spatiallyVariableGenes={props.spatiallyVariableGenes}
                                     genesExpressionCorrelation={props.genesExpressionCorrelation}
-                                    duplicateOption={duplicateOption}
+                                    sectionOption={sectionOption}
                                 />
                                 <VisualToolModule
                                     st_id={props.data.id}
-                                    duplicateOption={duplicateOption}
+                                    sectionOption={sectionOption}
                                     />
                                 <div name={"Source"}>
                                     <a id={"Source"} style={{position: 'relative', top: "-150px"}}></a>
@@ -192,7 +192,7 @@ export default function DataPage(props) {
                                         <span style={{fontSize:22}}>Files </span>
                                     </Divider>
                                     <div className="site-card-wrapper" style={{padding:"10px"}}>
-                                        <FliesTree st_id={props.data.id} duplicates_id={duplicateOption}/>
+                                        <FliesTree st_id={props.data.id} sections_id={sectionOption}/>
                                     </div>
                                 </div>
                             </div>

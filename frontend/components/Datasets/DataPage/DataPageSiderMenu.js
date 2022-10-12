@@ -10,7 +10,7 @@ const items = [
         label: <a href={'#Sample'}>Sample</a>, key: 'Sample'
     },
     {
-        label: <a href={'#Duplicates'}>Duplicates</a>, key: 'Duplicates'
+        label: <a href={'#Sections'}>Sections</a>, key: 'Sections'
     },
     {
         label: <a href={'#Features'}>Features</a>, key: 'Features',

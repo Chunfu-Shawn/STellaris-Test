@@ -63,12 +63,12 @@ RouterAPI.get('/api/gene/transcript/:geneId', async (ctx) => {
     ctx.body = await getGeneTranscript(ctx.params.geneId)
 })
 
-// 设置路由和api通过基因id或者duplicate_id进行差异基因的搜索
-RouterAPI.get('/api/spatially-variable-gene/:geneOrDuplicate/:param', async (ctx) => {
-    ctx.body = await getSpatiallyVariableGenes(ctx.params.geneOrDuplicate,ctx.params.param)
+// 设置路由和api通过基因id或者section_id进行差异基因的搜索
+RouterAPI.get('/api/spatially-variable-gene/:geneOrSection/:param', async (ctx) => {
+    ctx.body = await getSpatiallyVariableGenes(ctx.params.geneOrSection,ctx.params.param)
 })
 
-// 设置路由和api通过基因id或者duplicate_id进行基因共表达的搜索
-RouterAPI.get('/api/genes-expression-correlation/:geneOrDuplicate/:param', async (ctx) => {
-    ctx.body = await getGenesExpressionCorrelation(ctx.params.geneOrDuplicate,ctx.params.param)
+// 设置路由和api通过基因id或者section_id进行基因共表达的搜索
+RouterAPI.get('/api/genes-expression-correlation/:geneOrSection/:param', async (ctx) => {
+    ctx.body = await getGenesExpressionCorrelation(ctx.params.geneOrSection,ctx.params.param)
 })

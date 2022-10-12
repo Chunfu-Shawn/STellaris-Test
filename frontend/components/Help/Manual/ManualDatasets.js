@@ -17,7 +17,7 @@ export default function ManualDatasets() {
                 <h1>Datasets</h1>
                 <h2>1. Introduction</h2>
                 <p>
-                    We collected and integrated 125 set of spatial transcriptome datasets.
+                    We collected and integrated 96 set of spatial transcriptome datasets.
                 </p>
                 <h2>2. Data Pre-processing</h2>
                 <h2>3. Datasets Attributes</h2>
@@ -31,12 +31,12 @@ export default function ManualDatasets() {
                     (<a href={"https://cirrocumulus.readthedocs.io/en/latest/"} target={"_blank"} rel={"noreferrer"}>
                         https://cirrocumulus.readthedocs.io/en/latest/</a>)
                     for dataset visualization. Cirrocumulus is an interactive visualization tool for large-scale single-cell
-                    and spatial transcriptomic data. The data visualization module consists of duplicates selector, an app bar, side bar,
+                    and spatial transcriptomic data. The data visualization module consists of Sections selector, an app bar, side bar,
                     primary embedding, embedding gallery and toolbar and distribution plots.
                 </p>
                 <Image src={"/images/visual-tool.png"} alt={'spatial_trans_visual_tool'} width={900} height={700}/>
                 <ul>
-                    <li><b>Duplicates ID Selector</b>: allows users to selector a duplicate of this datasets to show</li>
+                    <li><b>Sections ID Selector</b>: allows users to select a section of this datasets to show</li>
                     <li><b>App bar</b>: The app bar shows the number of plots in your dataset and the number of selected cells.
                         Additionally, it lets you switch between different tabs.</li>
                     <li><b>Side bar</b>: allows users to select which cell embeddings, genes/features, cell metadata (such as cluster labels)

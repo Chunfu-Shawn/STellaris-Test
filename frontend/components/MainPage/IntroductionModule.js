@@ -4,19 +4,19 @@ import Image from "next/image";
 
 export default function IntroductionModule(props){
     return(
-        <Row gutter={[20,0]}>
-            <Col span={6}>
+        <Row gutter={[0,0]} style={{margin:"20px 0px"}}>
+            <Col span={5}>
                 <Link href={props.link}>
                     <a>
                         <Image className="media-object"
-                             src="/images/index/placeholder.png"
+                             src={props.pic}
                              alt="missing pic"
-                             width={242} height={200}
+                             width={220} height={150}
                         />
                     </a>
                 </Link>
             </Col>
-            <Col span={18}>
+            <Col span={19}>
                 <h3>
                     <Link href={props.link}>
                         <a style={{color:"#1b103f"}}>{props.title}</a>

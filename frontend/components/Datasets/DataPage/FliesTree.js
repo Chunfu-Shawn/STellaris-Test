@@ -11,7 +11,7 @@ export default function FliesTree(props){
             key: 'h5ad_files',
             selectable: false,
             disableCheckbox: true,
-            children: props.duplicates_id.map( item => {
+            children: props.sections_id.map( item => {
                 return (
                     {
                         title: `${item}.h5ad`,

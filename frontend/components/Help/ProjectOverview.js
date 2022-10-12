@@ -11,7 +11,11 @@ export default function HelpProject() {
                 <Breadcrumb.Item>Project Overview</Breadcrumb.Item>
             </Breadcrumb><br/>
             <Typography>
-                <Title>Spatial Transcriptome Web</Title>
+                <Title>Spatial Transcriptome Webserver</Title>
+                <p style={{fontSize:18}}>
+                    STW is a comprehensive web-based platform involved database about spatial transcriptome data and gene spatial expression and
+                    tools about spatial alignment of sc/snRNA-seq data from a reference spatial data.
+                </p>
             </Typography>
         </div>
     )

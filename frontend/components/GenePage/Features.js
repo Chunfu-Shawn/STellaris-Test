@@ -36,7 +36,20 @@ export default function Features(props){
             </div>
             <div name={"Expression"} style={{marginLeft:"20px"}}>
                 <a id={"Expression"} style={{position: 'relative', top: "-150px"}}></a>
-                <Divider orientation="left" orientationMargin="0" dashed><b>Pseudobulk RNA-seq Expression</b></Divider>
+                <Divider orientation="left" orientationMargin="0" dashed>
+                    <Row gutter={[20,0]} style={{width:"auto"}}>
+                        <Col span={22}>
+                            <b>Pseudobulk RNA-seq Expression</b>
+                        </Col>
+                        <Col span={2}>
+                            <Button size={"small"}
+                                    onClick={() => exportToCsv(props.trans,`${props.data.symbol}_pseudobulk_RNA-seq_expression`)}
+                            >
+                                Export to CSV
+                            </Button>
+                        </Col>
+                    </Row>
+                </Divider>
                 <GeneExpressionBarChart/>
             </div>
             <div name={"Transcript"} style={{marginLeft:"20px"}}>

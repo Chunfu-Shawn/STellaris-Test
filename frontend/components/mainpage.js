@@ -9,8 +9,11 @@ export default function MainPage() {
             <div className="modal-body-stw">
                 <div className="cover-container" >
                     <div className="inner cover" >
-                        <h1 className="cover-heading">Spatial Transcriptome Web Tools and Database</h1>
-                        <p className="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+                        <h1 className="cover-heading">Spatial Transcriptome Web Database and Tools</h1>
+                        <p className="lead">
+                            STW is a comprehensive web-based platform involved database about spatial transcriptome data and gene spatial expression and
+                            tools about spatial alignment of sc/snRNA-seq data from a reference spatial data.
+                        </p>
                         <p className="lead">
                             <a href="#more" className="btn btn-lg btn-default">Know more</a>
                         </p>
@@ -24,9 +27,21 @@ export default function MainPage() {
                 <div id="more"></div>
                 <h1 className={"inner"} style={{color:"white"}}>KNOW MORE</h1>
                 <div className="intro-card-wrapper" >
-                    <IntroductionModule title={"Spatial Trans Datasets"} link={"/datasets"} context={contextHolder} /><br/>
-                    <IntroductionModule title={"Spatial Annotation Tool"} link={"/annotation"} context={contextHolder} /><br/>
-                    <IntroductionModule title={"Browser"}  link={"/browser"}context={contextHolder} />
+                    <IntroductionModule title={"Spatial Transcritome Datasets"} link={"/datasets"}
+                                        pic={"/images/index/Datasets.svg"}
+                                        context={contextHolder}
+                    /><br/>
+                    <IntroductionModule title={"Spatial Annotation Tool"} link={"/annotation"}
+                                        pic={"/images/index/Annotation.svg"}
+                                        context={contextHolder}
+                    /><br/>
+                    <IntroductionModule title={"Gene Browser"}  link={"/browser"}
+                                        pic={"/images/index/GeneBrowser.svg"}
+                                        context={"The Gene Browser module would help users to search for the basic information and" +
+                                            "spatial expression pattern of a interested gene. Gene Page contains some annotation" +
+                                            "sections, such as Summary, Spatially variable Expression, Co-expressed Genes, Highly-expressed Clusters, " +
+                                            "Genomic Context, Pseudobulk RNA-seq Expression and Transcripts, which present a whole spatial expression profile about a gene."}
+                    />
                 </div>
             </div>
         </>

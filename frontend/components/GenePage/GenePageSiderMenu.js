@@ -24,7 +24,7 @@ const itemsSV = [
         ],
     },
     {
-        label: <a href={'#download'}>Download</a>, key: 'download'
+        label: <a href={'#Download'}>Download</a>, key: 'Download'
     }
 ]
 const itemsNonSV = [
@@ -41,7 +41,7 @@ const itemsNonSV = [
         ],
     },
     {
-        label: <a href={'#download'}>Download</a>, key: 'download'
+        label: <a href={'#Download'}>Download</a>, key: 'Download'
     }
 ]
 

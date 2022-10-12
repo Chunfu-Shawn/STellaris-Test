@@ -1,5 +1,4 @@
 import mysql from 'mysql'
-import pool from "mysql/lib/Pool.js";
 // 数据库的配置选项
 const options = {
     host: 'localhost',//主机名

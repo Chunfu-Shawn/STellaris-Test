@@ -38,8 +38,8 @@ const data = [
         "Description": "developmental stage when the donor was"
     },
     {
-        "Attribute": "Duplicate",
-        "Description": "the number of technologically duplicates in each dataset"
+        "Attribute": "Section",
+        "Description": "the number of technologically sections in each dataset"
     },
     {
         "Attribute": "Date Published",
