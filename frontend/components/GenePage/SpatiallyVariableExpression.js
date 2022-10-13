@@ -8,7 +8,7 @@ import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
 const dataset2 = {
     "id": "GSM5833739",
     "name": "GSM5833739",
-    "url": "https://rhesusbase.com:9999/datasets/GSM5833739_10x_Visium_deal/GSM5833739_10x_Visium_deal.jsonl"
+    "url": "https://rhesusbase.com:9999/jsonl_files/GSM5833739_10x_Visium_deal/GSM5833739_10x_Visium_deal.jsonl"
 }
 
 export default function SpatiallyVariableExpression(){

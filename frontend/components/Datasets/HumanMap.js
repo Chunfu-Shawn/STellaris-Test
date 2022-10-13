@@ -3,14 +3,14 @@ import {useEffect, useRef} from "react";
 //引入jquery
 import $ from 'jquery';
 const showData = {
-    "Spinal Cord": 2,
-    "Bone": 3,
+    //"Spinal Cord": 2,
+    "Bone": 6,
     "Breast": 1,
-    "Heart": 1,
-    "Testis": 1,
-    "Uterus": 1,
+    "Heart": 3,
+    //"Testis": 1,
+    "Uterus": 2,
     "Colon": 3,
-    "Prostate": 5,
+    "Prostate": 2,
     "Kidney": 1,
     "Liver": 5,
     "Adipose Tissue": 1,

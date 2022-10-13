@@ -11,10 +11,10 @@ export default function GeneExpressionBarChart(){
     let categoryData = []; //X轴数据
     let errorData = []; //错误的数据
     let barData = []; // 柱状图数据
-    let dataCount = 50; //数据数量
+    let dataCount = 20; //数据数量
     for(let i = 0; i < dataCount; i++) {
-        let val = Math.random() * 1000; // random() 方法可返回介于 0 ~ 1 之间的一个随机数。
-        let error = Math.random() * 100 // 获得standard error
+        let val = Math.random() * 20; // random() 方法可返回介于 0 ~ 1 之间的一个随机数。
+        let error = Math.random() * 5 // 获得standard error
         categoryData.push(i);
         errorData.push([
             i,
@@ -127,7 +127,7 @@ export default function GeneExpressionBarChart(){
                 series: [
                     {
                         type: 'bar',
-                        name: 'Mean RPKM',
+                        name: 'Mean Reads Count',
                         data: barData,
                         itemStyle: {
                             normal: {

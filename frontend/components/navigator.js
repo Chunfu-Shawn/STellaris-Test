@@ -72,11 +72,11 @@ export default function Navigator(){
                 delete navUlChildren[i].className;
         }
     }
-    /*
+
     useEffect(()=>{
-        if (width >= breakpoint) navAction();
-    })
-     */
+        navAction();
+    },[navAction])
+
 
     //const { width } = useViewport();
     const breakpoint = 992;

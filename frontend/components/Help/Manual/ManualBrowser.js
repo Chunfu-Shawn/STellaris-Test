@@ -6,7 +6,6 @@ import GeneAttributionsTable from "./GenePage/GeneAttributionsTable.js";
 import GeneInfoAttributesTable from "./GenePage/GeneInfoAttributesTable.js";
 import GeneFeaturesAttributesTable from "./GenePage/GeneFeaturesAttributesTable.js";
 import Link from "next/link.js";
-import {QuestionCircleOutlined} from "@ant-design/icons";
 
 export default function ManualBrowser() {
 
@@ -114,9 +113,8 @@ export default function ManualBrowser() {
                 <h4>(3) Features</h4>
                 <a id={"gene_page_features"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>This section comprises three annotations: <b>Genomic Context, Pseudobulk RNA-seq Expression and Transcript</b>.</p>
-                <p>Pseudobulk RNA-seq Expression data for interested gene is displayed graphically. The data was computed
-                    from spatial transcriptome data stored in our database, which been normalized by RPKM (Reads Per Kilobase
-                    of transcript per Million mapped reads).
+                <p>Pseudobulk RNA-seq Expression data for interested gene is displayed graphically. The mean reads count value
+                    was computed from spatial transcriptome data stored in our database.
                 </p>
                 <p>Here are the attributes of Genomic Context and Transcript section below:</p>
                 <GeneFeaturesAttributesTable/>
