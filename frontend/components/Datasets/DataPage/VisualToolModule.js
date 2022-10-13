@@ -14,31 +14,34 @@ const DynamicVisualTool = dynamic(() =>
     })
 
 export default function VisualToolModule(props) {
+    const {
+        st_id,
+        sectionOption
+    } = props
     const [dataset, setDataset] = useState({});
     useEffect(()=>{
         // no section
-        if(props.sectionOption[0] === "null")
+        if(sectionOption[0] === "null")
             setDataset({
-                "id": props.st_id,
-                "name": props.st_id,
-                "url": "https://rhesusbase.com:9999/datasets/adata_a2p2.telen.m500.log1p.leiden.deg/adata_a2p2.telen.m500.log1p.leiden.deg.jsonl"
+                "id": `${st_id} | ${sectionOption[0]}`,
+                "name": `${st_id} | ${sectionOption[0]}`,
+                "url": `https://rhesusbase.com:9999/jsonl_files/${st_id}/${sectionOption[0]}/${sectionOption[0]}.jsonl`
             })
         else
             setDataset({
-                "id": props.st_id,
-                "name": props.st_id,
-                "url": "https://rhesusbase.com:9999/datasets/adata_a2p2.telen.m500.log1p.leiden.deg/adata_a2p2.telen.m500.log1p.leiden.deg.jsonl"
+                "id": `${st_id} | ${sectionOption[0]}`,
+                "name": `${st_id} | ${sectionOption[0]}`,
+                "url": `https://rhesusbase.com:9999/jsonl_files/${st_id}/${sectionOption[0]}/${sectionOption[0]}.jsonl`
             })
-    },[props.st_id,props.sectionOption[0]])
+    },[st_id,sectionOption[0]])
 
     const onChangeSection = (value) => {
         let datasetTemp
         datasetTemp = {
-            ...dataset,
-            "url": "https://rhesusbase.com:9999/datasets/adata_a2p2.telen.m500.log1p.leiden.deg/adata_a2p2.telen.m500.log1p.leiden.deg.jsonl"
-            //"url": 'https://rhesusbase.com:9999/datasets/'+props.st_id+'/'+value+'/'+value+'.jsonl'
+            "id": `${st_id} | ${value}`,
+            "name": `${st_id} | ${value}`,
+            "url": `https://rhesusbase.com:9999/jsonl_files/${st_id}/${value}/${value}.jsonl`
         }
-        console.log(datasetTemp)
         setDataset(datasetTemp)
     }
 

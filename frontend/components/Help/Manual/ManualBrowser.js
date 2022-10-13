@@ -80,7 +80,7 @@ export default function ManualBrowser() {
                     <b> Spatially Variable Expression</b>, <b>Co-expressed Genes</b>, and <b>Highly-expressed Clusters</b>.</p>
                 <h5>(a) Spatially Variable Expression</h5>
                 <p>This portion shows a typical gene expression data in spatial embedding <b>when the gene is a spatially variable
-                    gene in a organ/tissue</b>. A tip box show a RPKM value when mouse hovering over a spot, which is in deeper colored
+                    gene in a organ/tissue</b>. A tip box show a reads count value when mouse hovering over a spot, which is in deeper colored
                     with higher expression.
                 </p>
                 <h5>(b) Co-expressed Genes</h5>
