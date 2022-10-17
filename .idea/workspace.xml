@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/errorModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/errorModule.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/waitModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/waitModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/annotation/resultPage/[rid].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation/resultPage/[rid].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getJobStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getJobStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/execTangram.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execTangram.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +134,7 @@
       <workItem from="1665471664538" duration="25348000" />
       <workItem from="1665641625193" duration="375000" />
       <workItem from="1665642802393" duration="5779000" />
-      <workItem from="1665676955845" duration="9047000" />
+      <workItem from="1665676955845" duration="10784000" />
     </task>
     <servers />
   </component>

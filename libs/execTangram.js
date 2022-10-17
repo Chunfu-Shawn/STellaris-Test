@@ -60,7 +60,7 @@ export function execTangram(rid,destination,filename) {
                 logger.log(`child process 'annotation' has exited，exit code: ${code}`);
                 annotationLogger.log(`[${new Date()}]: "child process 'annotation' has exited，exit code: ${code}`)
                 if (code === 0) setJobStatus(rid, 'finished')
-                else setJobStatus(rid, "error")
+                //else setJobStatus(rid, "error")
             });
         } catch (err) {
             logger.log(`Error of reading/writing file from disk or python running: ${err}`)

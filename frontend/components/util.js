@@ -90,3 +90,22 @@ export function exportToCsv(data,fileName) {
     link.click(); // This will download the data file named 'my_data.csv'.
     document.body.removeChild(link); // Required for FF
 };
+
+/**
+ * calculate time consumed
+ * @param nowtime  {Date}  当前时间
+ * @param etime  {Date}  早期时间
+ * @return {String} 消耗的小时、分钟、秒
+ */
+export function calTime(nowtime,etime){
+    let usedTime = Date.parse(nowtime) - Date.parse(etime)
+    // 计算相差小时数
+    let hours=Math.floor(usedTime/(3600*1000))
+    //计算相差分钟数
+    let leave1=usedTime%(3600*1000);        //计算小时数后剩余的毫秒数
+    let minutes=Math.floor(leave1/(60*1000));
+    //计算相差秒数
+    let leave2=leave1%(60*1000);      //计算分钟数后剩余的毫秒数
+    let seconds=Math.round(leave2/1000);
+    return hours + "h " + minutes + "m " + seconds + "s"
+}

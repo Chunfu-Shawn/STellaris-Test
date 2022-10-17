@@ -1,6 +1,5 @@
 import ResultStatus from "./resultStatus.js";
-import {calTime} from "./waitModule.js";
-import {Button, Col, Row, Statistic} from "antd";
+import {calTime} from "../util.js";
 
 
 export default function ErrorModule(props){

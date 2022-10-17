@@ -22,12 +22,11 @@ export async function getServerSideProps(context) {
             notFound: true,
         }
     }
-    const time = new Date()
+
     return {
         props: {
             rid: context.params.rid,
-            data: data[0],
-            time: time
+            data: {...data},
         }
     }
 }
@@ -54,12 +53,12 @@ export default function ResultPage(props) {
     }
     if ( !error && ! isLoading){
         // 如果该rid的状态是running，返回wait页面，是finished则返回结果页面,是error则返回错误界面；
-        if(data[0].status === 'running') {
-            returnModule = <WaitModule data={data[0]} time={props.time}></WaitModule>
-        }else if(data[0].status === 'finished'){
-            returnModule = <ResultModule data={data[0]}></ResultModule>
-        }else if(data[0].status === 'error'){
-            returnModule = <ErrorModule data={data[0]}></ErrorModule>
+        if(data.status === 'running') {
+            returnModule = <WaitModule data={data} time={props.data.searchTime}></WaitModule>
+        }else if(data.status === 'finished'){
+            returnModule = <ResultModule data={data}></ResultModule>
+        }else if(data.status === 'error'){
+            returnModule = <ErrorModule data={data}></ErrorModule>
         }
     }
     let title = `STW | Annotation | ${props.rid}`
