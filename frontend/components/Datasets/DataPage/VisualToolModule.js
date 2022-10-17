@@ -40,7 +40,7 @@ export default function VisualToolModule(props) {
         datasetTemp = {
             "id": `${st_id} | ${value}`,
             "name": `${st_id} | ${value}`,
-            "url": `https://rhesusbase.com:9999/jsonl_files/adata_a2p2.telen.m500.log1p.leiden.deg/adata_a2p2.telen.m500.log1p.leiden.deg.jsonl`
+            "url": `https://rhesusbase.com:9999/jsonl_files/${st_id}/${value}/${value}.jsonl`
         }
         setDataset(datasetTemp)
     }

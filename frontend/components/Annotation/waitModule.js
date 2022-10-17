@@ -18,7 +18,8 @@ export default function WaitModule(props){
     const [usedTime, setUsedTime] = useState(" ");
     useEffect(() => {
         const timer = setInterval(() => {
-            let nowtime = new Date()
+            let nowtime = Date.parse(props.time)
+            nowtime += 1000
             setUsedTime(calTime(nowtime.toISOString(),props.data.upload_time));
         }, 1000);
         return () => clearInterval(timer);
