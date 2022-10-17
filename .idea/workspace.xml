@@ -6,16 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/HumanMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/HumanMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Download.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Download.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/GeneExpressionBarChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/GeneExpressionBarChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/SpatiallyVariableExpression.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/SpatiallyVariableExpression.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualBrowser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/VisualTool/dataset.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/VisualTool/dataset.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/human-color.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/human-color.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Summary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/mainpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getSpatiallyVariableGenes.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getSpatiallyVariableGenes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +133,8 @@
       <workItem from="1665466909031" duration="3504000" />
       <workItem from="1665471664538" duration="25348000" />
       <workItem from="1665641625193" duration="375000" />
-      <workItem from="1665642802393" duration="5312000" />
+      <workItem from="1665642802393" duration="5779000" />
+      <workItem from="1665676955845" duration="6223000" />
     </task>
     <servers />
   </component>

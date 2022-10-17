@@ -95,7 +95,7 @@ export default function GeneExpressionBarChart(){
                 },
                 grid: {
                     top: 10,
-                    left: 30,
+                    left: 50,
                     right: 10,
                     bottom: 40,
                     containLabel: true
@@ -112,7 +112,7 @@ export default function GeneExpressionBarChart(){
                     data: categoryData,
                 },
                 yAxis: {
-                    name:'RPKM',
+                    name:'Reads Count',
                     nameLocation:'center',
                     nameTextStyle:{
                         fontSize:15,// 字体大小

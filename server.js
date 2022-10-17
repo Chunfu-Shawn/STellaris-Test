@@ -40,7 +40,7 @@ app.prepare().then(() => {
         renew: false,  //(boolean) renew session when session is nearly expired,
         autoCommit:false,
     };
-    server.use(session(CONFIG, server));
+    //server.use(session(CONFIG, server));
 
     //设置koa日志访问记录
     //注意，需要放在nextjs路由前面，避免http请求被nextjs接受导致不能在后端进行记录

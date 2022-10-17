@@ -11,8 +11,8 @@ export default function MainPage() {
                     <div className="inner cover" >
                         <h1 className="cover-heading">Spatial Transcriptome Web Database and Tools</h1>
                         <p className="lead">
-                            STW is a comprehensive web-based platform involved database about spatial transcriptome data and gene spatial expression and
-                            tools about spatial alignment of sc/snRNA-seq data from a reference spatial data.
+                            STW is a comprehensive webserver integrating database about spatial transcriptome data and gene spatial expression and
+                            tools about integrating scRNA-seq and spatial transcriptomics data for further analysis.
                         </p>
                         <p className="lead">
                             <a href="#more" className="btn btn-lg btn-default">Know more</a>
