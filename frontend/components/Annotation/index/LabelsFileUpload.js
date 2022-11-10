@@ -1,10 +1,10 @@
 import {Form, Button, message, Upload} from "antd";
 import {UploadOutlined} from "@ant-design/icons";
 
-export default function FeaturesFileUpload(props){
+export default function LabelsFileUpload(props){
 
-    const settingFeatures = {
-        name: 'featuresFile',
+    const settingLabels = {
+        name: 'labelsFile',
         required: true,
         beforeUpload: (file) => {
             let filenameArr = file.name.split('.');
@@ -47,16 +47,16 @@ export default function FeaturesFileUpload(props){
     };
 
     return(
-        <Form.Item name="featureFile" label="Features File"
+        <Form.Item name="labelsFile" label="Labels File"
                    rules={[
                        {
                            required: true,
                        },
                    ]}
         >
-            <Upload {...settingFeatures} maxCount={1}>
-                <Button icon={<UploadOutlined />}>Select a features file</Button>
-                <small style={{color:"gray"}}> (only a .gz format features file)</small>
+            <Upload {...settingLabels} maxCount={1}>
+                <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a labels file</Button>
+                <small style={{color:"gray"}}> (only a .gz format labels file)</small>
             </Upload>
         </Form.Item>
     )

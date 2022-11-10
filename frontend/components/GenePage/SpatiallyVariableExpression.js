@@ -1,7 +1,7 @@
 import {Col, Divider, Row, Space} from "antd";
 import React from "react";
 import {DynamicGeneExpress} from "./SpatialExpression";
-//import {firstUpperCase} from '../util'
+import {firstUpperCase} from '../util'
 import dataset from "../VisualTool/dataset.json";
 import {useContext} from "react";
 import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
@@ -27,7 +27,7 @@ export default function SpatiallyVariableExpression(){
                             width={300}
                             height={300}
                             dataset={dataset}
-                            gene={geneContext.data.symbol}
+                            gene={firstUpperCase(geneContext.data.symbol)}
                         />
                     </Col>
                     <Col>
@@ -37,7 +37,7 @@ export default function SpatiallyVariableExpression(){
                             width={300}
                             height={300}
                             dataset={dataset2}
-                            gene={geneContext.data.symbol}
+                            gene={firstUpperCase(geneContext.data.symbol)}
                         />
                     </Col>
                 </Space>

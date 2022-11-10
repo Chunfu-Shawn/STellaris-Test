@@ -1,7 +1,7 @@
 ## Script: annotation_tangram.py
 ## Description: Perform tangram mapping
-## Author: Kevin Lee
-## Date: 2021.12.29
+## Author: Chunfu Xiao
+## Date: 2022.10.24
 
 import argparse
 import os

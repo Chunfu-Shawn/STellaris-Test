@@ -1,14 +1,15 @@
-import {Button, Form, Input, message, Popconfirm} from "antd";
-import SelectOrganTissue from "./index/SelectOrganTissue";
+import {Button, Form, Input, message, Popconfirm, Dropdown, Menu} from "antd";
+import SelectSpeciesOrganTissue from "./index/SelectSpeciesOrganTissue";
 import MatrixFileUpload from "./index/MatrixFileUpload";
-import BarcodesFileUpload from "./index/BarcodesFileUpload";
-import FeaturesFileUpload from "./index/FeaturesFileUpload";
+import LabelsFileUpload from "./index/LabelsFileUpload";
 import {throttle} from "../util";
 import {useState} from "react";
 import {useRouter} from "next/router";
 
-export default function CellTypesAnnotate(props){
+
+export default function AnnotateSpatialLocation(props){
     const {
+        speciesOptions,
         organOptions,
         tissueOptions,
         validateMessages
@@ -16,15 +17,15 @@ export default function CellTypesAnnotate(props){
     const UPLOAD_URL = `/annotation/upload/`
     const DEMO_URL = `/annotation/demo/`
     const [matrixFileList, setMatrixFileList] = useState([]);
-    const [barcodesFileList, setBarcodesFileList] = useState([]);
-    const [featuresFileList, setFeaturesFileList] = useState([]);
+    const [labelsFileList, setLabelsFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
-    const [organ, setOrgan] = useState(organOptions[0]);
-    const [tissues, setTissues] = useState(tissueOptions[organOptions[0]]);
-    const [secondTissue, setSecondTissue] = useState(tissueOptions[organOptions[0]][0]);
+    const [species, setSpecies] = useState(speciesOptions[0]);
+    const [organ, setOrgan] = useState(organOptions[speciesOptions[0]][0]);
+    const [tissue, setTissue] = useState(tissueOptions[organOptions[speciesOptions[0]][0]][0]);
 
     const router = useRouter()
     const [form] = Form.useForm();
+
     // 手动上传表单
     const handleUpload = () => {
         let rid = ""
@@ -32,16 +33,14 @@ export default function CellTypesAnnotate(props){
         matrixFileList.forEach((file) => {
             formData.append('matrixFile', file);
         });
-        barcodesFileList.forEach((file) => {
+        labelsFileList.forEach((file) => {
             formData.append('barcodesFile', file);
-        });
-        featuresFileList.forEach((file) => {
-            formData.append('featuresFile', file);
         });
         formData.append('title',form.getFieldValue('title'))
         formData.append('emailAddress',form.getFieldValue('emailAddress'))
+        formData.append('species',species)
         formData.append('organ',organ)
-        formData.append('tissue',secondTissue)
+        formData.append('tissue',tissue)
         formData.append('isDemo',"false")
         setUploading(true); // You can use any AJAX library you like
         fetch(UPLOAD_URL, {
@@ -51,8 +50,7 @@ export default function CellTypesAnnotate(props){
             .then(json => rid = json.rid)
             .then(() => {
                 setMatrixFileList([]);
-                setBarcodesFileList([]);
-                setFeaturesFileList([]);
+                setLabelsFileList([]);
                 message.success({
                     content:'upload successfully!',
                     style:{
@@ -71,6 +69,7 @@ export default function CellTypesAnnotate(props){
                         duration:3,
                     }
                 );
+                setUploading(false);
                 router.reload()
             })
             .finally(() => {
@@ -81,10 +80,10 @@ export default function CellTypesAnnotate(props){
     const layout = {
         labelAlign: "left",
         labelCol: {
-            span: 6,
+            span: 8,
         },
         wrapperCol: {
-            span: 18,
+            span: 16,
         },
     };
     const tailLayout = {
@@ -96,8 +95,7 @@ export default function CellTypesAnnotate(props){
     const onReset = () => {
         form.resetFields();
         setMatrixFileList([]);
-        setBarcodesFileList([]);
-        setFeaturesFileList([]);
+        setLabelsFileList([]);
     };
 
     const onRunDemo = () => {
@@ -138,13 +136,37 @@ export default function CellTypesAnnotate(props){
                 setUploading(false);
             });
     };
+
+    const menu = (
+        <Menu
+            items={[
+                {
+                    key: '1',
+                    label: (
+                        <Button type={"link"} onClick={throttle(1000,onRunDemo)}>
+                            E14.5 Mouse Whole Brain Stereo-seq
+                        </Button>
+                    ),
+                },
+                {
+                    key: '2',
+                    label: (
+                        <Button type={"link"} onClick={throttle(1000,onRunDemo)}>
+                            Mouse Embryo seqFISH
+                        </Button>
+                    ),
+                },
+            ]}
+        />
+    );
+
     return(
         <Form {...layout} layout={'horizontal'} form={form}
-              onFinish={handleUpload}
+              onFinish={throttle(1000,handleUpload)}
               name="control-hooks"
               validateMessages={validateMessages}
               style={{width:600}}>
-            <Form.Item name="title" label="Job Title"
+            <Form.Item name="title" label="Project Title"
                        rules={[
                            {
                                required: true,
@@ -152,12 +174,12 @@ export default function CellTypesAnnotate(props){
                            },
                        ]}
             >
-                <Input placeholder='Enter job name'/>
+                <Input placeholder='Enter project title'/>
             </Form.Item>
-            <Form.Item name="emailAddress" label="Email Address"
+            <Form.Item name="emailAddress" label="Email Address (optional)"
                        rules={[
                            {
-                               required: true,
+                               required: false,
                                type:'email',
                                max:50
                            },
@@ -165,41 +187,43 @@ export default function CellTypesAnnotate(props){
             >
                 <Input placeholder='Enter your email address' />
             </Form.Item>
-            <SelectOrganTissue setOrgan={setOrgan}
-                               organOptions={organOptions}
-                               tissueOptions={tissueOptions}
-                               tissues={tissues}
-                               setTissues={setTissues}
-                               secondTissue={secondTissue}
-                               setSecondTissue={setSecondTissue}
+            <SelectSpeciesOrganTissue
+                speciesOptions={speciesOptions}
+                organOptions={organOptions}
+                tissueOptions={tissueOptions}
+                species={species}
+                setSpecies={setSpecies}
+                organ={organ}
+                setOrgan={setOrgan}
+                tissue={tissue}
+                setTissue={setTissue}
             />
 
             <MatrixFileUpload setFileList={setMatrixFileList}
                               fileList={matrixFileList}
             />
+            <LabelsFileUpload setFileList={setLabelsFileList}
+                                fileList={labelsFileList}
+            />
 
             <Form.Item {...tailLayout}>
                 <Button type="primary" htmlType="submit" disabled={
                     matrixFileList.length === 0 ||
-                    barcodesFileList.length === 0 ||
-                    featuresFileList.length === 0
+                    labelsFileList.length === 0
                 }
                         loading={uploading} className={"btn-upload"}>
                     {uploading ? 'Uploading...' : 'Start Upload'}
                 </Button>
-                <Button type="dashed" htmlType="button" onClick={onReset} className={"btn-upload"}>
+                <Button type="ghost" htmlType="button" onClick={onReset} className={"btn-upload"}>
                     Reset
                 </Button>
-                <Popconfirm
-                    title="Are you sure to run a demo?"
-                    onConfirm={throttle(1000,onRunDemo)}
-                    okText="Yes"
-                    cancelText="No"
+                <Dropdown
+                    overlay={menu}
                 >
-                    <Button type="ghost" htmlType="button">
-                        Run Demo
+                    <Button type="primary" htmlType="button" className={"btn-upload"}>
+                        Run Example
                     </Button>
-                </Popconfirm>
+                </Dropdown>
             </Form.Item>
         </Form>
     )

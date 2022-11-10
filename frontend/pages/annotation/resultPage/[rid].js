@@ -51,7 +51,7 @@ export default function ResultPage(props) {
     if (isLoading) {
         returnModule = <div>Loading...</div>
     }
-    if ( !error && ! isLoading){
+    if ( !error && ! isLoading ){
         // 如果该rid的状态是running，返回wait页面，是finished则返回结果页面,是error则返回错误界面；
         if(data.status === 'running') {
             returnModule = <WaitModule data={data} time={props.data.searchTime}></WaitModule>

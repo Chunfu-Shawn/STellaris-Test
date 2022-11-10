@@ -64,9 +64,9 @@ export default function ManualBrowser() {
                 <p>The search records contains following attributes:</p>
                 <SearchResultsAttributesTable />
                 <h2>4. Gene Page</h2>
-                <p>The Gene Page contains some annotations of a gene, such as Summary, Genomic Context, Transcripts,
-                    Region Specific Expression, Co-expressed Genes, and Highly-expressed Clusters, <b>which emphatically
-                        represent a whole spatial expression profile</b>.
+                <p>The Gene Page contains some annotations of a gene, such as Summary, Spatially Variable Expression,
+                    Co-expressed Genes, and Highly-expressed Clusters, Genomic Context, Pseudobulk RNA-seq Expression and Transcript,
+                    <b>which emphatically represent a whole spatial expression profile</b>.
                 </p>
                 <h4>(1) Summary</h4>
                 <a id={"gene_page_summary"} style={{position: 'relative', top: "-150px"}}></a>

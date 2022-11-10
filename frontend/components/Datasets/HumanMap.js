@@ -1,23 +1,8 @@
 import * as echarts from 'echarts';
 import {useEffect, useRef} from "react";
+import {showData} from "./getData&Options";
 //引入jquery
 import $ from 'jquery';
-const showData = {
-    //"Spinal Cord": 2,
-    "Bone": 6,
-    "Breast": 1,
-    "Heart": 3,
-    //"Testis": 1,
-    "Uterus": 2,
-    "Colon": 3,
-    "Prostate": 2,
-    "Kidney": 1,
-    "Liver": 5,
-    "Adipose Tissue": 1,
-    "Brain": 1,
-    "Lung": 2,
-    "Embryo": 1
-}
 
 export default function HumanMap(props){
     const chartRef = useRef(null);
@@ -63,7 +48,7 @@ export default function HumanMap(props){
                     xAxis: {
                         },
                     yAxis: {
-                        data: Object.keys(showData)
+                        data: Object.keys(showData["Human"])
                     },
                     series: [
                         {
@@ -71,7 +56,7 @@ export default function HumanMap(props){
                             emphasis: {
                                 focus: 'self'
                             },
-                            data: Object.values(showData)
+                            data: Object.values(showData["Human"])
                         }
                     ]
                 };

@@ -1,20 +1,11 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
-import { useRouter } from "next/router";
-import {Form, Input, message, Layout, Popconfirm, Space, Row, Col, Tabs} from 'antd';
-const { Sider } = Layout;
+import {Space, Row, Col} from 'antd';
 import Guidance from "../components/Annotation/index/Guidance";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
-import DeNovoAnnotation from "../components/Annotation/DeNovoAnnotation";
 import React, {useState} from "react";
-import CellTypesAnnotate from "../components/Annotation/CellTypesAnnotate";
-import {data, getAnnotationOptions} from "../components/Datasets/getData&Options";
-
-const items = [
-    { label: 'annotation1', key: 'annotation1', children: <DeNovoAnnotation/> }, // 务必填写 key
-    { label: 'annotation2', key: 'annotation1', children: '内容 2' },
-];
+import UploadModule from "../components/Annotation/index/UploadModule";
 
 /*
 export async function getServerSideProps() {
@@ -26,23 +17,6 @@ export async function getServerSideProps() {
     }
 }
  */
-
-
-const validateMessages = {
-    required: '${label} is required!',
-    types: {
-        email: '${label} is not a valid email!',
-        number: '${label} is not a valid number!',
-    },
-    number: {
-        range: '${label} must be between ${min} and ${max}',
-    },
-    string: {
-        max: "'${name}' cannot be longer than ${max} characters",
-    }
-};
-const organOptions = getAnnotationOptions(data)['organOptions'];
-const tissueOptions = getAnnotationOptions(data)['tissueOptions'];
 
 export default function Annotation(props) {
     const [value, setValue] = useState(0);
@@ -90,29 +64,7 @@ export default function Annotation(props) {
                                 </Link>
                             </Space>
                         </div>
-                        <Tabs className={'border-card-wrapper'}
-                              style={{padding:40,width:700,background:'rgb(255,255,255)'}}
-                              defaultActiveKey="1"
-                              size={'large'}
-                        >
-                            <Tabs.TabPane tab="De Novo Annotate" key="1">
-                                <DeNovoAnnotation
-                                    validateMessages={validateMessages}
-                                    organOptions={organOptions}
-                                    tissueOptions={tissueOptions}
-                                />
-                            </Tabs.TabPane>
-                            <Tabs.TabPane tab="Cell Types Annotate" key="2">
-                                <CellTypesAnnotate
-                                    validateMessages={validateMessages}
-                                    organOptions={organOptions}
-                                    tissueOptions={tissueOptions}
-                                />
-                            </Tabs.TabPane>
-                            <Tabs.TabPane tab="Tab 3" key="3">
-                                Content of Tab Pane 3
-                            </Tabs.TabPane>
-                        </Tabs>
+                        <UploadModule/>
                     </div>
                 </Col>
             </Row>

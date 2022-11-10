@@ -56,7 +56,7 @@ export default function MatrixFileUpload(props){
                    ]}
         >
             <Upload {...settingMatrix} maxCount={1}>
-                <Button icon={<UploadOutlined />}>Select a matrix file</Button>
+                <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a matrix file</Button>
                 <small style={{color:"gray"}}> (only a .gz format matrix file)</small>
             </Upload>
         </Form.Item>

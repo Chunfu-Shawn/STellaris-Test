@@ -1,8 +1,8 @@
 import {Button, Form, Input, message, Popconfirm} from "antd";
-import SelectOrganTissue from "./index/SelectOrganTissue";
+import SelectOrganTissue from "./index/SelectSpeciesOrganTissue";
 import MatrixFileUpload from "./index/MatrixFileUpload";
 import BarcodesFileUpload from "./index/BarcodesFileUpload";
-import FeaturesFileUpload from "./index/FeaturesFileUpload";
+import FeaturesFileUpload from "./index/LabelsFileUpload";
 import {throttle} from "../util";
 import {useState} from "react";
 import {useRouter} from "next/router";

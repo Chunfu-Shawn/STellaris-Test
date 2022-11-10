@@ -36,7 +36,7 @@
 
 /* Padding for spacing */
 .inner {
-  padding: 30px 10%;
+  padding: 30px 10px;
 }
 
 
@@ -44,7 +44,7 @@
  * Cover
 */
 .cover {
-  padding: 50px 0px 80px 0px;
+  padding: 20px 0 0px 0;
 }
 
 .cover .btn-lg {
@@ -70,3 +70,4 @@
   border-bottom-color: rgba(104, 93, 136, 0.15);
   background-color: #fafafa;
 }
+

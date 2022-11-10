@@ -1,25 +1,8 @@
 import * as echarts from 'echarts';
 import {useEffect, useRef} from "react";
+import {showData} from "./getData&Options";
 //引入jquery
 import $ from 'jquery';
-const showData = {
-    "Brain": 25,
-    "Heart": 9,
-    "Embryo": 4,
-    //"Prostate": 1,
-    "Testis": 2,
-    "Hindlimb": 3,
-    "Aorta": 1,
-    "Kidney": 9,
-    "Liver": 6,
-    "Colon": 3,
-    //"Uterus": 2,
-    //"Urinary Bladder": 1,
-    //"Bone": 2,
-    //"Lung": 4,
-    "Ileum": 4,
-    "Skeletal Muscle": 2
-}
 
 export default function MouseMap(props){
     const chartRef = useRef(null);
@@ -65,7 +48,7 @@ export default function MouseMap(props){
                     xAxis: {
                     },
                     yAxis: {
-                        data: Object.keys(showData)
+                        data: Object.keys(showData["Mouse"])
                     },
                     series: [
                         {
@@ -73,7 +56,7 @@ export default function MouseMap(props){
                             emphasis: {
                                 focus: 'self'
                             },
-                            data: Object.values(showData)
+                            data: Object.values(showData["Mouse"])
                         }
                     ]
                 };

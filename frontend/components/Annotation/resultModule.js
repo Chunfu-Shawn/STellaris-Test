@@ -1,5 +1,5 @@
 import ResultStatus from "./resultStatus.js";
-import {calTime} from "./waitModule.js";
+import {calTime} from "../util.js";
 import {Button, Col, Row, Statistic} from "antd";
 import dynamic from "next/dynamic";
 import dataset from "../VisualTool/dataset.json";
