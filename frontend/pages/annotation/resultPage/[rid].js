@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
-import WaitModule from "../../../components/Annotation/waitModule.js";
+import WaitModule from "../../../components/Annotation/WaitModule.js";
 import useSWR from "swr";
-import ResultModule from "../../../components/Annotation/resultModule.js";
-import ErrorModule from "../../../components/Annotation/errorModule.js";
+import ResultModule from "../../../components/Annotation/ResultModule.js";
+import ErrorModule from "../../../components/Annotation/ErrorModule.js";
 
 export async function getServerSideProps(context) {
     if ( typeof context.params.rid === undefined ) {
@@ -16,8 +16,13 @@ export async function getServerSideProps(context) {
         +"/api/job-status/"+ context.params.rid
     )
     const data = await res.json()
+    const res2 = await fetch((process.env.NODE_ENV==="production"?
+            process.env.PRODUCTION_URL:"http://localhost:3000")
+        +"/api/server-time"
+    )
+    const data2 = await res2.json()
     // 如果找不到该rid相应的任务记录，返回error 404页面
-    if ( data.length === 0 ) {
+    if ( data.title === undefined ) {
         return {
             notFound: true,
         }
@@ -26,7 +31,7 @@ export async function getServerSideProps(context) {
     return {
         props: {
             rid: context.params.rid,
-            data: {...data},
+            data: {...data,serverTime:data2["serverTime"]},
         }
     }
 }
@@ -35,7 +40,12 @@ export async function getServerSideProps(context) {
 // 设计一个自定义hook，每次渲染后返回数据结果；
 function useRequestInfo(rid){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
-    const { data, error } = useSWR(`/api/job-status/${rid}`, fetcher, { revalidateIfStale: true })
+    const { data, error } = useSWR(`/api/job-status/${rid}`, fetcher,
+        {
+            revalidateIfStale: false,
+            refreshInterval: 1000,
+        })
+
     // 如果数据为空，为undefined，返回error为true
     return{
         data: data,
@@ -45,7 +55,7 @@ function useRequestInfo(rid){
 }
 
 export default function ResultPage(props) {
-    let {data, error, isLoading} = useRequestInfo(props.rid,false)
+    let {data, error, isLoading} = useRequestInfo(props.rid)
     let returnModule
     // 如果找不到该rid，返回error 404页面
     if (isLoading) {
@@ -54,7 +64,7 @@ export default function ResultPage(props) {
     if ( !error && ! isLoading ){
         // 如果该rid的状态是running，返回wait页面，是finished则返回结果页面,是error则返回错误界面；
         if(data.status === 'running') {
-            returnModule = <WaitModule data={data} time={props.data.searchTime}></WaitModule>
+            returnModule = <WaitModule data={data} time={props.data.serverTime}></WaitModule>
         }else if(data.status === 'finished'){
             returnModule = <ResultModule data={data}></ResultModule>
         }else if(data.status === 'error'){

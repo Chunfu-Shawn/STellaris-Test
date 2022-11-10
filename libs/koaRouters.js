@@ -17,8 +17,7 @@ export const Router = router()
 Router.post('/annotation/upload',
     uploadFile(uuidv1()).fields([
         { name: 'matrixFile', maxCount: 1 },
-        { name: 'barcodesFile', maxCount: 1 },
-        { name: 'featuresFile', maxCount: 1 },
+        { name: 'labelsFile', maxCount: 1 },
     ])
     , async (ctx) => {
     // 获得rid
@@ -26,7 +25,8 @@ Router.post('/annotation/upload',
         ctx.body = {rid: rid}
         annotationLogger.log(`>>> ${rid}:[${new Date()}]:uploaded`)
         //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
-        sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
+        if(ctx.request.body.emailAddress !== "undefined")
+            sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
         // 运行Tangram, 传入Koa的context包装的request对象，和response对象
         execTangram(rid,ctx.request.files['matrixFile'][0].destination, ctx.request.files['matrixFile'][0].filename);
     }).catch((err)=>{

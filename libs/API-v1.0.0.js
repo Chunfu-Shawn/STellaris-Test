@@ -11,14 +11,20 @@ import {getGeneTranscript} from "./api/getGeneTranscript.js";
 import {getDatasetsList} from "./api/getDatasetsList.js";
 import {getSpatiallyVariableGenes} from "./api/getSpatiallyVariableGenes.js";
 import {getGenesExpressionCorrelation} from "./api/getGenesExpressionCorrelation.js";
+import {getServerTime} from "./api/getServerTime.js";
 
 
 export const RouterAPI = router()
 
-// 设置路由和api进行数据访问
+// 设置路由和api进行任务状态访问
 RouterAPI.get('/api/job-status/:rid', async (ctx) => {
     // 传出rid为查询值的json数据
     ctx.body = await getJobStatus(ctx.params.rid)
+})
+// 设置路由和api进行任务状态访问
+RouterAPI.get('/api/server-time', async (ctx) => {
+    // 传出rid为查询值的json数据
+    ctx.body = await getServerTime()
 })
 
 // 设置路由和api进行Human map图片访问

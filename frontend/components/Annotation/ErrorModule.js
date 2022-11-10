@@ -1,4 +1,4 @@
-import ResultStatus from "./resultStatus.js";
+import ResultStatus from "./ResultStatus.js";
 import {calTime} from "../util.js";
 
 

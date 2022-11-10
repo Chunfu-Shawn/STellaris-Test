@@ -26,14 +26,13 @@ export function uploadRecord(ctx) {
                 const rid = ctx.request.files['matrixFile'][0].destination.split('/')[3]
                 const title = ctx.request.body.title
                 const email = ctx.request.body.emailAddress
+                const species = ctx.request.body.species
                 const organ = ctx.request.body.organ
                 const tissue = ctx.request.body.tissue
                 const matrixfilepath = ctx.request.files['matrixFile'][0].destination + '/' +
                     ctx.request.files['matrixFile'][0].filename
-                const barcodesfilepath = ctx.request.files['barcodesFile'][0].destination + '/' +
-                    ctx.request.files['barcodesFile'][0].filename
-                const featuresfilepath = ctx.request.files['featuresFile'][0].destination + '/' +
-                    ctx.request.files['featuresFile'][0].filename
+                const labelsfilepath = ctx.request.files['labelsFile'][0].destination + '/' +
+                    ctx.request.files['labelsFile'][0].filename
                 const resultpath = 'public/results/' + rid
                 const uploadtime = uploadTime
                 const finishtime = null
@@ -41,13 +40,13 @@ export function uploadRecord(ctx) {
                 // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
                 let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?);`;
                 connection.query(insertSql,
-                    [rid, title, email, organ, tissue, matrixfilepath, barcodesfilepath, featuresfilepath, resultpath, uploadtime, finishtime, status],
+                    [rid, title, email, species, organ, tissue, matrixfilepath, labelsfilepath, resultpath, uploadtime, finishtime, status],
                     (err) => {
                         if (err) {
                             annotationLogger.log(`Error: [${new Date()}]: A annotation task failed in MySQL: ${err.message}`)
                         } else {
                             connection.end(() => {
-                                annotationLogger.log(`[${new Date()}]: Add a annotation record annotation into MySQL successfully.`)
+                                annotationLogger.log(`[${new Date()}]: Add a annotation record into MySQL successfully.`)
                             })
                         }
                     })
@@ -78,13 +77,13 @@ export function uploadRecord(ctx) {
         if (ctx.request.body.isDemo === "true") {
             try {
                 const rid = uuidv1()
-                const title = 'demo'
-                const email = 'demo'
+                const title = ctx.request.body.title
+                const email = 'no email'
                 const organ = 'demo'
                 const tissue = 'demo'
+                const species = 'demo'
                 const matrixfilepath = 'demo'
-                const barcodesfilepath = 'demo'
-                const featuresfilepath = 'demo'
+                const labelsfilepath = 'demo'
                 const resultpath = 'public/results/' + rid
                 const uploadtime = uploadTime
                 const finishtime = null
@@ -92,7 +91,7 @@ export function uploadRecord(ctx) {
                 // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
                 let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?);`;
                 connection.query(insertSql,
-                    [rid, title, email, organ, tissue, matrixfilepath, barcodesfilepath, featuresfilepath, resultpath, uploadtime, finishtime, status],
+                    [rid, title, email, species, organ, tissue, matrixfilepath, labelsfilepath, resultpath, uploadtime, finishtime, status],
                     (err) => {
                         if (err) {
                             annotationLogger.log(`Error: [${new Date()}]: A annotation task failed in MySQL: ${err.message}`)

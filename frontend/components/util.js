@@ -10,21 +10,21 @@ export function firstUpperCase(str) {
 
 /**
  * 频率控制 返回函数连续调用时，action 执行频率限定为 次 / delay
- * @param delay  {number}    延迟时间，单位毫秒
+ * @param delay  {number}    延迟时间，单位ms
  * @param action {function}  请求关联函数，实际应用需要调用的函数
  * @return {function}    返回客户调用函数
  */
 
-export function throttle(delay, action){
-    let last = 0;
+export const throttle = function (delay=2000, action){
+    let last = new Date().getTime();
     return function(){
-        let curr = +new Date();
+        let curr = new Date().getTime();
         if (curr - last > delay){
             action.apply(this, arguments)
             last = curr
         }else console.log("During the delay time!")
     }
-}
+} // ()记得加，实现闭包
 
 /**
  * 返回函数连续调用时，停留时间大于或等于 idle，action 才会执行

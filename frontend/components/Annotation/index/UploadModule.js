@@ -1,5 +1,4 @@
 import {Tabs} from "antd";
-import DeNovoAnnotation from "../DeNovoAnnotation";
 import AnnotateSpatialLocation from "../AnnotateSpatialLocation";
 import React from "react";
 import {data, getAnnotationOptions} from "../../Datasets/getData&Options";

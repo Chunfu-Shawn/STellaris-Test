@@ -5133,7 +5133,8 @@ a.thumbnail.active {
   border-color: #337ab7;
 }
 .thumbnail .caption {
-  padding: 9px;
+  text-align: justify-all;
+  padding: 2px 5px;
   color: #333333;
 }
 .alert {

@@ -1,7 +1,10 @@
+import {Tag} from "antd";
+import {SyncOutlined} from "@ant-design/icons";
+
 export default function ReqStatus(props){
     return(
             <div className="panel panel-default" style={props.style}>
-                <div className="panel-heading">Job Title: {props.data.title}</div>
+                <div className="panel-heading">Project Title: &nbsp;&nbsp;&nbsp;&nbsp;{props.data.title}</div>
                 <table className="table">
                     <tbody>
                     <tr>
@@ -10,7 +13,7 @@ export default function ReqStatus(props){
                     </tr>
                     <tr>
                         <th>Status</th>
-                        <th>Running</th>
+                        <th><Tag icon={<SyncOutlined spin />} color="processing">Running</Tag></th>
                     </tr>
                     <tr>
                         <td>Submission Time</td>
@@ -22,14 +25,14 @@ export default function ReqStatus(props){
                     </tr>
                     <tr>
                         <td>The URL of result will be delivered to </td>
-                        <td>{props.data.email}</td>
+                        <td>{props.data.email === "undefined"? "no email address" : props.data.email}</td>
                     </tr>
                     </tbody>
                 </table>
                 <div className="panel-body">
                     <p>This page will be automatically updated in 1 second until job is done;<br/>
-                        The time for annotation will be long, <b>so we recommend you to keep this URL ( has already been
-                            sent to your E-mail address )</b>, where you can arrive the page of annotation result when analysis over.
+                        The time for annotation will be long, <b>so we recommend you to save this URL ( has already been
+                            sent to your E-mail if you provide E-mail address)</b>, where you can arrive the page of annotation result when analysis over.
 
                     </p>
                 </div>

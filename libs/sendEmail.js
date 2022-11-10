@@ -18,8 +18,8 @@ export function sendMail(mail, rid, call) {
         to: mail, //接收者邮箱，多个邮箱用逗号间隔
         subject: 'Spatial Trans Web: the Url of annotations result"', // 标题
         // text: 'Hello world?', // 文本内容
-        html: '<p>The url of spatial annotations result: <a href="https://spatialtransweb.rhesusbase.com/annotation/resultPage/'+rid+
-            '">https://spatialtransweb.rhesusbase.com/annotation/resultPage/'+rid+'</a></p>'+
+        html: '<p>The url of spatial annotations result: <a href="https://spatial.rhesusbase.com/annotation/resultPage/'+rid+
+            '">https://spatial.rhesusbase.com/annotation/resultPage/'+rid+'</a></p>'+
             '<p>Spatially annotating will take a long time. For your data security, we will keep the raw data and result page for <b>a week</b>.</p>'+
             '<p>This is an automatically sent messages, please do not respond to this email adress, thank you!</p>'+
             '<small>Best wishes</br>'+

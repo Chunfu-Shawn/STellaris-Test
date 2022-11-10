@@ -12,7 +12,7 @@ export function uploadFile(uuid) {
     const limits = {
         fields: 10,//非文件字段的数量
         fileSize: 100* 1024 * 1024,//文件大小 单位 Byte
-        files: 3//文件数量
+        files: 2//文件数量
     }
     const file_destination = 'public/uploads/' + new Date().getFullYear() + (new Date().getMonth() + 1) + new Date().getDate()
         +'/' + uuid

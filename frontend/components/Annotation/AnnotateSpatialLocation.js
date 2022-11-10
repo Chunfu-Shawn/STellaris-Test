@@ -2,6 +2,7 @@ import {Button, Form, Input, message, Popconfirm, Dropdown, Menu} from "antd";
 import SelectSpeciesOrganTissue from "./index/SelectSpeciesOrganTissue";
 import MatrixFileUpload from "./index/MatrixFileUpload";
 import LabelsFileUpload from "./index/LabelsFileUpload";
+import RunExampleModule from "./index/RunExampleModule"
 import {throttle} from "../util";
 import {useState} from "react";
 import {useRouter} from "next/router";
@@ -15,7 +16,6 @@ export default function AnnotateSpatialLocation(props){
         validateMessages
     } = props
     const UPLOAD_URL = `/annotation/upload/`
-    const DEMO_URL = `/annotation/demo/`
     const [matrixFileList, setMatrixFileList] = useState([]);
     const [labelsFileList, setLabelsFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
@@ -34,7 +34,7 @@ export default function AnnotateSpatialLocation(props){
             formData.append('matrixFile', file);
         });
         labelsFileList.forEach((file) => {
-            formData.append('barcodesFile', file);
+            formData.append('labelsFile', file);
         });
         formData.append('title',form.getFieldValue('title'))
         formData.append('emailAddress',form.getFieldValue('emailAddress'))
@@ -96,73 +96,12 @@ export default function AnnotateSpatialLocation(props){
         form.resetFields();
         setMatrixFileList([]);
         setLabelsFileList([]);
+        console.log("reset")
     };
-
-    const onRunDemo = () => {
-        let rid = ""
-        setUploading(true);
-        fetch(DEMO_URL, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json', 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                isDemo:'true',
-            })
-        }).then(response => response.json())
-            .then(json => rid = json.rid)
-            .then(() => {
-                message.success({
-                    content:'run demo successfully!',
-                    style:{
-                        marginTop: '12vh',
-                    },
-                });
-                //nextjs路由跳转到结果页面
-                router.push('/annotation/resultPage/'+rid)
-            })
-            .catch(() => {
-                message.error({
-                        content:'run demo unsuccessfully.',
-                        style:{
-                            marginTop: '12vh',
-                        },
-                        duration:3,
-                    }
-                );
-                //router.reload()
-            })
-            .finally(() => {
-                setUploading(false);
-            });
-    };
-
-    const menu = (
-        <Menu
-            items={[
-                {
-                    key: '1',
-                    label: (
-                        <Button type={"link"} onClick={throttle(1000,onRunDemo)}>
-                            E14.5 Mouse Whole Brain Stereo-seq
-                        </Button>
-                    ),
-                },
-                {
-                    key: '2',
-                    label: (
-                        <Button type={"link"} onClick={throttle(1000,onRunDemo)}>
-                            Mouse Embryo seqFISH
-                        </Button>
-                    ),
-                },
-            ]}
-        />
-    );
 
     return(
         <Form {...layout} layout={'horizontal'} form={form}
-              onFinish={throttle(1000,handleUpload)}
+              onFinish={throttle(2000,handleUpload)}
               name="control-hooks"
               validateMessages={validateMessages}
               style={{width:600}}>
@@ -170,7 +109,7 @@ export default function AnnotateSpatialLocation(props){
                        rules={[
                            {
                                required: true,
-                               max: 60,
+                               max: 50,
                            },
                        ]}
             >
@@ -181,7 +120,7 @@ export default function AnnotateSpatialLocation(props){
                            {
                                required: false,
                                type:'email',
-                               max:50
+                               max:40
                            },
                        ]}
             >
@@ -217,13 +156,9 @@ export default function AnnotateSpatialLocation(props){
                 <Button type="ghost" htmlType="button" onClick={onReset} className={"btn-upload"}>
                     Reset
                 </Button>
-                <Dropdown
-                    overlay={menu}
-                >
-                    <Button type="primary" htmlType="button" className={"btn-upload"}>
-                        Run Example
-                    </Button>
-                </Dropdown>
+                <RunExampleModule
+                    setUploading={setUploading}
+                />
             </Form.Item>
         </Form>
     )

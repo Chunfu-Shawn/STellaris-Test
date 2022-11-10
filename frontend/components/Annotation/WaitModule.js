@@ -1,4 +1,4 @@
-import ReqStatus from "./reqStatus.js";
+import ReqStatus from "./ReqStatus.js";
 import {useEffect, useState} from "react";
 import {calTime} from "../util";
 
@@ -19,7 +19,7 @@ export default function WaitModule(props){
             <div className="page-header">
                 <h1>Request Status</h1>
             </div>
-            <h3>File submitted successfully!</h3>
+            <h3>Annotation Start Successfully</h3>
             <ReqStatus data={props.data}
                        style={{width: 600}}
                        usedTime={usedTime}

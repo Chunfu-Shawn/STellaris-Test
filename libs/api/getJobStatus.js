@@ -12,7 +12,6 @@ export async function getJobStatus(rid) {
     let connection = mysql.createConnection(options)
     // 连接数据库
     connection.connect()
-    const time = new Date().toUTCString()
     // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
     let selectSql = `SELECT * FROM users_annotation_records WHERE rid=?`
     // 根据rid查询任务状态
@@ -23,7 +22,7 @@ export async function getJobStatus(rid) {
                 reject(err);
             }
 
-            resolve({...JSON.parse(JSON.stringify(result))[0],searchTime:time})
+            resolve({...JSON.parse(JSON.stringify(result))[0]})
         })
         connection.end()
     })

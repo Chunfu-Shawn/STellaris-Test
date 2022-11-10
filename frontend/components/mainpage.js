@@ -5,7 +5,6 @@ import React from "react";
 import UploadModule from "./Annotation/index/UploadModule";
 import GuidanceMain from "./MainPage/GuidanceMain";
 import GeneBrowserMain from "./MainPage/GeneBrowserMain";
-import Link from "next/link";
 
 export default function MainPage() {
     let contextHolder = "Cras justo odio, dapibus ac facilisis in, egestas eget quam."
@@ -20,7 +19,7 @@ export default function MainPage() {
                             tools about integrating scRNA-seq and spatial transcriptomics data for further analysis.
                         </p>
                         <p className="lead">
-                            <a href="#more" className="btn btn-lg btn-alldata">Know more</a>
+                            <a href='#more' className="btn btn-lg btn-alldata">Know more</a>
                         </p>
                     </div>
                 </div>
@@ -37,10 +36,16 @@ export default function MainPage() {
                     <h1 className={"inner"} style={{color:"white"}}>KNOW MORE</h1>
                 </Divider>
                 <a id={"more"} style={{position: 'relative', top: "-200px"}}></a>
-                <Row style={{margin:"20px 20px"}} gutter={50} justify="space-between" >
-                    <PlaceHolder title={"ST Datasets"} context={contextHolder} link={"/datasets"} pic={"picture1.png"}/>
-                    <PlaceHolder title={"Spatial Annotation"} context={contextHolder} link={"/annotation"} pic={"picture2.png"}/>
-                    <PlaceHolder title={"Gene Browser"} context={contextHolder} link={"/browser"} pic={"picture3.png"}/>
+                <Row style={{margin:"20px 0px"}} gutter={[40,0]} justify="space-between" >
+                    <PlaceHolder title={"ST Datasets"}
+                                 context={"ST Datasets Archive providing data basic information, data visualization and data download."}
+                                 link={"/datasets"} pic={"picture1.png"}/>
+                    <PlaceHolder title={"Spatial Annotation"}
+                                 context={"A tool to predict spatial location of submitted scRNA-seq referred to matched ST data from datasets archive."}
+                                 link={"/annotation"} pic={"picture2.png"}/>
+                    <PlaceHolder title={"Gene Browser"}
+                                 context={"A tool to search for spatial expression profile of interested genes out of ST datasets archive across multi organs and tissues."}
+                                 link={"/browser"} pic={"picture3.png"}/>
                 </Row>
                 <div className="intro-card-wrapper" >
                     <IntroductionModule title={"Spatial Transcritome Datasets"} link={"/datasets"}
