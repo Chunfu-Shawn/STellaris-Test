@@ -59,7 +59,7 @@ export default function HelpAPI() {
                     <p>This resource represents one annotation status about your job.</p>
                     <p><b>Need one argument:</b></p>
                     <ul>
-                        <code>Request ID</code>
+                        <code>Job ID</code>
                         <ul>
                             <li>a job id assigned after run a spatial annotation ( A universally unique identifier (UUID) )</li>
                             <li>Example: <code>8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>

@@ -1408,7 +1408,7 @@ a.bg-danger:focus {
 }
 .page-header {
   width: 85%;
-  margin: 50px auto;
+  margin: 30px auto;
   padding-bottom: 9px;
   border-bottom: 1px solid #eeeeee;
 }
@@ -5570,8 +5570,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   text-align: left;
-  width: 70%;
-  margin: 30px auto;
+  margin: 30px 5px;
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 4px;

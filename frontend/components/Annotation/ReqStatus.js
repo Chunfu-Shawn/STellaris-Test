@@ -4,11 +4,11 @@ import {SyncOutlined} from "@ant-design/icons";
 export default function ReqStatus(props){
     return(
             <div className="panel panel-default" style={props.style}>
-                <div className="panel-heading">Project Title: &nbsp;&nbsp;&nbsp;&nbsp;{props.data.title}</div>
+                <div className="panel-heading">Job Title: &nbsp;&nbsp;&nbsp;&nbsp;{props.data.title}</div>
                 <table className="table">
                     <tbody>
                     <tr>
-                        <th>Request ID</th>
+                        <th>Job ID</th>
                         <th>{props.data.rid}</th>
                     </tr>
                     <tr>

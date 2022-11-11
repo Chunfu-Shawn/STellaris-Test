@@ -7,26 +7,24 @@ const items = [
         label: <a href={'#Summary'}>Summary</a>, key: 'Summary',
     },
     {
-        label: <a href={'#Sample'}>Sample</a>, key: 'Sample'
+        label: <a href={'#Visualization'}>Visualization</a>, key: 'Visualization'
     },
     {
-        label: <a href={'#Sections'}>Sections</a>, key: 'Sections'
+        label: <a href={'#Evaluation'}>Evaluation</a>, key: 'Evaluation'
     },
     {
-        label: <a href={'#Features'}>Features</a>, key: 'Features',
+        label: <a href={'#Co-localization'}>Co-localization</a>, key: 'Co-localization',
     },
     {
-        label: <a href={'#View'}>View</a>, key: 'View',
+        label: <a href={'#Interaction'}>Cells Interaction</a>, key: 'Interaction',
     },
     {
-        label: <a href={'#Source'}>Source</a>, key: 'Source',
+        label: <a href={'#Download'}>Result Download</a>, key: 'Download',
     },
-    {
-        label: <a href={'#Files'}>Files</a>, key: 'Files'
-    }
+
 ]
 
-export default function DataPageSiderMenu(props){
+export default function ResultPageSiderMenu(props){
 
     return(
         <SiderMenu items = {items}

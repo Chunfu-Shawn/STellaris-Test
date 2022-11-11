@@ -29,7 +29,7 @@ app.prepare().then(() => {
     const server = new Koa()
 
     // set session
-    server.keys = ['spatial-trans-web'];
+    // server.keys = ['spatial-trans-web'];
     const CONFIG = {
         key: 'spatial-trans-web:sess',   //cookie key (default is koa:sess)
         maxAge: 24 * 60 * 60 * 1000,  // cookie的过期时间 maxAge in ms (default is 1 days)

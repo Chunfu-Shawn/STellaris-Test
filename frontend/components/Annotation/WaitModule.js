@@ -17,9 +17,9 @@ export default function WaitModule(props){
     return(
         <div className="modal-body-stw" >
             <div className="page-header">
-                <h1>Request Status</h1>
+                <h3>Request Status</h3>
             </div>
-            <h3>Annotation Start Successfully</h3>
+            <h2>Annotation Start Successfully</h2>
             <ReqStatus data={props.data}
                        style={{width: 600}}
                        usedTime={usedTime}

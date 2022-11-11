@@ -76,7 +76,7 @@ export default function VisualToolModule(props) {
                     </Select>
                 </Col>
             </Row><br/>
-            <DynamicVisualTool setCustom={true} width={1080} height={800} dataset={dataset}/>
+            <DynamicVisualTool setCustom={true} width={1140} height={800} dataset={dataset}/>
         </div>
     )
 }

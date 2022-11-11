@@ -4,11 +4,11 @@ import {Tag} from "antd";
 export default function ResultStatus(props){
     return(
             <div className="panel panel-default" style={props.style}>
-                <div className="panel-heading"><b>Project Title: &nbsp;&nbsp;&nbsp;&nbsp;{props.data.title}</b></div>
+                <div className="panel-heading"><b>Job Title: &nbsp;&nbsp;&nbsp;&nbsp;{props.data.title}</b></div>
                 <table className="table">
                     <tbody>
                     <tr>
-                        <th>Request ID</th>
+                        <th>Job ID</th>
                         <th>{props.data.rid}</th>
                     </tr>
                     <tr>
@@ -20,7 +20,7 @@ export default function ResultStatus(props){
                         }</th>
                     </tr>
                     <tr>
-                        <td>Submission Time</td>
+                        <td style={{width:"30%"}}>Submission Time</td>
                         <td>{props.data.upload_time}</td>
                     </tr>
                     <tr>
@@ -28,7 +28,7 @@ export default function ResultStatus(props){
                         <td>{props.data.finish_time}</td>
                     </tr>
                     <tr>
-                        <td>Time Consumption</td>
+                        <td>Run Time</td>
                         <td>{props.usedTime}</td>
                     </tr>
                     </tbody>

@@ -41,11 +41,12 @@ export function SiderMenu(props){
 
     return(
         <Sider
+            width={props.width?props.width:200}
             style={
                 {
                     backgroundColor:"transparent",
                     height: '100vh',
-                    zIndex: 101
+                    zIndex: 105,
                 }
             }
         >

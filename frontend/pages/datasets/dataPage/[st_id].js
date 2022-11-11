@@ -21,13 +21,14 @@ export async function getServerSideProps(context) {
     const res = await fetch((process.env.NODE_ENV==="production"?
             process.env.PRODUCTION_URL:"http://localhost:3000")
         +"/api/datasets-info/"+context.params.st_id)
-    // 取搜索结果数组中的第一个结果
     const data = await res.json()
     if (Object.keys(data).length === 0) {
         return {
             notFound: true,
         }
     }
+
+    // 取搜索结果数组中的第一个结果
     const sectionOption = data[0].section_id.split(',')
     // get spatially variable gene
     let spatiallyVariableGenes = []
@@ -47,10 +48,6 @@ export async function getServerSideProps(context) {
         const data = await res.json()
         genesExpressionCorrelation.push.apply(genesExpressionCorrelation, data)
     }
-    /*const resConfig = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000/")
-        +"api/vi-custom-config/"+context.params.st_id)
-    const config = await resConfig.json()*/
 
     // Pass post data to the page via props
     return {
@@ -68,20 +65,19 @@ export default function DataPage(props) {
     const sectionOption = props.data.section_id.split(',')
     const iconStyle = {color:"dimgray",float:"right",fontSize:"22px",margin:'0 2%'}
 
-    if(!props) return <Error statusCode={404}></Error>
-    else return (
+    return (
         <LayoutCustom>
             <Head>
                 <title>{'STW | Datasets | '+ props.data.id}</title>
             </Head>
                 <div className={"modal-body-stw with-sider"}>
                     <Row style={{width:"100%"}}>
-                        <Col span={5}>
+                        <Col span={4}>
                             <Affix offsetTop={120}>
                                 <DataPageSiderMenu divContent={divContent}/>
                             </Affix>
                         </Col>
-                        <Col span={19}>
+                        <Col span={20}>
                             <div ref={divContent}>
                                 <h4>Dataset</h4>
                                 <h2 style={{fontFamily:"Tahoma, sans-serif"}}> {props.data.id} </h2>
