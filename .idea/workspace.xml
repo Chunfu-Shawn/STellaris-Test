@@ -5,23 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/CellCountBarChart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/DataSummary.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultDownload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultPageSiderMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/CellInteractions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/DistanceDensityGraph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/InteractionsHeatmap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/JSDHeatmap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/LigandsReceptorsDotplot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/LigandsReceptorsNetwork.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/MSTNetwork.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/MappedCellCountBarGraph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/UMAPScatter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/graph.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ErrorModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ErrorModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ReqStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ReqStatus.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/WaitModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/WaitModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/DataPageSiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/DataPageSiderMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/VisualToolModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/SiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/SiderMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/DataSummary.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/Preprocessing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultDownload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultDownload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultPageSiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultPageSiderMenu.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +143,7 @@
       <workItem from="1665641625193" duration="375000" />
       <workItem from="1665642802393" duration="5779000" />
       <workItem from="1665676955845" duration="20524000" />
-      <workItem from="1667791229419" duration="52696000" />
+      <workItem from="1667791229419" duration="64604000" />
     </task>
     <servers />
   </component>

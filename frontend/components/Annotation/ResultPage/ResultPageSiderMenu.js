@@ -4,7 +4,7 @@ import {SiderMenu} from "../../SiderMenu.js";
 
 const items = [
     {
-        label: <a href={'#Summary'}>Summary</a>, key: 'Summary',
+        label: <a href={'#Preprocessing'}>Preprocessing</a>, key: 'Preprocessing',
     },
     {
         label: <a href={'#Visualization'}>Visualization</a>, key: 'Visualization'

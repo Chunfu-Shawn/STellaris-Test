@@ -6,13 +6,13 @@ import {calTime} from "../../util";
 import React from "react";
 import CellCountBarChart from "./CellCountBarChart";
 
-export default function DataSummary(props){
+export default function Preprocessing(props){
     const { data } = props
     return(
-        <div name={"Summary"}>
-            <a id={"Summary"} style={{position: 'relative', top: "-200px"}}></a>
+        <div name={"Preprocessing"}>
+            <a id={"Preprocessing"} style={{position: 'relative', top: "-200px"}}></a>
             <Divider orientation="left" orientationMargin="0">
-                <span style={{fontSize:18}}>Summary </span>
+                <span style={{fontSize:18}}>Preprocessing </span>
                 <Link href={'/help/manual/datasets#data_page_attributes'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>

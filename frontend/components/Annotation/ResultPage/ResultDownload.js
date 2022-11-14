@@ -22,24 +22,17 @@ export default function ResultDownload(){
                 'readable with the "anndata" Python package, whose raw data was submitted by user.'
         },
         {
-            title: 'Pseudobulk RNA-seq Expression data (CSV)',
+            title: 'Co-localization Assessment',
             url: `#`,
             onClick:()=>exportToCsv(geneContext.dataCor,`${geneContext.data.symbol}_pseudobulk_RNA-seq_expression`),
-            description:'Pseudobulk RNA-seq Expression data for interested gene is computed from spatial transcriptome ' +
-                'data stored in our database, which been normalized by RPKM in CSV format.'
-        },
-        {
-            title: 'Gene Transcripts (CSV)',
-            url: `#`,
-            onClick:()=>exportToCsv(geneContext.trans,`${geneContext.data.symbol}_transcripts`),
-            description:'Transcript information about this gene came from Ensembl database.'
-        },
+            description:'Co-localization Assessment'
+        }
     ];
     return(
         <div name={"Download"}>
             <a id={"Download"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0">
-                <span style={{fontSize:18}}>Result Files Download</span>
+                <span style={{fontSize:18}}>Result Files Download </span>
                 <Link href={'/help/manual/datasets#data_page_attributes'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>

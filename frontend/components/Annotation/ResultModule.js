@@ -1,6 +1,4 @@
-import ResultStatus from "./ResultStatus.js";
-import {calTime} from "../util.js";
-import {Affix, Col, Divider, Row, Tag, Tooltip, Tabs, Descriptions} from "antd";
+import {Affix, Col, Divider, Row, Tag, Tooltip, Tabs, Descriptions, Select} from "antd";
 import dynamic from "next/dynamic";
 import dataset from "../VisualTool/dataset.json";
 import React from "react";
@@ -9,7 +7,13 @@ import ResultPageSiderMenu from "./ResultPage/ResultPageSiderMenu";
 import Link from "next/link";
 import {DownloadOutlined, QuestionCircleOutlined} from "@ant-design/icons";
 import ResultDownload from "./ResultPage/ResultDownload";
-import DataSummary from "./ResultPage/DataSummary";
+import Preprocessing from "./ResultPage/Preprocessing";
+import UMAPScatter from "./ResultPage/UMAPScatter";
+import JSDHeatmap from "./ResultPage/JSDHeatmap";
+import MSTNetwork from "./ResultPage/MSTNetwork";
+import CellInteractions from "./ResultPage/CellInteractions";
+import DistanceDensityGraph from "./ResultPage/DistanceDensityGraph";
+import MappedCellCountBarGraph from "./ResultPage/MappedCellCountBarGraph";
 
 const dataset2 = {
     "id": "GSM5833739",
@@ -27,6 +31,7 @@ export default function ResultModule(props){
         {
             ssr: false,
         })
+
     return(
         <div className={"modal-body-stw with-sider"}>
             <Row style={{width:"100%"}}>
@@ -61,7 +66,7 @@ export default function ResultModule(props){
                                 </a>
                             </Col>
                         </Row>
-                        <DataSummary data={data}/>
+                        <Preprocessing data={data}/>
                         <div name={"Visualization"}>
                             <a id={"Visualization"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
@@ -87,6 +92,14 @@ export default function ResultModule(props){
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
+                            <Row>
+                                <UMAPScatter/>
+                                <UMAPScatter/>
+                            </Row>
+                            <Row>
+                                <DistanceDensityGraph/>
+                                <MappedCellCountBarGraph/>
+                            </Row>
                         </div>
                         <div name={"Co-localization"}>
                             <a id={"Co-localization"} style={{position: 'relative', top: "-150px"}}></a>
@@ -96,16 +109,12 @@ export default function ResultModule(props){
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
+                            <Row justify={"space-evenly"}>
+                                <JSDHeatmap/>
+                                <MSTNetwork/>
+                            </Row>
                         </div>
-                        <div name={"Interaction"}>
-                            <a id={"Interaction"} style={{position: 'relative', top: "-150px"}}></a>
-                            <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:18}}>Cells Interaction</span>
-                                <Link href={'/help/manual/datasets#data_page_attributes'}>
-                                    <a target={"_blank"}><QuestionCircleOutlined/></a>
-                                </Link>
-                            </Divider>
-                        </div>
+                        <CellInteractions/>
                         <ResultDownload/>
                     </div>
                 </Col>
