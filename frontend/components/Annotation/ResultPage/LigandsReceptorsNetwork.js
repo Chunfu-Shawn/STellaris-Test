@@ -37,11 +37,6 @@ export default function LigandsReceptorsNetwork() {
                             fontWeight: 'bold',
                             formatter: '{b}',
                             fontSize: 13,
-                            normal: {
-                                textStyle: {
-                                    fontFamily: '宋体'
-                                }
-                            }
                         }
                     },
                     edgeSymbol: ['circle'],
@@ -51,7 +46,6 @@ export default function LigandsReceptorsNetwork() {
                             textStyle: {
                                 fontSize: 17,
                                 fontWeight: 'bold',
-                                fontFamily: '宋体'
                             }
                         }
                     },
@@ -76,7 +70,7 @@ export default function LigandsReceptorsNetwork() {
                     // 节点数据格式
                     data: [
                         {
-                            name: '节点1',
+                            name: '1',
                             symbolSize: 30, // 设置节点大小
                             itemStyle: {
                                 normal: {
@@ -84,7 +78,7 @@ export default function LigandsReceptorsNetwork() {
                                 }
                             }
                         }, {
-                            name: '节点2',
+                            name: '2',
                             symbolSize: 34,
                             itemStyle: {
                                 normal: {
@@ -96,8 +90,8 @@ export default function LigandsReceptorsNetwork() {
                     ],
                     links: [
                         {
-                            source: "节点1",
-                            target: "节点2",
+                            source: "1",
+                            target: "2",
                             name: "",
                             tooltip: {
                                 trigger: "item",
@@ -117,7 +111,7 @@ export default function LigandsReceptorsNetwork() {
                             },
                             lineStyle: {
                                 normal: {
-                                    width: 0.6666666666666666,
+                                    width: 5.6666666666666666,
                                     curveness: 0.2,
                                     color: "#F07C82"
                                 }

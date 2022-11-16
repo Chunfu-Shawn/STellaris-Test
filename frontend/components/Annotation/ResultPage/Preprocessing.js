@@ -5,22 +5,24 @@ import ResultStatus from "../ResultStatus";
 import {calTime} from "../../util";
 import React from "react";
 import CellCountBarChart from "./CellCountBarChart";
+import {useContext} from "react";
+import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 
-export default function Preprocessing(props){
-    const { data } = props
+export default function Preprocessing(){
+    const annContext = useContext(AnnContext);
     return(
         <div name={"Preprocessing"}>
             <a id={"Preprocessing"} style={{position: 'relative', top: "-200px"}}></a>
             <Divider orientation="left" orientationMargin="0">
-                <span style={{fontSize:18}}>Preprocessing </span>
+                <span style={{fontSize:21}}>Preprocessing </span>
                 <Link href={'/help/manual/datasets#data_page_attributes'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>
             <Row justify="space-between" align="top">
                 <Col span={10}>
-                    <ResultStatus data={data} style={{width: 450}}
-                                  usedTime={calTime(data.finish_time,data.upload_time)}
+                    <ResultStatus style={{width: 450}}
+                                  usedTime={calTime(annContext.reqInfo.finish_time,annContext.reqInfo.upload_time)}
                     />
                 </Col>
                 <Col span={14}>

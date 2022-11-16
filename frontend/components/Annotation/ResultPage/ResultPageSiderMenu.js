@@ -13,10 +13,10 @@ const items = [
         label: <a href={'#Evaluation'}>Evaluation</a>, key: 'Evaluation'
     },
     {
-        label: <a href={'#Co-localization'}>Co-localization</a>, key: 'Co-localization',
+        label: <a href={'#Colocalization'}>Colocalization</a>, key: 'Colocalization',
     },
     {
-        label: <a href={'#Interaction'}>Cells Interaction</a>, key: 'Interaction',
+        label: <a href={'#Interaction'}>Cell Interactions</a>, key: 'Interaction',
     },
     {
         label: <a href={'#Download'}>Result Download</a>, key: 'Download',

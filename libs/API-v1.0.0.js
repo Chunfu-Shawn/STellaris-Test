@@ -12,6 +12,7 @@ import {getDatasetsList} from "./api/getDatasetsList.js";
 import {getSpatiallyVariableGenes} from "./api/getSpatiallyVariableGenes.js";
 import {getGenesExpressionCorrelation} from "./api/getGenesExpressionCorrelation.js";
 import {getServerTime} from "./api/getServerTime.js";
+import {getAnnotationResult} from "./api/getAnnotationResult.js";
 
 
 export const RouterAPI = router()
@@ -77,4 +78,9 @@ RouterAPI.get('/api/spatially-variable-gene/:geneOrSection/:param', async (ctx) 
 // 设置路由和api通过基因id或者section_id进行基因共表达的搜索
 RouterAPI.get('/api/genes-expression-correlation/:geneOrSection/:param', async (ctx) => {
     ctx.body = await getGenesExpressionCorrelation(ctx.params.geneOrSection,ctx.params.param)
+})
+
+// Annotation Result fetch
+RouterAPI.get('/api/annotation-result/:rid', async (ctx) => {
+    ctx.body = await getAnnotationResult(ctx.params.rid)
 })

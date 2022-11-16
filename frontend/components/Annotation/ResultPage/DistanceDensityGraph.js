@@ -1,38 +1,39 @@
 import React, {useEffect, useRef} from "react";
 import * as d3 from "d3-scale-chromatic";
 import * as echarts from "echarts";
+import {useContext} from "react";
+import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 
 export default function DistanceDensityGraph(){
     // use echarts
     const chartRef = useRef(null);
     let chartInstance = null;
+    const annContext = useContext(AnnContext);
+    const rfdist = JSON.parse(annContext.result.rfdist)
 
     // 定义渲染函数
     function renderChart() {
         try {
             let option = {
+                title: {
+                    text: 'Density',
+                },
                 xAxis: {
                     type: 'category',
-                    data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+                    data: rfdist.x
                 },
                 yAxis: {
                     type: 'value'
                 },
-                visualMap: [
-                    {
-                        show: false,
-                        type: 'continuous',
-                        seriesIndex: 0,
-                        min: 100,
-                        max: 1300
-                    }
-                ],
                 series: [
                     {
-                        data: [210,431,620, 832, 931, 1034, 1290, 1330, 1320,1100,921,590,321,100],
-                        type: 'line',
-                        symbol: 'none',
-                        smooth: true
+                        data: rfdist.density,
+                        type: 'bar',
+                        barCategoryGap:0,
+                        itemStyle:{
+                            color: d3.interpolateBuPu(0.3),
+                            borderColor: d3.interpolateBuPu(0.2)
+                        },
                     }
                 ],
                 toolbox: {

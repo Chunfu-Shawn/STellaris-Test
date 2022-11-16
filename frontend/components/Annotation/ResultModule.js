@@ -14,6 +14,8 @@ import MSTNetwork from "./ResultPage/MSTNetwork";
 import CellInteractions from "./ResultPage/CellInteractions";
 import DistanceDensityGraph from "./ResultPage/DistanceDensityGraph";
 import MappedCellCountBarGraph from "./ResultPage/MappedCellCountBarGraph";
+import {useContext} from "react";
+import {AnnContext} from "../../pages/annotation/resultPage/[rid]";
 
 const dataset2 = {
     "id": "GSM5833739",
@@ -21,9 +23,9 @@ const dataset2 = {
     "url": "https://rhesusbase.com:9999/jsonl_files/GSM5833739_10x_Visium_deal/GSM5833739_10x_Visium_deal.jsonl"
 }
 
-export default function ResultModule(props){
-    const{ data } = props
+export default function ResultModule(){
     const divContent = useRef(null); //标识nav导航栏渲染内容
+    const annContext = useContext(AnnContext);
     const iconStyle = {color:"black", float:"right",fontSize:"24px",margin:'0 2%'}
     const DynamicVisualTool = dynamic(() =>
             import('../../components/VisualTool/VisualTool.js')
@@ -31,6 +33,7 @@ export default function ResultModule(props){
         {
             ssr: false,
         })
+
 
     return(
         <div className={"modal-body-stw with-sider"}>
@@ -45,16 +48,16 @@ export default function ResultModule(props){
                         <h2>Annotation Result</h2>
                         <Row>
                             <Col span={8}>
-                                {data.species==="Homo sapiens"?
+                                {annContext.reqInfo.species==="Homo sapiens"?
                                     <Tag color="cyan">Homo sapiens</Tag>
                                     :
                                     <Tag color="geekblue">Mus musculus</Tag>
                                 }
-                                <Tag color="purple">{data.organ}</Tag>
-                                <Tag color="purple">{data.tissue}</Tag>
+                                <Tag color="purple">{annContext.reqInfo.organ}</Tag>
+                                <Tag color="purple">{annContext.reqInfo.tissue}</Tag>
                             </Col>
                             <Col span={8} offset={8}>
-                                <a key={2} target={'_blank'} href={`/api/datasets-info/${data.rid}`} download rel="noreferrer" >
+                                <a key={2} target={'_blank'} href={`/api/datasets-info/${annContext.reqInfo.rid}`} download rel="noreferrer" >
                                     <Tooltip title="Download All Results">
                                         <DownloadOutlined  style={iconStyle}/>
                                     </Tooltip>
@@ -66,50 +69,62 @@ export default function ResultModule(props){
                                 </a>
                             </Col>
                         </Row>
-                        <Preprocessing data={data}/>
+                        <Preprocessing />
                         <div name={"Visualization"}>
                             <a id={"Visualization"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:18}}>Visualization </span>
+                                <span style={{fontSize:21}}>Visualization </span>
                                 <Link href={'/help/manual/datasets#data_page_attributes'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
                             <Row justify="space-between" align="middle">
-                                <Col span={12}>
-                                    <DynamicVisualTool setCustom={true} width={550} dataset={dataset}/>
+                                <Col span={11}>
+                                    <DynamicVisualTool setCustom={true} drawerOpen={false}
+                                                       width={500} height={800}
+                                                       chartSize={220} dataset={dataset}/>
                                 </Col>
-                                <Col span={12}>
-                                    <DynamicVisualTool setCustom={true} width={550} dataset={dataset2}/>
+                                <Col span={13}>
+                                    <DynamicVisualTool setCustom={true} drawerOpen={false}
+                                                       width={600} height={800}
+                                                       chartSize={220} dataset={dataset2}/>
                                 </Col>
                             </Row>
                         </div>
                         <div name={"Evaluation"}>
                             <a id={"Evaluation"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:18}}>Evaluation </span>
+                                <span style={{fontSize:21}}>Evaluation </span>
                                 <Link href={'/help/manual/datasets#data_page_attributes'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
-                            <Row>
-                                <UMAPScatter/>
-                                <UMAPScatter/>
+                            <Row justify={"space-evenly"} align={"top"}>
+                                <Col>
+                                    <UMAPScatter/>
+                                </Col>
+                                <Col>
+                                    <UMAPScatter/>
+                                </Col>
                             </Row>
-                            <Row>
-                                <DistanceDensityGraph/>
-                                <MappedCellCountBarGraph/>
+                            <Row justify={"space-evenly"} align={"top"}>
+                                <Col>
+                                    <DistanceDensityGraph/>
+                                </Col>
+                                <Col>
+                                    <MappedCellCountBarGraph/>
+                                </Col>
                             </Row>
                         </div>
-                        <div name={"Co-localization"}>
-                            <a id={"Co-localization"} style={{position: 'relative', top: "-150px"}}></a>
+                        <div name={"Colocalization"}>
+                            <a id={"Colocalization"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:18}}>Cell Types Co-localization </span>
+                                <span style={{fontSize:21}}>Cell Types Colocalization </span>
                                 <Link href={'/help/manual/datasets#data_page_attributes'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
-                            <Row justify={"space-evenly"}>
+                            <Row justify={"space-evenly"} align={"top"}>
                                 <JSDHeatmap/>
                                 <MSTNetwork/>
                             </Row>

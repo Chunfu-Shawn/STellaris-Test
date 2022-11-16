@@ -5,11 +5,11 @@ import * as echarts from "echarts";
 const series =
     [
         {
-            name: 'Retain (mapped)',
+            name: 'Mapped Cell',
             data: [1812, 1233, 479, 734, 2129, 220, 350]
         },
         {
-            name: 'Retain (deprecated)',
+            name: 'Deprecated Cell',
             data: [301, 26, 50, 30, 162, 34, 265]
         },
     ]
@@ -28,6 +28,9 @@ export default function MappedCellCountBarGraph(){
     function renderChart() {
         try {
             let option = {
+                title: {
+                    text: 'Number of Cell (Mapped and deprecated)',
+                },
                 tooltip: {
                     trigger: 'item',
                     axisPointer: {
@@ -37,8 +40,13 @@ export default function MappedCellCountBarGraph(){
                     formatter: (param) => `<b>${param.name}</b>
                         <br/><b>${param.seriesName}</b>: ${param.value}`
                 },
+                toolbox: {
+                    feature: {
+                        saveAsImage:{type:"svg"},
+                    }
+                },
                 grid: {
-                    top: 10,
+                    top: 70,
                     left: 10,
                     right: 30,
                     bottom: 50,
@@ -93,7 +101,7 @@ export default function MappedCellCountBarGraph(){
             if (renderedInstance) {
                 chartInstance = renderedInstance;
             } else {
-                chartInstance = echarts.init(chartRef.current);
+                chartInstance = echarts.init(chartRef.current,null,{locale:"EN",renderer:"svg"});
             }
             chartInstance.setOption(option);
             chartInstance.off('click');

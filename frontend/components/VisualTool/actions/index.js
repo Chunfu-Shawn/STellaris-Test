@@ -957,20 +957,19 @@ export function setDataset(datasetInput, geneId=null, loadDefaultView = true, se
     promises.push(schemaPromise);
 
     return Promise.all(promises)
-        .then(() => onPromisesComplete())
-        .catch((err) => {
-          handleError(
-              dispatch,
-              err,
-              'Unable to retrieve dataset. Please try again.'
-          );
-        })
-        .finally(() => {
+      .then(() => onPromisesComplete())
+      .finally(() => {
         if (task) {
           dispatch(removeTask(task));
         }
       })
-
+      .catch((err) => {
+        handleError(
+          dispatch,
+          err,
+          'Unable to retrieve dataset. Please try again.'
+        );
+      });
   };
 }
 
@@ -1796,6 +1795,7 @@ function getNewEmbeddingData(state, features) {
 }
 
 export function handleError(dispatch, err, message) {
+  console.log(err);
   if (message == null) {
     message =
       err instanceof CustomError

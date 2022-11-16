@@ -1,12 +1,24 @@
 import * as echarts from 'echarts';
 import React, {useEffect, useRef} from "react";
 import * as d3 from "d3-scale-chromatic";
-import {graph} from "./graph"
+import {useContext} from "react";
+import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 
 export default function MSTNetwork() {
     // use echarts
     const chartRef = useRef(null);
+    const annContext = useContext(AnnContext);
+    const mst = JSON.parse(annContext.result.mst)
     let chartInstance = null;
+
+    // max and min
+    const maxDegree = Math.max(...mst.nodes.map( item => item.degree))
+    const minDegree = Math.min(...mst.nodes.map( item => item.degree))
+    const maxWeight = Math.max(...mst.edges.map( item => item.weight))
+    const minWeight = Math.min(...mst.edges.map( item => item.weight))
+    const scaleWeight = (degree) => {
+        return (degree-minWeight)/(maxWeight-minWeight)
+    }
 
     // 定义渲染函数
     function renderChart() {
@@ -25,31 +37,55 @@ export default function MSTNetwork() {
                         saveAsImage:{type:"svg"},
                     }
                 },
-                legend: [
-                    {
-                        // selectedMode: 'single',
-                        data: graph.categories.map(function (a) {
-                            return a.name;
-                        }),
-                        top:"bottom"
-                    }
-                ],
                 series: [
                     {
                         name: 'Les Miserables',
                         type: 'graph',
                         layout: 'force',
-                        data: graph.nodes,
-                        links: graph.links,
-                        categories: graph.categories,
-                        roam: true,
+                        data: mst.nodes.map( item => {
+                            return {
+                                id: item.id,
+                                name: item.name,
+                                symbolSize: item.degree*4+6,
+                                value: item.degree
+                            }
+                        }),
+                        edges: mst.edges.map( item => {
+                            return {
+                                source: item.source,
+                                target: item.target,
+                                "lineStyle": {
+                                    "normal": {
+                                        "width": scaleWeight(item.weight)*12,
+                                        "color": d3.interpolateYlOrRd(scaleWeight(item.weight))
+                                    }
+                                }
+                            }
+                        }),
+                        roam: false,
+                        draggable: true,
                         label: {
+                            show:true,
                             position: 'right'
                         },
                         force: {
-                            repulsion: 100
+                            repulsion: 300,
+                            edgeLength: 2
                         }
                     }
+                ],
+                visualMap: {
+                    min: minDegree-1,
+                    max: maxDegree+1,
+                    orient: 'horizontal',
+                    show: true
+                },
+                gradientColor:[
+                    d3.interpolateYlOrRd(0),
+                    d3.interpolateYlOrRd(0.25),
+                    d3.interpolateYlOrRd(0.5),
+                    d3.interpolateYlOrRd(0.75),
+                    d3.interpolateYlOrRd(1),
                 ]
             };
             // `echarts.getInstanceByDom` 可以从已经渲染成功的图表中获取实例，其目的就是在 option 发生改变的时候，不需要
@@ -73,9 +109,9 @@ export default function MSTNetwork() {
             // 销毁图表实例，释放内存
             chartInstance && chartInstance.dispose();
         };
-    });
+    },[annContext.result]);
 
     return(
-        <div ref={chartRef} style={{height:400,width:600,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:500,width:600,marginBottom:10}}></div>
     )
 }

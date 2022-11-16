@@ -13,12 +13,12 @@ export default function CellInteractions(){
         <div name={"Interaction"}>
             <a id={"Interaction"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0">
-                <span style={{fontSize:18}}>Cell Interactions </span>
+                <span style={{fontSize:21}}>Cell Interactions </span>
                 <Link href={'/help/manual/datasets#data_page_attributes'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>
-            <Row justify="space-between" align={"top"}>
+            <Row justify="space-evenly" align={"top"}>
                 <InteractionsHeatmap/>
                 <Col>
                     <Row justify="start" align="stretch">

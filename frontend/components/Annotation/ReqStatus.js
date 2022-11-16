@@ -1,15 +1,18 @@
 import {Tag} from "antd";
 import {SyncOutlined} from "@ant-design/icons";
+import {useContext} from "react";
+import {AnnContext} from "../../pages/annotation/resultPage/[rid]";
 
 export default function ReqStatus(props){
+    const annContext = useContext(AnnContext);
     return(
             <div className="panel panel-default" style={props.style}>
-                <div className="panel-heading">Job Title: &nbsp;&nbsp;&nbsp;&nbsp;{props.data.title}</div>
+                <div className="panel-heading">Job Title: &nbsp;&nbsp;&nbsp;&nbsp;{annContext.reqInfo.title}</div>
                 <table className="table">
                     <tbody>
                     <tr>
                         <th>Job ID</th>
-                        <th>{props.data.rid}</th>
+                        <th>{annContext.reqInfo.rid}</th>
                     </tr>
                     <tr>
                         <th>Status</th>
@@ -17,7 +20,7 @@ export default function ReqStatus(props){
                     </tr>
                     <tr>
                         <td>Submission Time</td>
-                        <td>{props.data.upload_time}</td>
+                        <td>{annContext.reqInfo.upload_time}</td>
                     </tr>
                     <tr>
                         <td>Time since submission</td>
@@ -25,7 +28,7 @@ export default function ReqStatus(props){
                     </tr>
                     <tr>
                         <td>The URL of result will be delivered to </td>
-                        <td>{props.data.email === "undefined"? "no email address" : props.data.email}</td>
+                        <td>{annContext.reqInfo.email === "undefined"? "no email address" : annContext.reqInfo.email}</td>
                     </tr>
                     </tbody>
                 </table>

@@ -109,6 +109,7 @@ function SingleGeneExpression(props) {
                     }}
                     onClose={handleMessageClose}
                     open={true}
+                    autoHideDuration={6000}
                     action={[
                         <IconButton
                             key="close"

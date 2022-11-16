@@ -232,9 +232,6 @@ export class DirectAccessDataset {
               .then((result) => {
                 _this.schema = result['schema'];
                 resolve(_this.schema);
-              }).catch( err => {
-                console.log(err)
-                reject()
               });
           });
       });
@@ -245,9 +242,6 @@ export class DirectAccessDataset {
           .then((result) => {
             _this.schema = result;
             resolve(result);
-          }).catch( err => {
-            console.log(err)
-            reject()
           });
       });
     }

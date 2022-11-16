@@ -93,11 +93,11 @@ export default function LigandsReceptorsDotplot(props) {
                     }
                 ],
                 gradientColor:[
-                    d3.interpolateInferno(0),
-                    d3.interpolateInferno(0.25),
-                    d3.interpolateInferno(0.5),
-                    d3.interpolateInferno(0.75),
-                    d3.interpolateInferno(1),
+                    d3.interpolateViridis(0),
+                    d3.interpolateViridis(0.25),
+                    d3.interpolateViridis(0.5),
+                    d3.interpolateViridis(0.75),
+                    d3.interpolateViridis(1),
                 ]
             };
             // `echarts.getInstanceByDom` 可以从已经渲染成功的图表中获取实例，其目的就是在 option 发生改变的时候，不需要

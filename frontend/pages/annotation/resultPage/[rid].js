@@ -4,6 +4,9 @@ import WaitModule from "../../../components/Annotation/WaitModule.js";
 import useSWR from "swr";
 import ResultModule from "../../../components/Annotation/ResultModule.js";
 import ErrorModule from "../../../components/Annotation/ErrorModule.js";
+import React from "react";
+import LoadingModule from "../../../components/Annotation/ResultPage/LoadingModule";
+import {Result,Button} from "antd";
 
 export async function getServerSideProps(context) {
     if ( typeof context.params.rid === undefined ) {
@@ -37,7 +40,7 @@ export async function getServerSideProps(context) {
 }
 
 
-// 设计一个自定义hook，每次渲染后返回数据结果；
+// 自定义hook，每次渲染后返回任务状态；
 function useRequestInfo(rid){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     const { data, error } = useSWR(`/api/job-status/${rid}`, fetcher,
@@ -48,37 +51,71 @@ function useRequestInfo(rid){
 
     // 如果数据为空，为undefined，返回error为true
     return{
-        data: data,
+        reqInfo: data,
         error: error,
         isLoading: !error && !data,
     }
 }
 
+// 自定义hook，根据任务状态，每次渲染后返回任务结果；
+function useAnnResult(rid,status){
+    const fetcher = (...args) => fetch(...args).then((res) => res.json())
+    const { data, error } = useSWR(status==="finished"?`/api/annotation-result/${rid}`:null, fetcher,
+        {
+            revalidateIfStale: false,
+        })
+
+    // 如果数据为空，为undefined，返回error为true
+    return{
+        result: data,
+        error2: error,
+        isLoading2: !error && !data,
+    }
+}
+
+export const AnnContext = React.createContext({});
+
 export default function ResultPage(props) {
-    let {data, error, isLoading} = useRequestInfo(props.rid)
+    let {reqInfo, error, isLoading} = useRequestInfo(props.rid)
+    let {result, error2, isLoading2} = useAnnResult(props.rid,
+        reqInfo===undefined ?false : reqInfo.status)
     let returnModule
     // 如果找不到该rid，返回error 404页面
-    if (isLoading) {
-        returnModule = <div>Loading...</div>
+    if (isLoading || isLoading2) {
+        returnModule = <div style={{textAlign:"center"}}><LoadingModule/></div>
     }
-    if ( !error && ! isLoading ){
+    //  如果找不到结果，显示error页面
+    if ( error2 ){
+        returnModule =
+            <Result
+                status="500"
+                title="500"
+                subTitle="Sorry, something went wrong."
+                style={{margin:150}}
+                extra={<Button type="primary" href={"/"}>Back Home</Button>}
+            />
+    }
+    // 等待fetch 任务状态和任务结果结束，才开始渲染页面
+    if ( !error && ! isLoading && !error2 && !isLoading2){
         // 如果该rid的状态是running，返回wait页面，是finished则返回结果页面,是error则返回错误界面；
-        if(data.status === 'running') {
-            returnModule = <WaitModule data={data} time={props.data.serverTime}></WaitModule>
-        }else if(data.status === 'finished'){
-            returnModule = <ResultModule data={data}></ResultModule>
-        }else if(data.status === 'error'){
-            returnModule = <ErrorModule data={data}></ErrorModule>
+        if(reqInfo.status === 'running') {
+            returnModule = <WaitModule time={props.data.serverTime}></WaitModule>
+        }else if(reqInfo.status === 'finished'){
+            returnModule = <ResultModule/>
+        }else if(reqInfo.status === 'error'){
+            returnModule = <ErrorModule/>
         }
     }
     let title = `STW | Annotation | ${props.rid}`
 
     return (
         <LayoutCustom>
-            <Head>
-                <title>{title}</title>
-            </Head>
-            {returnModule}
+            <AnnContext.Provider value={{reqInfo:reqInfo,result:result}}>
+                <Head>
+                    <title>{title}</title>
+                </Head>
+                {returnModule}
+            </AnnContext.Provider>
         </LayoutCustom>
     )
 }

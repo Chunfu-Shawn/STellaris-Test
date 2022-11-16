@@ -41,6 +41,11 @@ export default function CellCountBarChart(){
                     formatter: (param) => `<b>${param.name}</b>
                         <br/><b>${param.seriesName}</b>: ${param.value}`
                 },
+                toolbox: {
+                    feature: {
+                        saveAsImage:{type:"svg"},
+                    }
+                },
                 grid: {
                     top: 40,
                     left: 100,
@@ -97,7 +102,7 @@ export default function CellCountBarChart(){
             if (renderedInstance) {
                 chartInstance = renderedInstance;
             } else {
-                chartInstance = echarts.init(chartRef.current);
+                chartInstance = echarts.init(chartRef.current,null,{locale:"EN",renderer:"svg"});
             }
             chartInstance.setOption(option);
             chartInstance.off('click');
