@@ -66,7 +66,8 @@ export default function MSTNetwork() {
                         draggable: true,
                         label: {
                             show:true,
-                            position: 'right'
+                            fontWeight:"bold",
+                            position: 'bottom'
                         },
                         force: {
                             repulsion: 300,

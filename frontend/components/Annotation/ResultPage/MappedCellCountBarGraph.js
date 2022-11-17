@@ -29,7 +29,7 @@ export default function MappedCellCountBarGraph(){
         try {
             let option = {
                 title: {
-                    text: 'Number of Cell (Mapped and deprecated)',
+                    text: 'Number of cell (Mapped and deprecated)',
                 },
                 tooltip: {
                     trigger: 'item',

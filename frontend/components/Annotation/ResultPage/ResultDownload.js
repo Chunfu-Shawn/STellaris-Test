@@ -45,7 +45,7 @@ export default function ResultDownload(){
                 renderItem={(item) => (
                     <List.Item>
                         <List.Item.Meta
-                            avatar={<DownloadOutlined />}
+                            avatar={<DownloadOutlined style={{fontSize:18}}/>}
                             title={<a href={item.url} rel="noreferrer" onClick={item.onClick}>{item.title}</a>}
                             description={item.description}
                             onClick={item.click}

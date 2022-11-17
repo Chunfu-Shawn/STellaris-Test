@@ -51,6 +51,7 @@ export default function JSDHeatmap() {
                         },
                         axisLabel:{
                             rotate:45,
+                            fontWeight:"bold",
                             fontSize:fontSize
                         }
                     },
@@ -70,6 +71,7 @@ export default function JSDHeatmap() {
                         },
                         axisLabel:{
                             rotate:45,
+                            fontWeight:"bold",
                             fontSize:fontSize
                         }
 

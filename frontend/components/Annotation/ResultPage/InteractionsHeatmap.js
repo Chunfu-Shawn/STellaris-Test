@@ -14,9 +14,9 @@ export default function InteractionsHeatmap(props) {
     // custom graph parameters
     const fontSize = 12 - 0.2 * interHeat.cell_types.length
     const nameLongest = Math.max(...interHeat.cell_types.map(item=>item.length))
-    const count = interHeat.count.map(item=>item[2]).sort((a, b) => a - b)
-    const count95Min = count[Math.ceil(count.length / 100 * 5)]
-    const count95Max = count[Math.ceil(count.length / 100 * 95)]
+    const count = interHeat.count.map(item=>item[2])
+    const countMin = Math.min(...count)
+    const countMax = Math.max(...count)
 
     // 定义渲染函数
     function renderChart() {
@@ -24,9 +24,9 @@ export default function InteractionsHeatmap(props) {
             let option =
                 {
                     title:{
-                        text:"Number of ligands and receptors interactions",
+                        text:"Total number of ligands and receptors interactions",
                         textStyle:{
-                            fontSize:14
+                            fontSize:16
                         }
                     },
                     tooltip: {
@@ -54,6 +54,7 @@ export default function InteractionsHeatmap(props) {
                         },
                         axisLabel:{
                             rotate:45,
+                            fontWeight:"bold",
                             fontSize:fontSize
                         }
                     },
@@ -73,13 +74,14 @@ export default function InteractionsHeatmap(props) {
                         },
                         axisLabel:{
                             rotate:45,
+                            fontWeight:"bold",
                             fontSize:fontSize
                         }
 
                     },
                     visualMap: {
-                        min: count95Min,
-                        max: count95Max,
+                        min: countMin,
+                        max: countMax,
                         calculable: true,
                         orient: 'horizontal',
                         show: true,
@@ -102,8 +104,8 @@ export default function InteractionsHeatmap(props) {
                     gradientColor:[
                         d3.interpolateViridis(0),
                         d3.interpolateViridis(0.25),
-                        d3.interpolateViridis(0.5),
                         d3.interpolateViridis(0.75),
+                        d3.interpolateViridis(0.95),
                         d3.interpolateViridis(1),
                     ]
                 };

@@ -1,6 +1,5 @@
 import {Affix, Col, Divider, Row, Tag, Tooltip, Tabs, Descriptions, Select} from "antd";
 import dynamic from "next/dynamic";
-import dataset from "../VisualTool/dataset.json";
 import React from "react";
 import {useRef} from "react";
 import ResultPageSiderMenu from "./ResultPage/ResultPageSiderMenu";
@@ -17,10 +16,20 @@ import MappedCellCountBarGraph from "./ResultPage/MappedCellCountBarGraph";
 import {useContext} from "react";
 import {AnnContext} from "../../pages/annotation/resultPage/[rid]";
 
-const dataset2 = {
+const stDataset = {
+    "id": "coronal_2",
+    "name": "coronal_2",
+    "url": "https://rhesusbase.com:9999/jsonl_files/STW-M-Brain-Stereo-seq-1/coronal_2/coronal_2.jsonl"
+}
+const scRawDataset = {
     "id": "GSM5833739",
     "name": "GSM5833739",
-    "url": "https://rhesusbase.com:9999/jsonl_files/GSM5833739_10x_Visium_deal/GSM5833739_10x_Visium_deal.jsonl"
+    "url": "https://rhesusbase.com:9999/jsonl_files/Mouse-corticogenesis/sc.jsonl"
+}
+const scAnnDataset = {
+    "id": "GSM5833739",
+    "name": "GSM5833739",
+    "url": "https://rhesusbase.com:9999/jsonl_files/Mouse-corticogenesis/sc_registered.jsonl"
 }
 
 export default function ResultModule(){
@@ -78,16 +87,29 @@ export default function ResultModule(){
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
-                            <Row justify="space-between" align="middle">
+                            <Row justify="space-between" align="top">
                                 <Col span={11}>
-                                    <DynamicVisualTool setCustom={true} drawerOpen={false}
-                                                       width={500} height={800}
-                                                       chartSize={220} dataset={dataset}/>
+                                    <Tabs defaultActiveKey="1">
+                                        <Tabs.TabPane tab="Reference ST data" key="1">
+                                            <DynamicVisualTool setCustom={true} drawerOpen={false}
+                                                               width={500} height={800}
+                                                               chartSize={220} dataset={stDataset}/>
+                                        </Tabs.TabPane>
+                                    </Tabs>
                                 </Col>
                                 <Col span={13}>
-                                    <DynamicVisualTool setCustom={true} drawerOpen={false}
-                                                       width={600} height={800}
-                                                       chartSize={220} dataset={dataset2}/>
+                                    <Tabs defaultActiveKey="1">
+                                        <Tabs.TabPane tab="Annotated scRNA-seq data" key="1">
+                                            <DynamicVisualTool setCustom={true} drawerOpen={false}
+                                                               width={600} height={800}
+                                                               chartSize={220} dataset={scAnnDataset}/>
+                                        </Tabs.TabPane>
+                                        <Tabs.TabPane tab="Submitted scRNA-seq data" key="2">
+                                            <DynamicVisualTool setCustom={true} drawerOpen={false}
+                                                               width={600} height={800}
+                                                               chartSize={220} dataset={scRawDataset}/>
+                                        </Tabs.TabPane>
+                                    </Tabs>
                                 </Col>
                             </Row>
                         </div>

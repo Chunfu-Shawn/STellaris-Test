@@ -38,7 +38,10 @@ export default function UMAPScatter(){
                 },
                 toolbox: {
                     feature: {
-                        saveAsImage:{type:"png"},
+                        saveAsImage:{
+                            type:"png",
+                            pixelRatio: 6
+                        },
                         dataZoom: {},
                     }
                 },
@@ -49,6 +52,7 @@ export default function UMAPScatter(){
                     top: 30,
                     itemHeight:itemHeight,
                     textStyle:{
+                        fontWeight:"bold",
                         fontSize:itemHeight+1
                     }
                 },
@@ -87,7 +91,7 @@ export default function UMAPScatter(){
                         },
                         blur: {
                             itemStyle: {
-                                opacity: 0
+                                opacity: 0.01
                             }
                         },
                         symbolSize:4,

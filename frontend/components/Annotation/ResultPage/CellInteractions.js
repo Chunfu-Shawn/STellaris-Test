@@ -4,11 +4,25 @@ import {QuestionCircleOutlined} from "@ant-design/icons";
 import InteractionsHeatmap from "./InteractionsHeatmap";
 import LigandsReceptorsDotplot from "./LigandsReceptorsDotplot";
 import LigandsReceptorsNetwork from "./LigandsReceptorsNetwork";
-import React from "react";
+import React, {useContext, useState} from "react";
+import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 const { Option } = Select;
 
 export default function CellInteractions(){
-    const onChangeSection = (value) => {}
+    const onChangeEnv = (value) => {
+        setEnv(value)
+        setCellTypePairs(dotPlot[env].yAxis)
+    }
+    const onChangeCell = (value) => {
+        setCellTypePair(value)
+    }
+    const annContext = useContext(AnnContext);
+    const dotPlot = JSON.parse(annContext.result.dotPlot)
+    const microenvironment = dotPlot.microenvironment
+    const [env, setEnv] = useState(microenvironment[0])
+    const [cellTypePairs, setCellTypePairs] = useState(dotPlot[env].yAxis)
+    const [cellTypePair, setCellTypePair] = useState(cellTypePairs[0])
+
     return(
         <div name={"Interaction"}>
             <a id={"Interaction"} style={{position: 'relative', top: "-150px"}}></a>
@@ -18,28 +32,43 @@ export default function CellInteractions(){
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>
-            <Row justify="space-evenly" align={"top"}>
-                <InteractionsHeatmap/>
-                <Col>
-                    <Row justify="start" align="stretch">
-                        <Col span={6}><span style={{fontSize:14}}>Microenvironment: </span></Col>
-                        <Col span={8}>
-                            <Select
-                                defaultValue={'default'}
-                                style={{
-                                    width: 160,
-                                }}
-                                onChange={onChangeSection}
-                            >
-                                <Option key={"default"} value={"default"}>{"default"}</Option>
-                            </Select>
-                        </Col>
-                        <Col span={10}><span style={{fontSize:14,fontWeight:"bold"}}>Ligands and receptors interactions</span></Col>
-                    </Row>
-                    <LigandsReceptorsDotplot/>
+            <Row justify="start" align="stretch" style={{margin:"20px 0"}}>
+                <Col span={4}><span style={{fontSize:18}}>Microenvironment: </span></Col>
+                <Col span={8}>
+                    <Select
+                        defaultValue={microenvironment[0]}
+                        style={{
+                            width: 300,
+                        }}
+                        onChange={onChangeEnv}
+                    >
+                        {microenvironment.map(item =>
+                            <Option key={"default"} value={item}>{item}</Option>)
+                        }
+                    </Select>
+                </Col>
+                <Col span={3}><span style={{fontSize:18}}>Cell Type Pair: </span></Col>
+                <Col span={8}>
+                    <Select
+                        value={cellTypePairs[0]}
+                        style={{
+                            width: 300,
+                        }}
+                        onChange={onChangeCell}
+                    >
+                        {cellTypePairs.map(item =>
+                            <Option key={"default"} value={item}>{item}</Option>)
+                        }
+                    </Select>
                 </Col>
             </Row>
-            <LigandsReceptorsNetwork/>
+            <Row justify="space-between" align="stretch">
+                <InteractionsHeatmap/>
+                <LigandsReceptorsNetwork cellTypePair={cellTypePair}/>
+            </Row>
+            <Row justify="space-evenly" align={"top"}>
+                <LigandsReceptorsDotplot env={env}/>
+            </Row>
         </div>
     )
 }
