@@ -11,7 +11,9 @@ const { Option } = Select;
 export default function CellInteractions(){
     const onChangeEnv = (value) => {
         setEnv(value)
-        setCellTypePairs(dotPlot[env].yAxis)
+        // usestate 是异步函数，set后不能马上生效
+        setCellTypePairs(dotPlot[value].yAxis)
+        setCellTypePair(dotPlot[value].yAxis[0])
     }
     const onChangeCell = (value) => {
         setCellTypePair(value)
@@ -43,28 +45,32 @@ export default function CellInteractions(){
                         onChange={onChangeEnv}
                     >
                         {microenvironment.map(item =>
-                            <Option key={"default"} value={item}>{item}</Option>)
+                            <Option key={item} value={item}>{item}</Option>)
                         }
                     </Select>
                 </Col>
                 <Col span={3}><span style={{fontSize:18}}>Cell Type Pair: </span></Col>
                 <Col span={8}>
                     <Select
-                        value={cellTypePairs[0]}
+                        value={cellTypePair}
                         style={{
                             width: 300,
                         }}
                         onChange={onChangeCell}
                     >
                         {cellTypePairs.map(item =>
-                            <Option key={"default"} value={item}>{item}</Option>)
+                            <Option key={item} value={item}>{item}</Option>)
                         }
                     </Select>
                 </Col>
             </Row>
-            <Row justify="space-between" align="stretch">
-                <InteractionsHeatmap/>
-                <LigandsReceptorsNetwork cellTypePair={cellTypePair}/>
+            <Row justify="space-evenly" align="stretch">
+                <Col>
+                    <InteractionsHeatmap/>
+                </Col>
+                <Col>
+                    <LigandsReceptorsNetwork cellTypePair={cellTypePair}/>
+                </Col>
             </Row>
             <Row justify="space-evenly" align={"top"}>
                 <LigandsReceptorsDotplot env={env}/>

@@ -56,8 +56,14 @@ export default function JSDHeatmap() {
                         }
                     },
                     toolbox: {
+                        itemSize:18,
                         feature: {
-                            saveAsImage:{type:"svg"},
+                            saveAsImage: {
+                                type: "svg",
+                            }
+                        },
+                        iconStyle: {
+                            borderWidth:2
                         }
                     },
                     yAxis: {

@@ -33,8 +33,14 @@ export default function MSTNetwork() {
                     }
                 },
                 toolbox: {
+                    itemSize:18,
                     feature: {
-                        saveAsImage:{type:"svg"},
+                        saveAsImage: {
+                            type: "svg",
+                        }
+                    },
+                    iconStyle: {
+                        borderWidth:2
                     }
                 },
                 series: [
@@ -55,10 +61,8 @@ export default function MSTNetwork() {
                                 source: item.source,
                                 target: item.target,
                                 "lineStyle": {
-                                    "normal": {
-                                        "width": scaleWeight(item.weight)*12,
-                                        "color": d3.interpolateYlOrRd(scaleWeight(item.weight))
-                                    }
+                                    "width": scaleWeight(item.weight)*12,
+                                    "color": d3.interpolateYlOrRd(scaleWeight(item.weight))
                                 }
                             }
                         }),

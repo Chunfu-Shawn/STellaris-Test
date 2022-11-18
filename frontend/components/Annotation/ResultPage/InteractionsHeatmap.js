@@ -4,7 +4,7 @@ import * as d3 from "d3-scale-chromatic";
 import {useContext} from "react";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 
-export default function InteractionsHeatmap(props) {
+export default function InteractionsHeatmap() {
     // use echarts
     const chartRef = useRef(null);
     let chartInstance = null;
@@ -59,8 +59,14 @@ export default function InteractionsHeatmap(props) {
                         }
                     },
                     toolbox: {
+                        itemSize:18,
                         feature: {
-                            saveAsImage:{type:"svg"},
+                            saveAsImage: {
+                                type: "svg",
+                            }
+                        },
+                        iconStyle: {
+                            borderWidth:2
                         }
                     },
                     yAxis: {
@@ -133,6 +139,6 @@ export default function InteractionsHeatmap(props) {
     });
 
     return(
-        <div ref={chartRef} style={{height:500,width:450,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:550,width:500,marginBottom:10}}></div>
     )
 }

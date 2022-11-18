@@ -1,4 +1,4 @@
-import {Affix, Col, Divider, Row, Tag, Tooltip, Tabs, Descriptions, Select} from "antd";
+import {Affix, Col, Divider, Row, Tag, Tooltip, Tabs} from "antd";
 import dynamic from "next/dynamic";
 import React from "react";
 import {useRef} from "react";
@@ -19,7 +19,7 @@ import {AnnContext} from "../../pages/annotation/resultPage/[rid]";
 const stDataset = {
     "id": "coronal_2",
     "name": "coronal_2",
-    "url": "https://rhesusbase.com:9999/jsonl_files/STW-M-Brain-Stereo-seq-1/coronal_2/coronal_2.jsonl"
+    "url": "https://rhesusbase.com:9999/jsonl_files/STW-M-Brain-Stereo-seq-1/coronal_1/coronal_1.jsonl"
 }
 const scRawDataset = {
     "id": "GSM5833739",
@@ -147,8 +147,12 @@ export default function ResultModule(){
                                 </Link>
                             </Divider>
                             <Row justify={"space-evenly"} align={"top"}>
-                                <JSDHeatmap/>
-                                <MSTNetwork/>
+                                <Col>
+                                    <JSDHeatmap/>
+                                </Col>
+                                <Col>
+                                    <MSTNetwork/>
+                                </Col>
                             </Row>
                         </div>
                         <CellInteractions/>

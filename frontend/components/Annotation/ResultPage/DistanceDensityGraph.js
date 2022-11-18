@@ -37,8 +37,14 @@ export default function DistanceDensityGraph(){
                     }
                 ],
                 toolbox: {
+                    itemSize:18,
                     feature: {
-                        saveAsImage:{type:"svg"},
+                        saveAsImage: {
+                            type: "svg",
+                        }
+                    },
+                    iconStyle: {
+                        borderWidth:2
                     }
                 },
                 gradientColor:[

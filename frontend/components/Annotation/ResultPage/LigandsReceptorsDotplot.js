@@ -16,25 +16,20 @@ export default function LigandsReceptorsDotplot(props) {
     const data = dotPlot[props.env].value.map(item => {
         return [parseInt(item[0]),parseInt(item[1]),parseFloat(item[2])]
     })
-    const xAxisFontSize = 15 - 0.05 *  xAxis.length
-    const yAxisFontSize = 12 - 0.2 *  yAxis.length
+    const xAxisFontSize = 15 - 0.03 *  xAxis.length
+    const yAxisFontSize = 12 - 0.15 *  yAxis.length
     const xAxisNameLongest = Math.max(...xAxis.map(item=>item.length))*xAxisFontSize
     const yAxisNameLongest = Math.max(...yAxis.map(item=>item.length))
-    console.log(data)
 
     // 定义渲染函数
     function renderChart() {
         try {
             let option = {
                 title:{
-                    text:`Ligands and receptors interactions in a microenvironment: ${props.env}`,
+                    text:`Ligands and receptors interactions in microenvironment: ${props.env}`,
                     textStyle:{
                         fontSize:16
                     }
-                },
-                legend: {
-                    data: ['Punch Card'],
-                    left: 'right'
                 },
                 tooltip: {
                     position: 'top',
@@ -43,22 +38,41 @@ export default function LigandsReceptorsDotplot(props) {
                             '<b>'+xAxis[params.value[0]] +'</b></br>'+
                             '<b>Log2 Mean Expression Value: </b>' + params.value[2] +
                             '</br>'+ ' between ' +
-                            yAxis[params.value[1]]
+                            yAxis[params.value[1]].split('|').join(' - ')
                         );
                     }
                 },
                 toolbox: {
+                    itemSize:18,
                     feature: {
-                        saveAsImage:{type:"svg"},
+                        saveAsImage: {
+                            type: "svg",
+                        }
+                    },
+                    iconStyle: {
+                        borderWidth:2
                     }
                 },
                 grid: {
-                    top: 40,
+                    top: 80,
                     left: 0,
                     bottom: 0,
                     right: 60,
                     containLabel: true
                 },
+                dataZoom: [
+                    {
+                        type: 'slider',
+                        xAxisIndex: 0,
+                        top:40,
+                        filterMode: 'none'
+                    },
+                    {
+                        type: 'slider',
+                        yAxisIndex: 0,
+                        filterMode: 'none'
+                    }
+                ],
                 xAxis: {
                     type: 'category',
                     data: xAxis,
@@ -88,7 +102,7 @@ export default function LigandsReceptorsDotplot(props) {
                     min: Math.min(...data.map( function (item) { return item[2] } )),
                     max: Math.max(...data.map( function (item) { return item[2] } )),
                     calculable: true,
-                    orient: 'vertical',
+                    orient: 'horizontal',
                     right: 0,
                     show: true
                 },
@@ -131,9 +145,9 @@ export default function LigandsReceptorsDotplot(props) {
             // 销毁图表实例，释放内存
             chartInstance && chartInstance.dispose();
         };
-    });
+    },[props.env]);
 
     return(
-        <div ref={chartRef} style={{height:600,width:1100,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:600,width:1200,margin:"30px 0"}}></div>
     )
 }

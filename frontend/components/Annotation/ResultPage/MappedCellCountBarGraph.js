@@ -41,8 +41,14 @@ export default function MappedCellCountBarGraph(){
                         <br/><b>${param.seriesName}</b>: ${param.value}`
                 },
                 toolbox: {
+                    itemSize:18,
                     feature: {
-                        saveAsImage:{type:"svg"},
+                        saveAsImage: {
+                            type: "svg",
+                        }
+                    },
+                    iconStyle: {
+                        borderWidth:2
                     }
                 },
                 grid: {

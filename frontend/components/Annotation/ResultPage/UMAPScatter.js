@@ -37,12 +37,16 @@ export default function UMAPScatter(){
                     }
                 },
                 toolbox: {
+                    itemSize:18,
                     feature: {
-                        saveAsImage:{
+                        saveAsImage: {
                             type:"png",
                             pixelRatio: 6
                         },
                         dataZoom: {},
+                    },
+                    iconStyle: {
+                        borderWidth:2
                     }
                 },
                 legend: {

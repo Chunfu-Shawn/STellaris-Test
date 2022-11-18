@@ -29,7 +29,7 @@ export default function ResultPageSiderMenu(props){
     return(
         <SiderMenu items = {items}
                    width={150}
-                   openKeys = {["Spatial Expression","Features"]}
+                   openKeys = {[]}
                    divContent={props.divContent}
         />
     )

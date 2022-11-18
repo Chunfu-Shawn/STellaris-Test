@@ -11,6 +11,11 @@ export default function LigandsReceptorsNetwork(props) {
     let chartInstance = null;
     const annContext = useContext(AnnContext);
     const lpPair = JSON.parse(annContext.result.lpPair)[cellTypePair]
+    const minMeans = Math.min(...lpPair.map( item => item.means))
+    const maxMeans = Math.max(...lpPair.map( item => item.means))
+    const scaleMeans = (means) => {
+        return (means-minMeans)/(maxMeans-minMeans)
+    }
     const nodeLigands = Array.from(
         new Set(
             lpPair.map(item => item.gene_l!==null ? item.gene_l : item.partner_l)
@@ -31,42 +36,50 @@ export default function LigandsReceptorsNetwork(props) {
             }
         }
     }
-    console.log(nodeLigands,nodeReceptors,nodeBoth)
 
     // 定义渲染函数
     function renderChart() {
         try {
             let option = {
                 title: {
-                    text:'Ligands and receptors interactions between two cell types',
-                    textStyle: {
-                        fontSize: 16
-                    }
-                },
-                grid:{
-                    top:30
                 },
                 toolbox: {
-                    show: true,
+                    itemSize:18,
                     feature: {
                         saveAsImage: {
                             type: "svg",
-                            pixelRatio: 3  // 数值越高下载图片内存越大越清晰，建议范围（3-10）
                         }
+                    },
+                    iconStyle: {
+                        borderWidth:2
                     }
+                },
+                tooltip:{},
+                legend:{
+                    show:true,
+                    orient:"vertical",
+                    textStyle:{
+                        fontWeight: "bold"
+                    },
+                    top: 0,
+                    left:0
                 },
                 series: [{
                     type: 'graph',
                     layout: 'circular',
                     roam: true,
-                    focusNodeAdjacency: true,
+                    draggable:false,
                     circular: {
                         rotateLabel: true
                     },
                     label: {
                         show:true,
                         fontWeight:"bold",
-                        position: 'bottom'
+                    },
+                    emphasis: {
+                        lineStyle: {
+                            width: 10
+                        }
                     },
                     // 节点数据格式
                     data: nodeLigands.map(item =>{
@@ -75,10 +88,9 @@ export default function LigandsReceptorsNetwork(props) {
                                     id: item,
                                     name: item,
                                     symbolSize: 20,
+                                    category:"Ligand",
                                     itemStyle: {
-                                        normal: {
-                                            color: '#F07C82'
-                                        }
+                                        color: d3.interpolateViridis(0),
                                     }
                                 }
                             )
@@ -89,10 +101,9 @@ export default function LigandsReceptorsNetwork(props) {
                                     id: item,
                                     name: item,
                                     symbolSize: 20,
+                                    category:"Receptor",
                                     itemStyle: {
-                                        normal: {
-                                            color: '#917cf0'
-                                        }
+                                        color: d3.interpolateViridis(1),
                                     }
                                 }
                             )
@@ -104,10 +115,9 @@ export default function LigandsReceptorsNetwork(props) {
                                     id: item,
                                     name: item,
                                     symbolSize: 20,
+                                    category:"Both",
                                     itemStyle: {
-                                        normal: {
-                                            color: '#99f07c'
-                                        }
+                                        color: d3.interpolateViridis(0.5),
                                     }
                                 }
                             )
@@ -121,29 +131,44 @@ export default function LigandsReceptorsNetwork(props) {
                                 name: `${item.gene_l !== null ? item.gene_l : item.partner_l} -> ${item.gene_r !== null ? item.gene_r : item.partner_r}`,
                                 tooltip: {
                                     trigger: "item",
-                                    formatter: function (params, ticket, callback) {
-                                        return params.data.name;
+                                    formatter: function (params) {
+                                        return (
+                                            "<b>" + params.name + "</b>" + "</br>" +
+                                            "<b>Mean Expression: </b>" +
+                                            Math.pow(2,parseFloat(item.means)).toFixed(4)
+                                    )
                                     }
                                 },
-                                label: {
-                                    normal: {
-                                        formatter: function (params, ticket, callback) {
-                                            params.name = params.data.name;
-                                            return params.name;
-                                        },
-                                        show: true
-                                    }
-                                },
-                                lineStyle: {
-                                    "normal": {
-                                        'width': parseFloat(item.mean)*20,
-                                        "curveness": 0.2,
-                                        "color": "#030303"
-                                    }
+                                "lineStyle": {
+                                    'width': 3,
+                                    "curveness": 0.3,
+                                    "color": d3.interpolateViridis(scaleMeans(parseFloat(item.means)))
                                 }
                             }
                         )
                     }),
+                    categories:[
+                        {
+                            name:"Ligand",
+                            symbol:'circle',
+                            itemStyle: {
+                                color: d3.interpolateViridis(0)
+                            }
+                        },
+                        {
+                            name:"Receptor",
+                            symbol:'circle',
+                            itemStyle: {
+                                color: d3.interpolateViridis(1)
+                            },
+                        },
+                        {
+                            name:"Both",
+                            symbol:'circle',
+                            itemStyle: {
+                                color: d3.interpolateViridis(0.5)
+                            }
+                        }]
                 }]
             }
             // `echarts.getInstanceByDom` 可以从已经渲染成功的图表中获取实例，其目的就是在 option 发生改变的时候，不需要
@@ -167,9 +192,14 @@ export default function LigandsReceptorsNetwork(props) {
             // 销毁图表实例，释放内存
             chartInstance && chartInstance.dispose();
         };
-    });
+    },[cellTypePair]);
 
     return(
-        <div ref={chartRef} style={{height:500,width:600,marginBottom:10}}></div>
+        <>
+            <p style={{fontSize:16,marginBottom:10,height:50,width:600}}>
+                Ligands and receptors interactions between:
+                <b> {cellTypePair.split('|').join(' - ')}</b></p>
+            <div ref={chartRef} style={{height:500,width:600,marginBottom:10}}></div>
+        </>
     )
 }
