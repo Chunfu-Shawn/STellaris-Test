@@ -6,6 +6,7 @@ import LigandsReceptorsDotplot from "./LigandsReceptorsDotplot";
 import LigandsReceptorsNetwork from "./LigandsReceptorsNetwork";
 import React, {useContext, useState} from "react";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
+import LoadingModule from "./LoadingModule";
 const { Option } = Select;
 
 export default function CellInteractions(){

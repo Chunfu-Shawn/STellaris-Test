@@ -139,6 +139,6 @@ export default function InteractionsHeatmap() {
     });
 
     return(
-        <div ref={chartRef} style={{height:550,width:500,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:500,width:450,marginBottom:10}}></div>
     )
 }

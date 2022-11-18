@@ -1,10 +1,11 @@
 import {Button, Dropdown, Menu, message} from "antd";
 import {throttle} from "../../util";
 import {useRouter} from "next/router";
+import Link from "next/link.js";
 
 export default function runExampleModule(props){
     const { setUploading } = props
-    const DEMO_URL = `/annotation/demo/`
+    const DEMO_URL = `/annotation/audition/`
     const router = useRouter()
     const onRunExample = (title) => function (){
         let rid = ""
@@ -51,13 +52,23 @@ export default function runExampleModule(props){
                 {
                     key: '1',
                     label: (
+                        <Button type={"link"}>
+                            <Link href={"/annotation/resultPage/2afdcac0-6110-11ed-b667-3d31cb31d071"}>
+                                E14.5 Mouse Whole Brain Stereo-seq (finished)
+                            </Link>
+                        </Button>
+                    ),
+                },
+                {
+                    key: '2',
+                    label: (
                         <Button type={"link"} onClick={throttle(2000,onRunExample("E14.5 Mouse Whole Brain Stereo-seq"))}>
                             E14.5 Mouse Whole Brain Stereo-seq
                         </Button>
                     ),
                 },
                 {
-                    key: '2',
+                    key: '3',
                     label: (
                         <Button type={"link"} onClick={throttle(2000,onRunExample("Mouse Embryo seqFISH"))}>
                             Mouse Embryo seqFISH

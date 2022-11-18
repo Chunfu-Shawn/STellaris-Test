@@ -16,7 +16,7 @@ export default function ReqStatus(props){
                     </tr>
                     <tr>
                         <th>Status</th>
-                        <th><Tag icon={<SyncOutlined spin />} color="processing">Running</Tag></th>
+                        <th><Tag icon={<SyncOutlined spin />} color="processing">{annContext.reqInfo.status}</Tag></th>
                     </tr>
                     <tr>
                         <td>Submission Time</td>
@@ -34,7 +34,7 @@ export default function ReqStatus(props){
                 </table>
                 <div className="panel-body">
                     <p>This page will be automatically updated in 1 second until job is done;<br/>
-                        The time for annotation will be long, <b>so we recommend you to save this URL ( has already been
+                        The time for screening and annotation will be long, <b>so we recommend you to save this URL ( has already been
                             sent to your E-mail if you provide E-mail address)</b>, where you can arrive the page of annotation result when analysis over.
 
                     </p>

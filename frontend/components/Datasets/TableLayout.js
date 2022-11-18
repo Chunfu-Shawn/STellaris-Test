@@ -119,7 +119,6 @@ export default function TableLayout(props) {
 
     // column sort
     const handleChange = (pagination,filter,sorter) => {
-        console.log('Various parameters', pagination, filter, sorter);
         setSortedInfo(sorter);
     };
 

@@ -36,7 +36,7 @@ export function uploadRecord(ctx) {
                 const resultpath = 'public/results/' + rid
                 const uploadtime = uploadTime
                 const finishtime = null
-                const status = 'running'
+                const status = 'auditioning'
                 // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
                 let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?);`;
                 connection.query(insertSql,
@@ -87,11 +87,14 @@ export function uploadRecord(ctx) {
                 const resultpath = 'public/results/' + rid
                 const uploadtime = uploadTime
                 const finishtime = null
-                const status = 'running'
+                const datasetID = null
+                const sectionID = null
+                const status = 'screening'
                 // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
-                let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?);`;
+                let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
                 connection.query(insertSql,
-                    [rid, title, email, species, organ, tissue, matrixfilepath, labelsfilepath, resultpath, uploadtime, finishtime, status],
+                    [rid, title, email, species, organ, tissue, matrixfilepath, labelsfilepath, resultpath, uploadtime, finishtime,
+                        datasetID, sectionID, status],
                     (err) => {
                         if (err) {
                             annotationLogger.log(`Error: [${new Date()}]: A annotation task failed in MySQL: ${err.message}`)

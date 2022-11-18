@@ -23,7 +23,7 @@ export default function WaitModule(props){
                 <h3>Request Status</h3>
             </div>
             <h2>Annotation Start Successfully</h2>
-            <ReqStatus style={{width: 600}}
+            <ReqStatus style={{width: 600, margin:"50px auto"}}
                        usedTime={usedTime}
             />
         </div>
