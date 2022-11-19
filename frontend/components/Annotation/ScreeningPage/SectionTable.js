@@ -1,4 +1,4 @@
-import {Table, Tooltip, Button} from "antd";
+import {Table, Button, Modal} from "antd";
 import React, {useState} from "react";
 import Link from "next/link.js";
 
@@ -11,6 +11,7 @@ export default function SectionTable(props) {
     let data = []
     for(let i=0;i<size;i++){
         let a={};
+        a.key=sections[i].split("|")[0];
         a.st_id=sections[i].split("|")[0];
         a.section_id=sections[i].split("|")[1];
         a.enrichment_score=enrichmentScore[i];
@@ -27,7 +28,7 @@ export default function SectionTable(props) {
             dataIndex: 'st_id',
             key: 'st_id',
             width:'20%',
-            render: text => <Link href={'dataPage/'+text}><a>{text}</a></Link>,
+            render: text => <Link href={'/datasets/dataPage/'+text}><a target={"_blank"}>{text}</a></Link>,
             sorter: (a, b) => {
                 if(a.st_id > b.st_id) return 1
                 else return -1
@@ -39,8 +40,7 @@ export default function SectionTable(props) {
             title: 'Section ID',
             dataIndex: 'section_id',
             key: 'section_id',
-            width:'15%',
-            render: text => <b>{text}</b>,
+            width:'20%',
             sorter: (a, b) => {
                 if(a.st_id > b.st_id) return 1
                 else return -1
@@ -52,58 +52,12 @@ export default function SectionTable(props) {
             title: 'Method',
             dataIndex: 'method',
             key: 'method',
-            width:'10%',
+            width:'15%',
             sorter: (a, b) => {
                 if(a.method > b.method) return 1
                 else return -1
             },
             sortOrder: sortedInfo.columnKey === 'method' ? sortedInfo.order : null,
-        },
-        {
-            title: 'Species',
-            dataIndex: 'species',
-            key: 'species',
-            sorter: (a, b) => {
-                if(a.species > b.species) return 1
-                else return -1
-            },
-            sortOrder: sortedInfo.columnKey === 'species' ? sortedInfo.order : null,
-            ellipsis: true,
-        },
-        {
-            title: 'Organ',
-            dataIndex: 'organ',
-            key: 'organ',
-            width:'9%',
-            render: (organ) => (
-                <Tooltip placement="topLeft" title={organ}>
-                    {organ}
-                </Tooltip>
-            ),
-            sorter: (a, b) => {
-                if(a.organ > b.organ) return 1
-                else return -1
-            },
-            sortOrder: sortedInfo.columnKey === 'organ' ? sortedInfo.order : null,
-            ellipsis: true,
-        },
-        {
-            title: 'Tissue',
-            dataIndex: 'tissue',
-            key: 'tissue',
-            width:'10%',
-            render: (tissue) => ( tissue !== ''?
-                    <Tooltip placement="topLeft" title={tissue}>
-                        {tissue}
-                    </Tooltip>:
-                    '--'
-            ),
-            sorter: (a, b) => {
-                if(a.tissue > b.tissue) return 1
-                else return -1
-            },
-            sortOrder: sortedInfo.columnKey === 'tissue' ? sortedInfo.order : null,
-            ellipsis: true,
         },
         {
             title: 'Date Published',
@@ -118,7 +72,7 @@ export default function SectionTable(props) {
             title: 'Enrichment Score',
             dataIndex: 'enrichment_score',
             key: 'enrichment_score',
-            width: "15%",
+            width: "20%",
             sorter: (a, b) => a.enrichment_score - b.enrichment_score,
             sortOrder: sortedInfo.columnKey === 'enrichment_score' ? sortedInfo.order : null,
             ellipsis: true,
@@ -127,14 +81,19 @@ export default function SectionTable(props) {
             title: '',
             key: 'select',
             width: 80,
-            render: (_, record) => <Button type={"primary"} ghost={true}>select</Button>,
+            render: (_, record) =>
+                <Button type={"primary"} ghost={true} size={"small"}
+                        onClick={() => {props.setOpen(true)}}>
+                    select
+                </Button>,
         },
     ];
 
 
     return(
         <>
-            <span style={{float:"right",fontSize:"16px",color:"gray"}}>0 Sections</span>
+            <span style={{float:"left",fontSize:"16px",color:"gray",margin:"10px 0"}}>
+                Species: Organ: Tissue: 0 Sections</span>
             <Table columns={columns}
                    dataSource={data}
                    onChange={handleChange}

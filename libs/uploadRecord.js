@@ -60,7 +60,11 @@ export function uploadRecord(ctx) {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.mkdirSync('public/results/' + rid + '/out', {
+                fs.mkdirSync('public/results/' + rid + '/out/pdf', {
+                    //是否使用递归创建目录
+                    recursive: true
+                })
+                fs.mkdirSync('public/results/' + rid + '/out/table', {
                     //是否使用递归创建目录
                     recursive: true
                 })

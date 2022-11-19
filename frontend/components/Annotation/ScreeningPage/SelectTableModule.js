@@ -1,15 +1,12 @@
-import ReqStatus from "./../ReqStatus.js";
-import {useEffect, useState} from "react";
-import {calTime} from "../../util";
-import {useContext} from "react";
+import React,{useContext, useState} from "react";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
-import {Divider, Result, Steps, Typography} from "antd";
+import {Divider, Modal, Steps} from "antd";
 import SectionTable from "./SectionTable";
 import ScoreBarGraph from "./ScoreBarGraph";
-const { Paragraph, Text } = Typography;
 const {Step} = Steps;
 
 export default function SelectTableModule(props){
+    const [open, setOpen] = useState(false);
     const [usedTime, setUsedTime] = useState(" ");
     const [nowTime, setNowTime] = useState(Date.parse(props.time));
     const annContext = useContext(AnnContext);
@@ -25,8 +22,20 @@ export default function SelectTableModule(props){
             </Steps>
             <Divider/>
             <h2>Screening Results</h2>
-            <SectionTable MIA={annContext.MIA}/>
+            <Modal
+                title="Continue to Annotate"
+                centered
+                open={open}
+                onOk={() => setOpen(false)}
+                onCancel={() => setOpen(false)}
+                width={600}
+            >
+                <p>some contents...</p>
+                <p>some contents...</p>
+                <p>some contents...</p>
+            </Modal>
             <ScoreBarGraph MIA={annContext.MIA}/>
+            <SectionTable MIA={annContext.MIA} setOpen={setOpen}/>
         </div>
     )
 }

@@ -6,7 +6,6 @@ import LigandsReceptorsDotplot from "./LigandsReceptorsDotplot";
 import LigandsReceptorsNetwork from "./LigandsReceptorsNetwork";
 import React, {useContext, useState} from "react";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
-import LoadingModule from "./LoadingModule";
 const { Option } = Select;
 
 export default function CellInteractions(){
@@ -37,7 +36,7 @@ export default function CellInteractions(){
             </Divider>
             <Row justify="start" align="stretch" style={{margin:"20px 0"}}>
                 <Col span={4}><span style={{fontSize:18}}>Microenvironment: </span></Col>
-                <Col span={8}>
+                <Col span={7}>
                     <Select
                         defaultValue={microenvironment[0]}
                         style={{

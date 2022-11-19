@@ -15,9 +15,30 @@ export default function ScoreBarGraph(props){
             let option = {
                 title: {
                     text: 'Enrichment Score',
+                    textStyle:{
+                        fontSize:16
+                    }
                 },
                 grid:{
-                    bottom:100
+                    bottom:100,
+                    left:50,
+                    right:0
+                },
+                toolbox:{
+                    feature:{
+                        saveAsImage:{
+                            type: "svg"
+                        }
+                    }
+                },
+                tooltip: {
+                    position: 'top',
+                    formatter: function (params) {
+                        return (
+                            '<b>'+params.name +'</b></br>'+
+                            '<b>MIA Enrichment Score: </b>' + props.MIA.enrichment_score[params.dataIndex]
+                        );
+                    }
                 },
                 xAxis: {
                     type: 'category',
@@ -29,13 +50,17 @@ export default function ScoreBarGraph(props){
                     }
                 },
                 yAxis: {
+                    show:true,
+                    splitLine: {
+                        show: true
+                    },
                     type: 'value'
                 },
                 series: [
                     {
                         data: props.MIA.enrichment_score,
                         type: 'bar',
-                        barCategoryGap:10,
+                        barCategoryGap:"50%",
                         itemStyle:{
                             color: d3.interpolateBuPu(0.3),
                             borderColor: d3.interpolateBuPu(0.5)
@@ -67,6 +92,6 @@ export default function ScoreBarGraph(props){
     });
 
     return(
-        <div ref={chartRef} style={{height:400,width:500,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:400,width:1100,marginBottom:10}}></div>
     )
 }

@@ -1,7 +1,3 @@
-import { readFile, set_fs, utils } from "xlsx/xlsx.mjs";
-set_fs(fs);
-import * as fs from "fs";
-/* load 'fs' for readFile and writeFile support */
 import mysql from 'mysql'
 // 数据库的配置选项
 const options = {
