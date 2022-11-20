@@ -1,4 +1,4 @@
-import {Breadcrumb, Typography, Tabs} from 'antd';
+import {Breadcrumb, Typography} from 'antd';
 import React from 'react';
 import { contentStyle } from "./SiderStaticMenu.js";
 const { Title } = Typography;

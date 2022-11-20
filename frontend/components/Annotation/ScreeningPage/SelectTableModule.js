@@ -1,8 +1,9 @@
 import React,{useContext, useState} from "react";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
-import {Divider, Modal, Steps} from "antd";
+import {Col, Divider, Modal, Row, Steps} from "antd";
 import SectionTable from "./SectionTable";
 import ScoreBarGraph from "./ScoreBarGraph";
+import ScreenStatus from "../ScreenStatus";
 const {Step} = Steps;
 
 export default function SelectTableModule(props){
@@ -34,7 +35,14 @@ export default function SelectTableModule(props){
                 <p>some contents...</p>
                 <p>some contents...</p>
             </Modal>
-            <ScoreBarGraph MIA={annContext.MIA}/>
+            <Row justify="space-between" align="top" style={{marginTop:50}}>
+                <Col span={8}>
+                    <ScreenStatus style={{width:350}}/>
+                </Col>
+                <Col span={16}>
+                    <ScoreBarGraph MIA={annContext.MIA}/>
+                </Col>
+            </Row>
             <SectionTable MIA={annContext.MIA} setOpen={setOpen}/>
         </div>
     )

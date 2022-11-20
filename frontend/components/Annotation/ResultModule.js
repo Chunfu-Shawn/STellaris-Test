@@ -42,6 +42,28 @@ export default function ResultModule(){
         {
             ssr: false,
         })
+    const item1 = [
+        {
+            label: 'Reference ST data', key: '1', children:
+                <DynamicVisualTool setCustom={true} drawerOpen={false}
+                                   width={500} height={800}
+                                   chartSize={220} dataset={stDataset}/>
+        }
+    ]
+    const item2 = [
+        {
+            label: 'Annotated scRNA-seq data', key: '1', children:
+                <DynamicVisualTool setCustom={true} drawerOpen={false}
+                                   width={600} height={800}
+                                   chartSize={220} dataset={scAnnDataset}/>
+        },
+        {
+            label: 'Submitted scRNA-seq data', key: '2', children:
+                <DynamicVisualTool setCustom={true} drawerOpen={false}
+                                   width={600} height={800}
+                                   chartSize={220} dataset={scRawDataset}/>
+        },
+    ]
 
 
     return(
@@ -89,27 +111,10 @@ export default function ResultModule(){
                             </Divider>
                             <Row justify="space-between" align="top">
                                 <Col span={11}>
-                                    <Tabs defaultActiveKey="1">
-                                        <Tabs.TabPane tab="Reference ST data" key="1">
-                                            <DynamicVisualTool setCustom={true} drawerOpen={false}
-                                                               width={500} height={800}
-                                                               chartSize={220} dataset={stDataset}/>
-                                        </Tabs.TabPane>
-                                    </Tabs>
+                                    <Tabs defaultActiveKey="1" items={item1}/>
                                 </Col>
                                 <Col span={13}>
-                                    <Tabs defaultActiveKey="1">
-                                        <Tabs.TabPane tab="Annotated scRNA-seq data" key="1">
-                                            <DynamicVisualTool setCustom={true} drawerOpen={false}
-                                                               width={600} height={800}
-                                                               chartSize={220} dataset={scAnnDataset}/>
-                                        </Tabs.TabPane>
-                                        <Tabs.TabPane tab="Submitted scRNA-seq data" key="2">
-                                            <DynamicVisualTool setCustom={true} drawerOpen={false}
-                                                               width={600} height={800}
-                                                               chartSize={220} dataset={scRawDataset}/>
-                                        </Tabs.TabPane>
-                                    </Tabs>
+                                    <Tabs defaultActiveKey="1" items={item2}/>
                                 </Col>
                             </Row>
                         </div>

@@ -16,10 +16,12 @@ export default function ScoreBarGraph(props){
                 title: {
                     text: 'Enrichment Score',
                     textStyle:{
-                        fontSize:16
-                    }
+                        fontSize:15
+                    },
+                    left: 50
                 },
                 grid:{
+                    top:80,
                     bottom:100,
                     left:50,
                     right:0
@@ -56,11 +58,19 @@ export default function ScoreBarGraph(props){
                     },
                     type: 'value'
                 },
+                dataZoom: [
+                    {
+                        type: 'slider',
+                        xAxisIndex: 0,
+                        top:30,
+                        filterMode: 'none'
+                    }
+                ],
                 series: [
                     {
                         data: props.MIA.enrichment_score,
                         type: 'bar',
-                        barCategoryGap:"50%",
+                        barCategoryGap:"30%",
                         itemStyle:{
                             color: d3.interpolateBuPu(0.3),
                             borderColor: d3.interpolateBuPu(0.5)
@@ -92,6 +102,6 @@ export default function ScoreBarGraph(props){
     });
 
     return(
-        <div ref={chartRef} style={{height:400,width:1100,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:400,width:750,marginBottom:10}}></div>
     )
 }

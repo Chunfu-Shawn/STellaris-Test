@@ -20,20 +20,22 @@ const validateMessages = {
 const {speciesOptions,organOptions,tissueOptions} = getAnnotationOptions(data);
 
 export default function UploadModule(){
-    return(
-        <Tabs className={'border-card-wrapper'}
-              style={{paddingLeft:30,width:700,background:'rgb(253,252,255)'}}
-              defaultActiveKey="1"
-              size={'large'}
-        >
-            <Tabs.TabPane tab="Annotate Spatial Location" key="2">
+    const items =[
+        { label: 'Annotate Spatial Location', key: 'item-1', children:
                 <AnnotateSpatialLocation
                     validateMessages={validateMessages}
                     speciesOptions={speciesOptions}
                     organOptions={organOptions}
                     tissueOptions={tissueOptions}
                 />
-            </Tabs.TabPane>
-        </Tabs>
+        }// 务必填写 key
+    ]
+    return(
+        <Tabs className={'border-card-wrapper'}
+              style={{paddingLeft:30,width:700,background:'rgb(253,252,255)'}}
+              defaultActiveKey="1"
+              items={items}
+              size={'large'}
+        />
     )
 }

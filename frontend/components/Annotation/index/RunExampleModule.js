@@ -46,9 +46,7 @@ export default function runExampleModule(props){
                 setUploading(false);
             });
     };
-    const menu = (
-        <Menu
-            items={[
+    const items=[
                 {
                     key: '1',
                     label: (
@@ -75,13 +73,11 @@ export default function runExampleModule(props){
                         </Button>
                     ),
                 },
-            ]}
-        />
-    );
+            ]
 
     return(
         <Dropdown
-            overlay={menu}
+            menu={{ items, }}
         >
             <Button type="primary" htmlType="button" className={"btn-upload"}>
                 Run Example
