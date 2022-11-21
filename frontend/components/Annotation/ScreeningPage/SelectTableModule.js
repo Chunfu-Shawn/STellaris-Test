@@ -1,9 +1,10 @@
 import React,{useContext, useState} from "react";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
-import {Col, Divider, Modal, Row, Steps} from "antd";
+import {Card, Col, Divider, Modal, Row, Steps} from "antd";
 import SectionTable from "./SectionTable";
 import ScoreBarGraph from "./ScoreBarGraph";
 import ScreenStatus from "../ScreenStatus";
+import AttributeLayout from "../../GenePage/AttributeLayout";
 const {Step} = Steps;
 
 export default function SelectTableModule(props){
@@ -22,7 +23,6 @@ export default function SelectTableModule(props){
                 <Step title="Annotation Result" description={"scRNA-seq Annotation Result"} />
             </Steps>
             <Divider/>
-            <h2>Screening Results</h2>
             <Modal
                 title="Continue to Annotate"
                 centered
@@ -35,14 +35,18 @@ export default function SelectTableModule(props){
                 <p>some contents...</p>
                 <p>some contents...</p>
             </Modal>
-            <Row justify="space-between" align="top" style={{marginTop:50}}>
-                <Col span={8}>
-                    <ScreenStatus style={{width:350}}/>
+            <Row justify="center" align="top" style={{marginTop:20,textAlign:"left"}}>
+                <Col span={6} style={{margin: "30px 5px"}}>
+                    <h2>Screening Results</h2>
+                    <AttributeLayout attribute={"Species"}>Mouse</AttributeLayout>
+                    <AttributeLayout attribute={"Organ"}>Brain</AttributeLayout>
+                    <AttributeLayout attribute={"Tissues"}>Brain</AttributeLayout>
                 </Col>
-                <Col span={16}>
-                    <ScoreBarGraph MIA={annContext.MIA}/>
+                <Col span={10}>
+                    <ScreenStatus style={{width:500}}/>
                 </Col>
             </Row>
+            <ScoreBarGraph MIA={annContext.MIA}/>
             <SectionTable MIA={annContext.MIA} setOpen={setOpen}/>
         </div>
     )

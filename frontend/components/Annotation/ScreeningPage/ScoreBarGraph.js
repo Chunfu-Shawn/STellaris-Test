@@ -102,6 +102,6 @@ export default function ScoreBarGraph(props){
     });
 
     return(
-        <div ref={chartRef} style={{height:400,width:750,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:400,width:1100,marginBottom:10}}></div>
     )
 }
