@@ -67,13 +67,11 @@ export default function CellInteractions(){
             <Row justify="space-evenly" align="stretch">
                 <Col>
                     <InteractionsHeatmap/>
-                </Col>
-                <Col>
                     <LigandsReceptorsNetwork cellTypePair={cellTypePair}/>
                 </Col>
-            </Row>
-            <Row justify="space-evenly" align={"top"}>
-                <LigandsReceptorsDotplot env={env}/>
+                <Col>
+                    <LigandsReceptorsDotplot env={env}/>
+                </Col>
             </Row>
         </div>
     )

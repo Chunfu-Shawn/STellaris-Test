@@ -3,17 +3,21 @@ import rfs from "rotating-file-stream" // version 2.x
 
 //add 0 before month
 const pad = num => (num > 9 ? "" : "0") + num;
+
 //generate the file path depended on date
-const generator = (time) => {
-    if (!time) return "access.log";
+const generator = (nowTime) => {
+    if (!nowTime) return "access.log";
+    let time = nowTime.getTime() - 1000*60*60*24;
     let month = time.getFullYear() + "" + pad(time.getMonth() + 1);
     let day = pad(time.getDate());
 
     return `${month}/${month}${day}-access.log`;
 };
+
 //generate the file path depended on date
-const generator2 = (time) => {
-    if (!time) return "annotation.log";
+const generator2 = (nowTime) => {
+    if (!nowTime) return "annotation.log";
+    let time = nowTime.getTime() - 1000*60*60*24;
     let month = time.getFullYear() + "" + pad(time.getMonth() + 1);
     let day = pad(time.getDate());
 

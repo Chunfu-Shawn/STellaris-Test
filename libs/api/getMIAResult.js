@@ -1,10 +1,11 @@
 import fs from "fs"
+import {getJobStatus} from "./getJobStatus.js";
 
-export async function getMIAResult(rid){
-    return new Promise((resolve,reject) => {
+export async function getMIAResult(resultPath){
+    return new Promise(async (resolve, reject) => {
         try {
             const MIA = fs.readFileSync(
-                'public/results/' + rid + '/out/table/MIA.json', 'utf8');
+                resultPath + '/out/table/MIA.json', 'utf8');
             resolve(MIA)
         } catch (err) {
             reject(err)

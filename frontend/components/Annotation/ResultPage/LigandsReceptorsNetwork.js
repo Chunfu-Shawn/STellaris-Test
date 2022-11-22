@@ -199,7 +199,7 @@ export default function LigandsReceptorsNetwork(props) {
             <p style={{fontSize:16,marginBottom:10,height:50,width:600}}>
                 Ligands and receptors interactions between:
                 <b> {cellTypePair.split('|').join(' - ')}</b></p>
-            <div ref={chartRef} style={{height:500,width:600,marginBottom:10}}></div>
+            <div ref={chartRef} style={{height:500,width:500,marginBottom:10}}></div>
         </>
     )
 }

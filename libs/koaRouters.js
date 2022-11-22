@@ -55,11 +55,11 @@ Router.post('/annotation/audition', async (ctx) =>
 Router.post('/annotation/annotate', (ctx) => {
         try {
             console.log(ctx.request.body)
-            //annotationLogger.log(`>>> ${rid}:[${new Date()}]: start annotate`)
+            annotationLogger.log(`>>> ${rid}:[${new Date()}]: start annotate`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
             //execTangram(rid, 'demo', 'demo');
         } catch (err) {
-            annotationLogger.log(`[${new Date()}]: There is a wrong happened in tangram: ${err}`)
+            annotationLogger.log(`[${new Date()}]: There is a wrong happened in Annotating: ${err}`)
         }
     }
 )

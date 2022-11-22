@@ -4,18 +4,16 @@ import {annotationLogger} from "./logSave.js";
 import {setJobScreenStatus} from "./setJobScreenStatus.js";
 
 export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath) {
-    const stScreening = './scripts/ST_screening/ST_screening.sh'
+    const stScreening = 'scripts/ST_screening/ST_screening.sh'
     const command =
-        `conda activate st_ann_anls;
-        bash ${stScreening}
-        --count ${matrixFilePath}
-        --label ${labelsFilePath}
-        --dataset ${datasets}
-        --section ${sections}
-        --outDir ${resultPath}
-        `
+        "bash " + stScreening +
+        " --count " + matrixFilePath +
+        " --label " + labelsFilePath +
+        " --dataset " + datasets +
+        " --section " + sections +
+        " --outDir " + resultPath
     // 创建日志数据输入流
-    const logfile = fs.createWriteStream('public/results/' + rid + '/log/ST_screening.log',{
+    const logfile = fs.createWriteStream(resultPath + '/log/ST_screening.log',{
         flags:'a', //文件的打开模式
         encoding: 'utf8',
     });
@@ -45,7 +43,7 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
             // 监听screenProcess任务的exit事件，如果发生则调用listener
             screenProcess.on('exit', function (code) {
                 logger.log(`ST screening has exited，exit code: ${code}`);
-                annotationLogger.log(`[${new Date()}]: "ST screening has exited，exit code: ${code}`)
+                annotationLogger.log(`[${new Date()}]: ST screening has exited，exit code: ${code}`)
                 if (code === 0) {
                     setJobScreenStatus(rid, 'selecting')
                 }

@@ -35,7 +35,7 @@ export async function selectSection(species,organ,tissue){
             // get sections id
             const sections = result.map( item => {
                 return(
-                    item.section_id.split(',').join(" ")
+                    item.section_id.split(',').join(",")
                 )
             }).join(",")
 

@@ -23,6 +23,7 @@ export function uploadRecord(ctx) {
         if(ctx.request.body.isDemo === "false") {
             try {
                 // read the uploaded form
+                const YMD = ctx.request.files['matrixFile'][0].destination.split('/')[2]
                 const rid = ctx.request.files['matrixFile'][0].destination.split('/')[3]
                 const title = ctx.request.body.title
                 const email = ctx.request.body.emailAddress
@@ -33,7 +34,7 @@ export function uploadRecord(ctx) {
                     ctx.request.files['matrixFile'][0].filename
                 const labelsFilePath = ctx.request.files['labelsFile'][0].destination + '/' +
                     ctx.request.files['labelsFile'][0].filename
-                const resultPath = 'public/results/' + rid
+                const resultPath = 'public/results/' + YMD + '/' + rid
                 const uploadTime = uploadTimeP
                 const screenFinishTime = null
                 const annStartTime = null
@@ -57,23 +58,23 @@ export function uploadRecord(ctx) {
                     })
 
                 //创建输出目录
-                fs.mkdirSync('public/results/' + rid, {
+                fs.mkdirSync('public/results/' + YMD + '/' +rid, {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.mkdirSync('public/results/' + rid + '/log', {
+                fs.mkdirSync('public/results/' + YMD + '/' + rid + '/log', {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.mkdirSync('public/results/' + rid + '/out/pdf', {
+                fs.mkdirSync('public/results/' + YMD + '/' + rid + '/out/pdf', {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.mkdirSync('public/results/' + rid + '/out/table', {
+                fs.mkdirSync('public/results/' + YMD + '/' + rid + '/out/table', {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.writeFileSync('public/results/' + rid + "/resquest.json",
+                fs.writeFileSync('public/results/' + YMD + '/' + rid + "/resquest.json",
                     JSON.stringify(ctx.request) + '\n',
                     {flag: "a+"}
                 );
@@ -85,15 +86,17 @@ export function uploadRecord(ctx) {
     else
         if (ctx.request.body.isDemo === "true") {
             try {
+                const now = new Date()
+                const YMD = String(now.getFullYear()) + (now.getMonth() + 1) + now.getDate()
                 const rid = uuidv1()
                 const title = ctx.request.body.title
                 const email = 'no email'
                 const organ = 'demo'
                 const tissue = 'demo'
                 const species = 'demo'
-                const matrixFilePath = 'public/upload/test1/counts.csv.gz'
-                const labelsFilePath = 'public/upload/test1/labels.csv.gz'
-                const resultPath = 'public/results/' + rid
+                const matrixFilePath = 'public/uploads/test1/counts.csv.gz'
+                const labelsFilePath = 'public/uploads/test1/labels.csv.gz'
+                const resultPath = 'public/results/' + YMD + '/' + rid
                 const uploadTime = uploadTimeP
                 const screenFinishTime = null
                 const annStartTime = null
@@ -116,23 +119,23 @@ export function uploadRecord(ctx) {
                         }
                     })
                 //创建输出目录
-                fs.mkdirSync('public/results/' + rid, {
+                fs.mkdirSync(resultPath, {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.mkdirSync('public/results/' + rid + '/log', {
+                fs.mkdirSync(resultPath + '/log', {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.mkdirSync('public/results/' + rid + '/out/pdf', {
+                fs.mkdirSync(resultPath + '/out/pdf', {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.mkdirSync('public/results/' + rid + '/out/table', {
+                fs.mkdirSync(resultPath + '/out/table', {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.writeFileSync('public/results/' + rid + "/resquest.json",
+                fs.writeFileSync(resultPath + "/resquest.json",
                     JSON.stringify(ctx.request) + '\n',
                     {flag: "a+"}
                 );
