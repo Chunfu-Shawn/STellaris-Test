@@ -2,7 +2,7 @@ import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
 import WaitModule from "../../../components/Annotation/WaitModule.js";
 import useSWR from "swr";
-import ResultModule from "../../../components/Annotation/ResultModule.js";
+import ResultModule from "../../../components/Annotation/ResultPage/ResultModule.js";
 import ErrorModule from "../../../components/Annotation/ErrorModule.js";
 import React from "react";
 import LoadingModule from "../../../components/Annotation/ResultPage/LoadingModule";
@@ -123,11 +123,11 @@ export default function ResultPage(props) {
         // 是finished则返回结果页面,
         // 是error则返回错误界面；
         if(reqInfo.status === 'screening') {
-            returnModule = <ScreeningModule time={props.data.serverTime}></ScreeningModule>
+            returnModule = <ScreeningModule/>
         }else if(reqInfo.status === 'selecting' && !error2 && !isLoading2) {
             returnModule = <SelectTableModule/>
         }else if(reqInfo.status === 'running') {
-            returnModule = <WaitModule time={props.data.serverTime}></WaitModule>
+            returnModule = <WaitModule/>
         }else if(reqInfo.status === 'finished' && !error3 && !isLoading3){
             returnModule = <ResultModule/>
         }else if(reqInfo.status === 'error'){
@@ -141,9 +141,10 @@ export default function ResultPage(props) {
             <AnnContext.Provider
                 value={
                 {
-                    reqInfo:reqInfo,
-                    MIA:MIA,
-                    result:result
+                    serverTime: props.data.serverTime,
+                    reqInfo: reqInfo,
+                    MIA: MIA,
+                    result: result
                 }
             }>
                 <Head>

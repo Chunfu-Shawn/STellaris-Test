@@ -8,6 +8,8 @@ import {handler} from '../server.js'
 import { v1 as uuidv1 } from 'uuid'
 import fs from "fs";
 import {annotationLogger} from "./logSave.js";
+import {selectSection} from "./selectSection.js";
+import {execScreening} from "./execScreening.js";
 
 
 export const Router = router()
@@ -37,16 +39,29 @@ Router.post('/annotation/upload',
 // run audition 的路由
 Router.post('/annotation/audition', async (ctx) =>
     uploadRecord(ctx).then(
-        (rid) => {
+        async ([rid, matrixFilePath, labelsFilePath, resultPath]) => {
             ctx.body = {rid: rid}
-            annotationLogger.log(`>>> ${rid}:[${new Date()}]:uploaded`)
-            // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-            //execTangram(rid,'demo', 'demo');
+            annotationLogger.log(`>>> ${rid}:[${new Date()}]: upload data`)
+            const [datasets, sections] = await selectSection("Mus musculus", "Brain", "Brain")
+            annotationLogger.log(`[${new Date()}]: start ST screening`)
+            execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
         },
-        (err) => annotationLogger.log(`Error: [${new Date()}]: A demo task failed when saving record: ${err}`)
     ).catch((err)=>{
-        annotationLogger.log(`[${new Date()}]: There is a wrong happened in tangram: ${err}`)
+        annotationLogger.log(`[${new Date()}]: There is a wrong happened in Screening: ${err}`)
     })
+)
+
+// run annotation 的路由
+Router.post('/annotation/annotate', (ctx) => {
+        try {
+            console.log(ctx.request.body)
+            //annotationLogger.log(`>>> ${rid}:[${new Date()}]: start annotate`)
+            // 运行Tangram, 传入Koa的context包装的request对象，和response对象
+            //execTangram(rid, 'demo', 'demo');
+        } catch (err) {
+            annotationLogger.log(`[${new Date()}]: There is a wrong happened in tangram: ${err}`)
+        }
+    }
 )
 
 // run demo 的路由

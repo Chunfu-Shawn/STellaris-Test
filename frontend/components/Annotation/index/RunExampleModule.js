@@ -3,7 +3,7 @@ import {throttle} from "../../util";
 import {useRouter} from "next/router";
 import Link from "next/link.js";
 
-export default function runExampleModule(props){
+export default function RunExampleModule(props){
     const { setUploading } = props
     const DEMO_URL = `/annotation/audition/`
     const router = useRouter()
@@ -78,6 +78,7 @@ export default function runExampleModule(props){
     return(
         <Dropdown
             menu={{ items, }}
+            trigger={['click']}
         >
             <Button type="primary" htmlType="button" className={"btn-upload"}>
                 Run Example

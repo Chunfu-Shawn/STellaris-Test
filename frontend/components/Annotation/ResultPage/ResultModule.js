@@ -2,19 +2,19 @@ import {Affix, Col, Divider, Row, Tag, Tooltip, Tabs} from "antd";
 import dynamic from "next/dynamic";
 import React from "react";
 import {useRef} from "react";
-import ResultPageSiderMenu from "./ResultPage/ResultPageSiderMenu";
+import ResultPageSiderMenu from "../ResultPage/ResultPageSiderMenu";
 import Link from "next/link";
 import {DownloadOutlined, QuestionCircleOutlined} from "@ant-design/icons";
-import ResultDownload from "./ResultPage/ResultDownload";
-import Preprocessing from "./ResultPage/Preprocessing";
-import UMAPScatter from "./ResultPage/UMAPScatter";
-import JSDHeatmap from "./ResultPage/JSDHeatmap";
-import MSTNetwork from "./ResultPage/MSTNetwork";
-import CellInteractions from "./ResultPage/CellInteractions";
-import DistanceDensityGraph from "./ResultPage/DistanceDensityGraph";
-import MappedCellCountBarGraph from "./ResultPage/MappedCellCountBarGraph";
+import ResultDownload from "../ResultPage/ResultDownload";
+import Preprocessing from "../ResultPage/Preprocessing";
+import UMAPScatter from "../ResultPage/UMAPScatter";
+import JSDHeatmap from "../ResultPage/JSDHeatmap";
+import MSTNetwork from "../ResultPage/MSTNetwork";
+import CellInteractions from "../ResultPage/CellInteractions";
+import DistanceDensityGraph from "../ResultPage/DistanceDensityGraph";
+import MappedCellCountBarGraph from "../ResultPage/MappedCellCountBarGraph";
 import {useContext} from "react";
-import {AnnContext} from "../../pages/annotation/resultPage/[rid]";
+import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 
 const stDataset = {
     "id": "coronal_2",
@@ -37,7 +37,7 @@ export default function ResultModule(){
     const annContext = useContext(AnnContext);
     const iconStyle = {color:"black", float:"right",fontSize:"24px",margin:'0 2%'}
     const DynamicVisualTool = dynamic(() =>
-            import('../../components/VisualTool/VisualTool.js')
+            import('../../../components/VisualTool/VisualTool.js')
                 .then((mod) => mod.VisualTool),
         {
             ssr: false,

@@ -1,6 +1,6 @@
 import fs from "fs"
 import child_process from 'child_process';
-import {setJobStatus} from "./api/setJobStatus.js";
+import {setJobAnnStatus} from "./setJobAnnStatus.js";
 import {annotationLogger} from "./logSave.js";
 
 export function execTangram(rid,destination,filename) {
@@ -34,12 +34,12 @@ export function execTangram(rid,destination,filename) {
     if (!fs.existsSync(tangram)) {
         //如果python脚本不存在
         logger.log('Sorry, annotation script not found !');
-        setJobStatus(rid, "error")
+        setJobAnnStatus(rid, "error")
         annotationLogger.log(`Error:[${new Date()}]: There is a error happened while tangram running`)
     } else if(!fs.existsSync(ad_sp)) {
         //如果空间数据不存在
         logger.log('Sorry, spatial trans data not found !');
-        setJobStatus(rid, "error")
+        setJobAnnStatus(rid, "error")
         annotationLogger.log(`Error: [${new Date()}]: There is a error happened while Tangram running`)
     } else {
         try {
@@ -59,8 +59,8 @@ export function execTangram(rid,destination,filename) {
             annoProcess.on('exit', function (code) {
                 logger.log(`child process 'annotation' has exited，exit code: ${code}`);
                 annotationLogger.log(`[${new Date()}]: "child process 'annotation' has exited，exit code: ${code}`)
-                if (code === 0) setJobStatus(rid, 'finished')
-                else setJobStatus(rid, "error")
+                if (code === 0) setJobAnnStatus(rid, 'finished')
+                else setJobAnnStatus(rid, "error")
             });
         } catch (err) {
             logger.log(`Error of reading/writing file from disk or python running: ${err}`)

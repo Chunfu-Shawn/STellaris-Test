@@ -4,18 +4,7 @@ import {calTime} from "../util";
 import {useContext} from "react";
 import {AnnContext} from "../../pages/annotation/resultPage/[rid]";
 
-export default function WaitModule(props){
-    const [usedTime, setUsedTime] = useState(" ");
-    const [nowTime, setNowTime] = useState(Date.parse(props.time));
-    const annContext = useContext(AnnContext);
-    useEffect(() => {
-        const timer = setInterval(() => {
-            console.log(nowTime)
-            setNowTime(nowTime +1000)
-            setUsedTime(calTime(new Date(nowTime).toISOString(),annContext.reqInfo.upload_time));
-        }, 1000);
-        return () => clearInterval(timer);
-    });
+export default function WaitModule(){
 
     return(
         <div className="modal-body-stw" >
@@ -24,7 +13,7 @@ export default function WaitModule(props){
             </div>
             <h2>Annotation Start Successfully</h2>
             <ReqStatus style={{width: 600, margin:"50px auto"}}
-                       usedTime={usedTime}
+                       type={"annotating"}
             />
         </div>
     )

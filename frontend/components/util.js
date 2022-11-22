@@ -93,8 +93,8 @@ export function exportToCsv(data,fileName) {
 
 /**
  * calculate time consumed
- * @param nowtime  {Date}  当前时间
- * @param etime  {Date}  早期时间
+ * @param nowtime  {String}  当前时间
+ * @param etime  {String}  早期时间
  * @return {String} 消耗的小时、分钟、秒
  */
 export function calTime(nowtime,etime){

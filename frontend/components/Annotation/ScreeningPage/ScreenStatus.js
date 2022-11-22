@@ -1,7 +1,6 @@
-import {Tag} from "antd";
-import {SyncOutlined} from "@ant-design/icons";
 import {useContext} from "react";
-import {AnnContext} from "../../pages/annotation/resultPage/[rid]";
+import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
+import {calTime} from "../../util";
 
 export default function ScreenStatus(props){
     const annContext = useContext(AnnContext);
@@ -20,7 +19,7 @@ export default function ScreenStatus(props){
                     </tr>
                     <tr>
                         <td>Run Time</td>
-                        <td>{props.usedTime}</td>
+                        <td>{calTime(annContext.reqInfo.screen_finish_time,annContext.reqInfo.upload_time)}</td>
                     </tr>
                     </tbody>
                 </table>

@@ -1,10 +1,17 @@
-import {Table, Button, Modal} from "antd";
+import {Table, Button, Modal, InputNumber, Divider, message} from "antd";
 import React, {useState} from "react";
 import Link from "next/link.js";
+import {QuestionCircleOutlined} from "@ant-design/icons";
+import {useRouter} from "next/router";
 
 
 export default function SectionTable(props) {
+    const [open, setOpen] = useState(false);
+    const [datasetId, setDatasetId] = useState('');
+    const [sectionId, setSectionId] = useState('');
+    const [cutoff, setCutoff] = useState(0.3);
     const [sortedInfo, setSortedInfo] = useState({});
+    const [confirmLoading, setConfirmLoading] = useState(false);
     const sections = props.MIA.section_id
     const enrichmentScore = props.MIA.enrichment_score
     let size = sections.length
@@ -17,11 +24,59 @@ export default function SectionTable(props) {
         a.enrichment_score=enrichmentScore[i];
         data.push(a);
     }
+    const ANN_URL = `/annotation/annotate/`
+
+    // 开始注释
+    const handleOk = () => {
+        setConfirmLoading(true); // You can use any AJAX library you like
+        fetch(ANN_URL, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json', 'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                datasetId: datasetId,
+                sectionId: sectionId,
+                cutoff: cutoff
+            })
+        }).then(() => {
+            message.success({
+                content:'start annotating successfully!',
+                style:{
+                    marginTop: '12vh',
+                },
+            });
+        }).catch(() => {
+            message.error({
+                    content:'start annotating unsuccessfully.',
+                    style:{
+                        marginTop: '12vh',
+                    },
+                    duration:3,
+                }
+            );
+        })
+        .finally(() => {
+            setOpen(false)
+            setConfirmLoading(false);
+        });
+    };
+
+    const onNumberChange = (value) => {
+        setCutoff(value);
+    };
 
     // column sort
     const handleChange = (pagination,filter,sorter) => {
         setSortedInfo(sorter);
     };
+    // column sort
+    const handleSelect = (datasetId,sectionId) => () => {
+        setOpen(true)
+        setDatasetId(datasetId)
+        setSectionId(sectionId)
+    };
+
     const columns = [
         {
             title: 'ST ID',
@@ -83,7 +138,7 @@ export default function SectionTable(props) {
             width: 80,
             render: (_, record) =>
                 <Button type={"primary"} ghost={true} size={"small"}
-                        onClick={() => {props.setOpen(true)}}>
+                        onClick={handleSelect(record.st_id,record.section_id)}>
                     select
                 </Button>,
         },
@@ -92,6 +147,36 @@ export default function SectionTable(props) {
 
     return(
         <>
+            <Modal
+                title="Confirm Section to continue annotation"
+                centered
+                open={open}
+                onOk={handleOk}
+                confirmLoading={confirmLoading}
+                onCancel={() => setOpen(false)}
+                width={600}
+            >
+                <p>Confirm Your Selected Section: <b>{datasetId} ({sectionId})</b> to annotate your scRNA-seq data.</p>
+                <Divider orientation="left" orientationMargin="0">
+                    <span style={{fontSize:14}}>Advanced Annotation Parameters </span>
+                    <Link href={'/help/manual/datasets#data_page_attributes'}>
+                        <a target={"_blank"}><QuestionCircleOutlined/></a>
+                    </Link>
+                </Divider>
+                <span>cutoff: </span>
+                <InputNumber
+                    style={{
+                        width: 100,
+                    }}
+                    size={"small"}
+                    onChange={onNumberChange}
+                    defaultValue="0.3"
+                    min="0.1"
+                    max="1"
+                    step="0.05"
+                    stringMode
+                />
+            </Modal>
             <span style={{float:"left",fontSize:"16px",color:"gray",margin:"10px 0"}}>
                 Species: Organ: Tissue: 0 Sections</span>
             <Table columns={columns}

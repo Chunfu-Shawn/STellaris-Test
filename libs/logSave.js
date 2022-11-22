@@ -29,6 +29,7 @@ const annotationLogStream = rfs.createStream(generator2, {
     interval: '1d', // rotate daily
     path: 'logs/annotation_requests/'
 })
+
 // 创建注释功能的logger
 export const annotationLogger = new console.Console(annotationLogStream);
 

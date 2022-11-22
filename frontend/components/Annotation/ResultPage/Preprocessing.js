@@ -1,8 +1,7 @@
 import {Col, Descriptions, Divider, Row, Tabs} from "antd";
 import Link from "next/link";
 import {QuestionCircleOutlined} from "@ant-design/icons";
-import ResultStatus from "../ResultStatus";
-import {calTime} from "../../util";
+import ResultStatus from "./ResultStatus";
 import React from "react";
 import CellCountBarChart from "./CellCountBarChart";
 import {useContext} from "react";
@@ -48,9 +47,7 @@ export default function Preprocessing(){
             </Divider>
             <Row justify="space-between" align="top">
                 <Col span={10}>
-                    <ResultStatus style={{width: 450}}
-                                  usedTime={calTime(annContext.reqInfo.finish_time,annContext.reqInfo.upload_time)}
-                    />
+                    <ResultStatus style={{width: 450}}/>
                 </Col>
                 <Col span={14}>
                     <Tabs defaultActiveKey="1" items={items}/>

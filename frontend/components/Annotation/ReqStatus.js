@@ -2,9 +2,26 @@ import {Tag} from "antd";
 import {SyncOutlined} from "@ant-design/icons";
 import {useContext} from "react";
 import {AnnContext} from "../../pages/annotation/resultPage/[rid]";
+import {useEffect, useState} from "react";
+import {calTime} from "../util";
 
 export default function ReqStatus(props){
     const annContext = useContext(AnnContext);
+    const [usedTime, setUsedTime] = useState(" ");
+    const [nowTime, setNowTime] = useState(Date.parse(annContext.serverTime));
+    let startTime = new Date().toTimeString()
+
+    if( props.type === "screening"){
+        startTime = annContext.reqInfo.upload_time
+    }else startTime = annContext.reqInfo.ann_start_time
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setNowTime(nowTime +1000)
+            setUsedTime(calTime(new Date(nowTime).toISOString(), startTime))
+        }, 1000);
+        return () => clearInterval(timer);
+    });
     return(
             <div className="panel panel-default" style={props.style}>
                 <div className="panel-heading">Job Title: &nbsp;&nbsp;&nbsp;&nbsp;{annContext.reqInfo.title}</div>
@@ -19,16 +36,16 @@ export default function ReqStatus(props){
                         <th><Tag icon={<SyncOutlined spin />} color="processing">{annContext.reqInfo.status}</Tag></th>
                     </tr>
                     <tr>
-                        <td>Submission Time</td>
-                        <td>{annContext.reqInfo.upload_time}</td>
+                        <td>Start Time</td>
+                        <td>{startTime}</td>
                     </tr>
                     <tr>
-                        <td>Time since submission</td>
-                        <td>{props.usedTime}</td>
+                        <td>Run Time</td>
+                        <td>{usedTime}</td>
                     </tr>
                     <tr>
                         <td>The URL of result will be delivered to </td>
-                        <td>{annContext.reqInfo.email === "undefined"? "no email address" : annContext.reqInfo.email}</td>
+                        <td>{annContext.reqInfo.email ? annContext.reqInfo.email: "no email address"}</td>
                     </tr>
                     </tbody>
                 </table>

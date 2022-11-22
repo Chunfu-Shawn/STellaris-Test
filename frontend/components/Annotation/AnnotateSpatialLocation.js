@@ -105,7 +105,7 @@ export default function AnnotateSpatialLocation(props){
               name="control-hooks"
               validateMessages={validateMessages}
               style={{width:600}}>
-            <Form.Item name="title" label="Project Title"
+            <Form.Item name="title" label="Job Title"
                        rules={[
                            {
                                required: true,
@@ -113,7 +113,7 @@ export default function AnnotateSpatialLocation(props){
                            },
                        ]}
             >
-                <Input placeholder='Enter project title'/>
+                <Input placeholder='Enter job title'/>
             </Form.Item>
             <Form.Item name="emailAddress" label="Email Address (optional)"
                        rules={[
