@@ -84,11 +84,11 @@ RouterAPI.get('/api/genes-expression-correlation/:geneOrSection/:param', async (
 // MIA Result fetch
 RouterAPI.get('/api/mia-result/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    ctx.body = await getMIAResult(record.result_path, ctx.params.rid)
+    ctx.body = await getMIAResult(record.result_path)
 })
 
 // Annotation Result fetch
 RouterAPI.get('/api/annotation-result/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    ctx.body = await getAnnotationResult(record.result_path, ctx.params.rid)
+    ctx.body = await getAnnotationResult(record.result_path)
 })

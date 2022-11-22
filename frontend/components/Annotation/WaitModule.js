@@ -1,8 +1,6 @@
 import ReqStatus from "./ReqStatus.js";
-import {useEffect, useState} from "react";
-import {calTime} from "../util";
-import {useContext} from "react";
-import {AnnContext} from "../../pages/annotation/resultPage/[rid]";
+import AnnotationSteps from "./AnnotationSteps";
+import React from "react";
 
 export default function WaitModule(){
 
@@ -11,6 +9,7 @@ export default function WaitModule(){
             <div className="page-header">
                 <h3>Request Status</h3>
             </div>
+            <AnnotationSteps current={3}/>
             <h2>Annotation Start Successfully</h2>
             <ReqStatus style={{width: 600, margin:"50px auto"}}
                        type={"annotating"}

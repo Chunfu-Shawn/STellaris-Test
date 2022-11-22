@@ -127,7 +127,7 @@ export default function SectionTable(props) {
             title: 'Date Published',
             dataIndex: 'date_published',
             key: 'date_published',
-            width: "15%",
+            width: "13%",
             render: (text) => DateFomatter(new Date(text)),
             sorter: (a, b) => Date.parse(a.date_published) - Date.parse(b.date_published),
             sortOrder: sortedInfo.columnKey === 'date_published' ? sortedInfo.order : null,
@@ -137,7 +137,7 @@ export default function SectionTable(props) {
             title: 'Developmental Stage',
             dataIndex: 'developmental_stage',
             key: 'developmental_stage',
-            width: "10%",
+            width: "15%",
             ellipsis: true,
         },
         {
