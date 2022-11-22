@@ -58,23 +58,27 @@ export function uploadRecord(ctx) {
                     })
 
                 //创建输出目录
-                fs.mkdirSync('public/results/' + YMD + '/' +rid, {
+                fs.mkdirSync(resultPath, {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.mkdirSync('public/results/' + YMD + '/' + rid + '/log', {
+                fs.mkdirSync(resultPath + '/log', {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.mkdirSync('public/results/' + YMD + '/' + rid + '/out/pdf', {
+                fs.mkdirSync(resultPath + '/out/pdf', {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.mkdirSync('public/results/' + YMD + '/' + rid + '/out/table', {
+                fs.mkdirSync(resultPath + '/out/table', {
                     //是否使用递归创建目录
                     recursive: true
                 })
-                fs.writeFileSync('public/results/' + YMD + '/' + rid + "/resquest.json",
+                fs.mkdirSync(resultPath + '/out/json', {
+                    //是否使用递归创建目录
+                    recursive: true
+                })
+                fs.writeFileSync(resultPath + "/resquest.json",
                     JSON.stringify(ctx.request) + '\n',
                     {flag: "a+"}
                 );
@@ -91,9 +95,9 @@ export function uploadRecord(ctx) {
                 const rid = uuidv1()
                 const title = ctx.request.body.title
                 const email = 'no email'
-                const organ = 'demo'
-                const tissue = 'demo'
-                const species = 'demo'
+                const species = 'Mus musculus'
+                const organ = 'Brain'
+                const tissue = 'Brain'
                 const matrixFilePath = 'public/uploads/test1/counts.csv.gz'
                 const labelsFilePath = 'public/uploads/test1/labels.csv.gz'
                 const resultPath = 'public/results/' + YMD + '/' + rid
@@ -132,6 +136,10 @@ export function uploadRecord(ctx) {
                     recursive: true
                 })
                 fs.mkdirSync(resultPath + '/out/table', {
+                    //是否使用递归创建目录
+                    recursive: true
+                })
+                fs.mkdirSync(resultPath + '/out/json', {
                     //是否使用递归创建目录
                     recursive: true
                 })

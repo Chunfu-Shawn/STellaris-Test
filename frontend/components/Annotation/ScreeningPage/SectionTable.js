@@ -2,7 +2,7 @@ import {Table, Button, Modal, InputNumber, Divider, message} from "antd";
 import React, {useState} from "react";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
-import {useRouter} from "next/router";
+import {DateFomatter} from "../../util";
 
 
 export default function SectionTable(props) {
@@ -14,14 +14,23 @@ export default function SectionTable(props) {
     const [confirmLoading, setConfirmLoading] = useState(false);
     const sections = props.MIA.section_id
     const enrichmentScore = props.MIA.enrichment_score
+    const datasetsInfo = props.MIA.datasets_info
     let size = sections.length
     let data = []
+    console.log(datasetsInfo[2])
     for(let i=0;i<size;i++){
         let a={};
         a.key=sections[i].split("|")[0];
         a.st_id=sections[i].split("|")[0];
         a.section_id=sections[i].split("|")[1];
         a.enrichment_score=enrichmentScore[i];
+        for(let j=0; j<datasetsInfo.length; j++){
+            if (a.st_id === datasetsInfo[j]["id"]){
+                a.method = datasetsInfo[j].method
+                a.date_published = datasetsInfo[j].date_published
+                a.developmental_stage = datasetsInfo[j].developmental_stage
+            }
+        }
         data.push(a);
     }
     const ANN_URL = `/annotation/annotate/`
@@ -107,7 +116,7 @@ export default function SectionTable(props) {
             title: 'Method',
             dataIndex: 'method',
             key: 'method',
-            width:'15%',
+            width:'10%',
             sorter: (a, b) => {
                 if(a.method > b.method) return 1
                 else return -1
@@ -119,8 +128,16 @@ export default function SectionTable(props) {
             dataIndex: 'date_published',
             key: 'date_published',
             width: "15%",
+            render: (text) => DateFomatter(new Date(text)),
             sorter: (a, b) => Date.parse(a.date_published) - Date.parse(b.date_published),
             sortOrder: sortedInfo.columnKey === 'date_published' ? sortedInfo.order : null,
+            ellipsis: true,
+        },
+        {
+            title: 'Developmental Stage',
+            dataIndex: 'developmental_stage',
+            key: 'developmental_stage',
+            width: "10%",
             ellipsis: true,
         },
         {
@@ -178,7 +195,8 @@ export default function SectionTable(props) {
                 />
             </Modal>
             <span style={{float:"left",fontSize:"16px",color:"gray",margin:"10px 0"}}>
-                Species: Organ: Tissue: 0 Sections</span>
+                {size} Sections
+            </span>
             <Table columns={columns}
                    dataSource={data}
                    onChange={handleChange}

@@ -8,7 +8,7 @@ import {calTime} from "../util";
 export default function ReqStatus(props){
     const annContext = useContext(AnnContext);
     const [usedTime, setUsedTime] = useState(" ");
-    const [nowTime, setNowTime] = useState(Date.parse(annContext.serverTime)+3000);
+    const [nowTime, setNowTime] = useState(Date.parse(annContext.serverTime)+2000);
     let startTime = new Date().toTimeString()
 
     if( props.type === "screening"){
@@ -52,7 +52,8 @@ export default function ReqStatus(props){
                 <div className="panel-body">
                     <p>This page will be automatically updated in 1 second until job is done;<br/>
                         The time for screening and annotation will be long, <b>so we recommend you to save this URL ( has already been
-                            sent to your E-mail if you provide E-mail address)</b>, where you can arrive the page of annotation result when analysis over.
+                            sent to your E-mail if you provide E-mail address. if this job is a example, no email will be delivered)</b>
+                        , where you can arrive the page of annotation result when analysis over.
 
                     </p>
                 </div>

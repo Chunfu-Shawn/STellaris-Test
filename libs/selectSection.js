@@ -1,4 +1,5 @@
 import mysql from 'mysql'
+import fs from "fs";
 // 数据库的配置选项
 const options = {
     host: 'localhost',//主机名
@@ -8,7 +9,7 @@ const options = {
     database: 'spatial_trans_web'//要操作的数据库
 }
 
-export async function selectSection(species,organ,tissue){
+export async function selectSection(resultPath,species,organ,tissue){
     let connection = mysql.createConnection(options)
     // 连接数据库
     connection.connect()
@@ -38,6 +39,12 @@ export async function selectSection(species,organ,tissue){
                     item.section_id.split(',').join(",")
                 )
             }).join(",")
+
+            // write datasets info into file
+            fs.writeFileSync(resultPath + "/out/json/datasets_info.json",
+                JSON.stringify(result) + '\n',
+                {flag: "a+"}
+            );
 
             resolve([datasets,sections])
         })

@@ -42,7 +42,7 @@ Router.post('/annotation/audition', async (ctx) =>
         async ([rid, matrixFilePath, labelsFilePath, resultPath]) => {
             ctx.body = {rid: rid}
             annotationLogger.log(`>>> ${rid}:[${new Date()}]: upload data`)
-            const [datasets, sections] = await selectSection("Mus musculus", "Brain", "Brain")
+            const [datasets, sections] = await selectSection(resultPath,"Mus musculus", "Brain", "Brain")
             annotationLogger.log(`[${new Date()}]: start ST screening`)
             execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
         },
