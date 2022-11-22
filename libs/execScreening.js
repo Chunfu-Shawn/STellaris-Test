@@ -4,7 +4,7 @@ import {annotationLogger} from "./logSave.js";
 import {setJobScreenStatus} from "./setJobScreenStatus.js";
 
 export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath) {
-    const stScreening = './scripts/ST_screening.sh'
+    const stScreening = './scripts/ST_screening/ST_screening.sh'
     const command =
         `conda activate st_ann_anls;
         bash ${stScreening}

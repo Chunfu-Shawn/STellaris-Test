@@ -5,32 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Annotation/ErrorStatus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/execScreening.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/setJobScreenStatus.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/AnnotateSpatialLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/AnnotateSpatialLocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ErrorModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ErrorModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ReqStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ReqStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/Preprocessing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/Preprocessing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreenStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/ScreenStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/ScreeningModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/ScreeningModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SectionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SectionTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SelectTableModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SelectTableModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/WaitModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/WaitModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/Guidance.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/Guidance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/RunExampleModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/RunExampleModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/GuidanceMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/GuidanceMain.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation/resultPage/[rid].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/annotation/resultPage/[rid].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/setJobStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/setJobAnnStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/execTangram.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execTangram.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/getSectionInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/selectSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/logSave.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/logSave.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +134,7 @@
       <workItem from="1665642802393" duration="5779000" />
       <workItem from="1665676955845" duration="20524000" />
       <workItem from="1667791229419" duration="102591000" />
-      <workItem from="1668611974933" duration="81581000" />
+      <workItem from="1668611974933" duration="82395000" />
     </task>
     <servers />
   </component>
