@@ -23,8 +23,8 @@ export function setJobStatus(rid, time, status) {
     setTimeout(() => {
             connection.query(updateSql,[status,finishTime.toISOString(),rid],(err, result) => {
                 if(err){
-                    annotationLogger.log(`Error: [${new Date()}]: there is error happened in MySQL: ${err.message}`)
-                }else annotationLogger.log(`[${new Date()}]: set the status of ${rid} to "${status}" in MySQL.`)
+                    annotationLogger.log(`[${new Date().toLocaleString()}] Error: there is error happened in MySQL: ${err.message}`)
+                }else annotationLogger.log(`[${new Date().toLocaleString()}]: Set the status of ${rid} to "${status}" in MySQL.`)
             });
             connection.end()
     },500)

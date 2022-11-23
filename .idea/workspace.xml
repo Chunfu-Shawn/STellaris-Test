@@ -5,27 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/api/getSubmittedFiles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/AnnotationSteps.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/AnnotationSteps.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ReqStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ReqStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SectionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SectionTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SelectTableModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SelectTableModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/WaitModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/WaitModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/API-v1.0.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/API-v1.0.0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getAnnotationResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getAnnotationResult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/execNicheAnchor.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execNicheAnchor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/execScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execScreening.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/execTangram.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execNicheAnchor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/setJobAnnStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/setJobStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/setJobScreenStatus.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/viCustomConfigs-Datasets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/viCustomConfigs-Layout.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/viCustomConfigs-Space.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/sendEmail.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/sendEmail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/setJobStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/setJobStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +141,7 @@
       <workItem from="1665676955845" duration="20524000" />
       <workItem from="1667791229419" duration="102591000" />
       <workItem from="1668611974933" duration="82395000" />
-      <workItem from="1669097121854" duration="27995000" />
+      <workItem from="1669097121854" duration="30407000" />
     </task>
     <servers />
   </component>

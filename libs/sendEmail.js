@@ -40,10 +40,10 @@ export function sendMail(mail, rid, call) {
     }
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            call(`Error: [${new Date()}]: Message sent successfully. ${error.message}`);
+            call(`[${new Date().toLocaleString()}] Error: Message sent unsuccessfully. ${error.message}`);
             return
         } else {
-            call(`[${new Date()}]: Message sent successfully: ${mail}: ${rid}`) //因为是异步 所以需要回调函数通知成功结果
+            call(`[${new Date().toLocaleString()}]: Message sent successfully: ${mail}: ${rid}`) //因为是异步 所以需要回调函数通知成功结果
         }
     });
 }

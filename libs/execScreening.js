@@ -24,14 +24,14 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
         //如果python脚本不存在
         // 改变任务状态为running，设置任务开始时间
         setJobStatus(rid, "screen_finish_time","error")
-        annotationLogger.log(`[${new Date()}] Error: ST screening script not found !`)
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: ST screening script not found !`)
     } else if(!fs.existsSync(matrixFilePath) && !fs.existsSync(labelsFilePath)) {
         //如果空间数据不存在
         setJobStatus(rid, "screen_finish_time","error")
-        annotationLogger.log(`[${new Date()}] Error: scRNA-seq data not fount !`)
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: scRNA-seq data not fount !`)
     } else {
         try {
-            annotationLogger.log(`[${new Date()}]: ST screening running...`)
+            annotationLogger.log(`[${new Date().toLocaleString()}]: ST screening running...`)
             let screenProcess = child_process.exec(command, function (error, stdout, stderr) {
                 if (error) {
                     logger.log('\n' + 'Stdout: ' + stdout);
@@ -45,13 +45,13 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
             // 监听screenProcess任务的exit事件，如果发生则调用listener
             screenProcess.on('exit', function (code) {
                 logger.log(`ST screening has exited，exit code: ${code}`);
-                annotationLogger.log(`[${new Date()}]: child process 'ST screening' has exited，exit code: ${code}`)
+                annotationLogger.log(`[${new Date().toLocaleString()}]: child process 'ST screening' has exited，exit code: ${code}`)
                 if (code === 0) setJobStatus(rid, "screen_finish_time","selecting")
                 else setJobStatus(rid, "screen_finish_time","error")
             });
         } catch (err) {
             logger.log(`Error of reading/writing file from disk or python running: ${err}`)
-            annotationLogger.log(`Error: [${new Date()}]: Error of reading/writing file from disk or python running: ${err}`)
+            annotationLogger.log(`Error: [${new Date().toLocaleString()}]: Error of reading/writing file from disk or python running: ${err}`)
         }
     }
 }

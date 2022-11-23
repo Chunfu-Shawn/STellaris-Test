@@ -49,10 +49,10 @@ export function uploadRecord(ctx) {
                         uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, status],
                     (err) => {
                         if (err) {
-                            annotationLogger.log(`Error: [${new Date()}]: A annotation task failed in MySQL: ${err.message}`)
+                            annotationLogger.log(`[${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
                         } else {
                             connection.end(() => {
-                                annotationLogger.log(`[${new Date()}]: Add a annotation record into MySQL successfully.`)
+                                annotationLogger.log(`[${new Date().toLocaleString()}]: Add a annotation record into MySQL successfully.`)
                             })
                         }
                     })
@@ -115,10 +115,10 @@ export function uploadRecord(ctx) {
                         uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, status],
                     (err) => {
                         if (err) {
-                            annotationLogger.log(`Error: [${new Date()}]: A annotation task failed in MySQL: ${err.message}`)
+                            annotationLogger.log(`[${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
                         } else {
                             connection.end(() => {
-                                annotationLogger.log(`[${new Date()}]: Add a annotation record into MySQL successfully.`)
+                                annotationLogger.log(`[${new Date().toLocaleString()}]: Add a annotation record into MySQL successfully.`)
                             })
                         }
                     })

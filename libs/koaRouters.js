@@ -24,14 +24,14 @@ Router.post('/annotation/upload',
     // 获得rid
     uploadRecord(ctx).then((rid)=>{
         ctx.body = {rid: rid}
-        annotationLogger.log(`>>> ${rid}:[${new Date()}]:uploaded`)
+        annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]:uploaded`)
         //发送邮件，把url传给给用户,参数分别为：邮箱地址、url和回调函数
         if(ctx.request.body.emailAddress !== "undefined")
             sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
         // 运行Tangram, 传入Koa的context包装的request对象，和response对象
         execNicheAnchor(rid,ctx.request.files['matrixFile'][0].destination, ctx.request.files['matrixFile'][0].filename);
     }).catch((err)=>{
-        annotationLogger.log(`[${new Date()}]: A bad upload happened: ${err}`)
+        annotationLogger.log(`[${new Date().toLocaleString()}]: A bad upload happened: ${err}`)
     })
 })
 
@@ -40,14 +40,14 @@ Router.post('/annotation/audition', async (ctx) =>
     uploadRecord(ctx).then(
         async ([rid, matrixFilePath, labelsFilePath, resultPath]) => {
             ctx.body = {rid: rid}
-            annotationLogger.log(`>>> ${rid}:[${new Date()}]: upload data`)
+            annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
             const [datasets, sections] =
                 await selectSection(resultPath,"Mus musculus", "Brain", "Brain Coronal Plane")
-            annotationLogger.log(`[${new Date()}]: start ST screening`)
+            annotationLogger.log(`[${new Date().toLocaleString()}]: start ST screening`)
             execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
         },
     ).catch((err)=>{
-        annotationLogger.log(`[${new Date()}]: There is a wrong happened in Screening: ${err}`)
+        annotationLogger.log(`[${new Date().toLocaleString()}]: There is a wrong happened in Screening: ${err}`)
     })
 )
 
@@ -57,11 +57,11 @@ Router.post('/annotation/annotate', async (ctx) => {
             const { rid, datasetId, sectionId, cutoff } = ctx.request.body
             const record = await getJobStatus(rid)
             const resultPath = record.result_path
-            annotationLogger.log(`>>> ${rid}:[${new Date()}]: start annotate`)
+            annotationLogger.log(`[${new Date().toLocaleString()}]: start annotate`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
             execNicheAnchor(rid, datasetId, sectionId, resultPath, cutoff);
         } catch (err) {
-            annotationLogger.log(`[${new Date()}]: There is a wrong happened in Annotating: ${err}`)
+            annotationLogger.log(`[${new Date().toLocaleString()}]: There is a wrong happened in Annotating: ${err}`)
         }
     }
 )
@@ -71,12 +71,12 @@ Router.post('/annotation/demo', async (ctx) =>
     uploadRecord(ctx).then(
         (rid) => {
             ctx.body = {rid: rid}
-            annotationLogger.log(`>>> ${rid}:[${new Date()}]:uploaded`)
+            annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]:uploaded`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
             execNicheAnchor(rid,'demo', 'demo');
             },
-        (err) => annotationLogger.log(`Error: [${new Date()}]: A demo task failed when saving record: ${err}`)
+        (err) => annotationLogger.log(`Error: [${new Date().toLocaleString()}]: A demo task failed when saving record: ${err}`)
     ).catch((err)=>{
-        annotationLogger.log(`[${new Date()}]: There is a wrong happened in tangram: ${err}`)
+        annotationLogger.log(`[${new Date().toLocaleString()}]: There is a wrong happened in tangram: ${err}`)
     })
 )

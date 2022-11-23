@@ -17,7 +17,7 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
         " --outDir " + resultPath
 
     // 创建日志数据输入流
-    const logfile = fs.createWriteStream(resultPath + '/log/exec.log',{
+    const logfile = fs.createWriteStream(resultPath + '/log/nicheAnchor.log',{
         flags:'a', //文件的打开模式
         encoding: 'utf8',
     });
@@ -28,16 +28,16 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
         //如果python脚本不存在
         logger.log('Sorry, annotation script not found !');
         setJobStatus(rid, "ann_finish_time","error")
-        annotationLogger.log(`Error:[${new Date()}]: There is a error happened while NicheAnchor running`)
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
     } else if(!fs.existsSync(sc_h5ad_Path)) {
         //如果空间数据不存在
         logger.log('Sorry, scRNA-seq h5ad data not found !');
         setJobStatus(rid, "ann_finish_time","error")
-        annotationLogger.log(`Error: [${new Date()}]: There is a error happened while NicheAnchor running`)
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
     } else {
         try {
             logger.log("NicheAnchor running...");
-            annotationLogger.log(`[${new Date()}]: NicheAnchor running...`)
+            annotationLogger.log(`[${new Date().toLocaleString()}]: NicheAnchor running...`)
             let annoProcess = child_process.exec(command, function (error, stdout, stderr) {
                 if (error) {
                     logger.log('\n' + 'Stdout: ' + stdout);
@@ -51,13 +51,13 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
             // 监听annoProcess任务的exit事件，如果发生则调用listener
             annoProcess.on('exit', function (code) {
                 logger.log(`child process 'annotation' has exited，exit code: ${code}`);
-                annotationLogger.log(`[${new Date()}]: child process 'NicheAnchor' has exited，exit code: ${code}`)
+                annotationLogger.log(`[${new Date().toLocaleString()}]: child process 'NicheAnchor' has exited，exit code: ${code}`)
                 if (code === 0) setJobStatus(rid, "ann_finish_time","error")
                 else setJobStatus(rid, "ann_finish_time","error")
             });
         } catch (err) {
             logger.log(`Error of reading/writing file from disk or python running: ${err}`)
-            annotationLogger.log(`Error: [${new Date()}]: Error of reading/writing file from disk or python running: ${err}`)
+            annotationLogger.log(`Error: [${new Date().toLocaleString()}]: Error of reading/writing file from disk or python running: ${err}`)
         }
     }
 }
