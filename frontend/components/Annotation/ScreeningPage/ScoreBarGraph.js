@@ -24,7 +24,7 @@ export default function ScoreBarGraph(props){
                     top:80,
                     bottom:100,
                     left:50,
-                    right:0
+                    right:5
                 },
                 toolbox:{
                     feature:{
