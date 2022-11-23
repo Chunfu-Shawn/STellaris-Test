@@ -14,6 +14,7 @@ import {getGenesExpressionCorrelation} from "./api/getGenesExpressionCorrelation
 import {getServerTime} from "./api/getServerTime.js";
 import {getAnnotationResult} from "./api/getAnnotationResult.js";
 import {getMIAResult} from "./api/getMIAResult.js";
+import {getSubmittedFiles} from "./api/getSubmittedFiles.js";
 
 
 export const RouterAPI = router()
@@ -91,4 +92,25 @@ RouterAPI.get('/api/mia-result/:rid', async (ctx) => {
 RouterAPI.get('/api/annotation-result/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
     ctx.body = await getAnnotationResult(record.result_path)
+})
+
+// submitted files fetch
+RouterAPI.get('/api/submitted-files/:filename/:rid', async (ctx) => {
+    const record = await getJobStatus(ctx.params.rid)
+    if(ctx.params.filename === "counts")
+        await getSubmittedFiles(ctx, record.matrix_file_path)
+    if(ctx.params.filename === "labels")
+        await getSubmittedFiles(ctx, record.labels_file_path)
+})
+
+// annotation results (table)
+RouterAPI.get('/api/annotation-result/table/:rid', async (ctx) => {
+    const record = await getJobStatus(ctx.params.rid)
+    await getSubmittedFiles(record.matrix_file_path, record.labels_file_path)
+})
+
+// annotation results (pdf)
+RouterAPI.get('/api/annotation-result/pdf/:rid', async (ctx) => {
+    const record = await getJobStatus(ctx.params.rid)
+    await getSubmittedFiles(record.matrix_file_path, record.labels_file_path)
 })

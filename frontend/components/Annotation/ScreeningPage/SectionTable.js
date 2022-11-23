@@ -1,20 +1,22 @@
 import {Table, Button, Modal, InputNumber, Divider, message} from "antd";
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
 import {DateFomatter} from "../../util";
+import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 
 
-export default function SectionTable(props) {
+export default function SectionTable() {
+    const annContext = useContext(AnnContext);
     const [open, setOpen] = useState(false);
     const [datasetId, setDatasetId] = useState('');
     const [sectionId, setSectionId] = useState('');
     const [cutoff, setCutoff] = useState(0.3);
     const [sortedInfo, setSortedInfo] = useState({});
     const [confirmLoading, setConfirmLoading] = useState(false);
-    const sections = props.MIA.section_id
-    const enrichmentScore = props.MIA.enrichment_score
-    const datasetsInfo = props.MIA.datasets_info
+    const sections = annContext.MIA.section_id
+    const enrichmentScore = annContext.MIA.enrichment_score
+    const datasetsInfo = annContext.MIA.datasets_info
     let size = sections.length
     let data = []
     console.log(datasetsInfo[2])
@@ -44,6 +46,7 @@ export default function SectionTable(props) {
                 'Accept': 'application/json', 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                rid: annContext.reqInfo.rid,
                 datasetId: datasetId,
                 sectionId: sectionId,
                 cutoff: cutoff

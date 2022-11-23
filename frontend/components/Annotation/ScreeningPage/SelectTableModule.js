@@ -25,7 +25,7 @@ export default function SelectTableModule(){
                 </Col>
             </Row>
             <ScoreBarGraph MIA={annContext.MIA}/>
-            <SectionTable MIA={annContext.MIA}/>
+            <SectionTable/>
         </div>
     )
 }

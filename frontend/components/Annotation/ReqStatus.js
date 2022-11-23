@@ -52,7 +52,7 @@ export default function ReqStatus(props){
                 <div className="panel-body">
                     <p>This page will be automatically updated in 1 second until job is done;<br/>
                         The time for screening and annotation will be long, <b>so we recommend you to save this URL ( has already been
-                            sent to your E-mail if you provide E-mail address. if this job is a example, no email will be delivered)</b>
+                            sent to your E-mail if you provide E-mail address. if this job is an example, no email will be delivered)</b>
                         , where you can arrive the page of annotation result when analysis over.
 
                     </p>

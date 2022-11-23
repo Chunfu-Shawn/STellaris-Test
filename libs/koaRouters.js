@@ -2,14 +2,13 @@
 import router from 'koa-router'
 import {uploadFile} from "./uploadFile.js"
 import {uploadRecord} from "./uploadRecord.js"
-import {execTangram} from "./execTangram.js"
+import {execNicheAnchor} from "./execNicheAnchor.js"
 import {sendMail} from "./sendEmail.js"
-import {handler} from '../server.js'
 import { v1 as uuidv1 } from 'uuid'
-import fs from "fs";
 import {annotationLogger} from "./logSave.js";
 import {selectSection} from "./selectSection.js";
 import {execScreening} from "./execScreening.js";
+import {getJobStatus} from "./api/getJobStatus.js";
 
 
 export const Router = router()
@@ -30,7 +29,7 @@ Router.post('/annotation/upload',
         if(ctx.request.body.emailAddress !== "undefined")
             sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
         // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-        execTangram(rid,ctx.request.files['matrixFile'][0].destination, ctx.request.files['matrixFile'][0].filename);
+        execNicheAnchor(rid,ctx.request.files['matrixFile'][0].destination, ctx.request.files['matrixFile'][0].filename);
     }).catch((err)=>{
         annotationLogger.log(`[${new Date()}]: A bad upload happened: ${err}`)
     })
@@ -42,7 +41,8 @@ Router.post('/annotation/audition', async (ctx) =>
         async ([rid, matrixFilePath, labelsFilePath, resultPath]) => {
             ctx.body = {rid: rid}
             annotationLogger.log(`>>> ${rid}:[${new Date()}]: upload data`)
-            const [datasets, sections] = await selectSection(resultPath,"Mus musculus", "Brain", "Brain")
+            const [datasets, sections] =
+                await selectSection(resultPath,"Mus musculus", "Brain", "Brain Coronal Plane")
             annotationLogger.log(`[${new Date()}]: start ST screening`)
             execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
         },
@@ -52,12 +52,14 @@ Router.post('/annotation/audition', async (ctx) =>
 )
 
 // run annotation 的路由
-Router.post('/annotation/annotate', (ctx) => {
+Router.post('/annotation/annotate', async (ctx) => {
         try {
-            console.log(ctx.request.body)
+            const { rid, datasetId, sectionId, cutoff } = ctx.request.body
+            const record = await getJobStatus(rid)
+            const resultPath = record.result_path
             annotationLogger.log(`>>> ${rid}:[${new Date()}]: start annotate`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-            //execTangram(rid, 'demo', 'demo');
+            execNicheAnchor(rid, datasetId, sectionId, resultPath, cutoff);
         } catch (err) {
             annotationLogger.log(`[${new Date()}]: There is a wrong happened in Annotating: ${err}`)
         }
@@ -71,7 +73,7 @@ Router.post('/annotation/demo', async (ctx) =>
             ctx.body = {rid: rid}
             annotationLogger.log(`>>> ${rid}:[${new Date()}]:uploaded`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-            execTangram(rid,'demo', 'demo');
+            execNicheAnchor(rid,'demo', 'demo');
             },
         (err) => annotationLogger.log(`Error: [${new Date()}]: A demo task failed when saving record: ${err}`)
     ).catch((err)=>{

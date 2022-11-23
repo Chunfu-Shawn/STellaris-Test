@@ -19,7 +19,7 @@ export default function ResultStatus(props){
                     <tr>
                         <th>Status</th>
                         <th>
-                            <Tag icon={<CheckCircleOutlined />} color="success">Finished</Tag>:
+                            <Tag icon={<CheckCircleOutlined />} color="success">Finished</Tag>
                         </th>
                     </tr>
                     <tr>

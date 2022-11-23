@@ -15,6 +15,7 @@ import DistanceDensityGraph from "../ResultPage/DistanceDensityGraph";
 import MappedCellCountBarGraph from "../ResultPage/MappedCellCountBarGraph";
 import {useContext} from "react";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
+import AnnotationSteps from "../AnnotationSteps";
 
 const stDataset = {
     "id": "coronal_2",
@@ -68,6 +69,10 @@ export default function ResultModule(){
 
     return(
         <div className={"modal-body-stw with-sider"}>
+            <div style={{margin:"20px 0",marginLeft:50}}>
+                <AnnotationSteps current={4}/>
+                <Divider/>
+            </div>
             <Row style={{width:"100%"}}>
                 <Col span={4}>
                     <Affix offsetTop={120}>

@@ -1,12 +1,19 @@
 import {Steps} from "antd";
 import React from "react";
+import {useContext} from "react";
+import {AnnContext} from "../../pages/annotation/resultPage/[rid]";
 
 export default function AnnotationSteps(props){
+    const annContext = useContext(AnnContext);
+    const handleClick = () => {
+        window.open(`/api/submitted-files/counts/${annContext.reqInfo.rid}`, '');
+        window.open(`/api/submitted-files/labels/${annContext.reqInfo.rid}`, '');
+    }
     const items = [
         {
             title: "Upload Data",
             description: <><p>Upload scRNA-seq data</p>
-                <a>Download Files</a></>,
+                <a onClick={handleClick}>Download Files</a></>,
         },
         {
             title: "ST Screening",
