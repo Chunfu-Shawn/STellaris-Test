@@ -19,7 +19,7 @@ export default function LoadingModule(props) {
                             left: 'center',
                             top: 'center',
                             style: {
-                                text: 'Spatial Trans Web',
+                                text: 'Spatial Niche Anchor',
                                 fontSize: 80,
                                 fontWeight: 'bold',
                                 lineDash: [0, 200],

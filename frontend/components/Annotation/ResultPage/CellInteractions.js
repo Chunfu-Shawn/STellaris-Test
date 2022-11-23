@@ -29,7 +29,7 @@ export default function CellInteractions(){
         <div name={"Interaction"}>
             <a id={"Interaction"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0">
-                <span style={{fontSize:21}}>Cell Interactions </span>
+                <span style={{fontSize:21}}>Cell-Cell Interactions </span>
                 <Link href={'/help/manual/datasets#data_page_attributes'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>

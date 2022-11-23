@@ -52,12 +52,12 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
             annoProcess.on('exit', function (code) {
                 logger.log(`child process 'annotation' has exited，exit code: ${code}`);
                 annotationLogger.log(`[${new Date().toLocaleString()}]: child process 'NicheAnchor' has exited，exit code: ${code}`)
-                if (code === 0) setJobStatus(rid, "ann_finish_time","error")
+                if (code === 0) setJobStatus(rid, "ann_finish_time","finished")
                 else setJobStatus(rid, "ann_finish_time","error")
             });
         } catch (err) {
             logger.log(`Error of reading/writing file from disk or python running: ${err}`)
-            annotationLogger.log(`Error: [${new Date().toLocaleString()}]: Error of reading/writing file from disk or python running: ${err}`)
+            annotationLogger.log(`[${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)
         }
     }
 }

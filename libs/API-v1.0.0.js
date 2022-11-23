@@ -14,7 +14,7 @@ import {getGenesExpressionCorrelation} from "./api/getGenesExpressionCorrelation
 import {getServerTime} from "./api/getServerTime.js";
 import {getAnnotationResult} from "./api/getAnnotationResult.js";
 import {getMIAResult} from "./api/getMIAResult.js";
-import {getSubmittedFiles} from "./api/getSubmittedFiles.js";
+import {getFile} from "./api/getFile.js";
 
 
 export const RouterAPI = router()
@@ -94,23 +94,32 @@ RouterAPI.get('/api/annotation-result/:rid', async (ctx) => {
     ctx.body = await getAnnotationResult(record.result_path)
 })
 
-// submitted files fetch
-RouterAPI.get('/api/submitted-files/:filename/:rid', async (ctx) => {
+// submitted counts files fetch
+RouterAPI.get('/api/submitted-files/counts/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    if(ctx.params.filename === "counts")
-        await getSubmittedFiles(ctx, record.matrix_file_path)
-    if(ctx.params.filename === "labels")
-        await getSubmittedFiles(ctx, record.labels_file_path)
+    await getFile(ctx, record.matrix_file_path, record.matrix_file_path.split("/")[3])
 })
 
-// annotation results (table)
+// submitted labels files fetch
+RouterAPI.get('/api/submitted-files/labels/:rid', async (ctx) => {
+    const record = await getJobStatus(ctx.params.rid)
+    await getFile(ctx, record.labels_file_path, record.labels_file_path.split("/")[3])
+})
+
+// annotated sc h5ad
+RouterAPI.get('/api/annotation-result/h5ad/sc/:rid', async (ctx) => {
+    const record = await getJobStatus(ctx.params.rid)
+    await getFile(ctx,record.result_path+"/sc_registered.h5ad", "sc_registered.h5ad")
+})
+
+// table files
 RouterAPI.get('/api/annotation-result/table/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    await getSubmittedFiles(record.matrix_file_path, record.labels_file_path)
+    await getFile(ctx,record.result_path+"/out/table.gz", "table.gz")
 })
 
-// annotation results (pdf)
+// pdf files
 RouterAPI.get('/api/annotation-result/pdf/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    await getSubmittedFiles(record.matrix_file_path, record.labels_file_path)
+    await getFile(ctx,record.result_path+"/out/pdf.gz", "pdf.gz")
 })

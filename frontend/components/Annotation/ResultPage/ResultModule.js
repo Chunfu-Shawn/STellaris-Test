@@ -69,7 +69,7 @@ export default function ResultModule(){
 
     return(
         <div className={"modal-body-stw with-sider"}>
-            <div style={{margin:"20px 0",marginLeft:50}}>
+            <div style={{margin:"20px 20",marginLeft:70}}>
                 <AnnotationSteps current={4}/>
                 <Divider/>
             </div>
@@ -106,23 +106,6 @@ export default function ResultModule(){
                             </Col>
                         </Row>
                         <Preprocessing />
-                        <div name={"Visualization"}>
-                            <a id={"Visualization"} style={{position: 'relative', top: "-150px"}}></a>
-                            <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:21}}>Visualization </span>
-                                <Link href={'/help/manual/datasets#data_page_attributes'}>
-                                    <a target={"_blank"}><QuestionCircleOutlined/></a>
-                                </Link>
-                            </Divider>
-                            <Row justify="space-between" align="top">
-                                <Col span={11}>
-                                    <Tabs defaultActiveKey="1" items={item1}/>
-                                </Col>
-                                <Col span={13}>
-                                    <Tabs defaultActiveKey="1" items={item2}/>
-                                </Col>
-                            </Row>
-                        </div>
                         <div name={"Evaluation"}>
                             <a id={"Evaluation"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
@@ -145,6 +128,23 @@ export default function ResultModule(){
                                 </Col>
                                 <Col>
                                     <MappedCellCountBarGraph/>
+                                </Col>
+                            </Row>
+                        </div>
+                        <div name={"Spatial Niche"}>
+                            <a id={"Spatial Niche"} style={{position: 'relative', top: "-150px"}}></a>
+                            <Divider orientation="left" orientationMargin="0">
+                                <span style={{fontSize:21}}>Spatial Niche </span>
+                                <Link href={'/help/manual/datasets#data_page_attributes'}>
+                                    <a target={"_blank"}><QuestionCircleOutlined/></a>
+                                </Link>
+                            </Divider>
+                            <Row justify="space-between" align="top">
+                                <Col span={11}>
+                                    <Tabs defaultActiveKey="1" items={item1}/>
+                                </Col>
+                                <Col span={13}>
+                                    <Tabs defaultActiveKey="1" items={item2}/>
                                 </Col>
                             </Row>
                         </div>

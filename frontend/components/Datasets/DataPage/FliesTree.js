@@ -1,7 +1,7 @@
 import React from "react";
 import {Tooltip, Tree} from 'antd';
 import {QuestionCircleOutlined} from "@ant-design/icons";
-import Link from "next/link";
+import {downloadFile} from "../../util";
 const { DirectoryTree } = Tree;
 
 export default function FliesTree(props){
@@ -41,8 +41,7 @@ export default function FliesTree(props){
         },
     ];
     const onSelect = (key, info) => {
-        window.open(`https://rhesusbase.com:9999/h5ad_files/${props.st_id}/${key}`)
-        console.log('Trigger Select', key, info);
+        downloadFile(`https://rhesusbase.com:9999/h5ad_files/${props.st_id}/${key}`)
     };
 
     const onExpand = (keys, info) => {

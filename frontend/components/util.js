@@ -89,7 +89,7 @@ export function exportToCsv(data,fileName) {
     document.body.appendChild(link); // Required for FF
     link.click(); // This will download the data file named 'my_data.csv'.
     document.body.removeChild(link); // Required for FF
-};
+}
 
 /**
  * calculate time consumed
@@ -108,4 +108,20 @@ export function calTime(nowtime,etime){
     let leave2=leave1%(60*1000);      //计算分钟数后剩余的毫秒数
     let seconds=Math.round(leave2/1000);
     return hours + "h " + minutes + "m " + seconds + "s"
+}
+
+/**
+ * download file
+ * @param url  {String}  文件路径
+ */
+export const downloadFile = (url) => {
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none"; // 防止影响页面
+    iframe.style.height = 0; // 防止影响页面
+    iframe.src = url;
+    document.body.appendChild(iframe); // 这一行必须，iframe挂在到dom树上才会发请求
+    // 1分钟之后删除（onload方法对于下载链接不起作用，就先抠脚一下吧）
+    setTimeout(()=>{
+        iframe.remove();
+    }, 60 * 1000);
 }

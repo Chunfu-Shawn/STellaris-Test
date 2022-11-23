@@ -101,11 +101,11 @@ export default function ResultPage(props) {
         reqInfo===undefined ? false : reqInfo.status)
     let returnModule
     // 如果找不到该rid，返回error 404页面
-    if (isLoading || isLoading2) {
+    if (isLoading || isLoading2 || isLoading3) {
         returnModule = <div style={{textAlign:"center"}}><LoadingModule/></div>
     }
     //  如果找不到结果，显示error页面
-    if ( error2 || error3 ){
+    if ( error || error2 || error3 ){
         returnModule =
             <Result
                 status="500"

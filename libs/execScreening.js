@@ -51,7 +51,7 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
             });
         } catch (err) {
             logger.log(`Error of reading/writing file from disk or python running: ${err}`)
-            annotationLogger.log(`Error: [${new Date().toLocaleString()}]: Error of reading/writing file from disk or python running: ${err}`)
+            annotationLogger.log(`[${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)
         }
     }
 }

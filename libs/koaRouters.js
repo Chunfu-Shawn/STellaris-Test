@@ -31,7 +31,7 @@ Router.post('/annotation/upload',
         // 运行Tangram, 传入Koa的context包装的request对象，和response对象
         execNicheAnchor(rid,ctx.request.files['matrixFile'][0].destination, ctx.request.files['matrixFile'][0].filename);
     }).catch((err)=>{
-        annotationLogger.log(`[${new Date().toLocaleString()}]: A bad upload happened: ${err}`)
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
     })
 })
 
@@ -47,7 +47,7 @@ Router.post('/annotation/audition', async (ctx) =>
             execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
         },
     ).catch((err)=>{
-        annotationLogger.log(`[${new Date().toLocaleString()}]: There is a wrong happened in Screening: ${err}`)
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in Screening: ${err}`)
     })
 )
 
@@ -61,7 +61,7 @@ Router.post('/annotation/annotate', async (ctx) => {
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
             execNicheAnchor(rid, datasetId, sectionId, resultPath, cutoff);
         } catch (err) {
-            annotationLogger.log(`[${new Date().toLocaleString()}]: There is a wrong happened in Annotating: ${err}`)
+            annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in Annotating: ${err}`)
         }
     }
 )
@@ -75,8 +75,8 @@ Router.post('/annotation/demo', async (ctx) =>
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
             execNicheAnchor(rid,'demo', 'demo');
             },
-        (err) => annotationLogger.log(`Error: [${new Date().toLocaleString()}]: A demo task failed when saving record: ${err}`)
+        (err) => annotationLogger.log(`[${new Date().toLocaleString()}] Error: A demo task failed when saving record: ${err}`)
     ).catch((err)=>{
-        annotationLogger.log(`[${new Date().toLocaleString()}]: There is a wrong happened in tangram: ${err}`)
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in tangram: ${err}`)
     })
 )
