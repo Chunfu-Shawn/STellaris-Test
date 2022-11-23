@@ -7,7 +7,7 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
     // 改变任务状态为running，设置任务开始时间
     setJobStatus(rid, "ann_start_time","running")
     const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor.sh'
-    const sc_h5ad_Path = resultPath + "sc.h5ad"
+    const sc_h5ad_Path = resultPath + "/sc.h5ad"
     const command =
         "bash " + nicheAnchor +
         " --sc_h5ad " + sc_h5ad_Path +
