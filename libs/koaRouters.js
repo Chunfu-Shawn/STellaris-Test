@@ -38,11 +38,11 @@ Router.post('/annotation/upload',
 // run audition 的路由
 Router.post('/annotation/audition', async (ctx) =>
     uploadRecord(ctx).then(
-        async ([rid, matrixFilePath, labelsFilePath, resultPath]) => {
+        async ([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath]) => {
             ctx.body = {rid: rid}
             annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
             const [datasets, sections] =
-                await selectSection(resultPath,"Mus musculus", "Brain", "Brain Coronal Plane")
+                await selectSection(resultPath, species, organ, tissue)
             annotationLogger.log(`[${new Date().toLocaleString()}]: start ST screening`)
             execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
         },
@@ -64,19 +64,4 @@ Router.post('/annotation/annotate', async (ctx) => {
             annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in Annotating: ${err}`)
         }
     }
-)
-
-// run demo 的路由
-Router.post('/annotation/demo', async (ctx) =>
-    uploadRecord(ctx).then(
-        (rid) => {
-            ctx.body = {rid: rid}
-            annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]:uploaded`)
-            // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-            execNicheAnchor(rid,'demo', 'demo');
-            },
-        (err) => annotationLogger.log(`[${new Date().toLocaleString()}] Error: A demo task failed when saving record: ${err}`)
-    ).catch((err)=>{
-        annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in tangram: ${err}`)
-    })
 )

@@ -45,7 +45,6 @@ export async function selectSection(resultPath,species,organ,tissue){
                 JSON.stringify(result) + '\n',
                 {flag: "a+"}
             );
-
             resolve([datasets,sections])
         })
         connection.end()

@@ -4,10 +4,12 @@ import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
 import {DateFomatter} from "../../util";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
+import {useRouter} from "next/router";
 
 
 export default function SectionTable() {
     const annContext = useContext(AnnContext);
+    const router = useRouter()
     const [open, setOpen] = useState(false);
     const [datasetId, setDatasetId] = useState('');
     const [sectionId, setSectionId] = useState('');
@@ -58,6 +60,7 @@ export default function SectionTable() {
                     marginTop: '12vh',
                 },
             });
+            router.reload()
         }).catch(() => {
             message.error({
                     content:'start annotating unsuccessfully.',
@@ -67,6 +70,7 @@ export default function SectionTable() {
                     duration:3,
                 }
             );
+            router.reload()
         })
         .finally(() => {
             setOpen(false)
