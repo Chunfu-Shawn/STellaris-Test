@@ -40,6 +40,4 @@ yarn-error.log*
 /logs
 
 #scripts
-/scripts/venv
-/scripts/.idea
-/scripts/.ipynb_checkpoints
+/scripts

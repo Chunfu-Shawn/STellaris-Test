@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/execNicheAnchor.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execNicheAnchor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/execScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execScreening.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/sendEmail.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/sendEmail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/setJobStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/setJobStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +136,7 @@
       <workItem from="1665676955845" duration="20524000" />
       <workItem from="1667791229419" duration="102591000" />
       <workItem from="1668611974933" duration="82395000" />
-      <workItem from="1669097121854" duration="30407000" />
+      <workItem from="1669097121854" duration="31148000" />
     </task>
     <servers />
   </component>
