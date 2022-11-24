@@ -65,7 +65,7 @@ function useScreeningLog(rid,status){
     const { data, error } = useSWR(status==="screening"?`/api/screening-log/${rid}`:null, fetcher,
         {
             revalidateIfStale: false,
-            refreshInterval: 500,
+            refreshInterval: 1000,
         })
 
     // 如果数据为空，为undefined，返回error为true
@@ -98,7 +98,7 @@ function useNicheAnchorLog(rid,status){
     const { data, error } = useSWR(status==="running"?`/api/niche-anchor-log/${rid}`:null, fetcher,
         {
             revalidateIfStale: false,
-            refreshInterval: 500,
+            refreshInterval: 1000,
         })
 
     // 如果数据为空，为undefined，返回error为true

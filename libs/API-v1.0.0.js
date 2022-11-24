@@ -86,7 +86,7 @@ RouterAPI.get('/api/genes-expression-correlation/:geneOrSection/:param', async (
 // screening log fetch
 RouterAPI.get('/api/screening-log/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    ctx.body = await getLogLine(record.result_path,"/log/ST_screening.log")
+    ctx.body = await getLogLine(record.result_path, '/log/ST_screening.log')
 })
 
 // MIA Result and datasets information fetch

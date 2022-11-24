@@ -14,7 +14,7 @@ export default function WaitModule(){
             <AnnotationSteps current={3}/>
             <Divider/>
             <Row justify="center" align="top" style={{marginTop:20,textAlign:"left"}}>
-                <Col span={7} style={{marginLeft: "40px"}}>
+                <Col span={8} style={{marginLeft: "40px"}}>
                     <div style={{margin: "40px 0 30px 10px"}}>
                         <h2>Annotation Start</h2>
                         <AttributeLayout attribute={"Dataset"}>{annContext.reqInfo.dataset_id}</AttributeLayout>
