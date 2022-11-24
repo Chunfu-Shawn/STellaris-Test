@@ -34,19 +34,7 @@ export default function ScreeningModule(){
                         size={"small"}
                     >
                         <div style={{overflow: "scroll",height: 180,width: 330}}>
-                            {annContext.sLog.map(item => <p style={{margin:"5px 0px"}}> > {item}</p>)}
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
+                            {annContext.sLog.map(item => <p key={item} style={{margin:"5px 0px"}}>{item}</p>)}
                         </div>
                     </Card>
                 </Col>
