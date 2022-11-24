@@ -32,6 +32,8 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
     } else {
         try {
             annotationLogger.log(`[${new Date().toLocaleString()}]: ST screening running...`)
+            // 改变任务状态为screening，设置任务开始时间
+            setJobStatus(rid, "upload_time","screening")
             let screenProcess = child_process.exec(command, function (error, stdout, stderr) {
                 if (error) {
                     logger.log('\n' + 'Stdout: ' + stdout);

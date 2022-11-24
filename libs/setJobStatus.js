@@ -11,7 +11,7 @@ const options = {
 
 export function setJobStatus(rid, time, status) {
     try {
-        if(!(time === "selecting" || "running" || "finished" || "error")) {
+        if(!(time === "screening" || "selecting" || "running" || "finished" || "error")) {
             throw "incorrect status when set job status in MySQL"
         }
         let finishTime = new Date()

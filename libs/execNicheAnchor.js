@@ -4,8 +4,6 @@ import {setJobStatus} from "./setJobStatus.js";
 import {annotationLogger} from "./logSave.js";
 
 export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
-    // 改变任务状态为running，设置任务开始时间
-    setJobStatus(rid, "ann_start_time","running")
     const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor.sh'
     const sc_h5ad_Path = resultPath + "/sc.h5ad"
     const command =
@@ -38,6 +36,8 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
         try {
             logger.log("NicheAnchor running...");
             annotationLogger.log(`[${new Date().toLocaleString()}]: NicheAnchor running...`)
+            // 改变任务状态为running，设置任务开始时间
+            setJobStatus(rid, "ann_start_time","running")
             let annoProcess = child_process.exec(command, function (error, stdout, stderr) {
                 if (error) {
                     logger.log('\n' + 'Stdout: ' + stdout);

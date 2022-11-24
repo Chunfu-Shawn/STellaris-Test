@@ -41,7 +41,7 @@ export function uploadRecord(ctx) {
                 const annFinishTime = null
                 const datasetID = null
                 const sectionID = null
-                const status = 'screening'
+                const status = 'ready'
                 // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
                 let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
                 connection.query(insertSql,
@@ -107,7 +107,7 @@ export function uploadRecord(ctx) {
                 const annFinishTime = null
                 const datasetID = null
                 const sectionID = null
-                const status = 'screening'
+                const status = 'ready'
                 // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
                 let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
                 connection.query(insertSql,
