@@ -9,6 +9,7 @@ import {annotationLogger} from "./logSave.js";
 import {selectSection} from "./selectSection.js";
 import {execScreening} from "./execScreening.js";
 import {getJobStatus} from "./api/getJobStatus.js";
+import {setJobDatasetSection} from "./setJobDatasetSection.js";
 
 
 export const Router = router()
@@ -55,6 +56,7 @@ Router.post('/annotation/audition', async (ctx) =>
 Router.post('/annotation/annotate', async (ctx) => {
         try {
             const { rid, datasetId, sectionId, cutoff } = ctx.request.body
+            setJobDatasetSection(rid, datasetId, sectionId)
             const record = await getJobStatus(rid)
             const resultPath = record.result_path
             annotationLogger.log(`[${new Date().toLocaleString()}]: start annotate`)

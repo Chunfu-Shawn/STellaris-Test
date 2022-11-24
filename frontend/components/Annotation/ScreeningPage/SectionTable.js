@@ -31,6 +31,8 @@ export default function SectionTable() {
         for(let j=0; j<datasetsInfo.length; j++){
             if (a.st_id === datasetsInfo[j]["id"]){
                 a.method = datasetsInfo[j].method
+                a.treatment = datasetsInfo[j].treatment
+                a.pathological = datasetsInfo[j].pathological
                 a.date_published = datasetsInfo[j].date_published
                 a.developmental_stage = datasetsInfo[j].developmental_stage
             }
@@ -83,10 +85,6 @@ export default function SectionTable() {
     };
 
     // column sort
-    const handleChange = (pagination,filter,sorter) => {
-        setSortedInfo(sorter);
-    };
-    // column sort
     const handleSelect = (datasetId,sectionId) => () => {
         setOpen(true)
         setDatasetId(datasetId)
@@ -98,25 +96,23 @@ export default function SectionTable() {
             title: 'ST ID',
             dataIndex: 'st_id',
             key: 'st_id',
-            width:'20%',
+            width:'18%',
             render: text => <Link href={'/datasets/dataPage/'+text}><a target={"_blank"}>{text}</a></Link>,
             sorter: (a, b) => {
                 if(a.st_id > b.st_id) return 1
                 else return -1
             },
-            sortOrder: sortedInfo.columnKey === 'st_id' ? sortedInfo.order : null,
             ellipsis: true,
         },
         {
             title: 'Section ID',
             dataIndex: 'section_id',
             key: 'section_id',
-            width:'20%',
+            width:'15%',
             sorter: (a, b) => {
                 if(a.st_id > b.st_id) return 1
                 else return -1
             },
-            sortOrder: sortedInfo.columnKey === 'section_id' ? sortedInfo.order : null,
             ellipsis: true,
         },
         {
@@ -128,7 +124,35 @@ export default function SectionTable() {
                 if(a.method > b.method) return 1
                 else return -1
             },
-            sortOrder: sortedInfo.columnKey === 'method' ? sortedInfo.order : null,
+        },
+        {
+            title: 'Treatment',
+            dataIndex: 'treatment',
+            key: 'treatment',
+            width:'12%',
+            render: text => text === null ? "--" : text,
+            sorter: (a, b) => {
+                if(a.treatment > b.treatment) return 1
+                else return -1
+            },
+        },
+        {
+            title: 'Pathological',
+            dataIndex: 'pathological',
+            key: 'pathological',
+            width:'12%',
+            filters: [
+                {
+                    text: 'TRUE',
+                    value: 'TRUE',
+                },
+                {
+                    text: 'FALSE',
+                    value: 'FALSE',
+                }],
+            // specify the condition of filtering result
+            // here is that finding the name started with `value`
+            onFilter: (value, record) => record.pathological === value,
         },
         {
             title: 'Date Published',
@@ -137,23 +161,23 @@ export default function SectionTable() {
             width: "13%",
             render: (text) => DateFomatter(new Date(text)),
             sorter: (a, b) => Date.parse(a.date_published) - Date.parse(b.date_published),
-            sortOrder: sortedInfo.columnKey === 'date_published' ? sortedInfo.order : null,
             ellipsis: true,
         },
         {
             title: 'Developmental Stage',
             dataIndex: 'developmental_stage',
+            render: text => text === null ? "--" : text,
             key: 'developmental_stage',
-            width: "15%",
+            width: "13%",
             ellipsis: true,
         },
         {
-            title: 'Enrichment Score',
+            title: 'Score',
             dataIndex: 'enrichment_score',
             key: 'enrichment_score',
-            width: "20%",
+            width: "12%",
             sorter: (a, b) => a.enrichment_score - b.enrichment_score,
-            sortOrder: sortedInfo.columnKey === 'enrichment_score' ? sortedInfo.order : null,
+            defaultSortOrder: "descend",
             ellipsis: true,
         },
         {
@@ -206,7 +230,6 @@ export default function SectionTable() {
             </span>
             <Table columns={columns}
                    dataSource={data}
-                   onChange={handleChange}
             />
         </>
     )
