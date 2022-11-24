@@ -14,7 +14,6 @@ export default function SectionTable() {
     const [datasetId, setDatasetId] = useState('');
     const [sectionId, setSectionId] = useState('');
     const [cutoff, setCutoff] = useState(0.3);
-    const [sortedInfo, setSortedInfo] = useState({});
     const [confirmLoading, setConfirmLoading] = useState(false);
     const sections = annContext.MIA.section_id
     const enrichmentScore = annContext.MIA.enrichment_score
@@ -43,7 +42,7 @@ export default function SectionTable() {
 
     // 开始注释
     const handleOk = () => {
-        setConfirmLoading(true); // You can use any AJAX library you like
+        setConfirmLoading(true);
         fetch(ANN_URL, {
             method: 'POST',
             headers: {

@@ -69,10 +69,10 @@ export default function ResultModule(){
 
     return(
         <div className={"modal-body-stw with-sider"}>
-            <div style={{margin:"20px 20",marginLeft:70}}>
+            <div style={{margin:"0px 90px 0px 150px"}}>
                 <AnnotationSteps current={4}/>
-                <Divider/>
             </div>
+            <Divider/>
             <Row style={{width:"100%"}}>
                 <Col span={4}>
                     <Affix offsetTop={120}>

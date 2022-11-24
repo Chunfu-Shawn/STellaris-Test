@@ -15,6 +15,7 @@ import {getServerTime} from "./api/getServerTime.js";
 import {getAnnotationResult} from "./api/getAnnotationResult.js";
 import {getMIAResult} from "./api/getMIAResult.js";
 import {getFile} from "./api/getFile.js";
+import {getLogLine} from "./api/getLogLine.js";
 
 
 export const RouterAPI = router()
@@ -82,16 +83,28 @@ RouterAPI.get('/api/genes-expression-correlation/:geneOrSection/:param', async (
     ctx.body = await getGenesExpressionCorrelation(ctx.params.geneOrSection,ctx.params.param)
 })
 
-// MIA Result fetch
+// screening log fetch
+RouterAPI.get('/api/screening-log/:rid', async (ctx) => {
+    const record = await getJobStatus(ctx.params.rid)
+    ctx.body = await getLogLine(record.result_path,"/log/ST_screening.log")
+})
+
+// MIA Result and datasets information fetch
 RouterAPI.get('/api/mia-result/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
     ctx.body = await getMIAResult(record.result_path)
 })
 
+// cell-trek, colocalization and interaction log fetch
+RouterAPI.get('/api/niche-anchor-log/:rid', async (ctx) => {
+    const record = await getJobStatus(ctx.params.rid)
+    ctx.body = await getLogLine(record.result_path, '/log/nicheAnchor.log')
+})
+
 // Annotation Result fetch
 RouterAPI.get('/api/annotation-result/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    ctx.body = await getAnnotationResult(record.result_path)
+    ctx.body = await getAnnotationResult(record.dataset_id, record.result_path)
 })
 
 // submitted counts files fetch
@@ -119,6 +132,12 @@ RouterAPI.get('/api/annotation-result/table/:rid', async (ctx) => {
 })
 
 // pdf files
+RouterAPI.get('/api/annotation-result/pdf/:rid', async (ctx) => {
+    const record = await getJobStatus(ctx.params.rid)
+    await getFile(ctx,record.result_path+"/out/pdf.gz", "pdf.gz")
+})
+
+// jsonl files
 RouterAPI.get('/api/annotation-result/pdf/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
     await getFile(ctx,record.result_path+"/out/pdf.gz", "pdf.gz")

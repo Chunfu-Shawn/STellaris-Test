@@ -59,6 +59,23 @@ function useRequestInfo(rid){
     }
 }
 
+// 自定义hook，每次渲染后返回Screening Log结果；
+function useScreeningLog(rid,status){
+    const fetcher = (...args) => fetch(...args).then((res) => res.json())
+    const { data, error } = useSWR(status==="screening"?`/api/screening-log/${rid}`:null, fetcher,
+        {
+            revalidateIfStale: false,
+            refreshInterval: 500,
+        })
+
+    // 如果数据为空，为undefined，返回error为true
+    return{
+        sLog: data,
+        error2: error,
+        isLoading2: !error && !data,
+    }
+}
+
 // 自定义hook，每次渲染后返回MIA结果；
 function useMIAResult(rid,status){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
@@ -70,8 +87,25 @@ function useMIAResult(rid,status){
     // 如果数据为空，为undefined，返回error为true
     return{
         MIA: data,
-        error2: error,
-        isLoading2: !error && !data,
+        error3: error,
+        isLoading3: !error && !data,
+    }
+}
+
+// 自定义hook，每次渲染后返回 Niche Anchor Log结果；
+function useNicheAnchorLog(rid,status){
+    const fetcher = (...args) => fetch(...args).then((res) => res.json())
+    const { data, error } = useSWR(status==="running"?`/api/niche-anchor-log/${rid}`:null, fetcher,
+        {
+            revalidateIfStale: false,
+            refreshInterval: 500,
+        })
+
+    // 如果数据为空，为undefined，返回error为true
+    return{
+        nLog: data,
+        error4: error,
+        isLoading4: !error && !data,
     }
 }
 
@@ -86,8 +120,8 @@ function useAnnResult(rid,status){
     // 如果数据为空，为undefined，返回error为true
     return{
         result: data,
-        error3: error,
-        isLoading3: !error && !data,
+        error5: error,
+        isLoading5: !error && !data,
     }
 }
 
@@ -95,17 +129,21 @@ export const AnnContext = React.createContext({});
 
 export default function ResultPage(props) {
     let {reqInfo, error, isLoading} = useRequestInfo(props.rid)
-    let {MIA, error2, isLoading2} = useMIAResult(props.rid,
+    let {sLog, error2, isLoading2} = useScreeningLog(props.rid,
         reqInfo===undefined ? false : reqInfo.status)
-    let {result, error3, isLoading3} = useAnnResult(props.rid,
+    let {MIA, error3, isLoading3} = useMIAResult(props.rid,
+        reqInfo===undefined ? false : reqInfo.status)
+    let {nLog, error4, isLoading4} = useNicheAnchorLog(props.rid,
+        reqInfo===undefined ? false : reqInfo.status)
+    let {result, error5, isLoading5} = useAnnResult(props.rid,
         reqInfo===undefined ? false : reqInfo.status)
     let returnModule
     // 如果找不到该rid，返回error 404页面
-    if (isLoading || isLoading2 || isLoading3) {
+    if (isLoading || isLoading2 || isLoading3 || isLoading4 || isLoading5) {
         returnModule = <div style={{textAlign:"center"}}><LoadingModule/></div>
     }
     //  如果找不到结果，显示error页面
-    if ( error || error2 || error3 ){
+    if ( error || error2 || error3 || error4 || error5){
         returnModule =
             <Result
                 status="500"
@@ -122,13 +160,13 @@ export default function ResultPage(props) {
         // 是running，返回wait页面，
         // 是finished则返回结果页面,
         // 是error则返回错误界面；
-        if(reqInfo.status === 'screening') {
+        if(reqInfo.status === 'screening' && !error2 && !isLoading2) {
             returnModule = <ScreeningModule/>
-        }else if(reqInfo.status === 'selecting' && !error2 && !isLoading2) {
+        }else if(reqInfo.status === 'selecting' && !error3 && !isLoading3) {
             returnModule = <SelectTableModule/>
-        }else if(reqInfo.status === 'running') {
+        }else if(reqInfo.status === 'running' && !error4 && !isLoading4) {
             returnModule = <WaitModule/>
-        }else if(reqInfo.status === 'finished' && !error3 && !isLoading3){
+        }else if(reqInfo.status === 'finished' && !error5 && !isLoading5){
             returnModule = <ResultModule/>
         }else if(reqInfo.status === 'error'){
             returnModule = <ErrorModule/>
@@ -143,7 +181,9 @@ export default function ResultPage(props) {
                 {
                     serverTime: props.data.serverTime,
                     reqInfo: reqInfo,
+                    sLog: sLog,
                     MIA: MIA,
+                    nLog: nLog,
                     result: result
                 }
             }>

@@ -1,4 +1,4 @@
-import {Col, Descriptions, Divider, Row, Tabs} from "antd";
+import {Card, Col, Descriptions, Divider, Row, Tabs} from "antd";
 import Link from "next/link";
 import {QuestionCircleOutlined} from "@ant-design/icons";
 import ResultStatus from "./ResultStatus";
@@ -9,22 +9,37 @@ import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 
 export default function Preprocessing(){
     const annContext = useContext(AnnContext);
+    const sectionId = annContext.reqInfo.section_id
+    const datasetInfo = annContext.result.datasetInfo
+
     const items = [
         {
             label: 'Reference ST data', key: '1', children:
-                <Descriptions size={"small"} bordered>
-                    <Descriptions.Item label="ST ID" span={1.5}>STW-XXXXXX</Descriptions.Item>
-                    <Descriptions.Item label="Section ID" span={1.5}>Xsadasdas</Descriptions.Item>
-                    <Descriptions.Item label="Strain" span={1.5}>--</Descriptions.Item>
-                    <Descriptions.Item label="Organ" span={1.5}>Brain</Descriptions.Item>
-                    <Descriptions.Item label="Tissue" span={1.5}>Brain</Descriptions.Item>
-                    <Descriptions.Item label="Developmental Stage" span={1.5}>--</Descriptions.Item>
-                    <Descriptions.Item label="PMID" span={1}>1213123</Descriptions.Item>
-                    <Descriptions.Item label="DOI" span={2}>--</Descriptions.Item>
-                    <Descriptions.Item label="Spot Count" span={1.5}>2322</Descriptions.Item>
-                    <Descriptions.Item label="Number of Gene" span={1.5}>23232</Descriptions.Item>
-                </Descriptions>
-        }, // 务必填写 key
+                <Card
+                    style={{
+                        width: 650,
+                    }}
+                >
+                    <Descriptions labelStyle={{fontWeight:"bold"}}>
+                        <Descriptions.Item label="ST ID" span={1.5}>{datasetInfo.id}</Descriptions.Item>
+                        <Descriptions.Item label="Section ID" span={1.5}>{sectionId}</Descriptions.Item>
+                        <Descriptions.Item label="Method" span={1.5}>{datasetInfo.method}</Descriptions.Item>
+                        <Descriptions.Item label="Species" span={1.5}>{datasetInfo.species}</Descriptions.Item>
+                        <Descriptions.Item label="Strain" span={1.5}>
+                            {datasetInfo.strain === null ? "--" : datasetInfo.strain}
+                        </Descriptions.Item>
+                        <Descriptions.Item label="Developmental Stage" span={1.5}>
+                            {datasetInfo.developmental_stage === null ? "--" : datasetInfo.developmental_stage}
+                        </Descriptions.Item>
+                        <Descriptions.Item label="Organ" span={1.5}>{datasetInfo.organ}</Descriptions.Item>
+                        <Descriptions.Item label="Tissue" span={1.5}>{datasetInfo.tissue}</Descriptions.Item>
+                        <Descriptions.Item label="PMID" span={1}>{datasetInfo.pmid}</Descriptions.Item>
+                        <Descriptions.Item label="DOI" span={2}>{datasetInfo.url}</Descriptions.Item>
+                        <Descriptions.Item label="Spot Count" span={1}>2322</Descriptions.Item>
+                        <Descriptions.Item label="Number of Gene" span={1}>23232</Descriptions.Item>
+                    </Descriptions>
+                </Card>
+        },
         {
             label: 'Submitted scRNA-seq data', key: '2', children:
                 <>
