@@ -12,7 +12,8 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
         " --key_celltype " + "cell_type" +
         " --dataset " + dataset +
         " --section " + section +
-        " --outDir " + resultPath
+        " --outDir " + resultPath +
+        " >"+ resultPath + "/log/nicheAnchor.log"
 
     // 创建日志数据输入流
     const logfile = fs.createWriteStream(resultPath + '/log/nicheAnchor.log',{
@@ -24,17 +25,15 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
     // 执行注释脚本
     if (!fs.existsSync(nicheAnchor)) {
         //如果python脚本不存在
-        logger.log('Sorry, annotation script not found !');
         setJobStatus(rid, "ann_finish_time","error")
         annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
     } else if(!fs.existsSync(sc_h5ad_Path)) {
         //如果空间数据不存在
-        logger.log('Sorry, scRNA-seq h5ad data not found !');
         setJobStatus(rid, "ann_finish_time","error")
         annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
     } else {
         try {
-            logger.log("NicheAnchor running...");
+            //logger.log("NicheAnchor running...");
             annotationLogger.log(`[${new Date().toLocaleString()}]: NicheAnchor running...`)
             // 改变任务状态为running，设置任务开始时间
             setJobStatus(rid, "ann_start_time","running")

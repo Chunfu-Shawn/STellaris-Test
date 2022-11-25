@@ -11,7 +11,9 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
         " --label " + labelsFilePath +
         " --dataset " + datasets +
         " --section " + sections +
-        " --outDir " + resultPath
+        " --outDir " + resultPath +
+        " >"+ resultPath + "/log/ST_screening.log"
+
     // 创建日志数据输入流
     const logfile = fs.createWriteStream(resultPath + '/log/ST_screening.log',{
         flags:'a', //文件的打开模式
@@ -31,6 +33,7 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
         annotationLogger.log(`[${new Date().toLocaleString()}] Error: scRNA-seq data not fount !`)
     } else {
         try {
+            logger.log("ST screening running...");
             annotationLogger.log(`[${new Date().toLocaleString()}]: ST screening running...`)
             // 改变任务状态为screening，设置任务开始时间
             setJobStatus(rid, "upload_time","screening")

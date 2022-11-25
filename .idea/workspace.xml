@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/execNicheAnchor.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execNicheAnchor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/execScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execScreening.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/setJobStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/setJobStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +137,7 @@
       <workItem from="1665676955845" duration="20524000" />
       <workItem from="1667791229419" duration="102591000" />
       <workItem from="1668611974933" duration="82395000" />
-      <workItem from="1669097121854" duration="56708000" />
+      <workItem from="1669097121854" duration="58393000" />
     </task>
     <servers />
   </component>
