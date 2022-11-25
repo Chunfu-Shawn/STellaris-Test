@@ -15,12 +15,12 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
         " >"+ resultPath + "/log/ST_screening.log"
 
     // 创建日志数据输入流
-    const logfile = fs.createWriteStream(resultPath + '/log/ST_screening.log',{
+    /*const logfile = fs.createWriteStream(resultPath + '/log/ST_screening.log',{
         flags:'a', //文件的打开模式
         encoding: 'utf8',
     });
     // 创建logger
-    let logger = new console.Console(logfile);
+    let logger = new console.Console(logfile);*/
     // 执行注释脚本
     if (!fs.existsSync(stScreening)) {
         //如果python脚本不存在
@@ -37,7 +37,7 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
             annotationLogger.log(`[${new Date().toLocaleString()}]: ST screening running...`)
             // 改变任务状态为screening，设置任务开始时间
             setJobStatus(rid, "upload_time","screening")
-            let screenProcess = child_process.exec(command, function (error, stdout, stderr) {
+            let screenProcess = child_process.exec(command/*, function (error, stdout, stderr) {
                 if (error) {
                     logger.log('\n' + 'Stdout: ' + stdout);
                     //将error写入日志
@@ -46,16 +46,16 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
                 }else {
                     logger.log('\n' + 'Stdout: ' + stdout);
                 }
-            })
+            }*/)
             // 监听screenProcess任务的exit事件，如果发生则调用listener
             screenProcess.on('exit', function (code) {
-                logger.log(`ST screening has exited，exit code: ${code}`);
+                //logger.log(`ST screening has exited，exit code: ${code}`);
                 annotationLogger.log(`[${new Date().toLocaleString()}]: child process 'ST screening' has exited，exit code: ${code}`)
                 if (code === 0) setJobStatus(rid, "screen_finish_time","selecting")
                 else setJobStatus(rid, "screen_finish_time","error")
             });
         } catch (err) {
-            logger.log(`Error of reading/writing file from disk or python running: ${err}`)
+            //logger.log(`Error of reading/writing file from disk or python running: ${err}`)
             annotationLogger.log(`[${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)
         }
     }

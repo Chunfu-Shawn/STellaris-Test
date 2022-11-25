@@ -5,16 +5,12 @@ import * as echarts from "echarts";
 const series =
     [
         {
-            name: 'Retain',
-            data: [1812, 1233, 479, 734, 2129, 220, 350]
+            name: 'Retained Cells',
+            data: [1812, 1233, 479, 734, 2129, 220, 350, 1233, 479, 734, 2129, 220, 350]
         },
         {
-            name: 'Filter 2',
-            data: [301, 26, 50, 30, 162, 34, 265]
-        },
-        {
-            name: 'Filter 1',
-            data: [120, 312, 101, 214, 9, 23, 71]
+            name: 'Filtered Cells',
+            data: [301, 26, 50, 30, 162, 34, 265, 26, 50, 30, 162, 34, 265]
         },
     ]
 
@@ -22,11 +18,9 @@ export default function CellCountBarChart(){
     // use echarts
     const chartRef = useRef(null);
     let chartInstance = null;
-    //柱状图点击事件
-    const onClick = (e) => {
-        console.log(e)
-        alert(e.name)
-    }
+
+    // custom graph parameters
+    const fontSize = Math.max(13 - 0.2 * series[0].data.length,8)
 
     // 定义渲染函数
     function renderChart() {
@@ -54,22 +48,28 @@ export default function CellCountBarChart(){
                 },
                 grid: {
                     top: 40,
-                    left: 100,
+                    left: 10,
                     right: 30,
-                    bottom: 0,
+                    bottom: 50,
                     containLabel: true
                 },
                 legend: [
                     {
-                        top:"30%",
+                        bottom:"0",
                         left: "0",
-                        orient:"vertical"
+                        orient:"horizontal"
                     }
                 ],
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6', 'Type7']
+                        data: ['Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6', 'Type7',
+                            'Type8', 'Type9', 'Type10', 'Type11', 'Type12', 'Type13'],
+                        axisLabel:{
+                            rotate:25,
+                            fontWeight:"bold",
+                            fontSize:9
+                        }
                     }
                 ],
                 yAxis: [
@@ -77,14 +77,11 @@ export default function CellCountBarChart(){
                         type: 'value',
                         name:"Cell Count",
                         nameTextStyle:{
-                            fontSize: 14
-                        },
-                        axisLabel:{
-                            formatter: (value) => value
+                            fontSize: fontSize
                         }
                     }
                 ],
-                color: series.map( (item,index) => d3.interpolateBuPu((index+1)/series.length)),
+                color: [d3.interpolateBuPu(0.3),d3.interpolateBuPu(0.9)],
                 series: series.map( (item) => {
                     return {
                         name: item.name,
@@ -111,8 +108,6 @@ export default function CellCountBarChart(){
                 chartInstance = echarts.init(chartRef.current,null,{locale:"EN",renderer:"svg"});
             }
             chartInstance.setOption(option);
-            chartInstance.off('click');
-            chartInstance.on('click',onClick);
         } catch (error) {
             console.error("error", error.message);
             chartInstance && chartInstance.dispose();

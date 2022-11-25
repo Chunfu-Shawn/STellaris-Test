@@ -38,8 +38,23 @@ export default function ManualAnnotation() {
                     https://doi.org/10.1038/s41592-021-01264-7</a>
                 </p>
                 <h4>(2) Cell2location </h4>
-                <h2>4. Files Format</h2>
+                <h2>4. Format of Uploaded Files</h2>
+                <h4>(1) Counts File </h4>
+                <h4>(2) Labels File </h4>
                 <h2>5. Annotation Result</h2>
+                <a id={"annotation_result"} style={{position: 'relative', top: "-150px"}}></a>
+                <h4>(1) Preprocessing </h4>
+                <a id={"preprocessing"} style={{position: 'relative', top: "-150px"}}></a>
+                <h4>(2) Filtering </h4>
+                <a id={"filtering"} style={{position: 'relative', top: "-150px"}}></a>
+                <h4>(3) Spatial Niche </h4>
+                <a id={"spatial_niche"} style={{position: 'relative', top: "-150px"}}></a>
+                <h4>(4) Cell Types Colocalization </h4>
+                <a id={"colocalization"} style={{position: 'relative', top: "-150px"}}></a>
+                <h4>(5) Cell-Cell Interactions </h4>
+                <a id={"interaction"} style={{position: 'relative', top: "-150px"}}></a>
+                <h4>(6) Result Files Download </h4>
+                <a id={"download"} style={{position: 'relative', top: "-150px"}}></a>
 
             </Typography>
         </div>

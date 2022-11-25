@@ -9,25 +9,25 @@ export default function DistanceDensityGraph(){
     const chartRef = useRef(null);
     let chartInstance = null;
     const annContext = useContext(AnnContext);
-    const rfdist = JSON.parse(annContext.result.rfdist)
+    const rfDist = JSON.parse(annContext.result.rfDist)
 
     // 定义渲染函数
     function renderChart() {
         try {
             let option = {
                 title: {
-                    text: 'Density',
+                    text: 'RF Distance Density',
                 },
                 xAxis: {
                     type: 'category',
-                    data: rfdist.x
+                    data: rfDist.x
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [
                     {
-                        data: rfdist.density,
+                        data: rfDist.density,
                         type: 'bar',
                         barCategoryGap:0,
                         itemStyle:{
@@ -79,6 +79,6 @@ export default function DistanceDensityGraph(){
     });
 
     return(
-        <div ref={chartRef} style={{height:400,width:500,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:400,width:300,marginBottom:10}}></div>
     )
 }

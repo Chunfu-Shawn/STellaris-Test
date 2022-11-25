@@ -55,8 +55,8 @@ export default function Preprocessing(){
         <div name={"Preprocessing"}>
             <a id={"Preprocessing"} style={{position: 'relative', top: "-200px"}}></a>
             <Divider orientation="left" orientationMargin="0">
-                <span style={{fontSize:21}}>Preprocessing </span>
-                <Link href={'/help/manual/datasets#data_page_attributes'}>
+                <span style={{fontSize:22}}>Preprocessing </span>
+                <Link href={'/help/manual/annotation#preprocessing'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>
@@ -65,7 +65,7 @@ export default function Preprocessing(){
                     <ResultStatus style={{width: 450}}/>
                 </Col>
                 <Col span={14}>
-                    <Tabs defaultActiveKey="1" items={items}/>
+                    <Tabs defaultActiveKey="2" items={items}/>
                 </Col>
             </Row>
         </div>

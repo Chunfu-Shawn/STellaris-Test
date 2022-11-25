@@ -21,7 +21,7 @@ export default function JSDHeatmap() {
             let option =
                 {
                     title:{
-                        text:"JS Divergence of cell types colocalization (Log2 JSD)",
+                        text:"JS Divergence of cell types colocalization (-Log2 JSD)",
                         textStyle:{
                             fontSize:14
                         }

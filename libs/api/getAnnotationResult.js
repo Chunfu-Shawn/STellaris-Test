@@ -4,40 +4,75 @@ import {getDatasetsInfo} from "./getDatasetsInfo.js";
 
 export async function getAnnotationResult(datasetId, resultPath){
     return new Promise(async (resolve, reject) => {
+        let umapPrep
+        let umapFilter
+        let cellPrep
+        let cellMap
+        let cellFilter
+        let rfDist
+        let jsd
+        let mst
+        let interHeat
+        let lpPair
+        let dotPlot
+
         try {
-            const umap = fs.readFileSync(
-                resultPath + '/out/json/umap.all.json', 'utf8');
-            const rfdist = fs.readFileSync(
+            umapPrep = fs.readFileSync(
+                resultPath + '/out/json/umap.preprocessing.json', 'utf8');
+            umapFilter = fs.readFileSync(
+                resultPath + '/out/json/umap.filtering.json', 'utf8');
+            cellPrep = fs.readFileSync(
+                resultPath + '/out/json/filter_summary.preprocessing.json', 'utf8');
+            cellFilter = fs.readFileSync(
+                resultPath + '/out/json/filter_summary.filtering.json', 'utf8');
+            cellMap = fs.readFileSync(
+                resultPath + '/out/json/mapping_summary.json', 'utf8');
+            rfDist = fs.readFileSync(
                 resultPath + '/out/json/rfdist.json', 'utf8');
-            const mst = fs.readFileSync(
-                resultPath + '/out/json/cell_types_mst_network.json', 'utf8');
-            const jsd = fs.readFileSync(
-                resultPath + '/out/json/cell_types_JSD.json', 'utf8');
-            const interHeat = fs.readFileSync(
-                resultPath + '/out/json/inter_count_heatmap.json', 'utf8');
-            const dotPlot = fs.readFileSync(
-                resultPath + '/out/json/dot_plot.json', 'utf8');
-            const lpPair = fs.readFileSync(
-                resultPath + '/out/json/LR-pair_cell_pair.json', 'utf8');
-
-            // get dataset and section information
-            const datasetInfo = await getDatasetsInfo(datasetId)
-
-            let data = {
-                umap: umap,
-                rfdist: rfdist,
-                mst: mst,
-                jsd: jsd,
-                interHeat: interHeat,
-                dotPlot: dotPlot,
-                lpPair: lpPair,
-                datasetInfo: datasetInfo[0]
-            }
-
-
-            resolve(data)
-        } catch (err) {
-            reject(err)
+        }catch (e) {
+            reject(e)
         }
+
+        try {
+            mst = fs.readFileSync(
+                resultPath + '/out/json/cell_types_mst_network.json', 'utf8');
+            jsd = fs.readFileSync(
+                resultPath + '/out/json/cell_types_JSD.json', 'utf8');
+        }catch (e) {
+            jsd = null
+            mst = null
+        }
+
+        try {
+            interHeat = fs.readFileSync(
+                resultPath + '/out/json/inter_count_heatmap.json', 'utf8');
+            lpPair = fs.readFileSync(
+                resultPath + '/out/json/LR-pair_cell_pair.json', 'utf8');
+            dotPlot = fs.readFileSync(
+                resultPath + '/out/json/dot_plot.json', 'utf8');
+        }catch (e) {
+            interHeat = null
+            lpPair = null
+            dotPlot = null
+        }
+
+        // get dataset and section information
+        const datasetInfo = await getDatasetsInfo(datasetId)
+
+        let data = {
+            umapPrep: umapPrep,
+            umapFilter: umapFilter,
+            cellPrep: cellPrep,
+            cellFilter: cellFilter,
+            cellMap: cellMap,
+            rfDist: rfDist,
+            mst: mst,
+            jsd: jsd,
+            interHeat: interHeat,
+            dotPlot: dotPlot,
+            lpPair: lpPair,
+            datasetInfo: datasetInfo[0]
+        }
+        resolve(data)
     })
 }

@@ -52,8 +52,8 @@ export default function MSTNetwork() {
                             return {
                                 id: item.id,
                                 name: item.name,
-                                symbolSize: item.degree*4+6,
-                                value: item.degree
+                                symbolSize: Math.min(item.degree*4+6,40),
+                                value: item.degree,
                             }
                         }),
                         edges: mst.edges.map( item => {
@@ -61,8 +61,8 @@ export default function MSTNetwork() {
                                 source: item.source,
                                 target: item.target,
                                 "lineStyle": {
-                                    "width": scaleWeight(item.weight)*12,
-                                    "color": d3.interpolateYlOrRd(scaleWeight(item.weight))
+                                    "width": scaleWeight(item.weight)*10+6,
+                                    "color": d3.interpolateYlOrRd(scaleWeight(item.weight)+0.1)
                                 }
                             }
                         }),
@@ -74,9 +74,12 @@ export default function MSTNetwork() {
                             position: 'bottom'
                         },
                         force: {
-                            repulsion: 300,
+                            repulsion: 500,
                             edgeLength: 2
-                        }
+                        },
+                        emphasis: {
+                            focus: 'adjacency',
+                        },
                     }
                 ],
                 visualMap: {

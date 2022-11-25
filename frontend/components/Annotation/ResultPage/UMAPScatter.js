@@ -4,12 +4,11 @@ import * as echarts from "echarts";
 import {useContext} from "react";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 
-export default function UMAPScatter(){
+export default function UMAPScatter(props){
     // use echarts
+    const umap = props.data
     const chartRef = useRef(null);
     let chartInstance = null;
-    const annContext = useContext(AnnContext);
-    const umap = JSON.parse(annContext.result.umap)
     const cell_types = Object.keys(umap)
     const itemHeight = 200/cell_types.length
 
@@ -23,7 +22,7 @@ export default function UMAPScatter(){
                 },
                 grid: {
                     left: '0',
-                    right: '100',
+                    right: '150',
                     bottom: '0',
                 },
                 tooltip: {

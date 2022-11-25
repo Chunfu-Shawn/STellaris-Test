@@ -10,14 +10,14 @@ export default function LigandsReceptorsDotplot(props) {
     const annContext = useContext(AnnContext);
     const dotPlot = JSON.parse(annContext.result.dotPlot)
 
-    // custom graph parameters
     const xAxis = dotPlot[props.env].xAxis
     const yAxis = dotPlot[props.env].yAxis
     const data = dotPlot[props.env].value.map(item => {
         return [parseInt(item[0]),parseInt(item[1]),parseFloat(item[2])]
     })
-    const xAxisFontSize = 15 - 0.03 *  xAxis.length
-    const yAxisFontSize = 12 - 0.15 *  yAxis.length
+    // custom graph parameters
+    const xAxisFontSize = Math.max(13 - 0.08 *  xAxis.length,9)
+    const yAxisFontSize = Math.max(15 - 0.05 *  yAxis.length,7)
     const xAxisNameLongest = Math.max(...xAxis.map(item=>item.length))*xAxisFontSize
     const yAxisNameLongest = Math.max(...yAxis.map(item=>item.length))
 
@@ -25,20 +25,14 @@ export default function LigandsReceptorsDotplot(props) {
     function renderChart() {
         try {
             let option = {
-                title:{
-                    text:`Ligands and receptors interactions in microenvironment: ${props.env}`,
-                    textStyle:{
-                        fontSize:16
-                    }
-                },
                 tooltip: {
                     position: 'top',
                     formatter: function (params) {
                         return (
                             '<b>'+xAxis[params.value[0]] +'</b></br>'+
-                            '<b>Log2 Mean Expression Value: </b>' + params.value[2] +
+                            'Log2 Mean Expression Value: ' + params.value[2] +
                             '</br>'+ ' between ' +
-                            yAxis[params.value[1]].split('|').join(' - ')
+                            '<b>'+yAxis[params.value[1]].split('|').join(' - ')+'</b>'
                         );
                     }
                 },
@@ -54,7 +48,7 @@ export default function LigandsReceptorsDotplot(props) {
                     }
                 },
                 grid: {
-                    top: 80,
+                    top: 70,
                     left: 0,
                     bottom: 0,
                     right: 60,
@@ -64,7 +58,7 @@ export default function LigandsReceptorsDotplot(props) {
                     {
                         type: 'slider',
                         xAxisIndex: 0,
-                        top:40,
+                        top:20,
                         filterMode: 'none'
                     },
                     {
@@ -109,7 +103,7 @@ export default function LigandsReceptorsDotplot(props) {
                 series: [
                     {
                         type: 'scatter',
-                        symbolSize: xAxisFontSize,
+                        symbolSize: yAxisFontSize,
                         data: data,
                         animationDelay: function (idx) {
                             return idx * 5;
@@ -148,6 +142,11 @@ export default function LigandsReceptorsDotplot(props) {
     },[props.env]);
 
     return(
-        <div ref={chartRef} style={{height:600,width:1200,margin:"30px 0"}}></div>
+        <>
+            <p style={{fontSize:16,marginBottom:10,height:50,width:450}}>
+                Ligands and receptors interactions in microenvironment:
+                <b> {props.env}</b></p>
+            <div ref={chartRef} style={{height:1200,width:650}}></div>
+        </>
     )
 }

@@ -16,6 +16,8 @@ import {getAnnotationResult} from "./api/getAnnotationResult.js";
 import {getMIAResult} from "./api/getMIAResult.js";
 import {getFile} from "./api/getFile.js";
 import {getLogLine} from "./api/getLogLine.js";
+import {getDatasetJsonl} from "./api/getDatasetJsonl.js";
+import {getDatasetImage} from "./api/getDatasetImage.js";
 
 
 export const RouterAPI = router()
@@ -51,11 +53,6 @@ RouterAPI.get('/api/datasets-info/:st_id', async (ctx) => {
 // 设置路由和api进行数据集list的访问
 RouterAPI.get('/api/datasets-list/:species', async (ctx) => {
     ctx.body = await getDatasetsList(ctx.params.species)
-})
-
-// 设置路由和api进行vitessce配置文件访问
-RouterAPI.get('/api/vi-custom-config/:id', async (ctx) => {
-    //ctx.body = getViCustomConfig(ctx.params.id)
 })
 
 // 设置路由和api进行基因的搜索
@@ -137,8 +134,16 @@ RouterAPI.get('/api/annotation-result/pdf/:rid', async (ctx) => {
     await getFile(ctx,record.result_path+"/out/pdf.gz", "pdf.gz")
 })
 
-// jsonl files
-RouterAPI.get('/api/annotation-result/pdf/:rid', async (ctx) => {
+// fetch jsonl or jsonl.idx.json files
+RouterAPI.get('/api/annotation-result/jsonl/:rid/:fileName', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    await getFile(ctx,record.result_path+"/out/pdf.gz", "pdf.gz")
+    await getDatasetJsonl(ctx, record.result_path+"/", ctx.params.fileName)
 })
+
+// fetch images files
+RouterAPI.get('/api/annotation-result/jsonl/:rid/images/:fileName', async (ctx) => {
+    const record = await getJobStatus(ctx.params.rid)
+    await getDatasetImage(ctx, record.result_path+"/", ctx.params.fileName)
+})
+
+

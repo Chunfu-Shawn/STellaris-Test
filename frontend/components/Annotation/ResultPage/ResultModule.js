@@ -1,4 +1,4 @@
-import {Affix, Col, Divider, Row, Tag, Tooltip, Tabs} from "antd";
+import {Affix, Col, Divider, Row, Tag, Tooltip, Tabs, Empty} from "antd";
 import dynamic from "next/dynamic";
 import React from "react";
 import {useRef} from "react";
@@ -16,27 +16,28 @@ import MappedCellCountBarGraph from "../ResultPage/MappedCellCountBarGraph";
 import {useContext} from "react";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 import AnnotationSteps from "../AnnotationSteps";
-
-const stDataset = {
-    "id": "coronal_2",
-    "name": "coronal_2",
-    "url": "https://rhesusbase.com:9999/jsonl_files/STW-M-Brain-Stereo-seq-1/coronal_1/coronal_1.jsonl"
-}
-const scRawDataset = {
-    "id": "GSM5833739",
-    "name": "GSM5833739",
-    "url": "https://rhesusbase.com:9999/jsonl_files/Mouse-corticogenesis/sc.jsonl"
-}
-const scAnnDataset = {
-    "id": "GSM5833739",
-    "name": "GSM5833739",
-    "url": "https://rhesusbase.com:9999/jsonl_files/Mouse-corticogenesis/sc_registered.jsonl"
-}
+import UmapFilteredCellCountBarGraph from "./UmapFilteredCellCountBarGraph";
 
 export default function ResultModule(){
     const divContent = useRef(null); //标识nav导航栏渲染内容
     const annContext = useContext(AnnContext);
-    const iconStyle = {color:"black", float:"right",fontSize:"24px",margin:'0 2%'}
+    const iconStyle = {color:"black", float:"right",fontSize:"25px",margin:'0 2%'}
+    const stDataset = {
+        "id": annContext.reqInfo.section_id,
+        "name": annContext.reqInfo.section_id,
+        "url": `https://rhesusbase.com:9999/jsonl_files/${annContext.reqInfo.dataset_id}/`+
+            `${annContext.reqInfo.section_id}/${annContext.reqInfo.section_id}.jsonl`
+    }
+    const scRawDataset = {
+        "id": "sc_reduction",
+        "name": "sc_reduction",
+        "url": `/api/annotation-result/jsonl/${annContext.reqInfo.rid}/sc_reduction.jsonl`
+    }
+    const scAnnDataset = {
+        "id": "sc_registered",
+        "name": "sc_registered",
+        "url": `/api/annotation-result/jsonl/${annContext.reqInfo.rid}/sc_registered.jsonl`
+    }
     const DynamicVisualTool = dynamic(() =>
             import('../../../components/VisualTool/VisualTool.js')
                 .then((mod) => mod.VisualTool),
@@ -98,7 +99,7 @@ export default function ResultModule(){
                                         <DownloadOutlined  style={iconStyle}/>
                                     </Tooltip>
                                 </a>
-                                <a key={3} target={'_blank'} href={`/help/manual/datasets`} rel="noreferrer" >
+                                <a key={3} target={'_blank'} href={`/help/manual/annotation#annotation_result`} rel="noreferrer" >
                                     <Tooltip title="View Help">
                                         <QuestionCircleOutlined style={iconStyle}/>
                                     </Tooltip>
@@ -106,36 +107,29 @@ export default function ResultModule(){
                             </Col>
                         </Row>
                         <Preprocessing />
-                        <div name={"Evaluation"}>
-                            <a id={"Evaluation"} style={{position: 'relative', top: "-150px"}}></a>
+                        <div name={"Filtering"}>
+                            <a id={"Filtering"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:21}}>Evaluation </span>
-                                <Link href={'/help/manual/datasets#data_page_attributes'}>
+                                <span style={{fontSize:22}}>Filtering </span>
+                                <Link href={'/help/manual/annotation#filtering'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
                             <Row justify={"space-evenly"} align={"top"}>
                                 <Col>
-                                    <UMAPScatter/>
+                                    <UMAPScatter data={JSON.parse(annContext.result.umapPrep)}/>
                                 </Col>
                                 <Col>
-                                    <UMAPScatter/>
+                                    <UMAPScatter data={JSON.parse(annContext.result.umapFilter)}/>
                                 </Col>
                             </Row>
-                            <Row justify={"space-evenly"} align={"top"}>
-                                <Col>
-                                    <DistanceDensityGraph/>
-                                </Col>
-                                <Col>
-                                    <MappedCellCountBarGraph/>
-                                </Col>
-                            </Row>
+                            <UmapFilteredCellCountBarGraph/>
                         </div>
                         <div name={"Spatial Niche"}>
                             <a id={"Spatial Niche"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:21}}>Spatial Niche </span>
-                                <Link href={'/help/manual/datasets#data_page_attributes'}>
+                                <span style={{fontSize:22}}>Spatial Niche </span>
+                                <Link href={'/help/manual/annotation#spatial_niche'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
@@ -147,25 +141,62 @@ export default function ResultModule(){
                                     <Tabs defaultActiveKey="1" items={item2}/>
                                 </Col>
                             </Row>
+                            <Row justify={"space-evenly"} align={"top"} style={{marginTop:20}}>
+                                <Col>
+                                    <MappedCellCountBarGraph/>
+                                </Col>
+                                <Col>
+                                    <DistanceDensityGraph/>
+                                </Col>
+                            </Row>
                         </div>
                         <div name={"Colocalization"}>
                             <a id={"Colocalization"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:21}}>Cell Types Colocalization </span>
-                                <Link href={'/help/manual/datasets#data_page_attributes'}>
+                                <span style={{fontSize: 22}}>Cell Types Colocalization </span>
+                                <Link href={'/help/manual/annotation#colocalization'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
-                            <Row justify={"space-evenly"} align={"top"}>
-                                <Col>
-                                    <JSDHeatmap/>
-                                </Col>
-                                <Col>
-                                    <MSTNetwork/>
-                                </Col>
-                            </Row>
+                            {annContext.result.mst ?
+                                <Row justify={"space-evenly"} align={"top"}>
+                                    <Col>
+                                        <JSDHeatmap/>
+                                    </Col>
+                                    <Col>
+                                        <MSTNetwork/>
+                                    </Col>
+                                </Row>
+                                :
+                                <Empty
+                                    description={<>
+                                        <p><b>No Data</b></p>
+                                        <span>Result Not Found. There are some problems happened in annotation.</span>
+                                    </>
+                                }
+                                />
+                            }
                         </div>
-                        <CellInteractions/>
+                        <div name={"Interaction"}>
+                            <a id={"Interaction"} style={{position: 'relative', top: "-150px"}}></a>
+                            <Divider orientation="left" orientationMargin="0">
+                                <span style={{fontSize:22}}>Cell-Cell Interactions </span>
+                                <Link href={'/help/manual/annotation#interaction'}>
+                                    <a target={"_blank"}><QuestionCircleOutlined/></a>
+                                </Link>
+                            </Divider>
+                            {annContext.result.dotPlot ?
+                                <CellInteractions/>
+                                :
+                                <Empty
+                                    description={<>
+                                        <p><b>No Data</b></p>
+                                        <span>Result Not Found. You may select <b>wrong species</b> or your gene name of
+                                            counts.gz file is not <b>HGNC Symbol</b> !</span>
+                                    </>}
+                                />
+                            }
+                        </div>
                         <ResultDownload/>
                     </div>
                 </Col>

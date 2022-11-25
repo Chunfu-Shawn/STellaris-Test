@@ -1,11 +1,11 @@
 import fs from "fs"
 
-export async function getAnnotationResult(resultPath){
-    return new Promise(async (resolve, reject) => {
+export async function getDatasetJsonl(ctx, resultPath, fileName){
+    return new Promise( async (resolve, reject) => {
         try {
-            const jsonl = fs.readFileSync(
-                resultPath + '/out/json/umap.all.json', 'utf8');
-            resolve(data)
+            let jsonl = fs.readFileSync(resultPath + fileName, 'utf8');
+            ctx.body = jsonl;
+            resolve(jsonl)
         } catch (err) {
             reject(err)
         }

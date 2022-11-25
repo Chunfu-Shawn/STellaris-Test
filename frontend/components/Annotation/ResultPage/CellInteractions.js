@@ -12,8 +12,8 @@ export default function CellInteractions(){
     const onChangeEnv = (value) => {
         setEnv(value)
         // usestate 是异步函数，set后不能马上生效
-        setCellTypePairs(dotPlot[value].yAxis)
-        setCellTypePair(dotPlot[value].yAxis[0])
+        setCellTypePairs(dotPlot[value].xAxis)
+        setCellTypePair(dotPlot[value].xAxis[0])
     }
     const onChangeCell = (value) => {
         setCellTypePair(value)
@@ -22,18 +22,11 @@ export default function CellInteractions(){
     const dotPlot = JSON.parse(annContext.result.dotPlot)
     const microenvironment = dotPlot.microenvironment
     const [env, setEnv] = useState(microenvironment[0])
-    const [cellTypePairs, setCellTypePairs] = useState(dotPlot[env].yAxis)
+    const [cellTypePairs, setCellTypePairs] = useState(dotPlot[env].xAxis)
     const [cellTypePair, setCellTypePair] = useState(cellTypePairs[0])
 
     return(
-        <div name={"Interaction"}>
-            <a id={"Interaction"} style={{position: 'relative', top: "-150px"}}></a>
-            <Divider orientation="left" orientationMargin="0">
-                <span style={{fontSize:21}}>Cell-Cell Interactions </span>
-                <Link href={'/help/manual/datasets#data_page_attributes'}>
-                    <a target={"_blank"}><QuestionCircleOutlined/></a>
-                </Link>
-            </Divider>
+        <>
             <Row justify="start" align="stretch" style={{margin:"20px 0"}}>
                 <Col span={4}><span style={{fontSize:18}}>Microenvironment: </span></Col>
                 <Col span={7}>
@@ -64,15 +57,16 @@ export default function CellInteractions(){
                     </Select>
                 </Col>
             </Row>
-            <Row justify="space-evenly" align="stretch">
+
+            <Row justify="space-between" align="stretch">
                 <Col>
-                    <InteractionsHeatmap/>
-                    <LigandsReceptorsNetwork cellTypePair={cellTypePair}/>
+                    {annContext.result.interHeat?<InteractionsHeatmap/>:null}
+                    {annContext.result.lpPair?<LigandsReceptorsNetwork cellTypePair={cellTypePair}/>:null}
                 </Col>
                 <Col>
-                    <LigandsReceptorsDotplot env={env}/>
+                    {annContext.result.dotPlot?<LigandsReceptorsDotplot env={env}/>:null}
                 </Col>
             </Row>
-        </div>
+        </>
     )
 }

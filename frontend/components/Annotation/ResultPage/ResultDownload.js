@@ -37,8 +37,8 @@ export default function ResultDownload(){
         <div name={"Download"}>
             <a id={"Download"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0">
-                <span style={{fontSize:21}}>Result Files Download </span>
-                <Link href={'/help/manual/datasets#data_page_attributes'}>
+                <span style={{fontSize:22}}>Result Files Download </span>
+                <Link href={'/help/manual/annotation#download'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>

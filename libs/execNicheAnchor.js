@@ -15,13 +15,6 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
         " --outDir " + resultPath +
         " >"+ resultPath + "/log/nicheAnchor.log"
 
-    // 创建日志数据输入流
-    const logfile = fs.createWriteStream(resultPath + '/log/nicheAnchor.log',{
-        flags:'a', //文件的打开模式
-        encoding: 'utf8',
-    });
-    // 创建logger
-    let logger = new console.Console(logfile);
     // 执行注释脚本
     if (!fs.existsSync(nicheAnchor)) {
         //如果python脚本不存在
@@ -33,29 +26,17 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
         annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
     } else {
         try {
-            //logger.log("NicheAnchor running...");
             annotationLogger.log(`[${new Date().toLocaleString()}]: NicheAnchor running...`)
             // 改变任务状态为running，设置任务开始时间
             setJobStatus(rid, "ann_start_time","running")
-            let annoProcess = child_process.exec(command, function (error, stdout, stderr) {
-                if (error) {
-                    logger.log('\n' + 'Stdout: ' + stdout);
-                    //将error写入日志
-                    logger.log(error.stack);
-                    logger.log('Error code: ' + error.code);
-                }else {
-                    logger.log('\n' + 'Stdout: ' + stdout);
-                }
-            })
+            let annoProcess = child_process.exec(command)
             // 监听annoProcess任务的exit事件，如果发生则调用listener
             annoProcess.on('exit', function (code) {
-                logger.log(`child process 'annotation' has exited，exit code: ${code}`);
                 annotationLogger.log(`[${new Date().toLocaleString()}]: child process 'NicheAnchor' has exited，exit code: ${code}`)
                 if (code === 0) setJobStatus(rid, "ann_finish_time","finished")
                 else setJobStatus(rid, "ann_finish_time","error")
             });
         } catch (err) {
-            logger.log(`Error of reading/writing file from disk or python running: ${err}`)
             annotationLogger.log(`[${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)
         }
     }

@@ -36,6 +36,8 @@ export default function LigandsReceptorsNetwork(props) {
             }
         }
     }
+    // custom graph parameters
+    const symbolSize = Math.max(20 - 0.1*(nodeLigands.length + nodeLigands.length + nodeBoth.length),8)
 
     // 定义渲染函数
     function renderChart() {
@@ -78,7 +80,7 @@ export default function LigandsReceptorsNetwork(props) {
                     },
                     emphasis: {
                         lineStyle: {
-                            width: 10
+                            width: 7
                         }
                     },
                     // 节点数据格式
@@ -87,10 +89,18 @@ export default function LigandsReceptorsNetwork(props) {
                                 {
                                     id: item,
                                     name: item,
-                                    symbolSize: 20,
+                                    symbolSize: symbolSize,
                                     category:"Ligand",
                                     itemStyle: {
-                                        color: d3.interpolateViridis(0),
+                                        color: d3.interpolateSpectral(0),
+                                    },
+                                    emphasis: {
+                                        focus: 'adjacency',
+                                    },
+                                    tooltip:{
+                                        formatter: (params) => {
+                                            return `${params.marker} ${params.data.category}: ${params.data.name}`
+                                        }
                                     }
                                 }
                             )
@@ -100,10 +110,18 @@ export default function LigandsReceptorsNetwork(props) {
                                 {
                                     id: item,
                                     name: item,
-                                    symbolSize: 20,
+                                    symbolSize: symbolSize,
                                     category:"Receptor",
                                     itemStyle: {
-                                        color: d3.interpolateViridis(1),
+                                        color: d3.interpolateSpectral(1),
+                                    },
+                                    emphasis: {
+                                        focus: 'adjacency',
+                                    },
+                                    tooltip:{
+                                        formatter: (params) => {
+                                            return `${params.marker} ${params.data.category}: ${params.data.name}`
+                                        }
                                     }
                                 }
                             )
@@ -114,10 +132,18 @@ export default function LigandsReceptorsNetwork(props) {
                                 {
                                     id: item,
                                     name: item,
-                                    symbolSize: 20,
+                                    symbolSize: symbolSize,
                                     category:"Both",
                                     itemStyle: {
-                                        color: d3.interpolateViridis(0.5),
+                                        color: d3.interpolateSpectral(0.6),
+                                    },
+                                    emphasis: {
+                                        focus: 'adjacency',
+                                    },
+                                    tooltip:{
+                                        formatter: (params) => {
+                                            return `${params.marker} ${params.data.category}: ${params.data.name}`
+                                        }
                                     }
                                 }
                             )
@@ -152,21 +178,21 @@ export default function LigandsReceptorsNetwork(props) {
                             name:"Ligand",
                             symbol:'circle',
                             itemStyle: {
-                                color: d3.interpolateViridis(0)
+                                color: d3.interpolateSpectral(0)
                             }
                         },
                         {
                             name:"Receptor",
                             symbol:'circle',
                             itemStyle: {
-                                color: d3.interpolateViridis(1)
+                                color: d3.interpolateSpectral(1)
                             },
                         },
                         {
                             name:"Both",
                             symbol:'circle',
                             itemStyle: {
-                                color: d3.interpolateViridis(0.5)
+                                color: d3.interpolateSpectral(0.6)
                             }
                         }]
                 }]
@@ -196,10 +222,10 @@ export default function LigandsReceptorsNetwork(props) {
 
     return(
         <>
-            <p style={{fontSize:16,marginBottom:10,height:50,width:600}}>
+            <p style={{fontSize:16,marginBottom:10,height:50,width:450}}>
                 Ligands and receptors interactions between:
                 <b> {cellTypePair.split('|').join(' - ')}</b></p>
-            <div ref={chartRef} style={{height:500,width:500,marginBottom:10}}></div>
+            <div ref={chartRef} style={{height:500,width:450,marginBottom:10}}></div>
         </>
     )
 }

@@ -5,29 +5,29 @@ import * as echarts from "echarts";
 const series =
     [
         {
-            name: 'Mapped Cells',
+            name: 'Retained Cells',
             data: [1812, 1233, 479, 734, 2129, 220, 350, 1233, 479, 734, 2129, 220, 350]
         },
         {
-            name: 'Deprecated Cells',
+            name: 'UMAP filtered Cells',
             data: [301, 26, 50, 30, 162, 34, 265, 26, 50, 30, 162, 34, 265]
         },
     ]
 
-export default function MappedCellCountBarGraph(){
+export default function UmapFilteredCellCountBarGraph(){
     // use echarts
     const chartRef = useRef(null);
     let chartInstance = null;
 
     // custom graph parameters
-    const fontSize = Math.max(14 - 0.2 * series[0].data.length,9)
+    const fontSize = Math.max(16 - 0.2 * series[0].data.length,11)
 
     // 定义渲染函数
     function renderChart() {
         try {
             let option = {
                 title: {
-                    text: 'Number of cell (Mapped and deprecated)',
+                    text: 'Number of cell (UMAP filtered and retained)',
                 },
                 tooltip: {
                     trigger: 'item',
@@ -66,8 +66,8 @@ export default function MappedCellCountBarGraph(){
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6', 'Type7',
-                            'Type8', 'Type9', 'Type10', 'Type11', 'Type12', 'Type13'],
+                        data: ['Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6', 'Type7'
+                            , 'Type8', 'Type9', 'Type10', 'Type11', 'Type12', 'Type13'],
                         axisLabel:{
                             rotate:25,
                             fontWeight:"bold",
@@ -126,6 +126,6 @@ export default function MappedCellCountBarGraph(){
     });
 
     return(
-        <div ref={chartRef} style={{height:400,width:800,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:400,width:1150,marginBottom:10}}></div>
     )
 }
