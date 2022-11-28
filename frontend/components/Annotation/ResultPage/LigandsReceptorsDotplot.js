@@ -49,7 +49,7 @@ export default function LigandsReceptorsDotplot(props) {
                 },
                 grid: {
                     top: 70,
-                    left: 0,
+                    left: 20,
                     bottom: 0,
                     right: 60,
                     containLabel: true
@@ -75,7 +75,7 @@ export default function LigandsReceptorsDotplot(props) {
                         show: true
                     },
                     axisLabel:{
-                        rotate:45,
+                        rotate:60,
                         fontWeight:"bold",
                         fontSize:xAxisFontSize
                     }

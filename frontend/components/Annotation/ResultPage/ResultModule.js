@@ -31,7 +31,7 @@ export default function ResultModule(){
     const scRawDataset = {
         "id": "sc_reduction",
         "name": "sc_reduction",
-        "url": `/api/annotation-result/jsonl/${annContext.reqInfo.rid}/sc.jsonl`
+        "url": `/api/annotation-result/jsonl/${annContext.reqInfo.rid}/sc_reduction.jsonl`
     }
     const scAnnDataset = {
         "id": "sc_registered",
