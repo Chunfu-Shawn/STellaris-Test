@@ -16,7 +16,7 @@ export function execNicheAnchor(rid, dataset, section, divergenceCutoff, bandWid
         " --divergence_cutoff " + divergenceCutoff +
         " --band_width " + bandWidth +
         " --n_bootstrap " + nBootstrap +
-        " --species " + species +
+        " --species " + `"${species}"` +
         " --n_threads " + nThreads +
         " --outDir " + resultPath +
         " >"+ resultPath + "/log/nicheAnchor.log"

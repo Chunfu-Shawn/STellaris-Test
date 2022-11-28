@@ -1,4 +1,4 @@
-import {Table, Button, Modal, InputNumber, Divider, message} from "antd";
+import {Table, Button, Modal, InputNumber, Divider, message, Col, Row} from "antd";
 import React, {useState, useContext} from "react";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
@@ -125,6 +125,17 @@ export default function SectionTable() {
             dataIndex: 'method',
             key: 'method',
             width:'10%',
+            filters: Array.from(new Set(data.map(
+                value => value.method ))).map(
+                item => {
+                    return{
+                        text: item,
+                        value: item
+                    }
+                }
+            ),
+            onFilter: (value, record) => record.gene_symbol.indexOf(value) === 0,
+            filterSearch: true,
             sorter: (a, b) => {
                 if(a.method > b.method) return 1
                 else return -1
@@ -136,6 +147,7 @@ export default function SectionTable() {
             key: 'note',
             width:'12%',
             render: text => text===null ? "--" : text,
+            ellipsis: true,
         },
         {
             title: 'Pathological',
@@ -210,32 +222,38 @@ export default function SectionTable() {
                         <a target={"_blank"}><QuestionCircleOutlined/></a>
                     </Link>
                 </Divider>
-                <span>cutoff: </span>
-                <InputNumber
-                    style={{
-                        width: 100,
-                    }}
-                    size={"small"}
-                    onChange={onCutoffChange}
-                    defaultValue="0.3"
-                    min="0.1"
-                    max="1"
-                    step="0.05"
-                    stringMode
-                />
-                <span>band width: </span>
-                <InputNumber
-                    style={{
-                        width: 100,
-                    }}
-                    size={"small"}
-                    onChange={onBandWidthChange}
-                    defaultValue="20"
-                    min="5"
-                    max="150"
-                    step="5"
-                    stringMode
-                />
+                <Row>
+                    <Col>
+                        <span>cutoff: </span>
+                        <InputNumber
+                            style={{
+                                width: 100,
+                            }}
+                            size={"small"}
+                            onChange={onCutoffChange}
+                            defaultValue="0.3"
+                            min="0.1"
+                            max="1"
+                            step="0.05"
+                            stringMode
+                        />
+                    </Col>
+                    <Col>
+                        <span>band width: </span>
+                        <InputNumber
+                            style={{
+                                width: 100,
+                            }}
+                            size={"small"}
+                            onChange={onBandWidthChange}
+                            defaultValue="20"
+                            min="5"
+                            max="150"
+                            step="5"
+                            stringMode
+                        />
+                    </Col>
+                </Row>
             </Modal>
             <span style={{float:"left",fontSize:"16px",color:"gray",margin:"10px 0"}}>
                 {size} Sections
