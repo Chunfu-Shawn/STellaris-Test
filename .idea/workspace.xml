@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SectionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SectionTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/RunExampleModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/RunExampleModule.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +142,7 @@
       <workItem from="1669438977140" duration="10725000" />
       <workItem from="1669534173726" duration="2358000" />
       <workItem from="1669553517176" duration="1878000" />
-      <workItem from="1669609127041" duration="15090000" />
+      <workItem from="1669609127041" duration="15647000" />
     </task>
     <servers />
   </component>

@@ -51,7 +51,7 @@ export default function RunExampleModule(props){
                     key: '1',
                     label: (
                         <Button type={"link"}>
-                            <Link href={"/annotation/resultPage/5c619ac0-6d5d-11ed-b0ed-29a718b80fe8"}>
+                            <Link href={"/annotation/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
                                 E14.5 Mouse Whole Brain Stereo-seq (finished)
                             </Link>
                         </Button>

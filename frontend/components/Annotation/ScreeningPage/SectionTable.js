@@ -31,7 +31,7 @@ export default function SectionTable() {
         for(let j=0; j<datasetsInfo.length; j++){
             if (a.st_id === datasetsInfo[j]["id"]){
                 a.method = datasetsInfo[j].method
-                a.treatment = datasetsInfo[j].treatment
+                a.note = datasetsInfo[j].note
                 a.pathological = datasetsInfo[j].pathological
                 a.date_published = datasetsInfo[j].date_published
                 a.developmental_stage = datasetsInfo[j].developmental_stage
@@ -130,15 +130,11 @@ export default function SectionTable() {
             },
         },
         {
-            title: 'Treatment',
-            dataIndex: 'treatment',
-            key: 'treatment',
+            title: 'Note',
+            dataIndex: 'note',
+            key: 'note',
             width:'12%',
-            render: text => text === null ? "--" : text,
-            sorter: (a, b) => {
-                if(a.treatment > b.treatment) return 1
-                else return -1
-            },
+            render: text => text ? "--" : text,
         },
         {
             title: 'Pathological',
@@ -154,8 +150,6 @@ export default function SectionTable() {
                     text: 'FALSE',
                     value: 'FALSE',
                 }],
-            // specify the condition of filtering result
-            // here is that finding the name started with `value`
             onFilter: (value, record) => record.pathological === value,
         },
         {
@@ -170,7 +164,7 @@ export default function SectionTable() {
         {
             title: 'Developmental Stage',
             dataIndex: 'developmental_stage',
-            render: text => text === null ? "--" : text,
+            render: text => text ? "--" : text,
             key: 'developmental_stage',
             width: "13%",
             ellipsis: true,
