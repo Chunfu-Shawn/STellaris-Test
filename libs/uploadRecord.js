@@ -97,7 +97,7 @@ export function uploadRecord(ctx) {
                 const email = 'no email'
                 const species = 'Mus musculus'
                 const organ = 'Brain'
-                const tissue = 'Brain Coronal Plane'
+                const tissue = 'Brain'
                 const matrixFilePath = 'public/uploads/test1/counts.csv.gz'
                 const labelsFilePath = 'public/uploads/test1/labels.csv.gz'
                 const resultPath = 'public/results/' + YMD + '/' + rid

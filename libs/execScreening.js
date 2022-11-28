@@ -5,6 +5,7 @@ import {setJobStatus} from "./setJobStatus.js";
 
 export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath, nThreads=30) {
     const stScreening = 'scripts/ST_screening/ST_screening.sh'
+    console.log( datasets, sections )
     const command =
         "bash " + stScreening +
         " --count " + matrixFilePath +
