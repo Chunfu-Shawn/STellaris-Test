@@ -24,7 +24,7 @@ export default function SectionTable() {
     console.log(datasetsInfo[2])
     for(let i=0;i<size;i++){
         let a={};
-        a.key=sections[i].split("|")[0];
+        a.key=sections[i].split("|")[1];
         a.st_id=sections[i].split("|")[0];
         a.section_id=sections[i].split("|")[1];
         a.enrichment_score=enrichmentScore[i];
@@ -37,6 +37,7 @@ export default function SectionTable() {
                 a.developmental_stage = datasetsInfo[j].developmental_stage
             }
         }
+        console.log(a)
         data.push(a);
     }
     const ANN_URL = `/annotation/annotate/`
@@ -134,7 +135,7 @@ export default function SectionTable() {
             dataIndex: 'note',
             key: 'note',
             width:'12%',
-            render: text => text ? "--" : text,
+            render: text => text===null ? "--" : text,
         },
         {
             title: 'Pathological',
@@ -164,8 +165,8 @@ export default function SectionTable() {
         {
             title: 'Developmental Stage',
             dataIndex: 'developmental_stage',
-            render: text => text ? "--" : text,
             key: 'developmental_stage',
+            render: text => text ? "--" : text,
             width: "13%",
             ellipsis: true,
         },

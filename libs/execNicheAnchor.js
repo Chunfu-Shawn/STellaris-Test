@@ -5,7 +5,7 @@ import {annotationLogger} from "./logSave.js";
 
 export function execNicheAnchor(rid, dataset, section, divergenceCutoff, bandWidth,
                                 species, resultPath, nBootstrap = 20, nThreads=30) {
-    const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor.sh'
+    const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor-cellInteraction.sh'
     const sc_h5ad_Path = resultPath + "/sc.h5ad"
     const command =
         "bash " + nicheAnchor +
