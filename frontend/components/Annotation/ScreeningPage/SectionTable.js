@@ -14,6 +14,7 @@ export default function SectionTable() {
     const [datasetId, setDatasetId] = useState('');
     const [sectionId, setSectionId] = useState('');
     const [cutoff, setCutoff] = useState(0.3);
+    const [bandWidth, setBandWidth] = useState(20);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const sections = annContext.MIA.section_id
     const enrichmentScore = annContext.MIA.enrichment_score
@@ -52,7 +53,8 @@ export default function SectionTable() {
                 rid: annContext.reqInfo.rid,
                 datasetId: datasetId,
                 sectionId: sectionId,
-                cutoff: cutoff
+                cutoff: cutoff,
+                bandWidth: bandWidth
             })
         }).then(() => {
             message.success({
@@ -79,8 +81,11 @@ export default function SectionTable() {
         });
     };
 
-    const onNumberChange = (value) => {
+    const onCutoffChange = (value) => {
         setCutoff(value);
+    };
+    const onBandWidthChange = (value) => {
+        setBandWidth(value);
     };
 
     // column sort
@@ -216,11 +221,24 @@ export default function SectionTable() {
                         width: 100,
                     }}
                     size={"small"}
-                    onChange={onNumberChange}
+                    onChange={onCutoffChange}
                     defaultValue="0.3"
                     min="0.1"
                     max="1"
                     step="0.05"
+                    stringMode
+                />
+                <span>band width: </span>
+                <InputNumber
+                    style={{
+                        width: 100,
+                    }}
+                    size={"small"}
+                    onChange={onBandWidthChange}
+                    defaultValue="20"
+                    min="5"
+                    max="150"
+                    step="5"
                     stringMode
                 />
             </Modal>

@@ -3,7 +3,8 @@ import child_process from 'child_process';
 import {setJobStatus} from "./setJobStatus.js";
 import {annotationLogger} from "./logSave.js";
 
-export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
+export function execNicheAnchor(rid, dataset, section, divergenceCutoff, bandWidth,
+                                species, resultPath, nBootstrap = 20, nThreads=30) {
     const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor.sh'
     const sc_h5ad_Path = resultPath + "/sc.h5ad"
     const command =
@@ -12,6 +13,11 @@ export function execNicheAnchor(rid, dataset, section, resultPath, cutoff) {
         " --key_celltype " + "cell_type" +
         " --dataset " + dataset +
         " --section " + section +
+        " --divergence_cutoff " + divergenceCutoff +
+        " --band_width " + bandWidth +
+        " --n_bootstrap " + nBootstrap +
+        " --species " + species +
+        " --n_threads " + nThreads +
         " --outDir " + resultPath +
         " >"+ resultPath + "/log/nicheAnchor.log"
 

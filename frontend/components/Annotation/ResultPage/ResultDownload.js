@@ -1,7 +1,7 @@
 import {Divider,List} from "antd";
 import React from "react";
 import {DownloadOutlined, QuestionCircleOutlined} from "@ant-design/icons";
-import {downloadFile, exportToCsv} from "../../util";
+import {downloadFile} from "../../util";
 import {useContext} from "react";
 import Link from "next/link";
 import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
@@ -12,7 +12,7 @@ export default function ResultDownload(){
         {
             title: 'Reference ST Data (h5ad)',
             onClick:() => downloadFile(
-                `https://rhesusbase.com:9999/h5ad_files/${annContext.reqInfo.dataset_id}/${annContext.reqInfo.section_id}`),
+                `https://rhesusbase.com:9999/h5ad_files/${annContext.reqInfo.dataset_id}/${annContext.reqInfo.section_id}.h5ad`),
             description:'Reference ST data with additional metadata, in HDF5 format, ' +
                 'readable with the "anndata" Python package'
         },
@@ -31,6 +31,13 @@ export default function ResultDownload(){
             title: 'PDF Graph Results (pdf)',
             onClick:() => downloadFile(`/api/annotation-result/pdf/${annContext.reqInfo.rid}`),
             description:'All pdf graph result files'
+        },
+        {
+            title: 'All Result Files',
+            onClick:() => {
+                downloadFile(`/api/annotation-result/all/${annContext.reqInfo.rid}`)
+            },
+            description:'Download all result files in zip'
         }
     ];
     return(

@@ -1,23 +1,25 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useContext} from "react";
 import * as d3 from "d3-scale-chromatic";
 import * as echarts from "echarts";
-
-const series =
-    [
-        {
-            name: 'Retained Cells',
-            data: [1812, 1233, 479, 734, 2129, 220, 350, 1233, 479, 734, 2129, 220, 350]
-        },
-        {
-            name: 'UMAP filtered Cells',
-            data: [301, 26, 50, 30, 162, 34, 265, 26, 50, 30, 162, 34, 265]
-        },
-    ]
+import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 
 export default function UmapFilteredCellCountBarGraph(){
     // use echarts
     const chartRef = useRef(null);
     let chartInstance = null;
+    const annContext = useContext(AnnContext);
+    const data = JSON.parse(annContext.result.cellFilter)
+    const cellTypes = data.Cell_type
+    const series = [
+        {
+            name: 'Retained',
+            data: data["Passed"]
+        },
+        {
+            name: 'Filtered',
+            data: data["Poor_coembedding"]
+        },
+    ]
 
     // custom graph parameters
     const fontSize = Math.max(16 - 0.2 * series[0].data.length,11)
@@ -27,7 +29,7 @@ export default function UmapFilteredCellCountBarGraph(){
         try {
             let option = {
                 title: {
-                    text: 'Number of cell (UMAP filtered and retained)',
+                    text: 'Number of cell (retained and UMAP filtered)',
                 },
                 tooltip: {
                     trigger: 'item',
@@ -51,7 +53,7 @@ export default function UmapFilteredCellCountBarGraph(){
                 },
                 grid: {
                     top: 70,
-                    left: 10,
+                    left: 30,
                     right: 30,
                     bottom: 50,
                     containLabel: true
@@ -66,10 +68,9 @@ export default function UmapFilteredCellCountBarGraph(){
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6', 'Type7'
-                            , 'Type8', 'Type9', 'Type10', 'Type11', 'Type12', 'Type13'],
+                        data: cellTypes,
                         axisLabel:{
-                            rotate:25,
+                            rotate:35,
                             fontWeight:"bold",
                             fontSize:fontSize
                         }

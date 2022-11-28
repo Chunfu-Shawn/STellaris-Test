@@ -3,6 +3,7 @@ import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import MainPage from "../components/mainpage.js";
 
 export default function Home() {
+
     return (
         <LayoutCustom>
             <Head>

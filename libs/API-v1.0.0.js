@@ -4,7 +4,6 @@ import {getJobStatus} from "./api/getJobStatus.js"
 import {getHumanMap} from "./api/getHumanMap.js"
 import {getMouseMap} from "./api/getMouseMap.js"
 import {getDatasetsInfo} from "./api/getDatasetsInfo.js"
-//import getViCustomConfig from "./api/getViCustomConfig.js"
 import {getGeneList} from "./api/getGeneList.js"
 import {getGeneData} from "./api/getGeneData.js";
 import {getGeneTranscript} from "./api/getGeneTranscript.js";
@@ -14,10 +13,11 @@ import {getGenesExpressionCorrelation} from "./api/getGenesExpressionCorrelation
 import {getServerTime} from "./api/getServerTime.js";
 import {getAnnotationResult} from "./api/getAnnotationResult.js";
 import {getMIAResult} from "./api/getMIAResult.js";
-import {getFile} from "./api/getFile.js";
+import {getZipFile} from "./api/getZipFile.js";
 import {getLogLine} from "./api/getLogLine.js";
 import {getDatasetJsonl} from "./api/getDatasetJsonl.js";
 import {getDatasetImage} from "./api/getDatasetImage.js";
+import fs from "fs";
 
 
 export const RouterAPI = router()
@@ -107,31 +107,39 @@ RouterAPI.get('/api/annotation-result/:rid', async (ctx) => {
 // submitted counts files fetch
 RouterAPI.get('/api/submitted-files/counts/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    await getFile(ctx, record.matrix_file_path, record.matrix_file_path.split("/")[3])
+    ctx.set('Content-disposition', 'attachment; filename=' + record.matrix_file_path.split("/")[3])
+    ctx.body = fs.readFileSync(record.matrix_file_path)
 })
 
 // submitted labels files fetch
 RouterAPI.get('/api/submitted-files/labels/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    await getFile(ctx, record.labels_file_path, record.labels_file_path.split("/")[3])
+    ctx.set('Content-disposition', 'attachment; filename=' + record.labels_file_path.split("/")[3])
+    ctx.body = fs.readFileSync(record.labels_file_path)
 })
 
-// annotated sc h5ad
+// download annotated sc h5ad
 RouterAPI.get('/api/annotation-result/h5ad/sc/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    await getFile(ctx,record.result_path+"/sc_registered.h5ad", "sc_registered.h5ad")
+    await getZipFile(ctx,record.result_path+"/sc_registered.h5ad", "sc_registered.h5ad")
 })
 
 // table files
 RouterAPI.get('/api/annotation-result/table/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    await getFile(ctx,record.result_path+"/out/table.gz", "table.gz")
+    await getZipFile(ctx,record.result_path+"/out/table", "table")
 })
 
 // pdf files
 RouterAPI.get('/api/annotation-result/pdf/:rid', async (ctx) => {
     const record = await getJobStatus(ctx.params.rid)
-    await getFile(ctx,record.result_path+"/out/pdf.gz", "pdf.gz")
+    await getZipFile(ctx,record.result_path+"/out/pdf", "pdf")
+})
+
+// all files
+RouterAPI.get('/api/annotation-result/all/:rid', async (ctx) => {
+    const record = await getJobStatus(ctx.params.rid)
+    await getZipFile(ctx,record.result_path+"/out", "all")
 })
 
 // fetch jsonl or jsonl.idx.json files

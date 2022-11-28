@@ -55,13 +55,14 @@ Router.post('/annotation/audition', async (ctx) =>
 // run annotation 的路由
 Router.post('/annotation/annotate', async (ctx) => {
         try {
-            const { rid, datasetId, sectionId, cutoff } = ctx.request.body
+            const { rid, datasetId, sectionId, cutoff, bandWidth } = ctx.request.body
             setJobDatasetSection(rid, datasetId, sectionId)
             const record = await getJobStatus(rid)
             const resultPath = record.result_path
+            const species = record.species
             annotationLogger.log(`[${new Date().toLocaleString()}]: start annotate`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-            execNicheAnchor(rid, datasetId, sectionId, resultPath, cutoff);
+            execNicheAnchor(rid, datasetId, sectionId, cutoff, bandWidth, species, resultPath);
         } catch (err) {
             annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in Annotating: ${err}`)
         }

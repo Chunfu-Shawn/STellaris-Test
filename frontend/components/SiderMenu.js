@@ -5,7 +5,6 @@ const { Sider } = Layout;
 export function SiderMenu(props){
     const [activeNav,setActiveNav] = useState(["Summary"]);//与标识导航栏高亮
     const onClick = (e)=>{
-        console.log(e.key)
         setTimeout(()=>setActiveNav(e.key),900)
     }
     const scrollEventListener = () => {
@@ -32,10 +31,8 @@ export function SiderMenu(props){
 
     useEffect(()=>{
         document.addEventListener('scroll', ()=>scrollEventListener())
-        console.log('run addEventListener()')
         return ()=> {
             document.removeEventListener('scroll', ()=>scrollEventListener())
-            console.log('run removeEventListener()')
         }
     },[])
 

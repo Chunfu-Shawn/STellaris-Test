@@ -1,23 +1,26 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useContext} from "react";
 import * as d3 from "d3-scale-chromatic";
 import * as echarts from "echarts";
+import {AnnContext} from "../../../pages/annotation/resultPage/[rid]";
 
-const series =
-    [
-        {
-            name: 'Mapped Cells',
-            data: [1812, 1233, 479, 734, 2129, 220, 350, 1233, 479, 734, 2129, 220, 350]
-        },
-        {
-            name: 'Deprecated Cells',
-            data: [301, 26, 50, 30, 162, 34, 265, 26, 50, 30, 162, 34, 265]
-        },
-    ]
 
 export default function MappedCellCountBarGraph(){
     // use echarts
     const chartRef = useRef(null);
     let chartInstance = null;
+    const annContext = useContext(AnnContext);
+    const data = JSON.parse(annContext.result.cellMap)
+    const cellTypes = data.Cell_type
+    const series = [
+        {
+            name: 'Mapped',
+            data: data["Mapped"]
+        },
+        {
+            name: 'Failed',
+            data: data["Failed"]
+        },
+    ]
 
     // custom graph parameters
     const fontSize = Math.max(14 - 0.2 * series[0].data.length,9)
@@ -27,7 +30,7 @@ export default function MappedCellCountBarGraph(){
         try {
             let option = {
                 title: {
-                    text: 'Number of cell (Mapped and deprecated)',
+                    text: 'Number of cell (mapped and failed)',
                 },
                 tooltip: {
                     trigger: 'item',
@@ -51,7 +54,7 @@ export default function MappedCellCountBarGraph(){
                 },
                 grid: {
                     top: 70,
-                    left: 10,
+                    left: 30,
                     right: 30,
                     bottom: 50,
                     containLabel: true
@@ -66,10 +69,9 @@ export default function MappedCellCountBarGraph(){
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6', 'Type7',
-                            'Type8', 'Type9', 'Type10', 'Type11', 'Type12', 'Type13'],
+                        data: cellTypes,
                         axisLabel:{
-                            rotate:25,
+                            rotate:35,
                             fontWeight:"bold",
                             fontSize:fontSize
                         }

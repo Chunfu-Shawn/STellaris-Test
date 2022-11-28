@@ -3,14 +3,16 @@ import child_process from 'child_process';
 import {annotationLogger} from "./logSave.js";
 import {setJobStatus} from "./setJobStatus.js";
 
-export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath) {
+export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath, nThreads=30) {
     const stScreening = 'scripts/ST_screening/ST_screening.sh'
     const command =
         "bash " + stScreening +
         " --count " + matrixFilePath +
         " --label " + labelsFilePath +
+        " --key_celltype " + "cell_type" +
         " --dataset " + datasets +
         " --section " + sections +
+        " --n_threads " + nThreads +
         " --outDir " + resultPath +
         " >"+ resultPath + "/log/ST_screening.log"
 

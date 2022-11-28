@@ -7,7 +7,7 @@ const pad = num => (num > 9 ? "" : "0") + num;
 //generate the file path depended on date
 const generator = (nowTime) => {
     if (!nowTime) return "access.log";
-    let time = nowTime.getTime() - 1000*60*60*24;
+    let time = new Date(nowTime.getTime() - 1000*60*60*24);
     let month = time.getFullYear() + "" + pad(time.getMonth() + 1);
     let day = pad(time.getDate());
 
@@ -17,7 +17,7 @@ const generator = (nowTime) => {
 //generate the file path depended on date
 const generator2 = (nowTime) => {
     if (!nowTime) return "annotation.log";
-    let time = nowTime.getTime() - 1000*60*60*24;
+    let time = new Date(nowTime.getTime() - 1000*60*60*24);
     let month = time.getFullYear() + "" + pad(time.getMonth() + 1);
     let day = pad(time.getDate());
 

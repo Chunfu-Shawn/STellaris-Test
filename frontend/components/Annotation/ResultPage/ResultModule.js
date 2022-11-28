@@ -1,6 +1,6 @@
 import {Affix, Col, Divider, Row, Tag, Tooltip, Tabs, Empty} from "antd";
 import dynamic from "next/dynamic";
-import React from "react";
+import React, {useEffect} from "react";
 import {useRef} from "react";
 import ResultPageSiderMenu from "../ResultPage/ResultPageSiderMenu";
 import Link from "next/link";
@@ -31,13 +31,14 @@ export default function ResultModule(){
     const scRawDataset = {
         "id": "sc_reduction",
         "name": "sc_reduction",
-        "url": `/api/annotation-result/jsonl/${annContext.reqInfo.rid}/sc_reduction.jsonl`
+        "url": `/api/annotation-result/jsonl/${annContext.reqInfo.rid}/sc.jsonl`
     }
     const scAnnDataset = {
         "id": "sc_registered",
         "name": "sc_registered",
         "url": `/api/annotation-result/jsonl/${annContext.reqInfo.rid}/sc_registered.jsonl`
     }
+
     const DynamicVisualTool = dynamic(() =>
             import('../../../components/VisualTool/VisualTool.js')
                 .then((mod) => mod.VisualTool),
@@ -94,7 +95,7 @@ export default function ResultModule(){
                                 <Tag color="purple">{annContext.reqInfo.tissue}</Tag>
                             </Col>
                             <Col span={8} offset={8}>
-                                <a key={2} target={'_blank'} href={`/api/datasets-info/${annContext.reqInfo.rid}`} download rel="noreferrer" >
+                                <a key={2} href={`#Download`} >
                                     <Tooltip title="Download All Results">
                                         <DownloadOutlined  style={iconStyle}/>
                                     </Tooltip>
