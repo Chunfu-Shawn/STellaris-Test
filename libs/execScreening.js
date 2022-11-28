@@ -10,8 +10,8 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
         " --count " + matrixFilePath +
         " --label " + labelsFilePath +
         " --key_celltype " + "cell_type" +
-        " --dataset " + datasets +
-        " --section " + sections +
+        " --datasets " + datasets +
+        " --sections " + sections +
         " --n_threads " + nThreads +
         " --outDir " + resultPath +
         " >"+ resultPath + "/log/ST_screening.log"
