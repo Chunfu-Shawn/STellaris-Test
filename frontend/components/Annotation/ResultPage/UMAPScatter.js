@@ -18,7 +18,10 @@ export default function UMAPScatter(props){
             let option = {
                 title: {
                     text: 'UMAP',
-                    subtext: 'Reference ST & Submitted scRNA-seq Data'
+                    subtext: props.title,
+                    subtextStyle:{
+                        fontSize: 16
+                    }
                 },
                 grid: {
                     left: '0',

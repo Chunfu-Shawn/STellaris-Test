@@ -5,7 +5,7 @@ import Link from "next/link.js";
 
 export default function RunExampleModule(props){
     const { setUploading } = props
-    const DEMO_URL = `/annotation/audition/`
+    const DEMO_URL = `/annotation/demo/`
     const router = useRouter()
     const onRunExample = (title) => function (){
         let rid = ""

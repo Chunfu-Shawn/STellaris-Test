@@ -32,7 +32,7 @@ export default function ResultStatus(props){
                     </tr>
                     <tr>
                         <td>Run Time</td>
-                        <td>{calTime(annContext.reqInfo.ann_finish_time,annContext.reqInfo.upload_time)}</td>
+                        <td>{calTime(annContext.reqInfo.ann_finish_time,annContext.reqInfo.ann_start_time)}</td>
                     </tr>
                     </tbody>
                 </table>

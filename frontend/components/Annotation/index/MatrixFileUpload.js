@@ -10,16 +10,16 @@ export default function MatrixFileUpload(props){
             let filenameArr = file.name.split('.');
             props.setFileList([file]);
             let limitM = 100; //MB
-            let isMatrix = filenameArr[filenameArr.length - 2] === 'mtx' ||
-                filenameArr[filenameArr.length - 2] === 'txt' ||
+            let isMatrix = filenameArr[filenameArr.length - 2] === 'txt' ||
                 filenameArr[filenameArr.length - 2] === 'csv' ||
                 filenameArr[filenameArr.length - 2] === 'tsv';
             let isGzip = file.type === 'application/x-gzip';
+            let isZip = file.type === 'application/zip'
             let isLimit = file.size / 1024 / 1024 <= limitM;
             if (!isMatrix||!isGzip) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} is not a compressed matrix file`,
+                    content:`File: ${file.name} is not a compressed count matrix file`,
                     style:{
                         marginTop: '12vh',
                     },
@@ -48,7 +48,7 @@ export default function MatrixFileUpload(props){
     };
 
     return(
-        <Form.Item name="matrixFile" label="Matrix File"
+        <Form.Item name="matrixFile" label="Count Matrix File"
                    rules={[
                        {
                            required: true,
@@ -56,8 +56,8 @@ export default function MatrixFileUpload(props){
                    ]}
         >
             <Upload {...settingMatrix} maxCount={1}>
-                <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a matrix file</Button>
-                <small style={{color:"gray"}}> (only a .gz format matrix file)</small>
+                <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a count matrix file</Button>
+                <small style={{color:"gray"}}> (only a .gz/zip format file)</small>
             </Upload>
         </Form.Item>
     )

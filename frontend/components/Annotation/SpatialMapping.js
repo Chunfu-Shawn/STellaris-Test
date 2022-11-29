@@ -8,7 +8,7 @@ import {useState} from "react";
 import {useRouter} from "next/router";
 
 
-export default function AnnotateSpatialLocation(props){
+export default function SpatialMapping(props){
     const {
         speciesOptions,
         organOptions,

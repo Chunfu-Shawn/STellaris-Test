@@ -35,29 +35,66 @@ export default function MouseMap(props){
                                 position: 'bottom',
                                 distance: 0,
                                 color:'#fff',
-                                textBorderWidth: 5
+                                textBorderWidth: 2
                             }
                         },
-                        blur: {},
+                        blur: {}
                     },
                     grid: {
-                        left: '60%',
-                        top: '20%',
-                        bottom: '20%'
+                        left: 320,
+                        top: 70,
+                        bottom: 50,
+                        right: 10
                     },
-                    xAxis: {
+                    legend: {
+                        data: ['Dateset', 'Section'],
+                        textStyle: {
+                            color: "#ffffff"
+                        }
                     },
+                    xAxis: [
+                        {
+                            type: 'value',
+                            name: "Section",
+                            nameLocation: "center",
+                            nameTextStyle:{
+                                fontSize:15,
+                                padding:[20,0]
+                            }
+                        },
+                        {
+                            type: 'value',
+                            name:"Dataset",
+                            nameLocation: "center",
+                            nameTextStyle:{
+                                fontSize:15,
+                                padding:[20,0]
+                            }
+                        },
+                    ],
                     yAxis: {
                         data: Object.keys(showData["Mouse"])
                     },
                     series: [
                         {
+                            name:"Dateset",
                             type: 'bar',
+                            xAxisIndex:1,
+                            color:'#0d64a9',
                             emphasis: {
                                 focus: 'self'
                             },
                             data: Object.values(showData["Mouse"])
-                        }
+                        },
+                        {
+                            name:"Section",
+                            type: 'bar',
+                            xAxisIndex:0,
+                            emphasis: {
+                                focus: 'self'
+                            },
+                            data: Object.values(showData["Mouse"]).map(val=>val+20)
+                        },
                     ]
                 };
                 option&&myChart.setOption(option);
@@ -69,6 +106,20 @@ export default function MouseMap(props){
                     });
                 });
                 myChart.on('mouseout', { seriesIndex: 0 }, function (event) {
+                    myChart.dispatchAction({
+                        type: 'downplay',
+                        geoIndex: 0,
+                        name: event.name
+                    });
+                });
+                myChart.on('mouseover', { seriesIndex: 1 }, function (event) {
+                    myChart.dispatchAction({
+                        type: 'highlight',
+                        geoIndex: 0,
+                        name: event.name
+                    });
+                });
+                myChart.on('mouseout', { seriesIndex: 1 }, function (event) {
                     myChart.dispatchAction({
                         type: 'downplay',
                         geoIndex: 0,

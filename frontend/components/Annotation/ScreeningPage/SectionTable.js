@@ -134,12 +134,8 @@ export default function SectionTable() {
                     }
                 }
             ),
-            onFilter: (value, record) => record.gene_symbol.indexOf(value) === 0,
+            onFilter: (value, record) => record.method.indexOf(value) === 0,
             filterSearch: true,
-            sorter: (a, b) => {
-                if(a.method > b.method) return 1
-                else return -1
-            },
         },
         {
             title: 'Note',
@@ -222,8 +218,8 @@ export default function SectionTable() {
                         <a target={"_blank"}><QuestionCircleOutlined/></a>
                     </Link>
                 </Divider>
-                <Row>
-                    <Col>
+                <Row justify={"space-evenly"}>
+                    <Col span={8}>
                         <span>cutoff: </span>
                         <InputNumber
                             style={{
@@ -238,7 +234,7 @@ export default function SectionTable() {
                             stringMode
                         />
                     </Col>
-                    <Col>
+                    <Col span={8}>
                         <span>band width: </span>
                         <InputNumber
                             style={{

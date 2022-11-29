@@ -1,5 +1,5 @@
 import {Tabs} from "antd";
-import AnnotateSpatialLocation from "../AnnotateSpatialLocation";
+import SpatialMapping from "../SpatialMapping";
 import React from "react";
 import {data, getAnnotationOptions} from "../../Datasets/getData&Options";
 
@@ -21,8 +21,8 @@ const {speciesOptions,organOptions,tissueOptions} = getAnnotationOptions(data);
 
 export default function UploadModule(){
     const items =[
-        { label: 'Annotate Spatial Location', key: 'item-1', children:
-                <AnnotateSpatialLocation
+        { label: 'Spatial Mapping of scRNA-seq', key: 'item-1', children:
+                <SpatialMapping
                     validateMessages={validateMessages}
                     speciesOptions={speciesOptions}
                     organOptions={organOptions}

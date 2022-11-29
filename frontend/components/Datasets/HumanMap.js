@@ -4,7 +4,7 @@ import {showData} from "./getData&Options";
 //引入jquery
 import $ from 'jquery';
 
-export default function HumanMap(props){
+export default function HumanMap(){
     const chartRef = useRef(null);
     useEffect(() => {
         let ROOT_PATH =
@@ -41,23 +41,60 @@ export default function HumanMap(props){
                         blur: {}
                     },
                     grid: {
-                        left: '60%',
-                        top: '20%',
-                        bottom: '20%'
+                        left: 320,
+                        top: 70,
+                        bottom: 50,
+                        right: 10
                     },
-                    xAxis: {
+                    legend: {
+                        data: ['Dateset', 'Section'],
+                        textStyle: {
+                            color: "#ffffff"
+                        }
+                    },
+                    xAxis: [
+                        {
+                            type: 'value',
+                            name: "Section",
+                            nameLocation: "center",
+                            nameTextStyle:{
+                                fontSize:15,
+                                padding:[20,0]
+                            }
                         },
+                        {
+                            type: 'value',
+                            name:"Dataset",
+                            nameLocation: "center",
+                            nameTextStyle:{
+                                fontSize:15,
+                                padding:[20,0]
+                            }
+                        },
+                    ],
                     yAxis: {
                         data: Object.keys(showData["Human"])
                     },
                     series: [
                         {
+                            name:"Dateset",
                             type: 'bar',
+                            xAxisIndex:1,
+                            color:'#9d5a08',
                             emphasis: {
                                 focus: 'self'
                             },
                             data: Object.values(showData["Human"])
-                        }
+                        },
+                        {
+                            name:"Section",
+                            type: 'bar',
+                            xAxisIndex:0,
+                            emphasis: {
+                                focus: 'self'
+                            },
+                            data: Object.values(showData["Human"]).map(val=>val+20)
+                        },
                     ]
                 };
                 option&&myChart.setOption(option);
@@ -69,6 +106,20 @@ export default function HumanMap(props){
                     });
                 });
                 myChart.on('mouseout', { seriesIndex: 0 }, function (event) {
+                    myChart.dispatchAction({
+                        type: 'downplay',
+                        geoIndex: 0,
+                        name: event.name
+                    });
+                });
+                myChart.on('mouseover', { seriesIndex: 1 }, function (event) {
+                    myChart.dispatchAction({
+                        type: 'highlight',
+                        geoIndex: 0,
+                        name: event.name
+                    });
+                });
+                myChart.on('mouseout', { seriesIndex: 1 }, function (event) {
                     myChart.dispatchAction({
                         type: 'downplay',
                         geoIndex: 0,

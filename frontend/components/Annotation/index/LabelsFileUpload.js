@@ -10,15 +10,16 @@ export default function LabelsFileUpload(props){
             let filenameArr = file.name.split('.');
             props.setFileList([file]);
             let limitM = 5; //MB
-            let isFeatures = filenameArr[filenameArr.length - 2] === 'txt' ||
+            let isLabels = filenameArr[filenameArr.length - 2] === 'txt' ||
                 filenameArr[filenameArr.length - 2] === 'csv' ||
                 filenameArr[filenameArr.length - 2] === 'tsv';
             let isGzip = file.type === 'application/x-gzip';
+            let isZip = file.type === 'application/zip'
             let isLimit = file.size / 1024 / 1024 <= limitM;
-            if (!isFeatures||!isGzip) {
+            if (!isLabels || !(isGzip||isZip)) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} is not a compressed features file`,
+                    content:`File: ${file.name} is not a compressed label file`,
                     style:{
                         marginTop: '12vh',
                     },
@@ -47,7 +48,7 @@ export default function LabelsFileUpload(props){
     };
 
     return(
-        <Form.Item name="labelsFile" label="Labels File"
+        <Form.Item name="labelsFile" label="Label File"
                    rules={[
                        {
                            required: true,
@@ -55,8 +56,8 @@ export default function LabelsFileUpload(props){
                    ]}
         >
             <Upload {...settingLabels} maxCount={1}>
-                <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a labels file</Button>
-                <small style={{color:"gray"}}> (only a .gz format labels file)</small>
+                <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a label file</Button>
+                <small style={{color:"gray"}}> (only a .gz/zip format file)</small>
             </Upload>
         </Form.Item>
     )

@@ -118,10 +118,12 @@ export default function ResultModule(){
                             </Divider>
                             <Row justify={"space-evenly"} align={"top"}>
                                 <Col>
-                                    <UMAPScatter data={JSON.parse(annContext.result.umapPrep)}/>
+                                    <UMAPScatter data={JSON.parse(annContext.result.umapPrep)}
+                                                 title={"reference ST and submitted scRNA-seq data"}/>
                                 </Col>
                                 <Col>
-                                    <UMAPScatter data={JSON.parse(annContext.result.umapFilter)}/>
+                                    <UMAPScatter data={JSON.parse(annContext.result.umapFilter)}
+                                                 title={"reference ST and filtered scRNA-seq data"}/>
                                 </Col>
                             </Row>
                             <UmapFilteredCellCountBarGraph/>

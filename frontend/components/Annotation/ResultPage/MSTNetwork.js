@@ -74,7 +74,7 @@ export default function MSTNetwork() {
                             position: 'bottom'
                         },
                         force: {
-                            repulsion: 500,
+                            repulsion: 400,
                             edgeLength: 2
                         },
                         emphasis: {

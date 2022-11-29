@@ -1,10 +1,7 @@
 import {Breadcrumb, Typography} from 'antd';
 import React from 'react';
 import {contentStyle} from "../SiderStaticMenu.js";
-import GeneAttributionsTable from "./GenePage/GeneAttributionsTable.js";
-import SearchResultsAttributesTable from "./GenePage/SearchResultsAttributesTable.js";
-import GeneInfoAttributesTable from "./GenePage/GeneInfoAttributesTable.js";
-import GeneFeaturesAttributesTable from "./GenePage/GeneFeaturesAttributesTable.js";
+
 
 export default function ManualAnnotation() {
 
