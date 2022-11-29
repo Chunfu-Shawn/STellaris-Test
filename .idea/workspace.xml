@@ -5,26 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/pages/about.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/AnnotateSpatialLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/SpatialMapping.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/JSDHeatmap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/JSDHeatmap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/MSTNetwork.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/MSTNetwork.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/UMAPScatter.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/UMAPScatter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SectionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SectionTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/LabelsFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/LabelsFileUpload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/MatrixFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/MatrixFileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/RunExampleModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/RunExampleModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/UploadModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/UploadModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/HumanMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/HumanMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/MouseMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualAnnotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualAnnotation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/API-v1.0.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/API-v1.0.0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getJobStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getJobInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/execScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execScreening.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/ProjectOverview.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/SiderStaticMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/SiderStaticMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/sendEmail.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/sendEmail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +153,7 @@
       <workItem from="1669534173726" duration="2358000" />
       <workItem from="1669553517176" duration="1878000" />
       <workItem from="1669609127041" duration="22563000" />
-      <workItem from="1669691000460" duration="10068000" />
+      <workItem from="1669691000460" duration="15195000" />
     </task>
     <servers />
   </component>

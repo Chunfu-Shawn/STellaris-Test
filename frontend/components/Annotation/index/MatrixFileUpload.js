@@ -16,10 +16,10 @@ export default function MatrixFileUpload(props){
             let isGzip = file.type === 'application/x-gzip';
             let isZip = file.type === 'application/zip'
             let isLimit = file.size / 1024 / 1024 <= limitM;
-            if (!isMatrix||!isGzip) {
+            if (!isMatrix || !(isGzip||isZip)) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} is not a compressed count matrix file`,
+                    content:`File: ${file.name} is not a compressed csv/tsv/txt format count matrix file`,
                     style:{
                         marginTop: '12vh',
                     },

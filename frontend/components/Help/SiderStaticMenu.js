@@ -6,9 +6,6 @@ const { Sider } = Layout;
 
 const items = [
     {
-        label: <Link href={'/help'}>Project Overview</Link>,
-        key: 'project', icon: <ProjectOutlined /> },
-    {
         label: 'Manual', key: 'manual', icon: <CompassOutlined />,
         children: [
             { label: <Link href={'/help/manual/datasets'}>Datasets</Link>, key: 'manual_datasets' },

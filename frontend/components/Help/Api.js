@@ -21,7 +21,7 @@ export default function HelpAPI() {
                     <span>[resource] = <b>datasets-info</b> | <b>job-status</b> | <b>gene</b> | <b>gene/transcript</b></span>
                 </div>
                 <Divider/>
-                <h3>API Resource</h3>
+                <h3>Resource</h3>
                 <h4>1. datasets-info</h4>
                 <div>
                     <p>This resource represents the basic information about some or a given datasets.</p>
@@ -50,32 +50,6 @@ export default function HelpAPI() {
                                     {"id":"STW-H-Bone-ST-1","method":"ST","species":"Homo sapiens","strain":null,"organ":"Bone","tissue":"\"RA,SPA\"","pathological":"TRUE","developmental_stage":"Adult","section":"9","section_id":"\"RA_A_1,RA_A_2,RA_A_3,RA_B_1,RA_B_2,RA_B_3,RA_C_1,RA_C_2,RA_C_3,SPA_A_1,SPA_A_2,SPA_A_3,SPA_B_1,SPA_B_2,SPA_B_3,SPA_C_1,SPA_C_2,SPA_C_3\"","date_published":"2019-12-11T16:00:00.000Z","title":"Exploring inflammatory signatures in arthritic joint biopsies with Spatial Transcriptomics","journal":"Scientific Reports","pmid":"31831833","url":"https://doi.org/10.1038/s41598-019-55441-y\r"})
                             }
                         </pre>
-                        </li>
-                    </ul>
-                </div>
-                <Divider/>
-                <h4>2. job-status</h4>
-                <div>
-                    <p>This resource represents one annotation status about your job.</p>
-                    <p><b>Need one argument:</b></p>
-                    <ul>
-                        <code>Job ID</code>
-                        <ul>
-                            <li>a job id assigned after run a spatial annotation ( A universally unique identifier (UUID) )</li>
-                            <li>Example: <code>8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
-                        </ul>
-                    </ul>
-                    <p><b>Example:</b></p>
-                    <ul>
-                        <li><code>https://spatial.rhesusbase.com/api/job-status/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
-                        <li>Result:
-                            <pre id={'example2'}>
-                                {
-                                    JSON.stringify(
-                                        {"rid":"8dd3efa0-1884-11ed-8536-0d8688eaef3a","title":"An important job!","email":"someone@mail.com","organ":"Spinal Cord","tissue":"Lumbar Spinal Cord Tissue Sections","matrixfilepath":"public/uploads/2022810/8dd3efa0-1884-11ed-8536-0d8688eaef3a/28fb5e40-1886-11ed-8536-0d8688eaef3a.matrix.mtx.gz","barcodesfilepath":"public/uploads/2022810/8dd3efa0-1884-11ed-8536-0d8688eaef3a/290681d0-1886-11ed-8536-0d8688eaef3a.barcodes.tsv.gz","featuresfilepath":"public/uploads/2022810/8dd3efa0-1884-11ed-8536-0d8688eaef3a/2906a8e0-1886-11ed-8536-0d8688eaef3a.features.tsv.gz","resultpath":"public/results/8dd3efa0-1884-11ed-8536-0d8688eaef3a","uploadtime":"2022-08-10T08:26:41.139Z","finishtime":"2022-08-10T08:26:41.146Z","status":"error"}
-                                    )
-                                }
-                            </pre>
                         </li>
                     </ul>
                 </div>
@@ -190,6 +164,90 @@ export default function HelpAPI() {
                             </pre>
                         </li>
                     </ul>
+                    <Divider/>
+                    <Divider/>
+                    <h3>Spatial Mapping Result</h3>
+                    <h4>1. job-status</h4>
+                    <div>
+                        <p>This resource represents one annotation status about your job.</p>
+                        <p><b>Need one argument:</b></p>
+                        <ul>
+                            <code>Job ID</code>
+                            <ul>
+                                <li>a job id assigned after run a spatial mapping ( A universally unique identifier (UUID) )</li>
+                                <li>Example: <code>8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            </ul>
+                        </ul>
+                        <p><b>Example:</b></p>
+                        <ul>
+                            <li><code>https://spatial.rhesusbase.com/api/job-status/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            <li>Result:
+                                <pre id={'example2'}>
+                                {
+                                    JSON.stringify(
+                                        {"rid":"8dd3efa0-1884-11ed-8536-0d8688eaef3a","title":"An important job!","email":"someone@mail.com","organ":"Spinal Cord","tissue":"Lumbar Spinal Cord Tissue Sections","matrixfilepath":"public/uploads/2022810/8dd3efa0-1884-11ed-8536-0d8688eaef3a/28fb5e40-1886-11ed-8536-0d8688eaef3a.matrix.mtx.gz","barcodesfilepath":"public/uploads/2022810/8dd3efa0-1884-11ed-8536-0d8688eaef3a/290681d0-1886-11ed-8536-0d8688eaef3a.barcodes.tsv.gz","featuresfilepath":"public/uploads/2022810/8dd3efa0-1884-11ed-8536-0d8688eaef3a/2906a8e0-1886-11ed-8536-0d8688eaef3a.features.tsv.gz","resultpath":"public/results/8dd3efa0-1884-11ed-8536-0d8688eaef3a","uploadtime":"2022-08-10T08:26:41.139Z","finishtime":"2022-08-10T08:26:41.146Z","status":"error"}
+                                    )
+                                }
+                            </pre>
+                            </li>
+                        </ul>
+                    </div>
+                    <Divider/>
+                    <h4>2. registered sc-RNA-seq data (h5ad)</h4>
+                    <div>
+                        <p>This resource represents one mapped sc-RNA-seq data in h5ad format.</p>
+                        <p><b>Need one argument:</b></p>
+                        <ul>
+                            <code>Job ID</code>
+                            <ul>
+                                <li>a job id assigned after run a spatial mapping ( A universally unique identifier (UUID) )</li>
+                                <li>Example: <code>8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            </ul>
+                        </ul>
+                        <p><b>Example:</b></p>
+                        <ul>
+                            <li><code>https://spatial.rhesusbase.com/api/annotation-result/h5ad/sc/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            <li>Result: <code>sc_rigistered.h5ad</code>
+                            </li>
+                        </ul>
+                    </div>
+                    <Divider/>
+                    <h4>3. table result files (csv)</h4>
+                    <div>
+                        <p>This resource represents all table result file in csv format.</p>
+                        <p><b>Need one argument:</b></p>
+                        <ul>
+                            <code>Job ID</code>
+                            <ul>
+                                <li>a job id assigned after run a spatial mapping ( A universally unique identifier (UUID) )</li>
+                                <li>Example: <code>8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            </ul>
+                        </ul>
+                        <p><b>Example:</b></p>
+                        <ul>
+                            <li><code>https://spatial.rhesusbase.com/api/annotation-result/table/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            <li>Result: <code>table.tar.gz</code>
+                            </li>
+                        </ul>
+                    </div>
+                    <h4>4. graph result files (pdf)</h4>
+                    <div>
+                        <p>This resource represents all graph result file in pdf.</p>
+                        <p><b>Need one argument:</b></p>
+                        <ul>
+                            <code>Job ID</code>
+                            <ul>
+                                <li>a job id assigned after run a spatial mapping ( A universally unique identifier (UUID) )</li>
+                                <li>Example: <code>8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            </ul>
+                        </ul>
+                        <p><b>Example:</b></p>
+                        <ul>
+                            <li><code>https://spatial.rhesusbase.com/api/annotation-result/pdf/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            <li>Result: <code>pdf.tar.gz</code>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </Typography>
         </div>

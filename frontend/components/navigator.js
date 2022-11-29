@@ -26,11 +26,17 @@ const menu = (
             {
                 key: '4',
                 label: (
-                    <Link href="/help" className="nav-link" ><a>Help</a></Link>
+                    <Link href="/help/manual/datasets" className="nav-link" ><a>Help</a></Link>
                 ),
             },
             {
                 key: '5',
+                label: (
+                    <Link href="/about" className="nav-link" ><a>About</a></Link>
+                ),
+            },
+            {
+                key: '6',
                 label: (
                     <Link href="/contact" className="nav-link" ><a>Contact</a></Link>
                 ),
@@ -93,7 +99,8 @@ export default function Navigator(){
                         <li id="datasets" className="nav-item"><Link href="/datasets" className="nav-link" ><a>Datasets</a></Link></li>
                         <li id="annotation" className="nav-item"><Link href="/annotation" className="nav-link" ><a>Annotation</a></Link></li>
                         <li id="browser" className="nav-item"><Link href="/browser" className="nav-link" ><a>Browser</a></Link></li>
-                        <li id="help" className="nav-item"><Link href="/help" className="nav-link" ><a>Help</a></Link></li>
+                        <li id="help" className="nav-item"><Link href="/help/manual/datasets" className="nav-link" ><a>Help</a></Link></li>
+                        <li id="about" className="nav-item"><Link href="/about" className="nav-link" ><a>About</a></Link></li>
                         <li id="contact" className="nav-item"><Link href="/contact" className="nav-link" ><a>Contact</a></Link></li>
                     </ul>
                 }

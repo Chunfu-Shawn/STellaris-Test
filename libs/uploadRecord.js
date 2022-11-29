@@ -27,7 +27,7 @@ export function uploadRecord(ctx) {
             if (ctx.request.body.isDemo === "false") {
                 // read the uploaded form
                 rid = ctx.request.files['matrixFile'][0].destination.split('/')[3]
-                email = ctx.request.body.emailAddress || "no email"
+                email = ctx.request.body.emailAddress === undefined ? "no email" : ctx.request.body.emailAddress
                 species = ctx.request.body.species
                 organ = ctx.request.body.organ
                 tissue = ctx.request.body.tissue

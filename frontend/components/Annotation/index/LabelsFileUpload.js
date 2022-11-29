@@ -19,7 +19,7 @@ export default function LabelsFileUpload(props){
             if (!isLabels || !(isGzip||isZip)) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} is not a compressed label file`,
+                    content:`File: ${file.name} is not a compressed csv/tsv/txt format label file`,
                     style:{
                         marginTop: '12vh',
                     },
