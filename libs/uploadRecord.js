@@ -110,7 +110,7 @@ export function uploadRecord(ctx) {
                         })
                     }
                 })
-
+            connection.end()
             resolve([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath])
         } catch (err) {
             reject(err)

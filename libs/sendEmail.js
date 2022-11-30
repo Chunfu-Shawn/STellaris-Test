@@ -22,12 +22,12 @@ export function sendMail(mail, rid, call) {
             '">https://spatial.rhesusbase.com/annotation/resultPage/'+rid+'</a></p>'+
             '<p>Section Blast and Spatial Mapping will take a long time. For your data security, we will keep the submitted files and result data for <b>a week</b>.</p>'+
             '<p>This is an automatically sent messages, please do not respond to this email adress, thank you!</p>'+
-            '<small>Best wishes</br>'+
-            'BGM team</br>'+
-            'Institute of Molecular Medicine</br>' +
-            'College of Future Technology</br>' +
-            'Peking University</br>' +
-            'Beijing, P.R. China 100871</small>', //页面内容
+            '<p><small>Best wishes</small></p>'+
+            '<p><small>BGM team</small></p>'+
+            '<p><small>Institute of Molecular Medicine</small></p>' +
+            '<p><small>College of Future Technology</small></p>' +
+            '<p><small>Peking University</small></p>' +
+            '<p><small>Beijing, P.R. China 100871</small></p>', //页面内容
         // attachments: [{//发送文件
         // filename: 'index.html', //文件名字
         // path: './index.html' //文件路径,

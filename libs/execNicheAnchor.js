@@ -2,6 +2,8 @@ import fs from "fs"
 import child_process from 'child_process';
 import {setJobStatus} from "./setJobStatus.js";
 import {annotationLogger} from "./logSave.js";
+import {execReCompress} from "./execReCompress.js";
+import removeUploadFiles from "./removeUploadFiles.js";
 
 export function execNicheAnchor(rid, dataset, section, divergenceCutoff, bandWidth,
                                 species, resultPath, nBootstrap = 20, nThreads=30) {
@@ -39,8 +41,14 @@ export function execNicheAnchor(rid, dataset, section, divergenceCutoff, bandWid
             // 监听annoProcess任务的exit事件，如果发生则调用listener
             annoProcess.on('exit', function (code) {
                 annotationLogger.log(`[${new Date().toLocaleString()}]: child process 'NicheAnchor' has exited，exit code: ${code}`)
-                if (code === 0) setJobStatus(rid, "ann_finish_time","finished")
-                else setJobStatus(rid, "ann_finish_time","error")
+                if (code === 0) {
+                    setJobStatus(rid, "ann_finish_time","finished")
+                    execReCompress(resultPath)
+                }
+                else {
+                    setJobStatus(rid, "ann_finish_time","error")
+                    removeUploadFiles(resultPath)
+                }
             });
         } catch (err) {
             annotationLogger.log(`[${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)

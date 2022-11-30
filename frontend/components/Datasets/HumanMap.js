@@ -1,6 +1,7 @@
 import * as echarts from 'echarts';
 import {useEffect, useRef} from "react";
-import {showData} from "./getData&Options";
+import {datasetNum} from "./getData&Options";
+import {sectionNum} from "./getData&Options";
 //引入jquery
 import $ from 'jquery';
 
@@ -56,6 +57,7 @@ export default function HumanMap(){
                         {
                             type: 'value',
                             name: "Section",
+                            alignTicks: true,
                             nameLocation: "center",
                             nameTextStyle:{
                                 fontSize:15,
@@ -64,7 +66,8 @@ export default function HumanMap(){
                         },
                         {
                             type: 'value',
-                            name:"Dataset",
+                            name: "Dataset",
+                            alignTicks: true,
                             nameLocation: "center",
                             nameTextStyle:{
                                 fontSize:15,
@@ -73,7 +76,7 @@ export default function HumanMap(){
                         },
                     ],
                     yAxis: {
-                        data: Object.keys(showData["Human"])
+                        data: Object.keys(datasetNum["Human"])
                     },
                     series: [
                         {
@@ -84,7 +87,7 @@ export default function HumanMap(){
                             emphasis: {
                                 focus: 'self'
                             },
-                            data: Object.values(showData["Human"])
+                            data: Object.values(datasetNum["Human"])
                         },
                         {
                             name:"Section",
@@ -93,7 +96,7 @@ export default function HumanMap(){
                             emphasis: {
                                 focus: 'self'
                             },
-                            data: Object.values(showData["Human"]).map(val=>val+20)
+                            data: Object.values(sectionNum["Human"])
                         },
                     ]
                 };

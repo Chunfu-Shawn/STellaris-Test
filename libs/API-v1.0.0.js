@@ -121,25 +121,32 @@ RouterAPI.get('/api/submitted-files/labels/:rid', async (ctx) => {
 // download annotated sc h5ad
 RouterAPI.get('/api/annotation-result/h5ad/sc/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    await getZipFile(ctx,record.result_path+"/sc_registered.h5ad", "sc_registered.h5ad")
+    ctx.set('Content-disposition', 'attachment; filename=' + "sc_registered.h5ad")
+    ctx.body = fs.readFileSync(record.result_path+"/sc_registered.h5ad")
 })
 
 // table files
 RouterAPI.get('/api/annotation-result/table/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    await getZipFile(ctx,record.result_path+"/out/table", "table")
+    ctx.set('Content-disposition', 'attachment; filename=' + "results.tar.gz")
+    ctx.set('content-type', 'application/x-gzip');
+    ctx.body = fs.readFileSync(record.result_path+"/results.tar.gz")
 })
 
 // pdf files
 RouterAPI.get('/api/annotation-result/pdf/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    await getZipFile(ctx,record.result_path+"/out/pdf", "pdf")
+    ctx.set('Content-disposition', 'attachment; filename=' + "figures.tar.gz")
+    ctx.set('content-type', 'application/x-gzip');
+    ctx.body = fs.readFileSync(record.result_path+"/figures.tar.gz")
 })
 
 // all files
 RouterAPI.get('/api/annotation-result/all/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    await getZipFile(ctx,record.result_path+"/out", "all")
+    ctx.set('Content-disposition', 'attachment; filename=' + "all_results.tar.gz")
+    ctx.set('content-type', 'application/x-gzip');
+    ctx.body = fs.readFileSync(record.result_path+"/all_results.tar.gz")
 })
 
 // fetch jsonl or jsonl.idx.json files

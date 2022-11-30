@@ -2,6 +2,7 @@ import fs from "fs"
 import child_process from 'child_process';
 import {annotationLogger} from "./logSave.js";
 import {setJobStatus} from "./setJobStatus.js";
+import removeUploadFiles from "./removeUploadFiles.js";
 
 export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath, nThreads=30) {
     const stScreening = 'scripts/ST_screening/ST_screening.sh'
@@ -54,7 +55,10 @@ export function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sec
                 //logger.log(`ST screening has exited，exit code: ${code}`);
                 annotationLogger.log(`[${new Date().toLocaleString()}]: child process 'ST screening' has exited，exit code: ${code}`)
                 if (code === 0) setJobStatus(rid, "screen_finish_time","selecting")
-                else setJobStatus(rid, "screen_finish_time","error")
+                else {
+                    setJobStatus(rid, "screen_finish_time","error")
+                    removeUploadFiles(resultPath)
+                }
             });
         } catch (err) {
             //logger.log(`Error of reading/writing file from disk or python running: ${err}`)

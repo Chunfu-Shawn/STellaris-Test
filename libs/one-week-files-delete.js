@@ -36,7 +36,7 @@ async function removeFolder(fromDir) {
  * clear a folder recursively
  * @param {String} dir target directory
  */
-function removePromise(dir) {
+export function removePromise(dir) {
     return new Promise(function (resolve, reject) {
         //先读文件夹
         fs.stat(dir,function (err, stat) {

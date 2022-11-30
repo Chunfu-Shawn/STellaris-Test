@@ -1,10 +1,11 @@
 import * as echarts from 'echarts';
 import {useEffect, useRef} from "react";
-import {showData} from "./getData&Options";
+import {datasetNum} from "./getData&Options";
+import {sectionNum} from "./getData&Options";
 //引入jquery
 import $ from 'jquery';
 
-export default function MouseMap(props){
+export default function MouseMap(){
     const chartRef = useRef(null);
     useEffect(() => {
         let ROOT_PATH =
@@ -57,6 +58,7 @@ export default function MouseMap(props){
                             type: 'value',
                             name: "Section",
                             nameLocation: "center",
+                            alignTicks: true,
                             nameTextStyle:{
                                 fontSize:15,
                                 padding:[20,0]
@@ -65,6 +67,7 @@ export default function MouseMap(props){
                         {
                             type: 'value',
                             name:"Dataset",
+                            alignTicks: true,
                             nameLocation: "center",
                             nameTextStyle:{
                                 fontSize:15,
@@ -73,7 +76,7 @@ export default function MouseMap(props){
                         },
                     ],
                     yAxis: {
-                        data: Object.keys(showData["Mouse"])
+                        data: Object.keys(datasetNum["Mouse"])
                     },
                     series: [
                         {
@@ -84,7 +87,7 @@ export default function MouseMap(props){
                             emphasis: {
                                 focus: 'self'
                             },
-                            data: Object.values(showData["Mouse"])
+                            data: Object.values(datasetNum["Mouse"])
                         },
                         {
                             name:"Section",
@@ -93,7 +96,7 @@ export default function MouseMap(props){
                             emphasis: {
                                 focus: 'self'
                             },
-                            data: Object.values(showData["Mouse"]).map(val=>val+20)
+                            data: Object.values(sectionNum["Mouse"])
                         },
                     ]
                 };
