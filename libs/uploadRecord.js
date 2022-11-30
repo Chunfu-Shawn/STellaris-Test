@@ -37,7 +37,7 @@ export function uploadRecord(ctx) {
                 const dir = 'public/uploads/' + YMD +'/' + rid
                 fs.mkdirSync(dir, {
                     //是否使用递归创建目录
-                    recursive: true
+                    recursive: true,
                 })
                 fs.rename(matrixFilePath, dir + '/' + ctx.request.files['matrixFile'][0].filename,
                     function (err) {

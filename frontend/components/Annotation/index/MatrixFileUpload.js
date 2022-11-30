@@ -16,7 +16,8 @@ export default function MatrixFileUpload(props){
                 filenameArr[filenameArr.length - 2] === 'csv' ||
                 filenameArr[filenameArr.length - 2] === 'tsv';
             let isGzip = file.type === 'application/x-gzip';
-            let isZip = file.type === 'application/zip'
+            let isZip = file.type === 'application/zip' || file.type === 'application/x-zip' ||
+                file.type === 'application/x-zip-compressed'
             let isLimit = file.size / 1024 / 1024 <= limitM;
             if (!isMatrix || !(isGzip||isZip)) {
                 props.setFileList([])
@@ -55,7 +56,8 @@ export default function MatrixFileUpload(props){
             This file contains gene expression (raw counts) values in which <b style={{color:"#a680ff"}}>columns are genes </b>
             presented with gene names identifier (Ensembl IDs or HGNC symbol name) and
             <b style={{color:"#a680ff"}}> rows are cells</b> presented with cell IDs.
-            Formats accepted are .csv .tsv and .txt in .gz/zip compression. Click on &quot;Question&quot; to see more.
+            Formats accepted are .csv, .tsv and .txt in .gz/zip compression, but .csv.gz is recommended.
+            Click on &quot;Question&quot; to see more.
         </span><br/>
         <span>&gt; Example:</span><br/>
         <Image src={`/images/counts_matrix_example.png`} alt="..." width={400} height={220}/>
