@@ -1,6 +1,4 @@
 import multer from '@koa/multer'
-import {v1 as uuidv1} from "uuid";
-import fs from "fs";
 
 export function uploadFile() {
     const storage = multer.diskStorage({
