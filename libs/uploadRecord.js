@@ -27,7 +27,7 @@ export function uploadRecord(ctx) {
             if (ctx.request.body.isDemo === "false") {
                 // read the uploaded form
                 rid = ctx.request.files['matrixFile'][0].destination.split('/')[3]
-                email = ctx.request.body.emailAddress === undefined ? "no email" : ctx.request.body.emailAddress
+                email = ctx.request.body.emailAddress === "undefined" ? "no email" : ctx.request.body.emailAddress
                 species = ctx.request.body.species
                 organ = ctx.request.body.organ
                 tissue = ctx.request.body.tissue
@@ -92,7 +92,7 @@ export function uploadRecord(ctx) {
             })
             fs.writeFileSync(resultPath + "/resquest.json",
                 JSON.stringify(ctx.request) + '\n',
-                {flag: "a+"}
+                {flag: "w"}
             );
             resolve([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath])
         } catch (err) {

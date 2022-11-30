@@ -80,10 +80,10 @@ export default function SpatialMapping(props){
     const layout = {
         labelAlign: "left",
         labelCol: {
-            span: 8,
+            span: 9,
         },
         wrapperCol: {
-            span: 16,
+            span: 15,
         },
     };
     const tailLayout = {

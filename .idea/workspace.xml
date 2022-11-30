@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/pages/about.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/counts_matrix_example.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/labels_example.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/SpatialMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/SpatialMapping.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/LabelsFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/LabelsFileUpload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/MatrixFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/MatrixFileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/ProjectOverview.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/SiderStaticMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/SiderStaticMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualAnnotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualAnnotation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/mapping.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/sendEmail.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/sendEmail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/selectSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/selectSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/uploadFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadFile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,31 +54,31 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/chunfu/WebstormProjects/Spatial-Trans-Web/public/results/20221122/c71959a0-6a62-11ed-a471-a39e452631de&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/chunfu/WebstormProjects/Spatial-Trans-Web/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/public/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "settings.typescriptcompiler",
+    "ts.external.directory.path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/public/results/20221122/c71959a0-6a62-11ed-a471-a39e452631de" />
       <recent name="$PROJECT_DIR$/public/results/20221122/c71959a0-6a62-11ed-a471-a39e452631de/out/json" />
       <recent name="$PROJECT_DIR$/libs/api" />
       <recent name="$PROJECT_DIR$/frontend/components/Annotation/ResultPage" />
-      <recent name="$PROJECT_DIR$/libs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/results/20221122/c71959a0-6a62-11ed-a471-a39e452631de/out/json" />
@@ -153,7 +153,8 @@
       <workItem from="1669534173726" duration="2358000" />
       <workItem from="1669553517176" duration="1878000" />
       <workItem from="1669609127041" duration="22563000" />
-      <workItem from="1669691000460" duration="15195000" />
+      <workItem from="1669691000460" duration="15767000" />
+      <workItem from="1669778985588" duration="6938000" />
     </task>
     <servers />
   </component>

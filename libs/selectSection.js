@@ -43,7 +43,7 @@ export async function selectSection(resultPath,species,organ,tissue){
             // write datasets info into file
             fs.writeFileSync(resultPath + "/out/json/datasets_info.json",
                 JSON.stringify(result) + '\n',
-                {flag: "a+"}
+                {flag: "w"}
             );
             resolve([datasets,sections])
         })

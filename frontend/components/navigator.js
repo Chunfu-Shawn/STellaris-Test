@@ -14,7 +14,7 @@ const menu = (
             {
                 key: '2',
                 label: (
-                    <Link href="/annotation" className="nav-link" ><a>Annotation</a></Link>
+                    <Link href="/mapping" className="nav-link" ><a>Mapping</a></Link>
                 ),
             },
             {
@@ -97,7 +97,7 @@ export default function Navigator(){
                     //width < breakpoint ? collapseButtom:
                     <ul className={"nav navbar-nav"} >
                         <li id="datasets" className="nav-item"><Link href="/datasets" className="nav-link" ><a>Datasets</a></Link></li>
-                        <li id="annotation" className="nav-item"><Link href="/annotation" className="nav-link" ><a>Annotation</a></Link></li>
+                        <li id="mapping" className="nav-item"><Link href="/mapping" className="nav-link" ><a>Mapping</a></Link></li>
                         <li id="browser" className="nav-item"><Link href="/browser" className="nav-link" ><a>Browser</a></Link></li>
                         <li id="help" className="nav-item"><Link href="/help/manual/datasets" className="nav-link" ><a>Help</a></Link></li>
                         <li id="about" className="nav-item"><Link href="/about" className="nav-link" ><a>About</a></Link></li>

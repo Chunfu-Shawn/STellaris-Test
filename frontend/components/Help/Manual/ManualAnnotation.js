@@ -36,6 +36,7 @@ export default function ManualAnnotation() {
                 </p>
                 <h4>(2) Cell2location </h4>
                 <h2>4. Format of Uploaded Files</h2>
+                <a id={"format_uploaded_files"} style={{position: 'relative', top: "-150px"}}></a>
                 <h4>(1) Counts File </h4>
                 <h4>(2) Labels File </h4>
                 <h2>5. Annotation Result</h2>

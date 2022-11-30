@@ -1,7 +1,9 @@
 import multer from '@koa/multer'
 import fs from "fs";
+import { v1 as uuidv1 } from 'uuid'
 
-export function uploadFile(uuid) {
+export function uploadFile() {
+    let uuid = uuidv1()
     fs.mkdirSync('public/uploads/' + new Date().getFullYear() + (new Date().getMonth() + 1) + new Date().getDate()
         +'/' + uuid,
         {

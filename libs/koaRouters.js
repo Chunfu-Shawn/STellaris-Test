@@ -4,7 +4,6 @@ import {uploadFile} from "./uploadFile.js"
 import {uploadRecord} from "./uploadRecord.js"
 import {execNicheAnchor} from "./execNicheAnchor.js"
 import {sendMail} from "./sendEmail.js"
-import { v1 as uuidv1 } from 'uuid'
 import {annotationLogger} from "./logSave.js";
 import {selectSection} from "./selectSection.js";
 import {execScreening} from "./execScreening.js";
@@ -17,7 +16,7 @@ export const Router = router()
 
 // 上传文件的路由
 Router.post('/annotation/upload',
-    uploadFile(uuidv1()).fields([
+    uploadFile().fields([
         { name: 'matrixFile', maxCount: 1 },
         { name: 'labelsFile', maxCount: 1 },
     ])
@@ -33,7 +32,7 @@ Router.post('/annotation/upload',
             annotationLogger.log(`[${new Date().toLocaleString()}]: start ST screening`)
             execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
             // send mail
-            ctx.request.body.emailAddress === undefined || sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
+            ctx.request.body.emailAddress === "undefined" || sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
     }).catch((err)=>{
         annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
     })

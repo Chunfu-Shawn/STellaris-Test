@@ -4,26 +4,10 @@ import {Space, Row, Col} from 'antd';
 import Guidance from "../components/Annotation/index/Guidance";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
-import React, {useState} from "react";
+import React from "react";
 import UploadModule from "../components/Annotation/index/UploadModule";
 
-/*
-export async function getServerSideProps() {
-    const SERVER_URL = process.env.NODE_ENV==="production"? process.env.PRODUCTION_URL : 'http://localhost:3000'
-    return{
-        props:{
-            SERVER_URL: SERVER_URL
-        }
-    }
-}
- */
-
-export default function Annotation(props) {
-    const [value, setValue] = useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+export default function Mapping() {
 
     return (
         <LayoutCustom>
@@ -56,7 +40,7 @@ export default function Annotation(props) {
                                     {
                                         fontSize:"46px",
                                     }
-                                }>Spatial Annotation</h1>
+                                }>Spatial Mapping</h1>
                                 <Link href={'/help/manual/annotation'}>
                                     <a target={'_blank'} rel={"noreferrer"}>
                                         <QuestionCircleOutlined  style={{fontSize:"20px",color:"#2b1970"}}/>

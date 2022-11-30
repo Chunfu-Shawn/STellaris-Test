@@ -1,5 +1,7 @@
-import {Form, Button, message, Upload} from "antd";
-import {UploadOutlined} from "@ant-design/icons";
+import {Form, Button, message, Upload, Row, Col, Tooltip} from "antd";
+import {UploadOutlined,QuestionCircleOutlined} from "@ant-design/icons";
+import Link from "next/link.js";
+import Image from "next/image";
 
 export default function MatrixFileUpload(props){
 
@@ -47,18 +49,46 @@ export default function MatrixFileUpload(props){
         fileList:props.fileList.slice(-1),//保留最后一个文件
     };
 
+    const  toolTipText = <>
+        <span>&gt; File Context:</span><br/>
+        <span>
+            This file contains gene expression (raw counts) values in which <b style={{color:"#a680ff"}}>columns are genes </b>
+            presented with gene names identifier (Ensembl IDs or HGNC symbol name) and
+            <b style={{color:"#a680ff"}}> rows are cell IDs</b>. Formats accepted are .csv .tsv and .txt in .gz/zip
+            compression. Click on 'Question' to see more.
+        </span><br/>
+        <span>&gt; Example:</span><br/>
+        <Image src={`/images/counts_matrix_example.png`} alt="..." width={400} height={220}/>
+    </>
+
     return(
-        <Form.Item name="matrixFile" label="Count Matrix File"
-                   rules={[
-                       {
-                           required: true,
-                       },
-                   ]}
-        >
-            <Upload {...settingMatrix} maxCount={1}>
-                <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a count matrix file</Button>
-                <small style={{color:"gray"}}> (only a .gz/zip format file)</small>
-            </Upload>
-        </Form.Item>
+        <Row justify={"start"}>
+            <Col span={16}>
+                <Form.Item name="matrixFile" label="Count Matrix File"
+                           rules={[
+                               {
+                                   required: true,
+                               },
+                           ]}
+                >
+                    <Upload {...settingMatrix} maxCount={1}>
+                        <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a count matrix file</Button>
+                    </Upload>
+                </Form.Item>
+            </Col>
+            <Col span={7}>
+                <small style={{color:"gray"}}> (only a .gz/zip format file) </small>
+                <Link href={'help/manual/annotation#format_uploaded_files'} target={"_blank"}>
+                    <a target={'_blank'} rel={"noreferrer"}>
+                        <Tooltip placement="topLeft"
+                                 title={toolTipText}
+                                 overlayInnerStyle={{width:400}}
+                        >
+                            <QuestionCircleOutlined />
+                        </Tooltip>
+                    </a>
+                </Link>
+            </Col>
+        </Row>
     )
 }
