@@ -20,13 +20,11 @@ export function uploadRecord(ctx) {
             const now = new Date()
             const uploadTimeP = now.toISOString()
             const YMD = String(now.getFullYear()) + (now.getMonth() + 1) + now.getDate()
-            // 连接数据库
-            connection.connect()
-            let rid, email, species, organ, tissue, matrixFilePath, labelsFilePath
+            const rid = uuidv1()
+            let email, species, organ, tissue, matrixFilePath, labelsFilePath
             // whether the request is to run demo
             if (ctx.request.body.isDemo === "false") {
                 // read the uploaded form
-                rid = ctx.request.files['matrixFile'][0].destination.split('/')[3]
                 email = ctx.request.body.emailAddress === "undefined" ? "no email" : ctx.request.body.emailAddress
                 species = ctx.request.body.species
                 organ = ctx.request.body.organ
@@ -35,8 +33,23 @@ export function uploadRecord(ctx) {
                     ctx.request.files['matrixFile'][0].filename
                 labelsFilePath = ctx.request.files['labelsFile'][0].destination + '/' +
                     ctx.request.files['labelsFile'][0].filename
+                // 如果文件上传成功，转移文件到特定目录
+                const dir = 'public/uploads/' + YMD +'/' + rid
+                fs.mkdirSync(dir, {
+                    //是否使用递归创建目录
+                    recursive: true
+                })
+                fs.rename(matrixFilePath, dir + '/' + ctx.request.files['matrixFile'][0].filename,
+                    function (err) {
+                        if (err) throw err;
+                    });
+                fs.rename(labelsFilePath, dir + '/' + ctx.request.files['labelsFile'][0].filename,
+                    function (err) {
+                        if (err) throw err;
+                    });
+                matrixFilePath = dir + '/' + ctx.request.files['matrixFile'][0].filename
+                labelsFilePath = dir + '/' + ctx.request.files['labelsFile'][0].filename
             } else if (ctx.request.body.isDemo === "true") {
-                rid = uuidv1()
                 email = 'no email'
                 species = 'Mus musculus'
                 organ = 'Brain'
@@ -55,19 +68,6 @@ export function uploadRecord(ctx) {
             const datasetID = null
             const sectionID = null
             const status = 'ready'
-            // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
-            let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
-            connection.query(insertSql, [rid, title, email, species, organ, tissue, matrixFilePath, labelsFilePath,
-                    resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, status],
-                (err) => {
-                    if (err) {
-                        annotationLogger.log(`[${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
-                    } else {
-                        connection.end(() => {
-                            annotationLogger.log(`[${new Date().toLocaleString()}]: Add a annotation record into MySQL successfully.`)
-                        })
-                    }
-                })
 
             //创建输出目录
             fs.mkdirSync(resultPath, {
@@ -94,6 +94,23 @@ export function uploadRecord(ctx) {
                 JSON.stringify(ctx.request) + '\n',
                 {flag: "w"}
             );
+
+            // 连接数据库
+            connection.connect()
+            // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
+            let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
+            connection.query(insertSql, [rid, title, email, species, organ, tissue, matrixFilePath, labelsFilePath,
+                    resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, status],
+                (err) => {
+                    if (err) {
+                        annotationLogger.log(`[${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
+                    } else {
+                        connection.end(() => {
+                            annotationLogger.log(`[${new Date().toLocaleString()}]: Add a annotation record into MySQL successfully.`)
+                        })
+                    }
+                })
+
             resolve([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath])
         } catch (err) {
             reject(err)

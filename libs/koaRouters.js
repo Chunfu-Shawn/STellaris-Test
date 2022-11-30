@@ -17,26 +17,26 @@ export const Router = router()
 // 上传文件的路由
 Router.post('/annotation/upload',
     uploadFile().fields([
-        { name: 'matrixFile', maxCount: 1 },
-        { name: 'labelsFile', maxCount: 1 },
-    ])
-    , async (ctx) => {
-    uploadRecord(ctx).then(
-        async ([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath]) => {
-            ctx.body = {rid: rid}
-            annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
-            // run sections matching species, organ and tissue
-            const [datasets, sections] =
-                await selectSection(resultPath, species, organ, tissue)
-            // run section blast
-            annotationLogger.log(`[${new Date().toLocaleString()}]: start ST screening`)
-            execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
-            // send mail
-            ctx.request.body.emailAddress === "undefined" || sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
-    }).catch((err)=>{
-        annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
-    })
-})
+        {name: 'matrixFile', maxCount: 1},
+        {name: 'labelsFile', maxCount: 1},
+    ]),
+    async (ctx) =>
+        uploadRecord(ctx).then(
+            async ([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath]) => {
+                ctx.body = {rid: rid}
+                annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
+                // run sections matching species, organ and tissue
+                const [datasets, sections] =
+                    await selectSection(resultPath, species, organ, tissue)
+                // run section blast
+                annotationLogger.log(`[${new Date().toLocaleString()}]: start ST screening`)
+                execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
+                // send mail
+                ctx.request.body.emailAddress === "undefined" || sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
+            }).catch((err)=>{
+                annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
+            })
+)
 
 // run audition 的路由
 Router.post('/annotation/demo', async (ctx) =>

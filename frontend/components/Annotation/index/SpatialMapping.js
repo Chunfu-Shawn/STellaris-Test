@@ -1,9 +1,9 @@
-import {Button, Form, Input, message, Popconfirm, Dropdown, Menu} from "antd";
-import SelectSpeciesOrganTissue from "./index/SelectSpeciesOrganTissue";
-import MatrixFileUpload from "./index/MatrixFileUpload";
-import LabelsFileUpload from "./index/LabelsFileUpload";
-import RunExampleModule from "./index/RunExampleModule"
-import {throttle} from "../util";
+import {Button, Form, Input, message} from "antd";
+import SelectSpeciesOrganTissue from "./SelectSpeciesOrganTissue";
+import MatrixFileUpload from "./MatrixFileUpload";
+import LabelsFileUpload from "./LabelsFileUpload";
+import RunExampleModule from "./RunExampleModule"
+import {throttle} from "../../util";
 import {useState} from "react";
 import {useRouter} from "next/router";
 
@@ -101,7 +101,7 @@ export default function SpatialMapping(props){
 
     return(
         <Form {...layout} layout={'horizontal'} form={form}
-              onFinish={throttle(2000,handleUpload)}
+              onFinish={throttle(1000,handleUpload)}
               name="control-hooks"
               validateMessages={validateMessages}
               style={{width:600}}>

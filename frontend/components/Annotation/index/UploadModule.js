@@ -1,5 +1,5 @@
 import {Tabs} from "antd";
-import SpatialMapping from "../SpatialMapping";
+import SpatialMapping from "./SpatialMapping";
 import React from "react";
 import {data, getAnnotationOptions} from "../../Datasets/getData&Options";
 
