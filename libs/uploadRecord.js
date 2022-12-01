@@ -53,8 +53,8 @@ export function uploadRecord(ctx) {
                 species = 'Mus musculus'
                 organ = 'Brain'
                 tissue = 'Brain'
-                matrixFilePath = 'public/uploads/test1/counts.csv.gz'
-                labelsFilePath = 'public/uploads/test1/labels.csv.gz'
+                matrixFilePath = 'public/uploads/example1/counts.csv.gz'
+                labelsFilePath = 'public/uploads/example1/labels.csv.gz'
             } else {
                 reject(`[${new Date().toLocaleString()}] Error: There is wrong in request body.`)
             }

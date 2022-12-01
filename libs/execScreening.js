@@ -25,7 +25,7 @@ export async function execScreening(rid, matrixFilePath, labelsFilePath, dataset
     } else if (!fs.existsSync(matrixFilePath) && !fs.existsSync(labelsFilePath)) {
         //如果空间数据不存在
         await setJobStatus(rid, "screen_finish_time", "error")
-        annotationLogger.log(`[${new Date().toLocaleString()}] Error: scRNA-seq data not fount !`)
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: scRNA-seq data not found !`)
     } else {
         try {
             annotationLogger.log(`[${new Date().toLocaleString()}]: ST screening running...`)
