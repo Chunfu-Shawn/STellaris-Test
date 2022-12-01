@@ -11,6 +11,7 @@ export default function Preprocessing(){
     const annContext = useContext(AnnContext);
     const sectionId = annContext.reqInfo.section_id
     const datasetInfo = annContext.result.datasetInfo
+    const scMeta = JSON.parse(annContext.result.scMeta)
 
     const items = [
         {
@@ -33,8 +34,8 @@ export default function Preprocessing(){
                         </Descriptions.Item>
                         <Descriptions.Item label="Organ" span={1.5}>{datasetInfo.organ}</Descriptions.Item>
                         <Descriptions.Item label="Tissue" span={2}>{datasetInfo.tissue}</Descriptions.Item>
-                        <Descriptions.Item label="PMID" span={1}>{datasetInfo.pmid}</Descriptions.Item>
-                        <Descriptions.Item label="DOI" span={2}>{datasetInfo.url}</Descriptions.Item>
+                        <Descriptions.Item label="PMID" span={1}>{datasetInfo.pmid || "--"}</Descriptions.Item>
+                        <Descriptions.Item label="DOI" span={2}>{datasetInfo.url || "--"}</Descriptions.Item>
                     </Descriptions>
                 </Card>
         },
@@ -42,8 +43,8 @@ export default function Preprocessing(){
             label: 'Submitted scRNA-seq data', key: '2', children:
                 <>
                     <Descriptions size={"small"} bordered>
-                        <Descriptions.Item label="Filtered Cell Count" span={1.5}>10322</Descriptions.Item>
-                        <Descriptions.Item label="Gene Number" span={1.5}>23232</Descriptions.Item>
+                        <Descriptions.Item label="Retained Cell Number" span={1.5}>{scMeta.Cell_number}</Descriptions.Item>
+                        <Descriptions.Item label="Gene Number" span={1.5}>{scMeta.Gene_number}</Descriptions.Item>
                     </Descriptions>
                     <CellCountBarChart/>
                 </>
@@ -54,7 +55,7 @@ export default function Preprocessing(){
             <a id={"Preprocessing"} style={{position: 'relative', top: "-200px"}}></a>
             <Divider orientation="left" orientationMargin="0">
                 <span style={{fontSize:22}}>Preprocessing </span>
-                <Link href={'/help/manual/annotation#preprocessing'}>
+                <Link href={'/help/manual/mapping#preprocessing'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>

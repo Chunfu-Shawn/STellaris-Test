@@ -144,7 +144,7 @@ export default function LigandsReceptorsDotplot(props) {
     return(
         <>
             <p style={{fontSize:16,marginBottom:10,height:50,width:450}}>
-                Ligands and receptors interactions in microenvironment:
+                Ligand and receptor interactions in microenvironment:
                 <b> {props.env}</b></p>
             <div ref={chartRef} style={{height:1200,width:650}}></div>
         </>

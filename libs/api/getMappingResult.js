@@ -4,6 +4,7 @@ import {getDatasetsInfo} from "./getDatasetsInfo.js";
 
 export async function getMappingResult(datasetId, resultPath){
     return new Promise(async (resolve, reject) => {
+        let scMeta
         let umapPrep
         let umapFilter
         let cellPrep
@@ -17,6 +18,8 @@ export async function getMappingResult(datasetId, resultPath){
         let dotPlot
 
         try {
+            scMeta = fs.readFileSync(
+                resultPath + '/out/json/meta_info.preprocessing.json', 'utf8');
             umapPrep = fs.readFileSync(
                 resultPath + '/out/json/umap.preprocessing.json', 'utf8');
             umapFilter = fs.readFileSync(
@@ -60,6 +63,7 @@ export async function getMappingResult(datasetId, resultPath){
         const datasetInfo = await getDatasetsInfo(datasetId)
 
         let data = {
+            scMeta: scMeta,
             umapPrep: umapPrep,
             umapFilter: umapFilter,
             cellPrep: cellPrep,

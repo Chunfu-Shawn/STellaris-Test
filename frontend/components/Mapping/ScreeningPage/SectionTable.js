@@ -40,7 +40,7 @@ export default function SectionTable() {
         console.log(a)
         data.push(a);
     }
-    const ANN_URL = `/annotation/annotate/`
+    const ANN_URL = `/mapping/annotate/`
 
     // 开始注释
     const handleOk = () => {

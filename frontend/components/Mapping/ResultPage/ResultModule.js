@@ -96,7 +96,7 @@ export default function ResultModule(){
                             </Col>
                             <Col span={8} offset={8}>
                                 <a key={2} href={`#Download`} >
-                                    <Tooltip title="Download All Results">
+                                    <Tooltip title="Download Results">
                                         <DownloadOutlined  style={iconStyle}/>
                                     </Tooltip>
                                 </a>

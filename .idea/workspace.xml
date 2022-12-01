@@ -6,8 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/execScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execScreening.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/LigandsReceptorsDotplot.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/LigandsReceptorsDotplot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/LigandsReceptorsNetwork.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/LigandsReceptorsNetwork.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/Preprocessing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/Preprocessing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultDownload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultDownload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/SectionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/SectionTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/contact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getMappingResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getMappingResult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +150,7 @@
       <workItem from="1669553517176" duration="1878000" />
       <workItem from="1669609127041" duration="22563000" />
       <workItem from="1669691000460" duration="15767000" />
-      <workItem from="1669778985588" duration="40510000" />
+      <workItem from="1669778985588" duration="49785000" />
     </task>
     <servers />
   </component>

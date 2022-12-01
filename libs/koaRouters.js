@@ -67,11 +67,11 @@ Router.post('/mapping/annotate', async (ctx) => {
             const record = await getJobInfo(rid)
             const resultPath = record.result_path
             const species = record.species
-            annotationLogger.log(`[${new Date().toLocaleString()}]: start annotate`)
+            annotationLogger.log(`[${new Date().toLocaleString()}]: start mapping`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
             await execNicheAnchor(rid, datasetId, sectionId, cutoff, bandWidth, species, resultPath);
         } catch (err) {
-            annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in Annotating: ${err}`)
+            annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in NicheAnchor: ${err}`)
         }
     }
 )
