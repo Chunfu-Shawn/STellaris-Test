@@ -9,7 +9,7 @@ const items = [
         label: 'Manual', key: 'manual', icon: <CompassOutlined />,
         children: [
             { label: <Link href={'/help/manual/datasets'}>Datasets</Link>, key: 'manual_datasets' },
-            { label: <Link href={'/help/manual/annotation'}>Spatial Annotation</Link>, key: 'manual_annotation'},
+            { label: <Link href={'/help/manual/mapping'}>Spatial Mapping</Link>, key: 'manual_mapping'},
             { label: <Link href={'/help/manual/browser'}>Gene Browser</Link>, key: 'manual_browser'}
         ],
     },
@@ -17,7 +17,7 @@ const items = [
         label: 'Example Usage', key: 'example', icon: <PushpinOutlined />,
         children: [
             { label: <Link href={'/help/example/datasets'}>Datasets</Link>, key: 'example_datasets' },
-            { label: <Link href={'/help/example/annotation'}>Spatial Annotation</Link>, key: 'example_annotation'},
+            { label: <Link href={'/help/example/mapping'}>Spatial Mapping</Link>, key: 'example_mapping'},
             { label: <Link href={'/help/example/browser'}>Gene Browser</Link>, key: 'example_browser'}
         ],
     },

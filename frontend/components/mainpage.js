@@ -2,7 +2,7 @@ import PlaceHolder from "./MainPage/PlaceHolder.js";
 import IntroductionModule from "./MainPage/IntroductionModule.js";
 import {Divider, Row} from "antd";
 import React from "react";
-import UploadModule from "./Annotation/index/UploadModule";
+import UploadModule from "./Mapping/index/UploadModule";
 import GuidanceMain from "./MainPage/GuidanceMain";
 import GeneBrowserMain from "./MainPage/GeneBrowserMain";
 
@@ -40,9 +40,9 @@ export default function MainPage() {
                     <PlaceHolder title={"ST Datasets"}
                                  context={"ST Datasets Archive providing data basic information, data visualization and data download."}
                                  link={"/datasets"} pic={"picture1.png"}/>
-                    <PlaceHolder title={"Spatial Annotation"}
+                    <PlaceHolder title={"Spatial Mapping"}
                                  context={"A tool to predict spatial location of submitted scRNA-seq referred to matched ST data from datasets archive."}
-                                 link={"/annotation"} pic={"picture2.png"}/>
+                                 link={"/mapping"} pic={"picture2.png"}/>
                     <PlaceHolder title={"Gene Browser"}
                                  context={"A tool to search for spatial expression profile of interested genes out of ST datasets archive across multi organs and tissues."}
                                  link={"/browser"} pic={"picture3.png"}/>
@@ -52,8 +52,8 @@ export default function MainPage() {
                                         pic={"/images/index/Datasets.svg"}
                                         context={contextHolder}
                     /><br/>
-                    <IntroductionModule title={"Spatial Annotation Tool"} link={"/annotation"}
-                                        pic={"/images/index/Annotation.svg"}
+                    <IntroductionModule title={"Spatial Mapping Tool"} link={"/mapping"}
+                                        pic={"/images/index/Mapping.svg"}
                                         context={contextHolder}
                     /><br/>
                     <IntroductionModule title={"Gene Browser"}  link={"/browser"}

@@ -10,9 +10,9 @@ const options = {
 }
 
 export function setJobStatus(rid, time, status) {
-    try {
+    return new Promise( (resolve, reject)=>{
         if(!(time === "screening" || "selecting" || "running" || "finished" || "error")) {
-            throw "incorrect status when set job status in MySQL"
+            reject("incorrect status when set job status in MySQL")
         }
         let finishTime = new Date()
         let connection = mysql.createConnection(options)
@@ -24,10 +24,12 @@ export function setJobStatus(rid, time, status) {
         connection.query(updateSql, [status, finishTime.toISOString(), rid], (err) => {
             if (err) {
                 annotationLogger.log(`[${new Date().toLocaleString()}] Error: there is error happened in MySQL: ${err.message}`)
-            } else annotationLogger.log(`[${new Date().toLocaleString()}]: Set the status of ${rid} to "${status}" in MySQL.`)
+            } else {
+                annotationLogger.log(`[${new Date().toLocaleString()}]: Set the status of ${rid} to "${status}" in MySQL.`)
+                //resolve 放在query回调函数里面
+                resolve()
+            }
         });
         connection.end()
-    }catch (e){
-        annotationLogger.log(`[${new Date().toLocaleString()}] Error: there is error happened in MySQL: ${err}`)
-    }
+    })
 }

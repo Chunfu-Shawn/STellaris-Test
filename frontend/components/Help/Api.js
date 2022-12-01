@@ -167,9 +167,9 @@ export default function HelpAPI() {
                     <Divider/>
                     <Divider/>
                     <h3>Spatial Mapping Result</h3>
-                    <h4>1. job-status</h4>
+                    <h4>1. job-info</h4>
                     <div>
-                        <p>This resource represents one annotation status about your job.</p>
+                        <p>This resource represents some information about your job.</p>
                         <p><b>Need one argument:</b></p>
                         <ul>
                             <code>Job ID</code>
@@ -206,7 +206,7 @@ export default function HelpAPI() {
                         </ul>
                         <p><b>Example:</b></p>
                         <ul>
-                            <li><code>https://spatial.rhesusbase.com/api/annotation-result/h5ad/sc/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            <li><code>https://spatial.rhesusbase.com/api/mapping-result/h5ad/sc/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
                             <li>Result: <code>sc_rigistered.h5ad</code>
                             </li>
                         </ul>
@@ -225,7 +225,7 @@ export default function HelpAPI() {
                         </ul>
                         <p><b>Example:</b></p>
                         <ul>
-                            <li><code>https://spatial.rhesusbase.com/api/annotation-result/table/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            <li><code>https://spatial.rhesusbase.com/api/mapping-result/table/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
                             <li>Result: <code>table.tar.gz</code>
                             </li>
                         </ul>
@@ -243,7 +243,7 @@ export default function HelpAPI() {
                         </ul>
                         <p><b>Example:</b></p>
                         <ul>
-                            <li><code>https://spatial.rhesusbase.com/api/annotation-result/pdf/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
+                            <li><code>https://spatial.rhesusbase.com/api/mapping-result/pdf/8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
                             <li>Result: <code>pdf.tar.gz</code>
                             </li>
                         </ul>

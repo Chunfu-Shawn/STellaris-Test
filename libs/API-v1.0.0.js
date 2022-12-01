@@ -11,7 +11,7 @@ import {getDatasetsList} from "./api/getDatasetsList.js";
 import {getSpatiallyVariableGenes} from "./api/getSpatiallyVariableGenes.js";
 import {getGenesExpressionCorrelation} from "./api/getGenesExpressionCorrelation.js";
 import {getServerTime} from "./api/getServerTime.js";
-import {getAnnotationResult} from "./api/getAnnotationResult.js";
+import {getMappingResult} from "./api/getMappingResult.js";
 import {getMIAResult} from "./api/getMIAResult.js";
 import {getZipFile} from "./api/getZipFile.js";
 import {getLogLine} from "./api/getLogLine.js";
@@ -98,10 +98,10 @@ RouterAPI.get('/api/niche-anchor-log/:rid', async (ctx) => {
     ctx.body = await getLogLine(record.result_path, '/log/nicheAnchor.log')
 })
 
-// Annotation Result fetch
-RouterAPI.get('/api/annotation-result/:rid', async (ctx) => {
+// Mapping Result fetch
+RouterAPI.get('/api/mapping-result/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    ctx.body = await getAnnotationResult(record.dataset_id, record.result_path)
+    ctx.body = await getMappingResult(record.dataset_id, record.result_path)
 })
 
 // submitted counts files fetch
@@ -119,14 +119,14 @@ RouterAPI.get('/api/submitted-files/labels/:rid', async (ctx) => {
 })
 
 // download annotated sc h5ad
-RouterAPI.get('/api/annotation-result/h5ad/sc/:rid', async (ctx) => {
+RouterAPI.get('/api/mapping-result/h5ad/sc/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.set('Content-disposition', 'attachment; filename=' + "sc_registered.h5ad")
     ctx.body = fs.readFileSync(record.result_path+"/sc_registered.h5ad")
 })
 
 // table files
-RouterAPI.get('/api/annotation-result/table/:rid', async (ctx) => {
+RouterAPI.get('/api/mapping-result/table/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.set('Content-disposition', 'attachment; filename=' + "results.tar.gz")
     ctx.set('content-type', 'application/x-gzip');
@@ -134,7 +134,7 @@ RouterAPI.get('/api/annotation-result/table/:rid', async (ctx) => {
 })
 
 // pdf files
-RouterAPI.get('/api/annotation-result/pdf/:rid', async (ctx) => {
+RouterAPI.get('/api/mapping-result/pdf/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.set('Content-disposition', 'attachment; filename=' + "figures.tar.gz")
     ctx.set('content-type', 'application/x-gzip');
@@ -142,7 +142,7 @@ RouterAPI.get('/api/annotation-result/pdf/:rid', async (ctx) => {
 })
 
 // all files
-RouterAPI.get('/api/annotation-result/all/:rid', async (ctx) => {
+RouterAPI.get('/api/mapping-result/all/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.set('Content-disposition', 'attachment; filename=' + "all_results.tar.gz")
     ctx.set('content-type', 'application/x-gzip');
@@ -150,13 +150,13 @@ RouterAPI.get('/api/annotation-result/all/:rid', async (ctx) => {
 })
 
 // fetch jsonl or jsonl.idx.json files
-RouterAPI.get('/api/annotation-result/jsonl/:rid/:fileName', async (ctx) => {
+RouterAPI.get('/api/mapping-result/jsonl/:rid/:fileName', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     await getDatasetJsonl(ctx, record.result_path+"/", ctx.params.fileName)
 })
 
 // fetch images files
-RouterAPI.get('/api/annotation-result/jsonl/:rid/images/:fileName', async (ctx) => {
+RouterAPI.get('/api/mapping-result/jsonl/:rid/images/:fileName', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     await getDatasetImage(ctx, record.result_path+"/", ctx.params.fileName)
 })

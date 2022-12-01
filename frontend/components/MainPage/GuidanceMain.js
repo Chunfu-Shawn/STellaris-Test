@@ -15,7 +15,7 @@ export default function GuidanceMain(){
     ]
     const items = [
         {
-            title: "Spatial Annotation",
+            title: "Spatial Mapping",
             description: 'First please fill in the form with "Job Title" and "Email Address" (optional).',
             icon: <SearchOutlined/>
         },

@@ -9,16 +9,15 @@ const options = {
 }
 
 export async function getDatasetsInfo(st_id){
-    let connection = mysql.createConnection(options)
-    // 连接数据库
-    connection.connect()
-    // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
-    let selectSql = st_id==="all" ?
-        `SELECT * FROM datasets_info` :
-        `SELECT * FROM datasets_info WHERE id=?`
-
-    //查询
     return new Promise((resolve, reject) => {
+        let connection = mysql.createConnection(options)
+        // 连接数据库
+        connection.connect()
+        // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
+        let selectSql = st_id==="all" ?
+            `SELECT * FROM datasets_info` :
+            `SELECT * FROM datasets_info WHERE id=?`
+        //查询
         connection.query(selectSql,[st_id],(err, result) => {
             if(err){
                 console.log(err.message);

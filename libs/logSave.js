@@ -2,7 +2,7 @@ import morgan from 'koa-morgan'
 import rfs from "rotating-file-stream" // version 2.x
 
 //add 0 before month
-const pad = num => (num > 9 ? "" : "0") + num;
+export const pad = num => (num > 9 ? "" : "0") + num;
 
 //generate the file path depended on date
 const generator = (nowTime) => {
@@ -16,7 +16,7 @@ const generator = (nowTime) => {
 
 //generate the file path depended on date
 const generator2 = (nowTime) => {
-    if (!nowTime) return "annotation.log";
+    if (!nowTime) return "mapping.log";
     let time = new Date(nowTime.getTime() - 1000*60*60*24);
     let month = time.getFullYear() + "" + pad(time.getMonth() + 1);
     let day = pad(time.getDate());
@@ -31,7 +31,7 @@ const accessLogStream = rfs.createStream(generator, {
 
 const annotationLogStream = rfs.createStream(generator2, {
     interval: '1d', // rotate daily
-    path: 'logs/annotation_requests/'
+    path: 'logs/mapping_requests/'
 })
 
 // 创建注释功能的logger

@@ -1,18 +1,18 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
 import {Space, Row, Col} from 'antd';
-import Guidance from "../components/Annotation/index/Guidance";
+import Guidance from "../components/Mapping/index/Guidance";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
 import React from "react";
-import UploadModule from "../components/Annotation/index/UploadModule";
+import UploadModule from "../components/Mapping/index/UploadModule";
 
 export default function Mapping() {
 
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle +'| Annotation'}</title>
+                <title>{siteTitle +'| Mapping'}</title>
             </Head>
             <Row style={{width:"100vw",minWidth:1440}}>
                 <Col style={{width:"35%"}}>
@@ -41,7 +41,7 @@ export default function Mapping() {
                                         fontSize:"46px",
                                     }
                                 }>Spatial Mapping</h1>
-                                <Link href={'/help/manual/annotation'}>
+                                <Link href={'/help/manual/mapping'}>
                                     <a target={'_blank'} rel={"noreferrer"}>
                                         <QuestionCircleOutlined  style={{fontSize:"20px",color:"#2b1970"}}/>
                                     </a>

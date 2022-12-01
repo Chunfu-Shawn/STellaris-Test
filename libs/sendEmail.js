@@ -16,12 +16,13 @@ export function sendMail(mail, rid, call) {
     let mailOptions = {
         from: 'noreply_bgm@163.com', // 发送方
         to: mail, //接收者邮箱，多个邮箱用逗号间隔
-        subject: 'Spatial Trans Web: the Url of annotations result"', // 标题
+        subject: 'Spatial Niche Anchor: the URL of spatial mapping result"', // 标题
         // text: 'Hello world?', // 文本内容
-        html: '<p>The url of spatial mapping real-time result: <a href="https://spatial.rhesusbase.com/annotation/resultPage/'+rid+
-            '">https://spatial.rhesusbase.com/annotation/resultPage/'+rid+'</a></p>'+
-            '<p>Section Blast and Spatial Mapping will take a long time. For your data security, we will keep the submitted files and result data for <b>a week</b>.</p>'+
-            '<p>This is an automatically sent messages, please do not respond to this email adress, thank you!</p>'+
+        html: '<p>The URL of your real-time spatial mapping result: <a href="https://spatial.rhesusbase.com/mapping/resultPage/'+rid+
+            '">https://spatial.rhesusbase.com/mapping/resultPage/'+rid+'</a></p>'+
+            '<p>Section Blast will take about 2 min and Spatial Mapping will take about 30~40 min. ' +
+            'In order to ensure data security, the submitted files and result data will be deleted after <b>one week</b>.</p>'+
+            '<p>This is an automatically sent message, please do not respond to this email address, thank you!</p>'+
             '<p><small>Best wishes</small></p>'+
             '<p><small>BGM team</small></p>'+
             '<p><small>Institute of Molecular Medicine</small></p>' +

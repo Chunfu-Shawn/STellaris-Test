@@ -15,58 +15,61 @@ export const Router = router()
 // 设置路由，与next.js的路由进行映射
 
 // 上传文件的路由
-Router.post('/annotation/upload',
+Router.post('/mapping/upload',
     uploadFile().fields([
         {name: 'matrixFile', maxCount: 1},
         {name: 'labelsFile', maxCount: 1},
     ]),
-    async (ctx) =>
-        uploadRecord(ctx).then(
-            async ([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath]) => {
-                ctx.body = {rid: rid}
-                annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
-                // run sections matching species, organ and tissue
-                const [datasets, sections] =
-                    await selectSection(resultPath, species, organ, tissue)
-                // run section blast
-                annotationLogger.log(`[${new Date().toLocaleString()}]: start ST screening`)
-                execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
-                // send mail
-                ctx.request.body.emailAddress === "undefined" || sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
-            }).catch((err)=>{
-                annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
-            })
-)
-
-// run audition 的路由
-Router.post('/annotation/demo', async (ctx) =>
-    uploadRecord(ctx).then(
+    async (ctx) => uploadRecord(ctx).then(
         async ([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath]) => {
             ctx.body = {rid: rid}
-            annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: run example data`)
+            annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
             // run sections matching species, organ and tissue
-            const [datasets, sections] =
-                await selectSection(resultPath, species, organ, tissue)
+            const [datasets, sections] = await selectSection(resultPath, species, organ, tissue)
+            return ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath])
+        }).then(
+        ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
             // run section blast
             annotationLogger.log(`[${new Date().toLocaleString()}]: start ST screening`)
             execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
-        },
-    ).catch((err)=>{
-        annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in Screening: ${err}`)
+            // send mail
+            ctx.request.body.emailAddress === "undefined" ||
+            sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
+    }).catch((err)=>{
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
     })
 )
 
-// run annotation 的路由
-Router.post('/annotation/annotate', async (ctx) => {
+// run audition 的路由
+Router.post('/mapping/demo', async (ctx) => uploadRecord(ctx).then(
+    async ([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath]) => {
+        ctx.body = {rid: rid}
+        annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
+        // run sections matching species, organ and tissue
+        const [datasets, sections] = await selectSection(resultPath, species, organ, tissue)
+        return ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath])
+    }).then(
+        ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
+            // run section blast
+            annotationLogger.log(`[${new Date().toLocaleString()}]: start ST screening`)
+            execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
+        })
+    .catch((err)=>{
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
+    })
+)
+
+// run mapping 的路由
+Router.post('/mapping/annotate', async (ctx) => {
         try {
             const { rid, datasetId, sectionId, cutoff, bandWidth } = ctx.request.body
-            setJobDatasetSection(rid, datasetId, sectionId)
+            await setJobDatasetSection(rid, datasetId, sectionId)
             const record = await getJobInfo(rid)
             const resultPath = record.result_path
             const species = record.species
             annotationLogger.log(`[${new Date().toLocaleString()}]: start annotate`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-            execNicheAnchor(rid, datasetId, sectionId, cutoff, bandWidth, species, resultPath);
+            await execNicheAnchor(rid, datasetId, sectionId, cutoff, bandWidth, species, resultPath);
         } catch (err) {
             annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in Annotating: ${err}`)
         }

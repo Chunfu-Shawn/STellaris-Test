@@ -1,7 +1,7 @@
 import fs from "fs"
 import { v1 as uuidv1 } from 'uuid'
 import mysql from 'mysql'
-import {annotationLogger} from "./logSave.js";
+import {annotationLogger, pad} from "./logSave.js";
 // 数据库的配置选项
 
 const options = {
@@ -15,11 +15,10 @@ const options = {
 export function uploadRecord(ctx) {
     return new Promise((resolve, reject) => {
         try {
-            let connection = mysql.createConnection(options)
             // 获取上传时间
             const now = new Date()
             const uploadTimeP = now.toISOString()
-            const YMD = String(now.getFullYear()) + (now.getMonth() + 1) + now.getDate()
+            const YMD = String(now.getFullYear()) + pad(now.getMonth() + 1) + pad(now.getDate())
             const rid = uuidv1()
             let email, species, organ, tissue, matrixFilePath, labelsFilePath
             // whether the request is to run demo
@@ -95,6 +94,7 @@ export function uploadRecord(ctx) {
                 {flag: "w"}
             );
 
+            let connection = mysql.createConnection(options)
             // 连接数据库
             connection.connect()
             // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
@@ -105,9 +105,7 @@ export function uploadRecord(ctx) {
                     if (err) {
                         annotationLogger.log(`[${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
                     } else {
-                        connection.end(() => {
-                            annotationLogger.log(`[${new Date().toLocaleString()}]: Add a annotation record into MySQL successfully.`)
-                        })
+                        annotationLogger.log(`[${new Date().toLocaleString()}]: Add a annotation record into MySQL successfully.`)
                     }
                 })
             connection.end()

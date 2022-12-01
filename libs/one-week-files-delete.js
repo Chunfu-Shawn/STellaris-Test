@@ -1,5 +1,5 @@
 /**
- * NodeJs remove the upload files and annotation results created a week age
+ * NodeJs remove the upload files and mapping results created a week age
  */
 
 import fs from 'fs';

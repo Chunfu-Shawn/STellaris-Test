@@ -43,7 +43,7 @@ export const getSummaryOptions = (dataTemp) => {
     return filterToolbarOption
 }
 
-export const getAnnotationOptions = (dataTemp) => {
+export const getMappingModuleOptions = (dataTemp) => {
     let speciesOptions = ["Homo sapiens","Mus musculus"]
     let organOptions = {}
     let tissueOptions = {}

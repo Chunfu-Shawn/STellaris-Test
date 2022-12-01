@@ -9,14 +9,14 @@ const options = {
 }
 
 export async function getJobInfo(rid) {
-    let connection = mysql.createConnection(options)
-    // 连接数据库
-    connection.connect()
-    // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
-    let selectSql = `SELECT * FROM users_annotation_records WHERE rid=?`
-    // 根据rid查询任务状态
     return new Promise(async (resolve, reject) => {
-        await connection.query(selectSql, [rid], (err, result) => {
+        let connection = mysql.createConnection(options)
+        // 连接数据库
+        connection.connect()
+        // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
+        let selectSql = `SELECT * FROM users_annotation_records WHERE rid=?`
+        // 根据rid查询任务状态
+        connection.query(selectSql, [rid], (err, result) => {
             if (err) {
                 console.log(err.message);
                 reject(err);

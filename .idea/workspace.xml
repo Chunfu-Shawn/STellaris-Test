@@ -5,9 +5,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/example/mapping.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/LabelsFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/LabelsFileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/MatrixFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Annotation/index/MatrixFileUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/AnnotationSteps.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/MappingSteps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/DeNovoAnnotation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ErrorModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ErrorModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ErrorStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ErrorStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ReqStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ReqStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/CellCountBarChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/CellCountBarChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/CellInteractions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/CellInteractions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/DistanceDensityGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/DistanceDensityGraph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/InteractionsHeatmap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/InteractionsHeatmap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/JSDHeatmap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/JSDHeatmap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/LigandsReceptorsDotplot.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/LigandsReceptorsDotplot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/LigandsReceptorsNetwork.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/LigandsReceptorsNetwork.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/LoadingModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/LoadingModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/MSTNetwork.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/MSTNetwork.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/MappedCellCountBarGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/MappedCellCountBarGraph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/Preprocessing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/Preprocessing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultDownload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultDownload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultPageSiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultPageSiderMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/ResultStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/UMAPScatter.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/UMAPScatter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ResultPage/UmapFilteredCellCountBarGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/UmapFilteredCellCountBarGraph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/ScoreBarGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/ScoreBarGraph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/ScreenStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/ScreenStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/ScreeningModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/ScreeningModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SectionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/SectionTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/ScreeningPage/SelectTableModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/SelectTableModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/WaitModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/WaitModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/BarcodesFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/BarcodesFileUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/Guidance.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/Guidance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/LabelsFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/LabelsFileUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/MatrixFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/MatrixFileUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/RunExampleModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/RunExampleModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/SelectSpeciesOrganTissue.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/SelectSpeciesOrganTissue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/SpatialMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/SpatialMapping.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Annotation/index/UploadModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/UploadModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/getData&amp;Options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Example/AnnotationModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Example/MappingModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualAnnotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/SiderStaticMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/SiderStaticMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/GuidanceMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/GuidanceMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/mainpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/annotation/resultPage/[rid].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/mapping/resultPage/[rid].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/example/annotation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/manual/annotation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help/manual/mapping.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/mapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/mapping.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/API-v1.0.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/API-v1.0.0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getAnnotationResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getMappingResult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getDatasetsInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getDatasetsInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/api/getJobInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getJobInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/execNicheAnchor.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execNicheAnchor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/execScreening.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execScreening.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/logSave.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/logSave.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/one-week-files-delete.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/one-week-files-delete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/removeUploadFiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/removeUploadFiles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/selectSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/selectSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/sendEmail.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/sendEmail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/setJobDatasetSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/setJobDatasetSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/setJobStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/setJobStatus.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,8 +139,8 @@
       <recent name="$PROJECT_DIR$/frontend/components/Annotation/ResultPage" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.getAnnotationResult.js">
-    <configuration name="getAnnotationResult.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/libs/api/getAnnotationResult.js" working-dir="$PROJECT_DIR$/libs/api">
+  <component name="RunManager" selected="Node.js.getMappingResult.js">
+    <configuration name="getMappingResult.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/libs/api/getMappingResult.js" working-dir="$PROJECT_DIR$/libs/api">
       <method v="2" />
     </configuration>
     <configuration name="loveMie.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/public/files/loveMie.js" working-dir="$PROJECT_DIR$/public/files">
@@ -144,7 +204,7 @@
       <workItem from="1669553517176" duration="1878000" />
       <workItem from="1669609127041" duration="22563000" />
       <workItem from="1669691000460" duration="15767000" />
-      <workItem from="1669778985588" duration="25834000" />
+      <workItem from="1669778985588" duration="39008000" />
     </task>
     <servers />
   </component>
