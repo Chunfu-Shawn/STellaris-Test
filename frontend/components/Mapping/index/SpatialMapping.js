@@ -6,6 +6,7 @@ import RunExampleModule from "./RunExampleModule"
 import {throttle} from "../../util";
 import {useState} from "react";
 import {useRouter} from "next/router";
+import axios from "axios";
 
 
 export default function SpatialMapping(props){
@@ -28,12 +29,17 @@ export default function SpatialMapping(props){
 
     // 手动上传表单
     const handleUpload = () => {
-        let rid = ""
         const formData = new FormData();
         matrixFileList.forEach((file) => {
+            file.percent = 0
+            file.status = 'uploading'
+            setMatrixFileList([file])
             formData.append('matrixFile', file);
         });
         labelsFileList.forEach((file) => {
+            file.percent = 0
+            file.status = 'uploading'
+            setLabelsFileList([file])
             formData.append('labelsFile', file);
         });
         formData.append('title',form.getFieldValue('title'))
@@ -42,15 +48,33 @@ export default function SpatialMapping(props){
         formData.append('organ',organ)
         formData.append('tissue',tissue)
         formData.append('isDemo',"false")
-        setUploading(true); // You can use any AJAX library you like
-        fetch(UPLOAD_URL, {
-            method: 'POST',
-            body: formData,
-        }).then(response => response.json())
-            .then(json => rid = json.rid)
-            .then(() => {
-                setMatrixFileList([]);
-                setLabelsFileList([]);
+        setUploading(true);
+        // You can use any AJAX library you like
+        axios({
+            method: 'post',
+            url: UPLOAD_URL,
+            data: formData,
+            onUploadProgress: progressEvent => {
+                matrixFileList.forEach((file) => {
+                    file.percent = (progressEvent.loaded / progressEvent.total * 100 | 0);
+                    setMatrixFileList([file])
+                })
+                labelsFileList.forEach((file) => {
+                    file.percent = (progressEvent.loaded / progressEvent.total * 300  | 0);
+                    setLabelsFileList([file])
+                });
+            },
+        }).then(response => response.data)
+            .then(json => json.rid)
+            .then(rid => {
+                matrixFileList.forEach((file) => {
+                    file.status = 'done'
+                    setMatrixFileList([file])
+                });
+                labelsFileList.forEach((file) => {
+                    file.status = 'done'
+                    setLabelsFileList([file])
+                });
                 message.success({
                     content:'upload successfully!',
                     style:{
@@ -61,6 +85,14 @@ export default function SpatialMapping(props){
                 router.push('/mapping/resultPage/'+rid)
             })
             .catch(() => {
+                matrixFileList.forEach((file) => {
+                    file.status = 'error'
+                    setMatrixFileList([file])
+                });
+                labelsFileList.forEach((file) => {
+                    file.status = 'error'
+                    setLabelsFileList([file])
+                });
                 message.error({
                         content:'upload unsuccessfully.',
                         style:{
@@ -70,7 +102,7 @@ export default function SpatialMapping(props){
                     }
                 );
                 setUploading(false);
-                router.reload()
+                //router.reload()
             })
             .finally(() => {
                 setUploading(false);
@@ -140,9 +172,11 @@ export default function SpatialMapping(props){
 
             <MatrixFileUpload setFileList={setMatrixFileList}
                               fileList={matrixFileList}
+                              uploading={uploading}
             />
             <LabelsFileUpload setFileList={setLabelsFileList}
-                                fileList={labelsFileList}
+                              fileList={labelsFileList}
+                              uploading={uploading}
             />
 
             <Form.Item {...tailLayout}>

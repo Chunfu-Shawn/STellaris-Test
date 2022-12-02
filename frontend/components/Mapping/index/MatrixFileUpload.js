@@ -43,12 +43,29 @@ export default function MatrixFileUpload(props){
             return false
         },
         onRemove: (file) => {
-            const index = props.fileList.indexOf(file);
-            const newFileList = props.fileList.slice();
-            newFileList.splice(index, 1);
-            props.setFileList(newFileList);
+            if(props.uploading === false){
+                const index = props.fileList.indexOf(file);
+                const newFileList = props.fileList.slice();
+                newFileList.splice(index, 1);
+                props.setFileList(newFileList);
+            }
+            else
+                message.info({
+                    content:"Can't remove file, upload again if you want to change files.",
+                    style:{
+                        marginTop: '12vh',
+                    },
+                    duration:2,
+                }
+            );
         },
         fileList:props.fileList.slice(-1),//保留最后一个文件
+        progress: {
+            strokeColor: {
+                '0%': '#3f10e9',
+                '100%': '#2e0f8c',
+            },
+        }
     };
 
     const  toolTipText = <>

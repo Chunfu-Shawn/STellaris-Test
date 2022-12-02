@@ -47,33 +47,43 @@ export default function RunExampleModule(props){
             });
     };
     const items=[
-                {
-                    key: '1',
-                    label: (
-                        <Button type={"link"}>
-                            <Link href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
-                                E14.5 Mouse Whole Brain Stereo-seq (finished)
-                            </Link>
-                        </Button>
-                    ),
-                },
-                {
-                    key: '2',
-                    label: (
-                        <Button type={"link"} onClick={throttle(2000,onRunExample("E14.5 Mouse Whole Brain Stereo-seq"))}>
-                            E14.5 Mouse Whole Brain Stereo-seq
-                        </Button>
-                    ),
-                },
-                {
-                    key: '3',
-                    label: (
-                        <Button type={"link"} onClick={throttle(2000,onRunExample("Mouse Embryo seqFISH"))}>
-                            Mouse Embryo seqFISH
-                        </Button>
-                    ),
-                },
-            ]
+        {
+            key: '1',
+            label: (
+                <Button type={"link"}>
+                    <Link href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
+                        E14.5 Mouse Whole Brain Stereo-seq (FINISHED)
+                    </Link>
+                </Button>
+            ),
+        },
+        {
+            key: '2',
+            label: (
+                <Button type={"link"} onClick={throttle(2000,onRunExample("E14.5 Mouse Whole Brain Stereo-seq"))}>
+                    E14.5 Mouse Whole Brain Stereo-seq
+                </Button>
+            ),
+        },
+        {
+            key: '3',
+            label: (
+                <Button type={"link"}>
+                    <Link href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
+                        Mouse Embryo seqFISH (FINISHED)
+                    </Link>
+                </Button>
+            ),
+        },
+        {
+            key: '4',
+            label: (
+                <Button type={"link"} onClick={throttle(2000,onRunExample("Mouse Embryo seqFISH"))}>
+                    Mouse Embryo seqFISH
+                </Button>
+            ),
+        },
+    ]
 
     return(
         <Dropdown

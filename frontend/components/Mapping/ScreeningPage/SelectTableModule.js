@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
 import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
-import {Col, Divider, Row, Steps} from "antd";
+import {Col, Divider, Row} from "antd";
 import SectionTable from "./SectionTable";
 import ScoreBarGraph from "./ScoreBarGraph";
 import ScreenStatus from "../ScreeningPage/ScreenStatus";
@@ -14,8 +14,8 @@ export default function SelectTableModule(){
             <MappingSteps current={2}/>
             <Divider/>
             <Row justify="center" align="top" style={{marginTop:20,textAlign:"left"}}>
-                <Col span={6} style={{margin: "30px 5px"}}>
-                    <h2>Screening Results</h2>
+                <Col span={7} style={{margin: "30px 5px"}}>
+                    <h2>Section Blast Result</h2>
                     <AttributeLayout attribute={"Species"}>{annContext.reqInfo.species}</AttributeLayout>
                     <AttributeLayout attribute={"Organ"}>{annContext.reqInfo.organ}</AttributeLayout>
                     <AttributeLayout attribute={"Tissues"}>{annContext.reqInfo.tissue}</AttributeLayout>

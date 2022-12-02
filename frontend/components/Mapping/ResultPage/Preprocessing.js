@@ -21,21 +21,21 @@ export default function Preprocessing(){
                         width: 650,
                     }}
                 >
-                    <Descriptions labelStyle={{fontWeight:"bold"}}>
-                        <Descriptions.Item label="ST ID" span={3}>{datasetInfo.id}</Descriptions.Item>
-                        <Descriptions.Item label="Section ID" span={1.5}>{sectionId}</Descriptions.Item>
-                        <Descriptions.Item label="Method" span={1.5}>{datasetInfo.method}</Descriptions.Item>
-                        <Descriptions.Item label="Species" span={1.5}>{datasetInfo.species}</Descriptions.Item>
-                        <Descriptions.Item label="Strain" span={1.5}>
+                    <Descriptions labelStyle={{fontWeight:"bold"}} column={2}>
+                        <Descriptions.Item label="ST ID" span={1}>{datasetInfo.id}</Descriptions.Item>
+                        <Descriptions.Item label="Section ID" span={1}>{sectionId}</Descriptions.Item>
+                        <Descriptions.Item label="Method" span={1}>{datasetInfo.method}</Descriptions.Item>
+                        <Descriptions.Item label="Species" span={1}>{datasetInfo.species}</Descriptions.Item>
+                        <Descriptions.Item label="Strain" span={1}>
                             {datasetInfo.strain === null ? "--" : datasetInfo.strain}
                         </Descriptions.Item>
-                        <Descriptions.Item label="Developmental Stage" span={3}>
+                        <Descriptions.Item label="Developmental Stage" span={1}>
                             {datasetInfo.developmental_stage === null ? "--" : datasetInfo.developmental_stage}
                         </Descriptions.Item>
-                        <Descriptions.Item label="Organ" span={1.5}>{datasetInfo.organ}</Descriptions.Item>
-                        <Descriptions.Item label="Tissue" span={2}>{datasetInfo.tissue}</Descriptions.Item>
+                        <Descriptions.Item label="Organ" span={1}>{datasetInfo.organ}</Descriptions.Item>
+                        <Descriptions.Item label="Tissue" span={1}>{datasetInfo.tissue}</Descriptions.Item>
                         <Descriptions.Item label="PMID" span={1}>{datasetInfo.pmid || "--"}</Descriptions.Item>
-                        <Descriptions.Item label="DOI" span={2}>{datasetInfo.url || "--"}</Descriptions.Item>
+                        <Descriptions.Item label="DOI" span={1}>{datasetInfo.url || "--"}</Descriptions.Item>
                     </Descriptions>
                 </Card>
         },

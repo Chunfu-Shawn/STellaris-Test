@@ -41,7 +41,7 @@ export default function GuidanceMain(){
             <Steps className={"mainGuidance"} direction="vertical" size="default" current={4} items={items}/>
             <br/>
             <div style={{color:"#efefef",textAlign:"left",font:"bold 18px"}}>
-                CLICK ON <a style={{color:"#7653de",fontSize:16}} href={'/help/example/annotation'}> &quot; Help / Example Usage &quot; </a> TO GET MORE INFORMATION FOR HELP.
+                CLICK ON <a style={{color:"#7653de",fontSize:16}} href={'/help/example/mapping'}> &quot; Help / Example Usage &quot; </a> TO GET MORE INFORMATION FOR HELP.
             </div>
         </>
 

@@ -16,7 +16,7 @@ export default function ScreeningModule(){
             <Row justify="center" align="top" style={{marginTop:20,textAlign:"left"}}>
                 <Col span={8} style={{marginLeft: "40px"}}>
                     <div style={{margin: "40px 0 30px 10px"}}>
-                        <h2>Screening Start</h2>
+                        <h2>Section Blast Start</h2>
                         <AttributeLayout attribute={"Species"}>{annContext.reqInfo.species}</AttributeLayout>
                         <AttributeLayout attribute={"Organ"}>{annContext.reqInfo.organ}</AttributeLayout>
                         <AttributeLayout attribute={"Tissues"}>{annContext.reqInfo.tissue}</AttributeLayout>

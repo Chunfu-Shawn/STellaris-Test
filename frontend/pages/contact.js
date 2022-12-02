@@ -11,7 +11,7 @@ export default function Contact() {
         {
             name: 'Xiangshang Li',
             avatar: "https://joeschmoe.io/api/v1/jean",
-            description: "xiaochunfu@126.com"
+            description: "uplee@pku.edu.cn"
         },
         {
             name: 'Chunfu Xiao',
@@ -21,7 +21,7 @@ export default function Contact() {
         {
             name: 'Juntian Qi',
             avatar: "https://joeschmoe.io/api/v1/james",
-            description: "xiaochunfu@126.com"
+            description: "juntian_qi@stu.pku.edu.cn"
         }
     ];
 
@@ -44,7 +44,7 @@ export default function Contact() {
 
                 <ul className="people" style={{fontSize:16}}>
                     <li><b>Students: </b>Qi Peng, Xiangshang Li, Jie Zhang, Mingjun Ji, Xiaoge Liu,</li>
-                    <li>Ting Li , Chunfu Xiao, Jiaxin Wang, Juntian Qi, Lu Tian, Xinwei Xu</li>
+                    <li>Ting Li, Chunfu Xiao, Jiaxin Wang, Juntian Qi, Lu Tian, Xinwei Xu</li>
                     <li><b>CoPI/Post-Doc Researcher: </b>Dr. Ni N. An, Dr. Wanqiu Ding, Dr. Qing Yu</li>
                     <li><b>PI:</b> Chuan-Yun Li</li>
                 </ul>
@@ -65,11 +65,10 @@ export default function Contact() {
                     itemLayout="horizontal"
                     dataSource={data}
                     size={"large"}
-                    bordered={true}
                     renderItem={(item) => (
                         <List.Item>
                             <List.Item.Meta
-                                avatar={<Avatar src={item.avatar} />}
+                                avatar={<Avatar shape="square" size={"large"} src={item.avatar} />}
                                 title={<b>{item.name}</b>}
                                 description={item.description}
                             />

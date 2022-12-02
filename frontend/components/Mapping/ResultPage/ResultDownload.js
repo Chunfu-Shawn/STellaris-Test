@@ -8,11 +8,13 @@ import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
 
 export default function ResultDownload(){
     const annContext = useContext(AnnContext);
+    const dataset_id = annContext.reqInfo.dataset_id
+    const section_id = annContext.reqInfo.section_id
     const data = [
         {
             title: 'Reference ST Data (h5ad)',
             onClick:() => downloadFile(
-                `https://rhesusbase.com:9999/h5ad_files/${annContext.reqInfo.dataset_id}/${annContext.reqInfo.section_id}.h5ad`),
+                `https://rhesusbase.com:9999/h5ad_files/${dataset_id}/${section_id}/${section_id}.h5ad`),
             description:'Reference ST data with additional metadata, in HDF5 format, ' +
                 'readable with the "anndata" Python package'
         },

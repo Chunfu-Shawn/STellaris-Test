@@ -10,7 +10,7 @@ function FooterCustom(){
                 </p>
                 <p>
                     All Rights Reserved | E-mail:<span> </span>
-                    <a target="_blank"  href="mailto:xiaochunfu528@163.com" rel="noreferrer">
+                    <a target="_blank"  href="mailto:xiaochunfu@stu.pku.edu.cn" rel="noreferrer">
                         <MailOutlined />
                     </a>
                 </p>

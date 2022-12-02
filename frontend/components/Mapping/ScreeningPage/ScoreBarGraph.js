@@ -23,7 +23,7 @@ export default function ScoreBarGraph(props){
                 grid:{
                     top:80,
                     bottom:100,
-                    left:50,
+                    left:80,
                     right:5
                 },
                 toolbox:{

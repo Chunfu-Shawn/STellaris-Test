@@ -17,8 +17,8 @@ export default function MappingSteps(props){
                 <a onClick={handleClick}>Download Files</a></>,
         },
         {
-            title: "ST Screening",
-            description: "Screen reference ST sections by MIA"
+            title: "Section Blast",
+            description: <span>Screen reference ST sections by MIA <b>(about 2 min)</b></span>
         },
         {
             title: "Select a Section",
@@ -26,7 +26,7 @@ export default function MappingSteps(props){
         },
         {
             title: "Mapping",
-            description: "Annotate scRNA-seq spatial location by selected ST data"
+            description: <span>Map scRNA-seq spatial to selected ST data <b>(about 30 min)</b></span>
         },
         {
             title: "Mapping Result",
