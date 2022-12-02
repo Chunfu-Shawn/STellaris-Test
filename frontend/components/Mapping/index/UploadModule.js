@@ -1,8 +1,6 @@
 import {Tabs} from "antd";
 import SpatialMapping from "./SpatialMapping";
 import React from "react";
-import {data, getAnnotationOptions, getMappingModuleOptions} from "../../Datasets/getData&Options";
-
 
 const validateMessages = {
     required: '${label} is required!',
@@ -17,16 +15,12 @@ const validateMessages = {
         max: "'${name}' cannot be longer than ${max} characters",
     }
 };
-const {speciesOptions,organOptions,tissueOptions} = getMappingModuleOptions(data);
 
 export default function UploadModule(){
     const items =[
         { label: 'Spatial Mapping of scRNA-seq', key: 'item-1', children:
                 <SpatialMapping
                     validateMessages={validateMessages}
-                    speciesOptions={speciesOptions}
-                    organOptions={organOptions}
-                    tissueOptions={tissueOptions}
                 />
         }// 务必填写 key
     ]

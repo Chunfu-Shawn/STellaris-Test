@@ -21,6 +21,15 @@ export function uploadRecord(ctx) {
             const YMD = String(now.getFullYear()) + pad(now.getMonth() + 1) + pad(now.getDate())
             const rid = uuidv1()
             let email, species, organ, tissue, matrixFilePath, labelsFilePath
+            const title = ctx.request.body.title
+            const resultPath = 'public/results/' + YMD + '/' + rid
+            const uploadTime = uploadTimeP
+            const screenFinishTime = null
+            const annStartTime = null
+            const annFinishTime = null
+            const datasetID = null
+            const sectionID = null
+            const status = 'ready'
             // whether the request is to run demo
             if (ctx.request.body.isDemo === "false") {
                 // read the uploaded form
@@ -49,24 +58,18 @@ export function uploadRecord(ctx) {
                 matrixFilePath = dir + '/' + ctx.request.files['matrixFile'][0].filename
                 labelsFilePath = dir + '/' + ctx.request.files['labelsFile'][0].filename
             } else if (ctx.request.body.isDemo === "true") {
-                email = 'no email'
-                species = 'Mus musculus'
-                organ = 'Brain'
-                tissue = 'Brain'
-                matrixFilePath = 'public/uploads/example1/counts.csv.gz'
-                labelsFilePath = 'public/uploads/example1/labels.csv.gz'
+                // different example
+                if( title === "E14.5 Mouse Whole Brain Stereo-seq"){
+                    matrixFilePath = 'public/uploads/example1_3k/counts_3k.csv.gz'
+                    labelsFilePath = 'public/uploads/example1_3k/labels_3k.csv.gz'
+                    email = 'no email'
+                    species = 'Mus musculus'
+                    organ = 'Brain'
+                    tissue = 'Brain'
+                }
             } else {
                 reject(`[${new Date().toLocaleString()}] Error: There is wrong in request body.`)
             }
-            const title = ctx.request.body.title
-            const resultPath = 'public/results/' + YMD + '/' + rid
-            const uploadTime = uploadTimeP
-            const screenFinishTime = null
-            const annStartTime = null
-            const annFinishTime = null
-            const datasetID = null
-            const sectionID = null
-            const status = 'ready'
 
             //创建输出目录
             fs.mkdirSync(resultPath, {

@@ -17,12 +17,12 @@ export default function SelectSpeciesOrganTissue(props){
     const handleSpeciesChange = (value) => {
         setSpecies(value)
         setOrgan(organOptions[value][0])
-        setTissue(tissueOptions[organOptions[value][0]][0])
+        setTissue(tissueOptions[value][organOptions[value][0]][0])
     };
 
     const handleOrganChange = (value) => {
         setOrgan(value)
-        setTissue(tissueOptions[value][0]);
+        setTissue(tissueOptions[species][value][0]);
     };
 
     const handleTissueChange = (value) => {
@@ -74,7 +74,7 @@ export default function SelectSpeciesOrganTissue(props){
                     value={tissue}
                     onChange={handleTissueChange}
                 >
-                    {tissueOptions[organ].map((tissue) => (
+                    {tissueOptions[species][organ].map((tissue) => (
                         <Option key={tissue}>{tissue}</Option>
                     ))}
                 </Select>

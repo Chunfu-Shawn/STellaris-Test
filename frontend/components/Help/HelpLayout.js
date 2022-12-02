@@ -9,7 +9,6 @@ export default function HelpLayout({children, opened, selected}) {
         <LayoutCustom>
             <Head>
                 <title>{siteTitle+"| Help"}</title>
-                <script id="MathJax-script" async src={"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"}></script>
             </Head>
             <div className="modal-body-stw" style={{padding:"0px 0px"}}>
                 <Row style={{width:"100%"}}>

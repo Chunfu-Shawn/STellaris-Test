@@ -9,6 +9,7 @@ import {selectSection} from "./selectSection.js";
 import {execScreening} from "./execScreening.js";
 import {getJobInfo} from "./api/getJobInfo.js";
 import {setJobDatasetSection} from "./setJobDatasetSection.js";
+import copyExampleFiles from "./copyExampleFiles.js";
 
 
 export const Router = router()
@@ -45,6 +46,8 @@ Router.post('/mapping/demo', async (ctx) => uploadRecord(ctx).then(
     async ([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath]) => {
         ctx.body = {rid: rid}
         annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
+        // copy processed example files to improve efficiency
+        copyExampleFiles(matrixFilePath, resultPath)
         // run sections matching species, organ and tissue
         const [datasets, sections] = await selectSection(resultPath, species, organ, tissue)
         return ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath])

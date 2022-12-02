@@ -1,10 +1,10 @@
-import {Affix, Col, Divider, Row, Tag, Tooltip, Tabs, Empty} from "antd";
+import {Affix, Col, Divider, Row, Tag, notification, Tooltip, Tabs, Empty} from "antd";
 import dynamic from "next/dynamic";
 import React, {useEffect} from "react";
 import {useRef} from "react";
 import ResultPageSiderMenu from "../ResultPage/ResultPageSiderMenu";
 import Link from "next/link";
-import {DownloadOutlined, QuestionCircleOutlined} from "@ant-design/icons";
+import {DownloadOutlined, QuestionCircleOutlined, SmileOutlined} from "@ant-design/icons";
 import ResultDownload from "../ResultPage/ResultDownload";
 import Preprocessing from "../ResultPage/Preprocessing";
 import UMAPScatter from "../ResultPage/UMAPScatter";
@@ -67,6 +67,23 @@ export default function ResultModule(){
                                    chartSize={220} dataset={scRawDataset}/>
         },
     ]
+    useEffect(()=>{
+        notification.info({
+            message: `Result page needs time to load data`,
+            description: "if some tables and graphs fail to load, reload webpage please :)",
+            style:{
+                marginTop:100
+            },
+            duration: 5,
+            icon: (
+                <SmileOutlined
+                    style={{
+                        color: '#108ee9',
+                    }}
+                />
+            ),
+        });
+    },[])
 
 
     return(

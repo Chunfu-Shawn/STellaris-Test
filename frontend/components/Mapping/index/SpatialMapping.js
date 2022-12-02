@@ -4,25 +4,38 @@ import MatrixFileUpload from "./MatrixFileUpload";
 import LabelsFileUpload from "./LabelsFileUpload";
 import RunExampleModule from "./RunExampleModule"
 import {throttle} from "../../util";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import axios from "axios";
+import {getMappingModuleOptions} from "../../Datasets/getData&Options";
 
 
 export default function SpatialMapping(props){
     const {
-        speciesOptions,
-        organOptions,
-        tissueOptions,
         validateMessages
     } = props
     const UPLOAD_URL = `/mapping/upload/`
     const [matrixFileList, setMatrixFileList] = useState([]);
     const [labelsFileList, setLabelsFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
-    const [species, setSpecies] = useState(speciesOptions[0]);
-    const [organ, setOrgan] = useState(organOptions[speciesOptions[0]][0]);
-    const [tissue, setTissue] = useState(tissueOptions[organOptions[speciesOptions[0]][0]][0]);
+    const [speciesOptions, setSpeciesOptions] = useState(null);
+    const [organOptions, setOrganOptions] = useState(null);
+    const [tissueOptions, setTissueOptions] = useState(null);
+    const [species, setSpecies] = useState(null);
+    const [organ, setOrgan] = useState(null);
+    const [tissue, setTissue] = useState(null);
+
+    // load species organ tissue options
+    useEffect(async ()=>{
+        let {speciesOptions, organOptions, tissueOptions} = await fetch("/api/datasets-info/all")
+            .then(res => res.json()).then( data => getMappingModuleOptions(data))
+        setSpeciesOptions(speciesOptions)
+        setOrganOptions(organOptions)
+        setTissueOptions(tissueOptions)
+        setSpecies(speciesOptions[0])
+        setOrgan(organOptions[speciesOptions[0]][0])
+        setTissue(tissueOptions[speciesOptions[0]][organOptions[speciesOptions[0]][0]][0])
+    },[])
 
     const router = useRouter()
     const [form] = Form.useForm();
@@ -158,17 +171,22 @@ export default function SpatialMapping(props){
             >
                 <Input placeholder='Enter your email address' />
             </Form.Item>
-            <SelectSpeciesOrganTissue
-                speciesOptions={speciesOptions}
-                organOptions={organOptions}
-                tissueOptions={tissueOptions}
-                species={species}
-                setSpecies={setSpecies}
-                organ={organ}
-                setOrgan={setOrgan}
-                tissue={tissue}
-                setTissue={setTissue}
-            />
+
+            {
+                speciesOptions?
+                <SelectSpeciesOrganTissue
+                    speciesOptions={speciesOptions}
+                    organOptions={organOptions}
+                    tissueOptions={tissueOptions}
+                    species={species}
+                    setSpecies={setSpecies}
+                    organ={organ}
+                    setOrgan={setOrgan}
+                    tissue={tissue}
+                    setTissue={setTissue}
+                />
+                : null
+            }
 
             <MatrixFileUpload setFileList={setMatrixFileList}
                               fileList={matrixFileList}
