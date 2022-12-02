@@ -15,11 +15,12 @@ export default function LabelsFileUpload(props){
             let isLabels = filenameArr[filenameArr.length - 2] === 'txt' ||
                 filenameArr[filenameArr.length - 2] === 'csv' ||
                 filenameArr[filenameArr.length - 2] === 'tsv';
-            let isGzip = file.type === 'application/x-gzip';
+            let isGzip = file.type === 'application/x-gzip' || file.type === 'application/gzip';
             let isZip = file.type === 'application/zip' || file.type === 'application/x-zip' ||
                 file.type === 'application/x-zip-compressed'
+            let isCompressed = isGzip||isZip
             let isLimit = file.size / 1024 / 1024 <= limitM;
-            if (!isLabels || !(isGzip||isZip)) {
+            if (!isLabels || !isCompressed) {
                 props.setFileList([])
                 message.error({
                     content:`File: ${file.name} is not a compressed csv/tsv/txt format label file`,
@@ -48,17 +49,15 @@ export default function LabelsFileUpload(props){
                 newFileList.splice(index, 1);
                 props.setFileList(newFileList);
             }
-            else
-                message.info({
-                        content:"Can't remove file, upload again if you want to change files.",
-                        style:{
-                            marginTop: '12vh',
-                        },
-                        duration:2,
-                    }
-                );
         },
         fileList:props.fileList.slice(-1),//保留最后一个文件
+        progress: {
+            strokeColor: {
+                '0%': '#3f10e9',
+                '100%': '#2e0f8c',
+            },
+            strokeWidth: 3,
+        }
     };
 
     const  toolTipText = <>
