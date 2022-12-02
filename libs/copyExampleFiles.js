@@ -12,6 +12,6 @@ export default function copyExampleFiles(matrixFilePath,resultPath){
         fs.copyFileSync(exampleFilesPath+"meta_info.preprocessing.json",resultPath+"/out/json/")
         fs.copyFileSync(exampleFilesPath+"filter_summary.preprocessing.json",resultPath+"/out/json/")
     }catch (e){
-        annotationLogger(`[${new Date().toLocaleString()}] Error: Copy example files failed: ${e}`)
+        annotationLogger.log(`[${new Date().toLocaleString()}] Error: Copy example files failed: ${e}`)
     }
 }
