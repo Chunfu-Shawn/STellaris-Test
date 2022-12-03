@@ -10,7 +10,7 @@ import axios from "axios";
 import {getMappingModuleOptions} from "../../Datasets/getData&Options";
 
 
-export default function SpatialMapping(props){
+export default function SpatialMapping(props) {
     const {
         validateMessages
     } = props
@@ -25,17 +25,21 @@ export default function SpatialMapping(props){
     const [organ, setOrgan] = useState(null);
     const [tissue, setTissue] = useState(null);
 
-    // load species organ tissue options
-    useEffect(async ()=>{
+    const fetchSpecieOrganTissueOptions = async () => {
         let {speciesOptions, organOptions, tissueOptions} = await fetch("/api/datasets-info/all")
-            .then(res => res.json()).then( data => getMappingModuleOptions(data))
+            .then(res => res.json()).then(data => getMappingModuleOptions(data))
         setSpeciesOptions(speciesOptions)
         setOrganOptions(organOptions)
         setTissueOptions(tissueOptions)
         setSpecies(speciesOptions[0])
         setOrgan(organOptions[speciesOptions[0]][0])
         setTissue(tissueOptions[speciesOptions[0]][organOptions[speciesOptions[0]][0]][0])
-    },[])
+    }
+
+    // load species organ tissue options
+    useEffect(() => {
+        fetchSpecieOrganTissueOptions()
+    }, [])
 
     const router = useRouter()
     const [form] = Form.useForm();
@@ -55,12 +59,12 @@ export default function SpatialMapping(props){
             setLabelsFileList([file])
             formData.append('labelsFile', file);
         });
-        formData.append('title',form.getFieldValue('title'))
-        formData.append('emailAddress',form.getFieldValue('emailAddress'))
-        formData.append('species',species)
-        formData.append('organ',organ)
-        formData.append('tissue',tissue)
-        formData.append('isDemo',"false")
+        formData.append('title', form.getFieldValue('title'))
+        formData.append('emailAddress', form.getFieldValue('emailAddress'))
+        formData.append('species', species)
+        formData.append('organ', organ)
+        formData.append('tissue', tissue)
+        formData.append('isDemo', "false")
         setUploading(true);
         // You can use any AJAX library you like
         axios({
@@ -73,7 +77,7 @@ export default function SpatialMapping(props){
                     setMatrixFileList([file])
                 })
                 labelsFileList.forEach((file) => {
-                    file.percent = (progressEvent.loaded / progressEvent.total * 300  | 0);
+                    file.percent = (progressEvent.loaded / progressEvent.total * 300 | 0);
                     setLabelsFileList([file])
                 });
             },
@@ -89,13 +93,13 @@ export default function SpatialMapping(props){
                     setLabelsFileList([file])
                 });
                 message.success({
-                    content:'upload successfully!',
-                    style:{
+                    content: 'upload successfully!',
+                    style: {
                         marginTop: '12vh',
                     },
                 });
                 //nextjs路由跳转到结果页面
-                router.push('/mapping/resultPage/'+rid)
+                router.push('/mapping/resultPage/' + rid)
             })
             .catch(() => {
                 matrixFileList.forEach((file) => {
@@ -107,11 +111,11 @@ export default function SpatialMapping(props){
                     setLabelsFileList([file])
                 });
                 message.error({
-                        content:'upload unsuccessfully.',
-                        style:{
+                        content: 'upload unsuccessfully.',
+                        style: {
                             marginTop: '12vh',
                         },
-                        duration:3,
+                        duration: 3,
                     }
                 );
                 setUploading(false);
@@ -144,12 +148,12 @@ export default function SpatialMapping(props){
         console.log("reset")
     };
 
-    return(
+    return (
         <Form {...layout} layout={'horizontal'} form={form}
-              onFinish={throttle(1000,handleUpload)}
+              onFinish={throttle(1000, handleUpload)}
               name="control-hooks"
               validateMessages={validateMessages}
-              style={{width:600}}>
+              style={{width: 600}}>
             <Form.Item name="title" label="Job Title"
                        rules={[
                            {
@@ -164,28 +168,28 @@ export default function SpatialMapping(props){
                        rules={[
                            {
                                required: false,
-                               type:'email',
-                               max:40
+                               type: 'email',
+                               max: 40
                            },
                        ]}
             >
-                <Input placeholder='Enter your email address' />
+                <Input placeholder='Enter your email address'/>
             </Form.Item>
 
             {
-                speciesOptions?
-                <SelectSpeciesOrganTissue
-                    speciesOptions={speciesOptions}
-                    organOptions={organOptions}
-                    tissueOptions={tissueOptions}
-                    species={species}
-                    setSpecies={setSpecies}
-                    organ={organ}
-                    setOrgan={setOrgan}
-                    tissue={tissue}
-                    setTissue={setTissue}
-                />
-                : null
+                speciesOptions ?
+                    <SelectSpeciesOrganTissue
+                        speciesOptions={speciesOptions}
+                        organOptions={organOptions}
+                        tissueOptions={tissueOptions}
+                        species={species}
+                        setSpecies={setSpecies}
+                        organ={organ}
+                        setOrgan={setOrgan}
+                        tissue={tissue}
+                        setTissue={setTissue}
+                    />
+                    : null
             }
 
             <MatrixFileUpload setFileList={setMatrixFileList}
