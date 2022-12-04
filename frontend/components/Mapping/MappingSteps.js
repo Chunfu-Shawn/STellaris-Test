@@ -25,7 +25,7 @@ export default function MappingSteps(props){
             description: "Select a matched section to map user's scRNA-seq"
         },
         {
-            title: "Mapping",
+            title: "Spatial Mapping",
             description: <span>Map scRNA-seq spatial to selected ST data <b>(about 30 min)</b></span>
         },
         {

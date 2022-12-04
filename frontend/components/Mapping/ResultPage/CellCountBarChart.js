@@ -50,7 +50,7 @@ export default function CellCountBarChart(){
                 },
                 grid: {
                     top: 40,
-                    left: 20,
+                    left: 50,
                     right: 30,
                     bottom: 50,
                     containLabel: true
@@ -67,7 +67,7 @@ export default function CellCountBarChart(){
                         type: 'category',
                         data: cellTypes,
                         axisLabel:{
-                            rotate:35,
+                            rotate:55,
                             fontWeight:"bold",
                             fontSize:9
                         }

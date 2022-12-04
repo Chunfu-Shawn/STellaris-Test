@@ -1,8 +1,5 @@
 import React, {useEffect, useRef} from "react";
-import * as d3 from "d3-scale-chromatic";
 import * as echarts from "echarts";
-import {useContext} from "react";
-import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
 
 export default function UMAPScatter(props){
     // use echarts
@@ -10,7 +7,7 @@ export default function UMAPScatter(props){
     const chartRef = useRef(null);
     let chartInstance = null;
     const cell_types = Object.keys(umap)
-    const itemHeight = 200/cell_types.length
+    const itemHeight = Math.min(200/cell_types.length +2, 18)
 
     // 定义渲染函数
     function renderChart() {
@@ -24,9 +21,10 @@ export default function UMAPScatter(props){
                     }
                 },
                 grid: {
-                    left: '0',
-                    right: '150',
-                    bottom: '0',
+                    top: 80,
+                    left: 0,
+                    right: 150,
+                    bottom: 0,
                 },
                 tooltip: {
                     // trigger: 'axis',
@@ -53,13 +51,30 @@ export default function UMAPScatter(props){
                 },
                 legend: {
                     data: cell_types,
-                    orient:"vertical",
                     right: 0,
-                    top: 30,
+                    top:50,
+                    orient:"vertical",
+                    type:"scroll",
                     itemHeight:itemHeight,
                     textStyle:{
                         fontWeight:"bold",
-                        fontSize:itemHeight+1
+                        fontSize:itemHeight+1,
+                    },
+                    formatter: function(sStr) { // 需要配合textStyle.lineHeight设置行高，不然换行后行间距太小
+                        let str = "";
+                        let l = 0;
+                        let schar;
+                        for (let i = 0; schar = sStr.charAt(i); i++) {
+                            str += schar;
+                            // /[^\x00-\xff]/ 匹配双字节字符，如中文、全角符号，其它单字节字符如字母、数字、半角符号
+                            l += schar.match(/[^\x00-\xff]/) ? 2 : 1;
+                            if (l > 20) {
+                                // 只有原字符串内容长度大于需要换行的长度临界点，才需要换行
+                                str += (sStr.length > str.length) ? '\n' : '';
+                                l = 0;
+                            }
+                        }
+                        return str;
                     }
                 },
                 xAxis: [
@@ -100,14 +115,11 @@ export default function UMAPScatter(props){
                                 opacity: 0.01
                             }
                         },
-                        symbolSize:4,
+                        symbolSize:3,
                         data: umap[item].value,
                     }
                 }),
-                color:["darkgray"].concat(
-                    cell_types.map( (item,index) => d3.interpolateRainbow(
-                    index/cell_types.length
-                )))
+                color: props.colors
             };
             // `echarts.getInstanceByDom` 可以从已经渲染成功的图表中获取实例，其目的就是在 option 发生改变的时候，不需要
             // 重新创建图表，而是复用该图表实例，提升性能
@@ -133,6 +145,6 @@ export default function UMAPScatter(props){
     });
 
     return(
-        <div ref={chartRef} style={{height:500,width:550,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:450,width:550,marginBottom:10}}></div>
     )
 }

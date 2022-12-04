@@ -59,13 +59,29 @@ export function uploadRecord(ctx) {
                 labelsFilePath = dir + '/' + ctx.request.files['labelsFile'][0].filename
             } else if (ctx.request.body.isDemo === "true") {
                 // different example
-                if( title === "E14.5 Mouse Whole Brain Stereo-seq"){
-                    matrixFilePath = 'public/uploads/example1_3k/counts_3k.csv.gz'
-                    labelsFilePath = 'public/uploads/example1_3k/labels_3k.csv.gz'
+                if( title === "Mouse fetal brain spatial cellular map"){
+                    matrixFilePath = 'public/examples/Mouse_fetal_brain_3k/counts_3k.csv.gz'
+                    labelsFilePath = 'public/examples/Mouse_fetal_brain_3k/labels_3k.csv.gz'
                     email = 'no email'
                     species = 'Mus musculus'
                     organ = 'Brain'
                     tissue = 'Brain'
+                }else if( title === "Spatial distribution of cell types in mouse organogenesis") {
+                    matrixFilePath = 'public/examples/Mammalian_organogenesis_3k_1/counts_3k.csv.gz'
+                    labelsFilePath = 'public/examples/Mammalian_organogenesis_3k_1/labels_3k.csv.gz'
+                    email = 'no email'
+                    species = 'Mus musculus'
+                    organ = 'Embryo'
+                    tissue = 'Embryo'
+                }else if( title === "Spatial patterning of tumor microenvironment in PDAC") {
+                    matrixFilePath = 'public/examples/Pancreas_cancer/counts.csv.gz'
+                    labelsFilePath = 'public/examples/Pancreas_cancer/labels.csv.gz'
+                    email = 'no email'
+                    species = 'Homo sapiens'
+                    organ = 'Pancreas'
+                    tissue = 'Pancreas'
+                }else {
+                    reject(`[${new Date().toLocaleString()}] Error: Job title is wrong in request body.`)
                 }
             } else {
                 reject(`[${new Date().toLocaleString()}] Error: There is wrong in request body.`)

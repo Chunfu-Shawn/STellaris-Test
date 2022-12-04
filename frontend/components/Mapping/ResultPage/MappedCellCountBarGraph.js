@@ -54,7 +54,7 @@ export default function MappedCellCountBarGraph(){
                 },
                 grid: {
                     top: 70,
-                    left: 30,
+                    left: 50,
                     right: 30,
                     bottom: 50,
                     containLabel: true
@@ -71,7 +71,7 @@ export default function MappedCellCountBarGraph(){
                         type: 'category',
                         data: cellTypes,
                         axisLabel:{
-                            rotate:35,
+                            rotate:55,
                             fontWeight:"bold",
                             fontSize:fontSize
                         }

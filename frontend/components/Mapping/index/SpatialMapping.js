@@ -158,7 +158,7 @@ export default function SpatialMapping(props) {
                        rules={[
                            {
                                required: true,
-                               max: 50,
+                               max: 80,
                            },
                        ]}
             >

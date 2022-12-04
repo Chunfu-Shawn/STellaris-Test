@@ -21,7 +21,7 @@ export default function FliesTree(props){
                 }
             )
         },
-        {
+        /*{
             title: 'raw data',
             key: 'raw_data',
             selectable: false,
@@ -38,7 +38,7 @@ export default function FliesTree(props){
                     isLeaf: true,
                 },
             ],
-        },
+        },*/
     ];
     const onSelect = (key, info) => {
         downloadFile(`https://rhesusbase.com:9999/h5ad_files/${props.st_id}/${key}`)

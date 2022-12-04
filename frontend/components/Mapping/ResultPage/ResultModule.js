@@ -17,6 +17,7 @@ import {useContext} from "react";
 import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
 import MappingSteps from "../MappingSteps";
 import UmapFilteredCellCountBarGraph from "./UmapFilteredCellCountBarGraph";
+import UMAPModule from "./UMAPModule";
 
 export default function ResultModule(){
     const divContent = useRef(null); //标识nav导航栏渲染内容
@@ -100,7 +101,7 @@ export default function ResultModule(){
                 </Col>
                 <Col span={20}>
                     <div ref={divContent}>
-                        <h2>Mapping Result</h2>
+                        <h2>Spatial Mapping Result</h2>
                         <Row>
                             <Col span={8}>
                                 {annContext.reqInfo.species==="Homo sapiens"?
@@ -133,16 +134,7 @@ export default function ResultModule(){
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
-                            <Row justify={"space-evenly"} align={"top"}>
-                                <Col>
-                                    <UMAPScatter data={JSON.parse(annContext.result.umapPrep)}
-                                                 title={"reference ST and submitted scRNA-seq data"}/>
-                                </Col>
-                                <Col>
-                                    <UMAPScatter data={JSON.parse(annContext.result.umapFilter)}
-                                                 title={"reference ST and filtered scRNA-seq data"}/>
-                                </Col>
-                            </Row>
+                            <UMAPModule/>
                             <UmapFilteredCellCountBarGraph/>
                         </div>
                         <div name={"Spatial Niche"}>

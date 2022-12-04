@@ -5,23 +5,23 @@ import rfs from "rotating-file-stream" // version 2.x
 export const pad = num => (num > 9 ? "" : "0") + num;
 
 //generate the file path depended on date
-const generator = (nowTime) => {
+const generator = (nowTime,index) => {
     if (!nowTime) return "access.log";
     let time = new Date(nowTime.getTime() - 1000*60*60*24);
-    let month = time.getFullYear() + "" + pad(time.getMonth() + 1);
+    let yearMonth = time.getFullYear() + "" + pad(time.getMonth() + 1);
     let day = pad(time.getDate());
 
-    return `${month}/${month}${day}-access.log`;
+    return `${yearMonth}/${yearMonth}${day}-access.log`;
 };
 
 //generate the file path depended on date
 const generator2 = (nowTime) => {
     if (!nowTime) return "mapping.log";
     let time = new Date(nowTime.getTime() - 1000*60*60*24);
-    let month = time.getFullYear() + "" + pad(time.getMonth() + 1);
+    let yearMonth = time.getFullYear() + "" + pad(time.getMonth() + 1);
     let day = pad(time.getDate());
 
-    return `${month}/${month}${day}.log`;
+    return `${yearMonth}/${yearMonth}${day}.log`;
 };
 
 const accessLogStream = rfs.createStream(generator, {

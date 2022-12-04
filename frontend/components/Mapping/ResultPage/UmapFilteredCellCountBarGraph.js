@@ -53,7 +53,7 @@ export default function UmapFilteredCellCountBarGraph(){
                 },
                 grid: {
                     top: 70,
-                    left: 30,
+                    left: 70,
                     right: 30,
                     bottom: 50,
                     containLabel: true
@@ -70,7 +70,7 @@ export default function UmapFilteredCellCountBarGraph(){
                         type: 'category',
                         data: cellTypes,
                         axisLabel:{
-                            rotate:35,
+                            rotate:55,
                             fontWeight:"bold",
                             fontSize:fontSize
                         }
