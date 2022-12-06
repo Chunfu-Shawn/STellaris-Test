@@ -14,7 +14,7 @@ export default function ScreenStatus(props){
                         <th>{annContext.reqInfo.rid}</th>
                     </tr>
                     <tr>
-                        <td>Submission Time</td>
+                        <td>Start Time</td>
                         <td>{annContext.reqInfo.upload_time}</td>
                     </tr>
                     <tr>

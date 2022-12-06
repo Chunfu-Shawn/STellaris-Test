@@ -67,7 +67,7 @@ export default function LabelsFileUpload(props){
             The file must contain <b>two necessary columns</b>: 1) the first column must be the unique
             <b style={{color:"#a680ff"}}> &quot;cell_id&quot; </b>in line with count matrix file;
             2) the column indicating cell type identity must be titled with <b style={{color:"#a680ff"}}>&quot;cell_type&quot;</b>.
-            Formats accepted are .csv, .tsv and .txt in .gz/zip compression. Click on "?" to learn more.
+            Formats accepted are .csv, .tsv and .txt in .gz/zip compression. Click on &quot;?&quot; to learn more.
         </span><br/>
         <span>&gt; Example:</span><br/>
         <Image src={`/images/labels_example.png`} alt="..." width={400} height={130}/>
