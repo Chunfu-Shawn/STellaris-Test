@@ -25,7 +25,7 @@ export default function MSTNetwork() {
         try {
             let option = {
                 title: {
-                    text: 'MST of cell types colocalization',
+                    text: 'MST of cell type colocalization',
                     top: 'top',
                     left: 'left',
                     textStyle:{

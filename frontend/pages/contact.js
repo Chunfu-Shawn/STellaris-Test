@@ -37,27 +37,27 @@ export default function Contact() {
                 <div style={{width:1000,margin:"50px auto"}}>
                     <p style={{fontSize:16}}><b>Department: </b>Laboratory of Bioinformatics & Genomic Medicine, College of Future Technology, Peking University</p>
                     <p style={{fontSize:16}}><b>Address: </b>Room 315, Integrated Science Research Center No.2, Peking University, Beijing, China.</p>
-                    <p style={{fontSize:16}}><b>Research: </b>Bioinformatics, Genomic Medicine, Comparative Genomics. </p>
+                    <p style={{fontSize:16}}><b>Research Fields: </b>Bioinformatics, Genomic Medicine, Comparative Genomics. </p>
                 </div>
 
                 <Image src="/images/CY_Lab_2022.jpg" alt="CY's Lab"  width={900} height={500}/>
 
                 <ul className="people" style={{fontSize:16}}>
                     <li><b>Students: </b>Qi Peng, Xiangshang Li, Jie Zhang, Mingjun Ji, Xiaoge Liu, Ting Li,</li>
-                    <li>Chunfu Xiao, Jiaxin Wang, Juntian Qi, Lu Tian, Xinwei Xu, Chunqiong Li, Shuhan Yang</li>
-                    <li><b>CoPI/Post-Doc Researcher: </b>Dr. Ni N. An, Dr. Wanqiu Ding</li>
+                    <li>Chunfu Xiao, Jiaxin Wang, Juntian Qi, Xinwei Xu, Chunqiong Li, Shuhan Yang</li>
+                    <li><b>Co-PI/Post-Doc Researchers: </b>Dr. Ni N. An, Dr. Wanqiu Ding</li>
                     <li><b>PI:</b> Chuan-Yun Li</li>
                 </ul>
 
                 <div className="box" style={{width:900,fontSize:16,margin:"60px auto"}}>
-                    <p>Our team is dedicated to the interpretations of large-scale genomics data and the studies of
-                        human-specific traits. We mainly focus on i) refinements of genome annotations, integrations of
-                        large-scale data and development of bioinformatics tools through meta-analyses and functional
+                    <p>Our team is dedicated to the interpretation of large-scale genomics data and the studies of
+                        human-specific traits. We mainly focus on: i) the refinement of genome annotations, integration
+                        of large-scale data and development of bioinformatics tools through meta analyses and functional
                         genomics analyses, facilitating better understanding of gene functions and regulations in
-                        well-established knowledge contexts; ii) combing population genetics analyses (with-species) and
-                        comparative genomics analyses (between-species), performing molecular evolution studies to
-                        understand the primate-specific gene-behavior relationships, especially for researches on
-                        human-specific traits.
+                        well-established knowledge contexts; ii) combining population genetics analyses (with-species)
+                        and comparative genomics analyses (between-species), performing molecular evolution studies to
+                        understand the primate-specific gene-behavior relationships, especially the molecular mechanism
+                        driving human-specific evolution.
                     </p>
                 </div>
                 <Divider><h2>Development Team</h2></Divider>
@@ -79,33 +79,16 @@ export default function Contact() {
                 <Divider><h2>Feedback</h2></Divider>
                 <h4>Please feel free to contact us with any questions or comments.</h4>
                 <span style={{fontSize:16}}>
-                    <br/>
-                    For datasets and webserver functions,
-                    <br/>email to <b>Xiangshang Li</b>&nbsp;
-                    <a target="_blank"  href="mailto:uplee@pku.edu.cn" rel="noreferrer">
-                        <MailFilled />
-                    </a> and <b>Juntian Qi</b>&nbsp;
-                    <a target="_blank"  href="mailto:juntian_qi@stu.pku.edu.cn" rel="noreferrer">
-                        <MailFilled />
-                    </a>.
-                    <br/><br/>
-                    For bug report,
-                    <br/>email to <b>Chunfu Xiao</b>&nbsp;
+                    For bug reports, please email to <b>Chunfu Xiao</b>&nbsp;
                     <a target="_blank"  href="mailto:xiaochunfu@stu.pku.edu.cn" rel="noreferrer">
                         <MailFilled />
                     </a>.
                     <br/><br/>
-                    For updates and suggestions, email to correspondences:
+                    For any suggestions and ideas, please email to the corresponding author:
                     <br/>
                     <b>Wanqiu Ding:&nbsp;&nbsp;
                         <a target="_blank"  href="mailto:dingwq@pku.edu.cn" rel="noreferrer">
                             <MailFilled /> dingwq@pku.edu.cn
-                        </a>
-                    </b>
-                    <br/>
-                    <b>Chuan-Yun Li:&nbsp;&nbsp;
-                        <a target="_blank"  href="mailto:chuanyunli@pku.edu.cn" rel="noreferrer">
-                            <MailFilled /> chuanyunli@pku.edu.cn
                         </a>
                     </b>
                 </span>

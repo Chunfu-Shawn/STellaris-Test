@@ -18,7 +18,14 @@ export default function Datasets() {
                         <div className="text-left">
                             <h1 style={{color:"white",fontSize:"40px"}}>Spatial Transcriptome Datasets </h1><br/>
                         </div>
-                        <p className={"lead text-justify"}>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        <p className={"lead text-justify"}>
+                            STellaris aims to provide a comprehensive compilation of spatial transcriptome (ST) data
+                            spanning a wide variety of biological systems, which serves as the foundation to assist in
+                            spatial reconstruction of single-cell transcriptome data. We included XXX datasets comprising
+                            XXX sections across organs, developmental stage and pathological states in human and mouse.
+                            All curated ST datasets were processed by a centralized workflow. We provide this interface
+                            for researchers to navigate through this catalog. Choose the ST data of your concern and
+                            explore the spatially resolved expression profile of genes of interest.
                         </p>
                     </div>
                     <Row justify={"space-evenly"}>

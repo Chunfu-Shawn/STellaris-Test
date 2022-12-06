@@ -44,17 +44,16 @@ export default function ReqStatus(props){
                         <td>{usedTime}</td>
                     </tr>
                     <tr>
-                        <td>The URL of result will be delivered to </td>
+                        <td>The URL of result page will be sent to </td>
                         <td>{annContext.reqInfo.email ? annContext.reqInfo.email: "no email address"}</td>
                     </tr>
                     </tbody>
                 </table>
                 <div className="panel-body">
-                    <p>This page will be automatically updated in 1 second until job is done;<br/>
-                        The time for section blast and mapping will be long, <b>so we recommend you to save this URL ( has already been
-                            sent to your E-mail if you provide E-mail address. if this job is an example, no email will be delivered)</b>
-                        , where you can arrive the page of mapping result when analysis over.
-
+                    <p>
+                        This page will be automatically updated every second until job is done. It may take a while, so
+                        <b>we highly recommend you to save this URL </b>(already sent to your E-mail address if provided), where
+                        you can view the results when job is over. Note that no mail will be sent if this is an example job.
                     </p>
                 </div>
             </div>

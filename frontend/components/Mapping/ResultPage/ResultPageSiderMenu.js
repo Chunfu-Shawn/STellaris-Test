@@ -7,10 +7,10 @@ const items = [
         label: <a href={'#Preprocessing'}>Preprocessing</a>, key: 'Preprocessing',
     },
     {
-        label: <a href={'#Filtering'}>Filtering</a>, key: 'Filtering'
+        label: <a href={'#Filtering'}>Coembedding Filtering</a>, key: 'Filtering'
     },
     {
-        label: <a href={'#Spatial Niche'}>Spatial Niche</a>, key: 'Spatial Niche'
+        label: <a href={'#Spatial'}>Spatial Cellular Map</a>, key: 'Spatial'
     },
     {
         label: <a href={'#Colocalization'}>Colocalization</a>, key: 'Colocalization',

@@ -27,7 +27,7 @@ export default function ResultStatus(props){
                         <td>{annContext.reqInfo.ann_start_time}</td>
                     </tr>
                     <tr>
-                        <td>Finish Time</td>
+                        <td>End Time</td>
                         <td>{annContext.reqInfo.ann_finish_time}</td>
                     </tr>
                     <tr>

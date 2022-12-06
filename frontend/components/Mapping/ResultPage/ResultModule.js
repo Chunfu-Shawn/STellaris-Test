@@ -56,7 +56,7 @@ export default function ResultModule(){
     ]
     const item2 = [
         {
-            label: 'Annotated scRNA-seq data', key: '1', children:
+            label: 'Registered scRNA-seq data', key: '1', children:
                 <DynamicVisualTool setCustom={true} drawerOpen={false}
                                    width={600} height={800}
                                    chartSize={220} dataset={scAnnDataset}/>
@@ -129,7 +129,7 @@ export default function ResultModule(){
                         <div name={"Filtering"}>
                             <a id={"Filtering"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:22}}>Filtering </span>
+                                <span style={{fontSize:22}}>Coembedding Filtering </span>
                                 <Link href={'/help/manual/mapping#filtering'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
@@ -137,10 +137,10 @@ export default function ResultModule(){
                             <UMAPModule/>
                             <UmapFilteredCellCountBarGraph/>
                         </div>
-                        <div name={"Spatial Niche"}>
-                            <a id={"Spatial Niche"} style={{position: 'relative', top: "-150px"}}></a>
+                        <div name={"Spatial"}>
+                            <a id={"Spatial"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:22}}>Spatial Niche </span>
+                                <span style={{fontSize:22}}>Spatial Cellular Map </span>
                                 <Link href={'/help/manual/mapping#spatial_niche'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
@@ -165,7 +165,7 @@ export default function ResultModule(){
                         <div name={"Colocalization"}>
                             <a id={"Colocalization"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize: 22}}>Cell Types Colocalization </span>
+                                <span style={{fontSize: 22}}>Cell Type Colocalization </span>
                                 <Link href={'/help/manual/mapping#colocalization'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
@@ -192,7 +192,7 @@ export default function ResultModule(){
                         <div name={"Interaction"}>
                             <a id={"Interaction"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:22}}>Cell-Cell Interactions </span>
+                                <span style={{fontSize:22}}>Cell-Cell Ligand-receptor Interactions </span>
                                 <Link href={'/help/manual/mapping#interaction'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>

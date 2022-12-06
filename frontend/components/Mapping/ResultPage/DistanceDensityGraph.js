@@ -16,7 +16,10 @@ export default function DistanceDensityGraph(){
         try {
             let option = {
                 title: {
-                    text: 'RF Distance Density',
+                    text: 'Density of Random Forest Distance',
+                    textStyle:{
+                        fontSize:18
+                    }
                 },
                 xAxis: {
                     type: 'category',

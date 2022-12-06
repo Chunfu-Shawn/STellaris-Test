@@ -14,7 +14,7 @@ export default function ScoreBarGraph(props){
         try {
             let option = {
                 title: {
-                    text: 'Enrichment Score',
+                    text: 'MIA matching score',
                     textStyle:{
                         fontSize:15
                     },

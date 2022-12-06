@@ -73,9 +73,9 @@ export default function ManualMapping() {
                 <a id={"mapping_result"} style={{position: 'relative', top: "-150px"}}></a>
                 <h3>(1) Preprocessing </h3>
                 <a id={"preprocessing"} style={{position: 'relative', top: "-150px"}}></a>
-                <h3>(2) Filtering </h3>
+                <h3>(2) Coembedding Filtering </h3>
                 <a id={"filtering"} style={{position: 'relative', top: "-150px"}}></a>
-                <h3>(3) Spatial Niche </h3>
+                <h3>(3) Spatial Cellular Map </h3>
                 <a id={"spatial_niche"} style={{position: 'relative', top: "-150px"}}></a>
                 <h3>(4) Cell Types Colocalization </h3>
                 <a id={"colocalization"} style={{position: 'relative', top: "-150px"}}></a>

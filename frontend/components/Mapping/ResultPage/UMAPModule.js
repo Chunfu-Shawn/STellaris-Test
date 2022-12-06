@@ -17,13 +17,13 @@ export default function UMAPModule(){
         <Row justify={"space-evenly"} align={"top"}>
             <Col>
                 <UMAPScatter data={JSON.parse(annContext.result.umapPrep)}
-                             title={"reference ST and submitted scRNA-seq data"}
+                             title={"Coembedding of reference ST and submitted scRNA-seq data"}
                              colors={colors}
                 />
             </Col>
             <Col>
                 <UMAPScatter data={JSON.parse(annContext.result.umapFilter)}
-                             title={"reference ST and filtered scRNA-seq data"}
+                             title={"Coembedding of reference ST and filtered scRNA-seq data"}
                              colors={colors}
                 />
             </Col>

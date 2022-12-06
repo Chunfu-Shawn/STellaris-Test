@@ -24,7 +24,7 @@ export default function InteractionsHeatmap() {
             let option =
                 {
                     title:{
-                        text:"Total number of ligands and receptors interactions",
+                        text:"Total number of ligand-receptor interactions",
                         textStyle:{
                             fontSize:16
                         }

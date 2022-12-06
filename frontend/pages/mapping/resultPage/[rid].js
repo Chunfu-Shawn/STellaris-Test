@@ -9,6 +9,7 @@ import LoadingModule from "../../../components/Mapping/ResultPage/LoadingModule"
 import {Result,Button} from "antd";
 import ScreeningModule from "../../../components/Mapping/ScreeningPage/ScreeningModule";
 import SelectTableModule from "../../../components/Mapping/ScreeningPage/SelectTableModule";
+import {DeleteOutlined} from "@ant-design/icons";
 
 export async function getServerSideProps(context) {
     if ( typeof context.params.rid === undefined ) {
@@ -140,13 +141,25 @@ export default function ResultPage(props) {
     if (isLoading || isLoading2 || isLoading3 || isLoading4 || isLoading5) {
         returnModule = <div style={{textAlign:"center"}}><LoadingModule/></div>
     }
-    //  如果找不到结果，显示error页面
-    if ( error || error2 || error3 || error4 || error5){
+    //  如果找不到job信息或者分析的log信息，显示error页面
+    if ( error || error2 || error4 ){
         returnModule =
             <Result
                 status="500"
                 title="500"
                 subTitle="Sorry, something went wrong."
+                style={{margin:150}}
+                extra={<Button type="primary" href={"/"}>Back Home</Button>}
+            />
+    }
+
+    //  如果找不到MIA结果或最终结果，显示数据过期的页面
+    if ( error3 || error5 ){
+        returnModule =
+            <Result
+                icon={<DeleteOutlined />}
+                title={<p>Sorry, your data and results have been expired!</p>}
+                subTitle={"It's been over a week since you submitted the job. Please submit a new job if necessary!"}
                 style={{margin:150}}
                 extra={<Button type="primary" href={"/"}>Back Home</Button>}
             />

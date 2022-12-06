@@ -15,38 +15,38 @@ export default function ResultDownload(){
             title: 'Reference ST Data (h5ad)',
             onClick:() => downloadFile(
                 `https://rhesusbase.com:9999/h5ad_files/${dataset_id}/${section_id}/${section_id}.h5ad`),
-            description:'Reference ST data with additional metadata, in HDF5 format, ' +
-                'readable with the "anndata" Python package'
+            description:'Processed reference ST data in HDF5 file format containing results of spatial clustering, marker ' +
+                'genes and spatially variable genes, which is compatible with “anndata” python package.'
         },
         {
-            title: 'Mapped scRNA-seq Data (h5ad)',
+            title: 'Registered scRNA-seq Data (h5ad)',
             onClick:() => downloadFile(`/api/mapping-result/h5ad/sc/${annContext.reqInfo.rid}`),
-            description:'Mapped scRNA-seq data in HDF5 format, ' +
-                'readable with the "anndata" Python package, whose raw data was submitted by user.'
+            description:'scRNA-seq with the inferred spatial coordinates in HDF5 file format, which is compatible with ' +
+                '“anndata” python package.'
         },
         {
             title: 'Table Results (csv)',
             onClick:() => downloadFile(`/api/mapping-result/table/${annContext.reqInfo.rid}`),
-            description:'All table (csv) format result files'
+            description:'All results in csv file format'
         },
         {
             title: 'PDF Graph Results (pdf)',
             onClick:() => downloadFile(`/api/mapping-result/pdf/${annContext.reqInfo.rid}`),
-            description:'All pdf graph result files'
+            description:'All figures in pdf file format'
         },
         {
             title: 'All Result Files',
             onClick:() => {
                 downloadFile(`/api/mapping-result/all/${annContext.reqInfo.rid}`)
             },
-            description:'Download all result files in zip'
+            description:'Download all packaged results'
         }
     ];
     return(
         <div name={"Download"}>
             <a id={"Download"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0">
-                <span style={{fontSize:22}}>Result Files Download </span>
+                <span style={{fontSize:22}}>Results Download </span>
                 <Link href={'/help/manual/mapping#download'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>

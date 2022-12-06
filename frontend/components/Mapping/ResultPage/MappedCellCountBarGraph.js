@@ -30,7 +30,7 @@ export default function MappedCellCountBarGraph(){
         try {
             let option = {
                 title: {
-                    text: 'Number of cell (mapped and failed)',
+                    text: 'Cell Number (mapped and failed)',
                 },
                 tooltip: {
                     trigger: 'item',

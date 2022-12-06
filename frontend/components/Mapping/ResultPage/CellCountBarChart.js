@@ -76,7 +76,7 @@ export default function CellCountBarChart(){
                 yAxis: [
                     {
                         type: 'value',
-                        name:"Cell Count",
+                        name:"Cell Number",
                         nameTextStyle:{
                             fontSize: fontSize
                         }

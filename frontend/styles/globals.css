@@ -67,7 +67,9 @@ body a:hover{
 }
 .box{
   text-align:justify;
-  margin: 20px 20px;
+  width:900px;
+  font-size:16px;
+  margin:30px auto
 }
 .box_address{
   text-align:center;

@@ -29,7 +29,7 @@ export default function UmapFilteredCellCountBarGraph(){
         try {
             let option = {
                 title: {
-                    text: 'Number of cell (retained and UMAP filtered)',
+                    text: 'Cell Number (retained and filtered)',
                 },
                 tooltip: {
                     trigger: 'item',
@@ -79,7 +79,7 @@ export default function UmapFilteredCellCountBarGraph(){
                 yAxis: [
                     {
                         type: 'value',
-                        name:"Cell Count",
+                        name:"Cell Number",
                         nameTextStyle:{
                             fontSize: 14
                         }

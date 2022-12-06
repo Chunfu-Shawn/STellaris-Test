@@ -121,28 +121,11 @@ export default function SectionTable() {
             ellipsis: true,
         },
         {
-            title: 'Method',
-            dataIndex: 'method',
-            key: 'method',
-            width:'10%',
-            filters: Array.from(new Set(data.map(
-                value => value.method ))).map(
-                item => {
-                    return{
-                        text: item,
-                        value: item
-                    }
-                }
-            ),
-            onFilter: (value, record) => record.method.indexOf(value) === 0,
-            filterSearch: true,
-        },
-        {
-            title: 'Note',
-            dataIndex: 'note',
-            key: 'note',
-            width:'12%',
-            render: text => text===null ? "--" : text,
+            title: 'Developmental Stage',
+            dataIndex: 'developmental_stage',
+            key: 'developmental_stage',
+            render: text => text ? "--" : text,
+            width: "13%",
             ellipsis: true,
         },
         {
@@ -162,6 +145,23 @@ export default function SectionTable() {
             onFilter: (value, record) => record.pathological === value,
         },
         {
+            title: 'Method',
+            dataIndex: 'method',
+            key: 'method',
+            width:'10%',
+            filters: Array.from(new Set(data.map(
+                value => value.method ))).map(
+                item => {
+                    return{
+                        text: item,
+                        value: item
+                    }
+                }
+            ),
+            onFilter: (value, record) => record.method.indexOf(value) === 0,
+            filterSearch: true,
+        },
+        {
             title: 'Date Published',
             dataIndex: 'date_published',
             key: 'date_published',
@@ -171,11 +171,11 @@ export default function SectionTable() {
             ellipsis: true,
         },
         {
-            title: 'Developmental Stage',
-            dataIndex: 'developmental_stage',
-            key: 'developmental_stage',
-            render: text => text ? "--" : text,
-            width: "13%",
+            title: 'Note',
+            dataIndex: 'note',
+            key: 'note',
+            width:'12%',
+            render: text => text===null ? "--" : text,
             ellipsis: true,
         },
         {
@@ -203,24 +203,25 @@ export default function SectionTable() {
     return(
         <>
             <Modal
-                title="Confirm Section to continue annotation"
+                title="Confirm your choice of ST section to proceed Spatial Mapping"
                 centered
                 open={open}
                 onOk={handleOk}
+                okText={"Continue"}
                 confirmLoading={confirmLoading}
                 onCancel={() => setOpen(false)}
                 width={600}
             >
-                <p>Confirm Your Selected Section: <b>{datasetId} ({sectionId})</b> to annotate your scRNA-seq data.</p>
+                <p>Confirm your selected ST section: <b>{datasetId} ({sectionId})</b> to annotate your scRNA-seq data.</p>
                 <Divider orientation="left" orientationMargin="0">
-                    <span style={{fontSize:14}}>Advanced Mapping Parameters </span>
+                    <span style={{fontSize:14}}>Advanced Parameters of Spatial Mapping</span>
                     <Link href={'/help/manual/datasets#data_page_attributes'}>
                         <a target={"_blank"}><QuestionCircleOutlined/></a>
                     </Link>
                 </Divider>
                 <Row justify={"space-evenly"}>
                     <Col span={8}>
-                        <span>cutoff: </span>
+                        <span>Divergence cutoff (0~1): </span>
                         <InputNumber
                             style={{
                                 width: 100,
@@ -235,7 +236,7 @@ export default function SectionTable() {
                         />
                     </Col>
                     <Col span={8}>
-                        <span>band width: </span>
+                        <span>Band width: </span>
                         <InputNumber
                             style={{
                                 width: 100,
