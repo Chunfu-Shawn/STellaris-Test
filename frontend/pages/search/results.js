@@ -3,7 +3,7 @@ import LayoutCustom, { siteTitle } from '../../components/LayoutCustom.js'
 import {Col, Input, Row, Select, Space, Table} from 'antd';
 import {useRouter} from "next/router";
 import {useState} from "react";
-import SearchResultTable from "../../components/Browser/searchResultTable.js";
+import SearchResultTable from "../../components/Search/searchResultTable.js";
 const { Search } = Input;
 const { Option } = Select;
 
@@ -18,7 +18,7 @@ export async function getServerSideProps(context) {
         {
             return {
                 redirect: {
-                    destination: '/browser',
+                    destination: '/search',
                     permanent: false,
                 }
             }
@@ -57,7 +57,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Results(props) {
-    let title = `${siteTitle}| Gene Browser`
+    let title = `${siteTitle}| Gene Search`
     const [searching, setSearching] = useState(false);
     const [idType, setIdType] = useState('Symbol');
     const [species, setSpecies] = useState('All');
@@ -71,12 +71,12 @@ export default function Results(props) {
     const onSearch = (value) => {
         if (value === ''){
             router.push({
-                pathname: `/browser`,
+                pathname: `/search`,
             })
         }else {
             setSearching(true)
             router.push({
-                pathname: `/browser/results`,
+                pathname: `/search/results`,
                 query: {
                     idType: idType,
                     species: species,
@@ -117,7 +117,7 @@ export default function Results(props) {
                             <Search
                                 placeholder={props.searchName}
                                 defaultValue={props.searchName}
-                                id={"browser"}
+                                id={"search"}
                                 allowClear
                                 onSearch={onSearch}
                                 size={"large"}

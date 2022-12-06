@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
 import {SiderMenu} from "../SiderMenu.js";
-import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
+import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 
 const itemsSV = [
     {

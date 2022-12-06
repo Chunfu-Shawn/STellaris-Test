@@ -1,38 +1,39 @@
 import { Steps } from 'antd';
 import React from 'react';
-import {SolutionOutlined, UpCircleOutlined, SelectOutlined, CheckCircleOutlined, ReloadOutlined} from "@ant-design/icons";
+import {
+    SolutionOutlined,
+    SelectOutlined,
+    CheckCircleOutlined,
+    ReloadOutlined,
+    SearchOutlined
+} from "@ant-design/icons";
 import Link from "next/link";
-const { Step } = Steps;
 
 export default function Guidance(){
     const items = [
         {
-            title: "Fill in Job Information",
-            description: 'Please fill in the form with "Job Title" describing your job main purpose, ' +
-                'and your "Email Address" to let us contact you conveniently.',
-            icon: <SolutionOutlined />
+            title: "Basic Information",
+            description: 'First, please enter a name of your job and provide an email address to monitor the project progress.',
+            icon: <SearchOutlined/>
         },
         {
             title: "Select Matched Species, Organ & Tissue",
-            description: "Please select the correct type of organs and tissues to " +
-                "match your scRNA-seq data which will be uploaded.",
-            icon: <SelectOutlined />
+            description: "Please select species, organ and tissue that match your scRNA-seq data.",
+            icon: <SolutionOutlined />
         },
         {
             title: "Select scRNA-seq Data",
-            description: "Please upload the standard data of scRNA-seq with matrix file, " +
-                "barcodes file and features file, which are compressed.",
-            icon: <UpCircleOutlined />
+            description: "Please select your scRNA-seq data including count matrix file and label file with cell type annotation.",
+            icon: <SelectOutlined />
         },
         {
-            title: "Start to Upload",
-            description: 'Click on the "Start Upload" bottom and wait to redirect a running page ' +
-                'meaning your successfully upload.',
+            title: "Upload",
+            description: "Click on the 'Upload' button and this will redirect you to a running page.",
             icon: <CheckCircleOutlined />
         },
         {
-            title: "Waiting for Finish",
-            description: "Please wait for a finished page about your job. Annotating will take a few minutes.",
+            title: "Wait to Finish",
+            description: "It will takes about 2~3 min for Section Blast analysis to finish, please Wait!",
             icon: <ReloadOutlined />
         }]
 
@@ -40,7 +41,7 @@ export default function Guidance(){
         <>
             <Steps direction="vertical" size="default" current={5} items={items}/><br/>
             <div style={{color:"#6e6e6e",textAlign:"left",font:"bold 18px"}}>
-                CLICK ON <Link href={'/help/example/mapping'}> &quot; Help / Example Usage &quot; </Link> TO GET MORE INFORMATION FOR HELP.
+                CLICK ON <a style={{fontSize:16}} href={'/tutorial'}> &quot;Tutorial&quot; </a> FOR MORE INSTRUCTIONS!
             </div>
         </>
 

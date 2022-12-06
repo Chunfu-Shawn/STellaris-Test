@@ -9,7 +9,7 @@ import {QuestionCircleOutlined} from "@ant-design/icons";
 const { Search } = Input;
 const { Option } = Select;
 
-export default function Browser() {
+export default function SearchPage() {
     const [searching, setSearching] = useState(false);
     const [idType, setIdType] = useState('Symbol');
     const [species, setSpecies] = useState('All');
@@ -24,7 +24,7 @@ export default function Browser() {
         if (value !== ''){
             setSearching(true)
             router.push({
-                pathname: `/browser/results`,
+                pathname: `/search/results`,
                 query: {
                     idType: idType,
                     species: species,
@@ -34,7 +34,7 @@ export default function Browser() {
             setSearching(false)
         }
     }
-    let title = `${siteTitle}| Data Browser`
+    let title = `${siteTitle}| Gene Search`
     return (
         <LayoutCustom>
             <Head>
@@ -43,11 +43,11 @@ export default function Browser() {
             <div className="modal-body-stw" style={{height:"90vh"}}>
                 <div style={
                     {
-                        marginTop:"8%",
-                        marginBottom:"5%",
+                        marginTop:120,
+                        marginBottom:60,
                     }
                 }>
-                    <Image src={'/images/browser_title.svg'} width={400} height={70}/>
+                    <h1 style={{fontSize:54}}>Gene Search</h1>
                 </div>
                 <Input.Group compact>
                     <Select defaultValue="All" style={{width:'10%'}} size={"large"} onChange={onSpeciesChange}>
@@ -63,7 +63,7 @@ export default function Browser() {
                     <Search
                         placeholder="input search gene"
                         enterButton="Search"
-                        id={"browser"}
+                        id={"search"}
                         allowClear
                         onSearch={onSearch}
                         size={"large"}
@@ -76,10 +76,10 @@ export default function Browser() {
                 </Input.Group>
                 <div style={{marginTop:50,fontSize:16}}>
                     <span>
-                        e.g. <b><Link href={"browser/genePage/ENSG00000115738"}>ID2</Link></b> or
-                        <b><Link href={"browser/genePage/ENSMUSG00000041147"}> Brca2</Link></b> or
-                        <b><Link href={"browser/genePage/ENSG00000017427"}> ENSG00000017427 </Link></b>
-                        |<Link href={'/help/manual/browser#main_page_help'}>
+                        e.g. <b><Link href={"search/genePage/ENSG00000115738"}>ID2</Link></b> or
+                        <b><Link href={"search/genePage/ENSMUSG00000041147"}> Brca2</Link></b> or
+                        <b><Link href={"search/genePage/ENSG00000017427"}> ENSG00000017427 </Link></b>
+                        |<Link href={'/help/manual/search#main_page_help'}>
                             <a target={'_blank'} rel={"noreferrer"}>
                                 <b> HELP </b>
                                 <QuestionCircleOutlined  style={{fontSize:"16px",color:"#2b1970"}}/>

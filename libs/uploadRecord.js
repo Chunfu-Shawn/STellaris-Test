@@ -81,7 +81,7 @@ export function uploadRecord(ctx) {
                     organ = 'Pancreas'
                     tissue = 'Pancreas'
                 }else {
-                    reject(`[${new Date().toLocaleString()}] Error: Job title is wrong in request body.`)
+                    reject(`[${new Date().toLocaleString()}] Error: Example job title is wrong in request body.`)
                 }
             } else {
                 reject(`[${new Date().toLocaleString()}] Error: There is wrong in request body.`)

@@ -856,7 +856,7 @@ function Sizzle( selector, context, results, seed ) {
 					newContext = rsibling.test( selector ) && testContext( context.parentNode ) ||
 						context;
 
-					// We can use :scope instead of the ID hack if the browser
+					// We can use :scope instead of the ID hack if the search
 					// supports it & if we're not changing the context.
 					if ( newContext !== context || !support.scope ) {
 
@@ -3382,7 +3382,7 @@ jQuery.each( {
 			return elem.contentDocument;
 		}
 
-		// Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
+		// Support: IE 9 - 11 only, iOS 7 only, Android Search <=4.3 only
 		// Treat the template element as a regular one in browsers that
 		// don't support it.
 		if ( nodeName( elem, "template" ) ) {
@@ -4121,7 +4121,7 @@ function completed() {
 }
 
 // Catch cases where $(document).ready() is called
-// after the browser event has already occurred.
+// after the search event has already occurred.
 // Support: IE <=9 - 10 only
 // Older IE sometimes signals "interactive" too soon
 if ( document.readyState === "complete" ||
@@ -5582,7 +5582,7 @@ jQuery.event = {
 				return true;
 			},
 
-			// For cross-browser consistency, suppress native .click() on links
+			// For cross-search consistency, suppress native .click() on links
 			// Also prevent it if we're currently inside a leveraged native-event stack
 			_default: function( event ) {
 				var target = event.target;
@@ -5889,7 +5889,7 @@ jQuery.each( {
 				handleObj = event.handleObj;
 
 			// For mouseenter/leave call the handler if related is outside the target.
-			// NB: No relatedTarget if the mouse left/entered the browser window
+			// NB: No relatedTarget if the mouse left/entered the search window
 			if ( !related || ( related !== target && !jQuery.contains( target, related ) ) ) {
 				event.type = handleObj.origType;
 				ret = handleObj.handler.apply( this, arguments );
@@ -6489,7 +6489,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		container = document.createElement( "div" ),
 		div = document.createElement( "div" );
 
-	// Finish early in limited (non-browser) environments
+	// Finish early in limited (non-search) environments
 	if ( !div.style ) {
 		return;
 	}
@@ -6595,7 +6595,7 @@ function curCSS( elem, name, computed ) {
 		}
 
 		// A tribute to the "awesome hack by Dean Edwards"
-		// Android Browser returns percentage for some values,
+		// Android Search returns percentage for some values,
 		// but width seems to be reliably pixels.
 		// This is against the CSSOM draft spec:
 		// https://drafts.csswg.org/cssom/#resolved-values
@@ -8197,7 +8197,7 @@ jQuery.extend( {
 
 // Support: IE <=11 only
 // Accessing the selectedIndex property
-// forces the browser to respect setting selected
+// forces the search to respect setting selected
 // on the option
 // The getter ensures a default option is selected
 // when in an optgroup
@@ -8858,7 +8858,7 @@ var rquery = ( /\?/ );
 
 
 
-// Cross-browser xml parsing
+// Cross-search xml parsing
 jQuery.parseXML = function( data ) {
 	var xml, parserErrorElem;
 	if ( !data || typeof data !== "string" ) {
@@ -10869,7 +10869,7 @@ jQuery.noConflict = function( deep ) {
 
 // Expose jQuery and $ identifiers, even in AMD
 // (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
-// and CommonJS for browser emulators (#13566)
+// and CommonJS for search emulators (#13566)
 if ( typeof noGlobal === "undefined" ) {
 	window.jQuery = window.$ = jQuery;
 }

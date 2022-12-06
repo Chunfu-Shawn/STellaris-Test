@@ -8,31 +8,29 @@ export default function GuidanceMain(){
     const itemsGene = [
         {
             title: "Search Gene",
-            description: "You can Select Gene Symbol, Ensembl ID or Entrez ID and input gene id to search for spatially" +
-                " resolved expression profile of interested gene.",
+            description: "Enter a gene of interest to search for spatially resolved gene expression heterogeneity.",
             icon: <SearchOutlined />
         }
     ]
     const items = [
         {
             title: "Spatial Mapping",
-            description: 'First please fill in the form with "Job Title" and "Email Address" (optional).',
+            description: 'First, please enter a name of your job and provide an email address to monitor the project progress.',
             icon: <SearchOutlined/>
         },
         {
             title: "Select Matched Species, Organ & Tissue",
-            description: "Please select the correct species, organs and tissues to match your scRNA-seq data.",
+            description: "Please select species, organ and tissue that match your scRNA-seq data.",
             icon: <SolutionOutlined />
         },
         {
             title: "Select scRNA-seq Data",
-            description: "Please upload scRNA-seq data including matrix file and labels file, which are compressed.",
+            description: "Please select your scRNA-seq data including count matrix file and label file with cell type annotation.",
             icon: <SelectOutlined />
         },
         {
             title: "Upload and Wait",
-            description: 'Click on the "Start Upload" bottom and wait to redirect a running page. ' +
-                'There will be some steps to annotate your data. Please wait for a finished page about your job.',
+            description: "Click on the 'Upload' button and this will redirect you to a running page. Please wait!",
             icon: <CheckCircleOutlined />
         }]
     return(
@@ -41,7 +39,7 @@ export default function GuidanceMain(){
             <Steps className={"mainGuidance"} direction="vertical" size="default" current={4} items={items}/>
             <br/>
             <div style={{color:"#efefef",textAlign:"left",font:"bold 18px"}}>
-                CLICK ON <a style={{color:"#7653de",fontSize:16}} href={'/help/example/mapping'}> &quot; Help / Example Usage &quot; </a> TO GET MORE INFORMATION FOR HELP.
+                CLICK ON <a style={{color:"#7653de",fontSize:16}} href={'/tutorial'}> &quot;Tutorial&quot; </a> FOR MORE INSTRUCTIONS!
             </div>
         </>
 

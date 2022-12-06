@@ -10,23 +10,8 @@ const items = [
         children: [
             { label: <Link href={'/help/manual/datasets'}>Datasets</Link>, key: 'manual_datasets' },
             { label: <Link href={'/help/manual/mapping'}>Spatial Mapping</Link>, key: 'manual_mapping'},
-            { label: <Link href={'/help/manual/browser'}>Gene Browser</Link>, key: 'manual_browser'}
+            { label: <Link href={'/help/manual/search'}>Gene Search</Link>, key: 'manual_search'}
         ],
-    },
-    {
-        label: 'Example Usage', key: 'example', icon: <PushpinOutlined />,
-        children: [
-            { label: <Link href={'/help/example/datasets'}>Datasets</Link>, key: 'example_datasets' },
-            { label: <Link href={'/help/example/mapping'}>Spatial Mapping</Link>, key: 'example_mapping'},
-            { label: <Link href={'/help/example/browser'}>Gene Browser</Link>, key: 'example_browser'}
-        ],
-    },
-    {
-        label: 'FAQ', key: 'faq', icon: <QuestionCircleOutlined />,
-        children: [
-            { label: <Link href={'/help/faq/citation'}>Citation</Link>, key: 'citation'},
-            { label: 'How to get ...', key: 'how'}
-        ]
     },
     {
         label: <Link href={'/help/api'}>API</Link>, key: 'api', icon: <SettingOutlined />

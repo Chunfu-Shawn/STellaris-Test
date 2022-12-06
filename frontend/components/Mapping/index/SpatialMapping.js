@@ -207,7 +207,7 @@ export default function SpatialMapping(props) {
                     labelsFileList.length === 0
                 }
                         loading={uploading} className={"btn-upload"}>
-                    {uploading ? 'Uploading...' : 'Start Upload'}
+                    {uploading ? 'Uploading...' : 'Upload'}
                 </Button>
                 <Button type="ghost" htmlType="button" onClick={onReset} className={"btn-upload"}>
                     Reset

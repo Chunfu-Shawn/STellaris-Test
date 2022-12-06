@@ -111,7 +111,7 @@ export function createTextureFromImage(
   return prepareTexture(texture, false);
 }
 
-/** Checks to see if the browser supports webgl. */
+/** Checks to see if the search supports webgl. */
 export function hasWebGLSupport(): boolean {
   try {
     let c = document.createElement("canvas");

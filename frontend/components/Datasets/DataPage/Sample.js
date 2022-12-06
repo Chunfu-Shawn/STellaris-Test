@@ -23,7 +23,7 @@ export default function Sample(props){
             </AttributeLayout>
             <AttributeLayout attribute={"Organ"}>{props.data.organ}</AttributeLayout>
             <AttributeLayout attribute={"Tissue"}>{props.data.tissue}</AttributeLayout>
-            <AttributeLayout attribute={"Treatment"}>{props.data.treatment!==null?props.data.treatment:"--"}</AttributeLayout>
+            <AttributeLayout attribute={"Note"}>{props.data.note!==null?props.data.note:"--"}</AttributeLayout>
         </div>
     )
 }

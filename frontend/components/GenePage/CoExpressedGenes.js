@@ -3,7 +3,7 @@ import CoExpressedGenesHeatmap from "./CoExpressedGenesHeatmap";
 import React from "react";
 import {exportToCsv} from "../util";
 import {useContext} from "react";
-import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
+import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 
 export default function CoExpressedGenes(){
     const geneContext = useContext(GeneContext);

@@ -20,7 +20,7 @@ const menu = (
             {
                 key: '3',
                 label: (
-                    <Link href="/browser" className="nav-link" ><a>Browser</a></Link>
+                    <Link href="/search" className="nav-link" ><a>Search</a></Link>
                 ),
             },
             {
@@ -91,14 +91,17 @@ export default function Navigator(){
         <nav id="topheader" className="navbar-inverse navbar-fixed-top">
             <div className="container">
                 <div>
-                    <Link href="/" ><a className="navbar-brand">SPATIAL TRANS WEB</a></Link>
+                    <Link href="/" ><a className="navbar-brand">
+                        <b style={{color:"#cac2ff",textShadow: "2px red"}}>ST</b>
+                        ELLARIS</a></Link>
                 </div>
                 {
                     //width < breakpoint ? collapseButtom:
                     <ul className={"nav navbar-nav"} >
                         <li id="datasets" className="nav-item"><Link href="/datasets" className="nav-link" ><a>Datasets</a></Link></li>
                         <li id="mapping" className="nav-item"><Link href="/mapping" className="nav-link" ><a>Mapping</a></Link></li>
-                        <li id="browser" className="nav-item"><Link href="/browser" className="nav-link" ><a>Browser</a></Link></li>
+                        <li id="search" className="nav-item"><Link href="/search" className="nav-link" ><a>Search</a></Link></li>
+                        <li id="tutorial" className="nav-item"><Link href="/tutorial" className="nav-link" ><a>Tutorial</a></Link></li>
                         <li id="help" className="nav-item"><Link href="/help/manual/datasets" className="nav-link" ><a>Help</a></Link></li>
                         <li id="about" className="nav-item"><Link href="/about" className="nav-link" ><a>About</a></Link></li>
                         <li id="contact" className="nav-item"><Link href="/contact" className="nav-link" ><a>Contact</a></Link></li>

@@ -3,7 +3,7 @@ import React from "react";
 import {DownloadOutlined} from "@ant-design/icons";
 import {exportToCsv} from "../util";
 import {useContext} from "react";
-import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
+import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 
 export default function Download(){
     const geneContext = useContext(GeneContext);

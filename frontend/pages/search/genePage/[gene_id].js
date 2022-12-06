@@ -62,7 +62,7 @@ export default function GenePage(props) {
         <LayoutCustom>
             <GeneContext.Provider value={props}>
             <Head>
-                <title>{'STW | Gene Browser | '+ props.data.ensembl_id}</title>
+                <title>{'STW | Gene Search | '+ props.data.ensembl_id}</title>
             </Head>
                 <div
                     className={"modal-body-stw with-sider"}

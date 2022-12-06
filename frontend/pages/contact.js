@@ -16,7 +16,7 @@ export default function Contact() {
         {
             name: 'Chunfu Xiao',
             avatar: "https://joeschmoe.io/api/v1/josh",
-            description: "xiaochunfu@stu.pku.edu.cn;   https://chunfu.site;  https://github.com/Chunfu-Shawn"
+            description: "xiaochunfu@stu.pku.edu.cn;  https://github.com/Chunfu-Shawn"
         },
         {
             name: 'Juntian Qi',
@@ -43,9 +43,9 @@ export default function Contact() {
                 <Image src="/images/CY_Lab_2022.jpg" alt="CY's Lab"  width={900} height={500}/>
 
                 <ul className="people" style={{fontSize:16}}>
-                    <li><b>Students: </b>Qi Peng, Xiangshang Li, Jie Zhang, Mingjun Ji, Xiaoge Liu,</li>
-                    <li>Ting Li, Chunfu Xiao, Jiaxin Wang, Juntian Qi, Lu Tian, Xinwei Xu</li>
-                    <li><b>CoPI/Post-Doc Researcher: </b>Dr. Ni N. An, Dr. Wanqiu Ding, Dr. Qing Yu</li>
+                    <li><b>Students: </b>Qi Peng, Xiangshang Li, Jie Zhang, Mingjun Ji, Xiaoge Liu, Ting Li,</li>
+                    <li>Chunfu Xiao, Jiaxin Wang, Juntian Qi, Lu Tian, Xinwei Xu, Chunqiong Li, Shuhan Yang</li>
+                    <li><b>CoPI/Post-Doc Researcher: </b>Dr. Ni N. An, Dr. Wanqiu Ding</li>
                     <li><b>PI:</b> Chuan-Yun Li</li>
                 </ul>
 
@@ -82,10 +82,10 @@ export default function Contact() {
                     <br/>
                     For datasets and webserver functions,
                     <br/>email to <b>Xiangshang Li</b>&nbsp;
-                    <a target="_blank"  href="mailto:xiaochunfu@stu.pku.edu.cn" rel="noreferrer">
+                    <a target="_blank"  href="mailto:uplee@pku.edu.cn" rel="noreferrer">
                         <MailFilled />
                     </a> and <b>Juntian Qi</b>&nbsp;
-                    <a target="_blank"  href="mailto:xiaochunfu@stu.pku.edu.cn" rel="noreferrer">
+                    <a target="_blank"  href="mailto:juntian_qi@stu.pku.edu.cn" rel="noreferrer">
                         <MailFilled />
                     </a>.
                     <br/><br/>

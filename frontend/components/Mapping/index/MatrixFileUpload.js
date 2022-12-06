@@ -67,8 +67,8 @@ export default function MatrixFileUpload(props){
             This file contains gene expression (raw counts) values in which <b style={{color:"#a680ff"}}>columns are genes </b>
             presented with gene names identifier (HGNC symbol name) and
             <b style={{color:"#a680ff"}}> rows are cells</b> presented with cell IDs.
-            Formats accepted are .csv, .tsv and .txt in .gz/zip compression. <b>File .csv.gz with symbol name is recommended. </b>
-            Click on &quot;Question&quot; to see more.
+            Formats accepted are .csv, .tsv and .txt in .gz/zip compression.
+            Click on &quot;?&quot; to see more.
         </span><br/>
         <span>&gt; Example:</span><br/>
         <Image src={`/images/counts_matrix_example.png`} alt="..." width={400} height={220}/>

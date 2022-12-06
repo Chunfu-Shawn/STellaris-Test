@@ -4,7 +4,7 @@ import {DynamicGeneExpress} from "./SpatialExpression";
 import {firstUpperCase} from '../util'
 import dataset from "../VisualTool/dataset.json";
 import {useContext} from "react";
-import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
+import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 const dataset2 = {
     "id": "GSM5833739",
     "name": "GSM5833739",

@@ -4,7 +4,7 @@ import {useRouter} from "next/router";
 const { Search } = Input;
 const { Option } = Select;
 
-export default function GeneBrowserMain(){
+export default function GeneSearchMain(){
 
     const [searching, setSearching] = useState(false);
     const [idType, setIdType] = useState('Symbol');
@@ -20,7 +20,7 @@ export default function GeneBrowserMain(){
         if (value !== ''){
             setSearching(true)
             router.push({
-                pathname: `/browser/results`,
+                pathname: `/search/results`,
                 query: {
                     idType: idType,
                     species: species,
@@ -43,15 +43,13 @@ export default function GeneBrowserMain(){
                 <Option value="Entrez">Entrez ID</Option>
             </Select>
             <Search
-                placeholder="Enter an interested gene"
-                enterButton="Search"
-                id={"browser"}
+                placeholder="Enter a gene of interest"
+                id={"search"}
                 allowClear
                 onSearch={onSearch}
                 size={"large"}
                 style={{
-                    width:500,
-                    color: '#22075e',
+                    width:500
                 }}
                 loading={searching}
             />

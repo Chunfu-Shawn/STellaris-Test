@@ -169,23 +169,23 @@ export default function DataPage(props) {
                                             </Col>
                                             <Col span={4}>
                                                 <h4>Journal</h4>
-                                                <p>{props.data.journal}</p>
+                                                <p>{props.data.journal||"--"}</p>
                                             </Col>
                                             <Col span={3}>
                                                 <h4>PMID</h4>
-                                                <p>{props.data.pmid}</p>
+                                                <p>{props.data.pmid||"--"}</p>
                                             </Col>
                                             <Col span={8}>
                                                 <h4>URL</h4>
-                                                <a href={props.data.url}>{props.data.url}</a>
+                                                <a href={props.data.url||"#"}>{props.data.url||"--"}</a>
                                             </Col>
                                         </Row>
                                     </div>
                                 </div>
-                                <div name={"Files"}>
-                                    <a id={"Files"} style={{position: 'relative', top: "-150px"}}></a>
+                                <div name={"Download"}>
+                                    <a id={"Download"} style={{position: 'relative', top: "-150px"}}></a>
                                     <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
-                                        <span style={{fontSize:22}}>Files </span>
+                                        <span style={{fontSize:22}}>Download </span>
                                     </Divider>
                                     <div className="site-card-wrapper" style={{padding:"10px"}}>
                                         <FliesTree st_id={props.data.id} sections_id={sectionOption}/>

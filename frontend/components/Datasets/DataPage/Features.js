@@ -26,7 +26,7 @@ export default function Features(props){
             title: 'Ensembl ID',
             dataIndex: 'ensembl_id',
             width:'20%',
-            render: (text) => <Link href={`/browser/genePage/${text}`}><a target={'_blank'}>{text}</a></Link>,
+            render: (text) => <Link href={`/search/genePage/${text}`}><a target={'_blank'}>{text}</a></Link>,
             filters: [
                 {
                     text: 'Joe',

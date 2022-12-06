@@ -52,7 +52,9 @@ export default function RunExampleModule(props){
             label: (
                 <Button type={"link"}>
                     <Link href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
-                        Mouse fetal brain spatial cellular map (FINISHED)
+                        <span>
+                            Mouse fetal brain <b><i>(FINISHED)</i></b>
+                        </span>
                     </Link>
                 </Button>
             ),
@@ -62,7 +64,9 @@ export default function RunExampleModule(props){
             label: (
                 <Button type={"link"}>
                     <Link href={"/mapping/resultPage/1fdb50c0-726a-11ed-a8ae-05b48e1b9d52"}>
-                        Spatial distribution of cell types in mouse organogenesis (FINISHED)
+                        <span>
+                            Mouse organogenesis <b><i>(FINISHED)</i></b>
+                        </span>
                     </Link>
                 </Button>
             ),
@@ -72,7 +76,9 @@ export default function RunExampleModule(props){
             label: (
                 <Button type={"link"}>
                     <Link href={"/mapping/resultPage/be5c2ed0-73c4-11ed-b6c1-d3f15153eaa4"}>
-                        Spatial patterning of tumor microenvironment in PDAC (FINISHED)
+                        <span>
+                            Tumor microenvironment in PDAC <b><i>(FINISHED)</i></b>
+                        </span>
                     </Link>
                 </Button>
             ),
@@ -81,7 +87,9 @@ export default function RunExampleModule(props){
             key: '4',
             label: (
                 <Button type={"link"} onClick={throttle(1000,onRunExample("Mouse fetal brain spatial cellular map"))}>
-                    Mouse fetal brain spatial cellular map (FROM SCRATCH)
+                    <span>
+                        Mouse fetal brain <b><i>(FROM SCRATCH)</i></b>
+                    </span>
                 </Button>
             ),
         },
@@ -89,7 +97,9 @@ export default function RunExampleModule(props){
             key: '5',
             label: (
                 <Button type={"link"} onClick={throttle(2000,onRunExample("Spatial distribution of cell types in mouse organogenesis"))}>
-                    Spatial distribution of cell types in mouse organogenesis (FROM SCRATCH)
+                    <span>
+                        Mouse organogenesis <b><i>(FROM SCRATCH)</i></b>
+                    </span>
                 </Button>
             ),
         },
@@ -97,7 +107,9 @@ export default function RunExampleModule(props){
             key: '6',
             label: (
                 <Button type={"link"} onClick={throttle(2000,onRunExample("Spatial patterning of tumor microenvironment in PDAC"))}>
-                    Spatial patterning of tumor microenvironment in PDAC (FROM SCRATCH)
+                    <span>
+                        Tumor microenvironment in PDAC <b><i>(FROM SCRATCH)</i></b>
+                    </span>
                 </Button>
             ),
         },
@@ -108,7 +120,7 @@ export default function RunExampleModule(props){
             menu={{ items, }}
             trigger={['click']}
         >
-            <Button type="primary" htmlType="button" className={"btn-upload"}>
+            <Button type="primary" htmlType="button" size={"large"} className={"btn-upload"}>
                 Run Example
             </Button>
         </Dropdown>

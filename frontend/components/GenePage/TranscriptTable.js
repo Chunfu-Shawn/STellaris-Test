@@ -2,7 +2,7 @@ import {Space, Table, Tag} from "antd";
 import {useContext, useState} from "react";
 import {QuestionCircleFilled} from "@ant-design/icons";
 import React from "react";
-import {GeneContext} from "../../pages/browser/genePage/[gene_id]";
+import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 
 export default function TranscriptTable(){
     const [sortedInfo, setSortedInfo] = useState({});

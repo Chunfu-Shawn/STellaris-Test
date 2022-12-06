@@ -20,7 +20,7 @@ export default function SpatialExpression(){
         <>
             <Divider orientation="left" orientationMargin="0">
                 <b>Spatial Expression </b>
-                <Link href={'/help/manual/browser#gene_page_spatial_expression'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
+                <Link href={'/help/manual/search#gene_page_spatial_expression'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
             </Divider>
             <SpatiallyVariableExpression />
             <CoExpressedGenes />

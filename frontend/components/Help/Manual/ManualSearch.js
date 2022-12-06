@@ -7,19 +7,19 @@ import GeneInfoAttributesTable from "./GenePage/GeneInfoAttributesTable.js";
 import GeneFeaturesAttributesTable from "./GenePage/GeneFeaturesAttributesTable.js";
 import Link from "next/link.js";
 
-export default function ManualBrowser() {
+export default function ManualSearch() {
 
     return (
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
                 <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Manual</Breadcrumb.Item>
-                <Breadcrumb.Item>Gene Browser</Breadcrumb.Item>
+                <Breadcrumb.Item>Gene Search</Breadcrumb.Item>
             </Breadcrumb>
             <Typography style={{marginTop:50,fontSize:16}}>
-                <h1>Gene Browser</h1>
+                <h1>Gene Search</h1>
                 <h2>1. Introduction</h2>
-                <p style={{fontSize:16}}>The Gene Browser module would help users to search for the basic information and
+                <p style={{fontSize:16}}>The Gene Search module would help users to search for the basic information and
                     spatial expression pattern of a interested gene. Gene Page contains some annotation
                     sections, such as <b>Summary, Spatially variable Expression, Co-expressed Genes, Highly-expressed Clusters,
                         Genomic Context, Pseudobulk RNA-seq Expression and Transcripts</b>, which present a whole spatial expression profile about a gene.
@@ -36,14 +36,14 @@ export default function ManualBrowser() {
                 and <b>463409</b> transcripts records, which containing following attributes:
                 </p>
                 <GeneAttributionsTable/>
-                <h2>3. Browser</h2>
+                <h2>3. Gene Search</h2>
                 <a id={"main_page_help"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>The Browser module is a ordinary search engine. It would provide some genes which have <b>matched names
+                <p>The Search module is a ordinary search engine. It would provide some genes which have <b>matched names
                     or aliases </b>after users choose the <b>organism</b> and <b>type of gene id</b> and inputted what they were
                     going to search.
                 </p>
                 <h4>(1) Main Page</h4>
-                <p>The browser allows users to choose which different organism and id type of their interested genes.</p>
+                <p>The search allows users to choose which different organism and id type of their interested genes.</p>
                 <b>Organisms:</b>
                 <ul>
                     <li><b>Human</b>: interested genes from Homo sapiens</li>
@@ -58,7 +58,7 @@ export default function ManualBrowser() {
                 </ul>
                 <a id={"search_results_help"} style={{position: 'relative', top: "-150px"}}></a>
                 <h4>(2) Search Results</h4>
-                <p>The browser will provide all genes having similar names and presents the most matched genes foremost.
+                <p>The search will provide all genes having similar names and presents the most matched genes foremost.
                     <br/><b>The search rules</b> is Case insensitive and whether containing inputted string.
                 </p>
                 <p>The search records contains following attributes:</p>

@@ -27,14 +27,14 @@ export default function SearchResultTable(props){
                 else return -1
             },
             sortOrder: sortedInfo.columnKey === 'symbol' ? sortedInfo.order : null,
-            render: (text,record) => text!=="-" ? <Link href={`/browser/genePage/${record.ensembl_id}`}><a target={"_blank"} id={record.ensembl_id} >{text}</a></Link>:"-",
+            render: (text,record) => text!=="-" ? <Link href={`/search/genePage/${record.ensembl_id}`}><a target={"_blank"} id={record.ensembl_id} >{text}</a></Link>:"-",
         },
         {
             title: 'Ensembl ID',
             dataIndex: 'ensembl_id',
             key: 'ensembl_id',
             width:'15%',
-            render: (text) => <Link href={'/browser/genePage/'+text}><a target={"_blank"}>{text}</a></Link>,
+            render: (text) => <Link href={'/search/genePage/'+text}><a target={"_blank"}>{text}</a></Link>,
             sorter: (a, b) => {
                 if(a.ensembl_id > b.ensembl_id) return 1
                 else return -1
@@ -62,7 +62,7 @@ export default function SearchResultTable(props){
             title: () => {
                 return <Space>
                     <span>Gene type</span>
-                    <Link href={'/help/manual/browser#search_results_help'}>
+                    <Link href={'/help/manual/search#search_results_help'}>
                         <a target={'_blank'}>
                             <QuestionCircleFilled  style={{fontSize:"15px",color:"#2b1970"}}/>
                         </a>

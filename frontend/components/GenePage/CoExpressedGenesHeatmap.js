@@ -6,7 +6,7 @@ import Drawer from "@mui/material/Drawer";
 //import {firstUpperCase} from '../util'
 import dataset from "../VisualTool/dataset.json";
 import {Col, Divider, Row} from "antd";
-import {GeneContext} from '../../pages/browser/genePage/[gene_id]'
+import {GeneContext} from '../../pages/search/genePage/[gene_id]'
 const dataset2 = {
     "id": "GSM5833739",
     "name": "GSM5833739",

@@ -22,7 +22,7 @@ const items = [
         label: <a href={'#Source'}>Source</a>, key: 'Source',
     },
     {
-        label: <a href={'#Files'}>Files</a>, key: 'Files'
+        label: <a href={'#Download'}>Download</a>, key: 'Download'
     }
 ]
 
