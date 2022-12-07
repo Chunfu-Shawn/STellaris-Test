@@ -91,9 +91,9 @@ export default function Navigator(){
         <nav id="topheader" className="navbar-inverse navbar-fixed-top">
             <div className="container">
                 <div>
-                    <Link href="/" ><a className="navbar-brand">
-                        <b style={{color:"#cac2ff",textShadow: "2px red"}}>ST</b>
-                        ELLARIS</a></Link>
+                    <Link href="/" >
+                        <a className="navbar-brand">STELLARIS</a>
+                    </Link>
                 </div>
                 {
                     //width < breakpoint ? collapseButtom:

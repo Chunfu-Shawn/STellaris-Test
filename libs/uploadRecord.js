@@ -108,7 +108,7 @@ export function uploadRecord(ctx) {
                 //是否使用递归创建目录
                 recursive: true
             })
-            fs.writeFileSync(resultPath + "/resquest.json",
+            fs.writeFileSync(resultPath + "/request.json",
                 JSON.stringify(ctx.request) + '\n',
                 {flag: "w"}
             );

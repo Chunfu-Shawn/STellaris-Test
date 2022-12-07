@@ -26,11 +26,11 @@ export default function MappingSteps(props){
         },
         {
             title: "Spatial Mapping",
-            description: <span>Map scRNA-seq spatial to selected ST data <b>(about 30 min)</b></span>
+            description: <span>Map single cells to spatial context of selected ST section <b>(about 30 min)</b></span>
         },
         {
-            title: "Mapping Result",
-            description: "scRNA-seq Mapping Result"
+            title: "Mapping Results",
+            description: "View mapping results and spatially resolved cell-cell interactions"
         }]
     return(
         <Steps current={props.current} size={"default"} items={items}/>

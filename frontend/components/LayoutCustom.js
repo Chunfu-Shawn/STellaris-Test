@@ -4,7 +4,7 @@ import FooterCustom from "./footer.js";
 import {BackTop} from "antd";
 // eslint-disable-next-line @next/next/no-document-import-in-page
 
-export const siteTitle = "Spatial Trans Web "
+export const siteTitle = "STellaris "
 
 export default function LayoutCustom({ children }) {
     const style = {

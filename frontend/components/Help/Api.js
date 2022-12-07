@@ -12,8 +12,8 @@ export default function HelpAPI() {
                 <Breadcrumb.Item>API</Breadcrumb.Item>
             </Breadcrumb><br/>
             <Typography>
-                <Title>STW API</Title>
-                <Paragraph>STW API is a RESTful Application Program Interface to STW database resource.</Paragraph>
+                <Title>STellaris API</Title>
+                <Paragraph>STellaris API is a RESTful Application Program Interface to STellaris database resource.</Paragraph>
                 <h3>General form</h3>
                 <h4>1. URL from</h4>
                 <div className="site-card-wrapper" style={{padding:"2%"}}>

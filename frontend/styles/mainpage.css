@@ -30,8 +30,14 @@
   vertical-align: top;
 }
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
+  min-width: 1440px;
+  text-align: center;
+  margin: auto;
+  background-color: #1c1c1c;
+  background-image: url("/images/bg.jpeg");
+  background-position: center center;
+  background-size: 1440px;
+  background-repeat: no-repeat;
 }
 
 /* Padding for spacing */
@@ -44,7 +50,10 @@
  * Cover
 */
 .cover {
-  padding: 20px 0 0px 0;
+  text-align: center;
+  margin: auto;
+  width: 1440px;
+  padding: 120px 200px 50px 200px;
 }
 
 .cover .btn-lg {

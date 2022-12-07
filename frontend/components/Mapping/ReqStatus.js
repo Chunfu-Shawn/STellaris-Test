@@ -52,7 +52,7 @@ export default function ReqStatus(props){
                 <div className="panel-body">
                     <p>
                         This page will be automatically updated every second until job is done. It may take a while, so
-                        <b>we highly recommend you to save this URL </b>(already sent to your E-mail address if provided), where
+                        <b> we highly recommend you to save this URL </b>(already sent to your E-mail address if provided), where
                         you can view the results when job is over. Note that no mail will be sent if this is an example job.
                     </p>
                 </div>

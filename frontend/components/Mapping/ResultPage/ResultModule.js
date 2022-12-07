@@ -71,7 +71,7 @@ export default function ResultModule(){
     useEffect(()=>{
         notification.info({
             message: `Result page needs time to load data`,
-            description: "if some tables and graphs fail to load, reload webpage please :)",
+            description: "If some modules fail to load, refresh the page please :)",
             style:{
                 marginTop:100
             },
@@ -101,7 +101,7 @@ export default function ResultModule(){
                 </Col>
                 <Col span={20}>
                     <div ref={divContent}>
-                        <h2>Spatial Mapping Result</h2>
+                        <h2>Spatial Mapping Results</h2>
                         <Row>
                             <Col span={8}>
                                 {annContext.reqInfo.species==="Homo sapiens"?

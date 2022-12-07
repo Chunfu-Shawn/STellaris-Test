@@ -58,14 +58,15 @@ export default function SectionTable() {
                 bandWidth: bandWidth
             })
         }).then(() => {
+            router.reload()
             message.success({
                 content:'start annotating successfully!',
                 style:{
                     marginTop: '12vh',
                 },
             });
-            router.reload()
         }).catch(() => {
+            router.reload()
             message.error({
                     content:'start annotating unsuccessfully.',
                     style:{
@@ -74,7 +75,6 @@ export default function SectionTable() {
                     duration:3,
                 }
             );
-            router.reload()
         })
         .finally(() => {
             setOpen(false)
@@ -214,13 +214,13 @@ export default function SectionTable() {
             >
                 <p>Confirm your selected ST section: <b>{datasetId} ({sectionId})</b> to annotate your scRNA-seq data.</p>
                 <Divider orientation="left" orientationMargin="0">
-                    <span style={{fontSize:14}}>Advanced Parameters of Spatial Mapping</span>
-                    <Link href={'/help/manual/datasets#data_page_attributes'}>
+                    <span style={{fontSize:14}}>Advanced Parameters of Spatial Mapping </span>
+                    <Link href={'/help/manual/mapping#advanced_parameters'}>
                         <a target={"_blank"}><QuestionCircleOutlined/></a>
                     </Link>
                 </Divider>
                 <Row justify={"space-evenly"}>
-                    <Col span={8}>
+                    <Col span={12}>
                         <span>Divergence cutoff (0~1): </span>
                         <InputNumber
                             style={{

@@ -30,7 +30,7 @@ export default function MappedCellCountBarGraph(){
         try {
             let option = {
                 title: {
-                    text: 'Cell Number (mapped and failed)',
+                    text: 'Cell Number',
                 },
                 tooltip: {
                     trigger: 'item',
@@ -80,7 +80,6 @@ export default function MappedCellCountBarGraph(){
                 yAxis: [
                     {
                         type: 'value',
-                        name:"Cell Count",
                         nameTextStyle:{
                             fontSize: 14
                         }

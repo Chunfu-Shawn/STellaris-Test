@@ -18,7 +18,7 @@ export default function DistanceDensityGraph(){
                 title: {
                     text: 'Density of Random Forest Distance',
                     textStyle:{
-                        fontSize:18
+                        fontSize:15
                     }
                 },
                 xAxis: {

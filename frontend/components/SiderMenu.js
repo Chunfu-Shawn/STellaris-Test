@@ -3,7 +3,7 @@ import React, {useState,useEffect} from "react";
 const { Sider } = Layout;
 
 export function SiderMenu(props){
-    const [activeNav,setActiveNav] = useState(["Summary"]);//与标识导航栏高亮
+    const [activeNav,setActiveNav] = useState([props.defaultAcitiveNav]);//与标识导航栏高亮
     const onClick = (e)=>{
         setTimeout(()=>setActiveNav(e.key),900)
     }

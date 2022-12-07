@@ -6,19 +6,13 @@ const items = [
         label: <a href={'#Information'}>General Information</a>, key: 'Information',
     },
     {
-        label: <a href={'#Guide'}>Guide</a>, key: 'Guide'
+        label: <a href={'#Guide'}>Guide for mapping</a>, key: 'Guide',
     },
     {
-        label: <a href={'#Spatial Niche'}>Spatial Niche</a>, key: 'Spatial Niche'
+        label: <a href={'#Mouse organogenesis'}>Mouse organogenesis</a>, key: 'Mouse organogenesis'
     },
     {
-        label: <a href={'#Colocalization'}>Colocalization</a>, key: 'Colocalization',
-    },
-    {
-        label: <a href={'#Interaction'}>Interactions</a>, key: 'Interaction',
-    },
-    {
-        label: <a href={'#Download'}>Result Download</a>, key: 'Download',
+        label: <a href={'#Tumor microenvironment in PDAC'}>Tumor microenv in PDAC</a>, key: 'Tumor microenvironment in PDAC',
     },
 
 ]
@@ -28,7 +22,8 @@ export default function TutorialSiderMenu(props){
     return(
         <SiderMenu items = {items}
                    width={200}
-                   openKeys = {[]}
+                   defaultAcitiveNav={"Information"}
+                   openKeys = {["Guide"]}
                    divContent={props.divContent}
         />
     )

@@ -183,7 +183,7 @@ export default function ResultPage(props) {
             returnModule = <ErrorModule/>
         }
     }
-    let title = `STW | Mapping | ${props.rid}`
+    let title = `STellaris | Mapping | ${props.rid}`
 
     return (
         <LayoutCustom>

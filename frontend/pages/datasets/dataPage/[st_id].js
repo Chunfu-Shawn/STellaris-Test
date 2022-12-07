@@ -68,7 +68,7 @@ export default function DataPage(props) {
     return (
         <LayoutCustom>
             <Head>
-                <title>{'STW | Datasets | '+ props.data.id}</title>
+                <title>{'STellaris | Datasets | '+ props.data.id}</title>
             </Head>
                 <div className={"modal-body-stw with-sider"}>
                     <Row style={{width:"100%"}}>

@@ -26,7 +26,7 @@ export default function ManualDatasets() {
                 <DatasetAttributesTable/>
                 <h2>4. Data Visualization</h2>
                 <a id={"data_page_view"} style={{position: 'relative', top: "-150px"}}></a>
-                <p> STW uses Spatial-Trans-Visual-Tool (<a href={"https://github.com/Chunfu-Shawn/Spatial-Trans-Visual-Tool"} target={"_blank"} rel={"noreferrer"}>
+                <p> STellaris uses Spatial-Trans-Visual-Tool (<a href={"https://github.com/Chunfu-Shawn/Spatial-Trans-Visual-Tool"} target={"_blank"} rel={"noreferrer"}>
                     https://github.com/Chunfu-Shawn/Spatial-Trans-Visual-Tool</a>) which was developed from Cirrocumulus
                     (<a href={"https://cirrocumulus.readthedocs.io/en/latest/"} target={"_blank"} rel={"noreferrer"}>
                         https://cirrocumulus.readthedocs.io/en/latest/</a>)
