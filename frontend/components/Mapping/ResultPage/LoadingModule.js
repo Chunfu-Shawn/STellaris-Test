@@ -19,7 +19,7 @@ export default function LoadingModule(props) {
                             left: 'center',
                             top: 'center',
                             style: {
-                                text: 'Spatial Niche Anchor',
+                                text: 'STellaris',
                                 fontSize: 80,
                                 fontWeight: 'bold',
                                 lineDash: [0, 200],

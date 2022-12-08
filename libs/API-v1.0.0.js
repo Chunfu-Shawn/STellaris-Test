@@ -76,7 +76,7 @@ RouterAPI.get('/api/spatially-variable-gene/:geneOrSection/:param', async (ctx) 
     ctx.body = await getSpatiallyVariableGenes(ctx.params.geneOrSection,ctx.params.param)
 })
 
-// 设置路由和api通过基因id或者section_id进行差异基因的搜索
+// 设置路由和api通过基因id进行 pseudobulk expression 基因的搜索
 RouterAPI.get('/api/pseudo-expression/:geneName', async (ctx) => {
     ctx.body = await getPseudoExpression(ctx.params.geneName)
 })

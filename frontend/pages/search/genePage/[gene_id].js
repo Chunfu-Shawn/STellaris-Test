@@ -29,16 +29,24 @@ export async function getServerSideProps(context) {
         +"/api/gene/transcript/"+ context.params.gene_id
     )
     const dataTrans = await resTrans.json()
+
     // get spatially variable information
     const resSV = await fetch((process.env.NODE_ENV==="production"?
             process.env.PRODUCTION_URL:"http://localhost:3000")
         +"/api/spatially-variable-gene/gene/" + data[0].symbol)
     const dataSV = await resSV.json()
+
     // get correlation of genes expression
     const resCor = await fetch((process.env.NODE_ENV==="production"?
-                process.env.PRODUCTION_URL:"http://localhost:3000")
-            +"/api/genes-expression-correlation/gene/" + data[0].symbol)
+            process.env.PRODUCTION_URL:"http://localhost:3000")
+        +"/api/genes-expression-correlation/gene/" + data[0].symbol)
     const dataCor = await resCor.json()
+
+    // get correlation of genes expression
+    const resPseudoEr = await fetch((process.env.NODE_ENV==="production"?
+            process.env.PRODUCTION_URL:"http://localhost:3000")
+        +"/api/pseudo-expression/" + data[0].symbol)
+    const dataPseudoEr = await resPseudoEr.json()
 
 
     // Pass post data to the page via props
@@ -49,6 +57,7 @@ export async function getServerSideProps(context) {
             trans:dataTrans,
             dataSV:dataSV,
             dataCor:dataCor,
+            dataPseudoEr:dataPseudoEr
         }
     }
 }
@@ -57,10 +66,12 @@ export const GeneContext = React.createContext({});
 
 export default function GenePage(props) {
     const divContent = useRef(null); //标识nav导航栏渲染内容
+    const organTissue = Array.from(new Set(props.dataSV.map(
+        item => item.organ_tissue )))
 
     return (
         <LayoutCustom>
-            <GeneContext.Provider value={props}>
+            <GeneContext.Provider value={{...props,organTissue:organTissue}}>
             <Head>
                 <title>{'STellaris | Gene Search | '+ props.data.ensembl_id}</title>
             </Head>

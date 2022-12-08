@@ -3,7 +3,6 @@ import LayoutCustom from '../../../components/LayoutCustom.js'
 import {Col, Row, Table, Tooltip, Divider, Tag, Affix} from 'antd';
 import {FileTextFilled, DownloadOutlined, QuestionCircleOutlined} from '@ant-design/icons';
 import React from "react";
-import Error from "next/error";
 import FliesTree from "../../../components/Datasets/DataPage/FliesTree";
 import DataPageSiderMenu from "../../../components/Datasets/DataPage/DataPageSiderMenu.js"
 import {useRef} from "react";

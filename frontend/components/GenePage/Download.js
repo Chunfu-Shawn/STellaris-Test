@@ -15,16 +15,16 @@ export default function Download(){
             description:'Information about Summary and Genomic Context in JSON format.'
         },
         {
-            title: 'Co-expressed Genes Correlation Coefficient (CSV)',
+            title: 'Spatially Variable Expression (CSV)',
             url: `#`,
-            onClick:()=>exportToCsv(geneContext.dataCor,`${geneContext.data.symbol}_coexpressed_genes`),
-            description:'Raw correlation data about paired genes, which comprise another gene name, efficient and ' +
-                'P-Value of Pearson and Spearman correlation, organ/tissue that data derived and dataset ID in CSV format.'
+            onClick:()=>exportToCsv(geneContext.dataSV,`${geneContext.data.symbol}_spatially_variable_expression`),
+            description:'Raw spatially variable expression data about gene name, gene scan, P-value, Q-value, ' +
+                'section id, datasets id and organ/tissue that data derived in CSV format.'
         },
         {
             title: 'Pseudobulk RNA-seq Expression data (CSV)',
             url: `#`,
-            onClick:()=>exportToCsv(geneContext.dataCor,`${geneContext.data.symbol}_pseudobulk_RNA-seq_expression`),
+            onClick:()=>exportToCsv(geneContext.dataPseudoEr,`${geneContext.data.symbol}_pseudobulk_RNA-seq_expression`),
             description:'Pseudobulk RNA-seq Expression data for interested gene is computed from spatial transcriptome ' +
                 'data stored in our database, which been normalized by RPKM in CSV format.'
         },

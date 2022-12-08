@@ -1,10 +1,13 @@
 import {Divider} from "antd";
 import {LinkOutlined, QuestionCircleOutlined} from "@ant-design/icons";
-import React from "react";
+import React,{useContext} from "react";
 import AttributeLayout from "./AttributeLayout";
 import Link from "next/link.js";
+import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 
 export default function Summary(props){
+    const geneContext = useContext(GeneContext);
+    const organTissue = geneContext.organTissue
     let HGNC = ""
     if(props.data.dbXrefs)
         props.data.dbXrefs.split('|').forEach((item)=>{
@@ -21,9 +24,8 @@ export default function Summary(props){
                 </Link>
             </Divider>
             {props.dataSV.length !== 0 ?
-                <AttributeLayout attribute={<b>Spatially Variable Expression</b>}>{<b>This gene identitied a spatially variable gene
-                    was found in {Array.from(new Set(props.dataSV.map(
-                    item => item.organ_tissue )))}</b>}</AttributeLayout>
+                <AttributeLayout attribute={<b>Spatially Variable Expression</b>}>{<span>This gene identitied a spatially variable gene
+                    was found in <b>{organTissue.join(", ")}</b></span>}</AttributeLayout>
                 :<></>
             }
             {

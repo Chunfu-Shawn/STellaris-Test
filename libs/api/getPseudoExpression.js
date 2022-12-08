@@ -16,7 +16,7 @@ export async function getPseudoExpression(geneName) {
     let selectSql
     // 加上BINARY区分大小写
     selectSql =
-        `SELECT pe.*,d.section_id,d.organ_tissue FROM sections_info as d 
+        `SELECT pe.*,pe.section_id,d.organ_tissue FROM sections_info as d 
          RIGHT JOIN (SELECT * FROM pseudobulk_expression WHERE BINARY gene_symbol=?) as pe
          ON BINARY d.section_id = pe.section_id`
     //查询

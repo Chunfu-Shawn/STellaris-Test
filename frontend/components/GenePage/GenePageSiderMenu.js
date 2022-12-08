@@ -11,8 +11,7 @@ const itemsSV = [
         label: 'Spatial Expression', key: 'Spatial Expression',
         children: [
             { label: <a href={'#SV Expression'}>SV Expression</a>, key: 'SV Expression' },
-            { label: <a href={'#CoE-Genes'}>CoE-Genes</a>, key: 'CoE-Genes'},
-            { label: <a href={'#HighlyE-Clusters'}>HighlyE-Clusters</a>, key: 'HighlyE-Clusters'}
+            { label: <a href={'#SVE Table'}>SV Expression Table</a>, key: 'SVE Table'},
         ],
     },
     {

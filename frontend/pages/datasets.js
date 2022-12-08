@@ -14,7 +14,7 @@ export default function Datasets() {
             </Head>
             <div className={'mainbody'}>
                 <div className="modal-body-stw">
-                    <div className={"cover-container inner"} >
+                    <div className={"inner"} >
                         <div className="text-left">
                             <h1 style={{color:"white",fontSize:"40px"}}>Spatial Transcriptome Datasets </h1><br/>
                         </div>
@@ -28,7 +28,7 @@ export default function Datasets() {
                             explore the spatially resolved expression profile of genes of interest.
                         </p>
                     </div>
-                    <Row justify={"space-evenly"}>
+                    <Row justify={"space-evenly"} style={{margin:"80px 0px"}}>
                         <Col span={12}>
                             <HumanMap></HumanMap>
                         </Col>

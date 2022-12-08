@@ -16,10 +16,12 @@ export async function getSpatiallyVariableGenes(geneOrSection,param) {
     let selectSql
     // 加上BINARY区分大小写
     if(geneOrSection === "gene") selectSql =
-        `SELECT sv.*,d.id,d.organ_tissue,d.developmental_stage FROM sections_info as d 
+        `SELECT sv.*,d.id,d.organ_tissue FROM sections_info as d 
          RIGHT JOIN (SELECT * FROM spatially_variable_genes WHERE BINARY gene_symbol=?) as sv
          ON BINARY d.section_id = sv.section_id`
-    else selectSql = `SELECT sv.*,g.ensembl_id FROM genes_info as g RIGHT JOIN (SELECT * from spatially_variable_genes WHERE section_id=?) as sv ON BINARY sv.gene_symbol = g.symbol`
+    else selectSql =
+        `SELECT sv.*,g.ensembl_id FROM genes_info as g RIGHT JOIN (SELECT * from spatially_variable_genes 
+         WHERE section_id=?) as sv ON BINARY sv.gene_symbol = g.symbol`
     //查询
     return new Promise((resolve, reject) => {
         connection.query(selectSql, [param], (err, result) => {

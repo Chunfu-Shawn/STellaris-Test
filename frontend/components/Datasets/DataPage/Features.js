@@ -183,7 +183,7 @@ export default function Features(props){
                     <Table columns={SVGeneColumns}
                            dataSource={props.spatiallyVariableGenes.map(item=> {
                                return {
-                                   key:item.gene_symbol+item.ensembl_id,
+                                   key:item.gene_symbol+item.ensembl_id+item.section_id,
                                    ...item
                                }
                            })}
@@ -191,7 +191,7 @@ export default function Features(props){
                            bordered={true}
                     />
                 </div>
-                <Divider orientation="left" orientationMargin="0" dashed>
+                {/*<Divider orientation="left" orientationMargin="0" dashed>
                     <Row gutter={[80]} style={{width:"auto"}}>
                         <Col span={14}>
                             <span style={{fontSize:18}}>Co-Expressed Genes</span>
@@ -216,7 +216,7 @@ export default function Features(props){
                            size={"small"}
                            bordered={true}
                     />
-                </div>
+                </div>*/}
             </div>
         </div>
     )

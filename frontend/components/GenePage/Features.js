@@ -1,16 +1,18 @@
 import {Button, Col, Collapse, Divider, Row} from "antd";
 import {LinkOutlined, QuestionCircleOutlined} from "@ant-design/icons";
-import React from "react";
+import React,{useContext} from "react";
 import AttributeLayout from "./AttributeLayout";
 import Link from "next/link.js";
 import TranscriptTable from "./TranscriptTable.js";
-import GeneExpressionBarChart from "./GeneExpressionBarChart";
+import GeneExpressionBoxPlot from "./GeneExpressionBoxPlot";
 import {exportToCsv} from "../util";
+import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 
 const { Panel } = Collapse;
 
 export default function Features(props){
-
+    const geneContext = useContext(GeneContext);
+    const pseudoExpr = geneContext.dataPseudoEr
     return(
         <>
             <Divider orientation="left" orientationMargin="0">
@@ -34,23 +36,23 @@ export default function Features(props){
                     {props.data.map_location}
                 </AttributeLayout>
             </div>
-            <div name={"Expression"} style={{marginLeft:"20px"}}>
+            <div name={"Expression"} style={{marginLeft:20}}>
                 <a id={"Expression"} style={{position: 'relative', top: "-150px"}}></a>
-                <Divider orientation="left" orientationMargin="0" dashed>
-                    <Row gutter={[20,0]} style={{width:"auto"}}>
-                        <Col span={22}>
+                <Divider orientation="left" orientationMargin="0">
+                    <Row gutter={[20,0]} style={{width:400}}>
+                        <Col span={16}>
                             <b>Pseudobulk RNA-seq Expression</b>
                         </Col>
-                        <Col span={2}>
+                        <Col span={8}>
                             <Button size={"small"}
-                                    onClick={() => exportToCsv(props.trans,`${props.data.symbol}_pseudobulk_RNA-seq_expression`)}
+                                    onClick={() => exportToCsv(pseudoExpr,`${props.data.symbol}_pseudobulk_RNA-seq_expression`)}
                             >
                                 Export to CSV
                             </Button>
                         </Col>
                     </Row>
                 </Divider>
-                <GeneExpressionBarChart/>
+                <GeneExpressionBoxPlot/>
             </div>
             <div name={"Transcript"} style={{marginLeft:"20px"}}>
                 <a id={"Transcript"} style={{position: 'relative', top: "-150px"}}></a>
