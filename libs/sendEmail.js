@@ -16,19 +16,19 @@ export function sendMail(mail, rid, call) {
     let mailOptions = {
         from: 'noreply_bgm@163.com', // 发送方
         to: mail, //接收者邮箱，多个邮箱用逗号间隔
-        subject: 'Spatial Niche Anchor: the URL of spatial mapping result"', // 标题
+        subject: 'STellaris: the URL of spatial mapping result"', // 标题
         // text: 'Hello world?', // 文本内容
         html: '<p>The URL of your real-time spatial mapping result: <a href="https://spatial.rhesusbase.com/mapping/resultPage/'+rid+
             '">https://spatial.rhesusbase.com/mapping/resultPage/'+rid+'</a></p>'+
             '<p>Section Blast will take about 2 min and Spatial Mapping will take about 30~40 min. ' +
             'In order to ensure data security, the submitted files and result data will be deleted after <b>one week</b>.</p>'+
             '<p>This is an automatically sent message, please do not respond to this email address, thank you!</p>'+
-            '<p><small>Best wishes</small></p>'+
-            '<p><small>BGM team</small></p>'+
-            '<p><small>Institute of Molecular Medicine</small></p>' +
-            '<p><small>College of Future Technology</small></p>' +
-            '<p><small>Peking University</small></p>' +
-            '<p><small>Beijing, P.R. China 100871</small></p>', //页面内容
+            '<p><small>Best wishes<br/>'+
+            'BGM team<br/>'+
+            'Institute of Molecular Medicine<br/>' +
+            'College of Future Technology<br/>' +
+            'Peking University<br/>' +
+            'Beijing, P.R. China 100871</small></p>', //页面内容
         // attachments: [{//发送文件
         // filename: 'index.html', //文件名字
         // path: './index.html' //文件路径,

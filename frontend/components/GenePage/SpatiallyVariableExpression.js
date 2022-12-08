@@ -6,7 +6,7 @@ import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 export default function SpatiallyVariableExpression(){
     const geneContext = useContext(GeneContext);
     const organTissue = geneContext.organTissue
-    const datasets = organTissue.map(item=>{
+    const datasets = organTissue.map( item=>{
         let record = geneContext.dataSV
             .filter(item2 => item2.organ_tissue === item)[Math.floor(Math.random())*organTissue.length]
         return {
