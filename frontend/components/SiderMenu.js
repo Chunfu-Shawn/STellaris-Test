@@ -17,7 +17,7 @@ export function SiderMenu(props){
             if (nav_contentReact) {
                 groupList.forEach(item => {
                     let itemReact = item.getBoundingClientRect();
-                    if (itemReact.y <= 400 && (itemReact.y + itemReact.height) > 400) {
+                    if (itemReact.y <= 300 && (itemReact.y + itemReact.height) > 300) {
                         //当该子元素距离顶部小于等于300时，说明此时导航栏应该高亮，
                         //同时在其高度范围内均应高亮。
                         if (item.getAttribute("name")) {

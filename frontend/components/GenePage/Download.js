@@ -9,34 +9,33 @@ export default function Download(){
     const geneContext = useContext(GeneContext);
     const data = [
         {
-            title: 'Gene Information (JSON)',
+            title: 'Gene Summary (JSON)',
             url: `/api/gene/${geneContext.data.ensembl_id}`,
             onClick:()=>void (0),
-            description:'Information about Summary and Genomic Context in JSON format.'
-        },
-        {
-            title: 'Spatially Variable Expression (CSV)',
-            url: `#`,
-            onClick:()=>exportToCsv(geneContext.dataSV,`${geneContext.data.symbol}_spatially_variable_expression`),
-            description:'Raw spatially variable expression data about gene name, gene scan, P-value, Q-value, ' +
-                'section id, datasets id and organ/tissue that data derived in CSV format.'
-        },
-        {
-            title: 'Pseudobulk RNA-seq Expression data (CSV)',
-            url: `#`,
-            onClick:()=>exportToCsv(geneContext.dataPseudoEr,`${geneContext.data.symbol}_pseudobulk_RNA-seq_expression`),
-            description:'Pseudobulk RNA-seq Expression data for interested gene is computed from spatial transcriptome ' +
-                'data stored in our database, which been normalized by RPKM in CSV format.'
+            description:'Summary of the gene in JSON format.'
         },
         {
             title: 'Gene Transcripts (CSV)',
             url: `#`,
             onClick:()=>exportToCsv(geneContext.trans,`${geneContext.data.symbol}_transcripts`),
-            description:'Transcript information about this gene came from Ensembl database.'
+            description:'Transcript information of the gene from Ensembl database.'
+        },
+        {
+            title: 'Spatially Variable Expression (CSV)',
+            url: `#`,
+            onClick:()=>exportToCsv(geneContext.dataSV,`${geneContext.data.symbol}_spatially_variable_expression`),
+            description:'Spatially variable expression records including gene name, datasets id, section id,' +
+                ' organ/tissue, scan, P-value and Q-value in CSV format.'
+        },
+        {
+            title: 'Expression Rank Score (CSV)',
+            url: `#`,
+            onClick:()=>exportToCsv(geneContext.dataPseudoEr,`${geneContext.data.symbol}_expression_rank_score`),
+            description:'Expression Rank Score of the gene which is defined as the percentile of log(CPM) in CSV format.'
         },
     ];
     // whether gene is a spatially variable gene
-    if(geneContext.dataSV.length === 0) data.splice(1,1)
+    if(geneContext.dataSV.length === 0) data.splice(2,1)
     return(
         <div name={"Download"}>
             <a id={"Download"} style={{position: 'relative', top: "-150px"}}></a>

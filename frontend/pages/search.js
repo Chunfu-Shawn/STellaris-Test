@@ -61,7 +61,7 @@ export default function SearchPage() {
                         <Option value="Entrez">Entrez ID</Option>
                     </Select>
                     <Search
-                        placeholder="input search gene"
+                        placeholder="input a gene of interest"
                         enterButton="Search"
                         id={"search"}
                         allowClear

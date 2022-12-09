@@ -21,7 +21,8 @@ export async function execNicheAnchor(rid, dataset, section, divergenceCutoff, b
         " --species " + `"${species}"` +
         " --n_threads " + nThreads +
         " --outDir " + resultPath +
-        " >"+ resultPath + "/log/nicheAnchor.log"
+        " >"+ resultPath + "/log/nicheAnchor.log"+
+        " 2>" + resultPath + "/log/Error.log"
 
     // 执行注释脚本
     if (!fs.existsSync(nicheAnchor)) {

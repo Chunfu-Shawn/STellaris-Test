@@ -32,6 +32,7 @@ export default function DataPageSiderMenu(props){
         <SiderMenu items = {items}
                    width={150}
                    openKeys = {["Spatial Expression","Features"]}
+                   defaultAcitiveNav={"Summary"}
                    divContent={props.divContent}
         />
     )

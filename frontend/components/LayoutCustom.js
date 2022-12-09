@@ -34,6 +34,7 @@ export default function LayoutCustom({ children }) {
                 <button style={style}>UP</button>
             </BackTop>
             {children}
+            <div style={{flexGrow:1}}></div>
             <FooterCustom></FooterCustom>
         </>
     )

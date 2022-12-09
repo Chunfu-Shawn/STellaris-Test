@@ -30,6 +30,7 @@ export default function ResultPageSiderMenu(props){
         <SiderMenu items = {items}
                    width={150}
                    openKeys = {[]}
+                   defaultAcitiveNav={"Preprocessing"}
                    divContent={props.divContent}
         />
     )

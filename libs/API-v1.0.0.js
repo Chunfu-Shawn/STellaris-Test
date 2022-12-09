@@ -110,6 +110,12 @@ RouterAPI.get('/api/mapping-result/:rid', async (ctx) => {
     ctx.body = await getMappingResult(record.dataset_id, record.result_path)
 })
 
+// screening or mapping error log fetch
+RouterAPI.get('/api/error-log/:rid', async (ctx) => {
+    const record = await getJobInfo(ctx.params.rid)
+    ctx.body = await getLogLine(record.result_path, "/log/Error.log")
+})
+
 // submitted counts files fetch
 RouterAPI.get('/api/submitted-files/counts/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)

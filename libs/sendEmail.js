@@ -16,9 +16,9 @@ export function sendMail(mail, rid, call) {
     let mailOptions = {
         from: 'noreply_bgm@163.com', // 发送方
         to: mail, //接收者邮箱，多个邮箱用逗号间隔
-        subject: 'STellaris: the URL of spatial mapping result"', // 标题
+        subject: 'STellaris: the URL of spatial mapping results', // 标题
         // text: 'Hello world?', // 文本内容
-        html: '<p>The URL of your real-time spatial mapping result: <a href="https://spatial.rhesusbase.com/mapping/resultPage/'+rid+
+        html: '<p>The URL of your real-time spatial mapping results: <a href="https://spatial.rhesusbase.com/mapping/resultPage/'+rid+
             '">https://spatial.rhesusbase.com/mapping/resultPage/'+rid+'</a></p>'+
             '<p>Section Blast will take about 2 min and Spatial Mapping will take about 30~40 min. ' +
             'In order to ensure data security, the submitted files and result data will be deleted after <b>one week</b>.</p>'+

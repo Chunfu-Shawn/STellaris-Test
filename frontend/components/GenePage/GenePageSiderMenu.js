@@ -17,7 +17,6 @@ const itemsSV = [
     {
         label: 'Features', key: 'Features',
         children: [
-            { label: <a href={'#Genomic Context'}>Genomic Context</a>, key: 'Genomic Context' },
             { label: <a href={'#Expression'}>Expression</a>, key: 'Expression' },
             { label: <a href={'#Transcript'}>Transcript</a>, key: 'Transcript'}
         ],
@@ -34,7 +33,6 @@ const itemsNonSV = [
     {
         label: 'Features', key: 'Features',
         children: [
-            { label: <a href={'#Genomic Context'}>Genomic Context</a>, key: 'Genomic Context' },
             { label: <a href={'#Expression'}>Expression</a>, key: 'Expression' },
             { label: <a href={'#Transcript'}>Transcript</a>, key: 'Transcript'}
         ],
@@ -49,6 +47,7 @@ export default function GenePageSiderMenu(props){
     return(
         <SiderMenu items = {geneContext.dataSV.length !== 0 ? itemsSV : itemsNonSV}
                    openKeys = {["Spatial Expression","Features"]}
+                   defaultAcitiveNav={"Summary"}
                    divContent={props.divContent}
         />
     )

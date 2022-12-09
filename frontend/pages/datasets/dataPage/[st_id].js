@@ -29,31 +29,24 @@ export async function getServerSideProps(context) {
 
     // 取搜索结果数组中的第一个结果
     const sectionOption = data[0].section_id.split(',')
-    // get spatially variable gene
-    let spatiallyVariableGenes = []
-    for (const item of sectionOption) {
-        const res = await fetch((process.env.NODE_ENV==="production"?
-                process.env.PRODUCTION_URL:"http://localhost:3000")
-            +"/api/spatially-variable-gene/section/"+item)
-        const data = await res.json()
-        spatiallyVariableGenes.push.apply(spatiallyVariableGenes, data)
-    }
+
     // get correlation of genes expression
-    let genesExpressionCorrelation = []
+    /*let genesExpressionCorrelation = []
     for (const item of sectionOption) {
         const res = await fetch((process.env.NODE_ENV==="production"?
                 process.env.PRODUCTION_URL:"http://localhost:3000")
             +"/api/genes-expression-correlation/section/"+item)
         const data = await res.json()
         genesExpressionCorrelation.push.apply(genesExpressionCorrelation, data)
-    }
+    }*/
 
     // Pass post data to the page via props
     return {
         props: {
             data:data[0],
-            spatiallyVariableGenes:spatiallyVariableGenes,
-            genesExpressionCorrelation:genesExpressionCorrelation,
+            sectionOption:sectionOption,
+            //spatiallyVariableGenes:spatiallyVariableGenes,
+            //genesExpressionCorrelation:genesExpressionCorrelation,
             //config:config
         }
     }
@@ -61,7 +54,6 @@ export async function getServerSideProps(context) {
 
 export default function DataPage(props) {
     const divContent = useRef(null); //标识nav导航栏渲染内容
-    const sectionOption = props.data.section_id.split(',')
     const iconStyle = {color:"dimgray",float:"right",fontSize:"22px",margin:'0 2%'}
 
     return (
@@ -144,13 +136,11 @@ export default function DataPage(props) {
                                 </div>
                                 <Features
                                     data={props.data}
-                                    spatiallyVariableGenes={props.spatiallyVariableGenes}
-                                    genesExpressionCorrelation={props.genesExpressionCorrelation}
-                                    sectionOption={sectionOption}
+                                    sectionOption={props.sectionOption}
                                 />
                                 <VisualToolModule
                                     st_id={props.data.id}
-                                    sectionOption={sectionOption}
+                                    sectionOption={props.sectionOption}
                                     />
                                 <div name={"Source"}>
                                     <a id={"Source"} style={{position: 'relative', top: "-150px"}}></a>
@@ -187,7 +177,7 @@ export default function DataPage(props) {
                                         <span style={{fontSize:22}}>Download </span>
                                     </Divider>
                                     <div className="site-card-wrapper" style={{padding:"10px"}}>
-                                        <FliesTree st_id={props.data.id} sections_id={sectionOption}/>
+                                        <FliesTree st_id={props.data.id} sections_id={props.sectionOption}/>
                                     </div>
                                 </div>
                             </div>

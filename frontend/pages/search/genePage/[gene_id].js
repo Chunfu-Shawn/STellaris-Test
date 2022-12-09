@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import LayoutCustom from '../../../components/LayoutCustom.js'
-import {Affix, Col, Row, Tag} from 'antd';
-import React, {useRef} from "react";
+import {Affix, Col, Row, Tag, Space} from 'antd';
+import React, {useRef, useEffect, useState} from "react";
 import GenePageSiderMenu from "../../../components/GenePage/GenePageSiderMenu.js";
 import Summary from "../../../components/GenePage/Summary.js";
 import Features from "../../../components/GenePage/Features.js";
@@ -30,7 +30,7 @@ export async function getServerSideProps(context) {
     )
     const dataTrans = await resTrans.json()
 
-    // get spatially variable information
+    /*/ get spatially variable information
     const resSV = await fetch((process.env.NODE_ENV==="production"?
             process.env.PRODUCTION_URL:"http://localhost:3000")
         +"/api/spatially-variable-gene/gene/" + data[0].symbol)
@@ -42,22 +42,18 @@ export async function getServerSideProps(context) {
         +"/api/genes-expression-correlation/gene/" + data[0].symbol)
     const dataCor = await resCor.json()
 
-    // get correlation of genes expression
+    // get pseudo-bulk expression of gene
     const resPseudoEr = await fetch((process.env.NODE_ENV==="production"?
             process.env.PRODUCTION_URL:"http://localhost:3000")
         +"/api/pseudo-expression/" + data[0].symbol)
-    const dataPseudoEr = await resPseudoEr.json()
+    const dataPseudoEr = await resPseudoEr.json()*/
 
 
     // Pass post data to the page via props
     return {
         props: {
-            // return first record
             data:data[0],
             trans:dataTrans,
-            dataSV:dataSV,
-            dataCor:dataCor,
-            dataPseudoEr:dataPseudoEr
         }
     }
 }
@@ -66,12 +62,42 @@ export const GeneContext = React.createContext({});
 
 export default function GenePage(props) {
     const divContent = useRef(null); //标识nav导航栏渲染内容
-    const organTissue = Array.from(new Set(props.dataSV.map(
+    const [loading, setLoading] = useState(true);
+    const [dataSV, setDataSV] = useState([]);
+    const [dataPseudoEr, setDataPseudoEr] = useState([]);
+    const organTissue = Array.from(new Set(dataSV.map(
         item => item.organ_tissue )))
+
+    const fetchData = async () => {
+        // get spatially variable gene; use await to load SV first
+        await fetch((process.env.NODE_ENV==="production"?
+                process.env.PRODUCTION_URL:"http://localhost:3000")
+            +"/api/spatially-variable-gene/gene/"+ props.data.symbol)
+            .then(res => res.json())
+            .then(data => setDataSV(data))
+        // load SV first async
+        fetch((process.env.NODE_ENV==="production"?
+                process.env.PRODUCTION_URL:"http://localhost:3000")
+            +"/api/pseudo-expression/"+ props.data.symbol)
+            .then(res => res.json())
+            .then(data => setDataPseudoEr(data))
+    };
+
+    useEffect(() => {
+        fetchData().then(() => setLoading(false))
+    }, []);
 
     return (
         <LayoutCustom>
-            <GeneContext.Provider value={{...props,organTissue:organTissue}}>
+            <GeneContext.Provider value={
+                {
+                    ...props,
+                    dataSV:dataSV,
+                    dataPseudoEr:dataPseudoEr,
+                    loading:loading,
+                    organTissue:organTissue,
+                }
+            }>
             <Head>
                 <title>{'STellaris | Gene Search | '+ props.data.ensembl_id}</title>
             </Head>
@@ -89,22 +115,34 @@ export default function GenePage(props) {
                                 <h4>Gene</h4>
                                 <div key={"gene_name"}>
                                     <Row align="bottom" style={{marginBottom:10}}>
-                                        <span style={{fontSize:"22px",fontWeight:"bold",marginRight:10}}>{props.data.symbol}</span>
-                                        <span style={{fontSize:"16px",fontWeight:"bold",color:"gray"}}> {props.data.ensembl_id}</span>
+                                        <Space>
+                                            <span style={{fontSize:"22px",fontWeight:"bold",marginRight:10}}>{props.data.symbol}</span>
+                                            <span style={{fontSize:"16px",fontWeight:"bold",color:"gray"}}> {props.data.ensembl_id}</span>
+                                            {
+                                                loading === true ? <></> : (dataSV.length !== 0) ?
+                                                    <a href={"#SV Expression"}><Tag color="volcano">SPATIALLY VARIABLE GENE</Tag></a>:
+                                                    <a href={"#Expression"}><Tag color="geekblue">NON-SPATIALLY VARIABLE GENE</Tag></a>
+                                            }
+                                        </Space>
                                     </Row>
                                     {
-                                        props.dataSV.length !== 0 ?
-                                        <a href={"#SV Expression"}><Tag color="volcano">SPATIALLY VARIABLE GENE</Tag></a>:
-                                        <a href={"#Expression"}><Tag color="geekblue">NON-SPATIALLY VARIABLE GENE</Tag></a>
+                                        dataSV.length !== 0 ?
+                                            <span>
+                                                This gene was defined as a spatially variable gene in <b>{organTissue.join(", ")}</b>
+                                            </span>:
+                                            <span>
+                                                This gene was NOT a spatially variable gene in any organs/tissues.
+                                            </span>
                                     }
                                 </div>
-                                <Summary data={props.data} dataSV={props.dataSV}/>
+                                <Summary/>
                                 {
-                                    props.dataSV.length !== 0 ? <SpatialExpression/> :
-                                    <></>
+                                    dataSV.length !== 0 ?
+                                        <SpatialExpression/> :
+                                        <></>
                                 }
-                                <Features data={props.data} trans={props.trans}/>
-                                <Download data={props.data}/>
+                                <Features/>
+                                <Download/>
                             </div>
                         </Col>
                     </Row>

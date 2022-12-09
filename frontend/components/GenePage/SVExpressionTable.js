@@ -12,31 +12,12 @@ export default function SVExpressionTable(){
         {
             title: 'Gene Name',
             dataIndex: 'gene_symbol',
-            width:'12%',
-        },
-        {
-            title: 'P-Value',
-            dataIndex: 'p_value',
-            width:'12%',
-            sorter: (a, b) => a.p_value - b.p_value,
-        },
-        {
-            title: 'Q-Value',
-            dataIndex: 'q_value',
-            width:'12%',
-            sorter: (a, b) => a.q_value - b.q_value,
-            defaultSortOrder: 'ascend',
-        },
-        {
-            title: 'Span',
-            dataIndex: 'span',
             width:'10%',
-            sorter: (a, b) => a.span - b.span,
         },
         {
             title: 'Dataset ID',
             dataIndex: 'id',
-            width:'15%',
+            width:'17%',
             filters: svg.map(item =>
             {
                 return{
@@ -58,6 +39,38 @@ export default function SVExpressionTable(){
                 }
             }),
             onFilter: (value, record) => record.section_id.indexOf(value) === 0,
+        },
+        {
+            title: 'Organ/Tissue',
+            dataIndex: 'organ_tissue',
+            width:'10%',
+            filters: svg.map(item =>
+            {
+                return{
+                    text: item.organ_tissue,
+                    value: item.organ_tissue
+                }
+            }),
+            onFilter: (value, record) => record.organ_tissue.indexOf(value) === 0,
+        },
+        {
+            title: 'P-Value',
+            dataIndex: 'p_value',
+            width:'12%',
+            sorter: (a, b) => a.p_value - b.p_value,
+        },
+        {
+            title: 'Q-Value',
+            dataIndex: 'q_value',
+            width:'12%',
+            sorter: (a, b) => a.q_value - b.q_value,
+            defaultSortOrder: 'ascend',
+        },
+        {
+            title: 'Span',
+            dataIndex: 'span',
+            width:'10%',
+            sorter: (a, b) => a.span - b.span,
         },
     ];
 

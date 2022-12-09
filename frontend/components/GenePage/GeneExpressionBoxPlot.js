@@ -9,28 +9,12 @@ export default function GeneExpressionBoxPlot(){
     const chartRef = useRef(null);
     let chartInstance = null;
     const geneContext = useContext(GeneContext);
-    const data = geneContext.data
-    const pseudoExpr = geneContext.dataPseudoEr
-    let organTissue = Array.from(new Set(pseudoExpr.map(item => item.organ_tissue)))
-        .sort((a,b) => {
-            if(a > b) return 1
-            else return -1
-        })
-
-    const transform2boxplot = function (data,organTissue){
-        let sourceData = organTissue.map(item => [])
-        data.forEach(item => {
-            sourceData[organTissue.indexOf(item.organ_tissue)].push(item.rank_score)
-        })
-        return sourceData
-    }
-
-        //transform2boxplot(pseudoExpr,organTissue)
+    const dataPseudoEr = geneContext.dataPseudoEr
 
     // 定义渲染函数
-    function renderChart(data) {
+    function renderChart() {
         try {
-            const sourceData = data.map(item => [item.organ_tissue,item.rank_score])
+            const sourceData = dataPseudoEr.map(item => [item.organ_tissue,item.rank_score])
             sourceData.unshift(["organ_tissue","rank_score"])
             echarts.registerTransform(ecSimpleTransform.aggregate);
             let option = {
@@ -153,18 +137,17 @@ export default function GeneExpressionBoxPlot(){
 
     useEffect(() => {
         $.when(
-            $.get("/api/pseudo-expression/" + data.symbol),
             $.getScript(
                 'https://rhesusbase.com:9999/files/ecSimpleTransform.min.js'
             )
-        ).done(function (res) {
-            renderChart(res[0]);
+        ).done(function () {
+            renderChart();
         });
         return () => {
             // 销毁图表实例，释放内存
             chartInstance && chartInstance.dispose()
         }
-    },[])
+    },[dataPseudoEr])
 
     return(
         <div ref={chartRef} style={{height:600,marginBottom:10}}></div>

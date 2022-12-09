@@ -1,16 +1,18 @@
 import {Button, Col, Divider, Row, Table} from "antd";
 import Link from "next/link";
 import {QuestionCircleOutlined} from "@ant-design/icons";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {exportToCsv, toNonExponential} from "../../util";
 
 export default function Features(props){
+    const [loading, setLoading] = useState(false);
+    const [sVGenes, setSVGenes] = useState([]);
     const SVGeneColumns = [
         {
             title: 'Gene Name',
             dataIndex: 'gene_symbol',
             width:'12%',
-            filters: Array.from(new Set(props.spatiallyVariableGenes.map(
+            filters: Array.from(new Set(sVGenes.map(
                 value => value.gene_symbol ))).map(
                 item => {
                     return{
@@ -75,86 +77,27 @@ export default function Features(props){
                 }
             }),
             onFilter: (value, record) => record.section_id.indexOf(value) === 0,
-        },
-        {
-            title: 'Main Distribution',
-            dataIndex: 'main_distribution',
-            width:'30%',
-            wrap:true
-        },
+        }
     ];
-    const CEGeneColumns = [
-        {
-            title: 'Gene Name',
-            dataIndex: 'x_gene_symbol',
-            width:'12%',
-            filters: Array.from(new Set(props.genesExpressionCorrelation.map(
-                value => value.x_gene_symbol ))).map(
-                item => {
-                    return{
-                        text: item,
-                        value: item
-                    }
-                }
-            ),
-            onFilter: (value, record) => record.x_gene_symbol.indexOf(value) === 0,
-            filterSearch: true,
-        },
-        {
-            title: 'Gene Name',
-            dataIndex: 'y_gene_symbol',
-            width:'12%',
-            filters: Array.from(new Set(props.genesExpressionCorrelation.map(
-                value => value.y_gene_symbol ))).map(
-                item => {
-                    return{
-                        text: item,
-                        value: item
-                    }
-                }
-            ),
-            onFilter: (value, record) => record.y_gene_symbol.indexOf(value) === 0,
-            filterSearch: true,
-        },
-        {
-            title: 'ρ (pearson)',
-            dataIndex: 'pearson_rho',
-            width:'15%',
-            sorter: (a, b) => a.pearson_rho - b.pearson_rho,
-            defaultSortOrder: 'descend',
-        },
-        {
-            title: 'P-value (Pearson)',
-            dataIndex: 'pearson_p_value',
-            width:'15%',
-            sorter: (a, b) => a.pearson_rho - b.pearson_rho,
-        },
-        {
-            title: 'ρ (Spearman)',
-            dataIndex: 'spearman_rho',
-            width:'15%',
-            sorter: (a, b) => a.spearman_rho - b.spearman_rho,
-        },
-        {
-            title: 'P-value (Spearman)',
-            dataIndex: 'spearman_p_value',
-            width:'15%',
-            sorter: (a, b) => a.spearman_p_value - b.spearman_p_value,
-        },
-        {
-            title: 'Section ID',
-            dataIndex: 'section_id',
-            width:'15%',
-            filters: props.sectionOption.map(value =>
-            {
-                return{
-                    text: value,
-                    value: value
-                }
-            }),
-            onFilter: (value, record) => record.section_id.indexOf(value) === 0,
-        },
-    ];
+
+    const fetchData = async () => {
+        setLoading(true);
+        // get spatially variable gene
+        let spatiallyVariableGenes = []
+        for (const item of props.sectionOption) {
+            await fetch((process.env.NODE_ENV==="production"?
+                    process.env.PRODUCTION_URL:"http://localhost:3000")
+                +"/api/spatially-variable-gene/section/"+item)
+                .then(res => res.json())
+                .then(data => spatiallyVariableGenes.push.apply(spatiallyVariableGenes, data))
+        }
+        setSVGenes(spatiallyVariableGenes)
+    };
+
+    useEffect(() => {
+        fetchData().then(() => setLoading(false))
+    }, []);
+
     return(
         <div name={"Features"}>
             <a id={"Features"} style={{position: 'relative', top: "-150px"}}></a>
@@ -172,7 +115,7 @@ export default function Features(props){
                         </Col>
                         <Col span={10}>
                             <Button size={"small"}
-                                    onClick={() => exportToCsv(props.spatiallyVariableGenes,`${props.data.id}_SV_genes`)}
+                                    onClick={() => exportToCsv(sVGenes,`${props.data.id}_SV_genes`)}
                             >
                                 Export to CSV
                             </Button>
@@ -181,12 +124,13 @@ export default function Features(props){
                 </Divider>
                 <div style={{overflow:"scroll"}}>
                     <Table columns={SVGeneColumns}
-                           dataSource={props.spatiallyVariableGenes.map(item=> {
+                           dataSource={sVGenes.map(item=> {
                                return {
                                    key:item.gene_symbol+item.ensembl_id+item.section_id,
                                    ...item
                                }
                            })}
+                           loading={loading}
                            size={"small"}
                            bordered={true}
                     />

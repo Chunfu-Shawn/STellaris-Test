@@ -124,6 +124,22 @@ function useAnnResult(rid,status){
     }
 }
 
+// 自定义hook，根据任务状态，每次渲染后返回任务结果；
+function useErrorLog(rid,status){
+    const fetcher = (...args) => fetch(...args).then((res) => res.json())
+    const { data, error } = useSWR(status==="error"?`/api/error-log/${rid}`:null, fetcher,
+        {
+            revalidateIfStale: false,
+        })
+
+    // 如果数据为空，为undefined，返回error为true
+    return{
+        eLog: data,
+        error6: error,
+        isLoading6: !error && !data,
+    }
+}
+
 export const AnnContext = React.createContext({});
 
 export default function ResultPage(props) {
@@ -136,13 +152,17 @@ export default function ResultPage(props) {
         reqInfo===undefined ? false : reqInfo.status)
     let {result, error5, isLoading5} = useAnnResult(props.rid,
         reqInfo===undefined ? false : reqInfo.status)
+    let {eLog, error6, isLoading6} = useErrorLog(props.rid,
+        reqInfo===undefined ? false : reqInfo.status)
     let returnModule
+
     // 如果找不到该rid，返回error 404页面
-    if (isLoading || isLoading2 || isLoading3 || isLoading4 || isLoading5) {
+    if (isLoading || isLoading2 || isLoading3 || isLoading4 || isLoading5 || isLoading6) {
         returnModule = <div style={{textAlign:"center"}}><LoadingModule/></div>
     }
+
     //  如果找不到job信息或者分析的log信息，显示error页面
-    if ( error || error2 || error4 ){
+    if ( error || error2 || error4 || error6){
         returnModule =
             <Result
                 status="500"
@@ -179,10 +199,11 @@ export default function ResultPage(props) {
             returnModule = <WaitModule/>
         }else if(reqInfo.status === 'finished' && !error5 && !isLoading5){
             returnModule = <ResultModule/>
-        }else if(reqInfo.status === 'error'){
+        }else if(reqInfo.status === 'error' && !error5 && !isLoading6){
             returnModule = <ErrorModule/>
         }
     }
+
     let title = `STellaris | Mapping | ${props.rid}`
 
     return (
@@ -195,7 +216,8 @@ export default function ResultPage(props) {
                     sLog: sLog,
                     MIA: MIA,
                     nLog: nLog,
-                    result: result
+                    result: result,
+                    eLog:eLog
                 }
             }>
                 <Head>

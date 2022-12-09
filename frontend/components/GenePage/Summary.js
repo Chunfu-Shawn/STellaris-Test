@@ -5,12 +5,14 @@ import AttributeLayout from "./AttributeLayout";
 import Link from "next/link.js";
 import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 
-export default function Summary(props){
+export default function Summary(){
     const geneContext = useContext(GeneContext);
+    const data = geneContext.data
+    const dataSV = geneContext.dataSV
     const organTissue = geneContext.organTissue
     let HGNC = ""
-    if(props.data.dbXrefs)
-        props.data.dbXrefs.split('|').forEach((item)=>{
+    if(data.dbXrefs)
+        data.dbXrefs.split('|').forEach((item)=>{
             if(item.split(":")[0]==="HGNC") HGNC = item.split(":")[2]
         })
 
@@ -23,43 +25,38 @@ export default function Summary(props){
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>
-            {props.dataSV.length !== 0 ?
-                <AttributeLayout attribute={<b>Spatially Variable Expression</b>}>{<span>This gene identitied a spatially variable gene
-                    was found in <b>{organTissue.join(", ")}</b></span>}</AttributeLayout>
-                :<></>
-            }
             {
-                props.data.symbol!=="-"?
+                data.symbol!=="-"?
                 <AttributeLayout attribute={"Symbol"}>
                     <a target={"_blank"} href={`https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:${HGNC}`}
                        rel="noreferrer">
-                        {props.data.symbol}<LinkOutlined />{` (${props.data.name_source})`}
+                        {data.symbol}<LinkOutlined />{` (${data.name_source})`}
                     </a>
                 </AttributeLayout>
                     :<></>
             }
             <AttributeLayout attribute={"Entrez ID"}>
-                <a href={`https://www.ncbi.nlm.nih.gov/gene/${props.data.entrez_id}`} target={"_blank"} rel="noreferrer">
-                    {` ${props.data.entrez_id}`}<LinkOutlined />
+                <a href={`https://www.ncbi.nlm.nih.gov/gene/${data.entrez_id}`} target={"_blank"} rel="noreferrer">
+                    {` ${data.entrez_id}`}<LinkOutlined />
                 </a>
             </AttributeLayout>
-            <AttributeLayout attribute={"Description"}>{props.data.descriptive_name}</AttributeLayout>
-            <AttributeLayout attribute={"Gene Type"}>{props.data.biotype}</AttributeLayout>
-            <AttributeLayout attribute={"Organism"}>{props.data.organism}</AttributeLayout>
+            <AttributeLayout attribute={"Description"}>{data.descriptive_name}</AttributeLayout>
+            <AttributeLayout attribute={"Gene Type"}>{data.biotype}</AttributeLayout>
+            <AttributeLayout attribute={"Organism"}>{data.organism}</AttributeLayout>
             {
-                props.data.name_synonyms?
-                    <AttributeLayout attribute={"Gene Synonyms"}>{props.data.name_synonyms.split('|').join(', ')}</AttributeLayout>
+                data.name_synonyms?
+                    <AttributeLayout attribute={"Gene Synonyms"}>{data.name_synonyms.split('|').join(', ')}</AttributeLayout>
                     :<></>
             }
             {
-                props.data.other_designations?
-                <AttributeLayout attribute={"Other Designations"}>{props.data.other_designations.split('|').join('; ')}</AttributeLayout>
+                data.other_designations?
+                <AttributeLayout attribute={"Other Designations"}>{data.other_designations.split('|').join('; ')}</AttributeLayout>
                     :<></>
             }
             {
-                props.data.dbXrefs?
+                data.dbXrefs?
                 <AttributeLayout attribute={"Identifiers in Other DB"}>
-                    {props.data.dbXrefs.split('|').map((item)=>{
+                    {data.dbXrefs.split('|').map((item)=>{
                         if(item.split(":")[0]==="HGNC")
                             return <span key={item.split(":")[0]}><a target={"_blank"}
                                                                      href={`https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:${item.split(":")[2]}`}
@@ -89,8 +86,21 @@ export default function Summary(props){
                 </AttributeLayout>
                     : <></>
             }
-            <AttributeLayout attribute={"Gene Version"}>{props.data.version} (provided by Ensembl)</AttributeLayout>
-            <AttributeLayout attribute={"Gene Source"}>{props.data.gene_source}</AttributeLayout>
+            <AttributeLayout attribute={"Location"}>
+                <>
+                    <a target={"_blank"}
+                       href={`https://www.ensembl.org/${data.organism === "Homo sapiens"?"Homo_sapiens":"Mus_musculus"}/Location/View?g=${data.ensembl_id}`}
+                       rel="noreferrer">
+                        Chromosome  {`${data.chrom_scaf}: ${data.start}-${data.end}`}<LinkOutlined />
+                    </a>
+                    <span>{data.strand === "1"?" forward strand.":" reverse strand."}</span>
+                </>
+            </AttributeLayout>
+            <AttributeLayout attribute={"Chromosomal Location"}>
+                {data.map_location}
+            </AttributeLayout>
+            <AttributeLayout attribute={"Gene Version"}>{data.version} (provided by Ensembl)</AttributeLayout>
+            <AttributeLayout attribute={"Gene Source"}>{data.gene_source}</AttributeLayout>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import {Divider} from "antd";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
-import React from "react";
+import React,{useEffect, useState} from "react";
 import SpatiallyVariableExpression from "./SpatiallyVariableExpression";
 import dynamic from "next/dynamic";
 import SVExpressionTable from "./SVExpressionTable";
@@ -14,6 +14,7 @@ export const DynamicGeneExpress = dynamic(() =>
     })
 
 export default function SpatialExpression(){
+
     return(
         <>
             <Divider orientation="left" orientationMargin="0">

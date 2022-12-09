@@ -1,6 +1,6 @@
 import {MailOutlined} from "@ant-design/icons";
 
-function FooterCustom(){
+export default function FooterCustom(){
     return(
         <div id="footer" className="modal-footer" style={{width:"100%",minWidth:1440,zIndex:1000}}>
             <footer className="h5 small">
@@ -20,5 +20,3 @@ function FooterCustom(){
         </div>
     )
 }
-
-export default FooterCustom

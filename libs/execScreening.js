@@ -4,7 +4,8 @@ import {annotationLogger} from "./logSave.js";
 import {setJobStatus} from "./setJobStatus.js";
 import removeUploadFiles from "./removeUploadFiles.js";
 
-export async function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath, nThreads = 30) {
+export async function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath,
+                                    nThreads = 30) {
     const stScreening = 'scripts/ST_screening/ST_screening.sh'
     const command =
         "bash " + stScreening +
@@ -15,7 +16,8 @@ export async function execScreening(rid, matrixFilePath, labelsFilePath, dataset
         " --sections " + sections +
         " --n_threads " + nThreads +
         " --outDir " + resultPath +
-        " >" + resultPath + "/log/ST_screening.log"
+        " >" + resultPath + "/log/ST_screening.log" +
+        " 2>" + resultPath + "/log/Error.log"
     // 执行注释脚本
     if (!fs.existsSync(stScreening)) {
         //如果python脚本不存在
