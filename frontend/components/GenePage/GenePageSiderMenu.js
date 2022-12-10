@@ -8,10 +8,10 @@ const itemsSV = [
         key: 'Summary'
     },
     {
-        label: 'Spatial Expression', key: 'Spatial Expression',
+        label: 'SVG Expression', key: 'Spatial Expression',
         children: [
-            { label: <a href={'#SV Expression'}>SV Expression</a>, key: 'SV Expression' },
-            { label: <a href={'#SVE Table'}>SV Expression Table</a>, key: 'SVE Table'},
+            { label: <a href={'#Gallery'}>Gallery</a>, key: 'Gallery' },
+            { label: <a href={'#Table'}>Table</a>, key: 'Table'},
         ],
     },
     {

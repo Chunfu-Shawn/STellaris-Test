@@ -83,6 +83,6 @@ export default function LoadingModule(props) {
     });
 
     return(
-        <div ref={chartRef} style={{margin:"auto",height:500,width:888,marginBottom:10}}></div>
+        <div ref={chartRef} style={{margin:"auto",height:800,width:888,marginBottom:10}}></div>
     )
 }

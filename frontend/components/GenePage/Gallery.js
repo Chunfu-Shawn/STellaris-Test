@@ -3,7 +3,7 @@ import React,{useContext} from "react";
 import {DynamicGeneExpress} from "./SpatialExpression";
 import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 
-export default function SpatiallyVariableExpression(){
+export default function Gallery(){
     const geneContext = useContext(GeneContext);
     const organTissue = geneContext.organTissue
     const datasets = organTissue.map( item=>{
@@ -17,9 +17,9 @@ export default function SpatiallyVariableExpression(){
     })
 
     return(
-        <div name={"SV Expression"} style={{marginLeft:20}}>
-            <a id={"SV Expression"} style={{position: 'relative', top: "-150px"}}></a>
-            <Divider orientation="left" orientationMargin="0"><b>Spatially Variable Expression</b></Divider>
+        <div name={"Gallery"} style={{marginLeft:20}}>
+            <a id={"Gallery"} style={{position: 'relative', top: "-150px"}}></a>
+            <Divider orientation="left" orientationMargin="0"><b>Gallery</b></Divider>
             <Row style={{marginLeft:20,width:1100}} wrap={true} gutter={[20,20]}>
                 {organTissue.map((item,index) => {
                     return(

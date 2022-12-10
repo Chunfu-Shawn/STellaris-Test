@@ -9,12 +9,12 @@ export default function GeneExpressionBoxPlot(){
     const chartRef = useRef(null);
     let chartInstance = null;
     const geneContext = useContext(GeneContext);
-    const dataPseudoEr = geneContext.dataPseudoEr
+    const dataER = geneContext.dataER
 
     // 定义渲染函数
     function renderChart() {
         try {
-            const sourceData = dataPseudoEr.map(item => [item.organ_tissue,item.rank_score])
+            const sourceData = dataER.map(item => [item.organ_tissue,item.rank_score])
             sourceData.unshift(["organ_tissue","rank_score"])
             echarts.registerTransform(ecSimpleTransform.aggregate);
             let option = {
@@ -147,7 +147,7 @@ export default function GeneExpressionBoxPlot(){
             // 销毁图表实例，释放内存
             chartInstance && chartInstance.dispose()
         }
-    },[dataPseudoEr])
+    },[dataER])
 
     return(
         <div ref={chartRef} style={{height:600,marginBottom:10}}></div>

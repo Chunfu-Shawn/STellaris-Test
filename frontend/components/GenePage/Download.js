@@ -30,7 +30,7 @@ export default function Download(){
         {
             title: 'Expression Rank Score (CSV)',
             url: `#`,
-            onClick:()=>exportToCsv(geneContext.dataPseudoEr,`${geneContext.data.symbol}_expression_rank_score`),
+            onClick:()=>exportToCsv(geneContext.dataER,`${geneContext.data.symbol}_expression_rank_score`),
             description:'Expression Rank Score of the gene which is defined as the percentile of log(CPM) in CSV format.'
         },
     ];

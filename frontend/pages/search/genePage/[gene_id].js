@@ -30,23 +30,12 @@ export async function getServerSideProps(context) {
     )
     const dataTrans = await resTrans.json()
 
-    /*/ get spatially variable information
-    const resSV = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
-        +"/api/spatially-variable-gene/gene/" + data[0].symbol)
-    const dataSV = await resSV.json()
-
-    // get correlation of genes expression
+    /*/ get correlation of genes expression
     const resCor = await fetch((process.env.NODE_ENV==="production"?
             process.env.PRODUCTION_URL:"http://localhost:3000")
         +"/api/genes-expression-correlation/gene/" + data[0].symbol)
     const dataCor = await resCor.json()
-
-    // get pseudo-bulk expression of gene
-    const resPseudoEr = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
-        +"/api/pseudo-expression/" + data[0].symbol)
-    const dataPseudoEr = await resPseudoEr.json()*/
+     */
 
 
     // Pass post data to the page via props
@@ -62,29 +51,32 @@ export const GeneContext = React.createContext({});
 
 export default function GenePage(props) {
     const divContent = useRef(null); //标识nav导航栏渲染内容
-    const [loading, setLoading] = useState(true);
+    const [SVGLoading, setSVGLoading] = useState(true);
+    const [ERLoading, setERLoading] = useState(true);
     const [dataSV, setDataSV] = useState([]);
-    const [dataPseudoEr, setDataPseudoEr] = useState([]);
+    const [dataER, setDataER] = useState([]);
     const organTissue = Array.from(new Set(dataSV.map(
         item => item.organ_tissue )))
 
     const fetchData = async () => {
         // get spatially variable gene; use await to load SV first
-        await fetch((process.env.NODE_ENV==="production"?
+        fetch((process.env.NODE_ENV==="production"?
                 process.env.PRODUCTION_URL:"http://localhost:3000")
             +"/api/spatially-variable-gene/gene/"+ props.data.symbol)
             .then(res => res.json())
             .then(data => setDataSV(data))
+            .then(() => setSVGLoading(false))
         // load SV first async
         fetch((process.env.NODE_ENV==="production"?
                 process.env.PRODUCTION_URL:"http://localhost:3000")
             +"/api/pseudo-expression/"+ props.data.symbol)
             .then(res => res.json())
-            .then(data => setDataPseudoEr(data))
+            .then(data => setDataER(data))
+            .then(() => setERLoading(false))
     };
 
     useEffect(() => {
-        fetchData().then(() => setLoading(false))
+        fetchData()
     }, []);
 
     return (
@@ -93,8 +85,9 @@ export default function GenePage(props) {
                 {
                     ...props,
                     dataSV:dataSV,
-                    dataPseudoEr:dataPseudoEr,
-                    loading:loading,
+                    dataER:dataER,
+                    SVGLoading:SVGLoading,
+                    ERLoading:ERLoading,
                     organTissue:organTissue,
                 }
             }>
@@ -119,13 +112,14 @@ export default function GenePage(props) {
                                             <span style={{fontSize:"22px",fontWeight:"bold",marginRight:10}}>{props.data.symbol}</span>
                                             <span style={{fontSize:"16px",fontWeight:"bold",color:"gray"}}> {props.data.ensembl_id}</span>
                                             {
-                                                loading === true ? <></> : (dataSV.length !== 0) ?
+                                                SVGLoading === true ? <></> : (dataSV.length !== 0) ?
                                                     <a href={"#SV Expression"}><Tag color="volcano">SPATIALLY VARIABLE GENE</Tag></a>:
                                                     <a href={"#Expression"}><Tag color="geekblue">NON-SPATIALLY VARIABLE GENE</Tag></a>
                                             }
                                         </Space>
                                     </Row>
                                     {
+                                        SVGLoading === true ? <></> :
                                         dataSV.length !== 0 ?
                                             <span>
                                                 This gene was defined as a spatially variable gene in <b>{organTissue.join(", ")}</b>

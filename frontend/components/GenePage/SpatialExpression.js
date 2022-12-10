@@ -2,7 +2,7 @@ import {Divider} from "antd";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
 import React,{useEffect, useState} from "react";
-import SpatiallyVariableExpression from "./SpatiallyVariableExpression";
+import Gallery from "./Gallery";
 import dynamic from "next/dynamic";
 import SVExpressionTable from "./SVExpressionTable";
 
@@ -18,10 +18,10 @@ export default function SpatialExpression(){
     return(
         <>
             <Divider orientation="left" orientationMargin="0">
-                <b>Spatial Expression </b>
+                <b>Spatial Variable Gene Expression </b>
                 <Link href={'/help/manual/search#gene_page_spatial_expression'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
             </Divider>
-            <SpatiallyVariableExpression/>
+            <Gallery/>
             <SVExpressionTable/>
         </>
     )

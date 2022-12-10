@@ -75,14 +75,14 @@ export default function SVExpressionTable(){
     ];
 
     return(
-        <div name={"SVE Table"} style={{marginLeft:20}}>
-            <a id={"SVE Table"} style={{position: 'relative', top: "-150px"}}></a>
+        <div name={"Table"} style={{marginLeft:20}}>
+            <a id={"Table"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="10">
-                <Row gutter={[0,0]} style={{width:400}} align={"stretch"}>
-                    <Col span={16}>
-                        <b>Spatially Variable Expression Table</b>
+                <Row gutter={[0,0]} style={{width:180}} align={"stretch"}>
+                    <Col span={6}>
+                        <b>Table</b>
                     </Col>
-                    <Col span={8}>
+                    <Col span={18}>
                         <Button size={"small"}
                                 onClick={() => exportToCsv(svg,`${geneContext.data.symbol}_spatially_variable_expression`)}
                                 style={{float:"right"}}>

@@ -10,17 +10,17 @@ export default function Contact() {
     const data = [
         {
             name: 'Xiangshang Li',
-            avatar: "https://joeschmoe.io/api/v1/jean",
+            avatar: <Avatar src={"images/contact/uplee.svg"} size="large" shape="square"/>,
             description: "uplee@pku.edu.cn"
         },
         {
             name: 'Chunfu Xiao',
-            avatar: "https://joeschmoe.io/api/v1/josh",
+            avatar: <Avatar src={"images/contact/chunfu.svg"} size="large" shape="square"/>,
             description: "xiaochunfu@stu.pku.edu.cn;  https://github.com/Chunfu-Shawn"
         },
         {
             name: 'Juntian Qi',
-            avatar: "https://joeschmoe.io/api/v1/james",
+            avatar: <Avatar src={"images/contact/juntian.svg"} size="large" shape="square"/>,
             description: "juntian_qi@stu.pku.edu.cn"
         }
     ];
