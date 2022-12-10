@@ -65,7 +65,7 @@ function useScreeningLog(rid,status){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     const { data, error } = useSWR(status==="screening"?`/api/screening-log/${rid}`:null, fetcher,
         {
-            revalidateIfStale: false,
+            revalidateIfStale: true,
         })
 
     // 如果数据为空，为undefined，返回error为true
@@ -97,7 +97,7 @@ function useNicheAnchorLog(rid,status){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     const { data, error } = useSWR(status==="running"?`/api/niche-anchor-log/${rid}`:null, fetcher,
         {
-            revalidateIfStale: false,
+            revalidateIfStale: true,
         })
 
     // 如果数据为空，为undefined，返回error为true
@@ -129,7 +129,7 @@ function useErrorLog(rid,status){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     const { data, error } = useSWR(status==="error"?`/api/error-log/${rid}`:null, fetcher,
         {
-            revalidateIfStale: false,
+            revalidateIfStale: true,
         })
 
     // 如果数据为空，为undefined，返回error为true

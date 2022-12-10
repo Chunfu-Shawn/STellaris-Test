@@ -4,7 +4,6 @@ import {Affix, Button, Col, Row, Space, Typography} from "antd";
 import LayoutCustom from "../components/LayoutCustom";
 import TutorialSiderMenu from "../components/Tutorial/TutorialSiderMenu";
 import Link from "next/link.js";
-import {throttle} from "../components/util";
 import Image from "next/image";
 
 export default function Help() {
