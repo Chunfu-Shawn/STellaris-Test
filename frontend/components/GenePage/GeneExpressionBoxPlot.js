@@ -3,6 +3,7 @@ import * as echarts from "echarts";
 import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 //引入jquery
 import $ from 'jquery';
+import {LoadingOutlined} from "@ant-design/icons";
 
 export default function GeneExpressionBoxPlot(){
     // use echarts
@@ -10,6 +11,7 @@ export default function GeneExpressionBoxPlot(){
     let chartInstance = null;
     const geneContext = useContext(GeneContext);
     const dataER = geneContext.dataER
+    const setERLoading = geneContext.setERLoading
 
     // 定义渲染函数
     function renderChart() {
@@ -62,7 +64,7 @@ export default function GeneExpressionBoxPlot(){
                 xAxis: {
                     type: 'category',
                     axisLabel:{
-                        rotate:45,
+                        rotate:35,
                         fontSize:13
                     }
                 },
@@ -121,14 +123,9 @@ export default function GeneExpressionBoxPlot(){
             }
             // `echarts.getInstanceByDom` 可以从已经渲染成功的图表中获取实例，其目的就是在 option 发生改变的时候，不需要
             // 重新创建图表，而是复用该图表实例，提升性能
-            const renderedInstance = echarts.getInstanceByDom(chartRef.current);
-            if (renderedInstance) {
-            chartInstance = renderedInstance;
-        } else {
-            chartInstance = echarts.init(chartRef.current);
-        }
             chartInstance.setOption(option);
             chartInstance.off('click');
+            chartInstance.hideLoading()
         } catch (error) {
             console.error("error", error.message);
             chartInstance && chartInstance.dispose();
@@ -136,6 +133,8 @@ export default function GeneExpressionBoxPlot(){
     }
 
     useEffect(() => {
+        chartInstance = echarts.init(chartRef.current);
+        chartInstance.showLoading()
         $.when(
             $.getScript(
                 'https://rhesusbase.com:9999/files/ecSimpleTransform.min.js'
@@ -150,6 +149,6 @@ export default function GeneExpressionBoxPlot(){
     },[dataER])
 
     return(
-        <div ref={chartRef} style={{height:600,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:600,marginBottom:10,textAlign:"center"}}></div>
     )
 }

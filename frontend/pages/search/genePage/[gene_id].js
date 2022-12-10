@@ -60,16 +60,12 @@ export default function GenePage(props) {
 
     const fetchData = async () => {
         // get spatially variable gene; use await to load SV first
-        fetch((process.env.NODE_ENV==="production"?
-                process.env.PRODUCTION_URL:"http://localhost:3000")
-            +"/api/spatially-variable-gene/gene/"+ props.data.symbol)
+        fetch("/api/spatially-variable-gene/gene/"+ props.data.symbol)
             .then(res => res.json())
             .then(data => setDataSV(data))
             .then(() => setSVGLoading(false))
         // load SV first async
-        fetch((process.env.NODE_ENV==="production"?
-                process.env.PRODUCTION_URL:"http://localhost:3000")
-            +"/api/pseudo-expression/"+ props.data.symbol)
+        fetch("/api/pseudo-expression/"+ props.data.symbol)
             .then(res => res.json())
             .then(data => setDataER(data))
             .then(() => setERLoading(false))
@@ -88,6 +84,7 @@ export default function GenePage(props) {
                     dataER:dataER,
                     SVGLoading:SVGLoading,
                     ERLoading:ERLoading,
+                    setERLoading:setERLoading,
                     organTissue:organTissue,
                 }
             }>
