@@ -65,7 +65,7 @@ export default function GenePage(props) {
             .then(data => setDataSV(data))
             .then(() => setSVGLoading(false))
         // load SV first async
-        fetch("/api/pseudo-expression/"+ props.data.symbol)
+        fetch("/api/expression-rank-score/"+ props.data.symbol)
             .then(res => res.json())
             .then(data => setDataER(data))
             .then(() => setERLoading(false))

@@ -48,8 +48,7 @@ export default function ManualDatasets() {
                     <li><b>Distribution</b>: allows users to explore the differential gene expression across cell clusters with a dot plot, a heat map, or a violin plot.</li>
                 </ul>
                 <p>For more details, please visit:
-                    <a href={'https://cirrocumulus.readthedocs.io/en/latest/documentation.html'} target={'_blank'} rel={'noreferrer'}>
-                        https://cirrocumulus.readthedocs.io/en/latest/documentation.html</a>
+                    <a href={'https://cirrocumulus.readthedocs.io/en/latest/documentation.html'} target={'_blank'} rel={'noreferrer'}> https://cirrocumulus.readthedocs.io/en/latest/documentation.html</a>
                 </p>
                 <h2>5. Data Features</h2>
                 <a id={"data_page_features"} style={{position: 'relative', top: "-150px"}}></a>

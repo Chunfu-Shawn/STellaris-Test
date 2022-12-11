@@ -1,5 +1,5 @@
 import ReqStatus from "../ReqStatus.js";
-import {Card, Col, Divider, Row, List} from "antd";
+import {Card, Col, Divider, Row} from "antd";
 import MappingSteps from "../MappingSteps";
 import React,{useContext} from "react";
 import {SyncOutlined} from "@ant-design/icons";

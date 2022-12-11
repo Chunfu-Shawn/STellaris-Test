@@ -23,12 +23,6 @@ export default function InteractionsHeatmap() {
         try {
             let option =
                 {
-                    title:{
-                        text:"Total number of ligand-receptor interactions",
-                        textStyle:{
-                            fontSize:16
-                        }
-                    },
                     tooltip: {
                         position: 'top',
                         trigger:"item",
@@ -91,8 +85,8 @@ export default function InteractionsHeatmap() {
                         calculable: true,
                         orient: 'horizontal',
                         show: true,
-                        right: 0,
-                        bottom:0
+                        right: 90,
+                        top:0
                     },
                     series: [
                         {
@@ -139,6 +133,11 @@ export default function InteractionsHeatmap() {
     });
 
     return(
-        <div ref={chartRef} style={{height:500,width:450,marginBottom:30}}></div>
+        <>
+            <p style={{fontSize:16,marginBottom:10,width:450}}>
+                <b>Total number</b> of ligand-receptor interactions:
+            </p>
+            <div ref={chartRef} style={{height:500,width:450,marginBottom:30}}></div>
+        </>
     )
 }

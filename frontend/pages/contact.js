@@ -34,7 +34,7 @@ export default function Contact() {
                 <header className="page-header">
                     <h1>About Us</h1>
                 </header>
-                <div style={{width:1000,margin:"50px auto"}}>
+                <div className="box" style={{width:850,margin:"50px auto",textAlign:"left"}}>
                     <p style={{fontSize:16}}><b>Department: </b>Laboratory of Bioinformatics & Genomic Medicine, College of Future Technology, Peking University</p>
                     <p style={{fontSize:16}}><b>Address: </b>Room 315, Integrated Science Research Center No.2, Peking University, Beijing, China.</p>
                     <p style={{fontSize:16}}><b>Research Fields: </b>Bioinformatics, Genomic Medicine, Comparative Genomics. </p>

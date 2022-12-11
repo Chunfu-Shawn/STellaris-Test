@@ -86,6 +86,8 @@ export default function MSTNetwork() {
                     min: minDegree-1,
                     max: maxDegree+1,
                     orient: 'horizontal',
+                    top:0,
+                    right:80,
                     show: true
                 },
                 gradientColor:[

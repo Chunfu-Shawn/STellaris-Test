@@ -26,47 +26,55 @@ export default function CellInteractions(){
     const [cellTypePair, setCellTypePair] = useState(cellTypePairs[0])
 
     return(
-        <>
-            <Row justify="start" align="stretch" style={{margin:"20px 0"}}>
-                <Col span={4}><span style={{fontSize:18}}>Microenvironment: </span></Col>
-                <Col span={7}>
-                    <Select
-                        defaultValue={microenvironment[0]}
-                        style={{
-                            width: 300,
-                        }}
-                        onChange={onChangeEnv}
-                    >
-                        {microenvironment.map(item =>
-                            <Option key={item} value={item}>{item}</Option>)
-                        }
-                    </Select>
-                </Col>
-                <Col span={3}><span style={{fontSize:18}}>Cell Type Pair: </span></Col>
-                <Col span={8}>
-                    <Select
-                        value={cellTypePair}
-                        style={{
-                            width: 300,
-                        }}
-                        onChange={onChangeCell}
-                    >
-                        {cellTypePairs.map(item =>
-                            <Option key={item} value={item}>{item}</Option>)
-                        }
-                    </Select>
-                </Col>
-            </Row>
-
-            <Row justify="space-between" align="stretch">
-                <Col>
-                    {annContext.result.interHeat?<InteractionsHeatmap/>:null}
-                    {annContext.result.lpPair?<LigandsReceptorsNetwork cellTypePair={cellTypePair}/>:null}
-                </Col>
-                <Col>
-                    {annContext.result.dotPlot?<LigandsReceptorsDotplot env={env}/>:null}
-                </Col>
-            </Row>
-        </>
+        <Row justify="space-between" align="stretch">
+            <Col span={10}>
+                {annContext.result.interHeat?<InteractionsHeatmap/>:null}
+                {annContext.result.lpPair?
+                    <>
+                        <Row justify="start" align="stretch" style={{margin:"20px 0"}}>
+                            <Col span={8}><span style={{fontSize:18}}>Cell Type Pair: </span></Col>
+                            <Col span={16}>
+                                <Select
+                                    value={cellTypePair}
+                                    style={{
+                                        width: 300,
+                                    }}
+                                    onChange={onChangeCell}
+                                >
+                                    {cellTypePairs.map(item =>
+                                        <Option key={item} value={item}>{item}</Option>)
+                                    }
+                                </Select>
+                            </Col>
+                        </Row>
+                        <LigandsReceptorsNetwork cellTypePair={cellTypePair}/>
+                    </>:
+                    <></>}
+            </Col>
+            <Col span={14}>
+                {annContext.result.dotPlot ?
+                    <>
+                        <Row justify="start" align="stretch" style={{marginBottom: 20}}>
+                            <Col span={8}><span style={{fontSize: 18}}>Microenvironment: </span></Col>
+                            <Col span={16}>
+                                <Select
+                                    defaultValue={microenvironment[0]}
+                                    style={{
+                                        width: 300,
+                                    }}
+                                    onChange={onChangeEnv}
+                                >
+                                    {microenvironment.map(item =>
+                                        <Option key={item} value={item}>{item}</Option>)
+                                    }
+                                </Select>
+                            </Col>
+                        </Row>
+                        <LigandsReceptorsDotplot env={env}/>
+                    </> :
+                    <></>
+                }
+            </Col>
+        </Row>
     )
 }

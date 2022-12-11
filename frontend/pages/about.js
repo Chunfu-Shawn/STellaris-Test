@@ -56,10 +56,8 @@ export default function About() {
                         </a>.</p>
                     <p>
                         This project was supported by grants from the Ministry of Science and Technology of China
-                        (National Key Research and Development Program of China, 2018YFA0801405 and 2019YFA0801801),
-                        the National Natural Science Foundation of China (31871272 and 31801103), the Chinese Institute
-                        for Brain Research (2020-NKX-XM-11), and the Clinical Medicine Plus X - Young Scholars Project,
-                        Peking University (PKU2022LCXQ015).
+                        (National Key Research and Development Program of China, 2018YFA0801405 and 2019YFA0801801) and
+                        the National Natural Science Foundation of China (31871272 and 31801103).
                     </p>
                 </div>
             </div>

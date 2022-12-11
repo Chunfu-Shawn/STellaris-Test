@@ -18,13 +18,13 @@ import {getLogLine} from "./api/getLogLine.js";
 import {getDatasetJsonl} from "./api/getDatasetJsonl.js";
 import {getDatasetImage} from "./api/getDatasetImage.js";
 import fs from "fs";
-import {getPseudoExpression} from "./api/getPseudoExpression.js";
+import {getExpressionRankScore} from "./api/getExpressionRankScore.js";
 
 
 export const RouterAPI = router()
 
 // 设置路由和api进行任务状态访问
-RouterAPI.get('/api/job-status/:rid', async (ctx) => {
+RouterAPI.get('/api/job-info/:rid', async (ctx) => {
     // 传出rid为查询值的json数据
     ctx.body = await getJobInfo(ctx.params.rid)
 })
@@ -77,8 +77,8 @@ RouterAPI.get('/api/spatially-variable-gene/:geneOrSection/:param', async (ctx) 
 })
 
 // 设置路由和api通过基因id进行 pseudobulk expression 基因的搜索
-RouterAPI.get('/api/pseudo-expression/:geneName', async (ctx) => {
-    ctx.body = await getPseudoExpression(ctx.params.geneName)
+RouterAPI.get('/api/expression-rank-score/:geneName', async (ctx) => {
+    ctx.body = await getExpressionRankScore(ctx.params.geneName)
 })
 
 // 设置路由和api通过基因id或者section_id进行基因共表达的搜索

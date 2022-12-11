@@ -36,7 +36,7 @@ export default function JSDHeatmap() {
                     },
                     grid: {
                         left:nameLongest*3.5,
-                        top:50,
+                        top:70,
                         right: 10,
                         bottom:nameLongest*3.5,
                     },
@@ -64,7 +64,8 @@ export default function JSDHeatmap() {
                         },
                         iconStyle: {
                             borderWidth:2
-                        }
+                        },
+                        top:20
                     },
                     yAxis: {
                         type: 'category',
@@ -88,8 +89,8 @@ export default function JSDHeatmap() {
                         calculable: true,
                         orient: 'horizontal',
                         show: true,
-                        bottom:0,
-                        right:0
+                        top:20,
+                        right:80
                     },
                     series: [
                         {

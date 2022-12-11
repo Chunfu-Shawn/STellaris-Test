@@ -55,7 +55,7 @@ export default function VisualToolModule(props) {
                 </Link>
             </Divider>
             <Row justify="start" align="stretch">
-                <Col span={3}><span style={{fontSize:"16px"}}>Sections ID: </span></Col>
+                <Col span={3}><span style={{fontSize:"16px"}}>Section ID: </span></Col>
                 <Col span={6}>
                     <Select
                         defaultValue={props.sectionOption[0]==="null"?'default':props.sectionOption[0]}

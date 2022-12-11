@@ -48,7 +48,7 @@ export default function LigandsReceptorsDotplot(props) {
                     }
                 },
                 grid: {
-                    top: 70,
+                    top: 90,
                     left: 20,
                     bottom: 0,
                     right: 60,
@@ -58,7 +58,7 @@ export default function LigandsReceptorsDotplot(props) {
                     {
                         type: 'slider',
                         xAxisIndex: 0,
-                        top:20,
+                        top:50,
                         filterMode: 'none'
                     },
                     {
@@ -97,7 +97,8 @@ export default function LigandsReceptorsDotplot(props) {
                     max: Math.max(...data.map( function (item) { return item[2] } )),
                     calculable: true,
                     orient: 'horizontal',
-                    right: 0,
+                    top: 0,
+                    right: 90,
                     show: true
                 },
                 series: [
@@ -144,7 +145,7 @@ export default function LigandsReceptorsDotplot(props) {
     return(
         <>
             <p style={{fontSize:16,marginBottom:10,height:50,width:450}}>
-                Ligand-receptor interactions in microenvironment::
+                Ligand-receptor interactions in microenvironment:
                 <b> {props.env}</b></p>
             <div ref={chartRef} style={{height:1200,width:650}}></div>
         </>

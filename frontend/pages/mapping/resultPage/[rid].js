@@ -19,7 +19,7 @@ export async function getServerSideProps(context) {
     }
     const res = await fetch((process.env.NODE_ENV==="production"?
             process.env.PRODUCTION_URL:"http://localhost:3000")
-        +"/api/job-status/"+ context.params.rid
+        +"/api/job-info/"+ context.params.rid
     )
     const data = await res.json()
     const res2 = await fetch((process.env.NODE_ENV==="production"?
@@ -46,7 +46,7 @@ export async function getServerSideProps(context) {
 // 自定义hook，每次渲染后返回任务状态；
 function useRequestInfo(rid){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
-    const { data, error } = useSWR(`/api/job-status/${rid}`, fetcher,
+    const { data, error } = useSWR(`/api/job-info/${rid}`, fetcher,
         {
             revalidateIfStale: false,
             refreshInterval: 1000,
@@ -65,7 +65,7 @@ function useScreeningLog(rid,status){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     const { data, error } = useSWR(status==="screening"?`/api/screening-log/${rid}`:null, fetcher,
         {
-            revalidateIfStale: true,
+            refreshInterval: 1000,
         })
 
     // 如果数据为空，为undefined，返回error为true
@@ -97,7 +97,7 @@ function useNicheAnchorLog(rid,status){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     const { data, error } = useSWR(status==="running"?`/api/niche-anchor-log/${rid}`:null, fetcher,
         {
-            revalidateIfStale: true,
+            refreshInterval: 1000,
         })
 
     // 如果数据为空，为undefined，返回error为true
