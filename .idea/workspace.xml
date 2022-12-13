@@ -5,49 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Tutorial/DatasetBrowser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Tutorial/GeneSearch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Tutorial/ResultInterpretation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/dataset/dataset.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/dataset/dataset1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/dataset/download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/dataset/krt8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/dataset/leiden0.5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/dataset/leiden0.5_stagate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/dataset/mbp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/dataset/mouse_archive.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/dataset/set2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/dataset/slc17a7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/gene/SVG_expression.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/gene/expression_rank_score.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/gene/gene1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/gene/gene2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/gene/gene_download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/gene/summary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/Preprocessing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/cell1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/cell2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/cell3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/coembedding.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/colocalization.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/dotplot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/interactions.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/map1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/map2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/map3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/map4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/result/spatial_cellular_map.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/select_section.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/select_section2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/select_section3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/select_section4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/SVExpressionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/SVExpressionTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/TutorialSiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/TutorialSiderMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/mainpage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/tutorial.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/tutorial.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/bg.jpeg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +146,7 @@
       <workItem from="1670138060179" duration="11006000" />
       <workItem from="1670211050605" duration="67022000" />
       <workItem from="1670506137752" duration="18671000" />
-      <workItem from="1670653832382" duration="30272000" />
+      <workItem from="1670653832382" duration="31159000" />
     </task>
     <servers />
   </component>

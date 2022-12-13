@@ -94,7 +94,7 @@ export default function GetStarted(){
                            alt={"select_section2"}/>
                 </Space>
             </div>
-            <h4>3. Spatial mapping</h4>
+            <h4>4. Spatial mapping</h4>
             <p>
                 A Confirming dialog will pop up when you click the &quot;select&quot; button where you can set the advanced parameters
                 for spatial mapping. Here we use the defaults and click &quot;Continue&quot; to start the process of spatial mapping,
