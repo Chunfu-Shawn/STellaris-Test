@@ -3,6 +3,7 @@ import React from "react";
 import {exportToCsv} from "../util";
 import {useContext} from "react";
 import {GeneContext} from "../../pages/search/genePage/[gene_id]";
+import Link from "next/link";
 
 export default function SVExpressionTable(){
     const geneContext = useContext(GeneContext);
@@ -15,7 +16,7 @@ export default function SVExpressionTable(){
             width:'10%',
         },
         {
-            title: 'Dataset ID',
+            title: 'ST ID',
             dataIndex: 'id',
             width:'17%',
             filters: svg.map(item =>
@@ -25,6 +26,7 @@ export default function SVExpressionTable(){
                     value: item.id
                 }
             }),
+            render: text => <Link href={'/datasets/dataPage/'+text}><a target={"_blank"}>{text}</a></Link>,
             onFilter: (value, record) => record.section_id.indexOf(value) === 0,
         },
         {

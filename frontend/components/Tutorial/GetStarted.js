@@ -87,8 +87,12 @@ export default function GetStarted(){
                 as our query scRNA-seq data, underlining the feasibility of section blast.
             </p>
             <div style={{textAlign:"center"}}>
-                <Image src={"/images/tutorial/section_table.png"} width={800} height={450}
-                       alt={"section_table"}/>
+                <Space>
+                    <Image src={"/images/tutorial/select_section.png"} width={550} height={320}
+                           alt={"select_section"}/>
+                    <Image src={"/images/tutorial/select_section2.png"} width={550} height={320}
+                           alt={"select_section2"}/>
+                </Space>
             </div>
             <h4>3. Spatial mapping</h4>
             <p>
@@ -98,6 +102,14 @@ export default function GetStarted(){
                 30 min for around 20,000 single cells, please be patient, you can leave aside the running page and remember
                 to come back later.
             </p>
+            <div style={{textAlign:"center"}}>
+                <Space>
+                    <Image src={"/images/tutorial/select_section3.png"} width={550} height={320}
+                           alt={"select_section3"}/>
+                    <Image src={"/images/tutorial/select_section4.png"} width={550} height={320}
+                           alt={"select_section4"}/>
+                </Space>
+            </div>
             <p>
                 You will be automatically redirected to the result page of spatial mapping when the job is completed.
                 The interpretation of spatial mapping results will be discussed in the next tutorial &quot;Result

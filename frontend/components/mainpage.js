@@ -10,7 +10,7 @@ export default function MainPage() {
         <>
             <div className="cover-container" >
                 <div className="inner cover" >
-                    <h1 className="cover-heading">STellaris: accurate spatial reconstruction of scRNA-seq</h1>
+                    <h1 className="cover-heading">STellaris: accurate mapping of spatial location for scRNA-seq</h1>
                     <p className="lead" style={{textAlign: "justify"}}>
                         STellaris is an integrated web application for accurate spatial reconstruction of scRNA-seq,
                         which is founded on a comprehensive compilation of public available ST datasets spanning organs,

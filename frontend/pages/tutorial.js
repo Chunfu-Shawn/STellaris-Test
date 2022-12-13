@@ -7,6 +7,9 @@ import Link from "next/link.js";
 import Image from "next/image";
 import Overview from "../components/Tutorial/Overview";
 import GetStarted from "../components/Tutorial/GetStarted";
+import ResultInterpretation from "../components/Tutorial/ResultInterpretation";
+import DatasetBrowser from "../components/Tutorial/DatasetBrowser";
+import GeneSearch from "../components/Tutorial/GeneSearch";
 
 export default function Help() {
     const divContent = useRef(null); //标识nav导航栏渲染内容
@@ -34,6 +37,9 @@ export default function Help() {
                                     Spatial Mapping
                                 </h2>
                                 <GetStarted/>
+                                <ResultInterpretation/>
+                                <DatasetBrowser/>
+                                <GeneSearch/>
                             </div>
                         </Typography>
                     </Col>

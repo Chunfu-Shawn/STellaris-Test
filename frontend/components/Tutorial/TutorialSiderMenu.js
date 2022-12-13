@@ -7,15 +7,20 @@ const items = [
     },{
         label: <a href={'#Spatial Mapping'}>Spatial Mapping</a>, key: 'Spatial Mapping',
         children:
-            [{
-                label: <a href={'#Get started'}>Get started</a>, key: 'Get started',
-            }],
+            [
+                {
+                    label: <a href={'#Get started'}>Get started</a>, key: 'Get started',
+                },
+                {
+                    label: <a href={'#Result interpretation'}>Result interpretation</a>, key: 'Result interpretation',
+                }
+            ],
     },
     {
-        label: <a href={'#Mouse organogenesis'}>Mouse organogenesis</a>, key: 'Mouse organogenesis'
+        label: <a href={'#Dataset Browser'}>Dataset Browser</a>, key: 'Dataset Browser'
     },
     {
-        label: <a href={'#Tumor microenvironment in PDAC'}>Tumor microenv in PDAC</a>, key: 'Tumor microenvironment in PDAC',
+        label: <a href={'#Gene Search'}>Gene Search</a>, key: 'Gene Search',
     },
 
 ]
