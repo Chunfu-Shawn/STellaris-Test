@@ -16,7 +16,7 @@ export default function Datasets() {
                 <div className="modal-body-stw">
                     <div className={"inner"} >
                         <div className="text-left">
-                            <h1 style={{color:"white",fontSize:"40px"}}>Spatial Transcriptome Datasets </h1><br/>
+                            <h1 style={{color:"white",fontSize:"40px"}}>Spatial Transcriptome Dataset Browser </h1><br/>
                         </div>
                         <p className={"lead text-justify"}>
                             STellaris aims to provide a comprehensive compilation of spatial transcriptome (ST) data

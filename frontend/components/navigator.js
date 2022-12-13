@@ -98,8 +98,8 @@ export default function Navigator(){
                 {
                     //width < breakpoint ? collapseButtom:
                     <ul className={"nav navbar-nav"} >
-                        <li id="datasets" className="nav-item"><Link href="/datasets" className="nav-link" ><a>Datasets</a></Link></li>
                         <li id="mapping" className="nav-item"><Link href="/mapping" className="nav-link" ><a>Mapping</a></Link></li>
+                        <li id="datasets" className="nav-item"><Link href="/datasets" className="nav-link" ><a>Datasets</a></Link></li>
                         <li id="search" className="nav-item"><Link href="/search" className="nav-link" ><a>Search</a></Link></li>
                         <li id="tutorial" className="nav-item"><Link href="/tutorial" className="nav-link" ><a>Tutorial</a></Link></li>
                         <li id="help" className="nav-item"><Link href="/help/manual/datasets" className="nav-link" ><a>Help</a></Link></li>

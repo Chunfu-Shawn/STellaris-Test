@@ -1,5 +1,4 @@
 import PlaceHolder from "./MainPage/PlaceHolder.js";
-import IntroductionModule from "./MainPage/IntroductionModule.js";
 import {Divider, Row} from "antd";
 import React from "react";
 import UploadModule from "./Mapping/index/UploadModule";
@@ -39,14 +38,14 @@ export default function MainPage() {
                 </Divider>
                 <a id={"more"} style={{position: 'relative', top: "-200px"}}></a>
                 <Row style={{margin:"20px 0px"}} gutter={[40,0]} justify="space-between" >
-                    <PlaceHolder title={"ST Datasets"}
-                                 context={"ST Datasets archives composed of meta information, basic visualization and " +
-                                     "download modules of curated ST datasets"}
-                                 link={"/datasets"} pic={"Pic1.png"}/>
                     <PlaceHolder title={"Spatial Mapping"}
                                  context={"The key module designed for predicting spatial locations of single cells " +
                                      "via integrated single-cell and best match spatial transcriptome data."}
                                  link={"/mapping"} pic={"Pic2.png"}/>
+                    <PlaceHolder title={"Dataset Browser"}
+                                 context={"Dataset browser composed of meta information, basic visualization and " +
+                                     "download modules of curated ST datasets"}
+                                 link={"/datasets"} pic={"Pic1.png"}/>
                     <PlaceHolder title={"Gene Search"}
                                  context={"An interface to search for spatially resolved gene expression heterogeneity " +
                                      "across all curated ST datasets."}

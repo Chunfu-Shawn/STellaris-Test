@@ -54,7 +54,7 @@ export default function Contact() {
                         human-specific traits. We mainly focus on: i) the refinement of genome annotations, integration
                         of large-scale data and development of bioinformatics tools through meta analyses and functional
                         genomics analyses, facilitating better understanding of gene functions and regulations in
-                        well-established knowledge contexts; ii) combining population genetics analyses (with-species)
+                        well-established knowledge contexts; ii) combining population genetics analyses (within-species)
                         and comparative genomics analyses (between-species), performing molecular evolution studies to
                         understand the primate-specific gene-behavior relationships, especially the molecular mechanism
                         driving human-specific evolution.

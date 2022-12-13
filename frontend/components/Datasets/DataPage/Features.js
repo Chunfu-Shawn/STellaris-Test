@@ -85,9 +85,7 @@ export default function Features(props){
         // get spatially variable gene
         let spatiallyVariableGenes = []
         for (const item of props.sectionOption) {
-            await fetch((process.env.NODE_ENV==="production"?
-                    process.env.PRODUCTION_URL:"http://localhost:3000")
-                +"/api/spatially-variable-gene/section/"+item)
+            await fetch("/api/spatially-variable-gene/section/"+item)
                 .then(res => res.json())
                 .then(data => spatiallyVariableGenes.push.apply(spatiallyVariableGenes, data))
         }

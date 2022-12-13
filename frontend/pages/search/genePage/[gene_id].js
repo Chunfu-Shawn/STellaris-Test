@@ -110,7 +110,7 @@ export default function GenePage(props) {
                                             <span style={{fontSize:"16px",fontWeight:"bold",color:"gray"}}> {props.data.ensembl_id}</span>
                                             {
                                                 SVGLoading === true ? <></> : (dataSV.length !== 0) ?
-                                                    <a href={"#SV Expression"}><Tag color="volcano">SPATIALLY VARIABLE GENE</Tag></a>:
+                                                    <a href={"#Gallery"}><Tag color="volcano">SPATIALLY VARIABLE GENE</Tag></a>:
                                                     <a href={"#Expression"}><Tag color="geekblue">NON-SPATIALLY VARIABLE GENE</Tag></a>
                                             }
                                         </Space>

@@ -11,7 +11,6 @@ export default function GeneExpressionBoxPlot(){
     let chartInstance = null;
     const geneContext = useContext(GeneContext);
     const dataER = geneContext.dataER
-    const setERLoading = geneContext.setERLoading
 
     // 定义渲染函数
     function renderChart() {
@@ -133,7 +132,7 @@ export default function GeneExpressionBoxPlot(){
     }
 
     useEffect(() => {
-        chartInstance = echarts.init(chartRef.current);
+        chartInstance = echarts.init(chartRef.current,null,{locale:"EN",renderer:"svg"});
         chartInstance.showLoading()
         $.when(
             $.getScript(

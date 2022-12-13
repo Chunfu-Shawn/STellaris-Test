@@ -40,7 +40,7 @@ export default function UMAPScatter(props){
                     itemSize:18,
                     feature: {
                         saveAsImage: {
-                            type:"png",
+                            type:"svg",
                             pixelRatio: 6
                         },
                         dataZoom: {},
@@ -127,7 +127,7 @@ export default function UMAPScatter(props){
             if (renderedInstance) {
                 chartInstance = renderedInstance;
             } else {
-                chartInstance = echarts.init(chartRef.current,null,{locale: 'EN',renderer:"canvas"});
+                chartInstance = echarts.init(chartRef.current,null,{locale: 'EN',renderer:"svg"});
             }
             chartInstance.setOption(option);
         } catch (error) {

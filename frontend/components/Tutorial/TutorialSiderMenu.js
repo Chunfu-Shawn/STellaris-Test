@@ -3,10 +3,13 @@ import {SiderMenu} from "../SiderMenu.js";
 
 const items = [
     {
-        label: <a href={'#Information'}>General Information</a>, key: 'Information',
-    },
-    {
-        label: <a href={'#Guide'}>Guide for mapping</a>, key: 'Guide',
+        label: <a href={'#Overview'}>Overview</a>, key: 'Overview',
+    },{
+        label: <a href={'#Spatial Mapping'}>Spatial Mapping</a>, key: 'Spatial Mapping',
+        children:
+            [{
+                label: <a href={'#Get started'}>Get started</a>, key: 'Get started',
+            }],
     },
     {
         label: <a href={'#Mouse organogenesis'}>Mouse organogenesis</a>, key: 'Mouse organogenesis'
@@ -22,8 +25,8 @@ export default function TutorialSiderMenu(props){
     return(
         <SiderMenu items = {items}
                    width={200}
-                   defaultAcitiveNav={"Information"}
-                   openKeys = {["Guide"]}
+                   defaultAcitiveNav={"Overview"}
+                   openKeys = {["Guide","Spatial Mapping"]}
                    divContent={props.divContent}
         />
     )
