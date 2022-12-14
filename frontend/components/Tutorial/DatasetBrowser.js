@@ -90,7 +90,7 @@ export default function DatasetBrowser(){
                        alt={"set2"} style={{borderStyle:"dashed"}}/>
             </div>
             <p>
-                The source of this ST dataset is provided, and the processed ST data in h5ad (compatible with anndata
+                8. The source of this ST dataset is provided, and the processed ST data in h5ad (compatible with anndata
                 python package) format, which was used to generate file for visualization shown above, is ready to download.
             </p>
             <div style={{textAlign:"center"}} >
