@@ -22,7 +22,7 @@ export default function ManualSearch() {
                     The Gene Search module would help users to search for the basic information and spatial expression
                     pattern of genes of interest.
                 </p>
-                <h2>2. Gene annotation</h2>
+                <h2>1. Gene annotation</h2>
                 <a id={"gene_list"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>We collected and integrated those public gene information data from <a
                     href={"http://www.ensembl.org/biomart/martview/0dfa7ad57e65ec64a7972af5c8b5710e"} target={"_blank"} rel={"noreferrer"}>
@@ -41,7 +41,7 @@ export default function ManualSearch() {
                 <p>Explanation of fields in transcript attributes are as follows:</p>
                 <a id={"transcripts"} style={{position: 'relative', top: "-150px"}}></a>
                 <TranscriptsAttributesTable/>
-                <h2>3. Search rules</h2>
+                <h2>2. Search rules</h2>
                 <a id={"search_rule"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
                     The search allows users to choose which different organism and id type of their interested genes.
@@ -63,12 +63,12 @@ export default function ManualSearch() {
                     perfect match comes first.
                 </p>
 
-                <h2>4. Spatially variable gene</h2>
+                <h2>3. Spatially variable gene</h2>
                 <a id={"svg"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
                     Please see <Link href={"/help/manual/datasets#identification_svg"}> Identification of spatially variable gene </Link>  for more details.
                 </p>
-                <h2>5. Expression Rank Score</h2>
+                <h2>4. Expression Rank Score</h2>
                 <a id={"expression_rank_score"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
                     The expression rank score is defined as the percentile of log-transformed CPM (natural logarithm) in
