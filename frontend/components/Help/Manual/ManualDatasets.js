@@ -67,7 +67,7 @@ export default function ManualDatasets() {
                     A spatial neighbor network (SNN) is first built by STAGATE using a predetermined radius. Furthermore,
                     STAGATE uses four layers of graph attention auto-encoders, including two layers of encoders and
                     two layers of decoders, to learn low-dimensional latent representations containing spatial
-                    information and gene expression. A normalized expression matrix serves as the autoencoder's
+                    information and gene expression. A normalized expression matrix serves as the autoencoder&apos;s
                     input, and the output can be utilized to identify the spatial domain.
                 </p>
                 <p>This part is mainly handled through the STAGATE_pyG package (GPU version of STAGATE).</p>
@@ -95,7 +95,7 @@ export default function ManualDatasets() {
                 <h3>Marker genes</h3>
                 <p>Finally, the marker genes of eight clustering methods were calculated, including the STAGATE spatial
                     clustering method (four resolutions) and the clustering method based solely on gene expression
-                    (four resolutions). This section makes use of the scanpy package's function &quot;tl.rank genes groups&quot;.</p>
+                    (four resolutions). This section makes use of the scanpy package&apos;s function &quot;tl.rank genes groups&quot;.</p>
                 <h2>4. Data visualization</h2>
                 <a id={"data_page_view"} style={{position: 'relative', top: "-150px"}}></a>
                 <p> STellaris uses Spatial-Trans-Visual-Tool (<a href={"https://github.com/Chunfu-Shawn/Spatial-Trans-Visual-Tool"} target={"_blank"} rel={"noreferrer"}>
@@ -126,7 +126,7 @@ export default function ManualDatasets() {
                 <a id={"identification_svg"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
                     It is critical to analyze spatially variable (SV) genes in the spatial transcriptome, but the highly
-                    variable genes (HVGs) calculated in Scanpy's analysis do not take spatial information into account,
+                    variable genes (HVGs) calculated in Scanpy&apos;s analysis do not take spatial information into account,
                     so we use SpatialDE methods to compensate.
                 </p>
                 <p>
