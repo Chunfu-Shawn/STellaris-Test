@@ -79,7 +79,7 @@ export default function SearchPage() {
                         e.g. <b><Link href={"search/genePage/ENSG00000115738"}>ID2</Link></b> or
                         <b><Link href={"search/genePage/ENSMUSG00000041147"}> Brca2</Link></b> or
                         <b><Link href={"search/genePage/ENSG00000017427"}> ENSG00000017427 </Link></b>
-                        |<Link href={'/help/manual/search#main_page_help'}>
+                        |<Link href={'/help/manual/search#search_rule'}>
                             <a target={'_blank'} rel={"noreferrer"}>
                                 <b> HELP </b>
                                 <QuestionCircleOutlined  style={{fontSize:"16px",color:"#2b1970"}}/>

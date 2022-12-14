@@ -175,6 +175,9 @@ export default function DataPage(props) {
                                     <a id={"Download"} style={{position: 'relative', top: "-150px"}}></a>
                                     <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
                                         <span style={{fontSize:22}}>Download </span>
+                                        <Link href={'/help/manual/datasets#h5ad'}>
+                                            <a target={"_blank"}><QuestionCircleOutlined/></a>
+                                        </Link>
                                     </Divider>
                                     <div className="site-card-wrapper" style={{padding:"10px"}}>
                                         <FliesTree st_id={props.data.id} sections_id={props.sectionOption}/>

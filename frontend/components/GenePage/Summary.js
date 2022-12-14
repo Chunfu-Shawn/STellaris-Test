@@ -21,7 +21,7 @@ export default function Summary(){
             <a id={"Summary"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0">
                 <b>Summary </b>
-                <Link href={'/help/manual/search#gene_page_summary'}>
+                <Link href={'/help/manual/search#annotation'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>

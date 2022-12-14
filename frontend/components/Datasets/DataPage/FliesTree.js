@@ -56,32 +56,6 @@ export default function FliesTree(props){
             onSelect={onSelect}
             onExpand={onExpand}
             treeData={treeData}
-            titleRender={(data)=>{
-                if(data.key === 'h5ad_files'){
-                    return(
-                        <span>{data.title+" "}
-                            <Tooltip
-                                title="Normalized gene expression with additional metadata, in HDF5 format,
-                                readable with the 'anndata' Python package">
-                                <QuestionCircleOutlined/>
-                            </Tooltip>
-                        </span>
-                    )
-                }else if(data.key === 'raw_data'){
-                    return(
-                        <span>{data.title+" "}
-                            <Tooltip
-                                title="Raw data, mainly in matrix, barcodes and features format">
-                                <QuestionCircleOutlined/>
-                            </Tooltip>
-                        </span>
-                    )
-                }else {
-                    return(
-                        <span>{data.title}</span>
-                    )
-                }
-            }}
         />
     )
 }

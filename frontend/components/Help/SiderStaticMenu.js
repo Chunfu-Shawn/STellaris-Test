@@ -8,8 +8,8 @@ const items = [
     {
         label: 'Manual', key: 'manual', icon: <CompassOutlined />,
         children: [
-            { label: <Link href={'/help/manual/datasets'}>Datasets</Link>, key: 'manual_datasets' },
             { label: <Link href={'/help/manual/mapping'}>Spatial Mapping</Link>, key: 'manual_mapping'},
+            { label: <Link href={'/help/manual/datasets'}>Dataset Browser</Link>, key: 'manual_datasets' },
             { label: <Link href={'/help/manual/search'}>Gene Search</Link>, key: 'manual_search'}
         ],
     },

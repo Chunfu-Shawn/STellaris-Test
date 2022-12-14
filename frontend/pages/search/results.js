@@ -91,7 +91,7 @@ export default function Results(props) {
             <Head>
                 <title>{title}</title>
             </Head>
-            <div className="modal-body-stw" style={{padding:"15vh 2%",textAlign:"left"}}>
+            <div className="modal-body-stw" style={{padding:"150px 30px",textAlign:"left"}}>
                 <Row>
                     <Col xs={0} md={0} lg={4}>
                         <div style={
@@ -104,12 +104,12 @@ export default function Results(props) {
                     </Col>
                     <Col xs={24} md={24} lg={20}>
                         <Input.Group compact>
-                            <Select defaultValue={props.species} style={{width:'10%'}} size={"large"} onChange={onSpeciesChange}>
+                            <Select defaultValue={props.species} style={{width:110}} size={"large"} onChange={onSpeciesChange}>
                                 <Option value="All">All</Option>
                                 <Option value="Human">Human</Option>
                                 <Option value="Mouse">Mouse</Option>
                             </Select>
-                            <Select defaultValue={props.idType} style={{width:'15%'}} size={"large"} onChange={onIDTypeChange}>
+                            <Select defaultValue={props.idType} style={{width:150}} size={"large"} onChange={onIDTypeChange}>
                                 <Option value="Symbol">Symbol</Option>
                                 <Option value="Ensembl">Ensembl ID</Option>
                                 <Option value="Entrez">Entrez ID</Option>

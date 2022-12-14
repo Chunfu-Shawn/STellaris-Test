@@ -101,7 +101,7 @@ export default function Features(props){
             <a id={"Features"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
                 <span style={{fontSize:22}}>Features </span>
-                <Link href={'/help/manual/datasets#data_page_features'}>
+                <Link href={'/help/manual/datasets#identification_svg'}>
                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                 </Link>
             </Divider>

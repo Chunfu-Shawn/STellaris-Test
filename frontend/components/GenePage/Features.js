@@ -19,14 +19,18 @@ export default function Features(){
         <>
             <Divider orientation="left" orientationMargin="0">
                 <b>Features </b>
-                <Link href={'/help/manual/search#gene_page_features'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
             </Divider>
             <div name={"Expression"} style={{marginLeft: 20}}>
                 <a id={"Expression"} style={{position: 'relative', top: "-150px"}}></a>
                 <Divider orientation="left" orientationMargin="0">
                     <Row gutter={[20, 0]} style={{width: 350}}>
                         <Col span={14}>
-                            <b>Expression Rank Score</b>
+                            <b>Expression Rank Score </b>
+                            <Link href={'/help/manual/search#expression_rank_score'}>
+                                <a target={"_blank"}>
+                                    <QuestionCircleOutlined/>
+                                </a>
+                            </Link>
                         </Col>
                         <Col span={10}>
                             {
@@ -61,7 +65,12 @@ export default function Features(){
                 <Divider orientation="left" orientationMargin="0" dashed>
                     <Row gutter={[20,0]} style={{width:"auto"}}>
                         <Col span={14}>
-                            <b>Transcript</b>
+                            <b>Transcript </b>
+                            <Link href={'/help/manual/search#transcripts'}>
+                                <a target={"_blank"}>
+                                    <QuestionCircleOutlined/>
+                                </a>
+                            </Link>
                         </Col>
                         <Col span={10}>
                             <Button size={"small"}

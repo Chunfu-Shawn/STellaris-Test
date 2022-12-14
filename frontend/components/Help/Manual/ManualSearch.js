@@ -2,9 +2,9 @@ import {Breadcrumb, Typography} from 'antd';
 import React from 'react';
 import {contentStyle} from "../SiderStaticMenu.js";
 import SearchResultsAttributesTable from "./GenePage/SearchResultsAttributesTable.js";
-import GeneAttributionsTable from "./GenePage/GeneAttributionsTable.js";
-import GeneInfoAttributesTable from "./GenePage/GeneInfoAttributesTable.js";
-import GeneFeaturesAttributesTable from "./GenePage/GeneFeaturesAttributesTable.js";
+import GeneAttributionsSourceTable from "./GenePage/GeneAttributionsSourceTable.js";
+import GeneAttributesDescriptionTable from "./GenePage/GeneAttributesDescriptionTable.js";
+import TranscriptsAttributesTable from "./GenePage/TranscriptsAttributesTable.js";
 import Link from "next/link.js";
 
 export default function ManualSearch() {
@@ -18,32 +18,34 @@ export default function ManualSearch() {
             </Breadcrumb>
             <Typography style={{marginTop:50,fontSize:16}}>
                 <h1>Gene Search</h1>
-                <h2>1. Introduction</h2>
-                <p style={{fontSize:16}}>The Gene Search module would help users to search for the basic information and
-                    spatial expression pattern of a interested gene. Gene Page contains some annotation
-                    sections, such as <b>Summary, Spatially variable Expression, Co-expressed Genes, Highly-expressed Clusters,
-                        Genomic Context, Pseudobulk RNA-seq Expression and Transcripts</b>, which present a whole spatial expression profile about a gene.
+                <p>
+                    The Gene Search module would help users to search for the basic information and spatial expression
+                    pattern of genes of interest.
                 </p>
-                <h2>2. Gene Datasets</h2>
+                <h2>2. Gene annotation</h2>
+                <a id={"gene_list"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>We collected and integrated those public gene information data from <a
                     href={"http://www.ensembl.org/biomart/martview/0dfa7ad57e65ec64a7972af5c8b5710e"} target={"_blank"} rel={"noreferrer"}>
-                    <u>Ensembl Database (by biomart) </u></a>and <a href={"https://ftp.ncbi.nih.gov/gene/DATA/GENE_INFO/Mammalia/"} target={"_blank"} rel={"noreferrer"}>
-                        <u>NCBI Gene Database (by ftp server).</u></a> The data <b>from NCBI are modified by 2022-08-26</b> and those from Ensembl
-                    are <b>Human genes GRCh38.p13 and Mouse genes GRCm39 from Ensembl Genes 107 database</b>.
+                    <u>Ensembl Database </u></a>and <a href={"https://ftp.ncbi.nih.gov/gene/DATA/GENE_INFO/Mammalia/"} target={"_blank"} rel={"noreferrer"}>
+                        <u>NCBI Gene Database.</u></a> The data <b>from NCBI were downloaded in 2022-08-26 and human genes
+                    (based on GRCh38.p13) and mouse genes (based on GRCm39) were from Ensembl v107 database.</b>.
                 </p>
                 <p>
                     The Gene Datasets contains <b>68324</b> Human gene records, <b>56748</b> Mouse gene records
                 and <b>463409</b> transcripts records, which containing following attributes:
                 </p>
-                <GeneAttributionsTable/>
-                <h2>3. Gene Search</h2>
-                <a id={"main_page_help"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>The Search module is a ordinary search engine. It would provide some genes which have <b>matched names
-                    or aliases </b>after users choose the <b>organism</b> and <b>type of gene id</b> and inputted what they were
-                    going to search.
+                <GeneAttributionsSourceTable/>
+                <p>The description of attributes of genes are below:</p>
+                <a id={"annotation"} style={{position: 'relative', top: "-150px"}}></a>
+                <GeneAttributesDescriptionTable/><br/>
+                <p>Explanation of fields in transcript attributes are as follows:</p>
+                <a id={"transcripts"} style={{position: 'relative', top: "-150px"}}></a>
+                <TranscriptsAttributesTable/>
+                <h2>3. Search rules</h2>
+                <a id={"search_rule"} style={{position: 'relative', top: "-150px"}}></a>
+                <p>
+                    The search allows users to choose which different organism and id type of their interested genes.
                 </p>
-                <h4>(1) Main Page</h4>
-                <p>The search allows users to choose which different organism and id type of their interested genes.</p>
                 <b>Organisms:</b>
                 <ul>
                     <li><b>Human</b>: interested genes from Homo sapiens</li>
@@ -57,67 +59,21 @@ export default function ManualSearch() {
                     <li><b>Entrez ID</b>: identifier for a gene per the NCBI Entrez database</li>
                 </ul>
                 <a id={"search_results_help"} style={{position: 'relative', top: "-150px"}}></a>
-                <h4>(2) Search Results</h4>
-                <p>The search will provide all genes having similar names and presents the most matched genes foremost.
-                    <br/><b>The search rules</b> is Case insensitive and whether containing inputted string.
+                <p>The search mode is case-insensitive, genes that are partially matched will be return with the
+                    perfect match comes first.
                 </p>
-                <p>The search records contains following attributes:</p>
-                <SearchResultsAttributesTable />
-                <h2>4. Gene Page</h2>
-                <p>The Gene Page contains some annotations of a gene, such as Summary, Spatially Variable Expression,
-                    Co-expressed Genes, and Highly-expressed Clusters, Genomic Context, Pseudobulk RNA-seq Expression and Transcript,
-                    <b>which emphatically represent a whole spatial expression profile</b>.
-                </p>
-                <h4>(1) Summary</h4>
-                <a id={"gene_page_summary"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>This section comprises following attributes:</p>
-                <GeneInfoAttributesTable/>
-                <h4>(2) <i>Spatial Expression*</i></h4>
-                <a id={"gene_page_spatial_expression"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>This section represents some information about spatial expression of this gene when it is
-                    a spatially variable gene in any organ/tissue, including three parts:
-                    <b> Spatially Variable Expression</b>, <b>Co-expressed Genes</b>, and <b>Highly-expressed Clusters</b>.</p>
-                <h5>(a) Spatially Variable Expression</h5>
-                <p>This portion shows a typical gene expression data in spatial embedding <b>when the gene is a spatially variable
-                    gene in a organ/tissue</b>. A tip box show a reads count value when mouse hovering over a spot, which is in deeper colored
-                    with higher expression.
-                </p>
-                <h5>(b) Co-expressed Genes</h5>
-                <p>Several heatmap charts show <b> correlation degree and supportive degree of top 20 related co-expressed
-                    genes </b>by respectively different organ/tissue types. Color and number in a box represent the number of
-                    datasets supportive to these two related genes, and the co-expressed genes are sorted in descend by
-                    <b> Mean Pearson Correlation</b> from left to right. A tip box show the Pearson correlation coefficents
-                    when mouse hovering over a heatmap box.
-                </p>
+
+                <h2>4. Spatially variable gene</h2>
+                <a id={"svg"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
-                    <b>Click on </b>any single heatmap box to view spatial expression of these two related genes among all supportive
-                    datasets. It is convenient for users to compare the spatial expression of paired genes between charts.
+                    Please see <Link href={"/help/manual/datasets#identification_svg"}> Identification of spatially variable gene </Link>  for more details.
                 </p>
+                <h2>5. Expression Rank Score</h2>
+                <a id={"expression_rank_score"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
-                    There is a correlation coefficient table including raw correlation data about paired genes, which
-                    comprise <b>another gene name, efficient and P-Value of Pearson and Spearman correlation, organ/tissue
-                    that data derived and dataset ID</b>.
+                    The expression rank score is defined as the percentile of log-transformed CPM (natural logarithm) in
+                    each ST section.
                 </p>
-                <p>
-                    The detailed methods to calculate Pearson and Spearman correlation are in
-                    <Link href={"/help/manual/datasets"}>
-                        <a target={'_blank'} rel={"noreferrer"}><b> Help/Manual/Datasets </b></a>
-                    </Link>
-                </p>
-                <h5>(c) Highly-expressed Clusters</h5>
-                <p>The histogram show the proportion of main cell clusters which express target gene respectively by different organ types.
-                    A tooltip box show the marker genes of this cluster when mouse hovering over one of stacked cluster bars.
-                    Several lists about the marker genes of cell clusters will come out when users click on the columns
-                    representing different organ types.
-                </p>
-                <h4>(3) Features</h4>
-                <a id={"gene_page_features"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>This section comprises three annotations: <b>Genomic Context, Pseudobulk RNA-seq Expression and Transcript</b>.</p>
-                <p>Pseudobulk RNA-seq Expression data for interested gene is displayed graphically. The mean reads count value
-                    was computed from spatial transcriptome data stored in our database.
-                </p>
-                <p>Here are the attributes of Genomic Context and Transcript section below:</p>
-                <GeneFeaturesAttributesTable/>
             </Typography>
         </div>
     )

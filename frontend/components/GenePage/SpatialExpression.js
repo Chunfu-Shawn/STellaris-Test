@@ -19,7 +19,7 @@ export default function SpatialExpression(){
         <>
             <Divider orientation="left" orientationMargin="0">
                 <b>Spatial Variable Gene Expression </b>
-                <Link href={'/help/manual/search#gene_page_spatial_expression'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
+                <Link href={'/help/manual/search#svg'}><a target={"_blank"}><QuestionCircleOutlined/></a></Link>
             </Divider>
             <Gallery/>
             <SVExpressionTable/>

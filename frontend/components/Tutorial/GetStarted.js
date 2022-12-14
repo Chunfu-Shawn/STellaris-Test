@@ -14,6 +14,7 @@ export default function GetStarted(){
                 spatial mapping and data export.
             </p>
             <h4>1. Data preparation</h4>
+            <a id={"data_preparation"} style={{position: 'relative', top: "-150px"}}></a>
             <p>The spatial mapping analysis requires two files uploaded by users: 1) cell-by-gene count matrix file
                 measured by raw counts where column name are gene symbols and row name are unique cell ids; 2) meta
                 information of cells requiring gene symbols in the first column that are in same order as count matrix

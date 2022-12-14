@@ -49,6 +49,14 @@ const data = [
         "Attribute": "Title",
         "Description": "title of the article where the dataset are published"
     },
+    {
+        "Attribute": "Journal",
+        "Description": "journal name of the article where the dataset are published"
+    },
+    {
+        "Attribute": "PMID",
+        "Description": "PMID (pubmed id) of the article where the dataset are published"
+    },
 ]
 const columns =[
     {

@@ -62,7 +62,7 @@ export default function SearchResultTable(props){
             title: () => {
                 return <Space>
                     <span>Gene type</span>
-                    <Link href={'/help/manual/search#search_results_help'}>
+                    <Link href={'/help/manual/search#gene_list'}>
                         <a target={'_blank'}>
                             <QuestionCircleFilled  style={{fontSize:"15px",color:"#2b1970"}}/>
                         </a>

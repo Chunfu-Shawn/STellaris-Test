@@ -118,7 +118,7 @@ export default function ResultModule(){
                                         <DownloadOutlined  style={iconStyle}/>
                                     </Tooltip>
                                 </a>
-                                <a key={3} target={'_blank'} href={`/help/manual/mapping#mapping_result`} rel="noreferrer" >
+                                <a key={3} target={'_blank'} href={`/help/manual/mapping`} rel="noreferrer" >
                                     <Tooltip title="View Help">
                                         <QuestionCircleOutlined style={iconStyle}/>
                                     </Tooltip>
@@ -141,7 +141,7 @@ export default function ResultModule(){
                             <a id={"Spatial"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
                                 <span style={{fontSize:22}}>Spatial Cellular Map </span>
-                                <Link href={'/help/manual/mapping#spatial_niche'}>
+                                <Link href={'/help/manual/mapping#spatial'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>

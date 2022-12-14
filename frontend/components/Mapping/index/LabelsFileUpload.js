@@ -90,7 +90,7 @@ export default function LabelsFileUpload(props){
             </Col>
             <Col span={7}>
                 <small style={{color:"gray"}}> (only a .gz/zip format file) </small>
-                <Link href={'help/manual/mapping#format_uploaded_files'} target={"_blank"}>
+                <Link href={'/tutorial#data_preparation'} target={"_blank"}>
                     <a target={'_blank'} rel={"noreferrer"}>
                         <Tooltip placement="topLeft"
                                  title={toolTipText}

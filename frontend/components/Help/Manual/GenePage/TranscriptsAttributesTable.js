@@ -2,68 +2,48 @@ import {Table} from "antd";
 import React from "react";
 const data = [
     {
-        "Datasets": "Genomic Context",
-        "Attribute": "Location",
-        "Description": "scaffold or chromosome and coordinate on which this gene is placed. For mitochondrial genomes, the value 'MT' is used."
-    },
-    {
-        "Datasets": "Genomic Context",
-        "Attribute": "Chromosomal Location",
-        "Description": "map location for this gene"
-    },
-    {
-        "Datasets": "Transcript",
         "Attribute": "Transcript ID",
         "Description": "a stable identifier for this transcript from Ensembl"
     },
     {
-        "Datasets": "Transcript",
         "Attribute": "Name",
         "Description": "a name for this transcript from Ensembl"
     },
     {
-        "Datasets": "Transcript",
         "Attribute": "Length",
         "Description": "length of this transcript (bp)"
     },
     {
-        "Datasets": "Transcript",
         "Attribute": "Type",
         "Description": <span>a transcript classification containing <b>protein coding, lncRNA, processed pseudogene, unprocessed pseudogene,
         miRNA, TEC, snRNA, misc_RNA, snoRNA and so on</b>, which integrated from Ensembl Database</span>
     },
     {
-        "Datasets": "Transcript",
+        
         "Attribute": "Transcription Start Sites (TSS)",
         "Description": "the transcription start sites of this transcript"
     },
     {
-        "Datasets": "Transcript",
         "Attribute": "Refseq mRNA ID",
         "Description": "a corresponding ID of this mRNA from NCBI's Reference Sequences (RefSeq) database"
     },
     {
-        "Datasets": "Transcript",
         "Attribute": "Refseq ncRNA ID",
         "Description": "a corresponding ID of this non-coding RNA from NCBI's Reference Sequences (RefSeq) database"
     },
     {
-        "Datasets": "Transcript",
         "Attribute": "Version",
         "Description": "the version of this trancript from Ensembl"
     },
     {
-        "Datasets": "Transcript",
         "Attribute": "Start - End",
         "Description": "the start and end coordinate of this trancript"
     },
     {
-        "Datasets": "Transcript",
         "Attribute": "Count",
         "Description": "the expression count"
     },
     {
-        "Datasets": "Transcript",
         "Attribute": "Transcript Support Level (TSL)",
         "Description": <span>The Transcript Support Level (TSL) is a method to highlight the well-supported and poorly-supported
             transcript models for users, based on the type and quality of the alignments used to annotate the transcript.
@@ -80,35 +60,20 @@ const data = [
 ]
 const columns =[
     {
-        title: 'Datasets',
-        dataIndex: 'Datasets',
-        key: 'Datasets',
-        width: '4%',
-        align:"center",
-        render: text => { return <b>{text}</b> },
-        onCell: (_,index)=>{
-            if (index === 0) return { rowSpan: 2 }
-            else if (index === 2 )return { rowSpan: 11}
-            else return { rowSpan: 0 }
-        }
-    },
-    {
         title: 'Attribute',
         dataIndex: 'Attribute',
         key: 'Attribute',
-        width:'5%',
-        onCell: ()=>{ return { rowSpan: 1} }
+        width:'6%',
     },
     {
         title: 'Description',
         dataIndex: 'Description',
         key: 'Description',
-        width:'10%',
-        onCell: ()=>{ return { rowSpan: 1} }
+        width:'30%',
     }
 ]
 
-export default function GeneFeaturesAttributesTable(){
+export default function TranscriptsAttributesTable(){
     return(
         <Table dataSource={
             data.map( item => {

@@ -153,7 +153,7 @@ const columns =[
     }
 ]
 
-export default function GeneAttributionsTable(){
+export default function GeneAttributionsSourceTable(){
     return(
         <Collapse defaultActiveKey={['1']} bordered={false} style={{width:"80%", margin:"10px 100px"}} >
             <Panel key={1} header={<b>Datasets Attribution and Source (click to hide or show this panel)</b>}>

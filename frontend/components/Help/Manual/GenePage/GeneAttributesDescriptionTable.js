@@ -38,6 +38,14 @@ const data = [
             Example for MGI: <b>MGI:MGI:104537</b>. This would be interpreted as database=&apos;MGI&apos;, value=&apos;MGI:104537&apos;.</span>
     },
     {
+        "Attribute": "Location",
+        "Description": "chromosome and coordinate where a gene locates, which is 0-based start"
+    },
+    {
+        "Attribute": "Chromosome Location",
+        "Description": "Cytogenetic location"
+    },
+    {
         "Attribute": "Gene Version",
         "Description": "gene version integrated from Ensembl Database"
     },
@@ -61,7 +69,7 @@ const columns =[
     }
 ]
 
-export default function GeneInfoAttributesTable(){
+export default function GeneAttributesDescriptionTable(){
     return(
         <Table dataSource={
             data.map( item => {
