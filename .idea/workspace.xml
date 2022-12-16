@@ -5,22 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Tutorial/MutiOmics.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Tutorial/TutorialLayout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Tutorial/spatialMultiomics_paired-tag.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/table1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/tutorial/datasets.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/tutorial/gene.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/tutorial/mapping/exApp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/tutorial/mapping/getStarted.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/tutorial/mapping/result.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/LabelsFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/LabelsFileUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/MatrixFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/MatrixFileUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/DatasetBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/DatasetBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/GeneSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/GeneSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/MutiOmics.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/MutiOmics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/Overview.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/Overview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/ResultInterpretation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/ResultInterpretation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/TutorialSiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/TutorialSiderMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/datasets.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/pages/tutorial.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/tutorial.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/components/Tutorial",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/pages/tutorial",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,11 +77,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/pages/tutorial" />
+      <recent name="$PROJECT_DIR$/frontend/pages/tutorial/mapping" />
       <recent name="$PROJECT_DIR$/frontend/components/Tutorial" />
       <recent name="$PROJECT_DIR$/frontend/public/images/tutorial/mapping" />
       <recent name="$PROJECT_DIR$/frontend/public/images" />
-      <recent name="$PROJECT_DIR$/frontend/public/images/tutorial" />
-      <recent name="$PROJECT_DIR$/frontend/public/images/help/datasets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/public/images/help/mapping" />
@@ -165,7 +164,7 @@
       <workItem from="1671003720918" duration="10252000" />
       <workItem from="1671076148569" duration="4894000" />
       <workItem from="1671165595888" duration="15665000" />
-      <workItem from="1671199014001" duration="4003000" />
+      <workItem from="1671199014001" duration="6618000" />
     </task>
     <servers />
   </component>

@@ -91,7 +91,7 @@ export default function MatrixFileUpload(props){
             </Col>
             <Col span={7}>
                 <small style={{color:"gray"}}> (only a .gz/zip format file) </small>
-                <Link href={'/tutorial#data_preparation'} target={"_blank"}>
+                <Link href={'/tutorial/mapping/getStarted/#data_preparation'} target={"_blank"}>
                     <a target={'_blank'} rel={"noreferrer"}>
                         <Tooltip placement="topLeft"
                                  title={toolTipText}
