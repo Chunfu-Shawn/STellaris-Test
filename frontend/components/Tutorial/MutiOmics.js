@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import {Breadcrumb, Typography} from "antd";
 import {contentStyle} from "../Help/SiderStaticMenu";
-//import data from './spatialMultiomics_paired-tag.html'
+//import data from &apos;./spatialMultiomics_paired-tag.html&apos;
 
 export default function MutiOmics(){
     return(
@@ -85,15 +85,15 @@ export default function MutiOmics(){
                     <Image src={"/images/tutorial/mapping/mutiomics1.png"} width={600} height={350}
                            alt={"counts_matrix_example"}/>
                 </div>
-                <pre>adata_sc = sc.read_h5ad('./data/public/results/20221212/ac970aa0-79fd-11ed-968c-79eb53139108/sc_registered.h5ad')</pre>
-                <pre>adata_sc.obs.index = [ re.sub('\\.',':',re.sub('X','',id)) for id in adata_sc.obs.index] </pre>
+                <pre>adata_sc = sc.read_h5ad(&apos;./data/public/results/20221212/ac970aa0-79fd-11ed-968c-79eb53139108/sc_registered.h5ad&apos;)</pre>
+                <pre>adata_sc.obs.index = [ re.sub(&apos;\\.&apos;,&apos;:&apos;,re.sub(&apos;X&apos;,'',id)) for id in adata_sc.obs.index] </pre>
                 <pre>adata_sc</pre>
                 <div className={"result"}>
                     AnnData object with n_obs × n_vars = 2600 × 52781<br/>
-                    &emsp;obs: 'orig.ident', 'nCount_RNA', 'nFeature_RNA', 'cell_type', 'percent.mt', 'id', 'id_new', 'id_st',
-                    'dist', 'x', 'y', 'x_noise', 'y_noise'<br/>
-                    &emsp;var: 'name'<br/>
-                    &emsp;obsm: 'spatial'
+                    &emsp;obs: &apos;orig.ident&apos;, &apos;nCount_RNA&apos;, &apos;nFeature_RNA&apos;, &apos;cell_type&apos;, &apos;percent.mt&apos;, &apos;id&apos;, &apos;id_new&apos;, &apos;id_st&apos;,
+                    &apos;dist&apos;, &apos;x&apos;, &apos;y&apos;, &apos;x_noise&apos;, &apos;y_noise&apos;<br/>
+                    &emsp;var: &apos;name&apos;<br/>
+                    &emsp;obsm: &apos;spatial&apos;
                 </div>
                 <div style={{textAlign:"center"}}>
                     <Image src={"/images/tutorial/mapping/mutiomics2.png"} width={580} height={250}
@@ -103,7 +103,7 @@ export default function MutiOmics(){
                 <h5>Prepare single-cell H3K4me3 epigenomic data</h5>
                 <p>Read H3K4me3 epigenomic data from Paired-Tag multiomics data</p>
                 <pre>
-                    adata_h3k4me3 = sc.read_10x_mtx('./data/h3k4me3_03_filtered_matrix/')
+                    adata_h3k4me3 = sc.read_10x_mtx(&apos;./data/h3k4me3_03_filtered_matrix/&apos;)
                 </pre>
                 <p>Subset cells surviving mapping in scRNA-seq</p>
                 <pre>
@@ -113,12 +113,12 @@ export default function MutiOmics(){
                 <p>SnapATAC2 requires input in bed format, so we will convert count matrix to bed and re-read it.</p>
                 <pre>
                     counts = pd.DataFrame(adata_h3k4me3.X.toarray(),index=adata_h3k4me3.obs_names,columns=adata_h3k4me3.var_names)<br/>
-                    counts= counts.astype('int32')
+                    counts= counts.astype(&apos;int32&apos;)
                 </pre>
                 <pre>
                     %%time<br/>
-                    counts.reset_index(names='cells',inplace=True)<br/>
-                    counts1 = counts.melt(id_vars='cells',var_name='intervals',value_name='counts')
+                    counts.reset_index(names=&apos;cells&apos;,inplace=True)<br/>
+                    counts1 = counts.melt(id_vars=&apos;cells&apos;,var_name=&apos;intervals&apos;,value_name=&apos;counts&apos;)
                 </pre>
                 <div className={"result"}>
                     CPU times: user 1min 10s, sys: 1min 8s, total: 2min 19s<br/>
@@ -128,11 +128,11 @@ export default function MutiOmics(){
                 <pre>
                     {`%%time
     counts3 = pd.DataFrame({
-              'chr':counts2['intervals'].str.split(':').str[0],
-              'spos':counts2['intervals'].str.split(':').str[1].str.split('-').str[0],
-              'epos':counts2['intervals'].str.split(':').str[1].str.split('-').str[1],
-              'cells':counts2['cells'],
-              'counts':counts2['counts']
+              &apos;chr&apos;:counts2[&apos;intervals&apos;].str.split(&apos;:&apos;).str[0],
+              &apos;spos&apos;:counts2[&apos;intervals&apos;].str.split(&apos;:&apos;).str[1].str.split(&apos;-&apos;).str[0],
+              &apos;epos&apos;:counts2[&apos;intervals&apos;].str.split(&apos;:&apos;).str[1].str.split(&apos;-&apos;).str[1],
+              &apos;cells&apos;:counts2[&apos;cells&apos;],
+              &apos;counts&apos;:counts2[&apos;counts&apos;]
     })`}
                 </pre>
                 <div className={"result"}>
@@ -141,15 +141,15 @@ export default function MutiOmics(){
                 </div>
                 <pre>
                     # Sort by genomic loci<br/>
-                    counts3.sort_values('cells',inplace=True)
+                    counts3.sort_values(&apos;cells&apos;,inplace=True)
                 </pre>
                 <pre>
-                    counts3.to_csv('paired-tag_h3k4me3.filtered.bed',sep='\t',header=False,index=False)
+                    counts3.to_csv(&apos;paired-tag_h3k4me3.filtered.bed&apos;,sep=&apos;\t&apos;,header=False,index=False)
                 </pre>
                 <p>Re-read h3k4me3 epigenomics data from bed</p>
                 <pre>{
     `adata_h3k4me3 = snap.pp.import_data(
-        'paired-tag_h3k4me3.filtered.bed',
+        &apos;paired-tag_h3k4me3.filtered.bed&apos;,
         genome=snap.genome.mm10,
         file="paired-tag_h3k4me3.filtered.h5ad",
         sorted_by_barcode=True,
@@ -157,10 +157,10 @@ export default function MutiOmics(){
                     }</pre>
                     <pre>adata_h3k4me3</pre>
                     <div className={"result"}>
-                        AnnData object with n_obs x n_vars = 2468 x 0 backed at 'paired-tag_h3k4me3.filtered.h5ad'<br/>
-                        &emsp;obs: 'tsse', 'n_fragment', 'frac_dup', 'frac_mito'<br/>
-                        &emsp;uns: 'reference_sequences'<br/>
-                        &emsp;obsm: 'insertion'
+                        AnnData object with n_obs x n_vars = 2468 x 0 backed at &apos;paired-tag_h3k4me3.filtered.h5ad&apos;<br/>
+                        &emsp;obs: &apos;tsse&apos;, &apos;n_fragment&apos;, &apos;frac_dup&apos;, &apos;frac_mito&apos;<br/>
+                        &emsp;uns: &apos;reference_sequences&apos;<br/>
+                        &emsp;obsm: &apos;insertion&apos;
                     </div>
                 <h5>SnapATAC2 analysis</h5>
                 <p>Perform basic preprocessing using SnapATAC2</p>
@@ -183,78 +183,78 @@ export default function MutiOmics(){
                 </div>
                 <pre>adata_h3k4me3</pre>
                 <div className={"result"}>
-                    AnnData object with n_obs x n_vars = 2384 x 5451055 backed at 'paired-tag_h3k4me3.filtered.h5ad'<br/>
-                    &emsp;obs: 'tsse', 'n_fragment', 'frac_dup', 'frac_mito', 'doublet_score', 'is_doublet'<br/>
-                    &emsp;var: 'selected'<br/>
-                    &emsp;uns: 'scrublet_threshold', 'scrublet_sim_doublet_score', 'reference_sequences'<br/>
-                    &emsp;obsm: 'insertion'
+                    AnnData object with n_obs x n_vars = 2384 x 5451055 backed at &apos;paired-tag_h3k4me3.filtered.h5ad&apos;<br/>
+                    &emsp;obs: &apos;tsse&apos;, &apos;n_fragment&apos;, &apos;frac_dup&apos;, &apos;frac_mito&apos;, &apos;doublet_score&apos;, &apos;is_doublet&apos;<br/>
+                    &emsp;var: &apos;selected&apos;<br/>
+                    &emsp;uns: &apos;scrublet_threshold&apos;, &apos;scrublet_sim_doublet_score&apos;, &apos;reference_sequences&apos;<br/>
+                    &emsp;obsm: &apos;insertion&apos;
                 </div>
                 <h4>Build spatial map of H3K4me3 for active promoters examined in epigenomic MERFISH</h4>
                 <h5>Spatial annotation of single-cell H3K4me3 epigenomic data</h5>
                 <pre>{
                     `# Add spatial coordinate to single-cell H3K4me3 data
-    adata_h3k4me3.obs['x_noise'] = adata_sc.obs.loc[adata_h3k4me3.obs_names,'x_noise']
-    adata_h3k4me3.obs['y_noise'] = adata_sc.obs.loc[adata_h3k4me3.obs_names,'y_noise']
-    adata_h3k4me3.obsm['spatial'] = adata_sc.obsm['spatial'][[list(adata_sc.obs_names).index(i) for i in adata_h3k4me3.obs_names], :]
+    adata_h3k4me3.obs[&apos;x_noise&apos;] = adata_sc.obs.loc[adata_h3k4me3.obs_names,&apos;x_noise&apos;]
+    adata_h3k4me3.obs[&apos;y_noise&apos;] = adata_sc.obs.loc[adata_h3k4me3.obs_names,&apos;y_noise&apos;]
+    adata_h3k4me3.obsm[&apos;spatial&apos;] = adata_sc.obsm[&apos;spatial&apos;][[list(adata_sc.obs_names).index(i) for i in adata_h3k4me3.obs_names], :]
     # Add cell type to single-cell H3K4me3 data
-    adata_h3k4me3.obs['cell_type'] = adata_sc.obs.loc[adata_h3k4me3.obs_names,'cell_type']`
+    adata_h3k4me3.obs[&apos;cell_type&apos;] = adata_sc.obs.loc[adata_h3k4me3.obs_names,&apos;cell_type&apos;]`
                 }</pre>
                 <pre>adata_h3k4me3</pre>
                 <div className={"result"}>
-                    AnnData object with n_obs x n_vars = 2384 x 5451055 backed at 'paired-tag_h3k4me3.filtered.h5ad'<br/>
-                    &emsp;obs: 'tsse', 'n_fragment', 'frac_dup', 'frac_mito', 'doublet_score', 'is_doublet', 'x_noise', 'y_noise', 'cell_type'<br/>
-                    &emsp;var: 'selected'<br/>
-                    &emsp;uns: 'scrublet_threshold', 'scrublet_sim_doublet_score', 'reference_sequences'<br/>
-                    &emsp;obsm: 'insertion', 'spatial'
+                    AnnData object with n_obs x n_vars = 2384 x 5451055 backed at &apos;paired-tag_h3k4me3.filtered.h5ad&apos;<br/>
+                    &emsp;obs: &apos;tsse&apos;, &apos;n_fragment&apos;, &apos;frac_dup&apos;, &apos;frac_mito&apos;, &apos;doublet_score&apos;, &apos;is_doublet&apos;, &apos;x_noise&apos;, &apos;y_noise&apos;, &apos;cell_type&apos;<br/>
+                    &emsp;var: &apos;selected&apos;<br/>
+                    &emsp;uns: &apos;scrublet_threshold&apos;, &apos;scrublet_sim_doublet_score&apos;, &apos;reference_sequences&apos;<br/>
+                    &emsp;obsm: &apos;insertion&apos;, &apos;spatial&apos;
                 </div>
                 <h5>Create cell-by-promoter matrix</h5>
                 <p>Read 127 genomic regions of active promoter in epigenomic MERFISH</p>
                 <pre>
-                    h3k4me3_df = pd.read_table('./data/merfish_h3k4me3.bed',names=['chr','spos','epos','gene'])
+                    h3k4me3_df = pd.read_table(&apos;./data/merfish_h3k4me3.bed&apos;,names=[&apos;chr&apos;,&apos;spos&apos;,&apos;epos&apos;,&apos;gene&apos;])
                 </pre>
                 <pre>h3k4me3_df</pre>
                 <Image src={"/images/tutorial/mapping/table1.png"} width={300} height={350}
                        alt={"table1"}/>
-                <pre>peak_list = [i+':'+str(j)+'-'+str(z) for i,j,z in zip(h3k4me3_df['chr'],h3k4me3_df['spos'],h3k4me3_df['epos'])]</pre>
+                <pre>peak_list = [i+&apos;:&apos;+str(j)+&apos;-&apos;+str(z) for i,j,z in zip(h3k4me3_df[&apos;chr&apos;],h3k4me3_df[&apos;spos&apos;],h3k4me3_df[&apos;epos&apos;])]</pre>
                 <pre>peak_list</pre>
                 <div className={"result"}>
-                ['chr1:4495897-4497608',
-                'chr1:19102291-19111666',
-                'chr1:56967534-56974652',
-                'chr1:69104151-69108917',
-                'chr1:75276812-75278734',
-                'chr1:89927107-89933098', ...]
+                [&apos;chr1:4495897-4497608&apos;,
+                &apos;chr1:19102291-19111666&apos;,
+                &apos;chr1:56967534-56974652&apos;,
+                &apos;chr1:69104151-69108917&apos;,
+                &apos;chr1:75276812-75278734&apos;,
+                &apos;chr1:89927107-89933098&apos;, ...]
                 </div>
                 <p>Create cell-by-promoter count matrix</p>
-                <pre>adata_h3k4me3_merfish = snap.pp.make_peak_matrix(adata_h3k4me3,use_rep=peak_list, file="paired-tag_h3k4me3.merfish_peak.h5ad")</pre>
+                <pre>adata_h3k4me3_merfish = snap.pp.make_peak_matrix(adata_h3k4me3,use_rep=peak_list, file=&quot;paired-tag_h3k4me3.merfish_peak.h5ad&quot;)</pre>
                 <pre># Assign lost cell ids<br/>
                     adata_h3k4me3_merfish.obs_names = adata_h3k4me3.obs_names<br/>
                     # Assign gene names<br/>
-                    adata_h3k4me3_merfish.var['peaks'] = adata_h3k4me3_merfish.var_names<br/>
-                    adata_h3k4me3_merfish.var_names = h3k4me3_df['gene']<br/>
+                    adata_h3k4me3_merfish.var[&apos;peaks&apos;] = adata_h3k4me3_merfish.var_names<br/>
+                    adata_h3k4me3_merfish.var_names = h3k4me3_df[&apos;gene&apos;]<br/>
                     # Assign lost spatial cooridinate<br/>
-                    adata_h3k4me3_merfish.obsm['spatial'] = adata_h3k4me3.obsm['spatial']
+                    adata_h3k4me3_merfish.obsm[&apos;spatial&apos;] = adata_h3k4me3.obsm[&apos;spatial&apos;]
                 </pre>
                 <pre>adata_h3k4me3_merfish</pre>
                 <div className={"result"}>
-                    AnnData object with n_obs x n_vars = 2384 x 127 backed at 'paired-tag_h3k4me3.merfish_peak.h5ad'<br/>
-                    &emsp;obs: 'tsse', 'n_fragment', 'frac_dup', 'frac_mito', 'doublet_score', 'is_doublet', 'x_noise', 'y_noise', 'cell_type'<br/>
-                    &emsp;var: 'peaks'<br/>
-                    &emsp;obsm: 'spatial'
+                    AnnData object with n_obs x n_vars = 2384 x 127 backed at &apos;paired-tag_h3k4me3.merfish_peak.h5ad&apos;<br/>
+                    &emsp;obs: &apos;tsse&apos;, &apos;n_fragment&apos;, &apos;frac_dup&apos;, &apos;frac_mito&apos;, &apos;doublet_score&apos;, &apos;is_doublet&apos;, &apos;x_noise&apos;, &apos;y_noise&apos;, &apos;cell_type&apos;<br/>
+                    &emsp;var: &apos;peaks&apos;<br/>
+                    &emsp;obsm: &apos;spatial&apos;
                 </div>
                 <p>Save and re-read using scanpy for better manipulation</p>
                 <pre>
-                    adata_h3k4me3_merfish.write('./paired-tag_h3k4me3.merfish_peak.scanpy.h5ad')<br/>
-                    adata_h3k4me3_merfish = sc.read_h5ad('paired-tag_h3k4me3.merfish_peak.scanpy.h5ad')<br/>
+                    adata_h3k4me3_merfish.write(&apos;./paired-tag_h3k4me3.merfish_peak.scanpy.h5ad&apos;)<br/>
+                    adata_h3k4me3_merfish = sc.read_h5ad(&apos;paired-tag_h3k4me3.merfish_peak.scanpy.h5ad&apos;)<br/>
                 </pre>
                 <pre>
                     adata_h3k4me3_merfish
                 </pre>
                 <div className={"result"}>
                     AnnData object with n_obs × n_vars = 2384 × 127<br/>
-                    &emsp;obs: 'tsse', 'n_fragment', 'frac_dup', 'frac_mito', 'doublet_score', 'is_doublet', 'x_noise', 'y_noise', 'cell_type'<br/>
-                    &emsp;var: 'peaks'<br/>
-                    &emsp;obsm: 'spatial'
+                    &emsp;obs: &apos;tsse&apos;, &apos;n_fragment&apos;, &apos;frac_dup&apos;, &apos;frac_mito&apos;, &apos;doublet_score&apos;, &apos;is_doublet&apos;, &apos;x_noise&apos;, &apos;y_noise&apos;, &apos;cell_type&apos;<br/>
+                    &emsp;var: &apos;peaks&apos;<br/>
+                    &emsp;obsm: &apos;spatial&apos;
                 </div>
                 <p>Perform normalization</p>
                 <pre>
@@ -269,10 +269,10 @@ export default function MutiOmics(){
                 <pre>adata_h3k4me3_merfish</pre>
                 <div className={"result"}>
                     AnnData object with n_obs × n_vars = 2384 × 127<br/>
-                    &emsp;obs: 'tsse', 'n_fragment', 'frac_dup', 'frac_mito', 'doublet_score', 'is_doublet', 'x_noise', 'y_noise', 'cell_type'<br/>
-                    &emsp;var: 'peaks'<br/>
-                    &emsp;uns: 'log1p'<br/>
-                    &emsp;obsm: 'spatial'
+                    &emsp;obs: &apos;tsse&apos;, &apos;n_fragment&apos;, &apos;frac_dup&apos;, &apos;frac_mito&apos;, &apos;doublet_score&apos;, &apos;is_doublet&apos;, &apos;x_noise&apos;, &apos;y_noise&apos;, &apos;cell_type&apos;<br/>
+                    &emsp;var: &apos;peaks&apos;<br/>
+                    &emsp;uns: &apos;log1p&apos;<br/>
+                    &emsp;obsm: &apos;spatial&apos;
                 </div>
                 <h4>Comparison between H3K4me3 signals and spatial patterns of their corresponding gene expression</h4>
                 <p>Here we compare the spatial distribution of H3K4me3 signals in active promoters with spatial patterns of
@@ -280,9 +280,9 @@ export default function MutiOmics(){
                     enrichment patterns are largely similar with that in scRNA-seq.</p>
                 <pre>
                     # Bcl11b promoter - h3k4me3 signal<br/>
-                    sc.pl.spatial(adata_h3k4me3_merfish,color=['Bcl11b','Foxp2','Rorb'],spot_size=50,ncols=3)<br/>
+                    sc.pl.spatial(adata_h3k4me3_merfish,color=[&apos;Bcl11b&apos;,&apos;Foxp2&apos;,&apos;Rorb&apos;],spot_size=50,ncols=3)<br/>
                     # Bcl11b - single-cell gene expression<br/>
-                    sc.pl.spatial(adata_sc,color=['Bcl11b','Foxp2','Rorb'],spot_size=50,ncols=3)
+                    sc.pl.spatial(adata_sc,color=[&apos;Bcl11b&apos;,&apos;Foxp2&apos;,&apos;Rorb&apos;],spot_size=50,ncols=3)
                 </pre>
                 <Image src={"/images/tutorial/mapping/mutiomics3.png"} width={800} height={200}
                        alt={"mutiomics3"}/>
@@ -297,7 +297,7 @@ export default function MutiOmics(){
                 <h5>Extract cerebral cortex region</h5>
                 <p>First, extract cortex using polynomial regression</p>
                 <pre>
-                    spots = adata_h3k4me3_merfish.obsm['spatial']<br/>
+                    spots = adata_h3k4me3_merfish.obsm[&apos;spatial&apos;]<br/>
                     hull = ConvexHull(spots)<br/>
                     hull_x = spots[hull.vertices,0]<br/>
                     hull_y = spots[hull.vertices,1]<br/>
@@ -317,12 +317,12 @@ export default function MutiOmics(){
                 </pre>
                 <pre>
                     # visualization<br/>
-                    plt.plot(spots[:,0], spots[:,1], 'o')<br/>
+                    plt.plot(spots[:,0], spots[:,1], &apos;o&apos;)<br/>
                     p2 = p1-900<br/>
                     y_pred1 = p1(list(range(1000,4000,100)))<br/>
                     y_pred2 = p2(list(range(1000,4000,100)))<br/>
-                    plot1 = plt.plot(list(range(1000,4000,100)), y_pred1, label='upper layer',color='orange')<br/>
-                    plot2 = plt.plot(list(range(1000,4000,100)), y_pred2, label='deep layer',color='red')<br/>
+                    plot1 = plt.plot(list(range(1000,4000,100)), y_pred1, label=&apos;upper layer&apos;,color=&apos;orange&apos;)<br/>
+                    plot2 = plt.plot(list(range(1000,4000,100)), y_pred2, label=&apos;deep layer&apos;,color=&apos;red&apos;)<br/>
                     plt.title('')<br/>
                     plt.xlabel('')<br/>
                     plt.ylabel('')<br/>
@@ -346,14 +346,14 @@ export default function MutiOmics(){
             cells_keep.append(z)
         else:
             continue
-    plt.plot(x_keep, y_keep, 'o')
-    plot1 = plt.plot(list(range(1000,4000,100)), y_pred1, label='upper layer',color='orange')
-    plot2 = plt.plot(list(range(1000,4000,100)), y_pred2, label='deep layer',color='red')
+    plt.plot(x_keep, y_keep, &apos;o&apos;)
+    plot1 = plt.plot(list(range(1000,4000,100)), y_pred1, label=&apos;upper layer&apos;,color=&apos;orange&apos;)
+    plot2 = plt.plot(list(range(1000,4000,100)), y_pred2, label=&apos;deep layer&apos;,color=&apos;red&apos;)
     plt.title('')
     plt.xlabel('')
     plt.ylabel('')
     plt.legend(loc=3,borderaxespad=0,bbox_to_anchor=(0,0))
-    plt.axis('scaled')
+    plt.axis(&apos;scaled&apos;)
     plt.show()`
                 }</pre>
                 <Image src={"/images/tutorial/mapping/mutiomics7.png"} width={400} height={230}
@@ -404,8 +404,8 @@ export default function MutiOmics(){
         y_mean = np.sum(y_tmp)/np.sum(gene_exp)
         if if_plot:
             sc.pl.spatial(adata_norm,color=gene_name,spot_size=50)
-            plt.plot(x_keep, y_keep, 'o')
-            plt.scatter(x_mean,y_mean,c='r')
+            plt.plot(x_keep, y_keep, &apos;o&apos;)
+            plt.scatter(x_mean,y_mean,c=&apos;r&apos;)
             pylab.title('')
             pylab.xlabel('')
             pylab.ylabel('')
@@ -432,54 +432,54 @@ export default function MutiOmics(){
         return dis_min`
                 }</pre>
                 <pre>{
-                    `marker_genes = ['Npas1','Slc17a7','Penk','Sst','Gad2','Calb2','Chat','Cdca7','Ccdc80','Nxph4'
-                    ,'Pdgfra','Reln','Cux2','Lamp5','Pou3f1','Rorb','Lhx6','Satb2','Unc5d'
-                    ,'Slc17a6','Kcnj8','Car3','Slc30a3','Calb1','Osr1','Nxph1','Slc32a1','Grin3a',
-                   'Fezf2','Aqp4','Vipr2','Gad1','Bcl11b','Syt6','Foxp2','Oprk1','Pdlim5','Sox10']
+                    `marker_genes = [&apos;Npas1&apos;,&apos;Slc17a7&apos;,&apos;Penk&apos;,&apos;Sst&apos;,&apos;Gad2&apos;,&apos;Calb2&apos;,&apos;Chat&apos;,&apos;Cdca7&apos;,&apos;Ccdc80&apos;,&apos;Nxph4&apos;
+                    ,&apos;Pdgfra&apos;,&apos;Reln&apos;,&apos;Cux2&apos;,&apos;Lamp5&apos;,&apos;Pou3f1&apos;,&apos;Rorb&apos;,&apos;Lhx6&apos;,&apos;Satb2&apos;,&apos;Unc5d&apos;
+                    ,&apos;Slc17a6&apos;,&apos;Kcnj8&apos;,&apos;Car3&apos;,&apos;Slc30a3&apos;,&apos;Calb1&apos;,&apos;Osr1&apos;,&apos;Nxph1&apos;,&apos;Slc32a1&apos;,&apos;Grin3a&apos;,
+                   &apos;Fezf2&apos;,&apos;Aqp4&apos;,&apos;Vipr2&apos;,&apos;Gad1&apos;,&apos;Bcl11b&apos;,&apos;Syt6&apos;,&apos;Foxp2&apos;,&apos;Oprk1&apos;,&apos;Pdlim5&apos;,&apos;Sox10&apos;]
     dis_dic = {}
     for gene in marker_genes:
         try:
             centroid = get_centroid(adata_h3k4me3_merfish, gene_name=gene,x_keep=x_keep,y_keep=y_keep,if_plot=False)
         except:
-            print('no '+gene)
+            print(&apos;no &apos;+gene)
             continue
         dis_dic[gene] = get_dis(curve=p1, point=centroid)
-        #print(gene+': '+str(dis_dic[gene]))`
+        #print(gene+&apos;: &apos;+str(dis_dic[gene]))`
                 }</pre>
                 <pre>dis_dic</pre>
                 <div className={"result"}>{
-                    `{'Npas1': 371.8435139249171,
-                     'Slc17a7': 667.9104329325937,
-                     'Penk': 411.87730582356,
-                     'Sst': 256.8483202012105,
-                     'Gad2': 546.0870590195717,
-                     'Calb2': 528.7913315333836,
-                     'Chat': 522.9278973139577,
-                     'Cdca7': 635.2219396220006,
-                     'Ccdc80': 503.72132645051744,
-                     'Nxph4': 913.8402138700891,...}`
+                    `{&apos;Npas1&apos;: 371.8435139249171,
+                     &apos;Slc17a7&apos;: 667.9104329325937,
+                     &apos;Penk&apos;: 411.87730582356,
+                     &apos;Sst&apos;: 256.8483202012105,
+                     &apos;Gad2&apos;: 546.0870590195717,
+                     &apos;Calb2&apos;: 528.7913315333836,
+                     &apos;Chat&apos;: 522.9278973139577,
+                     &apos;Cdca7&apos;: 635.2219396220006,
+                     &apos;Ccdc80&apos;: 503.72132645051744,
+                     &apos;Nxph4&apos;: 913.8402138700891,...}`
                 }</div>
                 <pre>{
                     `# Candidate layer-enriched H3K4me3 loci according to epigenomic MERFISH paper
     cortex23 = []
-    cortex23_list = ['Gad2','Calb2','Chat']
+    cortex23_list = [&apos;Gad2&apos;,&apos;Calb2&apos;,&apos;Chat&apos;]
     for g in cortex23_list:
         cortex23.append(dis_dic[g])
     cortex4 = []
-    cortex4_list = ['Pou3f1','Rorb','Lhx6','Satb2','Unc5d'
-                    ,'Slc17a6','Kcnj8','Car3','Slc30a3']
+    cortex4_list = [&apos;Pou3f1&apos;,&apos;Rorb&apos;,&apos;Lhx6&apos;,&apos;Satb2&apos;,&apos;Unc5d&apos;
+                    ,&apos;Slc17a6&apos;,&apos;Kcnj8&apos;,&apos;Car3&apos;,&apos;Slc30a3&apos;]
     for g in cortex4_list:
         cortex4.append(dis_dic[g])
     cortex56 = []
-    cortex56_list = ['Nxph1','Slc32a1',
-                   'Fezf2','Bcl11b','Syt6','Foxp2','Pdlim5','Sox10']
+    cortex56_list = [&apos;Nxph1&apos;,&apos;Slc32a1&apos;,
+                   &apos;Fezf2&apos;,&apos;Bcl11b&apos;,&apos;Syt6&apos;,&apos;Foxp2&apos;,&apos;Pdlim5&apos;,&apos;Sox10&apos;]
     for g in cortex56_list:
         cortex56.append(dis_dic[g])`
                 }</pre>
                 <p>Now plot the distribution of the distance of centroid to cortex surface, the layer enrichment pattern
                     reported in epigenomic MERFISH is also manifested in the spatial mapping approach.</p>
                 <pre>
-                    plt.boxplot((cortex23,cortex4,cortex56),labels=('cortex23','cortex4','cortex56'))<br/>
+                    plt.boxplot((cortex23,cortex4,cortex56),labels=(&apos;cortex23&apos;,&apos;cortex4&apos;,&apos;cortex56&apos;))<br/>
                     plt.show()
                 </pre>
                 <h4>Modules and their versions used for this analysis</h4>
@@ -521,7 +521,7 @@ export default function MutiOmics(){
     zmq 23.2.0
     argparse 1.1
     zlib 1.0
-    _curses b'2.2'
+    _curses b&apos;2.2&apos;
     dateutil 2.8.2
     six 1.16.0
     _decimal 1.70
