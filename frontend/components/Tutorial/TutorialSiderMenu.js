@@ -13,6 +13,9 @@ const items = [
                 },
                 {
                     label: <a href={'#Result interpretation'}>Result interpretation</a>, key: 'Result interpretation',
+                },
+                {
+                    label: <a href={'#MutiOmics'}>Expanded application</a>, key: 'MutiOmics',
                 }
             ],
     },

@@ -10,6 +10,7 @@ import GetStarted from "../components/Tutorial/GetStarted";
 import ResultInterpretation from "../components/Tutorial/ResultInterpretation";
 import DatasetBrowser from "../components/Tutorial/DatasetBrowser";
 import GeneSearch from "../components/Tutorial/GeneSearch";
+import MutiOmics from "../components/Tutorial/MutiOmics";
 
 export default function Help() {
     const divContent = useRef(null); //标识nav导航栏渲染内容
@@ -38,6 +39,7 @@ export default function Help() {
                                 </h2>
                                 <GetStarted/>
                                 <ResultInterpretation/>
+                                <MutiOmics/>
                                 <DatasetBrowser/>
                                 <GeneSearch/>
                             </div>

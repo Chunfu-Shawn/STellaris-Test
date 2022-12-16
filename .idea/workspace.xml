@@ -5,7 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Tutorial/MutiOmics.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Tutorial/TutorialLayout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Tutorial/spatialMultiomics_paired-tag.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/mutiomics9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/mapping/table1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/TutorialSiderMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/TutorialSiderMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/datasets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/tutorial.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/tutorial.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +64,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/public/images",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/components/Tutorial",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,11 +78,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/components/Tutorial" />
+      <recent name="$PROJECT_DIR$/frontend/public/images/tutorial/mapping" />
       <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/frontend/public/images/tutorial" />
       <recent name="$PROJECT_DIR$/frontend/public/images/help/datasets" />
-      <recent name="$PROJECT_DIR$/frontend/public/images/help/mapping" />
-      <recent name="$PROJECT_DIR$/frontend/components/Help/Manual/GenePage" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/public/images/help/mapping" />
@@ -148,7 +164,8 @@
       <workItem from="1670653832382" duration="32253000" />
       <workItem from="1671003720918" duration="10252000" />
       <workItem from="1671076148569" duration="4894000" />
-      <workItem from="1671165595888" duration="12303000" />
+      <workItem from="1671165595888" duration="15665000" />
+      <workItem from="1671199014001" duration="4003000" />
     </task>
     <servers />
   </component>
