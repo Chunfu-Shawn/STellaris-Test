@@ -46,7 +46,7 @@ export default function ManualMapping() {
                     in group &quot;j&quot; of scRNA-seq.
                 </p>
                 <p>
-                    The P value was then calculated using the scipy package's hypergeometric distribution test. The greater
+                    The P value was then calculated using the scipy package&apos;s hypergeometric distribution test. The greater
                     the similarity between the two groups, the lower the P value. The code is &quot;scipy.stats.hypergeom.sf(Nij-1,
                     Na, Nj, Ni)&quot;. Benjamini-Hochberg method was used for multiple testing correction.
                 </p>
