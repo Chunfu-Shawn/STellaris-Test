@@ -86,7 +86,7 @@ export default function MutiOmics(){
                            alt={"counts_matrix_example"}/>
                 </div>
                 <pre>adata_sc = sc.read_h5ad(&apos;./data/public/results/20221212/ac970aa0-79fd-11ed-968c-79eb53139108/sc_registered.h5ad&apos;)</pre>
-                <pre>adata_sc.obs.index = [ re.sub(&apos;\\.&apos;,&apos;:&apos;,re.sub(&apos;X&apos;,'',id)) for id in adata_sc.obs.index] </pre>
+                <pre>adata_sc.obs.index = [ re.sub(&apos;\\.&apos;,&apos;:&apos;,re.sub(&apos;X&apos;,&apos;&apos;,id)) for id in adata_sc.obs.index] </pre>
                 <pre>adata_sc</pre>
                 <div className={"result"}>
                     AnnData object with n_obs × n_vars = 2600 × 52781<br/>
@@ -323,9 +323,9 @@ export default function MutiOmics(){
                     y_pred2 = p2(list(range(1000,4000,100)))<br/>
                     plot1 = plt.plot(list(range(1000,4000,100)), y_pred1, label=&apos;upper layer&apos;,color=&apos;orange&apos;)<br/>
                     plot2 = plt.plot(list(range(1000,4000,100)), y_pred2, label=&apos;deep layer&apos;,color=&apos;red&apos;)<br/>
-                    plt.title('')<br/>
-                    plt.xlabel('')<br/>
-                    plt.ylabel('')<br/>
+                    plt.title(&apos;&apos;)<br/>
+                    plt.xlabel(&apos;&apos;)<br/>
+                    plt.ylabel(&apos;&apos;)<br/>
                     plt.legend(loc=3,borderaxespad=0,bbox_to_anchor=(0,0))<br/>
                     plt.show()
                 </pre>
