@@ -9,23 +9,28 @@ export default function Overview(){
             <a id={"Overview"} style={{position: 'relative', top: "-150px"}}></a>
             <h2>Overview</h2>
             <p>
-                The original intent of STellaris was to provide a platform for rapid spatial reconstruction of ever-going single-cell transcriptome (scRNA-seq) data based on the emerging spatial transcriptome (ST) methodology, thus helping researchers make full use of the increasing volume of single-cell genomic data at spatial context. We provides tutorials on the three major tools implemented in STellaris, including Spatial Mapping, Dataset Browser and Gene Search.
+                The original intent of STellaris was to provide a platform for rapid mapping of spatial location for the
+                ever-going single-cell transcriptome (scRNA-seq) data based on the emerging spatial transcriptome (ST)
+                methodology, thus helping researchers make full use of the increasing volume of single-cell genomic data
+                at spatial context. We provides tutorials on the three major tools implemented in STellaris, including
+                <b> Spatial Mapping</b>, <b>Dataset Browser</b> and <b>Gene Search</b>.
             </p>
             <p>
-                Spatial Mapping is the key function of STellaris. We will guide users to get started using STellaris to map their own annotated scRNA-seq data to spatial position in tissue sections curated in our local database. We also include a tutorial on how to systematically interpret the spatial mapping results and downstream intercellular communication results. To demonstrate the usefulness of STellaris in real-world data, we provide tutorials on the application of deciphering tumor microenvironment of human pancreatic ductal adenocarcinomas (PCDA) and spatial-resolved single-cell multiomics from mouse brain for further study. In addition, we also offer tutorials on how to browser and search our curated ST datasets and retrieve expression signatures of candidate genes across tissues from the spatial perspective.
+                Spatial Mapping is the key function of STellaris. We will guide users to get started using STellaris to
+                map their own annotated scRNA-seq data to spatial position in tissue sections curated in our local database.
+                We also include a tutorial on how to systematically interpret the spatial mapping results and downstream
+                intercellular communication results. To demonstrate the usefulness of STellaris in real-world data, we
+                provide tutorials on the application of deciphering tumor microenvironment of human pancreatic ductal
+                adenocarcinomas (PCDA) and spatial-resolved single-cell multiomics from mouse brain for further study.
+                In addition, we also offer tutorials on how to browser and search our curated ST datasets and retrieve
+                expression signatures of candidate genes across tissues from the spatial perspective.
             </p>
-            <p style={{marginBottom:0}}>Note that we include three example jobs of Spatial Mapping that have already been completed:</p>
+            <p style={{marginBottom:0}}>Note that we include two example jobs of Spatial Mapping that have already
+                been completed:</p>
             <Button type={"link"}>
                 <Link href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
                     <span>
                         Mouse fetal brain <b><i>(FINISHED)</i></b>
-                    </span>
-                </Link>
-            </Button>
-            <Button type={"link"}>
-                <Link href={"/mapping/resultPage/1fdb50c0-726a-11ed-a8ae-05b48e1b9d52"}>
-                    <span>
-                        Mouse organogenesis <b><i>(FINISHED)</i></b>
                     </span>
                 </Link>
             </Button>
@@ -36,18 +41,11 @@ export default function Overview(){
                     </span>
                 </Link>
             </Button>
-            <p style={{marginBottom:0}}>and three corresponding examples to be executed leading to these results:</p>
+            <p style={{marginBottom:0}}>and two corresponding examples to be executed leading to these results:</p>
             <Button type={"link"}>
                 <Link href={"/"}>
                     <span>
                         Mouse fetal brain <b><i>(FROM SCRATCH)</i></b>
-                    </span>
-                </Link>
-            </Button>
-            <Button type={"link"}>
-                <Link href={"/"}>
-                    <span>
-                        Mouse organogenesis <b><i>(FROM SCRATCH)</i></b>
                     </span>
                 </Link>
             </Button>

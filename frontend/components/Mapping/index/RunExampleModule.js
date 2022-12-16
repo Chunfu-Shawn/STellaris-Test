@@ -59,7 +59,7 @@ export default function RunExampleModule(props){
                 </Button>
             ),
         },
-        {
+        /*{
             key: '2',
             label: (
                 <Button type={"link"}>
@@ -70,7 +70,7 @@ export default function RunExampleModule(props){
                     </Link>
                 </Button>
             ),
-        },
+        },*/
         {
             key: '3',
             label: (
@@ -93,7 +93,7 @@ export default function RunExampleModule(props){
                 </Button>
             ),
         },
-        {
+        /*{
             key: '5',
             label: (
                 <Button type={"link"} onClick={throttle(2000,onRunExample("Spatial distribution of cell types in mouse organogenesis"))}>
@@ -102,7 +102,7 @@ export default function RunExampleModule(props){
                     </span>
                 </Button>
             ),
-        },
+        },*/
         {
             key: '6',
             label: (

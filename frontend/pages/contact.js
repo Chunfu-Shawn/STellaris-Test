@@ -11,17 +11,27 @@ export default function Contact() {
         {
             name: 'Xiangshang Li',
             avatar: <Avatar src={"images/contact/uplee.svg"} size="large" shape="square"/>,
-            description: "uplee@pku.edu.cn"
+            description: <a target="_blank"  href="mailto:uplee@pku.edu.cn" rel="noreferrer">
+                uplee@pku.edu.cn
+            </a>
         },
         {
             name: 'Chunfu Xiao',
             avatar: <Avatar src={"images/contact/chunfu.svg"} size="large" shape="square"/>,
-            description: "xiaochunfu@stu.pku.edu.cn;  https://github.com/Chunfu-Shawn"
+            description: <>
+                <a target="_blank"  href="mailto:xiaochunfu@stu.pku.edu.cn" rel="noreferrer">
+                    xiaochunfu@stu.pku.edu.cn
+                </a>; <a target="_blank"  href="https://github.com/Chunfu-Shawn" rel="noreferrer">
+                    https://github.com/Chunfu-Shawn
+                </a>
+                </>
         },
         {
             name: 'Juntian Qi',
             avatar: <Avatar src={"images/contact/juntian.svg"} size="large" shape="square"/>,
-            description: "juntian_qi@stu.pku.edu.cn"
+            description: <a target="_blank"  href="mailto:juntian_qi@stu.pku.edu.cn" rel="noreferrer">
+                juntian_qi@stu.pku.edu.cn
+            </a>
         }
     ];
 
@@ -36,8 +46,8 @@ export default function Contact() {
                 </header>
                 <div className="box" style={{width:850,margin:"50px auto",textAlign:"left"}}>
                     <p style={{fontSize:16}}><b>Department: </b>Laboratory of Bioinformatics & Genomic Medicine, College of Future Technology, Peking University</p>
-                    <p style={{fontSize:16}}><b>Address: </b>Room 315, Integrated Science Research Center No.2, Peking University, Beijing, China.</p>
-                    <p style={{fontSize:16}}><b>Research Fields: </b>Bioinformatics, Genomic Medicine, Comparative Genomics. </p>
+                    <p style={{fontSize:16}}><b>Address: </b>Room 315, Integrated Science Research Center No.2, Peking University, Beijing, China</p>
+                    <p style={{fontSize:16}}><b>Research Fields: </b>Bioinformatics, Genomic Medicine, Comparative Genomics</p>
                 </div>
 
                 <Image src="/images/CY_Lab_2022.jpg" alt="CY's Lab"  width={900} height={500}/>
@@ -84,7 +94,7 @@ export default function Contact() {
                         <MailFilled />
                     </a>.
                     <br/><br/>
-                    For any suggestions and ideas, please email to the corresponding author:
+                    For any suggestions or ideas, please email to the corresponding author:
                     <br/>
                     <b>Wanqiu Ding:&nbsp;&nbsp;
                         <a target="_blank"  href="mailto:dingwq@pku.edu.cn" rel="noreferrer">

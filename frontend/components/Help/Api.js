@@ -18,25 +18,27 @@ export default function HelpAPI() {
                 <h4>1. URL from</h4>
                 <div className="site-card-wrapper" style={{padding:"2%"}}>
                     <p><code>https://spatial.rhesusbase.com/api/[resource]/[argument]/([argument]...)</code></p>
-                    <span>[resource] = <b>datasets-info</b> | <b>job-info</b> | <b>gene</b> | <b>gene/transcript</b></span>
+                    <span>[resource] = <b>datasets-info</b> | <b>gene</b> | <b>gene/transcript</b> |
+                    <b> spatially-variable-gene</b> | <b>expression-rank-score</b> | <b>job-info</b> </span>
                 </div>
                 <Divider/>
-                <h3>Resource</h3>
+                <h3>Information of datasets or genes</h3>
                 <h4>1. datasets-info</h4>
                 <div>
-                    <p>This resource represents the basic information about some or a given datasets.</p>
+                    <p>This resource returns the basic information about some or a given dataset.</p>
+                    <p><code>URL form: https://spatial.rhesusbase.com/api/datasets-info/[ST ID/&quot;all&quot;]</code></p>
                     <p><b>Need one argument:</b></p>
                     <b><code>(1) ST ID</code></b>
                     <ul>
                             <ul>
-                                <li>A unique id for a spatial transcriptome datasets</li>
+                                <li>A unique id for a spatial transcriptome dataset</li>
                                 <li>Example: <code>STW-H-Bone-ST-1</code></li>
                             </ul>
                     </ul>
-                    <b><code>(2) all</code></b>
+                    <b><code>(2) &quot;all&quot;</code></b>
                     <ul>
                         <ul>
-                            <li>basic information about all datasets</li>
+                            <li>all datasets</li>
                             <li>Example: <code>https://spatial.rhesusbase.com/api/datasets-info/all</code></li>
                         </ul>
                     </ul>
@@ -56,12 +58,13 @@ export default function HelpAPI() {
                 <Divider/>
                 <h4>2. gene</h4>
                 <div>
-                    <p>This resource represents basic information of a gene.</p>
+                    <p>This resource returns basic information of a gene.</p>
+                    <p><code>URL form: https://spatial.rhesusbase.com/api/gene/[Ensembl ID]</code></p>
                     <p><b>Need one argument:</b></p>
                     <ul>
                         <code>Ensembl ID</code>
                         <ul>
-                            <li>identifier for a gene as per the Ensembl database</li>
+                            <li>identifier for a gene from the Ensembl database</li>
                             <li>Example: <code>ENSG00000154856</code></li>
                         </ul>
                     </ul>
@@ -80,14 +83,15 @@ export default function HelpAPI() {
                     </ul>
                 </div>
                 <Divider/>
-                <h4>3. gene transcript(s)</h4>
+                <h4>3. gene/transcript</h4>
                 <div>
-                    <p>This resource represents some basic information of transcript from a gene.</p>
+                    <p>This resource returns some basic information of transcript from a gene.</p>
+                    <p><code>URL form: https://spatial.rhesusbase.com/api/gene/transcript/[Ensembl ID]</code></p>
                     <p><b>Need one argument:</b></p>
                     <ul>
                         <code>Ensembl ID</code>
                         <ul>
-                            <li>identifier for a gene as per the Ensembl (European Bioinformatics Institute and the Wellcome Trust Sanger Institute) database</li>
+                            <li>identifier for a gene from the Ensembl database</li>
                             <li>Example: <code>ENSG00000154856</code></li>
                         </ul>
                     </ul>
@@ -105,10 +109,10 @@ export default function HelpAPI() {
                         </li>
                     </ul>
                 </div>
-                <h4>4. Spatially Variable Genes</h4>
+                <h4>4. spatially-variable-gene</h4>
                 <div>
-                    <p>This resource represents spatially variable genes.</p>
-                    <p><code>URL from: https://spatial.rhesusbase.com/api/spatially-variable-gene/[geneOrSection]/[identifier]</code></p>
+                    <p>This resource returns spatially variable genes.</p>
+                    <p><code>URL form: https://spatial.rhesusbase.com/api/spatially-variable-gene/[geneOrSection]/[identifier]</code></p>
                     <p><b>Need two argument:</b></p>
                     <ul>
                         <code>geneOrSection</code>
@@ -135,10 +139,10 @@ export default function HelpAPI() {
                         </li>
                     </ul>
                 </div>
-                <h4>5. Expression Rank Score</h4>
+                <h4>5. expression-rank-score</h4>
                 <div>
-                    <p>This resource represents Expression Expression Rank Score of a gene.</p>
-                    <p><code>URL from: https://spatial.rhesusbase.com/api/expression-rank-score/[geneName]</code></p>
+                    <p>This resource returns Expression Expression Rank Score of a gene.</p>
+                    <p><code>URL form: https://spatial.rhesusbase.com/api/expression-rank-score/[gene symbol name]</code></p>
                     <p><b>Need one argument:</b></p>
                     <ul>
                         <code>gene symbol name</code>
@@ -148,7 +152,7 @@ export default function HelpAPI() {
                     </ul>
                     <p><b>Example:</b></p>
                     <ul>
-                        <li><code>https://spatial.rhesusbase.com/api/genes-expression-correlation/IGF1</code></li>
+                        <li><code>https://spatial.rhesusbase.com/api/expression-rank-score/IGF1</code></li>
                         <li>Result:
                             <pre id={'example2'}>
                                 {
@@ -161,14 +165,14 @@ export default function HelpAPI() {
                     <Divider/>
                     <Divider/>
                     <h3>Spatial Mapping Result</h3>
-                    <h4>1. Job information</h4>
+                    <h4>1. job-info</h4>
                     <div>
-                        <p>This resource represents some information about your job.</p>
+                        <p>This resource returns some information about your job.</p>
                         <p><b>Need one argument:</b></p>
                         <ul>
                             <code>Job ID</code>
                             <ul>
-                                <li>a job id assigned after run a spatial mapping ( A universally unique identifier (UUID) )</li>
+                                <li>a job id assigned after running a spatial mapping ( A universally unique identifier (UUID) )</li>
                                 <li>Example: <code>8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
                             </ul>
                         </ul>
@@ -189,12 +193,12 @@ export default function HelpAPI() {
                     <Divider/>
                     <h4>2. Registered scRNA-seq Data (h5ad)</h4>
                     <div>
-                        <p>This resource represents one mapped sc-RNA-seq data in h5ad format.</p>
+                        <p>This resource returns the mapped scRNA-seq data in h5ad format.</p>
                         <p><b>Need one argument:</b></p>
                         <ul>
                             <code>Job ID</code>
                             <ul>
-                                <li>a job id assigned after run a spatial mapping ( A universally unique identifier (UUID) )</li>
+                                <li>a job id assigned after running a spatial mapping ( A universally unique identifier (UUID) )</li>
                                 <li>Example: <code>8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
                             </ul>
                         </ul>
@@ -208,7 +212,7 @@ export default function HelpAPI() {
                     <Divider/>
                     <h4>3. Table Results (csv)</h4>
                     <div>
-                        <p>This resource represents all table result file in csv format.</p>
+                        <p>This resource returns all table result files in csv format.</p>
                         <p><b>Need one argument:</b></p>
                         <ul>
                             <code>Job ID</code>
@@ -226,12 +230,12 @@ export default function HelpAPI() {
                     </div>
                     <h4>4. PDF Graph Results (pdf)</h4>
                     <div>
-                        <p>This resource represents all graph result file in pdf.</p>
+                        <p>This resource returns all graph result file in pdf format.</p>
                         <p><b>Need one argument:</b></p>
                         <ul>
                             <code>Job ID</code>
                             <ul>
-                                <li>a job id assigned after run a spatial mapping ( A universally unique identifier (UUID) )</li>
+                                <li>a job id assigned after running a spatial mapping ( A universally unique identifier (UUID) )</li>
                                 <li>Example: <code>8dd3efa0-1884-11ed-8536-0d8688eaef3a</code></li>
                             </ul>
                         </ul>

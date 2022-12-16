@@ -10,7 +10,10 @@ export default function ResultInterpretation(){
             <p>
                 Before interpreting the spatial mapping results, we will take some time to explain the computational method
                 used for spatial reconstruction. The spatial mapping module mainly relies on an algorithm tailed for spatial
-                reconstruction of scRNA-seq, Celltrek, which was adapted to achieve higher reliability and faster speed.
+                location for scRNA-seq, Celltrek (
+                <a target={"_blank"} href={"https://doi.org/10.1038/s41587-022-01233-1"} rel={"noreferrer"}>
+                    https://doi.org/10.1038/s41587-022-01233-1
+                </a>), which was adapted to achieve higher reliability and faster speed.
                 Generally, this method trains a multivariate random forest (RF) model on ST data based on the coembedding
                 latent space of both scRNA-seq and ST data, thereby enabling the prediction of spatial coordinates of
                 single cells by assigning them to the reciprocal nearest ST spots where the similarity between single
@@ -124,7 +127,7 @@ export default function ResultInterpretation(){
                 closeness of a pair of cell types is measured by Jensen-Shannon divergence (JSD) which compares the
                 similarity of spatial distribution between each other. Note that the JSD heatmap has been clustered using
                 hierarchical clustering. Alternatively, this relatedness can be visualized by network plot (right) constructed
-                by minimum spanning tree (MST). In this case, the colocalized cell type clusters reveal the anatomy of
+                by maximum spanning tree (MST). In this case, the colocalized cell type clusters reveal the anatomy of
                 developing brain.
             </p>
             <div style={{textAlign:"center"}} >

@@ -5,8 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/figure1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/help/datasets/visual_tool.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/mouse-color的副本.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/Features.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/Features.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/FliesTree.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Datasets/DataPage/FliesTree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/SVExpressionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/SVExpressionTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/DatasetPage/DatasetAttributesTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/DatasetPage/DatasetAttributesTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/GenePage/GeneAttributesDescriptionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/GenePage/GeneAttributesDescriptionTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/GenePage/TranscriptsAttributesTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/GenePage/TranscriptsAttributesTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualDatasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualDatasets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/GeneSearchMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/GeneSearchMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/MainPage/GuidanceMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/MainPage/GuidanceMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/RunExampleModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/RunExampleModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/GeneSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/GeneSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/Overview.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/Overview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/ResultInterpretation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/ResultInterpretation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/mainpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/about.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/contact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/help/mapping/JSDM.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/help/mapping/JSDM.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/mouse-color.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/tutorial/example1.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/example1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/tutorial/example2.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/example2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/tutorial/get_started.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/tutorial/get_started.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +78,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/components/Help/Manual/GenePage",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/public/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,11 +92,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/components/Help/Manual/GenePage" />
+      <recent name="$PROJECT_DIR$/frontend/public/images" />
+      <recent name="$PROJECT_DIR$/frontend/public/images/tutorial" />
       <recent name="$PROJECT_DIR$/frontend/public/images/help/datasets" />
       <recent name="$PROJECT_DIR$/frontend/public/images/help/mapping" />
-      <recent name="$PROJECT_DIR$/frontend/public/images/tutorial/gene" />
-      <recent name="$PROJECT_DIR$/frontend/components/Tutorial" />
+      <recent name="$PROJECT_DIR$/frontend/components/Help/Manual/GenePage" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/public/images/help/mapping" />
@@ -147,7 +176,9 @@
       <workItem from="1670211050605" duration="67022000" />
       <workItem from="1670506137752" duration="18671000" />
       <workItem from="1670653832382" duration="32253000" />
-      <workItem from="1671003720918" duration="9869000" />
+      <workItem from="1671003720918" duration="10252000" />
+      <workItem from="1671076148569" duration="4894000" />
+      <workItem from="1671165595888" duration="12003000" />
     </task>
     <servers />
   </component>

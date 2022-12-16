@@ -32,7 +32,7 @@ export default function GeneSearch(){
             <p>
                 3. At the beginning of this page, we offer a summary of whether or not the query gene is defined as a
                 spatially variable gene (SVG) across organs. In this example, human ID2 gene was determined as SVG in
-                colon, liver and heart. The details of it SVG characteristic will be shown later.
+                colon, liver and heart. The details of SVG characteristic will be shown later.
             </p>
             <p>
                 4. The &quot;Summary&quot; tab shows the basic properties of query gene.

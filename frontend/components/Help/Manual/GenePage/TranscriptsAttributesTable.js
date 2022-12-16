@@ -16,7 +16,7 @@ const data = [
     {
         "Attribute": "Type",
         "Description": <span>a transcript classification containing <b>protein coding, lncRNA, processed pseudogene, unprocessed pseudogene,
-        miRNA, TEC, snRNA, misc_RNA, snoRNA and so on</b>, which integrated from Ensembl Database</span>
+        miRNA, TEC, snRNA, misc_RNA, snoRNA and so on</b>, which is integrated from Ensembl Database</span>
     },
     {
         

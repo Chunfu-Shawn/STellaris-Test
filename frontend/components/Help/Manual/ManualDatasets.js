@@ -15,9 +15,13 @@ export default function ManualDatasets() {
             </Breadcrumb>
             <Typography style={{marginTop:50,fontSize:16}}>
                 <h1>Dataset Browser</h1>
+                <p>
+                    This section aims to show you details of the basic ST analyses performed on our curated ST datasets
+                    and tips for navigating them.
+                </p>
                 <h2>1. Dataset attributes</h2>
                 <a id={"data_page_attributes"} style={{position: 'relative', top: "-150px"}}></a>
-                <p>Each dataset comprises following attributes:</p>
+                <p>Each dataset comprises the following attributes:</p>
                 <DatasetAttributesTable/>
                 <h2>2. Data processing</h2>
                 <p>
@@ -28,11 +32,13 @@ export default function ManualDatasets() {
                 </p>
                 <h3>Basic processing</h3>
                 <p>
-                    The scanpy package is primarily used for data preprocessing.
+                    The scanpy <a href={"https://doi.org/10.1186/s13059-017-1382-0"} target={"_blank"} rel={"noreferrer"}>
+                    (https://doi.org/10.1186/s13059-017-1382-0)
+                    </a> package is primarily used for data preprocessing.
                 </p>
                 <ol>
                     <li>
-                        To begin, we will check to see if the input data has been normalized or scaled in order to avoid repeating operations.
+                        To begin, we will check if the input data has been normalized or scaled in order to avoid repeating operations.
                     </li>
                     <li>
                         The data was then subjected to quality control. We removed the 5% of cells with the lowest total
@@ -52,7 +58,7 @@ export default function ManualDatasets() {
                         Finally, the data set is reduced and clustered. After scaling the data to the unit variance and
                         zero mean, the data was analyzed using principal component analysis, with 50 principal components
                         calculated for each cell. The neighborhood map of the data is then calculated and embedded with
-                        UMAP. Finally, the Leiden algorithm was used to group the cells (resolution was 0.5, 1, 1.5 and 2,
+                        UMAP. The Leiden algorithm was used to group the cells (resolution was 0.5, 1, 1.5 and 2,
                         respectively).
                     </li>
                 </ol>
@@ -96,7 +102,7 @@ export default function ManualDatasets() {
                 <p>Finally, the marker genes of eight clustering methods were calculated, including the STAGATE spatial
                     clustering method (four resolutions) and the clustering method based solely on gene expression
                     (four resolutions). This section makes use of the scanpy package&apos;s function &quot;tl.rank genes groups&quot;.</p>
-                <h2>4. Data visualization</h2>
+                <h2>3. Data visualization</h2>
                 <a id={"data_page_view"} style={{position: 'relative', top: "-150px"}}></a>
                 <p> STellaris uses Spatial-Trans-Visual-Tool (<a href={"https://github.com/Chunfu-Shawn/Spatial-Trans-Visual-Tool"} target={"_blank"} rel={"noreferrer"}>
                     https://github.com/Chunfu-Shawn/Spatial-Trans-Visual-Tool</a>) which was developed from Cirrocumulus
@@ -104,25 +110,25 @@ export default function ManualDatasets() {
                         https://cirrocumulus.readthedocs.io/en/latest/</a>)
                     for dataset visualization. Cirrocumulus is an interactive visualization tool for large-scale single-cell
                     and spatial transcriptomic data. The data visualization module consists of Sections selector, an app bar, side bar,
-                    primary embedding, embedding gallery and toolbar and distribution plots.
+                    primary embedding, embedding gallery, toolbar and distribution plots.
                 </p>
-                <Image src={"/images/visual-tool.png"} alt={'spatial_trans_visual_tool'} width={900} height={700}/>
+                <Image src={"/images/help/datasets/visual_tool.png"} alt={'spatial_trans_visual_tool'} width={900} height={650}/>
                 <ol>
-                    <li><b>Sections ID Selector</b>: allows users to select a section of this datasets to show</li>
-                    <li><b>App bar</b>: The app bar shows the number of plots in your dataset and the number of selected cells.
+                    <li><b>Section ID Selector</b>: allows users to select a section of this datasets to show.</li>
+                    <li><b>App Bar</b>: shows the number of plots in your dataset and the number of selected cells.
                         Additionally, it lets you switch between different tabs.</li>
-                    <li><b>Side bar</b>: allows users to select which cell embeddings, genes/features, cell metadata (such as cluster labels)
+                    <li><b>Side Bar</b>: allows users to select which cell embeddings, genes/features, cell metadata (such as cluster labels)
                         and sets (predefined lists of genes, e.g. cluster markers) to visualize, and shows the current datasets cell filters.
                     </li>
                     <li><b>Primary Embedding</b>: allows users to watch and interact with the view of spatial data.</li>
                     <li><b>Embedding Gallery</b>: shows all selected features and embeddings and thus provides a way for comparing attributes and embeddings.</li>
                     <li><b>Toolbar</b>: some tools to select interested spots, download a slice of spatial data and so on.</li>
-                    <li><b>Distribution</b>: allows users to explore the differential gene expression across cell clusters with a dot plot, a heat map, or a violin plot.</li>
+                    <li><b>Distributions</b>: allows users to explore the differential gene expression across cell clusters with a dot plot, a heat map, or a violin plot.</li>
                 </ol>
                 <p>For more details, please visit:
                     <a href={'https://cirrocumulus.readthedocs.io/en/latest/documentation.html'} target={'_blank'} rel={'noreferrer'}> https://cirrocumulus.readthedocs.io/en/latest/documentation.html</a>
                 </p>
-                <h2>5. Identification of spatially variable gene</h2>
+                <h2>4. Identification of spatially variable gene</h2>
                 <a id={"identification_svg"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
                     It is critical to analyze spatially variable (SV) genes in the spatial transcriptome, but the highly
@@ -147,14 +153,13 @@ export default function ManualDatasets() {
                         The spatial coordinate data of the spatial transcriptome data is then extracted.
                     </li>
                     <li>
-                        The spatial coordinate data of the spatial transcriptome data is then extracted.
                         The processed gene expression matrix and spatial coordinate information were fed into the
                         &quot;SpatialDE.run&quot; function, and the output result was the p values and q values (Significance after
                         multiple testing) of all genes. Those with q values less than 0.05 were considered to be significant
                         spatially differentially expressed genes and were kept.
                     </li>
                 </ol>
-                <h2>6. Description of results</h2>
+                <h2>5. Description of downloaded file</h2>
                 <a id={"h5ad"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
                     h5ad file is compatible with scanpy/anndata python package, which is highly scalable in python

@@ -29,22 +29,10 @@ export default function Features(props){
             dataIndex: 'ensembl_id',
             width:'20%',
             render: (text) => <Link href={`/search/genePage/${text}`}><a target={'_blank'}>{text}</a></Link>,
-            filters: [
-                {
-                    text: 'Joe',
-                    value: 'Joe',
-                },
-                {
-                    text: 'Category 1',
-                    value: 'Category 1',
-                },
-                {
-                    text: 'Category 2',
-                    value: 'Category 2',
-                },
-            ],
-            onFilter: (value, record) => record.ensembl_id.indexOf(value) === 0,
-            filterSearch: true,
+            sorter: (a, b) => {
+                if(a.ensembl_id > b.ensembl_id) return 1
+                else return -1
+            },
         },
         {
             title: 'P-Value',

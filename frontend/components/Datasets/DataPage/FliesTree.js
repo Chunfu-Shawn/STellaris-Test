@@ -41,7 +41,8 @@ export default function FliesTree(props){
         },*/
     ];
     const onSelect = (key, info) => {
-        downloadFile(`https://rhesusbase.com:9999/h5ad_files/${props.st_id}/${key}`)
+        const sectionID = key[0].split(".")[0]
+        downloadFile(`https://rhesusbase.com:9999/h5ad_files/${props.st_id}/${sectionID}/${sectionID}.h5ad`)
     };
 
     const onExpand = (keys, info) => {

@@ -7,7 +7,7 @@ const data = [
     },
     {
         "Attribute": "Entrez ID",
-        "Description": "identifier for a gene per the NCBI Entrez database"
+        "Description": "identifier for a gene from the NCBI Entrez database"
     },
     {
         "Attribute": "Description",

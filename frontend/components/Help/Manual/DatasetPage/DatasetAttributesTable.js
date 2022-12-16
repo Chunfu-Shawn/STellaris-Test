@@ -3,7 +3,7 @@ import React from "react";
 const data = [
     {
         "Attribute": "ID",
-        "Description": "assigned unique ID for each dataset in STW"
+        "Description": "assigned unique ID for each dataset in this website"
     },
     {
         "Attribute": "Method",
@@ -15,7 +15,7 @@ const data = [
     },
     {
         "Attribute": "Species",
-        "Description": "species where the dataset are captured"
+        "Description": "species where the dataset was captured"
     },
     {
         "Attribute": "Strain",
@@ -38,24 +38,24 @@ const data = [
         "Description": "developmental stage when the donor was"
     },
     {
-        "Attribute": "Section",
+        "Attribute": "Number of Section",
         "Description": "the number of technologically sections in each dataset"
     },
     {
-        "Attribute": "Date Published",
-        "Description": "date when the data was published"
+        "Attribute": "Section ID",
+        "Description": "name of sections in this dataset"
     },
     {
         "Attribute": "Title",
-        "Description": "title of the article where the dataset are published"
+        "Description": "title of the article where the dataset was published"
     },
     {
         "Attribute": "Journal",
-        "Description": "journal name of the article where the dataset are published"
+        "Description": "journal name of the article where the dataset was published"
     },
     {
         "Attribute": "PMID",
-        "Description": "PMID (pubmed id) of the article where the dataset are published"
+        "Description": "PMID (pubmed id) of the article where the dataset was published"
     },
 ]
 const columns =[

@@ -37,7 +37,7 @@ export default function GeneSearchMain(){
                 <Option value="Human">Human</Option>
                 <Option value="Mouse">Mouse</Option>
             </Select>
-            <Select defaultValue="Symbol" style={{width:100}} size={"large"} onChange={onIDTypeChange}>
+            <Select defaultValue="Symbol" style={{width:150}} size={"large"} onChange={onIDTypeChange}>
                 <Option value="Symbol">Symbol</Option>
                 <Option value="Ensembl">Ensembl ID</Option>
                 <Option value="Entrez">Entrez ID</Option>
@@ -49,7 +49,7 @@ export default function GeneSearchMain(){
                 onSearch={onSearch}
                 size={"large"}
                 style={{
-                    width:500
+                    width:450
                 }}
                 loading={searching}
             />

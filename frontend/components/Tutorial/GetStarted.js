@@ -10,14 +10,14 @@ export default function GetStarted(){
             <h3>Get started (step by step)</h3>
             <p>Here, we use the scRNA-seq data of <b>mouse fetal cerebral cortex (E14.5)</b>, which was randomly sampled
                 to 3,000 cells for speeding things up, to guide users through the Spatial Mapping workflow, which is the
-                key module in STellaris. This tutorial are divided into data preparation, Job submission, section blast,
+                key module in STellaris. This tutorial are divided into data preparation, job submission, section blast,
                 spatial mapping and data export.
             </p>
             <h4>1. Data preparation</h4>
             <a id={"data_preparation"} style={{position: 'relative', top: "-150px"}}></a>
             <p>The spatial mapping analysis requires two files uploaded by users: 1) cell-by-gene count matrix file
                 measured by raw counts where column name are gene symbols and row name are unique cell ids; 2) meta
-                information of cells requiring gene symbols in the first column that are in same order as count matrix
+                information of cells requiring unique cell ids in the first column that are in same order as count matrix
                 and cell type (or cluster) labels in one of the latter columns titled with “cell_type”. Note that the
                 identifiers of genes should only be gene symbols currently. These two files should be tab- or comma-delimited
                 (.tsv, .txt or .csv)  in gzip or zip compression (.gz or .zip). </p>
@@ -34,9 +34,8 @@ export default function GetStarted(){
             <h4>2. Submit a job</h4>
             <h5>Basic information</h5>
             <ul>
-                <li>Enter a tile of your job in “Job Title” box (no more than 80 characters).</li>
-                <li>Enter an email address to receive the notification of project progress (optional but highly
-                    recommended).</li>
+                <li>Enter a title of your job in “Job Title” box (no more than 80 characters).</li>
+                <li>Enter an email address to receive the notification of project progress (optional but recommended).</li>
                 <li>Select candidate ST sections matching your scRNA-seq by specifying “Species”, “Organ” and “Tissue”.
                     This step is crucial that only the ST sections meeting these conditions will be considered in the
                     following analyses.</li>
@@ -76,7 +75,7 @@ export default function GetStarted(){
             </p>
             <div style={{textAlign:"center"}}>
                 <Space>
-                    <Image src={"/images/tutorial/section_bar.png"} width={500} height={300}
+                    <Image src={"/images/tutorial/section_bar.png"} width={600} height={350}
                            alt={"section_bar"}/>
                     <Image src={"/images/tutorial/section_table.png"} width={600} height={350}
                            alt={"section_table"}/>

@@ -19,38 +19,40 @@ export default function SVExpressionTable(){
             title: 'ST ID',
             dataIndex: 'id',
             width:'17%',
-            filters: svg.map(item =>
+            filters: Array.from(new Set(svg.map(item=>item.id))).map(item =>
             {
                 return{
-                    text: item.id,
-                    value: item.id
+                    text: item,
+                    value: item
                 }
             }),
             render: text => <Link href={'/datasets/dataPage/'+text}><a target={"_blank"}>{text}</a></Link>,
-            onFilter: (value, record) => record.section_id.indexOf(value) === 0,
+            onFilter: (value, record) => record.id.indexOf(value) === 0,
+            filterSearch: true,
         },
         {
             title: 'Section ID',
             dataIndex: 'section_id',
             width:'15%',
-            filters: svg.map(item =>
+            filters: Array.from(new Set(svg.map(item=>item.section_id))).map(item =>
             {
                 return{
-                    text: item.section_id,
-                    value: item.section_id
+                    text: item,
+                    value: item
                 }
             }),
             onFilter: (value, record) => record.section_id.indexOf(value) === 0,
+            filterSearch: true,
         },
         {
             title: 'Organ/Tissue',
             dataIndex: 'organ_tissue',
             width:'10%',
-            filters: svg.map(item =>
+            filters: Array.from(new Set(svg.map(item=>item.organ_tissue))).map(item =>
             {
                 return{
-                    text: item.organ_tissue,
-                    value: item.organ_tissue
+                    text: item,
+                    value: item
                 }
             }),
             onFilter: (value, record) => record.organ_tissue.indexOf(value) === 0,

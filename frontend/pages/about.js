@@ -21,25 +21,26 @@ export default function About() {
                         types. However, spatial context was lost in dissociation steps, hindering the further interpretation
                         of crosstalk of different cell types that coordinates tissue formation and pathological states.
                         The emerging spatial transcriptome (ST) methods enable measuring gene expression while preserving
-                        spatial information. These ST data have the potential to serve as a reference for spatial
-                        reconstruction of the ever-growing scRNA-seq data, thereby increasing their value in deciphering
+                        spatial information. These ST data have the potential to serve as a reference for mapping of
+                        spatial location for the ever-growing scRNA-seq data, thereby increasing their value in deciphering
                         the cellular basis of tissue architecture, development and disease.</p>
-                    <p><b>STellaris</b> is an integrated web application for accurate spatial reconstruction of scRNA-seq,
-                        which is founded on a comprehensive compilation of public available ST datasets spanning organs,
-                        developmental stages and diseases in human and mouse. With the inferred spatial information of
-                        single cells,  STellaris will also provide modules to characterize the identification and validation
-                        of intercelluar communication, such as cellular colocalization and ligand-receptor interaction.</p>
-                    <p><b>STellaris</b> also provide an interface to help researchers explore molecular landscape of
+                    <p><b>STellaris</b> is an integrated web application for accurate mapping of spatial location for
+                        scRNA-seq, which is founded on a comprehensive compilation of public available ST datasets
+                        spanning organs, developmental stages and diseases in human and mouse. With the inferred
+                        spatial information of single cells, STellaris can characterize spatial microenvironment and
+                        identify intercelluar communications from a spatial perspective, such as cellular colocalization
+                        and ligand-receptor interaction.</p>
+                    <p><b>STellaris</b> also provides an interface to help researchers explore molecular landscape of
                         spatial map in all curated ST datasets, which were processed using a centralized ST workflow.
-                        Moreover, we also provide researchers with a gene query interface to access tissue-specific
-                        expression profile of genes from the perspective of spatial structure, which was based on deep
-                        integration on top of our compiled ST datasets, such as tissue-specific spatially variable genes.</p>
+                        Moreover, we also provide researchers with a gene query interface to access the expression profile
+                        of candidate genes from the perspective of spatial localization, which was based on deep integration
+                        of our compiled ST datasets, such as spatially variable genes.</p>
                     <p>We hope that STellaris will expand our understanding of scRNA-seq at spatial context, especially
                         the spatially resolved cell-cell communication.</p>
-                    <p>This tool is developed and maintained by Xiangshang Li, Chunfu Xiao and Juntian Qi of Chuan-yun Li’s
+                    <p>This tool is developed and maintained by Xiangshang Li, Chunfu Xiao and Juntian Qi of Chuan-Yun Li’s
                         lab, Peking University.</p>
                 </div>
-                <Image src={'/images/index/placeholder.png'} alt={"no img"} width={800} height={600}/>
+                <Image src={'/images/figure1.png'} alt={"figure1"} width={800} height={660}/>
                 <Divider><h2>License</h2></Divider>
                 <div className="box">
                     <p>STellaris is open and free for everyone to use and there is no login requirement. Please be assured
@@ -50,7 +51,7 @@ export default function About() {
                 <div className="box">
                     <p>
                         STellaris is integrated and inspired by several analysis tools or methods that have been
-                        <a href={"https://pubmed.ncbi.nlm.nih.gov/?term=35314812%2C31932730%2C34857954"}
+                        <a href={"https://pubmed.ncbi.nlm.nih.gov/?term=35314812%2C31932730%2C34857954%2C36130281%2C29409532%2C34774128%2C32719530"}
                            target={"_blank"} rel={"noreferrer"}>
                             &nbsp;published earlier
                         </a>.</p>

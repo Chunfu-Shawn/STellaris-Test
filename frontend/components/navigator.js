@@ -102,7 +102,7 @@ export default function Navigator(){
                         <li id="datasets" className="nav-item"><Link href="/datasets" className="nav-link" ><a>Datasets</a></Link></li>
                         <li id="search" className="nav-item"><Link href="/search" className="nav-link" ><a>Search</a></Link></li>
                         <li id="tutorial" className="nav-item"><Link href="/tutorial" className="nav-link" ><a>Tutorial</a></Link></li>
-                        <li id="help" className="nav-item"><Link href="/help/manual/datasets" className="nav-link" ><a>Help</a></Link></li>
+                        <li id="help" className="nav-item"><Link href="/help/manual/mapping" className="nav-link" ><a>Help</a></Link></li>
                         <li id="about" className="nav-item"><Link href="/about" className="nav-link" ><a>About</a></Link></li>
                         <li id="contact" className="nav-item"><Link href="/contact" className="nav-link" ><a>Contact</a></Link></li>
                     </ul>

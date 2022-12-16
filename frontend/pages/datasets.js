@@ -21,7 +21,7 @@ export default function Datasets() {
                         <p className={"lead text-justify"}>
                             STellaris aims to provide a comprehensive compilation of spatial transcriptome (ST) data
                             spanning a wide variety of biological systems, which serves as the foundation to assist in
-                            spatial reconstruction of single-cell transcriptome data. We included 98 datasets comprising
+                            mapping spatial location for single-cell transcriptome data. We included 98 datasets comprising
                             758 sections across organs, developmental stage and pathological states in human and mouse.
                             All curated ST datasets were processed by a centralized workflow. We provide this interface
                             for researchers to navigate through this catalog. Choose the ST data of your concern and

@@ -7,7 +7,7 @@ const { Step } = Steps;
 export default function GuidanceMain(){
     const itemsGene = [
         {
-            title: "Search Gene",
+            title: "Gene Search",
             description: "Enter a gene of interest to search for spatially resolved gene expression heterogeneity.",
             icon: <SearchOutlined />
         }
@@ -15,7 +15,8 @@ export default function GuidanceMain(){
     const items = [
         {
             title: "Spatial Mapping",
-            description: 'First, please enter a name of your job and provide an email address to monitor the project progress.',
+            description: 'First, please enter a name of your job and provide an email address (optional) to receive ' +
+                'the notification of project progress.',
             icon: <SearchOutlined/>
         },
         {
