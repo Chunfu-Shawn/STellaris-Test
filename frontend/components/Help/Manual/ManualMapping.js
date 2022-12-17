@@ -28,7 +28,7 @@ export default function ManualMapping() {
                     detected &lt;200 or mitochondrial counts &gt; 20%) was excluded. Then, we use CPM normalization for both
                     scRNA-seq and ST data, respectively.
                 </p>
-                <h2>Section blast</h2>
+                <h2>2. Section blast</h2>
                 <p>
                     Multimodal intersection analysis (MIA) methods (
                     <a target={"_blank"} href={"https://doi.org/10.1038/s41587-019-0392-8"} rel={"noreferrer"}>
@@ -64,7 +64,7 @@ export default function ManualMapping() {
                     the highest value in each cell type was deemed as the metric to measure the similarity between scRNA-seq
                     and ST data.
                 </p>
-                <h2>2. Coembedding filtering</h2>
+                <h2>3. Coembedding filtering</h2>
                 <a id={"filtering"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
                     The integration between scRNA-seq and ST data was performed via
@@ -84,7 +84,7 @@ export default function ManualMapping() {
                     determined as a cutoff value that measures the proximity of cells to ST spots in shared UMAP space.
                     Cells that were not within the scope of any ST spots determined by the cutoff were filtered.
                 </p>
-                <h2>3. Spatial cellular map</h2>
+                <h2>4. Spatial cellular map</h2>
                 <a id={"spatial"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>To construct spatial cellular map in single-cell resolution, we mainly referred to an algorithm tailed
                     for spatial reconstruction of scRNA-seq,
@@ -104,7 +104,7 @@ export default function ManualMapping() {
                     <li>Point repulsion was not performed to keep the spatial coordinate of single cells loyal to the
                         original mapping results and not heavily affected by neighboring cells.</li>
                 </ul>
-                <h2>4. Cell type colocalization</h2>
+                <h2>5. Cell type colocalization</h2>
                 <a id={"colocalization"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>After obtaining the predicted spatial coordinates, we can estimate the spatial distance and recapitulate
                     the colocalization of different cell types by this module.</p>
@@ -182,7 +182,7 @@ export default function ManualMapping() {
                         significant microenvironments of cell types colocalization, turning down the cutoff will be benificial.
                     </li>
                 </ol>
-                <h2>5. Cell-cell ligand-receptor Interactions </h2>
+                <h2>6. Cell-cell ligand-receptor Interactions </h2>
                 <a id={"interaction"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
                     To understand cellular behavior or response to neighbouring cells, we predict the most probable
@@ -246,7 +246,7 @@ export default function ManualMapping() {
                         <p>figure 5.3</p>
                     </Col>
                 </Row>
-                <h2>6. Description of downloaded files </h2>
+                <h2>7. Description of downloaded files </h2>
                 <a id={"download"} style={{position: 'relative', top: "-150px"}}></a>
                 <ol>
                     <li>
