@@ -2,7 +2,8 @@ import React from "react";
 import Image from "next/image";
 import {Breadcrumb, Typography} from "antd";
 import {contentStyle} from "../Help/SiderStaticMenu";
-//import data from &apos;./spatialMultiomics_paired-tag.html&apos;
+import {downloadFile} from "../util";
+import Link from "next/link.js";
 
 export default function MutiOmics(){
     return(
@@ -19,7 +20,7 @@ export default function MutiOmics(){
               }
 
               .result {
-                font-size: 12px;
+                font-size: 14px;
               }
 
               .warning {
@@ -29,8 +30,8 @@ export default function MutiOmics(){
             `}</style>
             <a id={"MutiOmics"} style={{position: 'relative', top: "-150px"}}></a>
             <Typography style={{marginTop:50,fontSize:16}}>
-                <h3>Expanded application: single-cell mutliomics data</h3>
-                <h4>Overview</h4>
+                <h2>Expanded application: single-cell mutliomics data</h2>
+                <h3>1. Overview</h3>
                 <p>In this tutorial, we will showcase an expanded application of STellaris with respect to single-cell
                     multiomics data. It&apos;s based on an obvious assumption that when we map a single cell to its spatial
                     location based on transcriptome similarity, we also map other omics data for the same cell incidently.</p>
@@ -51,24 +52,38 @@ export default function MutiOmics(){
                     </a>), a recent reported method that enables spatially resolved single-cell epginomic profiling in complex tissues.
                 </p>
                 <p>
-                    We found that the distribution characteristics of H3K4me3 histone modification constructed using spatial
-                    mapping strategy can nicely recapitulate that directly profiled by epigenomic MERFISH, which demonstrated
-                    the feasibility of STellaris in single-cell multiomics data to charaterize gene regulatory mechanisim at
-                    a spatial context.
+                    We found that the distribution of characteristics of H3K4me3 histone modification constructed using
+                    our spatial mapping strategy can nicely recapitulate that directly profiled by epigenomic MERFISH,
+                    which demonstrated the feasibility of STellaris in single-cell multiomics data to charaterize gene
+                    regulatory mechanisim at a spatial context.
                 </p>
-                <h4>Data</h4>
-                <h5>Paired-Tag data</h5>
+                <h3>2. Data</h3>
+                <h4>Paired-Tag data</h4>
                 <p>The raw data of joint profiling of transcriptome and H3K4me histone modification in single cells can be
-                    downloaded here. We also provide raw data we used in this tutorial, please download it here.</p>
-                <h5>Spatial mapping results</h5>
-                <p>The spatial mapping result page of scRNA-seq from Paired-Tag data using STellaris can be found here, and
-                    the registered scRNA-seq data in h5ad format can be downloaded here.</p>
-                <h5>MERFISH data</h5>
+                    downloaded here. We also provide raw data we used in this tutorial, please
+                    <a onClick={()=>downloadFile(`https://rhesusbase.com:9999/files/h3k4me3_03_filtered_matrix.tar.gz`)}>
+                        <b> download</b>
+                    </a> it here.
+                </p>
+                <h4>Spatial mapping results</h4>
+                <p>The spatial mapping result page of scRNA-seq from Paired-Tag data using STellaris can be found
+                    <Link href={"/mapping/resultPage/ac970aa0-79fd-11ed-968c-79eb53139108"}>
+                        <a target={"_blank"} rel={"noreferrer"}><b> here</b></a>
+                    </Link>, and
+                    the registered scRNA-seq data in h5ad format can be downloaded
+                    <a onClick={()=>downloadFile(`https://rhesusbase.com:9999/files/sc_registered.h5ad`)}>
+                        <b> here</b>
+                    </a>.
+                </p>
+                <h4>MERFISH data</h4>
                 <p>
                     The genomic regions of active promoters for 127 genes marked by H3K4me3 histone modification examined in
-                    epigenomic MERFISH can be downloaded here.
+                    epigenomic MERFISH can be downloaded
+                    <a onClick={()=>downloadFile(`https://rhesusbase.com:9999/files/merfish_h3k4me3.bed`)}>
+                        <b> here</b>
+                    </a>.
                 </p>
-                <h4>Spatial mapping based on scRNA-seq</h4>
+                <h3>3. Spatial mapping based on scRNA-seq</h3>
                 <pre>
                     import scanpy as sc<br/>
                     import snapatac2 as snap<br/>
@@ -95,12 +110,10 @@ export default function MutiOmics(){
                     &emsp;var: &apos;name&apos;<br/>
                     &emsp;obsm: &apos;spatial&apos;
                 </div>
-                <div style={{textAlign:"center"}}>
-                    <Image src={"/images/tutorial/mapping/mutiomics2.png"} width={580} height={250}
-                           alt={"counts_matrix_example"}/>
-                </div>
-                <h4>Basic single-cell H3K4me3 epigenomics analysis using SnapATAC2</h4>
-                <h5>Prepare single-cell H3K4me3 epigenomic data</h5>
+                <Image src={"/images/tutorial/mapping/mutiomics2.png"} width={580} height={250}
+                       alt={"counts_matrix_example"}/>
+                <h3>4. Basic single-cell H3K4me3 epigenomics analysis using SnapATAC2</h3>
+                <h4>Prepare single-cell H3K4me3 epigenomic data</h4>
                 <p>Read H3K4me3 epigenomic data from Paired-Tag multiomics data</p>
                 <pre>
                     adata_h3k4me3 = sc.read_10x_mtx(&apos;./data/h3k4me3_03_filtered_matrix/&apos;)
@@ -109,7 +122,7 @@ export default function MutiOmics(){
                 <pre>
                     adata_h3k4me3 = adata_h3k4me3[adata_h3k4me3.obs.index.isin(adata_sc.obs.index)].copy()
                 </pre>
-                <h5>Prepare SnapATAC2 input data</h5>
+                <h4>Prepare SnapATAC2 input data</h4>
                 <p>SnapATAC2 requires input in bed format, so we will convert count matrix to bed and re-read it.</p>
                 <pre>
                     counts = pd.DataFrame(adata_h3k4me3.X.toarray(),index=adata_h3k4me3.obs_names,columns=adata_h3k4me3.var_names)<br/>
@@ -128,11 +141,11 @@ export default function MutiOmics(){
                 <pre>
                     {`%%time
     counts3 = pd.DataFrame({
-              &apos;chr&apos;:counts2[&apos;intervals&apos;].str.split(&apos;:&apos;).str[0],
-              &apos;spos&apos;:counts2[&apos;intervals&apos;].str.split(&apos;:&apos;).str[1].str.split(&apos;-&apos;).str[0],
-              &apos;epos&apos;:counts2[&apos;intervals&apos;].str.split(&apos;:&apos;).str[1].str.split(&apos;-&apos;).str[1],
-              &apos;cells&apos;:counts2[&apos;cells&apos;],
-              &apos;counts&apos;:counts2[&apos;counts&apos;]
+              'chr':counts2['intervals'].str.split(':').str[0],
+              'spos':counts2['intervals'].str.split(':').str[1].str.split('-').str[0],
+              'epos':counts2['intervals'].str.split(':').str[1].str.split('-').str[1],
+              'cells':counts2['cells'],
+              'counts':counts2['counts']
     })`}
                 </pre>
                 <div className={"result"}>
@@ -149,7 +162,7 @@ export default function MutiOmics(){
                 <p>Re-read h3k4me3 epigenomics data from bed</p>
                 <pre>{
     `adata_h3k4me3 = snap.pp.import_data(
-        &apos;paired-tag_h3k4me3.filtered.bed&apos;,
+        'paired-tag_h3k4me3.filtered.bed',
         genome=snap.genome.mm10,
         file="paired-tag_h3k4me3.filtered.h5ad",
         sorted_by_barcode=True,
@@ -162,7 +175,7 @@ export default function MutiOmics(){
                         &emsp;uns: &apos;reference_sequences&apos;<br/>
                         &emsp;obsm: &apos;insertion&apos;
                     </div>
-                <h5>SnapATAC2 analysis</h5>
+                <h4>SnapATAC2 analysis</h4>
                 <p>Perform basic preprocessing using SnapATAC2</p>
                 <pre>{
      `# Basic preprocessing
@@ -189,15 +202,15 @@ export default function MutiOmics(){
                     &emsp;uns: &apos;scrublet_threshold&apos;, &apos;scrublet_sim_doublet_score&apos;, &apos;reference_sequences&apos;<br/>
                     &emsp;obsm: &apos;insertion&apos;
                 </div>
-                <h4>Build spatial map of H3K4me3 for active promoters examined in epigenomic MERFISH</h4>
-                <h5>Spatial annotation of single-cell H3K4me3 epigenomic data</h5>
+                <h3>5. Build spatial map of H3K4me3 for active promoters examined in epigenomic MERFISH</h3>
+                <h4>Spatial annotation of single-cell H3K4me3 epigenomic data</h4>
                 <pre>{
                     `# Add spatial coordinate to single-cell H3K4me3 data
-    adata_h3k4me3.obs[&apos;x_noise&apos;] = adata_sc.obs.loc[adata_h3k4me3.obs_names,&apos;x_noise&apos;]
-    adata_h3k4me3.obs[&apos;y_noise&apos;] = adata_sc.obs.loc[adata_h3k4me3.obs_names,&apos;y_noise&apos;]
-    adata_h3k4me3.obsm[&apos;spatial&apos;] = adata_sc.obsm[&apos;spatial&apos;][[list(adata_sc.obs_names).index(i) for i in adata_h3k4me3.obs_names], :]
+    adata_h3k4me3.obs['x_noise'] = adata_sc.obs.loc[adata_h3k4me3.obs_names,'x_noise']
+    adata_h3k4me3.obs['y_noise'] = adata_sc.obs.loc[adata_h3k4me3.obs_names,'y_noise']
+    adata_h3k4me3.obsm['spatial'] = adata_sc.obsm['spatial'][[list(adata_sc.obs_names).index(i) for i in adata_h3k4me3.obs_names], :]
     # Add cell type to single-cell H3K4me3 data
-    adata_h3k4me3.obs[&apos;cell_type&apos;] = adata_sc.obs.loc[adata_h3k4me3.obs_names,&apos;cell_type&apos;]`
+    adata_h3k4me3.obs['cell_type'] = adata_sc.obs.loc[adata_h3k4me3.obs_names,'cell_type']`
                 }</pre>
                 <pre>adata_h3k4me3</pre>
                 <div className={"result"}>
@@ -207,7 +220,7 @@ export default function MutiOmics(){
                     &emsp;uns: &apos;scrublet_threshold&apos;, &apos;scrublet_sim_doublet_score&apos;, &apos;reference_sequences&apos;<br/>
                     &emsp;obsm: &apos;insertion&apos;, &apos;spatial&apos;
                 </div>
-                <h5>Create cell-by-promoter matrix</h5>
+                <h4>Create cell-by-promoter matrix</h4>
                 <p>Read 127 genomic regions of active promoter in epigenomic MERFISH</p>
                 <pre>
                     h3k4me3_df = pd.read_table(&apos;./data/merfish_h3k4me3.bed&apos;,names=[&apos;chr&apos;,&apos;spos&apos;,&apos;epos&apos;,&apos;gene&apos;])
@@ -262,10 +275,6 @@ export default function MutiOmics(){
                     sc.pp.normalize_total(adata_h3k4me3_merfish)<br/>
                     sc.pp.log1p(adata_h3k4me3_merfish)
                 </pre>
-                <div className={"result warning"}>
-                    /home/user/BGM/uplee/anaconda3/envs/spatialWeb/lib/python3.10/site-packages/scanpy/preprocessing/_normalization.py:197: UserWarning:<br/>
-                    Some cells have zero counts
-                </div>
                 <pre>adata_h3k4me3_merfish</pre>
                 <div className={"result"}>
                     AnnData object with n_obs × n_vars = 2384 × 127<br/>
@@ -274,7 +283,7 @@ export default function MutiOmics(){
                     &emsp;uns: &apos;log1p&apos;<br/>
                     &emsp;obsm: &apos;spatial&apos;
                 </div>
-                <h4>Comparison between H3K4me3 signals and spatial patterns of their corresponding gene expression</h4>
+                <h3>6. Comparison between H3K4me3 signals and spatial patterns of their corresponding gene expression</h3>
                 <p>Here we compare the spatial distribution of H3K4me3 signals in active promoters with spatial patterns of
                     their corresponding gene expression. We found that although the H3K4me3 signals are sparse, their layer
                     enrichment patterns are largely similar with that in scRNA-seq.</p>
@@ -284,17 +293,19 @@ export default function MutiOmics(){
                     # Bcl11b - single-cell gene expression<br/>
                     sc.pl.spatial(adata_sc,color=[&apos;Bcl11b&apos;,&apos;Foxp2&apos;,&apos;Rorb&apos;],spot_size=50,ncols=3)
                 </pre>
+                <p>H3K4me3</p>
                 <Image src={"/images/tutorial/mapping/mutiomics3.png"} width={800} height={200}
                        alt={"mutiomics3"}/>
+                <p>single-cell gene expression</p>
                 <Image src={"/images/tutorial/mapping/mutiomics4.png"} width={800} height={200}
                        alt={"mutiomics4"}/>
-                <h4>Compare the spatial pattern of H3K4me3 with epigenomic MERFISH</h4>
+                <h3>7. Compare the spatial pattern of H3K4me3 with epigenomic MERFISH</h3>
                 <p>We compared the spatial map of H3K4me3 signals constructed using STellaris with epigenomic MERFISH, which
                     directly profiles H3K4me3 pattern in situ.</p>
                 <p>Here we focused on cortical region and found that layer enrichment measured by our results are largely
                     consistent with epigenomic MERFISH, which demonstrated the feasibility of STellaris in single-cell multiomics
                     data to charaterize gene regulatory mechanisim at a spatial context.</p>
-                <h5>Extract cerebral cortex region</h5>
+                <h4>Extract cerebral cortex region</h4>
                 <p>First, extract cortex using polynomial regression</p>
                 <pre>
                     spots = adata_h3k4me3_merfish.obsm[&apos;spatial&apos;]<br/>
@@ -346,14 +357,14 @@ export default function MutiOmics(){
             cells_keep.append(z)
         else:
             continue
-    plt.plot(x_keep, y_keep, &apos;o&apos;)
-    plot1 = plt.plot(list(range(1000,4000,100)), y_pred1, label=&apos;upper layer&apos;,color=&apos;orange&apos;)
-    plot2 = plt.plot(list(range(1000,4000,100)), y_pred2, label=&apos;deep layer&apos;,color=&apos;red&apos;)
+    plt.plot(x_keep, y_keep, 'o')
+    plot1 = plt.plot(list(range(1000,4000,100)), y_pred1, label='upper layer',color='orange')
+    plot2 = plt.plot(list(range(1000,4000,100)), y_pred2, label='deep layer',color='red')
     plt.title('')
     plt.xlabel('')
     plt.ylabel('')
     plt.legend(loc=3,borderaxespad=0,bbox_to_anchor=(0,0))
-    plt.axis(&apos;scaled&apos;)
+    plt.axis('scaled')
     plt.show()`
                 }</pre>
                 <Image src={"/images/tutorial/mapping/mutiomics7.png"} width={400} height={230}
@@ -364,7 +375,7 @@ export default function MutiOmics(){
                 <pre>
                     adata_sc = adata_sc[adata_sc.obs_names.isin(cells_keep)].copy()
                 </pre>
-                <h5>Distribution of H3K4me3 signals along radial axis of cortex</h5>
+                <h4>Distribution of H3K4me3 signals along radial axis of cortex</h4>
                 <p>Here we will assess the spatial distributions of layer-enriched active promoters interrogated in
                     epigenomic MERFISH paper.</p>
                 <p>For each layer-specific promoters in MERFISH, We summarise the spatial distribution of H3K4me3 histone
@@ -404,8 +415,8 @@ export default function MutiOmics(){
         y_mean = np.sum(y_tmp)/np.sum(gene_exp)
         if if_plot:
             sc.pl.spatial(adata_norm,color=gene_name,spot_size=50)
-            plt.plot(x_keep, y_keep, &apos;o&apos;)
-            plt.scatter(x_mean,y_mean,c=&apos;r&apos;)
+            plt.plot(x_keep, y_keep, 'o')
+            plt.scatter(x_mean,y_mean,c='r')
             pylab.title('')
             pylab.xlabel('')
             pylab.ylabel('')
@@ -432,76 +443,59 @@ export default function MutiOmics(){
         return dis_min`
                 }</pre>
                 <pre>{
-                    `marker_genes = [&apos;Npas1&apos;,&apos;Slc17a7&apos;,&apos;Penk&apos;,&apos;Sst&apos;,&apos;Gad2&apos;,&apos;Calb2&apos;,&apos;Chat&apos;,&apos;Cdca7&apos;,&apos;Ccdc80&apos;,&apos;Nxph4&apos;
-                    ,&apos;Pdgfra&apos;,&apos;Reln&apos;,&apos;Cux2&apos;,&apos;Lamp5&apos;,&apos;Pou3f1&apos;,&apos;Rorb&apos;,&apos;Lhx6&apos;,&apos;Satb2&apos;,&apos;Unc5d&apos;
-                    ,&apos;Slc17a6&apos;,&apos;Kcnj8&apos;,&apos;Car3&apos;,&apos;Slc30a3&apos;,&apos;Calb1&apos;,&apos;Osr1&apos;,&apos;Nxph1&apos;,&apos;Slc32a1&apos;,&apos;Grin3a&apos;,
-                   &apos;Fezf2&apos;,&apos;Aqp4&apos;,&apos;Vipr2&apos;,&apos;Gad1&apos;,&apos;Bcl11b&apos;,&apos;Syt6&apos;,&apos;Foxp2&apos;,&apos;Oprk1&apos;,&apos;Pdlim5&apos;,&apos;Sox10&apos;]
+                    `marker_genes = ['Npas1','Slc17a7','Penk','Sst','Gad2','Calb2','Chat','Cdca7','Ccdc80','Nxph4'
+                    ,'Pdgfra','Reln','Cux2','Lamp5','Pou3f1','Rorb','Lhx6','Satb2','Unc5d'
+                    ,'Slc17a6','Kcnj8','Car3','Slc30a3','Calb1','Osr1','Nxph1','Slc32a1','Grin3a',
+                   'Fezf2','Aqp4','Vipr2','Gad1','Bcl11b','Syt6','Foxp2','Oprk1','Pdlim5','Sox10']
     dis_dic = {}
     for gene in marker_genes:
         try:
             centroid = get_centroid(adata_h3k4me3_merfish, gene_name=gene,x_keep=x_keep,y_keep=y_keep,if_plot=False)
         except:
-            print(&apos;no &apos;+gene)
+            print('no '+gene)
             continue
         dis_dic[gene] = get_dis(curve=p1, point=centroid)
-        #print(gene+&apos;: &apos;+str(dis_dic[gene]))`
+        #print(gene+': '+str(dis_dic[gene]))`
                 }</pre>
                 <pre>dis_dic</pre>
                 <div className={"result"}>{
-                    `{&apos;Npas1&apos;: 371.8435139249171,
-                     &apos;Slc17a7&apos;: 667.9104329325937,
-                     &apos;Penk&apos;: 411.87730582356,
-                     &apos;Sst&apos;: 256.8483202012105,
-                     &apos;Gad2&apos;: 546.0870590195717,
-                     &apos;Calb2&apos;: 528.7913315333836,
-                     &apos;Chat&apos;: 522.9278973139577,
-                     &apos;Cdca7&apos;: 635.2219396220006,
-                     &apos;Ccdc80&apos;: 503.72132645051744,
-                     &apos;Nxph4&apos;: 913.8402138700891,...}`
+                    `{'Npas1': 371.8435139249171,
+                     'Slc17a7': 667.9104329325937,
+                     'Penk': 411.87730582356,
+                     'Sst': 256.8483202012105,
+                     'Gad2': 546.0870590195717,
+                     'Calb2': 528.7913315333836,
+                     'Chat': 522.9278973139577,
+                     'Cdca7': 635.2219396220006,
+                     'Ccdc80': 503.72132645051744,
+                     'Nxph4': 913.8402138700891,...}`
                 }</div>
                 <pre>{
                     `# Candidate layer-enriched H3K4me3 loci according to epigenomic MERFISH paper
     cortex23 = []
-    cortex23_list = [&apos;Gad2&apos;,&apos;Calb2&apos;,&apos;Chat&apos;]
+    cortex23_list = ['Gad2','Calb2','Chat']
     for g in cortex23_list:
         cortex23.append(dis_dic[g])
     cortex4 = []
-    cortex4_list = [&apos;Pou3f1&apos;,&apos;Rorb&apos;,&apos;Lhx6&apos;,&apos;Satb2&apos;,&apos;Unc5d&apos;
-                    ,&apos;Slc17a6&apos;,&apos;Kcnj8&apos;,&apos;Car3&apos;,&apos;Slc30a3&apos;]
+    cortex4_list = ['Pou3f1','Rorb','Lhx6','Satb2','Unc5d'
+                    ,'Slc17a6','Kcnj8','Car3','Slc30a3']
     for g in cortex4_list:
         cortex4.append(dis_dic[g])
     cortex56 = []
-    cortex56_list = [&apos;Nxph1&apos;,&apos;Slc32a1&apos;,
-                   &apos;Fezf2&apos;,&apos;Bcl11b&apos;,&apos;Syt6&apos;,&apos;Foxp2&apos;,&apos;Pdlim5&apos;,&apos;Sox10&apos;]
+    cortex56_list = ['Nxph1','Slc32a1',
+                   'Fezf2','Bcl11b','Syt6','Foxp2','Pdlim5','Sox10']
     for g in cortex56_list:
         cortex56.append(dis_dic[g])`
                 }</pre>
                 <p>Now plot the distribution of the distance of centroid to cortex surface, the layer enrichment pattern
-                    reported in epigenomic MERFISH is also manifested in the spatial mapping approach.</p>
+                    reported in epigenomic MERFISH is also manifested in the spatial mapping approach implemented by STellaris.</p>
                 <pre>
                     plt.boxplot((cortex23,cortex4,cortex56),labels=(&apos;cortex23&apos;,&apos;cortex4&apos;,&apos;cortex56&apos;))<br/>
                     plt.show()
                 </pre>
-                <h4>Modules and their versions used for this analysis</h4>
                 <Image src={"/images/tutorial/mapping/mutiomics9.png"} width={400} height={260}
                        alt={"mutiomics9"}/>
-                <pre>{
-                    `import sys
-    for module in sys.modules:
-        try:
-            print(module,sys.modules[module].__version__)
-        except:
-            try:
-                if  type(modules[module].version) is str:
-                    print(module,sys.modules[module].version)
-                else:
-                    print(module,sys.modules[module].version())
-            except:
-                try:
-                    print(module,sys.modules[module].VERSION)
-                except:
-                    pass`
-                }</pre>
+                <h3>8. Modules and their versions used for this analysis</h3>
                 <pre style={{backgroundColor:"transparent",
                     borderColor:"transparent",
                     overflow:"scroll",
@@ -521,7 +515,7 @@ export default function MutiOmics(){
     zmq 23.2.0
     argparse 1.1
     zlib 1.0
-    _curses b&apos;2.2&apos;
+    _curses b'2.2'
     dateutil 2.8.2
     six 1.16.0
     _decimal 1.70

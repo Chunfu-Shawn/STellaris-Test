@@ -14,13 +14,13 @@ export default function GetStarted(){
             </Breadcrumb>
             <a id={"Get started"} style={{position: 'relative', top: "-150px"}}></a>
             <Typography style={{marginTop:50,fontSize:16}}>
-                <h3>Get started (step by step)</h3>
+                <h2>Get started (step by step)</h2>
                 <p>Here, we use the scRNA-seq data of <b>mouse fetal cerebral cortex (E14.5)</b>, which was randomly sampled
                     to 3,000 cells for speeding things up, to guide users through the Spatial Mapping workflow, which is the
                     key module in STellaris. This tutorial are divided into data preparation, job submission, section blast,
                     spatial mapping and data export.
                 </p>
-                <h4>1. Data preparation</h4>
+                <h3>1. Data preparation</h3>
                 <a id={"data_preparation"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>The spatial mapping analysis requires two files uploaded by users: 1) cell-by-gene count matrix file
                     measured by raw counts where column name are gene symbols and row name are unique cell ids; 2) meta
@@ -38,8 +38,8 @@ export default function GetStarted(){
                     <Image src={"/images/tutorial/labels_example.png"} width={600} height={200}
                            alt={"labels_example"} style={{borderStyle:"dashed"}}/>
                 </div>
-                <h4>2. Submit a job</h4>
-                <h5>Basic information</h5>
+                <h3>2. Submit a job</h3>
+                <h4>Basic information</h4>
                 <ul>
                     <li>Enter a title of your job in “Job Title” box (no more than 80 characters).</li>
                     <li>Enter an email address to receive the notification of project progress (optional but recommended).</li>
@@ -47,7 +47,7 @@ export default function GetStarted(){
                         This step is crucial that only the ST sections meeting these conditions will be considered in the
                         following analyses.</li>
                 </ul>
-                <h5>Data upload</h5>
+                <h4>Data upload</h4>
                 <ul>
                     <li>Click on “Select a count matrix file” button on the home page or Mapping page in the navigator bar
                         and select a prepared count matrix file.</li>
@@ -58,7 +58,7 @@ export default function GetStarted(){
                     <Image src={"/images/tutorial/get_started.png"} width={800} height={450}
                            alt={"get_started"} style={{borderStyle:"dashed"}}/>
                 </div>
-                <h4>3. Section blast</h4>
+                <h3>3. Section blast</h3>
                 <p>After user data were successfully uploaded, you will receive a confidential URL of your requested job and
                     be redirected to a running page. The next step we term as &quot;section blast&quot; will automatically start. In brief,
                     this analysis aims to help researcher rapidly search for the best match reference ST section in samples of
@@ -101,7 +101,7 @@ export default function GetStarted(){
                                alt={"select_section2"}/>
                     </Space>
                 </div>
-                <h4>4. Spatial mapping</h4>
+                <h3>4. Spatial mapping</h3>
                 <p>
                     A Confirming dialog will pop up when you click the &quot;select&quot; button where you can set the advanced parameters
                     for spatial mapping. Here we use the defaults and click &quot;Continue&quot; to start the process of spatial mapping,

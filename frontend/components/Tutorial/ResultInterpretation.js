@@ -14,7 +14,7 @@ export default function ResultInterpretation(){
             </Breadcrumb>
             <a id={"Result interpretation"} style={{position: 'relative', top: "-150px"}}></a>
             <Typography style={{marginTop:50,fontSize:16}}>
-                <h3>Result interpretation</h3>
+                <h2>Result interpretation</h2>
                 <p>
                     Before interpreting the spatial mapping results, we will take some time to explain the computational method
                     used for spatial reconstruction. The spatial mapping module mainly relies on an algorithm tailed for spatial
@@ -36,7 +36,7 @@ export default function ResultInterpretation(){
                     filtering, spatial cellular map,  cell type colocalization and cell-cell ligand-receptor Interactions. Now,
                     we will go through this page for result interpretation.
                 </p>
-                <h4>Preprocessing</h4>
+                <h3>1. Preprocessing</h3>
                 <p>
                     This part displays the elapsed time of spatial mapping execution on the left and the basic information of
                     query scRNA-seq and target reference ST section on the right. Prior to mapping single cells back to spatial
@@ -48,7 +48,7 @@ export default function ResultInterpretation(){
                     <Image src={"/images/tutorial/result/preprocessing.png"} width={800} height={350}
                            alt={"preprocessing"} style={{borderStyle:"dashed"}}/>
                 </div>
-                <h4>Coembedding filtering</h4>
+                <h3>2. Coembedding filtering</h3>
                 <p>
                     As mentioned earlier, the scRNA-seq and ST data was first projected into a joint latent space. Intuitively,
                     a cell is more safely to be assigned to a ST spot and thereby acquire a coordinate if they are close to
@@ -73,7 +73,7 @@ export default function ResultInterpretation(){
                     <Image src={"/images/tutorial/result/coembedding.png"} width={800} height={350}
                            alt={"coembedding"} style={{borderStyle:"dashed"}}/>
                 </div>
-                <h4>Spatial cellular map</h4>
+                <h3>3. Spatial cellular map</h3>
                 <p>
                     This is the key result of spatial mapping tool. The spatial transcriptomic map of the reference ST section
                     is displayed on the top left panel, and the cellular map constructed by registered single cells is shown
@@ -128,7 +128,7 @@ export default function ResultInterpretation(){
                     <Image src={"/images/tutorial/result/cell3.png"} width={500} height={330}
                            alt={"cell3"} style={{borderStyle:"dashed"}}/>
                 </div>
-                <h4>Cell type colocalization</h4>
+                <h3>4. Cell type colocalization</h3>
                 <p>
                     Once we got the spatial cellular map where single cells were registered with spatial coordinates, we can
                     assess the spatial proximity of cell type pairs which is visualized by cell-cell contact map (left). The
@@ -142,7 +142,7 @@ export default function ResultInterpretation(){
                     <Image src={"/images/tutorial/result/colocalization.png"} width={800} height={250}
                            alt={"colocalization"} style={{borderStyle:"dashed"}}/>
                 </div>
-                <h4>Cell-cell ligand-receptor Interactions</h4>
+                <h3>5. Cell-cell ligand-receptor Interactions</h3>
                 <p>
                     With the spatial proximity between diverse cell types, we define microenvironment by iterating each cell
                     type and retrieving the adjacent cell types centered on it, enabling dissecting cell-cell ligand-receptor

@@ -54,7 +54,8 @@ export default function About() {
                         <a href={"https://pubmed.ncbi.nlm.nih.gov/?term=35314812%2C31932730%2C34857954%2C36130281%2C29409532%2C34774128%2C32719530"}
                            target={"_blank"} rel={"noreferrer"}>
                             &nbsp;published earlier
-                        </a>.</p>
+                        </a>.
+                    </p>
                     <p>
                         This project was supported by grants from the Ministry of Science and Technology of China
                         (National Key Research and Development Program of China, 2018YFA0801405 and 2019YFA0801801) and
