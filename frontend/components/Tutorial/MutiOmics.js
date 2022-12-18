@@ -30,7 +30,7 @@ export default function MutiOmics(){
             `}</style>
             <a id={"MutiOmics"} style={{position: 'relative', top: "-150px"}}></a>
             <Typography style={{marginTop:50,fontSize:16}}>
-                <h2>Expanded application: single-cell mutliomics data</h2>
+                <h2>Expanded application: single-cell multiomics data</h2>
                 <h3>1. Overview</h3>
                 <p>In this tutorial, we will showcase an expanded application of STellaris with respect to single-cell
                     multiomics data. It&apos;s based on an obvious assumption that when we map a single cell to its spatial
@@ -43,7 +43,7 @@ export default function MutiOmics(){
                     </a>), which is composed of transcriptome and H3K4me3 epigenomic data jointly profiled in single cells.
                 </p>
                 <p>
-                    We first used STellaris to perform mapping of spatial locations of single cells based on the transcriptome
+                    We first used STellaris to perform spatial mapping for single cells based on the transcriptome
                     similarity between scRNA-seq and the best match ST section, and characterized the H3K4me3 histone
                     modification at a spatial context. Then, we compared the spatial signature of H3K4me3 histone modification
                     with that profiled by epigenomic MERFISH (

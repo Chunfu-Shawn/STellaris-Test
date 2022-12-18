@@ -15,7 +15,7 @@ export default function Overview(){
             <Typography style={{marginTop:50,fontSize:16}}>
                 <h2>Overview</h2>
                 <p>
-                    The original intent of STellaris was to provide a platform for rapid mapping of spatial location for the
+                    The original intent of STellaris was to provide a platform for rapid spatial mapping for the
                     ever-going single-cell transcriptome (scRNA-seq) data based on the emerging spatial transcriptome (ST)
                     methodology, thus helping researchers make full use of the increasing volume of single-cell genomic data
                     at spatial context. We provides tutorials on the three major tools implemented in STellaris, including

@@ -102,7 +102,7 @@ export default function GetStarted(){
                 </div>
                 <h3>4. Spatial mapping</h3>
                 <p>
-                    A Confirming dialog will pop up when you click the &quot;select&quot; button where you can set the advanced parameters
+                    A confirming dialog will pop up when you click the &quot;select&quot; button where you can set the advanced parameters
                     for spatial mapping. Here we use the defaults and click &quot;Continue&quot; to start the process of spatial mapping,
                     and this will redirect us to another running page. Note that spatial mapping will generally take about
                     30 min for around 20,000 single cells, please be patient, you can leave aside the running page and remember

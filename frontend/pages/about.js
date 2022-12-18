@@ -35,7 +35,7 @@ export default function About() {
                         Moreover, we also provide researchers with a gene query interface to access the expression profile
                         of candidate genes from the perspective of spatial localization, which was based on deep integration
                         of our compiled ST datasets, such as spatially variable genes.</p>
-                    <p>We hope that STellaris will expand our understanding of scRNA-seq at spatial context, especially
+                    <p>STellaris could expand our understanding of scRNA-seq at spatial context, especially
                         the spatially resolved cell-cell communication.</p>
                     <p>This tool is developed and maintained by Xiangshang Li, Chunfu Xiao and Juntian Qi of Chuan-Yun Li’s
                         lab, Peking University.</p>

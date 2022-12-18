@@ -34,7 +34,7 @@
   height: 535px;
   text-align: center;
   margin: auto;
-  background-color: #09051a;
+  background-color: #03020a;
   background-image: url("/images/bg.png");
   background-position: center center;
   background-size: 100%;
@@ -66,7 +66,7 @@
   color: #fff;
   font-family: sans-serif, bold;
   font-size: 40px;
-  margin: 40px 50px;
+  margin: 40px 180px;
 }
 
 .intro-card-wrapper{

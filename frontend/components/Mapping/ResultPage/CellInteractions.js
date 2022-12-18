@@ -18,9 +18,16 @@ export default function CellInteractions(){
     const onChangeCell = (value) => {
         setCellTypePair(value)
     }
+
     const annContext = useContext(AnnContext);
     const dotPlot = JSON.parse(annContext.result.dotPlot)
-    const microenvironment = dotPlot.microenvironment
+
+    // 判断微环境内是否 数据为空
+    const microenvironment = dotPlot.microenvironment.filter( item => {
+        if (dotPlot[item].value.length !== 0)
+            return item
+    })
+    console.log(microenvironment)
     const [env, setEnv] = useState(microenvironment[0])
     const [cellTypePairs, setCellTypePairs] = useState(dotPlot[env].xAxis)
     const [cellTypePair, setCellTypePair] = useState(cellTypePairs[0])
