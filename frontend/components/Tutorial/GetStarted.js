@@ -1,6 +1,5 @@
-import Image from "next/image";
 import React from "react";
-import {Breadcrumb, Space, Typography} from "antd";
+import {Breadcrumb, Space, Typography, Image} from "antd";
 import {contentStyle} from "../Help/SiderStaticMenu";
 
 export default function GetStarted(){
@@ -82,9 +81,9 @@ export default function GetStarted(){
                 </p>
                 <div style={{textAlign:"center"}}>
                     <Space>
-                        <Image src={"/images/tutorial/section_bar.png"} width={600} height={350}
+                        <Image src={"/images/tutorial/section_bar.png"} width={550} height={310}
                                alt={"section_bar"}/>
-                        <Image src={"/images/tutorial/section_table.png"} width={600} height={350}
+                        <Image src={"/images/tutorial/section_table.png"} width={550} height={310}
                                alt={"section_table"}/>
                     </Space>
                 </div>
@@ -95,9 +94,9 @@ export default function GetStarted(){
                 </p>
                 <div style={{textAlign:"center"}}>
                     <Space>
-                        <Image src={"/images/tutorial/select_section.png"} width={550} height={320}
+                        <Image src={"/images/tutorial/select_section.png"} width={550} height={310}
                                alt={"select_section"}/>
-                        <Image src={"/images/tutorial/select_section2.png"} width={550} height={320}
+                        <Image src={"/images/tutorial/select_section2.png"} width={550} height={310}
                                alt={"select_section2"}/>
                     </Space>
                 </div>

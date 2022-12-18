@@ -1,6 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import {Breadcrumb, Space, Typography} from "antd";
+import {Breadcrumb, Space, Typography, Image} from "antd";
 import {contentStyle} from "../Help/SiderStaticMenu";
 
 export default function ResultInterpretation(){
@@ -111,7 +110,7 @@ export default function ResultInterpretation(){
                         <Image src={"/images/tutorial/result/map4.png"} width={500} height={330}
                                alt={"map4"}/>
                     </Space>
-                </div>
+                </div><br/>
                 <p>
                     In addition to precise patterning of diverse cell types, the expression profiles of genes also successfully
                     recapitulate that in the initial ST section (e.g. Hes1, Dlx2 and Neurod6).

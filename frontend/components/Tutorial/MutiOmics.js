@@ -97,7 +97,7 @@ export default function MutiOmics(){
                 <p>Read registered scRNA-seq using STellaris, and change cell ids back to the initial. The screenshot of
                     STellaris result page looks like:</p>
                 <div style={{textAlign:"center"}}>
-                    <Image src={"/images/tutorial/mapping/mutiomics1.png"} width={600} height={350}
+                    <Image src={"/images/tutorial/mapping/mutiomics1.png"} width={600} height={400}
                            alt={"counts_matrix_example"}/>
                 </div>
                 <pre>adata_sc = sc.read_h5ad(&apos;./data/public/results/20221212/ac970aa0-79fd-11ed-968c-79eb53139108/sc_registered.h5ad&apos;)</pre>

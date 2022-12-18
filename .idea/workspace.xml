@@ -5,8 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/brand.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo-128x128.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo-16x16.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo-32x32.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo-64x64.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-128x128.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-16x16.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-32x32.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-64x64.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualDatasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualDatasets.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/LayoutCustom.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/LayoutCustom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/DatasetBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/DatasetBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/GeneSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/GeneSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/MutiOmics.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/MutiOmics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/Overview.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/Overview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/ResultInterpretation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/ResultInterpretation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/navigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/android-chrome-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/android-chrome-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/favicon-16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/bootstrap-3.4.1-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/mainpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/mainpage.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +81,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/pages/tutorial",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/public/images/favicon_io",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,11 +95,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/public/images/favicon_io" />
+      <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/frontend/pages/tutorial" />
       <recent name="$PROJECT_DIR$/frontend/pages/tutorial/mapping" />
       <recent name="$PROJECT_DIR$/frontend/components/Tutorial" />
-      <recent name="$PROJECT_DIR$/frontend/public/images/tutorial/mapping" />
-      <recent name="$PROJECT_DIR$/frontend/public/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/public/images/help/mapping" />
@@ -150,7 +182,8 @@
       <workItem from="1671003720918" duration="10252000" />
       <workItem from="1671076148569" duration="4894000" />
       <workItem from="1671165595888" duration="15665000" />
-      <workItem from="1671199014001" duration="12032000" />
+      <workItem from="1671199014001" duration="13549000" />
+      <workItem from="1671348338410" duration="6626000" />
     </task>
     <servers />
   </component>

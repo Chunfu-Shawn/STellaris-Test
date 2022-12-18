@@ -31,12 +31,13 @@
 }
 .cover-container {
   min-width: 1440px;
+  height: 535px;
   text-align: center;
   margin: auto;
-  background-color: #0d0d0d;
-  background-image: url("/images/bg.jpeg");
+  background-color: #09051a;
+  background-image: url("/images/bg.png");
   background-position: center center;
-  background-size: 1440px;
+  background-size: 100%;
   background-repeat: no-repeat;
 }
 
@@ -65,7 +66,7 @@
   color: #fff;
   font-family: sans-serif, bold;
   font-size: 40px;
-  margin: 40px 10%;
+  margin: 40px 50px;
 }
 
 .intro-card-wrapper{

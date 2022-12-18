@@ -1,6 +1,5 @@
-import {Breadcrumb, Button, Space,Typography} from "antd";
+import {Breadcrumb, Button, Space, Typography, Image} from "antd";
 import Link from "next/link";
-import Image from "next/image";
 import React from "react";
 import {contentStyle} from "../Help/SiderStaticMenu";
 

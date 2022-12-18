@@ -1,8 +1,6 @@
-import {Breadcrumb, Col, Row, Typography} from 'antd';
+import {Breadcrumb, Col, Row, Typography, Image} from 'antd';
 import React from 'react';
 import {contentStyle} from "../SiderStaticMenu.js";
-import Image from "next/image";
-import {downloadFile} from "../../util";
 import Link from "next/link.js";
 
 
@@ -126,7 +124,7 @@ export default function ManualMapping() {
                             <Image src={"/images/help/mapping/jsd.png"} height={50} width={400}/>
                             <br/><span>where</span><br/>
                             <Image src={"/images/help/mapping/kld.png"} height={50} width={230}/>
-                            <Image src={"/images/help/mapping/m.png"} height={40} width={120}/>
+                            <Image src={"/images/help/mapping/m.png"} height={50} width={120}/>
                         </div>
                     </li>
                     <li>
@@ -137,8 +135,8 @@ export default function ManualMapping() {
                     <li>
                         To estimate the complete cell types colocalization, the above steps are performed
                         repetitively on <b>bootstrapping samples</b> (default 80 percentage samples and  20 iterations)
-                        to generate an average negative log2 JS divergence matrix (visualized as heatmap <b>figure 4.1</b>)
-                        and an average MST consensus matrix visualized into network figure (visualized as network <b>figure 4.2</b>).
+                        to generate an average negative log2 JS divergence matrix (visualized as heatmap <b>figure 5.1</b>)
+                        and an average MST consensus matrix visualized into network figure (visualized as network <b>figure 5.2</b>).
                     </li>
                     <li>
                         Finally, we retain the most proximal cell type pairs referring to user-defined parameter
@@ -159,11 +157,11 @@ export default function ManualMapping() {
                 <Row justify={"center"} style={{textAlign:"center",color:"gray"}}>
                     <Col span={12}>
                         <Image src={"/images/help/mapping/JSDM.png"} height={460} width={400}/>
-                        <p>figure 4.1</p>
+                        <p>figure 5.1</p>
                     </Col>
                     <Col span={12}>
                         <Image src={"/images/help/mapping/MST.png"} height={400} width={400}/>
-                        <p>figure 4.2</p>
+                        <p>figure 5.2</p>
                     </Col>
                 </Row>
                 <h4>Advanced parameters</h4>
@@ -208,25 +206,25 @@ export default function ManualMapping() {
                     </li>
                     <li>
                         After filtering receptor-ligand interactions by P value ≤ 0.01, we count total number of
-                        receptor-ligand interactions for each cell type pair and plot heatmap (<b>figure 5.1</b>).
+                        receptor-ligand interactions for each cell type pair and plot heatmap (<b>figure 6.1</b>).
                     </li>
                     <li>
-                        Finally we visualize statistically significant interactions for each microenvironment (<b>figure 5.2</b>)
-                        and each cell type pair (<b>figure 5.3</b>).
+                        Finally we visualize statistically significant interactions for each microenvironment (<b>figure 6.2</b>)
+                        and each cell type pair (<b>figure 6.3</b>).
                     </li>
                 </ol>
                 <h4>Figures</h4>
                 <ol>
                     <li>
-                        In heatmap of interactions count (<b>figure 5.1</b>), darker the box, more interactions of cell type pairs.
+                        In heatmap of interactions count (<b>figure 6.1</b>), darker the box, more interactions of cell type pairs.
                     </li>
                     <li>
-                        In dot graph of receptor-ligand interactions (<b>figure 5.2</b>), rows are interacting molecule pairs and columns
+                        In dot graph of receptor-ligand interactions (<b>figure 6.2</b>), rows are interacting molecule pairs and columns
                         are interacting cell type pairs. And means of the log2 average expression value of the corresponding
                         interacting molecule pairs are indicated by color.
                     </li>
                     <li>
-                        In chord graph of receptor-ligand interactions (<b>figure 5.3</b>), node represents an interacting partner whose
+                        In chord graph of receptor-ligand interactions (<b>figure 6.3</b>), node represents an interacting partner whose
                         identifier is gene name, UniProt identifier (prefix &quot;simple:&quot;) or complex identifier
                         (prefix &quot;complex:&quot;), which is classified as ligand, receptor or both. Edge represents
                         an interaction of two partner, which is darker with higher mean expression.
@@ -234,16 +232,16 @@ export default function ManualMapping() {
                 </ol>
                 <Row justify={"center"} style={{textAlign:"center",color:"gray"}}>
                     <Col span={8}>
-                        <Image src={"/images/help/mapping/number.png"} height={450} width={400}/>
-                        <p>figure 5.1</p>
+                        <Image src={"/images/help/mapping/number.png"} height={400} width={350}/>
+                        <p>figure 6.1</p>
                     </Col>
                     <Col span={8}>
-                        <Image src={"/images/help/mapping/dotplot.png"} height={700} width={400}/>
-                        <p>figure 5.2</p>
+                        <Image src={"/images/help/mapping/dotplot.png"} height={630} width={350}/>
+                        <p>figure 6.2</p>
                     </Col>
                     <Col span={8}>
-                        <Image src={"/images/help/mapping/chord.png"} height={450} width={400}/>
-                        <p>figure 5.3</p>
+                        <Image src={"/images/help/mapping/chord.png"} height={400} width={350}/>
+                        <p>figure 6.3</p>
                     </Col>
                 </Row>
                 <h2>7. Description of downloaded files </h2>

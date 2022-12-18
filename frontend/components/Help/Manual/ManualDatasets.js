@@ -1,7 +1,6 @@
-import {Breadcrumb, Typography} from 'antd';
+import {Breadcrumb, Typography, Image} from 'antd';
 import React  from 'react';
 import {contentStyle} from "../SiderStaticMenu.js";
-import Image from "next/image";
 import DatasetAttributesTable from './DatasetPage/DatasetAttributesTable'
 
 export default function ManualDatasets() {

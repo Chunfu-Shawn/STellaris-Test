@@ -1,6 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import {Breadcrumb, Space,Typography} from "antd";
+import {Breadcrumb, Space, Typography, Image} from "antd";
 import Link from "next/link.js";
 import {contentStyle} from "../Help/SiderStaticMenu";
 
@@ -93,7 +92,7 @@ export default function DatasetBrowser(){
                     expression for a certain cluster. Click on one of the gallery charts to make it the primary view.
                 </p>
                 <div style={{textAlign:"center"}} >
-                    <Image src={"/images/tutorial/dataset/set2.png"} width={800} height={450}
+                    <Image src={"/images/tutorial/dataset/set2.png"} width={800} height={500}
                            alt={"set2"} style={{borderStyle:"dashed"}}/>
                 </div>
                 <p>

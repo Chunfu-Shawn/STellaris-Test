@@ -1,6 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import {Breadcrumb, Typography} from "antd";
+import {Breadcrumb, Typography, Image} from "antd";
 import {contentStyle} from "../Help/SiderStaticMenu";
 
 export default function GeneSearch(){
@@ -15,7 +14,7 @@ export default function GeneSearch(){
             <Typography style={{marginTop:50,fontSize:16}}>
                 <h2>Gene Search</h2>
                 <p>
-                    In this tutorial, we will show you how to retrieve gene expression characteristic from the spatial
+                    In this tutorial, we will show you how to retrieve gene expression characteristics from the spatial
                     perspective, such as spatially variable gene expression and tissue-wide gene expression, which was
                     summarized on top of our ST dataset catalog.
                 </p>

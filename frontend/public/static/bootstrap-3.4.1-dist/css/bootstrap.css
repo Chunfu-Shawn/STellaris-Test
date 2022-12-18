@@ -4370,11 +4370,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   width: 200px;
   height: 60px;
   padding: 25px 15px;
-  font-size: 22px;
+  font-size: 25px;
   line-height: 35px;
 }
 .navbar-brand > img {
-  display: block;
+  margin: 0px 10px;
 }
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,

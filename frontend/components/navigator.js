@@ -1,7 +1,8 @@
 import Link from "next/link";
 import {useEffect, useState} from "react";
-import {Button, Dropdown, Menu} from "antd";
+import {Button, Dropdown, Menu, Space} from "antd";
 import {MenuOutlined} from "@ant-design/icons";
+import Image from "next/image";
 const menu = (
     <Menu
         items={[
@@ -92,7 +93,9 @@ export default function Navigator(){
             <div className="container">
                 <div>
                     <Link href="/" >
-                        <a className="navbar-brand">STELLARIS</a>
+                        <a className="navbar-brand">
+                            <Image src={"/images/brand.svg"} alt={"logo"} width={135} height={35}/>
+                        </a>
                     </Link>
                 </div>
                 {
