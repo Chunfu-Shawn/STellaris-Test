@@ -27,7 +27,7 @@ export default function CellInteractions(){
         if (dotPlot[item].value.length !== 0)
             return item
     })
-    console.log(microenvironment)
+
     const [env, setEnv] = useState(microenvironment[0])
     const [cellTypePairs, setCellTypePairs] = useState(dotPlot[env].xAxis)
     const [cellTypePair, setCellTypePair] = useState(cellTypePairs[0])

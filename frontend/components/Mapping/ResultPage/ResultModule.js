@@ -22,6 +22,8 @@ import UMAPModule from "./UMAPModule";
 export default function ResultModule(){
     const divContent = useRef(null); //标识nav导航栏渲染内容
     const annContext = useContext(AnnContext);
+    const dotPlot = JSON.parse(annContext.result.dotPlot)
+
     const iconStyle = {color:"black", float:"right",fontSize:"25px",margin:'0 2%'}
     const stDataset = {
         "id": annContext.reqInfo.section_id,
@@ -170,7 +172,7 @@ export default function ResultModule(){
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
-                            {annContext.result.mst ?
+                            {annContext.result.mst && annContext.result.jsd ?
                                 <Row justify={"space-evenly"} align={"top"}>
                                     <Col>
                                         <JSDHeatmap/>
@@ -197,7 +199,7 @@ export default function ResultModule(){
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
-                            {annContext.result.dotPlot ?
+                            {dotPlot && dotPlot.microenvironment.length !== 0 ?
                                 <CellInteractions/>
                                 :
                                 <Empty
