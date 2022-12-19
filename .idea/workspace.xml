@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/GenePage/Download.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/GenePage/Download.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/images/figure1.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/figure1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-128x128.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-128x128.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-16x16.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-16x16.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-32x32.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-32x32.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-64x64.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2-64x64.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/images/favicon_io/logo2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +54,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/public/images",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/frontend/public/images/favicon_io",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,10 +68,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/public/images/favicon_io" />
       <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/public/examples/Mouse_fetal_brain_all/out/json" />
       <recent name="$PROJECT_DIR$/public/examples" />
-      <recent name="$PROJECT_DIR$/frontend/public/images/favicon_io" />
       <recent name="$PROJECT_DIR$/frontend/pages/tutorial" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -153,7 +157,7 @@
       <workItem from="1671165595888" duration="15665000" />
       <workItem from="1671199014001" duration="13549000" />
       <workItem from="1671348338410" duration="11234000" />
-      <workItem from="1671424281910" duration="1216000" />
+      <workItem from="1671424281910" duration="1820000" />
     </task>
     <servers />
   </component>
