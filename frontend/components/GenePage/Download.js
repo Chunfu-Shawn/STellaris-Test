@@ -1,7 +1,7 @@
 import {Divider,List} from "antd";
 import React from "react";
 import {DownloadOutlined} from "@ant-design/icons";
-import {exportToCsv} from "../util";
+import {downloadFile, exportToCsv} from "../util";
 import {useContext} from "react";
 import {GeneContext} from "../../pages/search/genePage/[gene_id]";
 
@@ -10,26 +10,22 @@ export default function Download(){
     const data = [
         {
             title: 'Gene Summary (JSON)',
-            url: `/api/gene/${geneContext.data.ensembl_id}`,
-            onClick:()=>void (0),
+            onClick:()=> window.open(`/api/gene/${geneContext.data.ensembl_id}`),
             description:'Summary of the gene in JSON format.'
         },
         {
             title: 'Gene Transcripts (CSV)',
-            url: `#`,
             onClick:()=>exportToCsv(geneContext.trans,`${geneContext.data.symbol}_transcripts`),
             description:'Transcript information of the gene from Ensembl database.'
         },
         {
             title: 'Spatially Variable Expression (CSV)',
-            url: `#`,
             onClick:()=>exportToCsv(geneContext.dataSV,`${geneContext.data.symbol}_spatially_variable_expression`),
             description:'Spatially variable expression records including gene name, datasets id, section id,' +
                 ' organ/tissue, scan, P-value and Q-value in CSV format.'
         },
         {
             title: 'Expression Rank Score (CSV)',
-            url: `#`,
             onClick:()=>exportToCsv(geneContext.dataER,`${geneContext.data.symbol}_expression_rank_score`),
             description:'Expression Rank Score of the gene which is defined as the percentile of log(CPM) in CSV format.'
         },
@@ -51,7 +47,7 @@ export default function Download(){
                     <List.Item>
                         <List.Item.Meta
                             avatar={<DownloadOutlined />}
-                            title={<a href={item.url} rel="noreferrer" onClick={item.onClick}>{item.title}</a>}
+                            title={<a onClick={item.onClick}>{item.title}</a>}
                             description={item.description}
                             onClick={item.click}
                         />
