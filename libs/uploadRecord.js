@@ -29,6 +29,8 @@ export function uploadRecord(ctx) {
             const annFinishTime = null
             const datasetID = null
             const sectionID = null
+            const cutoff = null
+            const bandWidth = null
             const status = 'ready'
             // whether the request is to run demo
             if (ctx.request.body.isDemo === "false") {
@@ -117,9 +119,10 @@ export function uploadRecord(ctx) {
             // 连接数据库
             connection.connect()
             // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
-            let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
+            let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
             connection.query(insertSql, [rid, title, email, species, organ, tissue, matrixFilePath, labelsFilePath,
-                    resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, status],
+                    resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, cutoff,
+                    bandWidth, status],
                 (err) => {
                     if (err) {
                         annotationLogger.log(`[${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)

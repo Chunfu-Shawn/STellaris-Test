@@ -68,6 +68,7 @@ app.prepare().then(() => {
     rule.hour =0;
     rule.minute =0;
     rule.second =0;
+    // run every day
     let rmFileJob = schedule.scheduleJob(rule, () => {
         // define the directory paths
         const DIR_PATH_RESULTS = './public/results/';
@@ -75,6 +76,7 @@ app.prepare().then(() => {
         // run
         rmFiles(DIR_PATH_RESULTS,DIR_PATH_UPLOADS)
     });
+    // run every second
     let jobQueueJob = schedule.scheduleJob("* * * * * ?", () => {
         //console.log(new Date().toLocaleString())
     });

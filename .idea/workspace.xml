@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/mapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/mapping.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/setJobDatasetSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/setJobMappingInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processes.json" beforeDir="false" afterPath="$PROJECT_DIR$/processes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadRecord.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +153,7 @@
       <workItem from="1671165595888" duration="15665000" />
       <workItem from="1671199014001" duration="13549000" />
       <workItem from="1671348338410" duration="11234000" />
-      <workItem from="1671424281910" duration="8811000" />
+      <workItem from="1671424281910" duration="9175000" />
     </task>
     <servers />
   </component>
