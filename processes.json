@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "spatial-trans-web",
+            "name": "STellaris",
             "instances":"5",
             "instance_var": "INSTANCE_ID",
             "exec_mode": "cluster",
@@ -10,7 +10,7 @@
             "error_file":"./logs/run_situation/err.log",
             "out_file":"./logs/run_situation/out.log",
             "merge_logs": true,
-            "log_date_format":"YYYY-MM-DD HH:mm Z",
+            "log_date_format":"YYYY-MM-DD HH:mm:ss Z",
             "env": {
                 "NODE_ENV": "production",
                 "PRODUCTION_URL": "http://10.10.30.30:3000"

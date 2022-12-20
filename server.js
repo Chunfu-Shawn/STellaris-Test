@@ -68,12 +68,15 @@ app.prepare().then(() => {
     rule.hour =0;
     rule.minute =0;
     rule.second =0;
-    let job = schedule.scheduleJob(rule, () => {
+    let rmFileJob = schedule.scheduleJob(rule, () => {
         // define the directory paths
         const DIR_PATH_RESULTS = './public/results/';
         const DIR_PATH_UPLOADS = './public/uploads/';
         // run
         rmFiles(DIR_PATH_RESULTS,DIR_PATH_UPLOADS)
+    });
+    let jobQueueJob = schedule.scheduleJob("* * * * * ?", () => {
+        //console.log(new Date().toLocaleString())
     });
 
     server.listen(3000, () => {

@@ -10,7 +10,7 @@ export default function Datasets() {
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle +'| Datasets'}</title>
+                <title>{siteTitle +'| Dataset Browser'}</title>
             </Head>
             <div className={'mainbody'}>
                 <div className="modal-body-stw">

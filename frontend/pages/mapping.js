@@ -12,7 +12,7 @@ export default function Mapping() {
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle +'| Mapping'}</title>
+                <title>{siteTitle +'| Spatial Mapping'}</title>
             </Head>
             <Row style={{width:"100vw",minWidth:1440}}>
                 <Col style={{width:"35%"}}>

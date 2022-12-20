@@ -8,7 +8,7 @@ import {annotationLogger} from "./logSave.js";
 import {selectSection} from "./selectSection.js";
 import {execScreening} from "./execScreening.js";
 import {getJobInfo} from "./api/getJobInfo.js";
-import {setJobDatasetSection} from "./setJobDatasetSection.js";
+import {setJobMappingInfo} from "./setJobMappingInfo.js";
 import copyExampleFiles from "./copyExampleFiles.js";
 
 
@@ -66,7 +66,7 @@ Router.post('/mapping/demo', async (ctx) => uploadRecord(ctx).then(
 Router.post('/mapping/annotate', async (ctx) => {
         try {
             const { rid, datasetId, sectionId, cutoff, bandWidth } = ctx.request.body
-            await setJobDatasetSection(rid, datasetId, sectionId)
+            await setJobMappingInfo(rid, datasetId, sectionId, cutoff, bandWidth)
             const record = await getJobInfo(rid)
             const resultPath = record.result_path
             const species = record.species
