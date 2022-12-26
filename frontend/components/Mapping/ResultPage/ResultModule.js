@@ -5,7 +5,7 @@ import {useRef} from "react";
 import ResultPageSiderMenu from "../ResultPage/ResultPageSiderMenu";
 import Link from "next/link";
 import {DownloadOutlined, QuestionCircleOutlined, SmileOutlined} from "@ant-design/icons";
-import ResultDownload from "../ResultPage/ResultDownload";
+import ResultsDownload from "./ResultsDownload";
 import Preprocessing from "../ResultPage/Preprocessing";
 import UMAPScatter from "../ResultPage/UMAPScatter";
 import JSDHeatmap from "../ResultPage/JSDHeatmap";
@@ -211,7 +211,7 @@ export default function ResultModule(){
                                 />
                             }
                         </div>
-                        <ResultDownload/>
+                        <ResultsDownload/>
                     </div>
                 </Col>
             </Row>

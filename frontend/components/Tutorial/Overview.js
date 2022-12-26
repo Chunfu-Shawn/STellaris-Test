@@ -34,33 +34,33 @@ export default function Overview(){
                 <p style={{marginBottom:0}}>Note that we include two example jobs of Spatial Mapping that have already
                     been completed:</p>
                 <Button type={"link"}>
-                    <Link href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
+                    <a href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
                         <span>
                             Mouse fetal brain <b><i>(FINISHED)</i></b>
                         </span>
-                    </Link>
+                    </a>
                 </Button>
                 <Button type={"link"}>
-                    <Link href={"/mapping/resultPage/be5c2ed0-73c4-11ed-b6c1-d3f15153eaa4"}>
+                    <a href={"/mapping/resultPage/be5c2ed0-73c4-11ed-b6c1-d3f15153eaa4"}>
                         <span>
                             Tumor microenvironment in PDAC <b><i>(FINISHED)</i></b>
                         </span>
-                    </Link>
+                    </a>
                 </Button>
                 <p style={{marginBottom:0}}>and two corresponding examples to be executed leading to these results:</p>
                 <Button type={"link"}>
-                    <Link href={"/"}>
+                    <a href={"/"}>
                         <span>
                             Mouse fetal brain <b><i>(FROM SCRATCH)</i></b>
                         </span>
-                    </Link>
+                    </a>
                 </Button>
                 <Button type={"link"}>
-                    <Link href={"/"}>
+                    <a href={"/"}>
                         <span>
                             Tumor microenvironment in PDAC <b><i>(FROM SCRATCH)</i></b>
                         </span>
-                    </Link>
+                    </a>
                 </Button>
                 <p>You can get started using these demo cases from <b>Home page</b> or <b>Mapping page</b> in the navigation bar.</p>
                 <Space>

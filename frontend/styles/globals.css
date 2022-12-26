@@ -1,5 +1,6 @@
 #topheader {
-  text-align: center
+  text-align: center;
+  min-width: 1440px;
 }
 
 #footer {
@@ -203,7 +204,7 @@ ol, ul {
   border-radius: 4px;
   border-style: solid;
   border-width: 2px;
-  border-color: rgba(219, 209, 238, 0.99);
+  border-color: rgba(238, 231, 253, 0.99);
 
 }
 .description{

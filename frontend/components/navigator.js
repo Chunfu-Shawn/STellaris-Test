@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {useEffect, useState} from "react";
-import {Button, Dropdown, Menu, Space} from "antd";
+import {Button, Dropdown, Menu} from "antd";
 import {MenuOutlined} from "@ant-design/icons";
 import Image from "next/image";
 const menu = (
@@ -92,8 +92,8 @@ export default function Navigator(){
         <nav id="topheader" className="navbar-inverse navbar-fixed-top">
             <div className="container">
                 <div>
-                    <Link href="/" >
-                        <a className="navbar-brand">
+                    <Link href="/">
+                        <a className="navbar-brand" >
                             <Image src={"/images/brand.svg"} alt={"logo"} width={135} height={35}/>
                         </a>
                     </Link>
@@ -101,13 +101,13 @@ export default function Navigator(){
                 {
                     //width < breakpoint ? collapseButtom:
                     <ul className={"nav navbar-nav"} >
-                        <li id="mapping" className="nav-item"><Link href="/mapping" className="nav-link" ><a>Mapping</a></Link></li>
-                        <li id="datasets" className="nav-item"><Link href="/datasets" className="nav-link" ><a>Datasets</a></Link></li>
-                        <li id="search" className="nav-item"><Link href="/search" className="nav-link" ><a>Search</a></Link></li>
-                        <li id="tutorial" className="nav-item"><Link href="/tutorial" className="nav-link" ><a>Tutorial</a></Link></li>
-                        <li id="help" className="nav-item"><Link href="/help/manual/mapping" className="nav-link" ><a>Help</a></Link></li>
-                        <li id="about" className="nav-item"><Link href="/about" className="nav-link" ><a>About</a></Link></li>
-                        <li id="contact" className="nav-item"><Link href="/contact" className="nav-link" ><a>Contact</a></Link></li>
+                        <li id="mapping" className="nav-item"><Link href="/mapping"><a className="nav-link" >Mapping</a></Link></li>
+                        <li id="datasets" className="nav-item"><Link href="/datasets"><a className="nav-link" >Datasets</a></Link></li>
+                        <li id="search" className="nav-item"><Link href="/search"><a className="nav-link" >Search</a></Link></li>
+                        <li id="tutorial" className="nav-item"><Link href="/tutorial"><a className="nav-link" >Tutorial</a></Link></li>
+                        <li id="help" className="nav-item"><Link href="/help/manual/mapping"><a className="nav-link" >Help</a></Link></li>
+                        <li id="about" className="nav-item"><Link href="/about"><a className="nav-link" >About</a></Link></li>
+                        <li id="contact" className="nav-item"><Link href="/contact"><a className="nav-link" >Contact</a></Link></li>
                     </ul>
                 }
             </div>

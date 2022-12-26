@@ -9,6 +9,7 @@ import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
 
 export default function ScreeningModule(){
     const annContext = useContext(AnnContext);
+
     return(
         <div className="modal-body-stw" >
             <MappingSteps current={1}/>

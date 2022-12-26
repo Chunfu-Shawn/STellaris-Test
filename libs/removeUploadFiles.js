@@ -2,7 +2,7 @@ import {annotationLogger} from "./logSave.js";
 import fs from "fs";
 import {removePromise} from "./one-week-files-delete.js";
 
-export default function removeUploadFiles(resultPath) {
+export default function removeUploadFiles(rid, resultPath) {
     try {
         const tmp = resultPath.split('/').map(item => {
             if (item === "results") return "uploads"
@@ -11,12 +11,12 @@ export default function removeUploadFiles(resultPath) {
         const uploadPath = tmp.join('/')
         if(fs.existsSync(uploadPath)) {
             removePromise(uploadPath).then(
-                annotationLogger.log(`[${new Date().toLocaleString()}]: removed uploaded files of ${resultPath.split('/')[3]}`)
+                annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: removed uploaded files of ${resultPath.split('/')[3]}`)
             )
         }else {
-            annotationLogger.log(`[${new Date().toLocaleString()}] Error: uploaded files of ${resultPath.split('/')[3]} not exist !`)
+            annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: uploaded files of ${resultPath.split('/')[3]} not exist !`)
         }
     }catch (e){
-        annotationLogger.log(`[${new Date().toLocaleString()}] Error: removing uploaded files of ${resultPath.split('/')[3]} fail !`)
+        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: removing uploaded files of ${resultPath.split('/')[3]} fail !`)
     }
 }

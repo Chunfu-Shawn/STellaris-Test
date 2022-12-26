@@ -102,7 +102,7 @@ export default function SectionTable() {
             dataIndex: 'st_id',
             key: 'st_id',
             width:'18%',
-            render: text => <Link href={'/datasets/dataPage/'+text}><a target={"_blank"}>{text}</a></Link>,
+            render: text => <a href={'/datasets/dataPage/'+text} target={"_blank"} rel={'noreferrer'}>{text}</a>,
             sorter: (a, b) => {
                 if(a.st_id > b.st_id) return 1
                 else return -1

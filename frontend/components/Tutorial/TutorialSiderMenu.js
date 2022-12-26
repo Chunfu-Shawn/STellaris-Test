@@ -11,21 +11,21 @@ const items = [
         children:
             [
                 {
-                    label: <Link href={'/tutorial/mapping/getStarted'}>Get started</Link>, key: 'Get started',
+                    label: <Link href={'/tutorial/mapping/getStarted'}><a>Get started</a></Link>, key: 'Get started',
                 },
                 {
-                    label: <Link href={'/tutorial/mapping/result'}>Result interpretation</Link>, key: 'Result interpretation',
+                    label: <Link href={'/tutorial/mapping/result'}><a>Result interpretation</a></Link>, key: 'Result interpretation',
                 },
                 {
-                    label: <Link href={'/tutorial/mapping/exApp'}>Expanded application</Link>, key: 'MutiOmics',
+                    label: <Link href={'/tutorial/mapping/exApp'}><a>Expanded application</a></Link>, key: 'MutiOmics',
                 }
             ],
     },
     {
-        label: <Link href={'/tutorial/datasets'}>Dataset Browser</Link>, key: 'Dataset Browser'
+        label: <Link href={'/tutorial/datasets'}><a>Dataset Browser</a></Link>, key: 'Dataset Browser'
     },
     {
-        label: <Link href={'/tutorial/gene'}>Gene Search</Link>, key: 'Gene Search',
+        label: <Link href={'/tutorial/gene'}><a>Gene Search</a></Link>, key: 'Gene Search',
     },
 
 ]

@@ -27,14 +27,17 @@ export default function SearchResultTable(props){
                 else return -1
             },
             sortOrder: sortedInfo.columnKey === 'symbol' ? sortedInfo.order : null,
-            render: (text,record) => text!=="-" ? <Link href={`/search/genePage/${record.ensembl_id}`}><a target={"_blank"} id={record.ensembl_id} >{text}</a></Link>:"-",
+            render: (text,record) => text!=="-" ?
+                <a href={`/search/genePage/${record.ensembl_id}`} target={"_blank"} id={record.ensembl_id} rel={'noreferrer'}>
+                    {text}
+                </a>:"-",
         },
         {
             title: 'Ensembl ID',
             dataIndex: 'ensembl_id',
             key: 'ensembl_id',
             width:'15%',
-            render: (text) => <Link href={'/search/genePage/'+text}><a target={"_blank"}>{text}</a></Link>,
+            render: (text) => <a href={'/search/genePage/'+text} target={"_blank"} rel={'noreferrer'}>{text}</a>,
             sorter: (a, b) => {
                 if(a.ensembl_id > b.ensembl_id) return 1
                 else return -1

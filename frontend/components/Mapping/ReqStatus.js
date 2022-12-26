@@ -7,21 +7,22 @@ import {calTime} from "../util";
 
 export default function ReqStatus(props){
     const annContext = useContext(AnnContext);
-    const [usedTime, setUsedTime] = useState(" ");
-    const [nowTime, setNowTime] = useState(Date.parse(annContext.serverTime)+2000);
-    let startTime = new Date().toTimeString()
+    let startTime
+    const [nowTime, setNowTime] = useState(Date.parse(annContext.serverTime));
+    const fetchTime = async () => {
+        fetch("/api/server-time")
+            .then(res => res.json())
+            .then(json => setNowTime(Date.parse(json.serverTime)))
+    }
+    useEffect(()=>{
+        const timer = setInterval(async () => await fetchTime(), 1000);
+        return () => clearInterval(timer);
+    },[])
 
     if( props.type === "screening"){
         startTime = annContext.reqInfo.upload_time
     }else startTime = annContext.reqInfo.ann_start_time
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setNowTime(nowTime +1000)
-            setUsedTime(calTime(new Date(nowTime).toISOString(), startTime))
-        }, 1000);
-        return () => clearInterval(timer);
-    });
     return(
             <div className="panel panel-default" style={props.style}>
                 <div className="panel-heading">Job Title: &nbsp;&nbsp;&nbsp;&nbsp;{annContext.reqInfo.title}</div>
@@ -41,7 +42,7 @@ export default function ReqStatus(props){
                     </tr>
                     <tr>
                         <td>Run Time</td>
-                        <td>{usedTime}</td>
+                        <td>{calTime(new Date(nowTime).toISOString(), startTime)}</td>
                     </tr>
                     <tr>
                         <td>The URL of result page will be sent to </td>

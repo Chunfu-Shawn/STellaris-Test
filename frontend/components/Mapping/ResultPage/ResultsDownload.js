@@ -6,7 +6,7 @@ import {useContext} from "react";
 import Link from "next/link";
 import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
 
-export default function ResultDownload(){
+export default function ResultsDownload(){
     const annContext = useContext(AnnContext);
     const dataset_id = annContext.reqInfo.dataset_id
     const section_id = annContext.reqInfo.section_id

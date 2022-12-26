@@ -56,7 +56,7 @@ export function removePromise(dir) {
     })
 }
 
-export default function (DIR_PATH_RESULTS,DIR_PATH_UPLOADS){
+export default function rmFiles(DIR_PATH_RESULTS,DIR_PATH_UPLOADS){
     // remove results
     removeFolder(DIR_PATH_RESULTS).then(()=>{
         console.log(new Date())

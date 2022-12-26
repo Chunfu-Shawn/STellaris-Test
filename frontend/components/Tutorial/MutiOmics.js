@@ -67,9 +67,10 @@ export default function MutiOmics(){
                 </p>
                 <h4>Spatial mapping results</h4>
                 <p>The spatial mapping result page of scRNA-seq from Paired-Tag data using STellaris can be found
-                    <Link href={"/mapping/resultPage/ac970aa0-79fd-11ed-968c-79eb53139108"}>
-                        <a target={"_blank"} rel={"noreferrer"}><b> here</b></a>
-                    </Link>, and
+                    <a href={"/mapping/resultPage/ac970aa0-79fd-11ed-968c-79eb53139108"}
+                          target={"_blank"} rel={"noreferrer"}>
+                        <b> here</b>
+                    </a>, and
                     the registered scRNA-seq data in h5ad format can be downloaded
                     <a onClick={()=>downloadFile(`https://rhesusbase.com:9999/files/sc_registered.h5ad`)}>
                         <b> here</b>

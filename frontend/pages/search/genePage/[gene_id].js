@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import LayoutCustom from '../../../components/LayoutCustom.js'
+import LayoutCustom, {siteTitle} from '../../../components/LayoutCustom.js'
 import {Affix, Col, Row, Tag, Space} from 'antd';
 import React, {useRef, useEffect, useState} from "react";
 import GenePageSiderMenu from "../../../components/GenePage/GenePageSiderMenu.js";
@@ -89,7 +89,7 @@ export default function GenePage(props) {
                 }
             }>
             <Head>
-                <title>{'STellaris | Gene Search | '+ props.data.ensembl_id}</title>
+                <title>{`${siteTitle}| Gene Search | ${props.data.ensembl_id}`}</title>
             </Head>
                 <div
                     className={"modal-body-stw with-sider"}

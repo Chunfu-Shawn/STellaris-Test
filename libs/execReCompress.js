@@ -2,7 +2,7 @@ import fs from "fs"
 import child_process from 'child_process';
 import {annotationLogger} from "./logSave.js";
 
-export function execReCompress(resultPath) {
+export function execReCompress(rid, resultPath) {
     const resCompress = 'scripts/NicheAnchor/compress_results.sh'
     const command =
         "bash " + resCompress +
@@ -11,20 +11,20 @@ export function execReCompress(resultPath) {
 
     if (!fs.existsSync(resCompress)) {
         //如果python脚本不存在
-        annotationLogger.log(`[${new Date().toLocaleString()}] Error: results compression script not found !`)
+        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: results compression script not found !`)
     } else  {
         try {
-            annotationLogger.log(`[${new Date().toLocaleString()}]: results compression running...`)
+            annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: results compression running...`)
             let resCompressProcess = child_process.exec(command)
             // 监听screenProcess任务的exit事件，如果发生则调用listener
             resCompressProcess.on('exit', function (code) {
                 if (code === 0)
-                    annotationLogger.log(`[${new Date().toLocaleString()}]: results compression finished`)
+                    annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: results compression finished`)
                 else
-                    annotationLogger.log(`[${new Date().toLocaleString()}]: results compression failed`)
+                    annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: results compression failed`)
             });
         } catch (err) {
-            annotationLogger.log(`[${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)
+            annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)
         }
     }
 }

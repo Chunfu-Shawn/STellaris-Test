@@ -39,4 +39,12 @@ export const annotationLogger = new console.Console(annotationLogStream);
 
 export const accessLogger = morgan('combined',{
     stream: accessLogStream,
-    skip: function (ctx) { return ctx.url.search("/_next/static/")!==-1 }})
+    skip: function (ctx) {
+        return ctx.url.search("/_next/")!==-1 ||
+            ctx.url.search("/api/job-info")!==-1 ||
+            ctx.url.search("/api/screening-log")!==-1 ||
+            ctx.url.search("/api/queue")!==-1 ||
+            ctx.url.search("/api/niche-anchor-log")!==-1 ||
+            ctx.url.search("/api/server-time")!==-1 ||
+            ctx.url.search("/images/")!==-1
+    }})

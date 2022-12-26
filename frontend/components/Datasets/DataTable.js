@@ -10,7 +10,7 @@ export default function DataTable(props) {
             dataIndex: 'st_id',
             key: 'st_id',
             width:'22%',
-            render: text => <Link href={'dataPage/'+text}><a>{text}</a></Link>,
+            render: text => <a href={'dataPage/'+text}>{text}</a>,
             sorter: (a, b) => {
                 if(a.st_id > b.st_id) return 1
                 else return -1

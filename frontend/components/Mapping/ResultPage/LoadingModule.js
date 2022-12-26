@@ -1,8 +1,7 @@
 import * as echarts from 'echarts';
 import React, {useEffect, useRef} from "react";
-import * as d3 from "d3-scale-chromatic";
 
-export default function LoadingModule(props) {
+export default function LoadingModule() {
     // use echarts
     const chartRef = useRef(null);
     let chartInstance = null;

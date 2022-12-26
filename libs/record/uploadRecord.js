@@ -1,16 +1,8 @@
 import fs from "fs"
 import { v1 as uuidv1 } from 'uuid'
-import mysql from 'mysql'
-import {annotationLogger, pad} from "./logSave.js";
-// 数据库的配置选项
+import {annotationLogger, pad} from "../logSave.js";
+import {poolReadWrite} from "../queue/createMysqlPool.js";
 
-const options = {
-    host: 'localhost',//主机名
-    user: 'readwrite',//用户
-    password: 'mysql_update',//密码
-    port: 3306,//端口号
-    database: 'spatial_trans_web'//要操作的数据库
-}
 
 export function uploadRecord(ctx) {
     return new Promise((resolve, reject) => {
@@ -115,22 +107,24 @@ export function uploadRecord(ctx) {
                 {flag: "w"}
             );
 
-            let connection = mysql.createConnection(options)
-            // 连接数据库
-            connection.connect()
             // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
             let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
-            connection.query(insertSql, [rid, title, email, species, organ, tissue, matrixFilePath, labelsFilePath,
-                    resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, cutoff,
-                    bandWidth, status],
-                (err) => {
-                    if (err) {
-                        annotationLogger.log(`[${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
-                    } else {
-                        annotationLogger.log(`[${new Date().toLocaleString()}]: Add a annotation record into MySQL successfully.`)
-                    }
-                })
-            connection.end()
+            // 连接mysql连接池
+            poolReadWrite.getConnection((err, connection)=>{
+                if(err){
+                    reject(err)
+                }
+                connection.query(insertSql, [rid, title, email, species, organ, tissue, matrixFilePath, labelsFilePath,
+                        resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, cutoff,
+                        bandWidth, status], (err) => {
+                        if (err) {
+                            annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
+                        } else {
+                            annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: Add a record into MySQL successfully.`)
+                        }
+                    })
+                connection.release()
+            })
             resolve([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath])
         } catch (err) {
             reject(err)

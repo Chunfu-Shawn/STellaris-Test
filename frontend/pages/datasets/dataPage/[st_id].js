@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import LayoutCustom from '../../../components/LayoutCustom.js'
+import LayoutCustom, {siteTitle} from '../../../components/LayoutCustom.js'
 import {Col, Row, Table, Tooltip, Divider, Tag, Affix} from 'antd';
 import {FileTextFilled, DownloadOutlined, QuestionCircleOutlined} from '@ant-design/icons';
 import React from "react";
@@ -59,7 +59,7 @@ export default function DataPage(props) {
     return (
         <LayoutCustom>
             <Head>
-                <title>{'STellaris | Datasets | '+ props.data.id}</title>
+                <title>{`${siteTitle}| Datasets | ${props.data.id}`}</title>
             </Head>
                 <div className={"modal-body-stw with-sider"}>
                     <Row style={{width:"100%"}}>

@@ -168,10 +168,11 @@ export default function ManualMapping() {
                 <a id={"advanced_parameters"} style={{position: 'relative', top: "-150px"}}></a>
                 <ol>
                     <li>
-                        <b>bindwidth</b>: a parameter associated with ST spots density and kernel smothness (see
-                        <Link href={"https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KernelDensity.html"}>
-                            <a target={"_blank"} rel={"noreferrer"}>&nbsp;KernelDensity</a>
-                        </Link>); if users
+                        <b>bindwidth</b>: a parameter associated with ST spots density and kernel smoothness (see
+                        <a href={"https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KernelDensity.html"}
+                              target={"_blank"} rel={"noreferrer"}>
+                            &nbsp;KernelDensity
+                        </a>); if users
                         want to distinguish cell types distribution better, turning down the bindwidth will be benificial.
                     </li>
                     <li>

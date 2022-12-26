@@ -1,8 +1,8 @@
 {
     "apps": [
         {
-            "name": "STellaris",
-            "instances":"5",
+            "name": "STellaris-Test",
+            "instances":"1",
             "instance_var": "INSTANCE_ID",
             "exec_mode": "cluster",
             "script": "./server.js",
@@ -13,7 +13,7 @@
             "log_date_format":"YYYY-MM-DD HH:mm:ss Z",
             "env": {
                 "NODE_ENV": "production",
-                "PRODUCTION_URL": "http://10.10.30.30:3000"
+                "PRODUCTION_URL": "http://10.10.30.30:3001"
             }
         }
     ]

@@ -1,8 +1,8 @@
 import {Button, Form, Input, message} from "antd";
-import SelectSpeciesOrganTissue from "./SelectSpeciesOrganTissue";
-import MatrixFileUpload from "./MatrixFileUpload";
-import LabelsFileUpload from "./LabelsFileUpload";
-import RunExampleModule from "./RunExampleModule"
+import SelectSpeciesOrganTissue from "./ForScRNAseq/SelectSpeciesOrganTissue";
+import MatrixFileUpload from "./ForScRNAseq/MatrixFileUpload";
+import LabelsFileUpload from "./ForScRNAseq/LabelsFileUpload";
+import RunExampleModule from "./ForPairedTag/RunExampleModule";
 import {throttle} from "../../util";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
@@ -10,7 +10,7 @@ import axios from "axios";
 import {getMappingModuleOptions} from "../../Datasets/getData&Options";
 
 
-export default function SpatialMapping(props) {
+export default function MappingForPairedTag(props) {
     const {
         validateMessages
     } = props

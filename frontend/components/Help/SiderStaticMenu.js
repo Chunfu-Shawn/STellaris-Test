@@ -8,13 +8,13 @@ const items = [
     {
         label: 'Manual', key: 'manual', icon: <CompassOutlined />,
         children: [
-            { label: <Link href={'/help/manual/mapping'}>Spatial Mapping</Link>, key: 'manual_mapping'},
-            { label: <Link href={'/help/manual/datasets'}>Dataset Browser</Link>, key: 'manual_datasets' },
-            { label: <Link href={'/help/manual/search'}>Gene Search</Link>, key: 'manual_search'}
+            { label: <Link href={'/help/manual/mapping'}><a>Spatial Mapping</a></Link>, key: 'manual_mapping'},
+            { label: <Link href={'/help/manual/datasets'}><a>Dataset Browser</a></Link>, key: 'manual_datasets' },
+            { label: <Link href={'/help/manual/search'}><a>Gene Search</a></Link>, key: 'manual_search'}
         ],
     },
     {
-        label: <Link href={'/help/api'}>API</Link>, key: 'api', icon: <SettingOutlined />
+        label: <Link href={'/help/api'}><a>API</a></Link>, key: 'api', icon: <SettingOutlined />
     }
 ]
 

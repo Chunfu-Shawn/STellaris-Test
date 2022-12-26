@@ -1,4 +1,4 @@
-# Spatial Transcritome data visualization, storage and web platform
+# STellaris
 
 ## Getting Started
 

@@ -11,9 +11,9 @@ export default function Sample(props){
             <a id={"Sample"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
                 <span style={{fontSize:22}}>Sample </span>
-                <Link href={'/help/manual/datasets#data_page_attributes'}>
-                    <a target={"_blank"}><QuestionCircleOutlined/></a>
-                </Link>
+                <a href={'/help/manual/datasets#data_page_attributes'} target={"_blank"} rel={'noreferrer'}>
+                    <QuestionCircleOutlined/>
+                </a>
             </Divider>
             <AttributeLayout attribute={"Species"}>{props.data.species}</AttributeLayout>
             <AttributeLayout attribute={"Strain"}>{props.data.strain!==null?props.data.strain:"--"}</AttributeLayout>

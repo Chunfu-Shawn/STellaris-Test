@@ -1,6 +1,7 @@
 import {Tabs} from "antd";
-import SpatialMapping from "./SpatialMapping";
+import MappingForScRNAseq from "./MappingForScRNAseq";
 import React from "react";
+import MappingForPairedTag from "./MappingForPairedTag";
 
 const validateMessages = {
     required: '${label} is required!',
@@ -18,15 +19,22 @@ const validateMessages = {
 
 export default function UploadModule(){
     const items =[
-        { label: 'Spatial Mapping of scRNA-seq', key: 'item-1', children:
-                <SpatialMapping
+        {
+            label: 'For scRNA-seq', key: 'item-1', children:
+                <MappingForScRNAseq
                     validateMessages={validateMessages}
                 />
-        }// 务必填写 key
+        },// 务必填写 key
+        {
+            label: 'For Paired-Tag', key: 'item-2', children:
+                <MappingForPairedTag
+                    validateMessages={validateMessages}
+                />
+        }
     ]
     return(
         <Tabs className={'border-card-wrapper'}
-              style={{paddingLeft:30,width:700,background:'rgb(243,242,246)'}}
+              style={{paddingLeft:30,width:700,background:'rgb(251,251,252)'}}
               defaultActiveKey="1"
               items={items}
               size={'large'}

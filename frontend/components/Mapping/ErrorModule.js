@@ -1,5 +1,4 @@
 import ErrorStatus from "./ErrorStatus";
-import Link from "next/link.js";
 import {CloseCircleOutlined} from "@ant-design/icons";
 import {Card, Col, Row} from "antd";
 import React, {useContext} from "react";
@@ -16,7 +15,8 @@ export default function ErrorModule(){
             <h2>ERROR!</h2>
             <h4>Unfortunately, something wrong happened or your uploaded files is undesirable.</h4>
             <span>
-                Please check it or create an issue on our <Link href={"#"}><a>Github repository</a></Link>.
+                Please check it or create an issue on our
+                <a href={"https://github.com/Chunfu-Shawn/STellaris_Spatial_Mapping"} target={"_blank"} rel={'noreferrer'}> Github repository</a>.
             </span>
             <Row justify="center" align="top" style={{marginTop:20,textAlign:"left"}}>
                 <Col span={7} style={{marginLeft: "40px"}}>

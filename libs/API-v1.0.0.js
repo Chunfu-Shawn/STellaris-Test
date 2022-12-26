@@ -19,6 +19,8 @@ import {getDatasetJsonl} from "./api/getDatasetJsonl.js";
 import {getDatasetImage} from "./api/getDatasetImage.js";
 import fs from "fs";
 import {getExpressionRankScore} from "./api/getExpressionRankScore.js";
+import {getWaitingJobNumber} from "./queue/getWaitingJobNumber.js";
+import {getWaitingOrder} from "./queue/getWaitingOrder.js";
 
 
 export const RouterAPI = router()
@@ -90,6 +92,16 @@ RouterAPI.get('/api/genes-expression-correlation/:geneOrSection/:param', async (
 RouterAPI.get('/api/screening-log/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.body = await getLogLine(record.result_path, '/log/ST_screening.log')
+})
+
+// fetch queue information
+RouterAPI.get('/api/queue/:rid', async (ctx) => {
+    const { waiting_job_number: waitingJobNumber } = await getWaitingJobNumber()
+    const { waiting_order: waitingOrder } = await getWaitingOrder(ctx.params.rid)
+    ctx.body = {
+        waitingJobNumber: waitingJobNumber,
+        waitingOrder: waitingOrder
+    }
 })
 
 // MIA Result and datasets information fetch

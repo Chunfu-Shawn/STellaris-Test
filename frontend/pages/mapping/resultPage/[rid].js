@@ -1,15 +1,16 @@
 import Head from 'next/head'
-import LayoutCustom from '../../../components/LayoutCustom.js'
-import WaitModule from "../../../components/Mapping/WaitModule.js";
 import useSWR from "swr";
-import ResultModule from "../../../components/Mapping/ResultPage/ResultModule.js";
-import ErrorModule from "../../../components/Mapping/ErrorModule.js";
 import React from "react";
-import LoadingModule from "../../../components/Mapping/ResultPage/LoadingModule";
 import {Result,Button} from "antd";
+import {DeleteOutlined} from "@ant-design/icons";
+import LayoutCustom, {siteTitle} from '../../../components/LayoutCustom.js'
 import ScreeningModule from "../../../components/Mapping/ScreeningPage/ScreeningModule";
 import SelectTableModule from "../../../components/Mapping/ScreeningPage/SelectTableModule";
-import {DeleteOutlined} from "@ant-design/icons";
+import WaitingModule from "../../../components/Mapping/WaitingModule.js";
+import RunningModule from "../../../components/Mapping/RunningModule.js";
+import ResultModule from "../../../components/Mapping/ResultPage/ResultModule.js";
+import ErrorModule from "../../../components/Mapping/ErrorModule.js";
+import LoadingModule from "../../../components/Mapping/ResultPage/LoadingModule";
 
 export async function getServerSideProps(context) {
     if ( typeof context.params.rid === undefined ) {
@@ -76,6 +77,7 @@ function useScreeningLog(rid,status){
     }
 }
 
+
 // 自定义hook，每次渲染后返回MIA结果；
 function useMIAResult(rid,status){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
@@ -92,8 +94,25 @@ function useMIAResult(rid,status){
     }
 }
 
+// 自定义hook，每次渲染后返回MIA结果；
+function useQueueInfo(rid,status){
+    const fetcher = (...args) => fetch(...args).then((res) => res.json())
+    const { data, error } = useSWR(status==="waiting"?`/api/queue/${rid}`:null, fetcher,
+        {
+            revalidateIfStale: false,
+            refreshInterval: 2000,
+        })
+
+    // 如果数据为空，为undefined，返回error为true
+    return{
+        queueInfo: data,
+        error4: error,
+        isLoading4: !error && !data,
+    }
+}
+
 // 自定义hook，每次渲染后返回 Niche Anchor Log结果；
-function useNicheAnchorLog(rid,status){
+function useSpatialMappingLog(rid,status){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     const { data, error } = useSWR(status==="running"?`/api/niche-anchor-log/${rid}`:null, fetcher,
         {
@@ -103,8 +122,8 @@ function useNicheAnchorLog(rid,status){
     // 如果数据为空，为undefined，返回error为true
     return{
         nLog: data,
-        error4: error,
-        isLoading4: !error && !data,
+        error5: error,
+        isLoading5: !error && !data,
     }
 }
 
@@ -119,8 +138,8 @@ function useAnnResult(rid,status){
     // 如果数据为空，为undefined，返回error为true
     return{
         result: data,
-        error5: error,
-        isLoading5: !error && !data,
+        error6: error,
+        isLoading6: !error && !data,
     }
 }
 
@@ -135,8 +154,8 @@ function useErrorLog(rid,status){
     // 如果数据为空，为undefined，返回error为true
     return{
         eLog: data,
-        error6: error,
-        isLoading6: !error && !data,
+        error7: error,
+        isLoading7: !error && !data,
     }
 }
 
@@ -146,23 +165,26 @@ export default function ResultPage(props) {
     let {reqInfo, error, isLoading} = useRequestInfo(props.rid)
     let {sLog, error2, isLoading2} = useScreeningLog(props.rid,
         reqInfo===undefined ? false : reqInfo.status)
+    let {queueInfo, error4, isLoading4} = useQueueInfo(props.rid,
+        reqInfo===undefined ? false : reqInfo.status)
     let {MIA, error3, isLoading3} = useMIAResult(props.rid,
         reqInfo===undefined ? false : reqInfo.status)
-    let {nLog, error4, isLoading4} = useNicheAnchorLog(props.rid,
+    let {nLog, error5, isLoading5} = useSpatialMappingLog(props.rid,
         reqInfo===undefined ? false : reqInfo.status)
-    let {result, error5, isLoading5} = useAnnResult(props.rid,
+    let {result, error6, isLoading6} = useAnnResult(props.rid,
         reqInfo===undefined ? false : reqInfo.status)
-    let {eLog, error6, isLoading6} = useErrorLog(props.rid,
+    let {eLog, error7, isLoading7} = useErrorLog(props.rid,
         reqInfo===undefined ? false : reqInfo.status)
     let returnModule
 
     // 如果找不到该rid，返回error 404页面
-    if (isLoading || isLoading2 || isLoading3 || isLoading4 || isLoading5 || isLoading6) {
+    if (isLoading || isLoading2 || isLoading3 || isLoading5 || isLoading6 || isLoading7) {
         returnModule = <div style={{textAlign:"center"}}><LoadingModule/></div>
     }
 
+
     //  如果找不到job信息或者分析的log信息，显示error页面
-    if ( error || error2 || error4 || error6){
+    if ( error || error2 || error5 || error7){
         returnModule =
             <Result
                 status="500"
@@ -174,7 +196,7 @@ export default function ResultPage(props) {
     }
 
     //  如果找不到MIA结果或最终结果，显示数据过期的页面
-    if ( error3 || error5 ){
+    if ( error3 || error6 ){
         returnModule =
             <Result
                 icon={<DeleteOutlined />}
@@ -195,16 +217,16 @@ export default function ResultPage(props) {
             returnModule = <ScreeningModule/>
         }else if(reqInfo.status === 'selecting' && !error3 && !isLoading3) {
             returnModule = <SelectTableModule/>
-        }else if(reqInfo.status === 'running' && !error4 && !isLoading4) {
-            returnModule = <WaitModule/>
-        }else if(reqInfo.status === 'finished' && !error5 && !isLoading5){
+        }else if(reqInfo.status === 'waiting' && !error4 && !isLoading4) {
+            returnModule = <WaitingModule/>
+        }else if(reqInfo.status === 'running' && !error5 && !isLoading5) {
+            returnModule = <RunningModule/>
+        }else if(reqInfo.status === 'finished' && !error6 && !isLoading6){
             returnModule = <ResultModule/>
-        }else if(reqInfo.status === 'error' && !error5 && !isLoading6){
+        }else if(reqInfo.status === 'error' && !error6 && !isLoading7){
             returnModule = <ErrorModule/>
         }
     }
-
-    let title = `STellaris | Mapping | ${props.rid}`
 
     return (
         <LayoutCustom>
@@ -215,13 +237,14 @@ export default function ResultPage(props) {
                     reqInfo: reqInfo,
                     sLog: sLog,
                     MIA: MIA,
+                    queueInfo: queueInfo,
                     nLog: nLog,
                     result: result,
                     eLog:eLog
                 }
             }>
                 <Head>
-                    <title>{title}</title>
+                    <title>{`${siteTitle}| Mapping | ${props.rid}`}</title>
                 </Head>
                 {returnModule}
             </AnnContext.Provider>

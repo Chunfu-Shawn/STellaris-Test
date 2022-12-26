@@ -2,7 +2,7 @@ import {Button, Col, Divider, Row, Table} from "antd";
 import Link from "next/link";
 import {QuestionCircleOutlined} from "@ant-design/icons";
 import React, {useEffect, useState} from "react";
-import {exportToCsv, toNonExponential} from "../../util";
+import {exportToCsv} from "../../util";
 
 export default function Features(props){
     const [loading, setLoading] = useState(false);
@@ -28,7 +28,7 @@ export default function Features(props){
             title: 'Ensembl ID',
             dataIndex: 'ensembl_id',
             width:'20%',
-            render: (text) => <Link href={`/search/genePage/${text}`}><a target={'_blank'}>{text}</a></Link>,
+            render: (text) => <a href={`/search/genePage/${text}`} target={'_blank'} rel={'noreferrer'}>{text}</a>,
             sorter: (a, b) => {
                 if(a.ensembl_id > b.ensembl_id) return 1
                 else return -1
@@ -89,9 +89,9 @@ export default function Features(props){
             <a id={"Features"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
                 <span style={{fontSize:22}}>Features </span>
-                <Link href={'/help/manual/datasets#identification_svg'}>
-                    <a target={"_blank"}><QuestionCircleOutlined/></a>
-                </Link>
+                <a href={'/help/manual/datasets#identification_svg'} target={"_blank"} rel={'noreferrer'}>
+                    <QuestionCircleOutlined/>
+                </a>
             </Divider>
             <div style={{marginLeft:20}}>
                 <Divider orientation="left" orientationMargin="0" dashed>

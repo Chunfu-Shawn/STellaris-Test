@@ -1,7 +1,6 @@
 import {Button, Dropdown, message} from "antd";
-import {throttle} from "../../util";
+import {throttle} from "../../../util";
 import {useRouter} from "next/router";
-import Link from "next/link.js";
 
 export default function RunExampleModule(props){
     const { setUploading } = props
@@ -51,40 +50,16 @@ export default function RunExampleModule(props){
             key: '1',
             label: (
                 <Button type={"link"}>
-                    <Link href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
+                    <a href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
                         <span>
                             Mouse fetal brain <b><i>(FINISHED)</i></b>
                         </span>
-                    </Link>
+                    </a>
                 </Button>
             ),
         },
-        /*{
+        {
             key: '2',
-            label: (
-                <Button type={"link"}>
-                    <Link href={"/mapping/resultPage/1fdb50c0-726a-11ed-a8ae-05b48e1b9d52"}>
-                        <span>
-                            Mouse organogenesis <b><i>(FINISHED)</i></b>
-                        </span>
-                    </Link>
-                </Button>
-            ),
-        },*/
-        {
-            key: '3',
-            label: (
-                <Button type={"link"}>
-                    <Link href={"/mapping/resultPage/be5c2ed0-73c4-11ed-b6c1-d3f15153eaa4"}>
-                        <span>
-                            Tumor microenvironment in PDAC <b><i>(FINISHED)</i></b>
-                        </span>
-                    </Link>
-                </Button>
-            ),
-        },
-        {
-            key: '4',
             label: (
                 <Button type={"link"} onClick={throttle(1000,onRunExample("Mouse fetal brain spatial cellular map"))}>
                     <span>
@@ -92,27 +67,7 @@ export default function RunExampleModule(props){
                     </span>
                 </Button>
             ),
-        },
-        /*{
-            key: '5',
-            label: (
-                <Button type={"link"} onClick={throttle(2000,onRunExample("Spatial distribution of cell types in mouse organogenesis"))}>
-                    <span>
-                        Mouse organogenesis <b><i>(FROM SCRATCH)</i></b>
-                    </span>
-                </Button>
-            ),
-        },*/
-        {
-            key: '6',
-            label: (
-                <Button type={"link"} onClick={throttle(2000,onRunExample("Spatial patterning of tumor microenvironment in PDAC"))}>
-                    <span>
-                        Tumor microenvironment in PDAC <b><i>(FROM SCRATCH)</i></b>
-                    </span>
-                </Button>
-            ),
-        },
+        }
     ]
 
     return(

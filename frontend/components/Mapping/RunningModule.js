@@ -7,8 +7,9 @@ import {SyncOutlined} from "@ant-design/icons";
 import {AnnContext} from "../../pages/mapping/resultPage/[rid]";
 
 
-export default function WaitModule(){
+export default function RunningModule(){
     const annContext = useContext(AnnContext);
+
     return(
         <div className="modal-body-stw" >
             <MappingSteps current={3}/>
