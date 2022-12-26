@@ -89,7 +89,7 @@ export default function GenePage(props) {
                 }
             }>
             <Head>
-                <title>{`${siteTitle}| Gene Search | ${props.data.ensembl_id}`}</title>
+                <title>{siteTitle+"| Gene Search | "+props.data.ensembl_id}</title>
             </Head>
                 <div
                     className={"modal-body-stw with-sider"}

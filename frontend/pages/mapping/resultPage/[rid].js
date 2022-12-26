@@ -244,7 +244,7 @@ export default function ResultPage(props) {
                 }
             }>
                 <Head>
-                    <title>{`${siteTitle}| Mapping | ${props.rid}`}</title>
+                    <title>{siteTitle+"| Mapping | "+props.rid}</title>
                 </Head>
                 {returnModule}
             </AnnContext.Provider>

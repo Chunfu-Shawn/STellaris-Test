@@ -57,7 +57,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function Results(props) {
-    let title = `${siteTitle}| Gene Search`
     const [searching, setSearching] = useState(false);
     const [idType, setIdType] = useState('Symbol');
     const [species, setSpecies] = useState('All');
@@ -89,7 +88,7 @@ export default function Results(props) {
     return (
         <LayoutCustom>
             <Head>
-                <title>{title}</title>
+                <title>{siteTitle+"| Gene Search"}</title>
             </Head>
             <div className="modal-body-stw" style={{padding:"150px 30px",textAlign:"left"}}>
                 <Row>

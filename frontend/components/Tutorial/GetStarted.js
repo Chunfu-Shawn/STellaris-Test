@@ -29,12 +29,12 @@ export default function GetStarted(){
                     (.tsv, .txt or .csv)  in gzip or zip compression (.gz or .zip). </p>
                 <p>A desirable count matrix file looks like:</p>
                 <div style={{textAlign:"center"}}>
-                    <Image src={"/images/tutorial/counts_matrix_example.png"} width={600} height={350}
+                    <Image src={"/images/tutorial/start/counts_matrix_example.png"} width={600} height={350}
                            alt={"counts_matrix_example"} style={{borderStyle:"dashed"}}/>
                 </div>
                 <p>A desirable label file looks like:</p>
                 <div style={{textAlign:"center"}}>
-                    <Image src={"/images/tutorial/labels_example.png"} width={600} height={200}
+                    <Image src={"/images/tutorial/start/labels_example.png"} width={600} height={200}
                            alt={"labels_example"} style={{borderStyle:"dashed"}}/>
                 </div>
                 <h3>2. Submit a job</h3>
@@ -54,7 +54,7 @@ export default function GetStarted(){
                     <li>Click on “Upload” and wait for a second.</li>
                 </ul>
                 <div style={{textAlign:"center"}}>
-                    <Image src={"/images/tutorial/get_started.png"} width={800} height={450}
+                    <Image src={"/images/tutorial/start/get_started.png"} width={800} height={450}
                            alt={"get_started"} style={{borderStyle:"dashed"}}/>
                 </div>
                 <h3>3. Section blast</h3>
@@ -65,9 +65,9 @@ export default function GetStarted(){
                 </p>
                 <div style={{textAlign:"center"}} >
                     <Space>
-                        <Image src={"/images/tutorial/email.png"} width={400} height={230}
+                        <Image src={"/images/tutorial/start/email.png"} width={400} height={230}
                                alt={"email"} style={{borderStyle:"dashed"}}/>
-                        <Image src={"/images/tutorial/section_blast.png"} width={600} height={330}
+                        <Image src={"/images/tutorial/start/section_blast.png"} width={600} height={330}
                                alt={"section_blast"}/>
                     </Space>
                 </div>
@@ -81,9 +81,9 @@ export default function GetStarted(){
                 </p>
                 <div style={{textAlign:"center"}}>
                     <Space>
-                        <Image src={"/images/tutorial/section_bar.png"} width={550} height={310}
+                        <Image src={"/images/tutorial/start/section_bar.png"} width={550} height={310}
                                alt={"section_bar"}/>
-                        <Image src={"/images/tutorial/section_table.png"} width={550} height={310}
+                        <Image src={"/images/tutorial/start/section_table.png"} width={550} height={310}
                                alt={"section_table"}/>
                     </Space>
                 </div>
@@ -94,9 +94,9 @@ export default function GetStarted(){
                 </p>
                 <div style={{textAlign:"center"}}>
                     <Space>
-                        <Image src={"/images/tutorial/select_section.png"} width={550} height={310}
+                        <Image src={"/images/tutorial/start/select_section.png"} width={550} height={310}
                                alt={"select_section"}/>
-                        <Image src={"/images/tutorial/select_section2.png"} width={550} height={310}
+                        <Image src={"/images/tutorial/start/select_section2.png"} width={550} height={310}
                                alt={"select_section2"}/>
                     </Space>
                 </div>
@@ -104,17 +104,22 @@ export default function GetStarted(){
                 <p>
                     A confirming dialog will pop up when you click the &quot;select&quot; button where you can set the advanced parameters
                     for spatial mapping. Here we use the defaults and click &quot;Continue&quot; to start the process of spatial mapping,
-                    and this will redirect us to another running page. Note that spatial mapping will generally take about
-                    30 min for around 20,000 single cells, please be patient, you can leave aside the running page and remember
-                    to come back later.
+                    and this will redirect us to another running page. If the server is busy, your job would be in the queue
+                    and start automatically when the previous jobs are complete. Note that spatial mapping will generally
+                    take about 30 min for around 20,000 single cells, please be patient, you can leave aside the running
+                    page and remember to come back later.
                 </p>
                 <div style={{textAlign:"center"}}>
                     <Space>
-                        <Image src={"/images/tutorial/select_section3.png"} width={550} height={320}
+                        <Image src={"/images/tutorial/start/select_section3.png"} width={550} height={320}
                                alt={"select_section3"}/>
-                        <Image src={"/images/tutorial/select_section4.png"} width={550} height={320}
+                        <Image src={"/images/tutorial/start/select_section4.png"} width={550} height={320}
                                alt={"select_section4"}/>
                     </Space>
+                </div>
+                <div style={{textAlign:"center",marginTop:10}} >
+                    <Image src={"/images/tutorial/start/select_section5.png"} width={550} height={320}
+                           alt={"select_section5"}/>
                 </div>
                 <p>
                     You will be automatically redirected to the result page of spatial mapping when the job is completed.

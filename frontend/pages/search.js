@@ -34,11 +34,10 @@ export default function SearchPage() {
             setSearching(false)
         }
     }
-    let title = `${siteTitle}| Gene Search`
     return (
         <LayoutCustom>
             <Head>
-                <title>{title}</title>
+                <title>{siteTitle+"| Gene Search"}</title>
             </Head>
             <div className="modal-body-stw" style={{height:"90vh"}}>
                 <div style={

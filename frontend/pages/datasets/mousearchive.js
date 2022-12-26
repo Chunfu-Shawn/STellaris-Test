@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import LayoutCustom from '../../components/LayoutCustom.js'
+import LayoutCustom, {siteTitle} from '../../components/LayoutCustom.js'
 import TableLayout from "../../components/Datasets/TableLayout.js";
 import {DateFomatter} from '../../components/util.js';
 import Link from "next/link.js";
@@ -39,7 +39,7 @@ export default function MouseArchive(props) {
     return (
         <LayoutCustom>
             <Head>
-                <title>STW | Mouse Archive</title>
+                <title>{siteTitle+"| Mouse Archive"}</title>
             </Head>
             <div className={"modal-body-stw"} style={{padding:'120px 80px'}}>
                 <Space align="start" style={{height:120}}>
@@ -47,7 +47,7 @@ export default function MouseArchive(props) {
                         {
                             fontSize:"45px",
                         }
-                    }>Spatial Transcriptome Data - Mouse Archive</span>
+                    }>Spatial Transcriptome Datasets - Mouse Archive</span>
                 </Space>
                 <TableLayout checkboxStyle={checkboxStyle} data={props.data} archive={"mouse"}></TableLayout>
             </div>

@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="" />
+    <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/mapping/resultPage/[rid].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/mapping/resultPage/[rid].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/search/genePage/[gene_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/search/genePage/[gene_id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/search/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/search/results.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,16 +38,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../STellaris-Test/frontend/pages/datasets/dataPage/[st_id].js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../STellaris-Test/frontend/styles/globals.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../STellaris-Test/libs/koaRouters.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../STellaris-Test/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/pages/datasets/dataPage/[st_id].js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/styles/globals.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/libs/koaRouters.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/../STellaris-Test/package.json" />
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectId" id="2Cq4kmQG37UFxocO1j9uZ5hyWN6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -43,48 +59,48 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/STellaris-Test/frontend/components/Mapping/index/ForPairedTag",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "ts.external.directory.path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/chunfu/WebstormProjects/STellaris-Test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/chunfu/WebstormProjects/Spatial-Trans-Web/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../STellaris-Test/frontend/components/Mapping/index/ForPairedTag" />
-      <recent name="$PROJECT_DIR$/../STellaris-Test/frontend/components/Mapping/index" />
+      <recent name="$PROJECT_DIR$/frontend/components/Mapping/index/ForPairedTag" />
+      <recent name="$PROJECT_DIR$/frontend/components/Mapping/index" />
       <recent name="$PROJECT_DIR$/frontend/public/images/favicon_io" />
       <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/public/examples/Mouse_fetal_brain_all/out/json" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../STellaris-Test/frontend/components/Mapping/index/ForPairedTag" />
-      <recent name="$PROJECT_DIR$/../STellaris-Test/frontend/components/Mapping/index/ForScRNAseq" />
+      <recent name="$PROJECT_DIR$/frontend/components/Mapping/index/ForPairedTag" />
+      <recent name="$PROJECT_DIR$/frontend/components/Mapping/index/ForScRNAseq" />
       <recent name="$PROJECT_DIR$/frontend/public/images/help/mapping" />
       <recent name="$PROJECT_DIR$/frontend/public/images/tutorial/result" />
       <recent name="$PROJECT_DIR$/public/examples/Mouse_fetal_brain_all/out/json" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.getMappingResult.js">
-    <configuration name="getMappingResult.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/../STellaris-Test/libs/api/getMappingResult.js" working-dir="$PROJECT_DIR$/../STellaris-Test/libs/api">
+    <configuration name="getMappingResult.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/libs/api/getMappingResult.js" working-dir="$PROJECT_DIR$/libs/api">
       <method v="2" />
     </configuration>
-    <configuration name="loveMie.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/public/files/loveMie.js" working-dir="$PROJECT_DIR$/../STellaris-Test/public/files">
+    <configuration name="loveMie.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/public/files/loveMie.js" working-dir="$PROJECT_DIR$/public/files">
       <method v="2" />
     </configuration>
-    <configuration name="one-week-files-delete.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/../STellaris-Test/libs/one-week-files-delete.js" working-dir="$PROJECT_DIR$/../STellaris-Test/libs">
+    <configuration name="one-week-files-delete.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/libs/one-week-files-delete.js" working-dir="$PROJECT_DIR$/libs">
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -156,6 +172,11 @@
       <workItem from="1671523830213" duration="388000" />
       <workItem from="1672050283170" duration="5000" />
       <workItem from="1672051358282" duration="2367000" />
+      <workItem from="1672070660214" duration="34000" />
+      <workItem from="1672071026692" duration="15000" />
+      <workItem from="1672071528051" duration="191000" />
+      <workItem from="1672071732181" duration="79000" />
+      <workItem from="1672071827212" duration="155000" />
     </task>
     <servers />
   </component>

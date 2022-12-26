@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import LayoutCustom from '../../components/LayoutCustom.js'
+import LayoutCustom, {siteTitle} from '../../components/LayoutCustom.js'
 import TableLayout from "../../components/Datasets/TableLayout.js";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
@@ -38,7 +38,7 @@ export default function HumanArchive(props) {
     return (
         <LayoutCustom>
             <Head>
-                <title>STW | Human Archive</title>
+                <title>{siteTitle+" | Human Archive"}</title>
             </Head>
             <div className={"modal-body-stw"} style={{padding:'120px 80px'}}>
                 <Space align="start" style={{height:120}}>
@@ -46,7 +46,7 @@ export default function HumanArchive(props) {
                         {
                             fontSize:"45px",
                         }
-                    }>Spatial Transcriptome Data - Human Archive</span>
+                    }>Spatial Transcriptome Datasets - Human Archive</span>
                 </Space>
                 <TableLayout checkboxStyle={checkboxStyle} data={props.data} archive={"human"}></TableLayout>
             </div>

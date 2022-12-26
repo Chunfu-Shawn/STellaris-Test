@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import LayoutCustom from '../../components/LayoutCustom.js'
+import LayoutCustom, {siteTitle} from '../../components/LayoutCustom.js'
 import TableLayout from "../../components/Datasets/TableLayout.js";
 import {Space} from "antd";
 import {DateFomatter} from "../../components/util";
@@ -37,7 +37,7 @@ export default function AllArchive(props) {
     return (
         <LayoutCustom>
             <Head>
-                <title>STW | Datasets Archive</title>
+                <title>{siteTitle+" | Datasets Archive"}</title>
             </Head>
             <div className={"modal-body-stw"} style={{padding:'120px 50px'}}>
                 <Space align="start" style={{height:120}}>
