@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../../components/LayoutCustom.js'
-import {Col, Input, Row, Select, Space, Table} from 'antd';
+import {Col, Input, Row, Select} from 'antd';
 import {useRouter} from "next/router";
 import {useState} from "react";
 import SearchResultTable from "../../components/Search/SearchResultTable.js";

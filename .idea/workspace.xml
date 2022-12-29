@@ -5,27 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Compatibility.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/FragmentsFileUpload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/pages/help/compatibility.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/record/getJobParams.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/record/setJobParams.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Help/SiderStaticMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/SiderStaticMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/SectionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/SectionTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/ForPairedTag/RunExampleModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/RunExampleModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/ForScRNAseq/MatrixFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForScRNAseq/MatrixFileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/MappingForPairedTag.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/MappingForSingleCellMultiomics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/MappingForScRNAseq.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/MappingForScRNAseq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/UploadModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/UploadModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/MutiOmics.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/MultiOmics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/help/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/tutorial/mapping/exApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/tutorial/mapping/exApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/execSpatialMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execSpatialMapping.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/uploadFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadFile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/search/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/search/results.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +164,7 @@
       <workItem from="1672071528051" duration="191000" />
       <workItem from="1672071732181" duration="79000" />
       <workItem from="1672071827212" duration="807000" />
-      <workItem from="1672134871218" duration="11295000" />
+      <workItem from="1672134871218" duration="12338000" />
     </task>
     <servers />
   </component>
