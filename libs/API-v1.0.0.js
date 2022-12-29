@@ -119,8 +119,9 @@ RouterAPI.get('/api/niche-anchor-log/:rid', async (ctx) => {
 
 // Mapping Result fetch
 RouterAPI.get('/api/mapping-result/:rid', async (ctx) => {
+    const record = await getJobInfo(ctx.params.rid)
     const params = await getJobParams(ctx.params.rid)
-    ctx.body = await getMappingResult(params.dataset_id, params.result_path)
+    ctx.body = await getMappingResult(params.dataset_id, record.result_path)
 })
 
 // screening or mapping error log fetch
