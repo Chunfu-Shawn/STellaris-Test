@@ -64,6 +64,7 @@ export default function MappingForScRNAseq(props) {
         formData.append('species', species)
         formData.append('organ', organ)
         formData.append('tissue', tissue)
+        formData.append('type', "scRNA-seq")
         formData.append('isDemo', "false")
         setUploading(true);
         // You can use any AJAX library you like
@@ -77,7 +78,7 @@ export default function MappingForScRNAseq(props) {
                     setMatrixFileList([file])
                 })
                 labelsFileList.forEach((file) => {
-                    file.percent = (progressEvent.loaded / progressEvent.total * 300 | 0);
+                    file.percent = (progressEvent.loaded / progressEvent.total * 380 | 0);
                     setLabelsFileList([file])
                 });
             },

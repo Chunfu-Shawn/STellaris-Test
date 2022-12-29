@@ -3,13 +3,12 @@ import Image from "next/image";
 import {Breadcrumb, Typography} from "antd";
 import {contentStyle} from "../Help/SiderStaticMenu";
 import {downloadFile} from "../util";
-import Link from "next/link.js";
 
-export default function MutiOmics(){
+
+export default function MultiOmics(){
     return(
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
-                <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Tutorial</Breadcrumb.Item>
                 <Breadcrumb.Item>Spatial Mapping</Breadcrumb.Item>
                 <Breadcrumb.Item>Expanded application</Breadcrumb.Item>
@@ -60,10 +59,13 @@ export default function MutiOmics(){
                 <h3>2. Data</h3>
                 <h4>Paired-Tag data</h4>
                 <p>The raw data of joint profiling of transcriptome and H3K4me histone modification in single cells can be
-                    downloaded here. We also provide raw data we used in this tutorial, please
+                    downloaded
+                    <a href={"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE152020"} target={"_blank"} rel={"noreferrer"}>
+                        <b> here</b>
+                    </a>. We also provide raw data we used in this tutorial, please download it
                     <a onClick={()=>downloadFile(`https://rhesusbase.com:9999/files/h3k4me3_03_filtered_matrix.tar.gz`)}>
-                        <b> download</b>
-                    </a> it here.
+                        <b> here</b>
+                    </a>.
                 </p>
                 <h4>Spatial mapping results</h4>
                 <p>The spatial mapping result page of scRNA-seq from Paired-Tag data using STellaris can be found

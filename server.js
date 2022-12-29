@@ -61,7 +61,7 @@ app.prepare().then(() => {
     server.use(async (ctx) => {
         try{
             const parsedUrl = parse(ctx.req.url, true)
-            const { pathname, query } = parsedUrl
+            //const { pathname, query } = parsedUrl
             // 传入Node原生的req对象，和res对象，因为Nextjs框架需要兼容许多基于Node封装的web框架
             // 让nextjs全局处理其他页面的http访问
             await handler(ctx.req, ctx.res, parsedUrl)

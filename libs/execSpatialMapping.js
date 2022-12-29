@@ -7,13 +7,19 @@ import removeUploadFiles from "./removeUploadFiles.js";
 import {getJobInfo} from "./api/getJobInfo.js";
 import {updateJob2Finished} from "./queue/updateJob2Finished.js";
 import {setJobTime} from "./record/setJobTime.js";
+import {getJobParams} from "./record/getJobParams.js";
 
 export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
+    const params = await getJobParams(rid)
     const record = await getJobInfo(rid)
-    const dataset = record.dataset_id
-    const section = record.section_id
-    const divergenceCutoff = record.cutoff
-    const bandWidth = record.band_width
+    const dataset = params.dataset_id
+    const section = params.section_id
+    const knnNum = params.knn_num
+    const nSpots = params.n_spots
+    const nCells = params.n_cells
+    const nRedundancy = params.n_redundancy
+    const divergenceCutoff = params.cutoff
+    const bandWidth = params.band_width
     const resultPath = record.result_path
     const species = record.species
     const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor-cellInteraction.sh'
@@ -24,6 +30,10 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
         " --key_celltype " + "cell_type" +
         " --dataset " + dataset +
         " --section " + section +
+        " --knn_num " + `"${knnNum}"` +
+        " --n_spot " + `"${nSpots}"` +
+        " --n_cells " + `"${nCells}"` +
+        " --n_redundancy " + `"${nRedundancy}"` +
         " --divergence_cutoff " + divergenceCutoff +
         " --band_width " + bandWidth +
         " --n_bootstrap " + nBootstrap +

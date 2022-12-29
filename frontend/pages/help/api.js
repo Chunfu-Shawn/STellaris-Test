@@ -4,7 +4,7 @@ import HelpAPI from "../../components/Help/Api";
 
 export default function HelpAPIPage() {
     return (
-        <HelpLayout selected={'api'}>
+        <HelpLayout opened={['manual']} selected={'api'}>
             <HelpAPI></HelpAPI>
         </HelpLayout>
     )

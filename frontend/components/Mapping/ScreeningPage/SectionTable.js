@@ -13,6 +13,10 @@ export default function SectionTable() {
     const [open, setOpen] = useState(false);
     const [datasetId, setDatasetId] = useState('');
     const [sectionId, setSectionId] = useState('');
+    const [knnNum, setKnnNum] = useState(50);
+    const [numSpots, setNumSpots] = useState(10);
+    const [numCells, setNumCells] = useState(10);
+    const [numRedundancy, setNumRedundancy] = useState(1);
     const [cutoff, setCutoff] = useState(0.3);
     const [bandWidth, setBandWidth] = useState(20);
     const [confirmLoading, setConfirmLoading] = useState(false);
@@ -21,7 +25,6 @@ export default function SectionTable() {
     const datasetsInfo = annContext.MIA.datasets_info
     let size = sections.length
     let data = []
-    console.log(datasetsInfo[2])
     for(let i=0;i<size;i++){
         let a={};
         a.key=sections[i].split("|")[1];
@@ -37,7 +40,6 @@ export default function SectionTable() {
                 a.developmental_stage = datasetsInfo[j].developmental_stage
             }
         }
-        console.log(a)
         data.push(a);
     }
     const ANN_URL = `/mapping/annotate/`
@@ -54,6 +56,10 @@ export default function SectionTable() {
                 rid: annContext.reqInfo.rid,
                 datasetId: datasetId,
                 sectionId: sectionId,
+                knnNum:knnNum,
+                numSpots:numSpots,
+                numCells:numCells,
+                numRedundancy:numRedundancy,
                 cutoff: cutoff,
                 bandWidth: bandWidth
             })
@@ -82,14 +88,27 @@ export default function SectionTable() {
         });
     };
 
-    const onCutoffChange = (value) => {
-        setCutoff(value);
+    const onKnnNumChange = (value) => {
+        setKnnNum(value);
+    };
+    const onNumSpotsChange = (value) => {
+        setNumSpots(value);
+    };
+    const onNumCellsChange = (value) => {
+        setNumCells(value);
+    };
+    const onNumRedundancyChange = (value) => {
+        setNumRedundancy(value);
     };
     const onBandWidthChange = (value) => {
         setBandWidth(value);
     };
+    const onCutoffChange = (value) => {
+        setCutoff(value);
+    };
 
-    // column sort
+
+
     const handleSelect = (datasetId,sectionId) => () => {
         setOpen(true)
         setDatasetId(datasetId)
@@ -219,24 +238,82 @@ export default function SectionTable() {
                         <a target={"_blank"}><QuestionCircleOutlined/></a>
                     </Link>
                 </Divider>
-                <Row justify={"space-evenly"}>
-                    <Col span={12}>
-                        <span>Divergence cutoff (0~1): </span>
+                <Row gutter={[0,10]} justify={"space-evenly"}>
+                    <Col span={7}>
+                        <span>KNN Number :</span>
+                    </Col>
+                    <Col span={5}>
                         <InputNumber
                             style={{
                                 width: 100,
                             }}
                             size={"small"}
-                            onChange={onCutoffChange}
-                            defaultValue="0.3"
-                            min="0.1"
-                            max="1"
-                            step="0.05"
+                            onChange={onKnnNumChange}
+                            defaultValue="50"
+                            precision={0}
+                            min="0"
+                            max="500"
+                            step="1"
+                        />
+                    </Col>
+                    <Col span={7}>
+                        <span>Number of spots :</span>
+                    </Col>
+                    <Col span={5}>
+                        <InputNumber
+                            style={{
+                                width: 100,
+                            }}
+                            size={"small"}
+                            onChange={onNumSpotsChange}
+                            defaultValue="10"
+                            precision={0}
+                            min="1"
+                            max="100"
+                            step="1"
                             stringMode
                         />
                     </Col>
-                    <Col span={8}>
-                        <span>Band width: </span>
+                    <Col span={7}>
+                        <span>Number of cells :</span>
+                    </Col>
+                    <Col span={5}>
+                        <InputNumber
+                            style={{
+                                width: 100,
+                            }}
+                            size={"small"}
+                            onChange={onNumCellsChange}
+                            defaultValue="10"
+                            precision={0}
+                            min="0"
+                            max="100"
+                            step="1"
+                            stringMode
+                        />
+                    </Col>
+                    <Col span={7}>
+                        <span>Redundancy : </span>
+                    </Col>
+                    <Col span={5}>
+                        <InputNumber
+                            style={{
+                                width: 100,
+                            }}
+                            size={"small"}
+                            onChange={onNumRedundancyChange}
+                            defaultValue="1"
+                            precision={0}
+                            min="1"
+                            max={Math.min(numCells,numSpots)}
+                            step="1"
+                            stringMode
+                        />
+                    </Col>
+                    <Col span={7}>
+                        <span>Bandwidth : </span>
+                    </Col>
+                    <Col span={5}>
                         <InputNumber
                             style={{
                                 width: 100,
@@ -244,9 +321,28 @@ export default function SectionTable() {
                             size={"small"}
                             onChange={onBandWidthChange}
                             defaultValue="20"
+                            precision={0}
                             min="5"
                             max="150"
                             step="5"
+                            stringMode
+                        />
+                    </Col>
+                    <Col span={7}>
+                        <span>Divergence cutoff : </span>
+                    </Col>
+                    <Col span={5}>
+                        <InputNumber
+                            style={{
+                                width: 100,
+                            }}
+                            size={"small"}
+                            onChange={onCutoffChange}
+                            defaultValue="0.3"
+                            precision={2}
+                            min="0.1"
+                            max="1"
+                            step="0.05"
                             stringMode
                         />
                     </Col>

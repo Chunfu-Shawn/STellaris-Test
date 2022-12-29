@@ -4,15 +4,15 @@ import Link from "next/link.js";
 import Image from "next/image";
 import React from "react";
 
-export default function MatrixFileUpload(props){
+export default function FragmentsFileUpload(props){
 
-    const settingMatrix = {
-        name: 'matrixFile',
+    const settingFragment = {
+        name: 'fragmentsFile',
         required: true,
         beforeUpload: (file) => {
             let filenameArr = file.name.split('.');
             props.setFileList([file]);
-            let limitM = 200; //MB
+            let limitM = 100; //MB
             let isMatrix = filenameArr[filenameArr.length - 2] === 'txt' ||
                 filenameArr[filenameArr.length - 2] === 'csv' ||
                 filenameArr[filenameArr.length - 2] === 'tsv';
@@ -24,7 +24,7 @@ export default function MatrixFileUpload(props){
             if (!isMatrix || !isCompressed) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} is not a compressed csv/tsv/txt format count matrix file`,
+                    content:`File: ${file.name} is not a compressed csv/tsv/txt format fragments file`,
                     style:{
                         marginTop: '12vh',
                     },
@@ -77,15 +77,15 @@ export default function MatrixFileUpload(props){
     return(
         <Row justify={"start"}>
             <Col span={16}>
-                <Form.Item name="matrixFile" label="Count Matrix File"
+                <Form.Item name="fragmentsFile" label="Fragments File"
                            rules={[
                                {
                                    required: true,
                                },
                            ]}
                 >
-                    <Upload {...settingMatrix} maxCount={1}>
-                        <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a count matrix file</Button>
+                    <Upload {...settingFragment} maxCount={1}>
+                        <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a fragments file</Button>
                     </Upload>
                 </Form.Item>
             </Col>

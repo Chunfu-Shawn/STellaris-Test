@@ -5,20 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Help/Compatibility.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/FragmentsFileUpload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pages/help/compatibility.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/record/getJobParams.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/record/setJobParams.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/GetStarted.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/mapping/resultPage/[rid].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/mapping/resultPage/[rid].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/search/genePage/[gene_id].js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/search/genePage/[gene_id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/search/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/search/results.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/Manual/ManualMapping.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Help/SiderStaticMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Help/SiderStaticMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/SectionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ScreeningPage/SectionTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/ForPairedTag/RunExampleModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/RunExampleModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/ForScRNAseq/MatrixFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForScRNAseq/MatrixFileUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/MappingForPairedTag.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/MappingForSingleCellMultiomics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/MappingForScRNAseq.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/MappingForScRNAseq.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/UploadModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/UploadModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/MutiOmics.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/MultiOmics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/help/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/help/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pages/tutorial/mapping/exApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/tutorial/mapping/exApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/execSpatialMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execSpatialMapping.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/uploadFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/uploadFile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,31 +65,31 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/chunfu/WebstormProjects/STellaris-Test&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/chunfu/WebstormProjects/Spatial-Trans-Web/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/STellaris-Test/libs/record",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "/Users/chunfu/WebstormProjects/Spatial-Trans-Web/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/components/Mapping/index/ForPairedTag" />
-      <recent name="$PROJECT_DIR$/frontend/components/Mapping/index" />
-      <recent name="$PROJECT_DIR$/frontend/public/images/favicon_io" />
-      <recent name="$PROJECT_DIR$/frontend/public/images" />
-      <recent name="$PROJECT_DIR$/public/examples/Mouse_fetal_brain_all/out/json" />
+      <recent name="$PROJECT_DIR$/libs/record" />
+      <recent name="$PROJECT_DIR$/frontend/components/Tutorial" />
+      <recent name="$PROJECT_DIR$/frontend/components/Help" />
+      <recent name="$PROJECT_DIR$/frontend/pages/help" />
+      <recent name="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/components/Mapping/index/ForPairedTag" />
@@ -176,7 +182,8 @@
       <workItem from="1672071026692" duration="15000" />
       <workItem from="1672071528051" duration="191000" />
       <workItem from="1672071732181" duration="79000" />
-      <workItem from="1672071827212" duration="155000" />
+      <workItem from="1672071827212" duration="807000" />
+      <workItem from="1672134871218" duration="11295000" />
     </task>
     <servers />
   </component>

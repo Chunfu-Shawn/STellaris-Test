@@ -2,21 +2,23 @@ import {Button, Form, Input, message} from "antd";
 import SelectSpeciesOrganTissue from "./ForScRNAseq/SelectSpeciesOrganTissue";
 import MatrixFileUpload from "./ForScRNAseq/MatrixFileUpload";
 import LabelsFileUpload from "./ForScRNAseq/LabelsFileUpload";
-import RunExampleModule from "./ForPairedTag/RunExampleModule";
+import RunExampleModule from "./ForSingleCellMultiomics/RunExampleModule";
 import {throttle} from "../../util";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import axios from "axios";
 import {getMappingModuleOptions} from "../../Datasets/getData&Options";
+import FragmentsFileUpload from "./ForSingleCellMultiomics/FragmentsFileUpload";
 
 
-export default function MappingForPairedTag(props) {
+export default function MappingForSingleCellMultiomics(props) {
     const {
         validateMessages
     } = props
     const UPLOAD_URL = `/mapping/upload/`
     const [matrixFileList, setMatrixFileList] = useState([]);
     const [labelsFileList, setLabelsFileList] = useState([]);
+    const [fragmentFileList, setFragmentFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
     const [speciesOptions, setSpeciesOptions] = useState(null);
     const [organOptions, setOrganOptions] = useState(null);
@@ -64,6 +66,7 @@ export default function MappingForPairedTag(props) {
         formData.append('species', species)
         formData.append('organ', organ)
         formData.append('tissue', tissue)
+        formData.append('type', "multiomics")
         formData.append('isDemo', "false")
         setUploading(true);
         // You can use any AJAX library you like
@@ -199,6 +202,10 @@ export default function MappingForPairedTag(props) {
             <LabelsFileUpload setFileList={setLabelsFileList}
                               fileList={labelsFileList}
                               uploading={uploading}
+            />
+            <FragmentsFileUpload setFileList={setFragmentFileList}
+                                 fileList={fragmentFileList}
+                                 uploading={uploading}
             />
 
             <Form.Item {...tailLayout}>

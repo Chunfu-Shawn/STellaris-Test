@@ -1,7 +1,7 @@
 import {Tabs} from "antd";
 import MappingForScRNAseq from "./MappingForScRNAseq";
 import React from "react";
-import MappingForPairedTag from "./MappingForPairedTag";
+import MappingForSingleCellMultiomics from "./MappingForSingleCellMultiomics";
 
 const validateMessages = {
     required: '${label} is required!',
@@ -26,8 +26,8 @@ export default function UploadModule(){
                 />
         },// 务必填写 key
         {
-            label: 'For Paired-Tag', key: 'item-2', children:
-                <MappingForPairedTag
+            label: 'For Single Cell Multiomics', key: 'item-2', children:
+                <MappingForSingleCellMultiomics
                     validateMessages={validateMessages}
                 />
         }

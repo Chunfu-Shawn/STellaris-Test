@@ -1,6 +1,6 @@
 import Link from "next/link.js";
 import {Layout, Menu} from 'antd';
-import {ProjectOutlined, PushpinOutlined, QuestionCircleOutlined, SettingOutlined, CompassOutlined} from "@ant-design/icons";
+import {CheckCircleOutlined, SettingOutlined, CompassOutlined} from "@ant-design/icons";
 import React from "react";
 const { Sider } = Layout;
 
@@ -15,6 +15,9 @@ const items = [
     },
     {
         label: <Link href={'/help/api'}><a>API</a></Link>, key: 'api', icon: <SettingOutlined />
+    },
+    {
+        label: <Link href={'/help/compatibility'}><a>Compatibility</a></Link>, key: 'compatibility', icon: <CheckCircleOutlined />
     }
 ]
 
