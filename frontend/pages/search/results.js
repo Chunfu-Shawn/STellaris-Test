@@ -3,7 +3,7 @@ import LayoutCustom, { siteTitle } from '../../components/LayoutCustom.js'
 import {Col, Input, Row, Select} from 'antd';
 import {useRouter} from "next/router";
 import {useState} from "react";
-import SearchResultTable from "../../components/Search/SearchResultTable.js";
+import SearchResultsTable from "../../components/Search/SearchResultsTable.js";
 const { Search } = Input;
 const { Option } = Select;
 
@@ -130,7 +130,7 @@ export default function Results(props) {
                     </Col>
                 </Row>
                 <div>
-                    <SearchResultTable data={props.data} />
+                    <SearchResultsTable data={props.data} />
                 </div>
             </div>
         </LayoutCustom>

@@ -14,7 +14,7 @@ export function setFilter(data){
     return filterJSON
 }
 
-export default function SearchResultTable(props){
+export default function SearchResultsTable(props){
     const [sortedInfo, setSortedInfo] = useState({});
     const columns =[
         {
