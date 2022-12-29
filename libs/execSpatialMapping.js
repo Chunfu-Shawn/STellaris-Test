@@ -30,10 +30,10 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
         " --key_celltype " + "cell_type" +
         " --dataset " + dataset +
         " --section " + section +
-        " --knn_num " + `"${knnNum}"` +
-        " --n_spots " + `"${nSpots}"` +
-        " --n_cells " + `"${nCells}"` +
-        " --n_redundancy " + `"${nRedundancy}"` +
+        " --knn_num " + knnNum +
+        " --n_spots " + nSpots +
+        " --n_cells " + nCells +
+        " --n_redundancy " + nRedundancy +
         " --divergence_cutoff " + divergenceCutoff +
         " --band_width " + bandWidth +
         " --n_bootstrap " + nBootstrap +

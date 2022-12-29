@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Search/SearchResultsTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Search/searchResultTable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/search/results.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/search/results.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/execSpatialMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execSpatialMapping.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +164,7 @@
       <workItem from="1672071528051" duration="191000" />
       <workItem from="1672071732181" duration="79000" />
       <workItem from="1672071827212" duration="807000" />
-      <workItem from="1672134871218" duration="13370000" />
+      <workItem from="1672134871218" duration="13663000" />
     </task>
     <servers />
   </component>
