@@ -9,16 +9,6 @@ import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
 const { Option } = Select;
 
 export default function CellInteractions(){
-    const onChangeEnv = (value) => {
-        setEnv(value)
-        // usestate 是异步函数，set后不能马上生效
-        setCellTypePairs(dotPlot[value].xAxis)
-        setCellTypePair(dotPlot[value].xAxis[0])
-    }
-    const onChangeCell = (value) => {
-        setCellTypePair(value)
-    }
-
     const annContext = useContext(AnnContext);
     const dotPlot = JSON.parse(annContext.result.dotPlot)
 
@@ -31,6 +21,16 @@ export default function CellInteractions(){
     const [env, setEnv] = useState(microenvironment[0])
     const [cellTypePairs, setCellTypePairs] = useState(dotPlot[env].xAxis)
     const [cellTypePair, setCellTypePair] = useState(cellTypePairs[0])
+
+    const onChangeEnv = (value) => {
+        setEnv(value)
+        // usestate 是异步函数，set后不能马上生效
+        setCellTypePairs(dotPlot[value].xAxis)
+        setCellTypePair(dotPlot[value].xAxis[0])
+    }
+    const onChangeCell = (value) => {
+        setCellTypePair(value)
+    }
 
     return(
         <Row justify="space-between" align="stretch">

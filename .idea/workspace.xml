@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/CellInteractions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/CellInteractions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,11 +74,11 @@
       <recent name="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/examples/Mouse_fetal_brain_all/out/json_tmp" />
+      <recent name="$PROJECT_DIR$/public/examples/Mouse_fetal_brain_all/out" />
       <recent name="$PROJECT_DIR$/frontend/components/Mapping/index/ForPairedTag" />
       <recent name="$PROJECT_DIR$/frontend/components/Mapping/index/ForScRNAseq" />
       <recent name="$PROJECT_DIR$/frontend/public/images/help/mapping" />
-      <recent name="$PROJECT_DIR$/frontend/public/images/tutorial/result" />
-      <recent name="$PROJECT_DIR$/public/examples/Mouse_fetal_brain_all/out/json" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.getMappingResult.js">
@@ -163,7 +165,7 @@
       <workItem from="1672071528051" duration="191000" />
       <workItem from="1672071732181" duration="79000" />
       <workItem from="1672071827212" duration="807000" />
-      <workItem from="1672134871218" duration="15932000" />
+      <workItem from="1672134871218" duration="17039000" />
     </task>
     <servers />
   </component>
