@@ -14,6 +14,7 @@ export function uploadRecord(ctx) {
             const rid = uuidv1()
             let email, species, organ, tissue, matrixFilePath, labelsFilePath
             const title = ctx.request.body.title
+            const type = ctx.request.body.type
             const resultPath = 'public/results/' + YMD + '/' + rid
             const uploadTime = uploadTimeP
             const screenFinishTime = null
@@ -108,7 +109,7 @@ export function uploadRecord(ctx) {
             );
 
             // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
-            let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
+            let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
             // 连接mysql连接池
             poolReadWrite.getConnection((err, connection)=>{
                 if(err){
@@ -116,7 +117,7 @@ export function uploadRecord(ctx) {
                 }
                 connection.query(insertSql, [rid, title, email, species, organ, tissue, matrixFilePath, labelsFilePath,
                         resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, cutoff,
-                        bandWidth, status], (err) => {
+                        bandWidth, type, status], (err) => {
                         if (err) {
                             annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
                         } else {

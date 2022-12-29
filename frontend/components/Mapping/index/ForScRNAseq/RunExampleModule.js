@@ -17,6 +17,7 @@ export default function RunExampleModule(props){
             body: JSON.stringify({
                 title:title,
                 isDemo:'true',
+                type: "scRNA-seq",
             })
         }).then(response => response.json())
             .then(json => rid = json.rid)
