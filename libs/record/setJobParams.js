@@ -1,7 +1,7 @@
 import {annotationLogger} from "../logSave.js";
 import {poolReadWrite} from "../queue/createMysqlPool.js";
 
-export function setJobParams(rid, knnNum, numSpots, numCells, numRedundancy, cutoff, bandWidth) {
+export function setJobParams(rid, knnNum, numSpots, numCells, numRedundancy, bandWidth, cutoff) {
     return new Promise( (resolve, reject)=>{
         // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
         let insertSql = `INSERT INTO job_params VALUES (?,?,?,?,?,?,?);`;
@@ -10,7 +10,7 @@ export function setJobParams(rid, knnNum, numSpots, numCells, numRedundancy, cut
             if(err){
                 reject(err)
             }
-            connection.query(insertSql, [rid, knnNum, numSpots, numCells, numRedundancy, cutoff, bandWidth],
+            connection.query(insertSql, [rid, knnNum, numSpots, numCells, numRedundancy, bandWidth, cutoff],
                 (err) => {
                 if (err) {
                     annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: there is error happened in MySQL: ${err.message}`)

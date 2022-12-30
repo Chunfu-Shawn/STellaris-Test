@@ -37,7 +37,7 @@ Router.post('/mapping/upload',
             // send mail
             ctx.request.body.emailAddress === "undefined" ||
             sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
-    }).catch((err)=>{
+        }).catch((err)=>{
         annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
     })
 )
@@ -53,11 +53,11 @@ Router.post('/mapping/demo', async (ctx) => uploadRecord(ctx).then(
         const [datasets, sections] = await selectSection(resultPath, species, organ, tissue)
         return ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath])
     }).then(
-        ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
-            // run section blast
-            annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start section blast`)
-            execSectionBlast(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
-        })
+    ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
+        // run section blast
+        annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start section blast`)
+        execSectionBlast(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
+    })
     .catch((err)=>{
         annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
     })
@@ -66,10 +66,10 @@ Router.post('/mapping/demo', async (ctx) => uploadRecord(ctx).then(
 // run mapping 的路由
 Router.post('/mapping/annotate', async (ctx) => {
         try {
-            const { rid, datasetId, sectionId, knnNum, numSpots, numCells, numRedundancy, cutoff, bandWidth }
+            const { rid, datasetId, sectionId, knnNum, numSpots, numCells, numRedundancy, bandWidth, cutoff }
                 = ctx.request.body
             await setJobMappingInfo(rid, datasetId, sectionId)
-            await setJobParams(rid, knnNum, numSpots, numCells, numRedundancy, cutoff, bandWidth)
+            await setJobParams(rid, knnNum, numSpots, numCells, numRedundancy, bandWidth, cutoff)
             annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start mapping`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
             await setJobStatus(rid,  "waiting")

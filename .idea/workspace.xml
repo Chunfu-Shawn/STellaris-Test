@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/API-v1.0.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/API-v1.0.0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/execSpatialMapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/execSpatialMapping.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/koaRouters.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/koaRouters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/record/setJobMappingInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/record/setJobMappingInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/record/setJobParams.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/record/setJobParams.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/record/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/record/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/STellaris-Test",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/STellaris-Test/libs/record",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,11 +67,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/libs/record" />
+      <recent name="$PROJECT_DIR$/libs" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/frontend/components/Tutorial" />
       <recent name="$PROJECT_DIR$/frontend/components/Help" />
-      <recent name="$PROJECT_DIR$/frontend/pages/help" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/examples/Mouse_fetal_brain_all/out/json_tmp" />
@@ -167,7 +165,7 @@
       <workItem from="1672071528051" duration="191000" />
       <workItem from="1672071732181" duration="79000" />
       <workItem from="1672071827212" duration="807000" />
-      <workItem from="1672134871218" duration="21571000" />
+      <workItem from="1672134871218" duration="22779000" />
     </task>
     <servers />
   </component>
