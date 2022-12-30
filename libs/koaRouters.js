@@ -68,7 +68,8 @@ Router.post('/mapping/annotate', async (ctx) => {
         try {
             const { rid, datasetId, sectionId, knnNum, numSpots, numCells, numRedundancy, cutoff, bandWidth }
                 = ctx.request.body
-            await setJobParams(rid, datasetId, sectionId, knnNum, numSpots, numCells, numRedundancy, cutoff, bandWidth)
+            await setJobMappingInfo(rid, datasetId, sectionId)
+            await setJobParams(rid, knnNum, numSpots, numCells, numRedundancy, cutoff, bandWidth)
             annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start mapping`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
             await setJobStatus(rid,  "waiting")

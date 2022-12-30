@@ -12,14 +12,14 @@ import {getJobParams} from "./record/getJobParams.js";
 export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
     const params = await getJobParams(rid)
     const record = await getJobInfo(rid)
-    const dataset = params.dataset_id
-    const section = params.section_id
     const knnNum = params.knn_num
     const nSpots = params.n_spots
     const nCells = params.n_cells
     const nRedundancy = params.n_redundancy
     const divergenceCutoff = params.cutoff
     const bandWidth = params.band_width
+    const dataset = record.dataset_id
+    const section = record.section_id
     const resultPath = record.result_path
     const species = record.species
     const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor-cellInteraction.sh'
