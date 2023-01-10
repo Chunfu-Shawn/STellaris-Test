@@ -16,37 +16,46 @@ import {setJobParams} from "./record/setJobParams.js";
 export const Router = router()
 // 设置路由，与next.js的路由进行映射
 
-// 上传文件的路由
-Router.post('/mapping/upload',
+const SectionBlast = async (ctx) => uploadRecord(ctx).then(
+    async ([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath]) => {
+        ctx.body = {rid: rid}
+        annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
+        // run sections matching species, organ and tissue
+        const [datasets, sections] = await selectSection(resultPath, species, organ, tissue)
+        return ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath])
+    }).then(
+    ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
+        // run section blast
+        annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start section blast`)
+        execSectionBlast(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
+        // send mail
+        ctx.request.body.emailAddress === "undefined" ||
+        sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
+    }).catch((err)=>{
+    annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
+})
+
+// scRNA-seq上传文件的路由
+Router.post('/mapping/scRNA-seq',
     uploadFile().fields([
         {name: 'matrixFile', maxCount: 1},
         {name: 'labelsFile', maxCount: 1},
-    ]),
-    async (ctx) => uploadRecord(ctx).then(
-        async ([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath]) => {
-            ctx.body = {rid: rid}
-            annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
-            // run sections matching species, organ and tissue
-            const [datasets, sections] = await selectSection(resultPath, species, organ, tissue)
-            return ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath])
-        }).then(
-        ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
-            // run section blast
-            annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start section blast`)
-            execSectionBlast(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
-            // send mail
-            ctx.request.body.emailAddress === "undefined" ||
-            sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
-        }).catch((err)=>{
-        annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)
-    })
-)
+    ]), SectionBlast )
+
+// multi-omics上传文件的路由
+Router.post('/mapping/multiomics',
+    uploadFile().fields([
+        {name: 'matrixFile', maxCount: 1},
+        {name: 'labelsFile', maxCount: 1},
+        {name: 'fragmentsFile', maxCount: 1},
+        {name: 'peakFile', maxCount: 1},
+    ]), SectionBlast )
 
 // run audition 的路由
 Router.post('/mapping/demo', async (ctx) => uploadRecord(ctx).then(
     async ([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath]) => {
         ctx.body = {rid: rid}
-        annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
+        annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: run example`)
         // copy processed example files to improve efficiency
         copyExampleFiles(rid, matrixFilePath, resultPath)
         // run sections matching species, organ and tissue

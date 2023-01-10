@@ -93,7 +93,7 @@ app.prepare().then(() => {
     let jobQueueJob = schedule.scheduleJob("*/2 * * * * ?", async () => {
         let { running_job_number: runningJobNumber } = await getRunningJobNumber()
         // if there are 2 running jobs
-        if( runningJobNumber < 2 ){
+        if( runningJobNumber < 3 ){
             // get first waiting job
             let waitingJob = await getPriorWaitingJob()
             if( waitingJob ){
@@ -109,7 +109,7 @@ app.prepare().then(() => {
                 // if there is not a waiting job
             }
         }else {
-            // if there are 2 running jobs
+            // if there are 3 running jobs
         }
     });
 

@@ -14,7 +14,7 @@ export default function MappingForScRNAseq(props) {
     const {
         validateMessages
     } = props
-    const UPLOAD_URL = `/mapping/upload/`
+    const UPLOAD_URL = `/mapping/scRNA-seq/`
     const [matrixFileList, setMatrixFileList] = useState([]);
     const [labelsFileList, setLabelsFileList] = useState([]);
     const [uploading, setUploading] = useState(false);

@@ -12,7 +12,11 @@ export function uploadRecord(ctx) {
             const uploadTimeP = now.toISOString()
             const YMD = String(now.getFullYear()) + pad(now.getMonth() + 1) + pad(now.getDate())
             const rid = uuidv1()
-            let email, species, organ, tissue, matrixFilePath, labelsFilePath
+            let email, species, organ, tissue
+            let matrixFilePath = null
+            let labelsFilePath = null
+            let fragmentsFilePath = null
+            let peakFilePath = null
             const title = ctx.request.body.title
             const type = ctx.request.body.type
             const resultPath = 'public/results/' + YMD + '/' + rid
@@ -50,6 +54,23 @@ export function uploadRecord(ctx) {
                     });
                 matrixFilePath = dir + '/' + ctx.request.files['matrixFile'][0].filename
                 labelsFilePath = dir + '/' + ctx.request.files['labelsFile'][0].filename
+                // if upload a multiomics job
+                if (ctx.request.body.type === "multiomics") {
+                    fragmentsFilePath = ctx.request.files['fragmentsFile'][0].destination + '/' +
+                        ctx.request.files['fragmentsFile'][0].filename
+                    peakFilePath = ctx.request.files['peakFile'][0].destination + '/' +
+                        ctx.request.files['peakFile'][0].filename
+                    fs.rename(fragmentsFilePath, dir + '/' + ctx.request.files['fragmentsFile'][0].filename,
+                        function (err) {
+                            if (err) throw err;
+                        });
+                    fs.rename(peakFilePath, dir + '/' + ctx.request.files['peakFile'][0].filename,
+                        function (err) {
+                            if (err) throw err;
+                        });
+                    fragmentsFilePath = dir + '/' + ctx.request.files['fragmentsFile'][0].filename
+                    peakFilePath = dir + '/' + ctx.request.files['peakFile'][0].filename
+                }
             } else if (ctx.request.body.isDemo === "true") {
                 // different example
                 if( title === "Mouse fetal brain spatial cellular map"){
@@ -107,15 +128,15 @@ export function uploadRecord(ctx) {
             );
 
             // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
-            let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
+            let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
             // 连接mysql连接池
             poolReadWrite.getConnection((err, connection)=>{
                 if(err){
                     reject(err)
                 }
                 connection.query(insertSql, [rid, title, email, species, organ, tissue, matrixFilePath, labelsFilePath,
-                        resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID,
-                            type, status], (err) => {
+                    fragmentsFilePath, peakFilePath, resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime,
+                    datasetID, sectionID, type, status], (err) => {
                         if (err) {
                             annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
                         } else {

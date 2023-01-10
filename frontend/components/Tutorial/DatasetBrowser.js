@@ -19,7 +19,7 @@ export default function DatasetBrowser(){
                     mapping tools.
                 </p>
                 <p>
-                    We included 98 datasets comprising 758 sections across organs, developmental stage and pathological states
+                    We included 100 datasets comprising 774 sections across organs, developmental stage and pathological states
                     in human and mouse. All curated ST datasets were processed by a centralized workflow. We provide this
                     interface for you to navigate through this catalog. Choose the ST data of your concern and explore the
                     spatially resolved expression profile of genes of interest.

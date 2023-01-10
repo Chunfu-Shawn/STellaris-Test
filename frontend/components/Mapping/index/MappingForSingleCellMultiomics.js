@@ -9,16 +9,18 @@ import {useRouter} from "next/router";
 import axios from "axios";
 import {getMappingModuleOptions} from "../../Datasets/getData&Options";
 import FragmentsFileUpload from "./ForSingleCellMultiomics/FragmentsFileUpload";
+import PeakFileUpload from "./ForSingleCellMultiomics/PeakFileUpload";
 
 
 export default function MappingForSingleCellMultiomics(props) {
     const {
         validateMessages
     } = props
-    const UPLOAD_URL = `/mapping/upload/`
+    const UPLOAD_URL = `/mapping/multiomics/`
     const [matrixFileList, setMatrixFileList] = useState([]);
     const [labelsFileList, setLabelsFileList] = useState([]);
-    const [fragmentFileList, setFragmentFileList] = useState([]);
+    const [fragmentsFileList, setFragmentsFileList] = useState([]);
+    const [peakFileList, setPeakFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
     const [speciesOptions, setSpeciesOptions] = useState(null);
     const [organOptions, setOrganOptions] = useState(null);
@@ -61,6 +63,18 @@ export default function MappingForSingleCellMultiomics(props) {
             setLabelsFileList([file])
             formData.append('labelsFile', file);
         });
+        fragmentsFileList.forEach((file) => {
+            file.percent = 0
+            file.status = 'uploading'
+            setFragmentsFileList([file])
+            formData.append('fragmentsFile', file);
+        });
+        peakFileList.forEach((file) => {
+            file.percent = 0
+            file.status = 'uploading'
+            setPeakFileList([file])
+            formData.append('peakFile', file);
+        });
         formData.append('title', form.getFieldValue('title'))
         formData.append('emailAddress', form.getFieldValue('emailAddress'))
         formData.append('species', species)
@@ -80,9 +94,17 @@ export default function MappingForSingleCellMultiomics(props) {
                     setMatrixFileList([file])
                 })
                 labelsFileList.forEach((file) => {
-                    file.percent = (progressEvent.loaded / progressEvent.total * 300 | 0);
+                    file.percent = (progressEvent.loaded / progressEvent.total * 388 | 0);
                     setLabelsFileList([file])
-                });
+                })
+                fragmentsFileList.forEach((file) => {
+                    file.percent = (progressEvent.loaded / progressEvent.total * 112 | 0);
+                    setLabelsFileList([file])
+                })
+                peakFileList.forEach((file) => {
+                    file.percent = (progressEvent.loaded / progressEvent.total * 277 | 0);
+                    setLabelsFileList([file])
+                })
             },
         }).then(response => response.data)
             .then(json => json.rid)
@@ -203,15 +225,21 @@ export default function MappingForSingleCellMultiomics(props) {
                               fileList={labelsFileList}
                               uploading={uploading}
             />
-            <FragmentsFileUpload setFileList={setFragmentFileList}
-                                 fileList={fragmentFileList}
+            <FragmentsFileUpload setFileList={setFragmentsFileList}
+                                 fileList={fragmentsFileList}
+                                 uploading={uploading}
+            />
+            <PeakFileUpload setFileList={setPeakFileList}
+                                 fileList={peakFileList}
                                  uploading={uploading}
             />
 
             <Form.Item {...tailLayout}>
                 <Button type="primary" htmlType="submit" disabled={
                     matrixFileList.length === 0 ||
-                    labelsFileList.length === 0
+                    labelsFileList.length === 0 ||
+                    fragmentsFileList.length === 0 ||
+                    peakFileList.length === 0
                 }
                         loading={uploading} className={"btn-upload"}>
                     {uploading ? 'Uploading...' : 'Upload'}

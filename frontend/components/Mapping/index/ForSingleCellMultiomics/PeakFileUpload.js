@@ -4,16 +4,18 @@ import Link from "next/link.js";
 import Image from "next/image";
 import React from "react";
 
-export default function FragmentsFileUpload(props){
+export default function PeakFileUpload(props){
 
-    const settingFragment = {
-        name: 'fragmentsFile',
+    const settingPeak = {
+        name: 'peakFile',
         required: true,
         beforeUpload: (file) => {
             let filenameArr = file.name.split('.');
             props.setFileList([file]);
             let limitM = 100; //MB
-            let isMatrix = filenameArr[filenameArr.length - 2] === 'bed';
+            let isMatrix = filenameArr[filenameArr.length - 2] === 'txt' ||
+                filenameArr[filenameArr.length - 2] === 'csv' ||
+                filenameArr[filenameArr.length - 2] === 'tsv';
             let isGzip = file.type === 'application/x-gzip' || file.type === 'application/gzip';
             let isZip = file.type === 'application/zip' || file.type === 'application/x-zip' ||
                 file.type === 'application/x-zip-compressed'
@@ -22,7 +24,7 @@ export default function FragmentsFileUpload(props){
             if (!isMatrix || !isCompressed) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} is not a compressed bed format fragments file`,
+                    content:`File: ${file.name} is not a compressed csv/tsv/txt format fragments file`,
                     style:{
                         marginTop: '12vh',
                     },
@@ -75,15 +77,15 @@ export default function FragmentsFileUpload(props){
     return(
         <Row justify={"start"}>
             <Col span={16}>
-                <Form.Item name="fragmentsFile" label="Fragments File"
+                <Form.Item name="peakFile" label="Peak File"
                            rules={[
                                {
                                    required: true,
                                },
                            ]}
                 >
-                    <Upload {...settingFragment} maxCount={1}>
-                        <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a fragments file</Button>
+                    <Upload {...settingPeak} maxCount={1}>
+                        <Button type={"primary"} icon={<UploadOutlined />} ghost>Select a peak file</Button>
                     </Upload>
                 </Form.Item>
             </Col>
