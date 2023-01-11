@@ -69,7 +69,7 @@ export default function FragmentsFileUpload(props){
             Click on &quot;?&quot; to see more.
         </span><br/>
         <span>&gt; Example:</span><br/>
-        <Image src={`/images/counts_matrix_example.png`} alt="..." width={400} height={220}/>
+        <Image src={`/images/fragments_file_example.png`} alt="..." width={400} height={200}/>
     </>
 
     return(

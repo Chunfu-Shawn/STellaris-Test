@@ -13,9 +13,7 @@ export default function PeakFileUpload(props){
             let filenameArr = file.name.split('.');
             props.setFileList([file]);
             let limitM = 100; //MB
-            let isMatrix = filenameArr[filenameArr.length - 2] === 'txt' ||
-                filenameArr[filenameArr.length - 2] === 'csv' ||
-                filenameArr[filenameArr.length - 2] === 'tsv';
+            let isMatrix = filenameArr[filenameArr.length - 2] === 'bed';
             let isGzip = file.type === 'application/x-gzip' || file.type === 'application/gzip';
             let isZip = file.type === 'application/zip' || file.type === 'application/x-zip' ||
                 file.type === 'application/x-zip-compressed'
@@ -24,7 +22,7 @@ export default function PeakFileUpload(props){
             if (!isMatrix || !isCompressed) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} is not a compressed csv/tsv/txt format fragments file`,
+                    content:`File: ${file.name} is not a compressed bed format fragments file`,
                     style:{
                         marginTop: '12vh',
                     },
@@ -34,7 +32,7 @@ export default function PeakFileUpload(props){
             if (!isLimit) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} exceeds the limit: 100 MB`,
+                    content:`File: ${file.name} exceeds the limit: 20 MB`,
                     style:{
                         marginTop: '12vh',
                     },
@@ -71,7 +69,7 @@ export default function PeakFileUpload(props){
             Click on &quot;?&quot; to see more.
         </span><br/>
         <span>&gt; Example:</span><br/>
-        <Image src={`/images/counts_matrix_example.png`} alt="..." width={400} height={220}/>
+        <Image src={`/images/peak_file_example.png`} alt="..." width={400} height={200}/>
     </>
 
     return(
