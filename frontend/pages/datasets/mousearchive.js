@@ -9,7 +9,7 @@ import {Space} from "antd";
 
 export async function getServerSideProps() {
     const res = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
+            process.env.PRODUCTION_URL:"http://localhost:3001")
         +"/api/datasets-list/Mus musculus")
     // 取搜索结果数组中的第一个结果
     const data = await res.json()

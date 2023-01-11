@@ -99,15 +99,15 @@ export default function MappingForSingleCellMultiomics(props) {
                     setMatrixFileList([file])
                 })
                 labelsFileList.forEach((file) => {
-                    file.percent = (progressEvent.loaded / progressEvent.total * 388 | 0);
+                    file.percent = (progressEvent.loaded / progressEvent.total * 788 | 0);
                     setLabelsFileList([file])
                 })
                 fragmentsFileList.forEach((file) => {
-                    file.percent = (progressEvent.loaded / progressEvent.total * 112 | 0);
+                    file.percent = (progressEvent.loaded / progressEvent.total * 132 | 0);
                     setLabelsFileList([file])
                 })
                 peakFileList.forEach((file) => {
-                    file.percent = (progressEvent.loaded / progressEvent.total * 277 | 0);
+                    file.percent = (progressEvent.loaded / progressEvent.total * 477 | 0);
                     setLabelsFileList([file])
                 })
             },

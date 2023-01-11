@@ -19,12 +19,12 @@ export async function getServerSideProps(context) {
         }
     }
     const res = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
+            process.env.PRODUCTION_URL:"http://localhost:3001")
         +"/api/job-info/"+ context.params.rid
     )
     const data = await res.json()
     const res2 = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
+            process.env.PRODUCTION_URL:"http://localhost:3001")
         +"/api/server-time"
     )
     const data2 = await res2.json()

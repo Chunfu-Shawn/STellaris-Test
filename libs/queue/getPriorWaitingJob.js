@@ -3,7 +3,7 @@ import {poolReadOnly} from "./createMysqlPool.js";
 
 export function getPriorWaitingJob() {
     return new Promise( (resolve, reject)=>{
-        let selectSql = `select rid from job_mapping_queue where status="waiting" limit 1`;
+        let selectSql = `select rid from job_mapping_queue_test where status="waiting" limit 1`;
         // 连接mysql连接池
         poolReadOnly.getConnection((err, connection)=>{
             if(err){

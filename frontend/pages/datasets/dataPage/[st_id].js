@@ -18,7 +18,7 @@ export async function getServerSideProps(context) {
     // params contains the post `st_id`.
     // If the route is like /datapages/1, then params.st_id is 1
     const res = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
+            process.env.PRODUCTION_URL:"http://localhost:3001")
         +"/api/datasets-info/"+context.params.st_id)
     const data = await res.json()
     if (Object.keys(data).length === 0) {
@@ -34,7 +34,7 @@ export async function getServerSideProps(context) {
     /*let genesExpressionCorrelation = []
     for (const item of sectionOption) {
         const res = await fetch((process.env.NODE_ENV==="production"?
-                process.env.PRODUCTION_URL:"http://localhost:3000")
+                process.env.PRODUCTION_URL:"http://localhost:3001")
             +"/api/genes-expression-correlation/section/"+item)
         const data = await res.json()
         genesExpressionCorrelation.push.apply(genesExpressionCorrelation, data)

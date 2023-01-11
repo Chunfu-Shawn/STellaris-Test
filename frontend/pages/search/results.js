@@ -28,7 +28,7 @@ export async function getServerSideProps(context) {
     else if(context.query.idType === "Ensembl") idType = "ensembl_id"
     else if(context.query.idType === "Entrez") idType = "entrez_id"
     const res = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
+            process.env.PRODUCTION_URL:"http://localhost:3001")
         +"/api/genelist/"+
         context.query.species + '/' +
         context.query.idType + '/' +

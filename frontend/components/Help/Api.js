@@ -75,7 +75,7 @@ export default function HelpAPI() {
                             <pre id={'example2'}>
                                 {
                                     JSON.stringify(
-                                        [{"ensembl_id":"ENSG00000000003","symbol":"TSPAN6","entrez_id":"7105","descriptive_name":"tetraspanin 6 [Source:HGNC Symbol;Acc:HGNC:11858]","other_designations":"tetraspanin-6|A15 homolog|putative NF-kappa-B-activating protein 321|tetraspan TM4SF|tetraspanin TM4-D|transmembrane 4 superfamily member 6","name_synonyms":"T245|TM4SF6|TSPAN-6","dbXrefs":"MIM:300191|HGNC:HGNC:11858|Ensembl:ENSG00000000003|AllianceGenome:HGNC:11858","version":15,"gene_source":"ensembl_havana","name_source":"HGNC Symbol","biotype":"protein_coding","chrom_scaf":"X","start":100627108,"end":100639991,"strand":"-1","map_location":"Xq22.1","organism":"Homo sapiens"}]
+                                        [{"ensembl_id":"ENSG00000000003","symbol":"TSPAN6","entrez_id":"7105","descriptive_name":"tetraspanin 6 [Source:HGNC Symbol;Acc:HGNC:11858]","other_designations":"tetraspanin-6|A15 homolog|putative NF-kappa-B-activating protein 321|tetraspan TM4SF|tetraspanin TM4-D|transmembrane 4 superfamily member 6","name_synonyms":"T245|TM4SF6|TSPAN-6","dbXrefs":"MIM:300091|HGNC:HGNC:11858|Ensembl:ENSG00000000003|AllianceGenome:HGNC:11858","version":15,"gene_source":"ensembl_havana","name_source":"HGNC Symbol","biotype":"protein_coding","chrom_scaf":"X","start":100627108,"end":100639991,"strand":"-1","map_location":"Xq22.1","organism":"Homo sapiens"}]
                                         )
                                 }
                             </pre>
