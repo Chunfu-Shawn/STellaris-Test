@@ -24,7 +24,7 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
     const species = record.species
     const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor-cellInteraction.sh'
     const sc_h5ad_Path = resultPath + "/sc.h5ad"
-    const command =
+    let command =
         "bash " + nicheAnchor +
         " --sc_h5ad " + sc_h5ad_Path +
         " --key_celltype " + "cell_type" +
@@ -39,7 +39,22 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
         " --n_bootstrap " + nBootstrap +
         " --species " + `"${species}"` +
         " --n_threads " + nThreads +
-        " --outDir " + resultPath +
+        " --outDir " + resultPath
+    if (record.type === "multiomics"){
+        const fragments_file_path = record.fragments_file_path
+        const peak_file_path = record.peak_file_path
+        const genome = record.genome
+        record.peak_file_path === null ?
+            command = command +
+                " --fragment_file " + fragments_file_path +
+                " --genome " + genome
+            :
+            command = command +
+                " --fragment_file " + fragments_file_path +
+                " --peak_file " + peak_file_path +
+                " --genome " + genome
+    }
+    command = command +
         " >"+ resultPath + "/log/nicheAnchor.log"+
         " 2>" + resultPath + "/log/Error.log"
 

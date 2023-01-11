@@ -1,5 +1,4 @@
 import {Button, Form, Input, message} from "antd";
-import SelectSpeciesOrganTissue from "./ForScRNAseq/SelectSpeciesOrganTissue";
 import MatrixFileUpload from "./ForScRNAseq/MatrixFileUpload";
 import LabelsFileUpload from "./ForScRNAseq/LabelsFileUpload";
 import RunExampleModule from "./ForSingleCellMultiomics/RunExampleModule";
@@ -10,32 +9,38 @@ import axios from "axios";
 import {getMappingModuleOptions} from "../../Datasets/getData&Options";
 import FragmentsFileUpload from "./ForSingleCellMultiomics/FragmentsFileUpload";
 import PeakFileUpload from "./ForSingleCellMultiomics/PeakFileUpload";
+import SelectSpeciesGenomeOrganTissue from "./ForSingleCellMultiomics/SelectSpeciesGenomeOrganTissue";
 
 
 export default function MappingForSingleCellMultiomics(props) {
     const {
         validateMessages
     } = props
-    const UPLOAD_URL = `/mapping/multiomics/`
+    const UPLOAD_URL = `/mapping/multiomics`
+    const UPLOAD_URL_3 = `/mapping/noPeak`
     const [matrixFileList, setMatrixFileList] = useState([]);
     const [labelsFileList, setLabelsFileList] = useState([]);
     const [fragmentsFileList, setFragmentsFileList] = useState([]);
     const [peakFileList, setPeakFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
     const [speciesOptions, setSpeciesOptions] = useState(null);
+    const [genomeOptions, setGenomeOptions] = useState(null);
     const [organOptions, setOrganOptions] = useState(null);
     const [tissueOptions, setTissueOptions] = useState(null);
     const [species, setSpecies] = useState(null);
+    const [genome, setGenome] = useState(null);
     const [organ, setOrgan] = useState(null);
     const [tissue, setTissue] = useState(null);
 
     const fetchSpecieOrganTissueOptions = async () => {
-        let {speciesOptions, organOptions, tissueOptions} = await fetch("/api/datasets-info/all")
+        let {speciesOptions, genomeOptions, organOptions, tissueOptions} = await fetch("/api/datasets-info/all")
             .then(res => res.json()).then(data => getMappingModuleOptions(data))
         setSpeciesOptions(speciesOptions)
+        setGenomeOptions(genomeOptions)
         setOrganOptions(organOptions)
         setTissueOptions(tissueOptions)
         setSpecies(speciesOptions[0])
+        setGenome(genomeOptions[speciesOptions[0]][0])
         setOrgan(organOptions[speciesOptions[0]][0])
         setTissue(tissueOptions[speciesOptions[0]][organOptions[speciesOptions[0]][0]][0])
     }
@@ -54,38 +59,38 @@ export default function MappingForSingleCellMultiomics(props) {
         matrixFileList.forEach((file) => {
             file.percent = 0
             file.status = 'uploading'
-            setMatrixFileList([file])
             formData.append('matrixFile', file);
         });
         labelsFileList.forEach((file) => {
             file.percent = 0
             file.status = 'uploading'
-            setLabelsFileList([file])
             formData.append('labelsFile', file);
         });
         fragmentsFileList.forEach((file) => {
             file.percent = 0
             file.status = 'uploading'
-            setFragmentsFileList([file])
             formData.append('fragmentsFile', file);
         });
-        peakFileList.forEach((file) => {
-            file.percent = 0
-            file.status = 'uploading'
-            setPeakFileList([file])
-            formData.append('peakFile', file);
-        });
+        if (peakFileList.length !== 0)
+            peakFileList.forEach((file) => {
+                file.percent = 0
+                file.status = 'uploading'
+                formData.append('peakFile', file);
+            });
         formData.append('title', form.getFieldValue('title'))
         formData.append('emailAddress', form.getFieldValue('emailAddress'))
         formData.append('species', species)
+        formData.append('genome', genome)
         formData.append('organ', organ)
         formData.append('tissue', tissue)
         formData.append('type', "multiomics")
         formData.append('isDemo', "false")
         setUploading(true);
         // You can use any AJAX library you like
+        console.log(formData.get("fragmentsFile"))
         axios({
-            method: 'post',
+            method: 'POST',
+            headers: {'Content-Type':'multipart/form-data'},
             url: UPLOAD_URL,
             data: formData,
             onUploadProgress: progressEvent => {
@@ -111,11 +116,15 @@ export default function MappingForSingleCellMultiomics(props) {
             .then(rid => {
                 matrixFileList.forEach((file) => {
                     file.status = 'done'
-                    setMatrixFileList([file])
                 });
                 labelsFileList.forEach((file) => {
                     file.status = 'done'
-                    setLabelsFileList([file])
+                });
+                fragmentsFileList.forEach((file) => {
+                    file.status = 'done'
+                });
+                peakFileList.forEach((file) => {
+                    file.status = 'done'
                 });
                 message.success({
                     content: 'upload successfully!',
@@ -129,11 +138,15 @@ export default function MappingForSingleCellMultiomics(props) {
             .catch(() => {
                 matrixFileList.forEach((file) => {
                     file.status = 'error'
-                    setMatrixFileList([file])
                 });
                 labelsFileList.forEach((file) => {
                     file.status = 'error'
-                    setLabelsFileList([file])
+                });
+                fragmentsFileList.forEach((file) => {
+                    file.status = 'error'
+                });
+                peakFileList.forEach((file) => {
+                    file.status = 'error'
                 });
                 message.error({
                         content: 'upload unsuccessfully.',
@@ -203,12 +216,15 @@ export default function MappingForSingleCellMultiomics(props) {
 
             {
                 speciesOptions ?
-                    <SelectSpeciesOrganTissue
+                    <SelectSpeciesGenomeOrganTissue
                         speciesOptions={speciesOptions}
+                        genomeOptions={genomeOptions}
                         organOptions={organOptions}
                         tissueOptions={tissueOptions}
                         species={species}
                         setSpecies={setSpecies}
+                        genome={genome}
+                        setGenome={setGenome}
                         organ={organ}
                         setOrgan={setOrgan}
                         tissue={tissue}
@@ -216,7 +232,9 @@ export default function MappingForSingleCellMultiomics(props) {
                     />
                     : null
             }
-
+            <div style={{textAlign:"left",marginBottom:15}}>
+                <span style={{fontSize:17,fontWeight:"bold"}}><i>scRNA-seq:</i></span>
+            </div>
             <MatrixFileUpload setFileList={setMatrixFileList}
                               fileList={matrixFileList}
                               uploading={uploading}
@@ -225,23 +243,28 @@ export default function MappingForSingleCellMultiomics(props) {
                               fileList={labelsFileList}
                               uploading={uploading}
             />
+            <div style={{textAlign:"left",marginBottom:15}}>
+                <span style={{fontSize:17,fontWeight:"bold"}}><i>single-cell multiomics:</i></span>
+            </div>
             <FragmentsFileUpload setFileList={setFragmentsFileList}
                                  fileList={fragmentsFileList}
                                  uploading={uploading}
             />
             <PeakFileUpload setFileList={setPeakFileList}
-                                 fileList={peakFileList}
-                                 uploading={uploading}
+                            fileList={peakFileList}
+                            uploading={uploading}
             />
 
             <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit" disabled={
-                    matrixFileList.length === 0 ||
-                    labelsFileList.length === 0 ||
-                    fragmentsFileList.length === 0 ||
-                    peakFileList.length === 0
-                }
-                        loading={uploading} className={"btn-upload"}>
+                <Button type="primary" htmlType="submit"
+                        disabled={
+                        matrixFileList.length === 0 ||
+                        labelsFileList.length === 0 ||
+                        fragmentsFileList.length === 0
+                    }
+                        loading={uploading}
+                        className={"btn-upload"}
+                >
                     {uploading ? 'Uploading...' : 'Upload'}
                 </Button>
                 <Button type="ghost" htmlType="button" onClick={onReset} className={"btn-upload"}>

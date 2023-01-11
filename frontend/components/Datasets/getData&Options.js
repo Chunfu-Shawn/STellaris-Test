@@ -71,6 +71,14 @@ export const getMappingModuleOptions = (dataTemp) => {
 
     return {
         "speciesOptions": speciesOptions,
+        "genomeOptions": {
+            "Homo sapiens":[
+                'GRCh37', 'GRCh38', 'hg19', 'hg38'
+            ],
+            "Mus musculus":[
+                'GRCm38', 'GRCm39', 'mm10', 'mm39'
+            ]
+        },
         "organOptions":organOptions,
         "tissueOptions": {
             "Homo sapiens":tissueHomoOptions,

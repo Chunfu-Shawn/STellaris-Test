@@ -77,10 +77,10 @@ export default function PeakFileUpload(props){
     return(
         <Row justify={"start"}>
             <Col span={16}>
-                <Form.Item name="peakFile" label="Peak File"
+                <Form.Item name="peakFile" label="Peak File (optional)"
                            rules={[
                                {
-                                   required: true,
+                                   required: false,
                                },
                            ]}
                 >

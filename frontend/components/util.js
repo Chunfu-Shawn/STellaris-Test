@@ -65,6 +65,7 @@ export function toNonExponential(num) {
     let m = num.toExponential().match(/\d(?:\.(\d*))?e([+-]\d+)/);
     return num.toFixed(Math.max(0, (m[1] || '').length - m[2]));
 }
+
 /**
  * export table to csv or excel
  * @param data  {JSON}  js对象数据
@@ -124,4 +125,17 @@ export const downloadFile = (url) => {
     setTimeout(()=>{
         iframe.remove();
     }, 60 * 1000);
+}
+
+/**
+ * delete specific chars from a string
+ * @param str  {String}  字符串
+ */
+export const deleteSpecificChar = (str) => {
+    let pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]");
+    let rs = "";
+    for (let i = 0; i < str.length; i++) {
+        rs = rs + str.substring(i, i+1).replace(pattern, '');
+    }
+    return rs
 }

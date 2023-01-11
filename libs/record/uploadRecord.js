@@ -13,6 +13,7 @@ export function uploadRecord(ctx) {
             const YMD = String(now.getFullYear()) + pad(now.getMonth() + 1) + pad(now.getDate())
             const rid = uuidv1()
             let email, species, organ, tissue
+            let genome = null
             let matrixFilePath = null
             let labelsFilePath = null
             let fragmentsFilePath = null
@@ -56,20 +57,24 @@ export function uploadRecord(ctx) {
                 labelsFilePath = dir + '/' + ctx.request.files['labelsFile'][0].filename
                 // if upload a multiomics job
                 if (ctx.request.body.type === "multiomics") {
+                    genome = ctx.request.body.genome
                     fragmentsFilePath = ctx.request.files['fragmentsFile'][0].destination + '/' +
                         ctx.request.files['fragmentsFile'][0].filename
-                    peakFilePath = ctx.request.files['peakFile'][0].destination + '/' +
-                        ctx.request.files['peakFile'][0].filename
                     fs.rename(fragmentsFilePath, dir + '/' + ctx.request.files['fragmentsFile'][0].filename,
                         function (err) {
                             if (err) throw err;
                         });
-                    fs.rename(peakFilePath, dir + '/' + ctx.request.files['peakFile'][0].filename,
-                        function (err) {
-                            if (err) throw err;
-                        });
                     fragmentsFilePath = dir + '/' + ctx.request.files['fragmentsFile'][0].filename
-                    peakFilePath = dir + '/' + ctx.request.files['peakFile'][0].filename
+                    // if peak file exists
+                    if(ctx.request.files['peakFile'] !== undefined){
+                        peakFilePath = ctx.request.files['peakFile'][0].destination + '/' +
+                            ctx.request.files['peakFile'][0].filename
+                        fs.rename(peakFilePath, dir + '/' + ctx.request.files['peakFile'][0].filename,
+                            function (err) {
+                                if (err) throw err;
+                            });
+                        peakFilePath = dir + '/' + ctx.request.files['peakFile'][0].filename
+                    }
                 }
             } else if (ctx.request.body.isDemo === "true") {
                 // different example
@@ -128,13 +133,13 @@ export function uploadRecord(ctx) {
             );
 
             // 使用 connection.query() 的查询参数占位符，在其内部对传入参数的自动调用connection.escape()方法进行编码，防止sql注入
-            let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
+            let insertSql = `INSERT INTO users_annotation_records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);`;
             // 连接mysql连接池
             poolReadWrite.getConnection((err, connection)=>{
                 if(err){
                     reject(err)
                 }
-                connection.query(insertSql, [rid, title, email, species, organ, tissue, matrixFilePath, labelsFilePath,
+                connection.query(insertSql, [rid, title, email, species, genome, organ, tissue, matrixFilePath, labelsFilePath,
                     fragmentsFilePath, peakFilePath, resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime,
                     datasetID, sectionID, type, status], (err) => {
                         if (err) {

@@ -42,7 +42,7 @@ Router.post('/mapping/scRNA-seq',
         {name: 'labelsFile', maxCount: 1},
     ]), SectionBlast )
 
-// multi-omics上传文件的路由
+// multi-omics上传文件的路由 含有peak文件
 Router.post('/mapping/multiomics',
     uploadFile().fields([
         {name: 'matrixFile', maxCount: 1},

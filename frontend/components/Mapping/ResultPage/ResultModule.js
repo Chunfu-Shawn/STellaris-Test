@@ -36,10 +36,15 @@ export default function ResultModule(){
         "name": "sc_reduction",
         "url": `/api/mapping-result/jsonl/${annContext.reqInfo.rid}/sc_reduction.jsonl`
     }
-    const scAnnDataset = {
+    const scRegDataset = {
         "id": "sc_registered",
         "name": "sc_registered",
         "url": `/api/mapping-result/jsonl/${annContext.reqInfo.rid}/sc_registered.jsonl`
+    }
+    const scMultiRegDataset = {
+        "id": "sc_multi_registered",
+        "name": "sc_multi_registered",
+        "url": `/api/mapping-result/jsonl/${annContext.reqInfo.rid}/sc_multiomics.jsonl`
     }
 
     const DynamicVisualTool = dynamic(() =>
@@ -56,12 +61,12 @@ export default function ResultModule(){
                                    chartSize={220} dataset={stDataset}/>
         }
     ]
-    const item2 = [
+    let item2 = [
         {
             label: 'Registered scRNA-seq data', key: '1', children:
                 <DynamicVisualTool setCustom={true} drawerOpen={false}
                                    width={600} height={800}
-                                   chartSize={220} dataset={scAnnDataset}/>
+                                   chartSize={220} dataset={scRegDataset}/>
         },
         {
             label: 'Submitted scRNA-seq data', key: '2', children:
@@ -70,6 +75,13 @@ export default function ResultModule(){
                                    chartSize={220} dataset={scRawDataset}/>
         },
     ]
+    if (annContext.reqInfo.type === "multiomics")
+        item2 = item2.push({
+            label: 'Registered single-cell multiomics data', key: '3', children:
+                <DynamicVisualTool setCustom={true} drawerOpen={false}
+                                   width={600} height={800}
+                                   chartSize={220} dataset={scMultiRegDataset}/>
+        })
     useEffect(()=>{
         notification.info({
             message: `Result page needs time to load data`,
