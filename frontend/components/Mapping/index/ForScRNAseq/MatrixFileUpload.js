@@ -34,7 +34,7 @@ export default function MatrixFileUpload(props){
             if (!isLimit) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} exceeds the limit: 100 MB`,
+                    content:`File: ${file.name} exceeds the limit: 200 MB`,
                     style:{
                         marginTop: '12vh',
                     },

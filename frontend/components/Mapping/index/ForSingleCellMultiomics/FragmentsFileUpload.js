@@ -12,7 +12,7 @@ export default function FragmentsFileUpload(props){
         beforeUpload: (file) => {
             let filenameArr = file.name.split('.');
             props.setFileList([file]);
-            let limitM = 100; //MB
+            let limitM = 200; //MB
             let isMatrix = filenameArr[filenameArr.length - 2] === 'bed';
             let isGzip = file.type === 'application/x-gzip' || file.type === 'application/gzip';
             let isZip = file.type === 'application/zip' || file.type === 'application/x-zip' ||
@@ -32,7 +32,7 @@ export default function FragmentsFileUpload(props){
             if (!isLimit) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} exceeds the limit: 100 MB`,
+                    content:`File: ${file.name} exceeds the limit: 200 MB`,
                     style:{
                         marginTop: '12vh',
                     },

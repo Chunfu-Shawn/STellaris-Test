@@ -76,12 +76,14 @@ export default function ResultModule(){
         },
     ]
     if (annContext.reqInfo.type === "multiomics")
-        item2 = item2.push({
-            label: 'Registered single-cell multiomics data', key: '3', children:
-                <DynamicVisualTool setCustom={true} drawerOpen={false}
-                                   width={600} height={800}
-                                   chartSize={220} dataset={scMultiRegDataset}/>
-        })
+        item2.push(
+            {
+                label: 'Registered single-cell multiomics data', key: '3', children:
+                    <DynamicVisualTool setCustom={true} drawerOpen={false}
+                                       width={600} height={800}
+                                       chartSize={220} dataset={scMultiRegDataset}/>
+            }
+        )
     useEffect(()=>{
         notification.info({
             message: `Result page needs time to load data`,
