@@ -99,6 +99,16 @@ export function uploadRecord(ctx) {
                     species = 'Homo sapiens'
                     organ = 'Pancreas'
                     tissue = 'Pancreas'
+                }else if( title === "Mouse adult cortex and hippocampus for single cell multiomics") {
+                    matrixFilePath = 'public/examples/Mouse_cortex_hippocampus_multiomics/counts.csv.gz'
+                    labelsFilePath = 'public/examples/Mouse_cortex_hippocampus_multiomics/labels.csv.gz'
+                    fragmentsFilePath = 'public/examples/Mouse_cortex_hippocampus_multiomics/fragment_file.bed.gz'
+                    peakFilePath = 'public/examples/Mouse_cortex_hippocampus_multiomics/peak.bed.gz'
+                    email = 'no email'
+                    species = 'Mus musculus'
+                    genome = "mm10"
+                    organ = 'Brain'
+                    tissue = 'Brain'
                 }else {
                     reject(`[${new Date().toLocaleString()}] Error: Example job title is wrong in request body.`)
                 }

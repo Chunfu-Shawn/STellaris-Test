@@ -17,6 +17,7 @@ export default function RunExampleModule(props){
             body: JSON.stringify({
                 title:title,
                 isDemo:'true',
+                type: "multiomics",
             })
         }).then(response => response.json())
             .then(json => rid = json.rid)
@@ -50,9 +51,9 @@ export default function RunExampleModule(props){
             key: '1',
             label: (
                 <Button type={"link"}>
-                    <a href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
+                    <a href={"/mapping/resultPage/5a1a39a0-923a-11ed-bff4-0302d4a3355f"}>
                         <span>
-                            Mouse fetal brain <b><i>(FINISHED)</i></b>
+                            Mouse adult cortex and hippocampus <b><i>(FINISHED)</i></b>
                         </span>
                     </a>
                 </Button>
@@ -61,9 +62,9 @@ export default function RunExampleModule(props){
         {
             key: '2',
             label: (
-                <Button type={"link"} onClick={throttle(1000,onRunExample("Mouse fetal brain spatial cellular map"))}>
+                <Button type={"link"} onClick={throttle(1000,onRunExample("Mouse adult cortex and hippocampus for single cell multiomics"))}>
                     <span>
-                        Mouse fetal brain <b><i>(FROM SCRATCH)</i></b>
+                        Mouse adult cortex and hippocampus <b><i>(FROM SCRATCH)</i></b>
                     </span>
                 </Button>
             ),

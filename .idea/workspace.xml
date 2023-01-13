@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/ForScRNAseq/MatrixFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForScRNAseq/MatrixFileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/FragmentsFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/FragmentsFileUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/PeakFileUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/PeakFileUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/RunExampleModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/RunExampleModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/MappingForSingleCellMultiomics.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/MappingForSingleCellMultiomics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/DatasetBrowser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/DatasetBrowser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/record/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/record/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +167,7 @@
       <workItem from="1672071732181" duration="79000" />
       <workItem from="1672071827212" duration="807000" />
       <workItem from="1672134871218" duration="32478000" />
-      <workItem from="1672995373961" duration="24166000" />
+      <workItem from="1672995373961" duration="28472000" />
     </task>
     <servers />
   </component>

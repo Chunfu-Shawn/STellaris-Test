@@ -17,7 +17,6 @@ export default function MappingForSingleCellMultiomics(props) {
         validateMessages
     } = props
     const UPLOAD_URL = `/mapping/multiomics`
-    const UPLOAD_URL_3 = `/mapping/noPeak`
     const [matrixFileList, setMatrixFileList] = useState([]);
     const [labelsFileList, setLabelsFileList] = useState([]);
     const [fragmentsFileList, setFragmentsFileList] = useState([]);

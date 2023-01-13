@@ -59,7 +59,7 @@ export default function DatasetBrowser(){
                            alt={"dataset1"} style={{borderStyle:"dashed"}}/>
                 </div>
                 <p>
-                    5. Skip to &quot;View&quot; tab to explore the spatial resolved expression profile of genes of interest.
+                    5. Skip to &quot;View&quot; tab to explore the spatially resolved expression profile of genes of interest.
                     Enter gene symbol in &quot;Genes/Features&quot; box (e.g., Kr8, Slc17a7 and Mbp).
                 </p>
                 <div style={{textAlign:"center"}} >
