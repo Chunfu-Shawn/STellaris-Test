@@ -13,22 +13,45 @@ export default function CellInteractions(){
     const dotPlot = JSON.parse(annContext.result.dotPlot)
 
     // 判断微环境内是否 数据为空
-    const microenvironment = dotPlot.microenvironment.filter( item => {
+    const groupCellTypes = dotPlot['group|cell_type'].filter( item => {
         if (dotPlot[item].value.length !== 0)
             return item
     })
+    let groupWithCellTypes = {}
+    groupCellTypes.forEach( item => {
+        let group = item.substring(0,item.indexOf("|"))
+        let cellType = item.substring(item.indexOf("|")+1,)
+        if (groupWithCellTypes[group] === undefined){
+            groupWithCellTypes[group] = []
+        }
+        groupWithCellTypes[group].push(cellType)
+    })
 
-    const [env, setEnv] = useState(microenvironment[0])
-    const [cellTypePairs, setCellTypePairs] = useState(dotPlot[env].xAxis)
+    const [group, setGroup] = useState(Object.keys(groupWithCellTypes)[0])
+    const [cellTypes, setCellTypes] = useState(groupWithCellTypes[group])
+    const [cellType, setCellType] = useState(cellTypes[0])
+    const [groupAndCellType, setGroupAndCellType] = useState(group+"|"+cellTypes[0])
+    const [cellTypePairs, setCellTypePairs] = useState(dotPlot[groupAndCellType].xAxis)
     const [cellTypePair, setCellTypePair] = useState(cellTypePairs[0])
 
-    const onChangeEnv = (value) => {
-        setEnv(value)
+    const onChangeGroup = (value) => {
         // usestate 是异步函数，set后不能马上生效
-        setCellTypePairs(dotPlot[value].xAxis)
-        setCellTypePair(dotPlot[value].xAxis[0])
+        setGroup(value)
+        setCellTypes(groupWithCellTypes[value])
+        setCellType(groupWithCellTypes[value][0])
+        setGroupAndCellType(value+"|"+groupWithCellTypes[value][0])
+        setCellTypePairs(dotPlot[value+"|"+groupWithCellTypes[value][0]].xAxis)
+        setCellTypePair(dotPlot[value+"|"+groupWithCellTypes[value][0]].xAxis[0])
     }
-    const onChangeCell = (value) => {
+
+    const onChangeCellType = (value) => {
+        setCellType(value)
+        setGroupAndCellType(group+"|"+value)
+        setCellTypePairs(dotPlot[group+"|"+value].xAxis)
+        setCellTypePair(dotPlot[group+"|"+value].xAxis[0])
+    }
+
+    const onChangeCellTypePair = (value) => {
         setCellTypePair(value)
     }
 
@@ -42,11 +65,15 @@ export default function CellInteractions(){
                             <Col span={8}><span style={{fontSize:18}}>Cell Type Pair: </span></Col>
                             <Col span={16}>
                                 <Select
+                                    showSearch
+                                    filterOption={(input, option) =>
+                                        (option?.value ?? '').toLowerCase().includes(input.toLowerCase())
+                                    }
                                     value={cellTypePair}
                                     style={{
                                         width: 300,
                                     }}
-                                    onChange={onChangeCell}
+                                    onChange={onChangeCellTypePair}
                                 >
                                     {cellTypePairs.map(item =>
                                         <Option key={item} value={item}>{item}</Option>)
@@ -62,22 +89,44 @@ export default function CellInteractions(){
                 {annContext.result.dotPlot ?
                     <>
                         <Row justify="start" align="stretch" style={{marginBottom: 20}}>
-                            <Col span={8}><span style={{fontSize: 18}}>Microenvironment: </span></Col>
-                            <Col span={16}>
+                            <Col span={3}><span style={{fontSize: 18}}>Group: </span></Col>
+                            <Col span={6}>
                                 <Select
-                                    defaultValue={microenvironment[0]}
+                                    showSearch
+                                    filterOption={(input, option) =>
+                                        (option?.value ?? '').toLowerCase().includes(input.toLowerCase())
+                                    }
+                                    defaultValue={Object.keys(groupWithCellTypes)[0]}
                                     style={{
-                                        width: 300,
+                                        width: 150,
                                     }}
-                                    onChange={onChangeEnv}
+                                    onChange={onChangeGroup}
                                 >
-                                    {microenvironment.map(item =>
+                                    {Object.keys(groupWithCellTypes).map(item =>
+                                        <Option key={item} value={item}>{item}</Option>)
+                                    }
+                                </Select>
+                            </Col>
+                            <Col span={4}><span style={{fontSize: 18}}>Cell type: </span></Col>
+                            <Col span={11}>
+                                <Select
+                                    showSearch
+                                    filterOption={(input, option) =>
+                                        (option?.value ?? '').toLowerCase().includes(input.toLowerCase())
+                                    }
+                                    value={cellType}
+                                    style={{
+                                        width: 250,
+                                    }}
+                                    onChange={onChangeCellType}
+                                >
+                                    {cellTypes.map(item =>
                                         <Option key={item} value={item}>{item}</Option>)
                                     }
                                 </Select>
                             </Col>
                         </Row>
-                        <LigandsReceptorsDotplot env={env}/>
+                        <LigandsReceptorsDotplot groupAndCellType={groupAndCellType}/>
                     </> :
                     <></>
                 }

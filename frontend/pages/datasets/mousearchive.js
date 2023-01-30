@@ -47,7 +47,7 @@ export default function MouseArchive(props) {
                         {
                             fontSize:"45px",
                         }
-                    }>Spatial Transcriptome Datasets - Mouse Archive</span>
+                    }>Spatial Transcriptomics Datasets - Mouse Archive</span>
                 </Space>
                 <TableLayout checkboxStyle={checkboxStyle} data={props.data} archive={"mouse"}></TableLayout>
             </div>

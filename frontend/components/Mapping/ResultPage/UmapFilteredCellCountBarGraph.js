@@ -53,9 +53,9 @@ export default function UmapFilteredCellCountBarGraph(){
                 },
                 grid: {
                     top: 70,
-                    left: 70,
+                    left: 30,
                     right: 30,
-                    bottom: 50,
+                    bottom: 20,
                     containLabel: true
                 },
                 legend: [

@@ -52,7 +52,7 @@ export default function CellCountBarChart(){
                     top: 40,
                     left: 50,
                     right: 30,
-                    bottom: 50,
+                    bottom: 20,
                     containLabel: true
                 },
                 legend: [
@@ -69,7 +69,7 @@ export default function CellCountBarChart(){
                         axisLabel:{
                             rotate:55,
                             fontWeight:"bold",
-                            fontSize:9
+                            fontSize:fontSize
                         }
                     }
                 ],
@@ -78,7 +78,7 @@ export default function CellCountBarChart(){
                         type: 'value',
                         name:"Cell Number",
                         nameTextStyle:{
-                            fontSize: fontSize
+                            fontSize: 14
                         }
                     }
                 ],

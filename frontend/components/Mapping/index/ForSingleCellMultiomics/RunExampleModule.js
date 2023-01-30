@@ -53,7 +53,7 @@ export default function RunExampleModule(props){
                 <Button type={"link"}>
                     <a href={"/mapping/resultPage/5a1a39a0-923a-11ed-bff4-0302d4a3355f"}>
                         <span>
-                            Mouse adult cortex and hippocampus <b><i>(FINISHED)</i></b>
+                            H3K4me3 modifications in mouse brain <b><i>(FINISHED)</i></b>
                         </span>
                     </a>
                 </Button>
@@ -62,9 +62,9 @@ export default function RunExampleModule(props){
         {
             key: '2',
             label: (
-                <Button type={"link"} onClick={throttle(1000,onRunExample("Mouse adult cortex and hippocampus for single cell multiomics"))}>
+                <Button type={"link"} onClick={throttle(1000,onRunExample("H3K4me3 modifications in mouse adult cortex and hippocampus"))}>
                     <span>
-                        Mouse adult cortex and hippocampus <b><i>(FROM SCRATCH)</i></b>
+                        H3K4me3 modifications in mouse brain <b><i>(FROM SCRATCH)</i></b>
                     </span>
                 </Button>
             ),

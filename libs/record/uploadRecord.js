@@ -99,7 +99,7 @@ export function uploadRecord(ctx) {
                     species = 'Homo sapiens'
                     organ = 'Pancreas'
                     tissue = 'Pancreas'
-                }else if( title === "Mouse adult cortex and hippocampus for single cell multiomics") {
+                }else if( title === "H3K4me3 modifications in mouse adult cortex and hippocampus") {
                     matrixFilePath = 'public/examples/Mouse_cortex_hippocampus_multiomics/counts.csv.gz'
                     labelsFilePath = 'public/examples/Mouse_cortex_hippocampus_multiomics/labels.csv.gz'
                     fragmentsFilePath = 'public/examples/Mouse_cortex_hippocampus_multiomics/fragment_file.bed.gz'

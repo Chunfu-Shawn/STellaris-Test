@@ -92,7 +92,7 @@ export default function ResultInterpretation(){
                 <p>
                     As for this example, ganglionic eminence cells, the progenitor cells of the ventral telencephalon, locate
                     precisely where they originate from. The inhibitory neurons are exactly located in the ventral part as
-                    they have not yet migrated to cerebral cortex at this point. Radial gilal cells line the ventricles.
+                    they have not yet migrated to cerebral cortex at this point. Radial glial cells line the ventricles.
                     Thalamic cells are also positioned in the right place although they are rarely captured in the scRNA-seq.
                 </p>
                 <div style={{textAlign:"center"}} >

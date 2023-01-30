@@ -10,13 +10,13 @@ export default function LigandsReceptorsDotplot(props) {
     const annContext = useContext(AnnContext);
     const dotPlot = JSON.parse(annContext.result.dotPlot)
 
-    const xAxis = dotPlot[props.env].xAxis
-    const yAxis = dotPlot[props.env].yAxis
-    const data = dotPlot[props.env].value.map(item => {
+    const xAxis = dotPlot[props.groupAndCellType].xAxis
+    const yAxis = dotPlot[props.groupAndCellType].yAxis
+    const data = dotPlot[props.groupAndCellType].value.map(item => {
         return [parseInt(item[0]),parseInt(item[1]),parseFloat(item[2])]
     })
     // custom graph parameters
-    const xAxisFontSize = Math.max(13 - 0.08 *  xAxis.length,9)
+    const xAxisFontSize = Math.max(13 - 0.09 *  xAxis.length,9)
     const yAxisFontSize = Math.max(15 - 0.05 *  yAxis.length,7)
     const xAxisNameLongest = Math.max(...xAxis.map(item=>item.length))*xAxisFontSize
     const yAxisNameLongest = Math.max(...yAxis.map(item=>item.length))
@@ -49,7 +49,7 @@ export default function LigandsReceptorsDotplot(props) {
                 },
                 grid: {
                     top: 90,
-                    left: 20,
+                    left: 0,
                     bottom: 0,
                     right: 60,
                     containLabel: true
@@ -140,13 +140,13 @@ export default function LigandsReceptorsDotplot(props) {
             // 销毁图表实例，释放内存
             chartInstance && chartInstance.dispose();
         };
-    },[props.env]);
+    },[props.groupAndCellType]);
 
     return(
         <>
-            <p style={{fontSize:16,marginBottom:10,height:50,width:450}}>
+            <p style={{fontSize:16,marginBottom:10,height:50,width:650}}>
                 Ligand-receptor interactions in microenvironment:
-                <b> {props.env}</b></p>
+                <b> {props.groupAndCellType}</b></p>
             <div ref={chartRef} style={{height:1200,width:650}}></div>
         </>
     )

@@ -54,9 +54,9 @@ export default function MappedCellCountBarGraph(){
                 },
                 grid: {
                     top: 70,
-                    left: 50,
+                    left: 20,
                     right: 30,
-                    bottom: 50,
+                    bottom: 15,
                     containLabel: true
                 },
                 legend: [

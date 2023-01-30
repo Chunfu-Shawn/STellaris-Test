@@ -46,7 +46,7 @@ export default function HumanArchive(props) {
                         {
                             fontSize:"45px",
                         }
-                    }>Spatial Transcriptome Datasets - Human Archive</span>
+                    }>Spatial Transcriptomics Datasets - Human Archive</span>
                 </Space>
                 <TableLayout checkboxStyle={checkboxStyle} data={props.data} archive={"human"}></TableLayout>
             </div>

@@ -45,7 +45,7 @@ export default function AllArchive(props) {
                         {
                             fontSize:"45px",
                         }
-                    }>Spatial Transcriptome Datasets</span>
+                    }>Spatial Transcriptomics Datasets</span>
                 </Space>
                 <TableLayout checkboxStyle={checkboxStyle} data={props.data} archive={"all"}></TableLayout>
             </div>

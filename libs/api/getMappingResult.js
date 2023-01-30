@@ -11,8 +11,8 @@ export async function getMappingResult(datasetId, resultPath){
         let cellMap
         let cellFilter
         let rfDist
-        let jsd
-        let mst
+        let eucDis
+        let eucDisBox
         let interHeat
         let lpPair
         let dotPlot
@@ -37,13 +37,13 @@ export async function getMappingResult(datasetId, resultPath){
         }
 
         try {
-            mst = fs.readFileSync(
-                resultPath + '/out/json/cell_types_mst_network.json', 'utf8');
-            jsd = fs.readFileSync(
-                resultPath + '/out/json/cell_types_JSD.json', 'utf8');
+            eucDis = fs.readFileSync(
+                resultPath + '/out/json/cell_types_eucDist.json', 'utf8');
+            eucDisBox = fs.readFileSync(
+                resultPath + '/out/json/cell_types_eucDist_group.json', 'utf8');
         }catch (e) {
-            jsd = null
-            mst = null
+            eucDis = null
+            eucDisBox = null
         }
 
         try {
@@ -70,8 +70,8 @@ export async function getMappingResult(datasetId, resultPath){
             cellFilter: cellFilter,
             cellMap: cellMap,
             rfDist: rfDist,
-            mst: mst,
-            jsd: jsd,
+            eucDis: eucDis,
+            eucDisBox: eucDisBox,
             interHeat: interHeat,
             dotPlot: dotPlot,
             lpPair: lpPair,

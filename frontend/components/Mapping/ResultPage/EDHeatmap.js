@@ -4,43 +4,46 @@ import * as d3 from "d3-scale-chromatic";
 import {useContext} from "react";
 import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
 
-export default function InteractionsHeatmap() {
+export default function EDHeatmap() {
     // use echarts
-    const chartRef = useRef(null);
     let chartInstance = null;
+    const chartRef = useRef(null);
     const annContext = useContext(AnnContext);
-    const interHeat = JSON.parse(annContext.result.interHeat)
+    const eucDis = JSON.parse(annContext.result.eucDis)
 
     // custom graph parameters
-    const fontSize = 12 - 0.2 * interHeat.cell_types.length
-    const nameLongest = Math.max(...interHeat.cell_types.map(item=>item.length))
-    const count = interHeat.count.map(item=>item[2])
-    const countMin = Math.min(...count)
-    const countMax = Math.max(...count)
+    const fontSize = 12 - 0.2 * eucDis.cell_types.length
+    const nameLongest = Math.max(...eucDis.cell_types.map(item=>item.length))
 
     // 定义渲染函数
     function renderChart() {
         try {
             let option =
                 {
+                    title:{
+                        text:"Euclidean distance between cell types (log2)",
+                        textStyle:{
+                            fontSize:14
+                        }
+                    },
                     tooltip: {
                         position: 'top',
                         trigger:"item",
                         formatter: (params) =>
-                            `${interHeat.cell_types[params.value[0]]} ~ ${interHeat.cell_types[params.value[1]]}
+                            `${eucDis.cell_types[params.value[0]]} ~ ${eucDis.cell_types[params.value[1]]}
                             </br>
-                            <b>Number of Interactions: ${params.value[2]}`
+                            <b>Log2 eucDis</b>: ${params.value[2]}`
                     },
                     grid: {
                         containLabel:true,
                         left:0,
-                        top:50,
+                        top:70,
                         right: 10,
-                        bottom:0,
+                        bottom:0
                     },
                     xAxis: {
                         type: 'category',
-                        data: interHeat.cell_types,
+                        data: eucDis.cell_types,
                         axisTick:{
                             show:false,
                         },
@@ -62,11 +65,12 @@ export default function InteractionsHeatmap() {
                         },
                         iconStyle: {
                             borderWidth:2
-                        }
+                        },
+                        top:20
                     },
                     yAxis: {
                         type: 'category',
-                        data: interHeat.cell_types,
+                        data: eucDis.cell_types,
                         splitArea: {
                             show: true
                         },
@@ -81,19 +85,19 @@ export default function InteractionsHeatmap() {
 
                     },
                     visualMap: {
-                        min: countMin,
-                        max: countMax,
+                        min: Math.min(...eucDis.log_distance.map(item=>item[2])),
+                        max: Math.max(...eucDis.log_distance.map(item=>item[2])),
                         calculable: true,
                         orient: 'horizontal',
                         show: true,
-                        right: 90,
-                        top:0
+                        top:20,
+                        right:80
                     },
                     series: [
                         {
-                            name: 'Number of Interactions',
+                            name: 'Number of supportive datasets',
                             type: 'heatmap',
-                            data: interHeat.count,
+                            data: eucDis.log_distance,
                             emphasis: {
                                 itemStyle: {
                                     shadowBlur: 5,
@@ -103,11 +107,11 @@ export default function InteractionsHeatmap() {
                         }
                     ],
                     gradientColor:[
-                        d3.interpolateViridis(0),
-                        d3.interpolateViridis(0.25),
-                        d3.interpolateViridis(0.75),
-                        d3.interpolateViridis(0.95),
-                        d3.interpolateViridis(1),
+                        d3.interpolateYlOrRd(1),
+                        d3.interpolateYlOrRd(0.75),
+                        d3.interpolateYlOrRd(0.5),
+                        d3.interpolateYlOrRd(0.25),
+                        d3.interpolateYlOrRd(0),
                     ]
                 };
             // `echarts.getInstanceByDom` 可以从已经渲染成功的图表中获取实例，其目的就是在 option 发生改变的时候，不需要
@@ -131,14 +135,9 @@ export default function InteractionsHeatmap() {
             // 销毁图表实例，释放内存
             chartInstance && chartInstance.dispose();
         };
-    });
+    },[annContext.result]);
 
     return(
-        <>
-            <p style={{fontSize:16,marginBottom:10,width:450}}>
-                <b>Total number</b> of ligand-receptor interactions:
-            </p>
-            <div ref={chartRef} style={{height:500,width:450,marginBottom:30}}></div>
-        </>
+        <div ref={chartRef} style={{height:500,width:450,marginBottom:10}}></div>
     )
 }
