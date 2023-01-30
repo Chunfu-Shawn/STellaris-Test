@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/DistanceBoxPlot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/EDHeatmap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/CellCountBarChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/CellCountBarChart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/CellInteractions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/CellInteractions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/InteractionsHeatmap.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/InteractionsHeatmap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/LigandsReceptorsDotplot.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/LigandsReceptorsDotplot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/MappedCellCountBarGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/MappedCellCountBarGraph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/ResultModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/UmapFilteredCellCountBarGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/UmapFilteredCellCountBarGraph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/RunExampleModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics/RunExampleModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Tutorial/ResultInterpretation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Tutorial/ResultInterpretation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/allarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/humanarchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pages/datasets/mousearchive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/api/getMappingResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/api/getMappingResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/record/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/record/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +164,7 @@
       <workItem from="1672071732181" duration="79000" />
       <workItem from="1672071827212" duration="807000" />
       <workItem from="1672134871218" duration="32478000" />
-      <workItem from="1672995373961" duration="52778000" />
+      <workItem from="1672995373961" duration="56097000" />
     </task>
     <servers />
   </component>
