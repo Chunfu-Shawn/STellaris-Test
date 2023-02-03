@@ -8,7 +8,11 @@ export default function MappingSteps(props){
     const annContext = useContext(AnnContext);
     const handleClick = () => {
         downloadFile(`/api/submitted-files/counts/${annContext.reqInfo.rid}`)
-        downloadFile(`/api/submitted-files/labels/${annContext.reqInfo.rid}`);
+        downloadFile(`/api/submitted-files/labels/${annContext.reqInfo.rid}`)
+        if(annContext.reqInfo.type === "multiomics"){
+            downloadFile(`/api/submitted-files/fragments/${annContext.reqInfo.rid}`)
+            downloadFile(`/api/submitted-files/peak/${annContext.reqInfo.rid}`)
+        }
     }
     const items = [
         {
