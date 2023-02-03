@@ -143,6 +143,20 @@ RouterAPI.get('/api/submitted-files/labels/:rid', async (ctx) => {
     ctx.body = fs.readFileSync(record.labels_file_path)
 })
 
+// submitted fragments file fetch
+RouterAPI.get('/api/submitted-files/fragments/:rid', async (ctx) => {
+    const record = await getJobInfo(ctx.params.rid)
+    ctx.set('Content-disposition', 'attachment; filename=' + record.fragments_file_path.split("/")[3])
+    ctx.body = fs.readFileSync(record.fragments_file_path)
+})
+
+// submitted peak file fetch
+RouterAPI.get('/api/submitted-files/peak/:rid', async (ctx) => {
+    const record = await getJobInfo(ctx.params.rid)
+    ctx.set('Content-disposition', 'attachment; filename=' + record.peak_file_path.split("/")[3])
+    ctx.body = fs.readFileSync(record.peak_file_path)
+})
+
 // download annotated sc h5ad
 RouterAPI.get('/api/mapping-result/h5ad/sc/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
