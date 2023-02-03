@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bee555d7-2d99-46c2-a801-7e4aa8ebd830" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/bg_min.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/CellInteractions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/ResultPage/CellInteractions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/components/Mapping/index/ForScRNAseq/RunExampleModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/components/Mapping/index/ForScRNAseq/RunExampleModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/mainpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/mainpage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/record/uploadRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/record/uploadRecord.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +54,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/chunfu/WebstormProjects/STellaris-Test/public/examples/Mouse_fetal_brain_all/out/json",
+    "last_opened_file_path": "/Users/chunfu/WebstormProjects/STellaris-Test/frontend/public/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,11 +68,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/public/images" />
       <recent name="$PROJECT_DIR$/public/examples/Mouse_fetal_brain_all/out/json" />
       <recent name="$PROJECT_DIR$/frontend/components/Mapping/ResultPage" />
       <recent name="$PROJECT_DIR$/frontend/components/Mapping/index/ForSingleCellMultiomics" />
       <recent name="$PROJECT_DIR$/libs/record" />
-      <recent name="$PROJECT_DIR$/frontend/public/images/tutorial/start" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/public/images" />
@@ -164,7 +167,7 @@
       <workItem from="1672071732181" duration="79000" />
       <workItem from="1672071827212" duration="807000" />
       <workItem from="1672134871218" duration="32478000" />
-      <workItem from="1672995373961" duration="56097000" />
+      <workItem from="1672995373961" duration="58366000" />
     </task>
     <servers />
   </component>

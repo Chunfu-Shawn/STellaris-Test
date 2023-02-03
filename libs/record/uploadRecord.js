@@ -79,8 +79,8 @@ export function uploadRecord(ctx) {
             } else if (ctx.request.body.isDemo === "true") {
                 // different example
                 if( title === "Mouse fetal brain spatial cellular map"){
-                    matrixFilePath = 'public/examples/Mouse_fetal_brain_3k/counts_3k.csv.gz'
-                    labelsFilePath = 'public/examples/Mouse_fetal_brain_3k/labels_3k.csv.gz'
+                    matrixFilePath = 'public/examples/Mouse_fetal_brain/counts.csv.gz'
+                    labelsFilePath = 'public/examples/Mouse_fetal_brain/labels.csv.gz'
                     email = 'no email'
                     species = 'Mus musculus'
                     organ = 'Brain'
@@ -92,13 +92,13 @@ export function uploadRecord(ctx) {
                     species = 'Mus musculus'
                     organ = 'Embryo'
                     tissue = 'Embryo'
-                }else if( title === "Spatial patterning of tumor microenvironment in PDAC") {
-                    matrixFilePath = 'public/examples/Pancreas_cancer/counts.csv.gz'
-                    labelsFilePath = 'public/examples/Pancreas_cancer/labels.csv.gz'
+                }else if( title === "Spatial patterning of human cutaneous squamous cell carcinoma") {
+                    matrixFilePath = 'public/examples/Human_cSCC/counts.csv.gz'
+                    labelsFilePath = 'public/examples/Human_cSCC/labels.csv.gz'
                     email = 'no email'
                     species = 'Homo sapiens'
-                    organ = 'Pancreas'
-                    tissue = 'Pancreas'
+                    organ = 'Skin'
+                    tissue = 'Skin'
                 }else if( title === "H3K4me3 modifications in mouse adult cortex and hippocampus") {
                     matrixFilePath = 'public/examples/Mouse_cortex_hippocampus_multiomics/counts.csv.gz'
                     labelsFilePath = 'public/examples/Mouse_cortex_hippocampus_multiomics/labels.csv.gz'
