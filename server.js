@@ -32,7 +32,6 @@ export const handler = app.getRequestHandler()
 app.prepare().then(() => {
     // create an object to present web server
     const server = new Koa()
-    console.log(process.env.INSTANCE_ID)
 
     // set session
     // server.keys = ['spatial-trans-web'];
@@ -83,36 +82,43 @@ app.prepare().then(() => {
     rule.minute =0;
     rule.second =0;
     // run every day
-    let rmFileJob = schedule.scheduleJob(rule, () => {
-        // define the directory paths
-        const DIR_PATH_RESULTS = './public/results/';
-        const DIR_PATH_UPLOADS = './public/uploads/';
-        // run
-        rmFiles(DIR_PATH_RESULTS,DIR_PATH_UPLOADS)
-    });
+    let rmFileJob
+    // running schedule job depends on whether instance ID is 1
+    process.env.ID === '1' ?
+        rmFileJob = schedule.scheduleJob(rule, () => {
+            // define the directory paths
+            const DIR_PATH_RESULTS = './public/results/';
+            const DIR_PATH_UPLOADS = './public/uploads/';
+            // run
+            rmFiles(DIR_PATH_RESULTS,DIR_PATH_UPLOADS)
+        })
+        : null
     // run every 2 second
-    let jobQueueJob = schedule.scheduleJob("*/2 * * * * ?", async () => {
-        let { running_job_number: runningJobNumber } = await getRunningJobNumber()
-        // if there are 2 running jobs
-        if( runningJobNumber < 3 ){
-            // get first waiting job
-            let waitingJob = await getPriorWaitingJob()
-            if( waitingJob ){
-                // if there is a waiting job
-                console.log("Run this job: " + waitingJob.rid)
-                await updateJob2Running(waitingJob.rid)
-                    .then(
-                        () => {
-                            execSpatialMapping(waitingJob.rid)
-                        }
-                    ).catch( err => console.log(err))
+    let jobQueueJob
+    process.env.ID === '1' ?
+        jobQueueJob = schedule.scheduleJob("*/2 * * * * ?", async () => {
+            let { running_job_number: runningJobNumber } = await getRunningJobNumber()
+            // if there are 2 running jobs
+            if( runningJobNumber < 3){
+                // get first waiting job
+                let waitingJob = await getPriorWaitingJob()
+                if( waitingJob ){
+                    // if there is a waiting job
+                    console.log("Run this job: " + waitingJob.rid)
+                    await updateJob2Running(waitingJob.rid)
+                        .then(
+                            () => {
+                                execSpatialMapping(waitingJob.rid)
+                            }
+                        ).catch( err => console.log(err))
+                }else {
+                    // if there is not a waiting job
+                }
             }else {
-                // if there is not a waiting job
+                // if there are 3 running jobs
             }
-        }else {
-            // if there are 3 running jobs
-        }
-    });
+        })
+        : null
 
     server.listen(3001, () => {
         console.log('server is running at http://localhost:3001')

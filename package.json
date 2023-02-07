@@ -1,11 +1,11 @@
 {
-  "name": "stw-front-end",
-  "version": "1.1.0",
+  "name": "stellaris",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "dev": "export NODE_ENV='development' && nodemon ./server.js --exec",
     "prod": "export NODE_ENV='production' && npm run build && node ./server.js",
-    "build": "next build frontend",
+    "build": "node_modules/next/dist/bin/next build frontend",
     "start": "next start frontend",
     "lint": "next lint frontend"
   },

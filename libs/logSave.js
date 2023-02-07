@@ -5,7 +5,7 @@ import rfs from "rotating-file-stream" // version 2.x
 export const pad = num => (num > 9 ? "" : "0") + num;
 
 //generate the file path depended on date
-const generator = (nowTime,index) => {
+const generator = (nowTime) => {
     if (!nowTime) return "access.log";
     let time = new Date(nowTime.getTime() - 1000*60*60*24);
     let yearMonth = time.getFullYear() + "" + pad(time.getMonth() + 1);
@@ -16,7 +16,7 @@ const generator = (nowTime,index) => {
 
 //generate the file path depended on date
 const generator2 = (nowTime) => {
-    if (!nowTime) return "mapping.log";
+    if (!nowTime || process.env.ID !== '1') return "mapping.log";
     let time = new Date(nowTime.getTime() - 1000*60*60*24);
     let yearMonth = time.getFullYear() + "" + pad(time.getMonth() + 1);
     let day = pad(time.getDate());
