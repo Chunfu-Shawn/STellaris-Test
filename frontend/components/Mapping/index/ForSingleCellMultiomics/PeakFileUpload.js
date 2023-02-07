@@ -62,11 +62,10 @@ export default function PeakFileUpload(props){
     const  toolTipText = <>
         <span>&gt; File Context:</span><br/>
         <span>
-            This file contains gene expression (raw counts) values in which <b style={{color:"#a680ff"}}>columns are genes </b>
-            presented with gene names identifier (HGNC symbol name) and
-            <b style={{color:"#a680ff"}}> rows are cells</b> presented with cell IDs.
-            Formats accepted are .csv, .tsv and .txt in .gz/zip compression.
-            Click on &quot;?&quot; to see more.
+            This file is in BED file format containing desired genomic regions where signals in fragment file will be
+            aggregated. The BED fields represent: <b style={{color:"#a680ff"}}> (i) chromosome, (ii) start, (iii) end,
+            (iv) name. </b> Notably, header is NOT allowed in this BED file. Formats accepted are .bed in .gz/zip
+            compression. Click on &quot;?&quot; to see more.
         </span><br/>
         <span>&gt; Example:</span><br/>
         <Image src={`/images/peak_file_example.png`} alt="..." width={400} height={180}/>

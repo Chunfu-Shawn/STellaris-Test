@@ -62,10 +62,10 @@ export default function FragmentsFileUpload(props){
     const  toolTipText = <>
         <span>&gt; File Context:</span><br/>
         <span>
-            This file in BED format containing raw counts of genomic regions <b style={{color:"#a680ff"}}>columns are genes </b>
-            presented with gene names identifier (HGNC symbol name) and
-            <b style={{color:"#a680ff"}}> rows are cells</b> presented with cell IDs.
-            Formats accepted are .csv, .tsv and .txt in .gz/zip compression.
+            This file is in BED file format containing the number of raw read counts detected in genomic regions.
+            The BED fields represent: <b style={{color:"#a680ff"}}> (i) chromosome, (ii) start, (iii) end, (iv) name and
+            (v) the number of read counts. </b>
+            Notably, header is NOT allowed in this BED file. Formats accepted are .bed in .gz/zip compression.
             Click on &quot;?&quot; to see more.
         </span><br/>
         <span>&gt; Example:</span><br/>

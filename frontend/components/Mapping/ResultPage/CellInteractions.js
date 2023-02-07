@@ -24,8 +24,10 @@ export default function CellInteractions(){
         }
         groupWithCellTypes[group].push(cellType)
     })
-
-    const [group, setGroup] = useState(Object.keys(groupWithCellTypes)[0])
+    const groupOrder = ["near","medium","far"]
+    const groups = Object.keys(groupWithCellTypes).sort(
+        (a,b) => groupOrder.indexOf(a) - groupOrder.indexOf(b))
+    const [group, setGroup] = useState(groups[0])
     const [cellTypes, setCellTypes] = useState(groupWithCellTypes[group])
     const [cellType, setCellType] = useState(cellTypes[0])
     const [groupAndCellType, setGroupAndCellType] = useState(group+"|"+cellTypes[0])
@@ -94,13 +96,13 @@ export default function CellInteractions(){
                                     filterOption={(input, option) =>
                                         (option?.value ?? '').toLowerCase().includes(input.toLowerCase())
                                     }
-                                    defaultValue={Object.keys(groupWithCellTypes)[0]}
+                                    defaultValue={groups[0]}
                                     style={{
                                         width: 150,
                                     }}
                                     onChange={onChangeGroup}
                                 >
-                                    {Object.keys(groupWithCellTypes).map(item =>
+                                    {groups.map(item =>
                                         <Option key={item} value={item}>{item}</Option>)
                                     }
                                 </Select>
