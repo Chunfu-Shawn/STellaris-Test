@@ -32,6 +32,7 @@ export const handler = app.getRequestHandler()
 app.prepare().then(() => {
     // create an object to present web server
     const server = new Koa()
+    console.log(process.env.INSTANCE_ID)
 
     // set session
     // server.keys = ['spatial-trans-web'];

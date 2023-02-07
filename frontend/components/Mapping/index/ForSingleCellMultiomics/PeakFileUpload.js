@@ -69,7 +69,7 @@ export default function PeakFileUpload(props){
             Click on &quot;?&quot; to see more.
         </span><br/>
         <span>&gt; Example:</span><br/>
-        <Image src={`/images/peak_file_example.png`} alt="..." width={400} height={200}/>
+        <Image src={`/images/peak_file_example.png`} alt="..." width={400} height={180}/>
     </>
 
     return(
@@ -87,8 +87,8 @@ export default function PeakFileUpload(props){
                     </Upload>
                 </Form.Item>
             </Col>
-            <Col span={7}>
-                <small style={{color:"gray"}}> (only a .gz/zip format file) </small>
+            <Col span={8}>
+                <small style={{color:"gray"}}> (only a .bed.gz/zip format file) </small>
                 <Link href={'/tutorial/mapping/getStarted/#data_preparation'} target={"_blank"}>
                     <a target={'_blank'} rel={"noreferrer"}>
                         <Tooltip placement="topLeft"
