@@ -62,6 +62,7 @@ export default function About() {
                         the National Natural Science Foundation of China (31871272 and 31801103).
                     </p>
                 </div>
+                {/* eslint-disable-next-line @next/next/no-sync-scripts */}
             </div>
         </LayoutCustom>
     )

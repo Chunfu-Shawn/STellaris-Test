@@ -5,7 +5,9 @@
 
 #footer {
   font-family: Arial, serif;
-  height: 150px
+  height: 190px;
+  display: block;
+  align-content: center;
 }
 
 .expansion {
