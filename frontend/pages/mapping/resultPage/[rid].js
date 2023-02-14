@@ -230,6 +230,9 @@ export default function ResultPage(props) {
 
     return (
         <LayoutCustom>
+            <Head>
+                <title>{siteTitle+"| Mapping | "+props.rid}</title>
+            </Head>
             <AnnContext.Provider
                 value={
                 {
@@ -243,9 +246,6 @@ export default function ResultPage(props) {
                     eLog:eLog
                 }
             }>
-                <Head>
-                    <title>{siteTitle+"| Mapping | "+props.rid}</title>
-                </Head>
                 {returnModule}
             </AnnContext.Provider>
         </LayoutCustom>

@@ -77,6 +77,9 @@ export default function GenePage(props) {
 
     return (
         <LayoutCustom>
+            <Head>
+                <title>{siteTitle+"| Gene Search | "+props.data.ensembl_id}</title>
+            </Head>
             <GeneContext.Provider value={
                 {
                     ...props,
@@ -88,9 +91,6 @@ export default function GenePage(props) {
                     organTissue:organTissue,
                 }
             }>
-            <Head>
-                <title>{siteTitle+"| Gene Search | "+props.data.ensembl_id}</title>
-            </Head>
                 <div
                     className={"modal-body-stw with-sider"}
                 >

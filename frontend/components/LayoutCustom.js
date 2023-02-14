@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navigator from "./navigator.js";
+import FooterCustomWithMap from "./footerWithMap.js";
 import FooterCustom from "./footer.js";
 import {BackTop} from "antd";
 // eslint-disable-next-line @next/next/no-document-import-in-page
@@ -37,7 +38,11 @@ export default function LayoutCustom({ children }) {
             </BackTop>
             {children}
             <div style={{flexGrow:1}}></div>
-            <FooterCustom></FooterCustom>
+            {
+                children[1].props.id === "home" ?
+                <FooterCustomWithMap> </FooterCustomWithMap>
+                :<FooterCustom> </FooterCustom>
+            }
         </>
     )
 }

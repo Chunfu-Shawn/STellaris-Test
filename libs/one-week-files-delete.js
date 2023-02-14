@@ -25,9 +25,9 @@ async function removeFolder(fromDir) {
     filesData.forEach( item =>{
         //stat file or directory information
         const result =  fs.statSync(fromDir + item)
-        console.log(item)
+        console.log(item.indexOf("tmp"))
         // remove directories which are created one week ago
-        if (Math.floor((nowMs-result.ctimeMs)/(24*3600*1000)) > 7 && !item.indexOf("tmp"))
+        if (Math.floor((nowMs-result.ctimeMs)/(24*3600*1000)) > 7 && item.indexOf("tmp")!==0)
             // Before deleting a folder, clear all files in the target folder recursively
             removePromise(fromDir + item)
     })
@@ -60,7 +60,6 @@ export function removePromise(dir) {
 export default function rmFiles(DIR_PATH_RESULTS,DIR_PATH_UPLOADS){
     // remove results
     removeFolder(DIR_PATH_RESULTS).then(()=>{
-        console.log(new Date())
         console.log("Successfully remove the folders of results created one week age!")
     }).catch(e=>console.log("error: ",e))
 
