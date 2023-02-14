@@ -95,19 +95,15 @@ export default function MappingForSingleCellMultiomics(props) {
             onUploadProgress: progressEvent => {
                 matrixFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 100 | 0);
-                    setMatrixFileList([file])
                 })
                 labelsFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 788 | 0);
-                    setLabelsFileList([file])
                 })
                 fragmentsFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 132 | 0);
-                    setLabelsFileList([file])
                 })
                 peakFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 477 | 0);
-                    setLabelsFileList([file])
                 })
             },
         }).then(response => response.data)
@@ -182,6 +178,8 @@ export default function MappingForSingleCellMultiomics(props) {
         form.resetFields();
         setMatrixFileList([]);
         setLabelsFileList([]);
+        setFragmentsFileList([]);
+        setPeakFileList([]);
         console.log("reset")
     };
 

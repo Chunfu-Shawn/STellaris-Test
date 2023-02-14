@@ -146,7 +146,6 @@ export default function MappingForScRNAseq(props) {
         form.resetFields();
         setMatrixFileList([]);
         setLabelsFileList([]);
-        console.log("reset")
     };
 
     return (

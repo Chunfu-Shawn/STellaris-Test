@@ -8,7 +8,7 @@ import GeneSearchMain from "./MainPage/GeneSearchMain";
 export default function MainPage() {
     return(
         <>
-            <div className="cover-container" >
+            <div className="cover-container">
                 <div className="inner cover" >
                     <h1 className="cover-heading">STellaris: accurate spatial mapping for scRNA-seq</h1>
                     <p className="lead" style={{textAlign: "justify"}}>
