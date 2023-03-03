@@ -86,7 +86,6 @@ export default function MappingForSingleCellMultiomics(props) {
         formData.append('isDemo', "false")
         setUploading(true);
         // You can use any AJAX library you like
-        console.log(formData.get("fragmentsFile"))
         axios({
             method: 'POST',
             headers: {'Content-Type':'multipart/form-data'},
@@ -95,15 +94,19 @@ export default function MappingForSingleCellMultiomics(props) {
             onUploadProgress: progressEvent => {
                 matrixFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 100 | 0);
+                    setMatrixFileList([file])
                 })
                 labelsFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 788 | 0);
+                    setLabelsFileList([file])
                 })
                 fragmentsFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 132 | 0);
+                    setFragmentsFileList([file])
                 })
                 peakFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 477 | 0);
+                    setPeakFileList([file])
                 })
             },
         }).then(response => response.data)
@@ -180,7 +183,6 @@ export default function MappingForSingleCellMultiomics(props) {
         setLabelsFileList([]);
         setFragmentsFileList([]);
         setPeakFileList([]);
-        console.log("reset")
     };
 
     return (

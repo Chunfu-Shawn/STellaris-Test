@@ -10,7 +10,7 @@ export default function About() {
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle+"| Contact"}</title>
+                <title>{siteTitle+"| About"}</title>
             </Head>
             <div className="modal-body-stw">
                 <header className="page-header">
