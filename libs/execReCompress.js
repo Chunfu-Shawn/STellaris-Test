@@ -3,7 +3,7 @@ import child_process from 'child_process';
 import {annotationLogger} from "./logSave.js";
 
 export function execReCompress(rid, resultPath) {
-    const resCompress = 'scripts/NicheAnchor/compress_results.sh'
+    const resCompress = 'scripts/Spatial_mapping/compress_results.sh'
     const command =
         "bash " + resCompress +
         " --outDir " + resultPath +

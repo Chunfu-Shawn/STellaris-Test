@@ -12,7 +12,8 @@ import {getMappingModuleOptions} from "../../Datasets/getData&Options";
 
 export default function MappingForScRNAseq(props) {
     const {
-        validateMessages
+        validateMessages,
+        token
     } = props
     const UPLOAD_URL = `/mapping/scRNA-seq/`
     const [matrixFileList, setMatrixFileList] = useState([]);
@@ -66,6 +67,7 @@ export default function MappingForScRNAseq(props) {
         formData.append('tissue', tissue)
         formData.append('type', "scRNA-seq")
         formData.append('isDemo', "false")
+        formData.append('token', token)
         setUploading(true);
         // You can use any AJAX library you like
         axios({
@@ -94,7 +96,7 @@ export default function MappingForScRNAseq(props) {
                     setLabelsFileList([file])
                 });
                 message.success({
-                    content: 'upload successfully!',
+                    content: 'Upload successfully!',
                     style: {
                         marginTop: '12vh',
                     },
@@ -112,7 +114,7 @@ export default function MappingForScRNAseq(props) {
                     setLabelsFileList([file])
                 });
                 message.error({
-                        content: 'upload unsuccessfully.',
+                        content: 'Upload unsuccessfully. Refresh the page and try again.',
                         style: {
                             marginTop: '12vh',
                         },
@@ -203,8 +205,8 @@ export default function MappingForScRNAseq(props) {
 
             <Form.Item {...tailLayout}>
                 <Button type="primary" htmlType="submit" disabled={
-                    matrixFileList.length === 0 ||
-                    labelsFileList.length === 0
+                    //跑例子时也变成可用
+                    !uploading && (matrixFileList.length === 0 || labelsFileList.length === 0)
                 }
                         loading={uploading} className={"btn-upload"}>
                     {uploading ? 'Uploading...' : 'Upload'}
@@ -214,6 +216,7 @@ export default function MappingForScRNAseq(props) {
                 </Button>
                 <RunExampleModule
                     setUploading={setUploading}
+                    token={token}
                 />
             </Form.Item>
         </Form>

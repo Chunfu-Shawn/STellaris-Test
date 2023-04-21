@@ -42,6 +42,17 @@ export default function ResultsDownload(){
             description:'Download all packaged results'
         }
     ];
+
+    if (annContext.reqInfo.type === "multiomics")
+        data.splice(2,0,
+            {
+                title: 'Registered Single-cell Multiomics Data (h5ad)',
+                onClick:() => downloadFile(`/api/mapping-result/h5ad/sc-multi/${annContext.reqInfo.rid}`),
+                description:'Single-cell multiomics data with the inferred spatial coordinates in HDF5 file format, ' +
+                    'which is compatible with “anndata” python package.'
+            }
+        )
+
     return(
         <div name={"Download"}>
             <a id={"Download"} style={{position: 'relative', top: "-150px"}}></a>

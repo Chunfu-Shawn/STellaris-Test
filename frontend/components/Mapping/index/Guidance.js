@@ -13,17 +13,19 @@ export default function Guidance(){
     const items = [
         {
             title: "Basic Information",
-            description: 'First, please enter a name of your job and provide an email address to monitor the project progress.',
+            description: 'First, please enter a name of your job and provide an email address (optional) to receive ' +
+                'the notification of project progress.',
             icon: <SearchOutlined/>
         },
         {
             title: "Select Matched Species, Organ & Tissue",
-            description: "Please select species, organ and tissue that match your scRNA-seq data.",
+            description: "Please select the category of species, organ and tissue that your scRNA-seq data fits into.",
             icon: <SolutionOutlined />
         },
         {
             title: "Select scRNA-seq Data",
-            description: "Please select your scRNA-seq data including count matrix file and label file with cell type annotation.",
+            description: "Please select your scRNA-seq data including a cell-by-gene raw count matrix file and a " +
+                "label file with cell type annotation.",
             icon: <SelectOutlined />
         },
         {
@@ -33,7 +35,8 @@ export default function Guidance(){
         },
         {
             title: "Wait to Finish",
-            description: "It will takes about 2~3 min for Section Blast analysis to finish, please Wait!",
+            description: "It will takes about 2~3 min for section blast analysis, and then you can choose a proper " +
+                "ST section for subsequent spatial mapping!",
             icon: <ReloadOutlined />
         }]
 

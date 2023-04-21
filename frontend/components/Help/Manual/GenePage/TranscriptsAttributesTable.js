@@ -3,45 +3,45 @@ import React from "react";
 const data = [
     {
         "Attribute": "Transcript ID",
-        "Description": "a stable identifier for this transcript from Ensembl"
+        "Description": "A stable identifier for this transcript from Ensembl"
     },
     {
         "Attribute": "Name",
-        "Description": "a name for this transcript from Ensembl"
+        "Description": "A name for this transcript from Ensembl"
     },
     {
         "Attribute": "Length",
-        "Description": "length of this transcript (bp)"
+        "Description": "Length of this transcript (bp)"
     },
     {
         "Attribute": "Type",
-        "Description": <span>a transcript classification containing <b>protein coding, lncRNA, processed pseudogene, unprocessed pseudogene,
+        "Description": <span>A transcript classification containing <b>protein coding, lncRNA, processed pseudogene, unprocessed pseudogene,
         miRNA, TEC, snRNA, misc_RNA, snoRNA and so on</b>, which is integrated from Ensembl Database</span>
     },
     {
         
         "Attribute": "Transcription Start Sites (TSS)",
-        "Description": "the transcription start sites of this transcript"
+        "Description": "The transcription start sites of this transcript"
     },
     {
         "Attribute": "Refseq mRNA ID",
-        "Description": "a corresponding ID of this mRNA from NCBI's Reference Sequences (RefSeq) database"
+        "Description": "A corresponding ID of this mRNA from NCBI's Reference Sequences (RefSeq) database"
     },
     {
         "Attribute": "Refseq ncRNA ID",
-        "Description": "a corresponding ID of this non-coding RNA from NCBI's Reference Sequences (RefSeq) database"
+        "Description": "A corresponding ID of this non-coding RNA from NCBI's Reference Sequences (RefSeq) database"
     },
     {
         "Attribute": "Version",
-        "Description": "the version of this trancript from Ensembl"
+        "Description": "The version of this trancript from Ensembl"
     },
     {
         "Attribute": "Start - End",
-        "Description": "the start and end coordinate of this trancript"
+        "Description": "The start and end coordinate of this trancript"
     },
     {
         "Attribute": "Count",
-        "Description": "the expression count"
+        "Description": "The expression count"
     },
     {
         "Attribute": "Transcript Support Level (TSL)",

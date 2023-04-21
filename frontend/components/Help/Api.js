@@ -137,6 +137,15 @@ export default function HelpAPI() {
                                 }...
                             </pre>
                         </li>
+                        <li><code>https://spatial.rhesusbase.com/api/spatially-variable-gene/gene/ID2</code></li>
+                        <li>Result:
+                            <pre id={'example3'}>
+                                {
+                                    JSON.stringify(
+                                        [{"gene_symbol":"ID2","section_id":"A1","span":41.4276,"p_value":0.00223874,"q_value":0.011349,"id":"STW-H-Colon-Visium-3","organ_tissue":"Colon"},{"gene_symbol":"ID2","section_id":"A4","span":41.4276,"p_value":0.000525282,"q_value":0.0042025,"id":"STW-H-Colon-Visium-2","organ_tissue":"Colon"},{"gene_symbol":"ID2","section_id":"A8","span":60,"p_value":0.00188399,"q_value":0.0276741,"id":"STW-H-Colon-Visium-1","organ_tissue":"Colon"},{"gene_symbol":"ID2","section_id":"GSM5764428","span":113.001,"p_value":0.000173087,"q_value":0.00561641,"id":"STW-H-Liver-Visium-4","organ_tissue":"Liver"},{"gene_symbol":"ID2","section_id":"ST_Sample_6.5PCW_3","span":1017.73,"p_value":0.0000977554,"q_value":0.0099832,"id":"STW-H-Heart-ST-2","organ_tissue":"Heart"},{"gene_symbol":"ID2","section_id":"ST_Sample_6.5PCW_4","span":1072.97,"p_value":0.00904449,"q_value":0.0428436,"id":"STW-H-Heart-ST-2","organ_tissue":"Heart"},{"gene_symbol":"ID2","section_id":"ST_Sample_9PCW_3","span":1215.74,"p_value":0.00208705,"q_value":0.0214011,"id":"STW-H-Heart-ST-3","organ_tissue":"Heart"},{"gene_symbol":"ID2","section_id":"ST_Sample_9PCW_6","span":1098.58,"p_value":0.0034152,"q_value":0.0171635,"id":"STW-H-Heart-ST-3","organ_tissue":"Heart"}])
+                                }...
+                            </pre>
+                        </li>
                     </ul>
                 </div>
                 <h4>5. expression-rank-score</h4>

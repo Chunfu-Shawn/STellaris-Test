@@ -1,4 +1,4 @@
-import {poolReadOnly} from "./createMysqlPool.js";
+import {poolReadOnly} from "../createMysqlPool.js";
 
 
 export function getWaitingOrder(rid) {

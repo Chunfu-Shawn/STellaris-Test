@@ -108,7 +108,7 @@ export const datasetNum = {
     "Mouse":{
         "Brain": 25,
         "Heart": 9,
-        "Embryo": 4,
+        "Embryo": 5,
         //"Prostate": 1,
         "Testis": 2,
         "Hindlimb": 3,
@@ -146,7 +146,7 @@ export const sectionNum = {
     "Mouse":{
         "Brain": 460,
         "Heart": 13,
-        "Embryo": 28,
+        "Embryo": 80,
         //"Prostate": 1,
         "Testis": 6,
         "Hindlimb": 3,

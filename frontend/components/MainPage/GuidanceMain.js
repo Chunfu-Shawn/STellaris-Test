@@ -21,12 +21,13 @@ export default function GuidanceMain(){
         },
         {
             title: "Select Matched Species, Organ & Tissue",
-            description: "Please select species, organ and tissue that match your scRNA-seq data.",
+            description: "Please select the category of species, organ and tissue that your scRNA-seq data fits into.",
             icon: <SolutionOutlined />
         },
         {
             title: "Select scRNA-seq Data",
-            description: "Please select your scRNA-seq data including count matrix file and label file with cell type annotation.",
+            description: "Please select your scRNA-seq data including a cell-by-gene raw count matrix file and a " +
+                "label file with cell type annotation.",
             icon: <SelectOutlined />
         },
         {

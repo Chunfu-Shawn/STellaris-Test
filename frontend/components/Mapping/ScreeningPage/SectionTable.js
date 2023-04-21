@@ -1,4 +1,4 @@
-import {Table, Button, Modal, InputNumber, Divider, message, Col, Row} from "antd";
+import {Table, Button, Modal, InputNumber, Divider, message, Col, Row, Radio} from "antd";
 import React, {useState, useContext} from "react";
 import Link from "next/link.js";
 import {QuestionCircleOutlined} from "@ant-design/icons";
@@ -13,12 +13,11 @@ export default function SectionTable() {
     const [open, setOpen] = useState(false);
     const [datasetId, setDatasetId] = useState('');
     const [sectionId, setSectionId] = useState('');
+    const [method, setMethod] = useState("CellTrek");
     const [knnNum, setKnnNum] = useState(50);
     const [numSpots, setNumSpots] = useState(10);
     const [numCells, setNumCells] = useState(10);
     const [numRedundancy, setNumRedundancy] = useState(1);
-    const [cutoff, setCutoff] = useState(0.3);
-    const [bandWidth, setBandWidth] = useState(20);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const sections = annContext.MIA.section_id
     const enrichmentScore = annContext.MIA.enrichment_score
@@ -56,12 +55,11 @@ export default function SectionTable() {
                 rid: annContext.reqInfo.rid,
                 datasetId: datasetId,
                 sectionId: sectionId,
-                knnNum:knnNum,
-                numSpots:numSpots,
-                numCells:numCells,
-                numRedundancy:numRedundancy,
-                cutoff: cutoff,
-                bandWidth: bandWidth
+                method: method,
+                knnNum: knnNum,
+                numSpots: numSpots,
+                numCells: numCells,
+                numRedundancy: numRedundancy,
             })
         }).then(() => {
             router.reload()
@@ -88,6 +86,9 @@ export default function SectionTable() {
         });
     };
 
+    const onChangeMethod = (e) => {
+        setMethod(e.target.value)
+    }
     const onKnnNumChange = (value) => {
         setKnnNum(value);
     };
@@ -100,13 +101,6 @@ export default function SectionTable() {
     const onNumRedundancyChange = (value) => {
         setNumRedundancy(value);
     };
-    const onBandWidthChange = (value) => {
-        setBandWidth(value);
-    };
-    const onCutoffChange = (value) => {
-        setCutoff(value);
-    };
-
 
 
     const handleSelect = (datasetId,sectionId) => () => {
@@ -212,7 +206,9 @@ export default function SectionTable() {
             width: 80,
             render: (_, record) =>
                 <Button type={"primary"} ghost={true} size={"small"}
-                        onClick={handleSelect(record.st_id,record.section_id)}>
+                        onClick={handleSelect(record.st_id,record.section_id)}
+                        disabled={record.enrichment_score===0}
+                >
                     select
                 </Button>,
         },
@@ -222,27 +218,41 @@ export default function SectionTable() {
     return(
         <>
             <Modal
-                title="Confirm your choice of ST section to proceed Spatial Mapping"
+                title={<b>Confirm your choice of ST section to proceed Spatial Mapping</b>}
                 centered
                 open={open}
                 onOk={handleOk}
                 okText={"Continue"}
                 confirmLoading={confirmLoading}
                 onCancel={() => setOpen(false)}
-                width={600}
+                width={700}
             >
-                <p>Confirm your selected ST section: <b>{datasetId} ({sectionId})</b> to annotate your scRNA-seq data.</p>
+                <p>Your selected ST section: <b>{datasetId} ({sectionId})</b></p>
+                <p>Then you can choose the method of mapping and set some advanced parameters:</p>
                 <Divider orientation="left" orientationMargin="0">
-                    <span style={{fontSize:14}}>Advanced Parameters of Spatial Mapping </span>
+                    <span style={{fontSize:14}}><b>Method of Spatial Mapping </b></span>
                     <Link href={'/help/manual/mapping#advanced_parameters'}>
                         <a target={"_blank"}><QuestionCircleOutlined/></a>
                     </Link>
                 </Divider>
-                <Row gutter={[0,10]} justify={"space-evenly"}>
-                    <Col span={7}>
+                <Row>
+                    <Radio.Group onChange={onChangeMethod} value={method}>
+                        <Radio value={"CellTrek"} >CellTrek</Radio>
+                        <Radio value={"CytoSPACE"}>CytoSPACE <sup>beta</sup></Radio>
+                        <Radio value={"Tangram"} disabled={true}>Tangram <sup>beta</sup></Radio>
+                    </Radio.Group>
+                </Row>
+                <Divider orientation="left" orientationMargin="0">
+                    <span style={{fontSize:14}}><b>Advanced Parameters of Spatial Mapping </b></span>
+                    <Link href={'/help/manual/mapping#advanced_parameters'}>
+                        <a target={"_blank"}><QuestionCircleOutlined/></a>
+                    </Link>
+                </Divider>
+                <Row gutter={[0,10]}>
+                    <Col span={5}>
                         <span>KNN Number :</span>
                     </Col>
-                    <Col span={5}>
+                    <Col span={7}>
                         <InputNumber
                             style={{
                                 width: 100,
@@ -256,10 +266,10 @@ export default function SectionTable() {
                             step="1"
                         />
                     </Col>
-                    <Col span={7}>
+                    <Col span={5}>
                         <span>Number of spots :</span>
                     </Col>
-                    <Col span={5}>
+                    <Col span={7}>
                         <InputNumber
                             style={{
                                 width: 100,
@@ -274,10 +284,10 @@ export default function SectionTable() {
                             stringMode
                         />
                     </Col>
-                    <Col span={7}>
+                    <Col span={5}>
                         <span>Number of cells :</span>
                     </Col>
-                    <Col span={5}>
+                    <Col span={7}>
                         <InputNumber
                             style={{
                                 width: 100,
@@ -292,10 +302,10 @@ export default function SectionTable() {
                             stringMode
                         />
                     </Col>
-                    <Col span={7}>
+                    <Col span={5}>
                         <span>Redundancy : </span>
                     </Col>
-                    <Col span={5}>
+                    <Col span={7}>
                         <InputNumber
                             style={{
                                 width: 100,
@@ -307,42 +317,6 @@ export default function SectionTable() {
                             min="1"
                             max={Math.min(numCells,numSpots)}
                             step="1"
-                            stringMode
-                        />
-                    </Col>
-                    <Col span={7}>
-                        <span>Bandwidth : </span>
-                    </Col>
-                    <Col span={5}>
-                        <InputNumber
-                            style={{
-                                width: 100,
-                            }}
-                            size={"small"}
-                            onChange={onBandWidthChange}
-                            defaultValue="20"
-                            precision={0}
-                            min="5"
-                            max="150"
-                            step="5"
-                            stringMode
-                        />
-                    </Col>
-                    <Col span={7}>
-                        <span>Divergence cutoff : </span>
-                    </Col>
-                    <Col span={5}>
-                        <InputNumber
-                            style={{
-                                width: 100,
-                            }}
-                            size={"small"}
-                            onChange={onCutoffChange}
-                            defaultValue="0.3"
-                            precision={2}
-                            min="0.1"
-                            max="1"
-                            step="0.05"
                             stringMode
                         />
                     </Col>

@@ -1,6 +1,7 @@
 import React from "react";
 import {Breadcrumb, Typography, Image} from "antd";
 import {contentStyle} from "../Help/SiderStaticMenu";
+import Link from "next/link";
 
 export default function GeneSearch(){
     return (
@@ -15,60 +16,78 @@ export default function GeneSearch(){
                 <h2>Gene Search</h2>
                 <p>
                     In this tutorial, we will show you how to retrieve gene expression characteristics from the spatial
-                    perspective, such as spatially variable gene expression and tissue-wide gene expression, which was
-                    summarized on top of our ST dataset catalog.
+                    perspective through gene search portal (
+                    <Link href={"https://spatial.rhesusbase.com/search"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b>https://spatial.rhesusbase.com/search</b>
+                        </a>
+                    </Link>), such as spatially variable gene expression and tissue-wide gene expression, which was
+                    summarized upon our ST dataset catalog.
                 </p>
                 <p>
-                    1. Click on &quot;Search&quot; tab in the navigator bar. Enter a gene of interest to search. Here we use
-                    human ID2 gene as an example.
+                    1. Click on <b>&quot;Search&quot;</b> tab in the navigator bar. After selecting the organism and gene ID
+                    type, enter the gene of interest you wish to search. Here we use human ID2 gene as an example. We
+                    search for it by gene symbol in both human and mouse datasets.
                 </p>
                 <div style={{textAlign:"center"}} >
                     <Image src={"/images/tutorial/gene/gene1.png"} width={800} height={450}
                            alt={"gene1"}/>
                 </div>
                 <p>
-                    2. A list of partially matching genes are returned and Click your desirable gene to proceed. Here we select
-                    human ID2 gene in the second row.
+                    2.	A list of partially matching genes is returned, and you can click on the desired gene to proceed.
+                    Here we select human ID2 gene in the second row.
                 </p>
                 <div style={{textAlign:"center"}} >
                     <Image src={"/images/tutorial/gene/gene2.png"} width={800} height={450}
                            alt={"gene2"}/>
                 </div>
                 <p>
-                    3. At the beginning of this page, we offer a summary of whether or not the query gene is defined as a
-                    spatially variable gene (SVG) across organs. In this example, human ID2 gene was determined as SVG in
-                    colon, liver and heart. The details of SVG characteristic will be shown later.
-                </p>
-                <p>
-                    4. The &quot;Summary&quot; tab shows the basic properties of query gene.
+                    3. At the top of this page, we provide a summary of whether or not the query gene is defined as
+                    a spatially variable gene (SVG) across different organs. In this example, human ID2 gene was determined
+                    as a SVG in colon, liver and heart. The details of SVG characteristics will be shown later.
                 </p>
                 <div style={{textAlign:"center"}} >
-                    <Image src={"/images/tutorial/gene/summary.png"} width={800} height={380}
+                    <Image src={"/images/tutorial/gene/SVG.png"} width={800} height={240}
+                           alt={"SVG"}/>
+                </div>
+                <p>
+                    4. The <b>&quot;Summary&quot;</b> part shows the basic properties of query gene.
+                </p>
+                <div style={{textAlign:"center"}} >
+                    <Image src={"/images/tutorial/gene/summary.png"} width={800} height={370}
                            alt={"summary"}/>
                 </div>
                 <p>
-                    5. The &quot;SVG Expression&quot; tab visualizes the gene expression in samples where it was determined as SVG.
-                    A randomly picked ST section for a certain organ/tissue is displayed to view the spatial gene expression
-                    characteristic. A table of SVG details across ST datasets and sections is also provided and ready to
-                    download. You can also skip to &quot;Datasets&quot; to explore ST section of your interest.
+                    5. The <b>&quot;SVG Expression&quot;</b> part visualizes the gene expression in organs/tissues where
+                    it was determined as a SVG. A randomly selected ST section for a certain organ/tissue is displayed
+                    to view the spatially resolved gene expression characteristics. A table of ST sections where target
+                    gene was identified as a SVG is also provided and you can click on <b>&quot;Export to CVS&quot;</b>
+                    button to download it. You can also click on <b>&quot;ST ID&quot;</b> to explore ST sections of your
+                    interest.
                 </p>
                 <div style={{textAlign:"center"}} >
                     <Image src={"/images/tutorial/gene/SVG_expression.png"} width={800} height={550}
                            alt={"SVG_expression"}/>
                 </div>
                 <p>
-                    6. We also provide a summary of bulk tissue gene expression measured by the percentile of log(CPM) across
-                    ST sections, which was displayed in descending order.
+                    6. We also provide a summary of pseudo-bulk gene expressions measured by the percentile of log(CPM) across
+                    ST sections, which was displayed in descending order. More details of &quot;Rank Score&quot; value are
+                    displayed in
+                    <Link href={"/help/manual/search#expression_rank_score"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b> help </b>
+                        </a>
+                    </Link>.
                 </p>
                 <div style={{textAlign:"center"}} >
-                    <Image src={"/images/tutorial/gene/expression_rank_score.png"} width={800} height={500}
+                    <Image src={"/images/tutorial/gene/expression_rank_score.png"} width={800} height={460}
                            alt={"expression_rank_score"}/>
                 </div>
                 <p>
-                    7. Navigate to “Download” tab to export the underlying files supporting this page.
+                    7. Navigate to <b>&quot;Download&quot;</b> part to export the underlying files supporting this page.
                 </p>
                 <div style={{textAlign:"center"}} >
-                    <Image src={"/images/tutorial/gene/gene_download.png"} width={800} height={500}
+                    <Image src={"/images/tutorial/gene/gene_download.png"} width={800} height={460}
                            alt={"gene_download"}/>
                 </div>
             </Typography>

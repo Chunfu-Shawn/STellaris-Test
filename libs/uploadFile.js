@@ -5,7 +5,10 @@ const deleteSpecificChar = (str) => {
     let pattern = new RegExp("[`~!@#$^&*()=|{}':;,\\[\\]<>/?！￥…（）—【】；：”“。，、？]");
     let rs = "";
     for (let i = 0; i < str.length; i++) {
-        rs = rs + str.substring(i, i+1).replace(pattern, '');
+        // 文件名称去掉特殊字符但保留原始文件名称
+        rs = rs + str.substring(i, i+1)
+            .replaceAll(" ", "_")
+            .replace(pattern, '');
     }
     return rs
 }

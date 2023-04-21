@@ -11,6 +11,7 @@ import copyExampleFiles from "./copyExampleFiles.js";
 import {insertWaitingJob} from "./queue/insertWaitingJob.js";
 import {setJobStatus} from "./record/setJobStatus.js";
 import {setJobParams} from "./record/setJobParams.js";
+import {verifyRecaptcha} from "./verifyRecaptcha.js";
 
 
 export const Router = router()
@@ -75,10 +76,10 @@ Router.post('/mapping/demo', async (ctx) => uploadRecord(ctx).then(
 // run mapping 的路由
 Router.post('/mapping/annotate', async (ctx) => {
         try {
-            const { rid, datasetId, sectionId, knnNum, numSpots, numCells, numRedundancy, bandWidth, cutoff }
+            const { rid, datasetId, sectionId, method, knnNum, numSpots, numCells, numRedundancy}
                 = ctx.request.body
             await setJobMappingInfo(rid, datasetId, sectionId)
-            await setJobParams(rid, knnNum, numSpots, numCells, numRedundancy, bandWidth, cutoff)
+            await setJobParams(rid, method, knnNum, numSpots, numCells, numRedundancy)
             annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start mapping`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
             await setJobStatus(rid,  "waiting")

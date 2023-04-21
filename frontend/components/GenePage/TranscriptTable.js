@@ -130,9 +130,9 @@ export default function TranscriptTable(){
             width: '15%',
         },
     ]
+
     // column sort
     const handleChange = (pagination,filter,sorter) => {
-        console.log('Various parameters', pagination, filter, sorter);
         setSortedInfo(sorter);
     };
 

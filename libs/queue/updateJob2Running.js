@@ -1,4 +1,4 @@
-import {poolReadWrite} from "./createMysqlPool.js";
+import {poolReadWrite} from "../createMysqlPool.js";
 
 
 export function updateJob2Running(rid) {

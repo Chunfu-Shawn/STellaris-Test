@@ -62,7 +62,7 @@ export default function ResultModule(){
     ]
     let item2 = [
         {
-            label: 'Registered scRNA-seq data', key: '1', children:
+            label: 'Mapped scRNA-seq data', key: '1', children:
                 <DynamicVisualTool setCustom={true} drawerOpen={false}
                                    width={600} height={800}
                                    chartSize={220} dataset={scRegDataset}/>
@@ -78,7 +78,7 @@ export default function ResultModule(){
     if (annContext.reqInfo.type === "multiomics")
         item2.push(
             {
-                label: 'Registered single-cell multiomics data', key: '3', children:
+                label: 'Mapped single-cell multiomics data', key: '3', children:
                     <DynamicVisualTool setCustom={true} drawerOpen={false}
                                        width={600} height={800}
                                        chartSize={220} dataset={scMultiRegDataset}/>
@@ -171,12 +171,15 @@ export default function ResultModule(){
                                 </Col>
                             </Row>
                             <Row justify={"space-evenly"} align={"top"} style={{marginTop:20}}>
-                                <Col>
+                                <Col span={annContext.result.rfDist?18:24}>
                                     <MappedCellCountBarGraph/>
                                 </Col>
-                                <Col>
-                                    <DistanceDensityGraph/>
-                                </Col>
+                                {
+                                    annContext.result.rfDist?
+                                    <Col span={6}>
+                                        <DistanceDensityGraph/>
+                                    </Col>:<></>
+                                }
                             </Row>
                         </div>
                         <div name={"Colocalization"}>

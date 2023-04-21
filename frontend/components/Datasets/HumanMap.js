@@ -48,7 +48,7 @@ export default function HumanMap(){
                         right: 10
                     },
                     legend: {
-                        data: ['Dateset', 'Section'],
+                        data: ['Dataset', 'Section'],
                         textStyle: {
                             color: "#ffffff"
                         }
@@ -80,7 +80,7 @@ export default function HumanMap(){
                     },
                     series: [
                         {
-                            name:"Dateset",
+                            name:"Dataset",
                             type: 'bar',
                             xAxisIndex:1,
                             color:'#9d5a08',

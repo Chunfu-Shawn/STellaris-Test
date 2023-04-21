@@ -98,8 +98,8 @@ app.prepare().then(() => {
     process.env.ID === '1' ?
         jobQueueJob = schedule.scheduleJob("*/2 * * * * ?", async () => {
             let { running_job_number: runningJobNumber } = await getRunningJobNumber()
-            // if there are 2 running jobs
-            if( runningJobNumber < 3){
+            // if there are 3 running jobs
+            if( runningJobNumber <= 3){
                 // get first waiting job
                 let waitingJob = await getPriorWaitingJob()
                 if( waitingJob ){

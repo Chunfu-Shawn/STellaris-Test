@@ -1,5 +1,5 @@
 import {annotationLogger} from "../logSave.js";
-import {poolReadWrite} from "../queue/createMysqlPool.js";
+import {poolReadWrite} from "../createMysqlPool.js";
 
 
 export function setJobStatus(rid, status) {

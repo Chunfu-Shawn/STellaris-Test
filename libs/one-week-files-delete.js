@@ -26,6 +26,7 @@ async function removeFolder(fromDir) {
         //stat file or directory information
         const result =  fs.statSync(fromDir + item)
         // remove directories which are created one week ago
+        console.log(item)
         if (Math.floor((nowMs-result.ctimeMs)/(24*3600*1000)) > 7 && item.indexOf("tmp")!==0)
             // Before deleting a folder, clear all files in the target folder recursively
             removePromise(fromDir + item)

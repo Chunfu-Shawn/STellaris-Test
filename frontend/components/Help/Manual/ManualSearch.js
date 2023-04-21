@@ -1,7 +1,6 @@
 import {Breadcrumb, Typography} from 'antd';
 import React from 'react';
 import {contentStyle} from "../SiderStaticMenu.js";
-import SearchResultsAttributesTable from "./GenePage/SearchResultsAttributesTable.js";
 import GeneAttributionsSourceTable from "./GenePage/GeneAttributionsSourceTable.js";
 import GeneAttributesDescriptionTable from "./GenePage/GeneAttributesDescriptionTable.js";
 import TranscriptsAttributesTable from "./GenePage/TranscriptsAttributesTable.js";
@@ -34,10 +33,10 @@ export default function ManualSearch() {
                 and <b>463,409</b> transcripts records, which containing the following attributes:
                 </p>
                 <GeneAttributionsSourceTable/>
-                <p>Explanation of fields in gene attributes are as follows:</p>
+                <p>Explanation of gene attributes are as follows:</p>
                 <a id={"annotation"} style={{position: 'relative', top: "-150px"}}></a>
                 <GeneAttributesDescriptionTable/><br/>
-                <p>Explanation of fields in transcript attributes are as follows:</p>
+                <p>Explanation of transcript attributes are as follows:</p>
                 <a id={"transcripts"} style={{position: 'relative', top: "-150px"}}></a>
                 <TranscriptsAttributesTable/>
                 <h2>2. Search rules</h2>

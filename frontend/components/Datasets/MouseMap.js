@@ -48,7 +48,7 @@ export default function MouseMap(){
                         right: 10
                     },
                     legend: {
-                        data: ['Dateset', 'Section'],
+                        data: ['Dataset', 'Section'],
                         textStyle: {
                             color: "#ffffff"
                         }
@@ -80,7 +80,7 @@ export default function MouseMap(){
                     },
                     series: [
                         {
-                            name:"Dateset",
+                            name:"Dataset",
                             type: 'bar',
                             xAxisIndex:1,
                             color:'#0d64a9',

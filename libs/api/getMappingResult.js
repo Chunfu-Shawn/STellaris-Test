@@ -30,10 +30,15 @@ export async function getMappingResult(datasetId, resultPath){
                 resultPath + '/out/json/filter_summary.filtering.json', 'utf8');
             cellMap = fs.readFileSync(
                 resultPath + '/out/json/mapping_summary.json', 'utf8');
+        } catch (e) {
+            reject(e)
+        }
+
+        try {
             rfDist = fs.readFileSync(
                 resultPath + '/out/json/rfdist.json', 'utf8');
-        }catch (e) {
-            reject(e)
+        } catch (e) {
+            rfDist = null
         }
 
         try {
@@ -41,7 +46,8 @@ export async function getMappingResult(datasetId, resultPath){
                 resultPath + '/out/json/cell_types_eucDist.json', 'utf8');
             eucDisBox = fs.readFileSync(
                 resultPath + '/out/json/cell_types_eucDist_group.json', 'utf8');
-        }catch (e) {
+        } catch (e) {
+            reject(e)
             eucDis = null
             eucDisBox = null
         }
@@ -54,6 +60,7 @@ export async function getMappingResult(datasetId, resultPath){
             dotPlot = fs.readFileSync(
                 resultPath + '/out/json/dot_plot.json', 'utf8');
         }catch (e) {
+            reject(e)
             interHeat = null
             lpPair = null
             dotPlot = null

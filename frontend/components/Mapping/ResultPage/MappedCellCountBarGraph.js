@@ -54,9 +54,9 @@ export default function MappedCellCountBarGraph(){
                 },
                 grid: {
                     top: 70,
-                    left: 20,
+                    left: 30,
                     right: 30,
-                    bottom: 15,
+                    bottom: 20,
                     containLabel: true
                 },
                 legend: [
@@ -127,6 +127,6 @@ export default function MappedCellCountBarGraph(){
     });
 
     return(
-        <div ref={chartRef} style={{height:400,width:800,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:400,width:"100%",marginBottom:10}}></div>
     )
 }

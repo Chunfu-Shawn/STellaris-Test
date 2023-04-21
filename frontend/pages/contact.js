@@ -60,7 +60,8 @@ export default function Contact() {
                 </ul>
 
                 <div className="box" style={{width:900,fontSize:16,margin:"60px auto"}}>
-                    <p>Our team is dedicated to the interpretation of large-scale genomics data and the studies of
+                    <p>
+                        Our team is committed to the interpretation of large-scale genomics data and the studies of
                         human-specific traits. We mainly focus on: i) the refinement of genome annotations, integration
                         of large-scale data and development of bioinformatics tools through meta analyses and functional
                         genomics analyses, facilitating better understanding of gene functions and regulations in
@@ -89,10 +90,10 @@ export default function Contact() {
                 <Divider><h2>Feedback</h2></Divider>
                 <h4>Please feel free to contact us with any questions or comments.</h4>
                 <span style={{fontSize:16}}>
-                    For bug reports, please email to <b>Chunfu Xiao</b>&nbsp;
+                    For bug reports, please email to <b>Chunfu Xiao&nbsp;
                     <a target="_blank"  href="mailto:xiaochunfu@stu.pku.edu.cn" rel="noreferrer">
-                        <MailFilled />
-                    </a>.
+                        <MailFilled /> xiaochunfu@stu.pku.edu.cn
+                    </a></b>
                     <br/><br/>
                     For any suggestions or ideas, please email to the corresponding author:
                     <br/>

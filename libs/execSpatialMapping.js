@@ -9,37 +9,50 @@ import {updateJob2Finished} from "./queue/updateJob2Finished.js";
 import {setJobTime} from "./record/setJobTime.js";
 import {getJobParams} from "./record/getJobParams.js";
 
-export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
+export async function execSpatialMapping(rid, nThreads=30) {
     const params = await getJobParams(rid)
     const record = await getJobInfo(rid)
+    const method = params.method
     const knnNum = params.knn_num
     const nSpots = params.n_spots
     const nCells = params.n_cells
     const nRedundancy = params.n_redundancy
-    const divergenceCutoff = params.cutoff
-    const bandWidth = params.band_width
     const dataset = record.dataset_id
     const section = record.section_id
     const resultPath = record.result_path
     const species = record.species
-    const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor-cellInteraction.sh'
     const sc_h5ad_Path = resultPath + "/sc.h5ad"
-    let command =
-        "bash " + nicheAnchor +
-        " --sc_h5ad " + sc_h5ad_Path +
-        " --key_celltype " + "cell_type" +
-        " --dataset " + dataset +
-        " --section " + section +
-        " --knn_num " + knnNum +
-        " --n_spots " + nSpots +
-        " --n_cells " + nCells +
-        " --n_redundancy " + nRedundancy +
-        " --divergence_cutoff " + divergenceCutoff +
-        " --band_width " + bandWidth +
-        " --n_bootstrap " + nBootstrap +
-        " --species " + `"${species}"` +
-        " --n_threads " + nThreads +
-        " --outDir " + resultPath
+    let command
+    if (method === "Celltrek"){
+        command =
+            "bash scripts/Spatial_mapping/spatial_mapping.celltrek.sh" +
+            " --sc_h5ad " + sc_h5ad_Path +
+            " --key_celltype " + "cell_type" +
+            " --dataset " + dataset +
+            " --section " + section +
+            " --knn_num " + knnNum +
+            " --n_spots " + nSpots +
+            " --n_cells " + nCells +
+            " --n_redundancy " + nRedundancy +
+            " --species " + `"${species}"` +
+            " --n_threads " + nThreads +
+            " --outDir " + resultPath
+    }else if (method === "CytoSPACE"){
+        command =
+            "bash scripts/Spatial_mapping/spatial_mapping.cytospace.sh" +
+            " --sc_h5ad " + sc_h5ad_Path +
+            " --sc_counts " + resultPath + "/sc_counts.txt" +
+            " --sc_labels " + resultPath + "/sc_labels.txt" +
+            " --dataset " + dataset +
+            " --section " + section +
+            " --key_celltype cell_type" +
+            " --n_threads " + nThreads +
+            " --nosss 5000" +
+            " --species " + `"${species}"` +
+            " --outDir " + resultPath
+    }else if (method === "Tangram"){
+
+    }
     if (record.type === "multiomics"){
         const fragments_file_path = record.fragments_file_path
         const peak_file_path = record.peak_file_path
@@ -55,11 +68,11 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
                 " --genome " + genome
     }
     command = command +
-        " >"+ resultPath + "/log/nicheAnchor.log"+
+        " >"+ resultPath + "/log/spatial_mapping.log"+
         " 2>" + resultPath + "/log/Error.log"
 
     // 执行注释脚本
-    if (!fs.existsSync(nicheAnchor)) {
+    if (!fs.existsSync(spatialMapping)) {
         //如果python脚本不存在
         await setJobStatus(rid, "error")
         await setJobTime(rid, "ann_finish_time")
@@ -80,7 +93,7 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
             let annoProcess = child_process.exec(command)
             // 监听annoProcess任务的exit事件，如果发生则调用listener
             annoProcess.on('exit', function (code) {
-                annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: child process 'NicheAnchor' has exited，exit code: ${code}`)
+                annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: child process 'Spatial Mapping' has exited，exit code: ${code}`)
                 if (code === 0) {
                     setJobStatus(rid, "finished")
                     execReCompress(rid, resultPath)

@@ -1,4 +1,4 @@
-import {poolReadOnly} from "../queue/createMysqlPool.js";
+import {poolReadOnly} from "../createMysqlPool.js";
 
 
 export async function getSpatiallyVariableGenes(geneOrSection,param) {

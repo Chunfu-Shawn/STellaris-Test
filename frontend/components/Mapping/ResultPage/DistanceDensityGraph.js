@@ -82,6 +82,6 @@ export default function DistanceDensityGraph(){
     });
 
     return(
-        <div ref={chartRef} style={{height:350,width:300,marginBottom:10}}></div>
+        <div ref={chartRef} style={{height:350,width:"100%",marginBottom:10}}></div>
     )
 }

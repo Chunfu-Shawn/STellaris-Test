@@ -1,8 +1,7 @@
 // 导入router路由middleware
+import fs from "fs";
 import router from 'koa-router'
 import {getJobInfo} from "./api/getJobInfo.js"
-import {getHumanMap} from "./api/getHumanMap.js"
-import {getMouseMap} from "./api/getMouseMap.js"
 import {getDatasetsInfo} from "./api/getDatasetsInfo.js"
 import {getGeneList} from "./api/getGeneList.js"
 import {getGeneData} from "./api/getGeneData.js";
@@ -13,15 +12,12 @@ import {getGenesExpressionCorrelation} from "./api/getGenesExpressionCorrelation
 import {getServerTime} from "./api/getServerTime.js";
 import {getMappingResult} from "./api/getMappingResult.js";
 import {getMIAResult} from "./api/getMIAResult.js";
-import {getZipFile} from "./api/getZipFile.js";
 import {getLogLine} from "./api/getLogLine.js";
 import {getDatasetJsonl} from "./api/getDatasetJsonl.js";
 import {getDatasetImage} from "./api/getDatasetImage.js";
-import fs from "fs";
 import {getExpressionRankScore} from "./api/getExpressionRankScore.js";
 import {getWaitingJobNumber} from "./queue/getWaitingJobNumber.js";
 import {getWaitingOrder} from "./queue/getWaitingOrder.js";
-import {getJobParams} from "./record/getJobParams.js";
 
 
 export const RouterAPI = router()
@@ -39,14 +35,22 @@ RouterAPI.get('/api/server-time', async (ctx) => {
 
 // 设置路由和api进行Human map图片访问
 RouterAPI.get('/api/human-map', async (ctx) => {
-    // 传出rid为查询值的json数据
-    ctx.body = getHumanMap()
+    try{
+        ctx.body = fs.readFileSync('frontend/public/images/human-color.svg', 'utf8')
+    } catch (e){
+        ctx.res.statusCode = 404
+        console.log(e);
+    }
 })
 
 // 设置路由和api进行Mouse map图片访问
 RouterAPI.get('/api/mouse-map', async (ctx) => {
-    // 传出rid为查询值的json数据
-    ctx.body = getMouseMap()
+    try{
+        ctx.body = fs.readFileSync('frontend/public/images/mouse-color.svg', 'utf8')
+    } catch (e){
+        ctx.res.statusCode = 404
+        console.log(e);
+    }
 })
 
 // 设置路由和api进行数据集表文件访问
@@ -112,9 +116,9 @@ RouterAPI.get('/api/mia-result/:rid', async (ctx) => {
 })
 
 // cell-trek, colocalization and interaction log fetch
-RouterAPI.get('/api/niche-anchor-log/:rid', async (ctx) => {
+RouterAPI.get('/api/spatial-mapping-log/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    ctx.body = await getLogLine(record.result_path, '/log/nicheAnchor.log')
+    ctx.body = await getLogLine(record.result_path, '/log/spatial_mapping.log')
 })
 
 // Mapping Result fetch
@@ -132,36 +136,67 @@ RouterAPI.get('/api/error-log/:rid', async (ctx) => {
 // submitted counts files fetch
 RouterAPI.get('/api/submitted-files/counts/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    ctx.set('Content-disposition', 'attachment; filename=' + record.matrix_file_path.split("/")[3])
-    ctx.body = fs.readFileSync(record.matrix_file_path)
+    ctx.set('Content-disposition', 'attachment; filename=' + record.matrix_file_path.split("/")[4])
+    try{
+        ctx.body = fs.readFileSync(record.matrix_file_path)
+    } catch (e){
+        ctx.res.statusCode = 404
+    }
 })
 
 // submitted labels files fetch
 RouterAPI.get('/api/submitted-files/labels/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    ctx.set('Content-disposition', 'attachment; filename=' + record.labels_file_path.split("/")[3])
-    ctx.body = fs.readFileSync(record.labels_file_path)
+    ctx.set('Content-disposition', 'attachment; filename=' + record.labels_file_path.split("/")[4])
+    try {
+        ctx.body = fs.readFileSync(record.labels_file_path)
+    } catch (e){
+        ctx.res.statusCode = 404
+    }
 })
 
 // submitted fragments file fetch
 RouterAPI.get('/api/submitted-files/fragments/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    ctx.set('Content-disposition', 'attachment; filename=' + record.fragments_file_path.split("/")[3])
-    ctx.body = fs.readFileSync(record.fragments_file_path)
+    ctx.set('Content-disposition', 'attachment; filename=' + record.fragments_file_path.split("/")[4])
+    try {
+        ctx.body = fs.readFileSync(record.fragments_file_path)
+    } catch (e){
+        ctx.res.statusCode = 404
+    }
 })
 
 // submitted peak file fetch
 RouterAPI.get('/api/submitted-files/peak/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    ctx.set('Content-disposition', 'attachment; filename=' + record.peak_file_path.split("/")[3])
-    ctx.body = fs.readFileSync(record.peak_file_path)
+    ctx.set('Content-disposition', 'attachment; filename=' + record.peak_file_path.split("/")[4])
+    try {
+        ctx.body = fs.readFileSync(record.peak_file_path)
+    } catch (e){
+        ctx.res.statusCode = 404
+    }
 })
 
 // download annotated sc h5ad
 RouterAPI.get('/api/mapping-result/h5ad/sc/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.set('Content-disposition', 'attachment; filename=' + "sc_registered.h5ad")
-    ctx.body = fs.readFileSync(record.result_path+"/sc_registered.h5ad")
+    try {
+        ctx.body = fs.readFileSync(record.result_path+"/sc_registered.h5ad")
+    } catch (e){
+        ctx.res.statusCode = 404
+    }
+})
+
+// download annotated sc multi h5ad
+RouterAPI.get('/api/mapping-result/h5ad/sc-multi/:rid', async (ctx) => {
+    const record = await getJobInfo(ctx.params.rid)
+    ctx.set('Content-disposition', 'attachment; filename=' + "sc_multiomics.h5ad")
+    try {
+        ctx.body = fs.readFileSync(record.result_path+"/sc_multiomics.h5ad")
+    } catch (e){
+        ctx.res.statusCode = 404
+    }
 })
 
 // table files
@@ -169,7 +204,11 @@ RouterAPI.get('/api/mapping-result/table/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.set('Content-disposition', 'attachment; filename=' + "results.tar.gz")
     ctx.set('content-type', 'application/x-gzip');
-    ctx.body = fs.readFileSync(record.result_path+"/results.tar.gz")
+    try {
+        ctx.body = fs.readFileSync(record.result_path+"/results.tar.gz")
+    } catch (e){
+        ctx.res.statusCode = 404
+    }
 })
 
 // pdf files
@@ -177,7 +216,11 @@ RouterAPI.get('/api/mapping-result/pdf/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.set('Content-disposition', 'attachment; filename=' + "figures.tar.gz")
     ctx.set('content-type', 'application/x-gzip');
-    ctx.body = fs.readFileSync(record.result_path+"/figures.tar.gz")
+    try {
+        ctx.body = fs.readFileSync(record.result_path+"/figures.tar.gz")
+    } catch (e){
+        ctx.res.statusCode = 404
+    }
 })
 
 // all files
@@ -185,7 +228,11 @@ RouterAPI.get('/api/mapping-result/all/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.set('Content-disposition', 'attachment; filename=' + "all_results.tar.gz")
     ctx.set('content-type', 'application/x-gzip');
-    ctx.body = fs.readFileSync(record.result_path+"/all_results.tar.gz")
+    try {
+        ctx.body = fs.readFileSync(record.result_path+"/all_results.tar.gz")
+    } catch (e){
+        ctx.res.statusCode = 404
+    }
 })
 
 // fetch jsonl or jsonl.idx.json files

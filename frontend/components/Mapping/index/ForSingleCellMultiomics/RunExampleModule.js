@@ -3,7 +3,7 @@ import {throttle} from "../../../util";
 import {useRouter} from "next/router";
 
 export default function RunExampleModule(props){
-    const { setUploading } = props
+    const { setUploading,token } = props
     const DEMO_URL = `/mapping/demo/`
     const router = useRouter()
     const onRunExample = (title) => function (){
@@ -18,6 +18,7 @@ export default function RunExampleModule(props){
                 title:title,
                 isDemo:'true',
                 type: "multiomics",
+                token:token,
             })
         }).then(response => response.json())
             .then(json => rid = json.rid)
@@ -33,7 +34,7 @@ export default function RunExampleModule(props){
             })
             .catch(() => {
                 message.error({
-                        content:'Run example unsuccessfully.',
+                        content:'Run example unsuccessfully. Refresh the page and try again.',
                         style:{
                             marginTop: '12vh',
                         },
@@ -51,9 +52,9 @@ export default function RunExampleModule(props){
             key: '1',
             label: (
                 <Button type={"link"}>
-                    <a href={"/mapping/resultPage/5a1a39a0-923a-11ed-bff4-0302d4a3355f"}>
+                    <a href={"/mapping/resultPage/75afdf70-c300-11ed-8a89-3fb9e5c5307c"}>
                         <span>
-                            H3K4me3 modifications in mouse brain <b><i>(FINISHED)</i></b>
+                            H3K4me3 modification in mouse brain <b><i>(FINISHED)</i></b>
                         </span>
                     </a>
                 </Button>
@@ -62,9 +63,9 @@ export default function RunExampleModule(props){
         {
             key: '2',
             label: (
-                <Button type={"link"} onClick={throttle(1000,onRunExample("H3K4me3 modifications in mouse adult cortex and hippocampus"))}>
+                <Button type={"link"} onClick={throttle(1000,onRunExample("H3K4me3 modification in mouse adult cortex and hippocampus"))}>
                     <span>
-                        H3K4me3 modifications in mouse brain <b><i>(FROM SCRATCH)</i></b>
+                        H3K4me3 modification in mouse brain <b><i>(FROM SCRATCH)</i></b>
                     </span>
                 </Button>
             ),

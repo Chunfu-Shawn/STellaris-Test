@@ -33,15 +33,6 @@ export default function ScoreBarGraph(props){
                         }
                     }
                 },
-                tooltip: {
-                    position: 'top',
-                    formatter: function (params) {
-                        return (
-                            '<b>'+params.name +'</b></br>'+
-                            '<b>MIA Enrichment Score: </b>' + props.MIA.enrichment_score[params.dataIndex]
-                        );
-                    }
-                },
                 xAxis: {
                     type: 'category',
                     data: props.MIA.section_id.map(item => item.split("|")[1]),
@@ -53,6 +44,10 @@ export default function ScoreBarGraph(props){
                 },
                 yAxis: {
                     show:true,
+                    max: function(value) {
+                        // 将10的线展现出来，y轴最大值的最小为10
+                        return value.max>10?Math.ceil(value.max):10;
+                    },
                     splitLine: {
                         show: true
                     },
@@ -66,15 +61,49 @@ export default function ScoreBarGraph(props){
                         filterMode: 'none'
                     }
                 ],
+                tooltip: {},
                 series: [
                     {
-                        data: props.MIA.enrichment_score,
+                        data: props.MIA.enrichment_score.map(item =>
+                        {
+                            return(
+                                {
+                                    value: item,
+                                    // 根据odds ratio来设置bar的颜色
+                                    itemStyle: {
+                                        color: d3.interpolateBuPu(0.3)//item>12?d3.interpolateBuPu(0.6):d3.interpolateBuPu(0.3)
+                                    },
+                                    borderColor: d3.interpolateBuPu(0.5)
+                                })
+                        }),
                         type: 'bar',
                         barCategoryGap:"30%",
-                        itemStyle:{
-                            color: d3.interpolateBuPu(0.3),
-                            borderColor: d3.interpolateBuPu(0.5)
+                        tooltip: {
+                            position: 'top',
+                            trigger:"item",
+                            formatter: function (params) {
+                                return (
+                                    '<b>'+params.name +'</b></br>'+
+                                    '<b>MIA Enrichment Score: </b>' + props.MIA.enrichment_score[params.dataIndex]
+                                );
+                            }
                         },
+                        // y值参考线
+                        markLine: {
+                            symbol:'none',//去掉箭头
+                            lineStyle: {
+                                color: d3.interpolateBuPu(0.8),
+                                cap: 'round',
+                            },
+                            tooltip:{
+                                formatter: function () {
+                                    return (
+                                        '<b>MIA Recommendation Score: </b>' + 10
+                                    );
+                                }
+                            },
+                            data: [{ name: 'Recommendation', yAxis: 10 }]
+                        }
                     }
                 ],
             };

@@ -14,7 +14,8 @@ import SelectSpeciesGenomeOrganTissue from "./ForSingleCellMultiomics/SelectSpec
 
 export default function MappingForSingleCellMultiomics(props) {
     const {
-        validateMessages
+        validateMessages,
+        token
     } = props
     const UPLOAD_URL = `/mapping/multiomics`
     const [matrixFileList, setMatrixFileList] = useState([]);
@@ -84,6 +85,7 @@ export default function MappingForSingleCellMultiomics(props) {
         formData.append('tissue', tissue)
         formData.append('type', "multiomics")
         formData.append('isDemo', "false")
+        formData.append('token', token)
         setUploading(true);
         // You can use any AJAX library you like
         axios({
@@ -125,7 +127,7 @@ export default function MappingForSingleCellMultiomics(props) {
                     file.status = 'done'
                 });
                 message.success({
-                    content: 'upload successfully!',
+                    content: 'Upload successfully!',
                     style: {
                         marginTop: '12vh',
                     },
@@ -147,7 +149,7 @@ export default function MappingForSingleCellMultiomics(props) {
                     file.status = 'error'
                 });
                 message.error({
-                        content: 'upload unsuccessfully.',
+                        content: 'Upload unsuccessfully. Refresh the page and try again.',
                         style: {
                             marginTop: '12vh',
                         },
@@ -271,6 +273,7 @@ export default function MappingForSingleCellMultiomics(props) {
                 </Button>
                 <RunExampleModule
                     setUploading={setUploading}
+                    token={token}
                 />
             </Form.Item>
         </Form>

@@ -3,15 +3,15 @@ import React from "react";
 const data = [
     {
         "Attribute": "Symbol",
-        "Description": "official short-form abbreviation for a particular gene"
+        "Description": "Official short-form abbreviation for a particular gene"
     },
     {
         "Attribute": "Ensembl ID",
-        "Description": "identifier for a gene as per the Ensembl (European Bioinformatics Institute and the Wellcome Trust Sanger Institute) database"
+        "Description": "Identifier for a gene as per the Ensembl (European Bioinformatics Institute and the Wellcome Trust Sanger Institute) database"
     },
     {
         "Attribute": "Entrez ID",
-        "Description": "identifier for a gene per the NCBI Entrez database"
+        "Description": "Identifier for a gene per the NCBI Entrez database"
     },
     {
         "Attribute": "Description",

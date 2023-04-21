@@ -3,55 +3,55 @@ import React from "react";
 const data = [
     {
         "Attribute": "ID",
-        "Description": "assigned unique ID for each dataset in this website"
+        "Description": "Assigned unique ID for each dataset in this web"
     },
     {
         "Attribute": "Method",
-        "Description": "the spatial transcriptome sequencing method for each dataset"
+        "Description": "The spatial transcriptomic technology for each dataset"
     },
     {
         "Attribute": "Date Published",
-        "Description": "date when the data was published"
+        "Description": "Date when the data was published"
     },
     {
         "Attribute": "Species",
-        "Description": "species where the dataset was captured"
+        "Description": "Species where the data was derived"
     },
     {
         "Attribute": "Strain",
-        "Description": 'strain of a species'
+        "Description": 'Strain of the sample'
     },
     {
         "Attribute": "Organ",
-        "Description": "organ where the sample was captured"
+        "Description": "Organ where the sample was captured"
     },
     {
         "Attribute": "Tissue",
-        "Description": "tissue where the sample was captured"
+        "Description": "Tissue where the sample was captured"
     },
     {
         "Attribute": "Pathological",
-        "Description": "true / false meaning whether the sample was pathological"
+        "Description": "True / false meaning whether the sample was pathological"
     },
     {
         "Attribute": "Developmental Stage",
-        "Description": "developmental stage when the donor was"
+        "Description": "Developmental stage of the donor"
     },
     {
         "Attribute": "Number of Section",
-        "Description": "the number of technologically sections in each dataset"
+        "Description": "Number of technologically sections in each dataset"
     },
     {
         "Attribute": "Section ID",
-        "Description": "name of sections in this dataset"
+        "Description": "Names of sections in this dataset"
     },
     {
         "Attribute": "Title",
-        "Description": "title of the article where the dataset was published"
+        "Description": "Title of the article where the dataset was published"
     },
     {
         "Attribute": "Journal",
-        "Description": "journal name of the article where the dataset was published"
+        "Description": "Journal name of the article where the dataset was published"
     },
     {
         "Attribute": "PMID",

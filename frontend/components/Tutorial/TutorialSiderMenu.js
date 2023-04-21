@@ -11,13 +11,21 @@ const items = [
         children:
             [
                 {
-                    label: <Link href={'/tutorial/mapping/getStarted'}><a>Get started</a></Link>, key: 'Get started',
+                    label: <Link href={'/tutorial/mapping/getStarted'}><a>Get started</a></Link>, key: 'Get started'
                 },
                 {
-                    label: <Link href={'/tutorial/mapping/result'}><a>Result interpretation</a></Link>, key: 'Result interpretation',
-                },
-                {
-                    label: <Link href={'/tutorial/mapping/exApp'}><a>Expanded application</a></Link>, key: 'MutiOmics',
+                    label: 'Result interpretation', key: 'Result interpretation', type:'group',
+                    children:[
+                        {
+                            label: <Link href={'/tutorial/mapping/mouseBrain'}><a>Mouse fetal brain</a></Link>, key: 'MouseFetalBrain',
+                        },
+                        {
+                            label: <Link href={'/tutorial/mapping/humanSCC'}><a>Human SCC</a></Link>, key: 'HumanSCC',
+                        },
+                        {
+                            label: <Link href={'/tutorial/mapping/multiomics'}><a>H3K4me3 modification</a></Link>, key: 'Multiomics',
+                        }
+                    ]
                 }
             ],
     },

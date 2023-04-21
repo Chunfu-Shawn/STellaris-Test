@@ -15,60 +15,123 @@ export default function Overview(){
             <Typography style={{marginTop:50,fontSize:16}}>
                 <h2>Overview</h2>
                 <p>
-                    The original intent of STellaris was to provide a platform for rapid spatial mapping for the
-                    ever-going single-cell transcriptome (scRNA-seq) data based on the emerging spatial transcriptome (ST)
-                    methodology, thus helping researchers make full use of the increasing volume of single-cell genomic data
-                    at spatial context. We provides tutorials on the three major tools implemented in STellaris, including
-                    <b> Spatial Mapping</b>, <b>Dataset Browser</b> and <b>Gene Search</b>.
+                    STellaris is a platform designed for rapid spatial mapping for single-cell RNA sequencing (scRNA-seq)
+                    data based on emerging spatial transcriptomics (ST) data. Our goal is to help users make full use of
+                    the increasing volume of single-cell omics data in the spatial context. We provide walk-through tutorials
+                    on the three major tools implemented in STellaris, including<b> spatial mapping</b>, <b>dataset browser</b>
+                    and <b>gene search</b> tools.
                 </p>
                 <p>
-                    Spatial Mapping is the key function of STellaris. We will guide users to get started using STellaris to
-                    map their own annotated scRNA-seq data to spatial position in tissue sections curated in our local database.
-                    We also include a tutorial on how to systematically interpret the spatial mapping results and downstream
-                    intercellular communication results. To demonstrate the usefulness of STellaris in real-world data, we
-                    provide tutorials on the application of deciphering tumor microenvironment of human pancreatic ductal
-                    adenocarcinomas (PCDA) and spatial-resolved single-cell multiomics from mouse brain for further study.
-                    In addition, we also offer tutorials on how to browser and search our curated ST datasets and retrieve
-                    expression signatures of candidate genes across tissues from the spatial perspective.
+                    We offer guidance to users on how to get started to map their annotated scRNA-seq data to spatial
+                    positions in tissue sections curated in our local database (see
+                    <Link href={"/tutorial/mapping/getStarted"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b> Get started</b>
+                        </a>
+                    </Link>
+                    ). We also provide a tutorial on how to systematically interpret the spatial mapping results and
+                    downstream intercellular communication results. (see
+                    <Link href={"/tutorial/mapping/mouseBrain"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b> Result interpretation</b>
+                        </a>
+                    </Link>
+                    ). To demonstrate the usefulness of STellaris in real-world data, we provide tutorials on the case
+                    studies: (i) dissecting the spatial organization of the developing mouse cerebral cortex (see
+                    <Link href={"/tutorial/mapping/mouseBrain"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b> Mouse fetal brain</b>
+                        </a>
+                    </Link>
+                    ), (ii) mapping intercellular crosstalk at tumor leading edges of human squamous cell carcinoma (see
+                    <Link href={"/tutorial/mapping/humanSCC"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b> Human squamous cell carcinoma</b>
+                        </a>
+                    </Link>
+                    ), and (iii) deciphering the spatial patterning of H3K4me3 modification in the mouse brain (see
+                    <Link href={"/tutorial/mapping/multiomics"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b> H3K4me3 modification in mouse brain</b>
+                        </a>
+                    </Link>
+                    ). In addition, we offer tutorials on how to view our curated ST datasets (
+                    <Link href={"/tutorial/datasets"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b>Dataset browser</b>
+                        </a>
+                    </Link>
+                    ) and retrieve tissue-wide expression signatures of genes (
+                    <Link href={"/tutorial/gene"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b>Gene search</b>
+                        </a>
+                    </Link>
+                    ) from a spatial perspective.
                 </p>
-                <p style={{marginBottom:0}}>Note that we include two example jobs of Spatial Mapping that have already
-                    been completed:</p>
+                <p style={{marginBottom:0}}>
+                    Please note that we provide three case studies that have already been completed:
+                </p>
                 <Button type={"link"}>
-                    <a href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
+                    <a href={"/mapping/resultPage/52fa0100-909b-11ed-9249-979b422f6c75"}>
                         <span>
                             Mouse fetal brain <b><i>(FINISHED)</i></b>
                         </span>
                     </a>
                 </Button>
                 <Button type={"link"}>
-                    <a href={"/mapping/resultPage/be5c2ed0-73c4-11ed-b6c1-d3f15153eaa4"}>
+                    <a href={"/mapping/resultPage/b3ae1730-90b3-11ed-9695-b54d6690f34b"}>
                         <span>
-                            Tumor microenvironment in PDAC <b><i>(FINISHED)</i></b>
+                            Human squamous cell carcinoma <b><i>(FINISHED)</i></b>
                         </span>
                     </a>
                 </Button>
-                <p style={{marginBottom:0}}>and two corresponding examples to be executed leading to these results:</p>
                 <Button type={"link"}>
-                    <a href={"/"}>
+                    <a href={"/mapping/resultPage/75afdf70-c300-11ed-8a89-3fb9e5c5307c"}>
+                        <span>
+                            H3K4me3 modification in mouse brain <b><i>(FINISHED)</i></b>
+                        </span>
+                    </a>
+                </Button>
+                <p style={{marginBottom:0}}>
+                    Additionally, we offer three corresponding job request that can be executed to repeat these results:
+                </p>
+                <Button type={"link"}>
+                    <a href={"/mapping"}>
                         <span>
                             Mouse fetal brain <b><i>(FROM SCRATCH)</i></b>
                         </span>
                     </a>
                 </Button>
                 <Button type={"link"}>
-                    <a href={"/"}>
+                    <a href={"/mapping"}>
                         <span>
-                            Tumor microenvironment in PDAC <b><i>(FROM SCRATCH)</i></b>
+                            Human squamous cell carcinoma <b><i>(FROM SCRATCH)</i></b>
                         </span>
                     </a>
                 </Button>
-                <p>You can get started using these demo cases from <b>Home page</b> or <b>Mapping page</b> in the navigation bar.</p>
-                <Space>
-                    <Image src={"/images/tutorial/example1.png"} width={500} height={300}
+                <Button type={"link"}>
+                    <a href={"/mapping"}>
+                        <span>
+                            H3K4me3 modification in mouse brain <b><i>(FROM SCRATCH)</i></b>
+                        </span>
+                    </a>
+                </Button>
+                <p>
+                    To explore these demo cases, simply visit the <b>Home page</b> or <b>Mapping page</b> in the navigation bar.
+                </p>
+                <div style={{textAlign:"center"}} >
+                    <Space>
+                        <Image src={"/images/tutorial/example1.png"} width={500} height={300}
                            alt={"example1"} style={{borderStyle:"dashed"}}/>
-                    <Image src={"/images/tutorial/example2.png"} width={500} height={300}
+                        <Image src={"/images/tutorial/example2.png"} width={500} height={300}
                            alt={"example2"} style={{borderStyle:"dashed"}}/>
-                </Space>
+                    </Space>
+                </div>
+                <div style={{textAlign:"center",marginTop:10}} >
+                    <Image src={"/images/tutorial/example3.png"} width={500} height={300}
+                           alt={"example3"}/>
+                </div>
                 <br/><br/>
             </Typography>
         </div>

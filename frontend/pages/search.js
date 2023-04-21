@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../components/LayoutCustom.js'
-import {Input, message, Select, Space} from 'antd';
-import Image from "next/image";
+import {Input, Select} from 'antd';
 import {useRouter} from "next/router";
 import {useState} from "react";
 import Link from "next/link.js";

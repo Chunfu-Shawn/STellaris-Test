@@ -1,6 +1,5 @@
 import {Table, Tooltip} from "antd";
-import React, {useState} from "react";
-import Link from "next/link.js";
+import React from "react";
 
 
 export default function DataTable(props) {

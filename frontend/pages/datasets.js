@@ -18,13 +18,12 @@ export default function Datasets() {
                             <h1 style={{color:"white",fontSize:"40px"}}>Spatial Transcriptomics Dataset Browser </h1><br/>
                         </div>
                         <p className={"lead text-justify"}>
-                            STellaris aims to provide a comprehensive compilation of spatial transcriptomic (ST) data
-                            spanning a wide variety of biological systems, which serves as the foundation to assist in
-                            mapping spatial location for single-cell transcriptome data. We included 100 datasets comprising
-                            774 sections across organs, developmental stages and pathological states in human and mouse.
-                            All curated ST datasets were processed by a centralized workflow. We provide this interface
-                            for researchers to navigate through this catalog. Choose the ST data of your concern and
-                            explore the spatially resolved expression profile of genes of interest.
+                            STellaris provides a manually curated compilation of spatial transcriptomics (ST) data spanning
+                            a wide variety of biological systems. We included 100 ST datasets comprising 774 sections across
+                            organs, developmental stages and pathological states from humans and mice. All curated ST datasets
+                            were processed by a centralized workflow. We provide this interface to help users navigate through
+                            this catalog. Select a ST dataset and explore the spatially resolved expression profiles of
+                            genes of interest.
                         </p>
                     </div>
                     <Row justify={"space-evenly"} style={{margin:"80px 0px"}}>

@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <LayoutCustom>
             <Head>
-                <title>{siteTitle+"- Spatial mapping for scRNA-seq"}</title>
+                <title>{siteTitle+": Accurate spatial mapping of scRNA-seq data"}</title>
             </Head>
             <div id="home" className={"mainbody"}>
                 <MainPage></MainPage>

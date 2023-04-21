@@ -5,7 +5,7 @@ const optionsReadOnly = {
     user: 'readonly',//用户
     password: 'access',//密码
     port: 3306,//端口号
-    database: 'spatial_trans_web'//要操作的数据库
+    database: 'stellaris'//要操作的数据库
 }
 
 const optionsReadWrite = {
@@ -13,7 +13,7 @@ const optionsReadWrite = {
     user: 'readwrite',//用户
     password: 'mysql_update',//密码
     port: 3306,//端口号
-    database: 'spatial_trans_web'//要操作的数据库
+    database: 'stellaris'//要操作的数据库
 }
 
 export const poolReadOnly = mysql.createPool(optionsReadOnly)
