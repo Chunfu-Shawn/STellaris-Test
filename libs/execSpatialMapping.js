@@ -25,7 +25,7 @@ export async function execSpatialMapping(rid, nThreads=30) {
     let command
     if (method === "Celltrek"){
         command =
-            "bash scripts/Spatial_mapping/spatial_mapping.celltrek.sh" +
+            "bash scripts/Spatial_mapping/CellTrek/spatial_mapping.sh" +
             " --sc_h5ad " + sc_h5ad_Path +
             " --key_celltype " + "cell_type" +
             " --dataset " + dataset +
@@ -39,7 +39,7 @@ export async function execSpatialMapping(rid, nThreads=30) {
             " --outDir " + resultPath
     }else if (method === "CytoSPACE"){
         command =
-            "bash scripts/Spatial_mapping/spatial_mapping.cytospace.sh" +
+            "bash scripts/Spatial_mapping/CytoSPACE/spatial_mapping.sh" +
             " --sc_h5ad " + sc_h5ad_Path +
             " --sc_counts " + resultPath + "/sc_counts.txt" +
             " --sc_labels " + resultPath + "/sc_labels.txt" +
