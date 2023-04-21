@@ -248,79 +248,82 @@ export default function SectionTable() {
                         <a target={"_blank"}><QuestionCircleOutlined/></a>
                     </Link>
                 </Divider>
-                <Row gutter={[0,10]}>
-                    <Col span={5}>
-                        <span>KNN Number :</span>
-                    </Col>
-                    <Col span={7}>
-                        <InputNumber
-                            style={{
-                                width: 100,
-                            }}
-                            size={"small"}
-                            onChange={onKnnNumChange}
-                            defaultValue="50"
-                            precision={0}
-                            min="0"
-                            max="500"
-                            step="1"
-                        />
-                    </Col>
-                    <Col span={5}>
-                        <span>Number of spots :</span>
-                    </Col>
-                    <Col span={7}>
-                        <InputNumber
-                            style={{
-                                width: 100,
-                            }}
-                            size={"small"}
-                            onChange={onNumSpotsChange}
-                            defaultValue="10"
-                            precision={0}
-                            min="1"
-                            max="100"
-                            step="1"
-                            stringMode
-                        />
-                    </Col>
-                    <Col span={5}>
-                        <span>Number of cells :</span>
-                    </Col>
-                    <Col span={7}>
-                        <InputNumber
-                            style={{
-                                width: 100,
-                            }}
-                            size={"small"}
-                            onChange={onNumCellsChange}
-                            defaultValue="10"
-                            precision={0}
-                            min="0"
-                            max="100"
-                            step="1"
-                            stringMode
-                        />
-                    </Col>
-                    <Col span={5}>
-                        <span>Redundancy : </span>
-                    </Col>
-                    <Col span={7}>
-                        <InputNumber
-                            style={{
-                                width: 100,
-                            }}
-                            size={"small"}
-                            onChange={onNumRedundancyChange}
-                            defaultValue="1"
-                            precision={0}
-                            min="1"
-                            max={Math.min(numCells,numSpots)}
-                            step="1"
-                            stringMode
-                        />
-                    </Col>
-                </Row>
+                {method==="CellTrek"?
+                    <Row gutter={[0, 10]}>
+                        <Col span={5}>
+                            <span>KNN Number :</span>
+                        </Col>
+                        <Col span={7}>
+                            <InputNumber
+                                style={{
+                                    width: 100,
+                                }}
+                                size={"small"}
+                                onChange={onKnnNumChange}
+                                defaultValue="50"
+                                precision={0}
+                                min="0"
+                                max="500"
+                                step="1"
+                            />
+                        </Col>
+                        <Col span={5}>
+                            <span>Number of spots :</span>
+                        </Col>
+                        <Col span={7}>
+                            <InputNumber
+                                style={{
+                                    width: 100,
+                                }}
+                                size={"small"}
+                                onChange={onNumSpotsChange}
+                                defaultValue="10"
+                                precision={0}
+                                min="1"
+                                max="100"
+                                step="1"
+                                stringMode
+                            />
+                        </Col>
+                        <Col span={5}>
+                            <span>Number of cells :</span>
+                        </Col>
+                        <Col span={7}>
+                            <InputNumber
+                                style={{
+                                    width: 100,
+                                }}
+                                size={"small"}
+                                onChange={onNumCellsChange}
+                                defaultValue="10"
+                                precision={0}
+                                min="0"
+                                max="100"
+                                step="1"
+                                stringMode
+                            />
+                        </Col>
+                        <Col span={5}>
+                            <span>Redundancy : </span>
+                        </Col>
+                        <Col span={7}>
+                            <InputNumber
+                                style={{
+                                    width: 100,
+                                }}
+                                size={"small"}
+                                onChange={onNumRedundancyChange}
+                                defaultValue="1"
+                                precision={0}
+                                min="1"
+                                max={Math.min(numCells, numSpots)}
+                                step="1"
+                                stringMode
+                            />
+                        </Col>
+                    </Row>:
+                    <></>
+                }
             </Modal>
             <span style={{float:"left",fontSize:"16px",color:"gray",margin:"10px 0"}}>
                 {size} Sections
