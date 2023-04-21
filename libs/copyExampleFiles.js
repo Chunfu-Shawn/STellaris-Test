@@ -11,9 +11,9 @@ export default function copyExampleFiles(rid, matrixFilePath, resultPath){
         let exampleFilesPath = matrixFilePath.substring(0, secondLastIndex + 1)
         // resultPath end without "/"
         // copy example files
-        fs.symlinkSync(procees.cwd()+'/'+exampleFilesPath+"sc.h5ad",resultPath+"/sc.h5ad")
-        fs.symlinkSync(procees.cwd()+'/'+exampleFilesPath+"sc_counts.txt",resultPath+"/sc_counts.txt")
-        fs.symlinkSync(procees.cwd()+'/'+exampleFilesPath+"sc_labels.txt",resultPath+"/sc_labels.txt")
+        fs.symlinkSync(procees.cwd()+'/'+exampleFilesPath+"sc.h5ad",procees.cwd()+'/'+resultPath+"/sc.h5ad")
+        fs.symlinkSync(procees.cwd()+'/'+exampleFilesPath+"sc_counts.txt",procees.cwd()+'/'+resultPath+"/sc_counts.txt")
+        fs.symlinkSync(procees.cwd()+'/'+exampleFilesPath+"sc_labels.txt",procees.cwd()+'/'+resultPath+"/sc_labels.txt")
         fs.copyFileSync(exampleFilesPath+"sc_markers.json",resultPath+"/out/json/sc_markers.json")
         fs.copyFileSync(exampleFilesPath+"meta_info.preprocessing.json",resultPath+"/out/json/meta_info.preprocessing.json")
         fs.copyFileSync(exampleFilesPath+"filter_summary.preprocessing.json",resultPath+"/out/json/filter_summary.preprocessing.json")
