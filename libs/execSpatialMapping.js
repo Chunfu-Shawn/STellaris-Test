@@ -72,13 +72,7 @@ export async function execSpatialMapping(rid, nThreads=30) {
         " 2>" + resultPath + "/log/Error.log"
 
     // 执行注释脚本
-    if (!fs.existsSync(spatialMapping)) {
-        //如果python脚本不存在
-        await setJobStatus(rid, "error")
-        await setJobTime(rid, "ann_finish_time")
-        await updateJob2Finished(rid)
-        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: There is no scripts of spatial mapping.`)
-    } else if(!fs.existsSync(sc_h5ad_Path)) {
+    if(!fs.existsSync(sc_h5ad_Path)) {
         //如果空间数据不存在
         await setJobStatus(rid, "error")
         await setJobTime(rid, "ann_finish_time")
