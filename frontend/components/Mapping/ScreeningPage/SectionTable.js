@@ -238,8 +238,13 @@ export default function SectionTable() {
                 <Row>
                     <Radio.Group onChange={onChangeMethod} value={method}>
                         <Radio value={"CellTrek"} >CellTrek</Radio>
-                        <Radio value={"CytoSPACE"}>CytoSPACE <sup>beta</sup></Radio>
-                        <Radio value={"Tangram"} disabled={true}>Tangram <sup>beta</sup></Radio>
+                        {   annContext.reqInfo.type==="scRNA-seq"?
+                            <>
+                                <Radio value={"CytoSPACE"}>CytoSPACE <sup>beta</sup></Radio>
+                                <Radio value={"Tangram"} disabled={true}>Tangram <sup>beta</sup></Radio>
+                            </>:
+                            <></>
+                        }
                     </Radio.Group>
                 </Row>
                 <Divider orientation="left" orientationMargin="0">

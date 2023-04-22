@@ -23,7 +23,7 @@ export async function execSpatialMapping(rid, nThreads=30) {
     const species = record.species
     const sc_h5ad_Path = resultPath + "/sc.h5ad"
     let command
-    if (method === "Celltrek"){
+    if (method === "CellTrek"){
         command =
             "bash scripts/Spatial_mapping/CellTrek/spatial_mapping.sh" +
             " --sc_h5ad " + sc_h5ad_Path +
