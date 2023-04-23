@@ -160,8 +160,7 @@ export function uploadRecord(ctx) {
             resolve([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath])
         } catch (err) {
             reject(err)
-        }}
-        else {
+        }} else {
             reject("A robot request!")
         }
     })

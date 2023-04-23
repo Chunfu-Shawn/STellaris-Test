@@ -41,6 +41,7 @@ export async function execSpatialMapping(rid, nThreads=30) {
         command =
             "bash scripts/Spatial_mapping/CytoSPACE/spatial_mapping.sh" +
             " --sc_h5ad " + sc_h5ad_Path +
+            " --key_celltype cell_type" +
             " --sc_counts " + resultPath + "/sc_counts.txt" +
             " --sc_labels " + resultPath + "/sc_labels.txt" +
             " --dataset " + dataset +
@@ -51,7 +52,15 @@ export async function execSpatialMapping(rid, nThreads=30) {
             " --species " + `"${species}"` +
             " --outDir " + resultPath
     }else if (method === "Tangram"){
-
+        command =
+            "bash scripts/Spatial_mapping/Tangram/spatial_mapping.sh" +
+            " --sc_h5ad " + sc_h5ad_Path +
+            " --key_celltype cell_type" +
+            " --dataset " + dataset +
+            " --section " + section +
+            " --n_threads " + nThreads +
+            " --species " + `"${species}"` +
+            " --outDir " + resultPath
     }
     if (record.type === "multiomics"){
         const fragments_file_path = record.fragments_file_path

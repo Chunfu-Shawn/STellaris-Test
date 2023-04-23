@@ -128,7 +128,7 @@ export const datasetNum = {
 export const sectionNum = {
     "Human":{
         //"Spinal Cord": 2,
-        "Bone": 18,
+        "Bone": 17,
         "Breast": 4,
         "Heart": 19,
         //"Testis": 1,
@@ -152,7 +152,7 @@ export const sectionNum = {
         "Hindlimb": 3,
         "Aorta": 1,
         "Kidney": 94,
-        "Liver": 31,
+        "Liver": 29,
         "Colon": 15,
         //"Uterus": 2,
         //"Urinary Bladder": 1,
