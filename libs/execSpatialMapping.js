@@ -58,7 +58,7 @@ export async function execSpatialMapping(rid, nThreads=30) {
             " --key_celltype cell_type" +
             " --dataset " + dataset +
             " --section " + section +
-            " --num_epochs 100" +
+            " --num_epochs 1000" +
             " --n_threads " + nThreads +
             " --species " + `"${species}"` +
             " --outDir " + resultPath
